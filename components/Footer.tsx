@@ -8,15 +8,18 @@ import {
   Phone,
   XIcon,
 } from 'lucide-react';
-import { Logo, TwitterIcon } from './icons';
+import { TwitterIcon } from './icons';
+import Logo from './Logo';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-200 py-12 px-6">
+    <footer className="bg-gradient-to-t from-[#0B0F1A] to-[#1C1C1C]  text-gray-200 py-12 px-6 h-full">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-8 text-center md:text-left ">
         {/* Contact Info */}
         <div className="flex flex-col ">
-          <Logo />
+          <Link href="/">
+            <Logo size="lg" variant="stacked" />
+          </Link>
           <h4 className="font-bold text-inherit">{siteConfig.name}</h4>
 
           <p>{siteConfig.addressLine || '684 Powerline Rd, Brant, ON'}</p>

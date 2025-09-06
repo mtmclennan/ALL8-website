@@ -1,3 +1,53 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-@config "../tailwind.config.js"
+@plugin '../hero.ts';
+
+@config '../tailwind.config.js';
+
+/* Glowing Horizontal Lines Animation */
+
+@keyframes parallax-lines {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
+
+@keyframes scan-v {
+  0% {
+    transform: translateY(-20%);
+  }
+  100% {
+    transform: translateY(160%);
+  }
+}
+
+@keyframes grid-pan {
+  from {
+    transform: translateX(-30%);
+  }
+  to {
+    transform: translateX(30%);
+  }
+}
+
+/* Glowing Horizontal Lines Animation */
+@keyframes glowing-lines {
+  0% {
+    background-position: 0 0;
+    opacity: 0.1;
+    box-shadow: 0 0 5px rgba(0, 118, 255, 0.3);
+  }
+  50% {
+    background-position: 100% 0;
+    opacity: 1;
+    box-shadow: 0 0 30px rgba(0, 118, 255, 0.8);
+  }
+  100% {
+    background-position: 0 0;
+    opacity: 0.1;
+    box-shadow: 0 0 5px rgba(0, 118, 255, 0.3);
+  }
+}

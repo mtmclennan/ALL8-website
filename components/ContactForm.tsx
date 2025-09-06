@@ -1,13 +1,6 @@
 'use client';
 
-import {
-  Fragment,
-  forwardRef,
-  useRef,
-  useImperativeHandle,
-  useState,
-  useEffect,
-} from 'react';
+import { Fragment, useState, useEffect } from 'react';
 
 import {
   Modal,
@@ -20,7 +13,7 @@ import {
 
 import Script from 'next/script';
 import Image from 'next/image';
-import logo from '../public/assets/BellhouseLogo-text.png';
+import logo from '../public/assets/all8-webworks-web-design-and-development-logo.png';
 import { sendContactForm } from '../actions/contact';
 import { emailValidate, stringValidate } from '../lib/input-utils';
 import useInput from '../hooks/use-input';
@@ -28,10 +21,6 @@ import { Spinner } from '@heroui/spinner';
 import { Input, Textarea } from '@heroui/input';
 
 import { Button } from '@heroui/button';
-
-interface ContactFormRef {
-  scrollToForm: () => void;
-}
 
 const workTypeOptions = [
   'Other',
@@ -54,8 +43,7 @@ const workTypeOptions = [
   'Parking Lot',
 ];
 
-const ContactForm = forwardRef<ContactFormRef>((_, ref) => {
-  const sectionRef = useRef<HTMLDivElement>(null);
+const ContactForm = () => {
   //   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
   const [selectedWorkType, setSelectedWorkType] = useState('');
@@ -65,21 +53,15 @@ const ContactForm = forwardRef<ContactFormRef>((_, ref) => {
   const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '';
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
-  useImperativeHandle(ref, () => ({
-    scrollToForm: () => {
-      sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
-    },
-  }));
-
-  useEffect(() => {
-    const checkRecaptcha = setInterval(() => {
-      if (typeof window !== 'undefined' && window.grecaptcha?.execute) {
-        setIsRecaptchaReady(true);
-        clearInterval(checkRecaptcha);
-      }
-    }, 500);
-    return () => clearInterval(checkRecaptcha);
-  }, []);
+  // useEffect(() => {
+  //   const checkRecaptcha = setInterval(() => {
+  //     if (typeof window !== 'undefined' && window.grecaptcha?.execute) {
+  //       setIsRecaptchaReady(true);
+  //       clearInterval(checkRecaptcha);
+  //     }
+  //   }, 500);
+  //   return () => clearInterval(checkRecaptcha);
+  // }, []);
 
   const nameInput = useInput(stringValidate);
   const emailInput = useInput(emailValidate);
@@ -184,7 +166,7 @@ const ContactForm = forwardRef<ContactFormRef>((_, ref) => {
           )}
         </ModalContent>
       </Modal>
-      <section ref={sectionRef} className="bg-gray-100 py-16 px-6">
+      <section className="bg-gray-100 py-16 px-6">
         <form
           onSubmit={handleSubmit}
           className="max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-8 space-y-6"
@@ -325,7 +307,7 @@ const ContactForm = forwardRef<ContactFormRef>((_, ref) => {
       </section>
     </Fragment>
   );
-});
+};
 
 ContactForm.displayName = 'ContactForm';
 

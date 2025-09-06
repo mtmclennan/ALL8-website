@@ -1,0 +1,40 @@
+[
+  {
+    "path": "/",
+    "title": "ALL8 Webworks — Performance-First Websites",
+    "description": "We build blazing-fast, conversion-focused sites for service businesses. Higher rankings. More calls. More customers.",
+    "ogImage": "/og/og-default.jpg"
+  },
+  {
+    "path": "/about",
+    "title": "About ALL8 Webworks",
+    "description": "We design and engineer websites that turn traffic into calls and booked jobs. Learn our approach and values.",
+    "ogImage": "/og/about.jpg"
+  },
+  {
+    "path": "/contact",
+    "title": "Contact ALL8 Webworks",
+    "description": "Request a quote or book a call. Let’s improve your site speed, rankings, and leads.",
+    "ogImage": "/og/contact.jpg"
+  },
+  {
+    "path": "/pricing",
+    "title": "Pricing & Plans",
+    "description": "Clear pricing for websites, ongoing maintenance, and SEO. Built for ROI.",
+    "ogImage": "/og/pricing.jpg"
+  },
+  {
+    "path": "/privacy",
+    "title": "Privacy Policy",
+    "description": "How we handle your data, cookies, and tracking.",
+    "ogImage": "/og/policy.jpg",
+    "noindex": true
+  },
+  {
+    "path": "/terms",
+    "title": "Terms of Service",
+    "description": "The rules of using our website and services.",
+    "ogImage": "/og/terms.jpg",
+    "noindex": true
+  }
+]

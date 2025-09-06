@@ -1,3 +1,13 @@
 {
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  // .vscode/settings.json
+
+  "editor.quickSuggestions": { "strings": true },
+  "tailwindCSS.emmetCompletions": true,
+  "tailwindCSS.experimental.classRegex": [
+    // enables detection inside cn()/clsx() etc if you use them
+    ["(?:cn|clsx)\\(([^)]*)\\)", "[\"'`]([^\"'`]*?)[\"'`]"]
+  ],
+  // If you're in a monorepo, you can point directly:
+  "tailwindCSS.experimental.configFile": "styles/globals.css"
 }

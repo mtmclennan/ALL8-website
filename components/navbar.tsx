@@ -14,6 +14,7 @@ import { Input } from '@heroui/input';
 import { link as linkStyles } from '@heroui/theme';
 import NextLink from 'next/link';
 import clsx from 'clsx';
+import { brand } from '../data/brand';
 
 import { siteConfig } from '@/config/site';
 import { ThemeSwitch } from '@/components/theme-switch';
@@ -23,10 +24,11 @@ import {
   DiscordIcon,
   HeartFilledIcon,
   SearchIcon,
-  Logo,
 } from '@/components/icons';
 
 import { Phone } from 'lucide-react';
+import Image from 'next/image';
+import Logo from './Logo';
 
 export const Navbar = () => {
   const searchInput = (
@@ -51,12 +53,20 @@ export const Navbar = () => {
   );
 
   return (
-    <HeroUINavbar maxWidth="xl" position="sticky">
+    <HeroUINavbar
+      maxWidth="xl"
+      position="sticky"
+      className="fixed top-0 left-0 z-50 bg-black/0"
+    >
       <NavbarContent>
-        <NavbarBrand as="li" className="gap-3 max-w-fit">
-          <NextLink className="flex justify-start items-center gap-1" href="/">
+        <NavbarBrand as="li" className="gap-3 h-full max-w-fit">
+          <NextLink
+            className="flex h-full justify-start items-center gap-1"
+            href="/"
+          >
+            {/* <Image src={brand.logo} alt={brand.logoAlt} />
+            <p className="font-bold text-inherit">ACME</p> */}
             <Logo />
-            <p className="font-bold text-inherit">ACME</p>
           </NextLink>
         </NavbarBrand>
       </NavbarContent>
@@ -67,7 +77,7 @@ export const Navbar = () => {
               <NextLink
                 className={clsx(
                   linkStyles({ color: 'foreground' }),
-                  'data-[active=true]:text-primary data-[active=true]:font-medium'
+                  'data-[active=true]:text-primary data-[active=true]:font-medium hover:text-primary'
                 )}
                 color="foreground"
                 href={item.href}

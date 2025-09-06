@@ -1,0 +1,16 @@
+[
+  {
+    "slug": "contractor-websites",
+    "title": "Contractor Websites",
+    "description": "Fast, SEO-ready sites that turn calls into booked jobs.",
+    "image": "/og/services-contractor.jpg",
+    "priority": 0.8
+  },
+  {
+    "slug": "local-seo",
+    "title": "Local SEO",
+    "description": "Rank in your city and show up when customers are searching.",
+    "image": "/og/services-local-seo.jpg",
+    "priority": 0.75
+  }
+]

@@ -1,8 +1,8 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: 'ACME',
-  description: 'Make beautiful websites regardless of your design experience.',
+  name: 'All8 Webworks',
+  description: 'High-Performance Websites that run on all 8 cylinders',
   navItems: [
     {
       label: 'Home',
@@ -14,6 +14,10 @@ export const siteConfig = {
     },
 
     {
+      label: 'Services',
+      href: '/services',
+    },
+    {
       label: 'About',
       href: '/about',
     },
@@ -22,6 +26,10 @@ export const siteConfig = {
     {
       label: 'Contact ',
       href: '/contact',
+    },
+    {
+      label: 'Services',
+      href: '/services',
     },
     {
       label: 'About',
