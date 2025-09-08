@@ -277,7 +277,7 @@ import Image from 'next/image';
 import { Button } from '@heroui/button';
 import { Chip } from '@heroui/chip';
 import { Gauge, Rocket, MapPin } from 'lucide-react';
-import heroImage from '../public/assets/website-seo-performance-laptop-analytics-leads-calls.png';
+import heroImage from '../../../public/assets/website-seo-performance-laptop-analytics-leads-calls.png';
 
 export default function HeroBlueprint() {
   return (

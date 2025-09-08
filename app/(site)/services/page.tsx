@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import { SERVICES } from '../../data/services';
-import { ServiceCard } from '@/components/ServiceCard';
+import { SERVICES } from '@/data/services';
+import { ServiceCard } from './components/ServiceCard';
 
 import { validateMetadata } from '@/lib/utils/seoValidation';
 import { buildStaticMetadata } from '@/lib/utils/page-meta';

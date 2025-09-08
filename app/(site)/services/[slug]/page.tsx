@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getServiceBySlug, SERVICES } from '../../../data/services';
+import { getServiceBySlug, SERVICES } from '@/data/services';
 import { Button } from '@heroui/button';
 import { Chip } from '@heroui/chip';
 import { getIconByName } from '@/lib/icons';

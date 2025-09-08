@@ -5,12 +5,36 @@ import { site, siteUrl } from '@/config/site.config';
 
 const IS_DEV = process.env.NODE_ENV !== 'production';
 
+/** Normalize path to start with a single leading slash. */
+function normPath(p: string) {
+  if (!p) return '/';
+  return p.startsWith('/') ? p : `/${p}`;
+}
+
+/** Build absolute URL safely. */
+function toAbs(base: string | undefined, pathOrUrl: string) {
+  // If already absolute, return as-is
+  try {
+    const test = new URL(pathOrUrl);
+    return test.toString();
+  } catch {
+    // fall through
+  }
+  const b = base || 'https://all8webworks.ca'; // fallback so build doesn’t explode
+  return new URL(normPath(pathOrUrl), b).toString();
+}
+
+/** Zod-guarded JSON load */
 function parseOrThrow<T>(schema: any, json: unknown, name: string): T {
   const res = schema.safeParse(json);
   if (!res.success) {
-    if (IS_DEV) throw new Error(`${name} invalid:\n${res.error}`);
+    if (IS_DEV) {
+      // Throw loudly in dev so you see the real issue
+      throw new Error(`${name} invalid:\n${res.error}`);
+    }
     console.error(`${name} invalid`, res.error);
-    return schema.parse(schema._def.typeName === 'ZodArray' ? [] : {}) as T;
+    // Minimal safe fallback: empty array/object depending on schema
+    return (Array.isArray(json) ? [] : {}) as T;
   }
   return res.data as T;
 }
@@ -24,24 +48,43 @@ export function loadPages(): PageMeta[] {
 }
 
 export function getPageMeta(path: string): PageMeta | null {
-  return loadPages().find((p) => p.path === path) ?? null;
+  const p = normPath(path);
+  return loadPages().find((x) => x.path === p) ?? null;
 }
 
 /** Build a Next.js Metadata object for a given static path */
 export function buildStaticMetadata(path: string): Metadata {
-  const pm = getPageMeta(path);
-  if (!pm) return { title: 'Page', description: site.description };
+  const p = normPath(path);
+  const pm = getPageMeta(p);
 
-  const base = siteUrl();
-  const canonical = new URL(path, base).toString();
-  const image = pm.ogImage || site.defaultOgImage;
+  // In dev, fail loudly if the page isn’t found so you notice the mismatch
+  if (!pm) {
+    if (IS_DEV) {
+      throw new Error(
+        `No entry for "${p}" in pages.json. Add it or fix the path.`
+      );
+    }
+    return { title: 'Page', description: site.description };
+  }
 
-  const robots = pm.noindex
+  const base = siteUrl(); // may be undefined at build if env missing
+  const canonical = toAbs(base, p);
+
+  // Ensure absolute OG image
+  const imageRel = pm.ogImage || site.defaultOgImage;
+  const image = toAbs(base, imageRel);
+
+  const robots: Metadata['robots'] | undefined = pm.noindex
     ? {
         index: false,
         follow: false,
         nocache: true,
-        googleBot: { index: false, follow: false },
+        googleBot: {
+          index: false,
+          follow: false,
+          noimageindex: true,
+          noarchive: true,
+        },
       }
     : undefined;
 
@@ -54,7 +97,7 @@ export function buildStaticMetadata(path: string): Metadata {
       title: pm.title,
       description: pm.description,
       siteName: site.name,
-      locale: site.locale,
+      locale: site.locale, // e.g. "en-CA"
       type: 'website',
       images: [{ url: image, width: 1200, height: 630, alt: pm.title }],
     },
@@ -63,7 +106,7 @@ export function buildStaticMetadata(path: string): Metadata {
       title: pm.title,
       description: pm.description,
       images: [image],
-      site: site.social.twitter,
+      site: site.social.twitter, // e.g. "@all8webworks"
       creator: site.social.twitter,
     },
     robots,

@@ -14,17 +14,15 @@ import { Input } from '@heroui/input';
 import { link as linkStyles } from '@heroui/theme';
 import NextLink from 'next/link';
 import clsx from 'clsx';
-import { brand } from '../data/brand';
-
 import { siteConfig } from '@/config/site';
-import { ThemeSwitch } from '@/components/theme-switch';
+import { ThemeSwitch } from './theme-switch';
 import {
   TwitterIcon,
   GithubIcon,
   DiscordIcon,
   HeartFilledIcon,
   SearchIcon,
-} from '@/components/icons';
+} from './icons';
 
 import { Phone } from 'lucide-react';
 import Image from 'next/image';

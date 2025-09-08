@@ -1,0 +1,27 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://all8webworks.ca/#organization",
+  "name": "ALL8 Webworks",
+  "url": "https://all8webworks.ca",
+  "logo": "https://all8webworks.ca/og.png",
+  "description": "Canada-based web design & development studio building performance-first, SEO/analytics-ready sites for service businesses and contractors. Engineered for more calls, leads, and booked jobs.",
+  "serviceType": "Web design and development",
+  "areaServed": ["CA", "US"],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Brantford",
+    "addressRegion": "ON",
+    "addressCountry": "CA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 43.1394,
+    "longitude": -80.2644
+  },
+  "sameAs": [
+    "https://www.linkedin.com/company/all8-webworks",
+    "https://x.com/all8webworks"
+  ],
+  "priceRange": "$$–$$$"
+}

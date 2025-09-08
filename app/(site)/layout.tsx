@@ -85,12 +85,13 @@ import type { Metadata, Viewport } from 'next';
 import { site, siteUrl } from '@/config/site.config';
 import clsx from 'clsx';
 import Script from 'next/script';
-import schema from '../data/schema.json';
+import orgSchema from '../../data/schema/organization.schema.json';
+import siteSchema from '../../data/schema/website.schema.json';
 import { Providers } from './providers';
 import { fontSans } from '@/config/fonts';
-import { Navbar } from '@/components/navbar';
-import Footer from '@/components/Footer';
-import ConsentBanner from '@/components/ConsentBanner';
+import { Navbar } from '@/app/(site)/components/navbar';
+import Footer from './components/Footer';
+import ConsentBanner from './components/ConsentBanner';
 import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
 
 export const metadata: Metadata = {
@@ -139,7 +140,12 @@ export default function RootLayout({
         <Script
           id="jsonld-local-business"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+        />
+        <Script
+          id="jsonld-website"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }}
         />
 
         {/* Consent Mode + dataLayer bootstrap (runs before GTM) */}

@@ -1,0 +1,14 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://all8webworks.ca/#website",
+  "url": "https://all8webworks.ca",
+  "name": "ALL8 Webworks",
+  "inLanguage": "en-CA",
+  "publisher": { "@id": "https://all8webworks.ca/#organization" },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://all8webworks.ca/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}

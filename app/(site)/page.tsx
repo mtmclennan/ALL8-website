@@ -1,15 +1,15 @@
 // import Hero from '../components/Hero';
-import Services from '../components/Services';
-import CallToAction from '@/components/CallToAction';
+import Services from './components/Services';
+import CallToAction from './components/CallToAction';
 import {
   ReviewSection,
   TestimonialSection,
-} from '@/components/DynamicReviewsTestimonials';
-import { reviews, testimonials } from '../data/ReviewsTestimonials';
-import WhyWorkWithUs from '@/components/WhyWorkWithUs';
-import SocialProofSection from '@/components/SocialProof';
-import ProcessSection from '@/components/OurProcess';
-import HeroBlueprint from '@/components/HeroBluePrint';
+} from './components/DynamicReviewsTestimonials';
+import { reviews, testimonials } from '../../data/ReviewsTestimonials';
+import WhyWorkWithUs from './components/WhyWorkWithUs';
+import SocialProofSection from './components/SocialProof';
+import ProcessSection from './components/OurProcess';
+import HeroBlueprint from './components/HeroBluePrint';
 
 export default function Home() {
   return (

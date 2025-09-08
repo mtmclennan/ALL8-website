@@ -3,25 +3,69 @@
     "path": "/",
     "title": "ALL8 Webworks — Performance-First Websites",
     "description": "We build blazing-fast, conversion-focused sites for service businesses. Higher rankings. More calls. More customers.",
-    "ogImage": "/og/og-default.jpg"
+    "ogImage": "/og/og-default.jpg",
+    "structuredData": [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://all8webworks.ca/#webpage",
+        "url": "https://all8webworks.ca/",
+        "name": "ALL8 Webworks — Performance-First Websites",
+        "isPartOf": { "@id": "https://all8webworks.ca/#website" },
+        "about": { "@id": "https://all8webworks.ca/#organization" }
+      }
+    ]
   },
   {
     "path": "/about",
     "title": "About ALL8 Webworks",
     "description": "We design and engineer websites that turn traffic into calls and booked jobs. Learn our approach and values.",
-    "ogImage": "/og/about.jpg"
+    "ogImage": "/og/about.jpg",
+    "structuredData": [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://all8webworks.ca/about#webpage",
+        "url": "https://all8webworks.ca/about",
+        "name": "About ALL8 Webworks",
+        "isPartOf": { "@id": "https://all8webworks.ca/#website" },
+        "about": { "@id": "https://all8webworks.ca/#organization" }
+      }
+    ]
   },
   {
     "path": "/contact",
-    "title": "Contact ALL8 Webworks",
+    "title": "Contact | ALL8 Webworks — Performance-First Websites",
     "description": "Request a quote or book a call. Let’s improve your site speed, rankings, and leads.",
-    "ogImage": "/og/contact.jpg"
+    "ogImage": "/og/contact.jpg",
+    "structuredData": [
+      {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "@id": "https://all8webworks.ca/contact#webpage",
+        "url": "https://all8webworks.ca/contact",
+        "name": "Contact ALL8 Webworks",
+        "isPartOf": { "@id": "https://all8webworks.ca/#website" },
+        "about": { "@id": "https://all8webworks.ca/#organization" }
+      }
+    ]
   },
   {
     "path": "/pricing",
     "title": "Pricing & Plans",
     "description": "Clear pricing for websites, ongoing maintenance, and SEO. Built for ROI.",
-    "ogImage": "/og/pricing.jpg"
+    "ogImage": "/og/pricing.jpg",
+    "structuredData": [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://all8webworks.ca/pricing#webpage",
+        "url": "https://all8webworks.ca/pricing",
+        "name": "Pricing & Plans",
+        "isPartOf": { "@id": "https://all8webworks.ca/#website" },
+        "about": { "@id": "https://all8webworks.ca/#organization" }
+      }
+    ]
   },
   {
     "path": "/privacy",
@@ -36,5 +80,64 @@
     "description": "The rules of using our website and services.",
     "ogImage": "/og/terms.jpg",
     "noindex": true
+  },
+  {
+    "path": "/services",
+    "title": "Services — Web Design, Local SEO & Lead Funnels",
+    "description": "High-performance websites, lead funnels, local SEO, analytics setup, and maintenance for service businesses across Canada and the U.S.",
+    "ogImage": "/og/services.jpg",
+    "structuredData": [
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "@id": "https://all8webworks.ca/services#webpage",
+        "url": "https://all8webworks.ca/services",
+        "name": "Services — Web Design, Local SEO & Lead Funnels",
+        "isPartOf": { "@id": "https://all8webworks.ca/#website" },
+        "about": { "@id": "https://all8webworks.ca/#organization" },
+        "hasPart": [
+          {
+            "@type": "Service",
+            "@id": "https://all8webworks.ca/services#service-high-performance-sites",
+            "name": "High-Performance Websites",
+            "serviceType": "Web design and development",
+            "provider": { "@id": "https://all8webworks.ca/#organization" },
+            "areaServed": ["CA", "US"]
+          },
+          {
+            "@type": "Service",
+            "@id": "https://all8webworks.ca/services#service-lead-funnels",
+            "name": "Lead Funnels & Forms",
+            "serviceType": "Lead generation and form optimization",
+            "provider": { "@id": "https://all8webworks.ca/#organization" },
+            "areaServed": ["CA", "US"]
+          },
+          {
+            "@type": "Service",
+            "@id": "https://all8webworks.ca/services#service-local-seo",
+            "name": "Local SEO Foundations",
+            "serviceType": "Local search optimization",
+            "provider": { "@id": "https://all8webworks.ca/#organization" },
+            "areaServed": ["CA", "US"]
+          },
+          {
+            "@type": "Service",
+            "@id": "https://all8webworks.ca/services#service-analytics",
+            "name": "Analytics & Tracking Setup",
+            "serviceType": "Analytics and conversion tracking",
+            "provider": { "@id": "https://all8webworks.ca/#organization" },
+            "areaServed": ["CA", "US"]
+          },
+          {
+            "@type": "Service",
+            "@id": "https://all8webworks.ca/services#service-maintenance",
+            "name": "Ongoing Maintenance & Support",
+            "serviceType": "Website maintenance",
+            "provider": { "@id": "https://all8webworks.ca/#organization" },
+            "areaServed": ["CA", "US"]
+          }
+        ]
+      }
+    ]
   }
 ]
