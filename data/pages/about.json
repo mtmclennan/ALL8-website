@@ -1,0 +1,91 @@
+{
+  "path": "/about",
+  "title": "About ALL8 Webworks",
+  "description": "ALL8 Webworks is a Canadian web design and SEO company built for service-based businesses who demand performance and measurable results.",
+  "ogImage": "/assets/images/og/about-all8-webworks.png",
+  "hero": {
+    "title": "Engineering Websites That Drive Calls, Quotes & Jobs",
+    "subtitle": "ALL8 Webworks is a Canadian web design and SEO agency built for the trades. We use modern tools like Next.js and Tailwind to deliver speed, visibility, and real business results.",
+    "body": "",
+    "ctaLabel": "Our Services",
+    "ctaHref": "/services"
+  },
+
+  "aboutStory": {
+    "heading": "Our Story",
+    "paragraphs": [
+      "ALL8 Webworks began with a straightforward belief: websites should perform like a finely tuned engine—fast, reliable, and built to go the distance. Too many businesses settle for sluggish, cookie-cutter sites that look nice on the surface but stall when it matters most: turning visitors into customers.",
+      "With a background in the trades and years spent working alongside service-based businesses, we understand the daily challenges contractors and local companies face. Marketing often feels like a black hole of time and money, with little return. That’s why ALL8 was built differently—from the ground up, like a job site that’s measured twice and cut once.",
+      "We don’t build flimsy WordPress sites weighed down by plugins, hidden fees, and constant patchwork fixes. Instead, we craft clean, modern websites with professional-grade tools—sites designed for speed, search visibility, and real results. No gimmicks. No shortcuts.",
+      "Today, ALL8 Webworks helps hardworking businesses rev up their online presence with websites that actually perform, so they can focus on the work they do best."
+    ]
+  },
+
+  "why": {
+    "titlePrefix": "Why",
+    "highlight": "ALL8",
+    "titleSuffix": "",
+    "subtitle": "We engineer websites that perform like a V8 engine — fast, efficient, and built for results.",
+    "benefits": [
+      {
+        "title": "Strategy First",
+        "description": "We take time to understand your business and craft solutions built to last.",
+        "icon": "Target"
+      },
+      {
+        "title": "Built for Trades & Services",
+        "description": "Not generic templates — websites engineered to generate calls and quotes.",
+        "icon": "Search"
+      },
+      {
+        "title": "Performance Obsessed",
+        "description": "Every build is optimized for speed, SEO, and conversion tracking.",
+        "icon": "Zap"
+      }
+    ],
+    "cta": {
+      "label": "Talk To Us",
+      "href": "/contact"
+    }
+  },
+  "process": {
+    "title": "How We Work With You",
+    "subtitle": "Our approach is built on clarity, collaboration, and long-term results.",
+    "steps": [
+      {
+        "title": "Listen & Understand",
+        "description": "We start by learning your story, your goals, and the challenges you face.",
+        "icon": "ClipboardList"
+      },
+      {
+        "title": "Plan Together",
+        "description": "We outline a clear strategy, making sure timelines and outcomes align.",
+        "icon": "Brush"
+      },
+      {
+        "title": "Build With Care",
+        "description": "We deliver with clean code, scalable design, and performance built in.",
+        "icon": "Rocket"
+      },
+      {
+        "title": "Support & Evolve",
+        "description": "We stay engaged after launch — hosting, SEO, updates, and growth support.",
+        "icon": "TrendingUp"
+      }
+    ]
+  },
+  "services": {
+    "title": "How We Support Our Clients",
+    "subtitle": "Services designed to match strategy with execution, long after launch.",
+    "show": ["websites-that-convert", "local-seo-lead-systems"]
+  },
+  "cta": {
+    "titlePrefix": "Ready to",
+    "highlight": "Partner",
+    "titleSuffix": "With a Team That Delivers?",
+    "subtitle": "We care about long-term results, not quick wins. Let's build something that lasts.",
+    "ctaLabel": "Talk To Us",
+    "ctaHref": "/contact",
+    "microText": "Local expertise • Built for trades • Backed by performance data"
+  }
+}

@@ -15,13 +15,13 @@ export function CtaBand() {
           <div className="mt-6 flex flex-wrap gap-3">
             <a
               href="/contact#book"
-              className="inline-flex items-center justify-center rounded-xl bg-[#0076FF] px-5 py-3 text-sm font-semibold text-white shadow-md transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0076FF]"
+              className="inline-flex items-center justify-center rounded-xl bg-[#0076FF] px-5 py-3 text-sm font-semibold text-white shadow-md transition hover:brightness-110 focus-visible:outline  focus-visible:outline-offset-2 focus-visible:outline-[#0076FF]"
             >
               Book a discovery call
             </a>
             <a
               href="/services"
-              className="inline-flex items-center justify-center rounded-xl border border-[#BFBFBF]/40 bg-transparent px-5 py-3 text-sm font-semibold text-white/90 transition hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              className="inline-flex items-center justify-center rounded-xl border border-[#BFBFBF]/40 bg-transparent px-5 py-3 text-sm font-semibold text-white/90 transition hover:bg-white/5 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-white"
             >
               Explore services
             </a>

@@ -5,7 +5,7 @@ const end = ['ca', 'com', 'de'] as const;
 
 const Env = z.object({
   NEXT_PUBLIC_SITE_URL: z.string().url(),
-  NEXT_PUBLIC_CANONICAL_DOMAIN: z.enum(end).default('.ca'),
+  NEXT_PUBLIC_CANONICAL_DOMAIN: z.enum(['ca', 'com', 'de']).default('ca'),
   NEXT_PUBLIC_TWITTER_HANDLE: z.string().optional(),
 
   RESEND_API_KEY: z.string().optional(),

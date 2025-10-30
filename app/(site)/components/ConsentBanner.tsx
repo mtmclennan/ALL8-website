@@ -88,7 +88,8 @@ export default function ConsentBanner() {
                   <p className="text-sm text-slate-600 dark:text-slate-300">
                     We use cookies to analyze traffic (Analytics) and measure ad
                     performance (Ads). You can change your choices any time. See
-                    our <Link href="/privacy">Privacy Policy</Link>.
+                    our <Link href="/legal/privacy-policy">Privacy Policy</Link>
+                    .
                   </p>
                 </div>
               </div>

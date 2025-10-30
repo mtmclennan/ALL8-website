@@ -2,71 +2,42 @@
 
 import React from 'react';
 import { LazyMotion, domAnimation, m, useReducedMotion } from 'framer-motion';
+import { Section, SectionHeader, Card } from './SectionWrapper';
 import { ClipboardList, Brush, Rocket, TrendingUp } from 'lucide-react';
 
-// ⬇️ Import the shared section primitives
-import { Section, SectionHeader, Card } from './SectionWrapper'; // adjust path as needed
+// icon mapping
+const ICONS = {
+  clipboard: ClipboardList,
+  brush: Brush,
+  rocket: Rocket,
+  trending: TrendingUp,
+};
 
-const BRAND_PRIMARY = '#0047bb'; // Royal Blue
-const BRAND_ACCENT = '#D33F49'; // Assure Red
+type Step = {
+  title: string;
+  description: string;
+  icon: string;
+};
 
-const steps = [
-  {
-    title: 'Discovery & Strategy',
-    description:
-      'We learn your goals, audience, and competition to build a plan that ties your site to revenue.',
-    Icon: ClipboardList,
-  },
-  {
-    title: 'Design & Build',
-    description:
-      'Custom, high‑performance design developed with modern tech — fast, accessible, and secure.',
-    Icon: Brush,
-  },
-  {
-    title: 'Launch & Optimize',
-    description:
-      "We launch with SEO, analytics, and tracking in place so you're Google‑ and ads‑ready from day one.",
-    Icon: Rocket,
-  },
-  {
-    title: 'Ongoing Growth',
-    description:
-      'Hosting, updates, SEO tuning, and ad management so your site keeps performing while you work.',
-    Icon: TrendingUp,
-  },
-] as const;
+type ProcessSectionProps = {
+  title: string;
+  subtitle?: string;
+  steps: Step[];
+};
 
-export default function ProcessSection() {
+export function ProcessSection({
+  title,
+  subtitle,
+  steps,
+}: ProcessSectionProps) {
   const prefersReduced = useReducedMotion();
 
   return (
-    <Section tone="base" pattern="blueprint">
-      <SectionHeader
-        title="Our Process: Simple, Clear, Proven"
-        subtitle="Here’s how we take your project from idea to launch — and growth."
-        center
-      />
+    <Section tone="highlight" pattern="dots">
+      <SectionHeader title={title} subtitle={subtitle} center />
 
       <LazyMotion features={domAnimation}>
-        {/* Timeline container (vertical on mobile, horizontal on lg+) */}
-        <div className="relative">
-          {/* connecting line */}
-          <m.div
-            aria-hidden
-            className="absolute left-[30px] top-0 h-full w-px bg-foreground/10 sm:left-1/2 sm:top-auto sm:bottom-0 sm:h-px sm:w-full"
-            initial={
-              prefersReduced ? { opacity: 0 } : { scaleY: 0, opacity: 0 }
-            }
-            whileInView={
-              prefersReduced ? { opacity: 1 } : { scaleY: 1, opacity: 1 }
-            }
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-            style={{ transformOrigin: 'top' }}
-          />
-
-          {/* Steps */}
+        <div className="relative pb-10">
           <m.ul
             initial="hidden"
             whileInView="show"
@@ -80,7 +51,7 @@ export default function ProcessSection() {
             className="grid grid-cols-1 gap-6 lg:grid-cols-4"
           >
             {steps.map((s, i) => {
-              const Icon = s.Icon;
+              const Icon = ICONS[s.icon as keyof typeof ICONS] || Rocket;
               return (
                 <m.li
                   key={s.title}
@@ -97,44 +68,28 @@ export default function ProcessSection() {
                   }
                   className="group relative"
                 >
-                  {/* connector dot */}
+                  {/* Number badge */}
                   <span
                     aria-hidden
-                    className="absolute left-[26px] top-6 z-10 h-2.5 w-2.5 rounded-full border border-foreground/20 bg-background sm:left-1/2 sm:top-auto sm:bottom-[-12px]"
-                    style={{ boxShadow: `0 0 0 6px rgba(0,0,0,0.03)` }}
-                  />
+                    className="absolute left-[26px] top-6 z-10 bg-background shadow-[0_0_0_6px_rgba(0,0,0,0.03)] sm:left-[calc(50%-16px)] sm:top-auto sm:bottom-[-30px] inline-flex h-10 w-10 items-center justify-center rounded-xl border border-foreground/10 bg-[radial-gradient(60%_60%_at_50%_40%,#0047bb22,transparent),linear-gradient(180deg,#0047bb15,transparent)] text-sm font-semibold"
+                  >
+                    {i + 1}
+                  </span>
 
-                  {/* card using shared primitive (bordered style) */}
-                  <Card variant="bordered" className="group-hover:shadow-lg">
-                    <div className="rounded-2xl bg-background/70 backdrop-blur-sm border border-foreground/10 p-6">
-                      <div className="mb-3 flex items-center gap-3">
-                        {/* numbered badge */}
-                        <span
-                          className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-foreground/10 bg-foreground/[0.03] text-sm font-semibold"
-                          style={{
-                            background:
-                              `radial-gradient(60% 60% at 50% 40%, ${BRAND_PRIMARY}22, transparent),` +
-                              `linear-gradient(180deg, ${BRAND_PRIMARY}15, transparent)`,
-                          }}
-                        >
-                          {i + 1}
-                        </span>
-                        <Icon className="h-5 w-5" />
-                        <h3 className="ml-1 text-base font-semibold leading-tight">
+                  <Card variant="elevated" className="group-hover:shadow-lg">
+                    <div className="rounded-2xl border min-h-60 border-foreground/10 bg-background/70 p-6 backdrop-blur-sm">
+                      <div className="mb-3 ml-14 sm:ml-1 flex items-center gap-3">
+                        <h3 className="mr-auto text-xl font-semibold leading-tight">
                           {s.title}
                         </h3>
+                        <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-foreground/10 bg-[radial-gradient(60%_60%_at_50%_40%,#0047bb22,transparent),linear-gradient(180deg,#0047bb15,transparent)] text-sm font-semibold">
+                          <Icon className="h-5 w-5 text-primary" />
+                        </span>
                       </div>
                       <p className="text-sm text-foreground/70">
                         {s.description}
                       </p>
-                      {/* Underline accent on hover */}
-                      <div
-                        className="mt-4 h-px w-0 bg-gradient-to-r from-[var(--from,_transparent)] to-[var(--to,_transparent)] transition-all duration-300 group-hover:w-full"
-                        style={{
-                          ['--from' as any]: `${BRAND_PRIMARY}`,
-                          ['--to' as any]: `${BRAND_ACCENT}`,
-                        }}
-                      />
+                      <div className="mt-4 h-px w-0 bg-gradient-to-r from-[var(--from,_#0047bb)] to-[var(--to,_#D33F49)] transition-all duration-300 group-hover:w-full" />
                     </div>
                   </Card>
                 </m.li>

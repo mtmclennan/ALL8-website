@@ -1,0 +1,59 @@
+{
+  "path": "/services",
+  "title": "High-Performance Web Design & SEO Services | ALL8 Webworks",
+  "description": "Discover expert web design, SEO, and digital marketing services tailored for contractors and service businesses. ALL8 Webworks drives real online results.",
+  "ogImage": "/assets/images/og/services-all8-webworks.png",
+
+  "hero": {
+    "title": "High-Performance Web Design & SEO Services for Contractors",
+    "subtitle": "From websites and SEO to ads and hosting — everything we build is engineered to grow your business, not just look pretty.",
+    "body": "We combine performance-first design with local SEO, ads, and hosting to give you an end-to-end system that generates measurable results.",
+    "ctaLabel": "Explore Services",
+    "ctaHref": "#services-list",
+    "image": "/assets/images/services/connected-digital-systems-grid-all8-webworks-services.png",
+    "alt": "Connected digital systems grid representing various services offered by ALL8 Webworks"
+  },
+  "seo": {
+    "title": "Results-Driven Web Design & SEO for Contractors | ALL8 Webworks",
+    "description": "ALL8 Webworks delivers results-driven web design & SEO services for contractors—plus ads, hosting & more—to help grow your business from the ground up."
+  },
+  "servicesSection": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive solutions to design, launch, and grow your business online."
+  },
+  "processSection": {
+    "title": "How We Work With You",
+    "subtitle": "A clear, step-by-step approach so you always know what’s next.",
+    "steps": [
+      {
+        "title": "Kickoff & Planning",
+        "description": "We review your goals, target audience, and competitors to create a clear action plan.",
+        "icon": "ClipboardList"
+      },
+      {
+        "title": "Design & Development",
+        "description": "Custom designs paired with modern frameworks like Next.js, HeroUI, and Tailwind.",
+        "icon": "Brush"
+      },
+      {
+        "title": "Launch & Optimize",
+        "description": "Every launch includes SEO, analytics, and performance tracking so you’re ad-ready.",
+        "icon": "Rocket"
+      },
+      {
+        "title": "Support & Growth",
+        "description": "Ongoing hosting, updates, SEO tuning, and ad management keep you competitive.",
+        "icon": "TrendingUp"
+      }
+    ]
+  },
+  "cta": {
+    "titlePrefix": "Ready to",
+    "highlight": "Boost",
+    "titleSuffix": "Your Online Presence?",
+    "subtitle": "Let’s turn your website into a growth engine. Book a free consultation and get a clear action plan.",
+    "ctaLabel": "Book My Free Consultation",
+    "ctaHref": "/contact",
+    "note": "No long-term contracts • Transparent pricing • Built in Canada"
+  }
+}

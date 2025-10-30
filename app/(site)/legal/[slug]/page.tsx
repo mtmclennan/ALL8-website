@@ -1,32 +1,124 @@
-import fs from 'node:fs/promises';
-import path from 'node:path';
-import matter from 'gray-matter';
+// import fs from 'fs';
+// import path from 'path';
+// import { notFound } from 'next/navigation';
+// import ReactMarkdown from 'react-markdown';
+// import type { Metadata } from 'next';
+// import remarkGfm from 'remark-gfm';
+// import { replacePlaceholders } from '@/lib/utils/replacePlaceholders';
+// import { legalVars } from '@/config/legal.config';
+
+// // Define the LegalPage type
+// interface LegalPage {
+//   slug: string;
+//   title: string;
+//   jurisdiction: string;
+//   version: string;
+//   body: string;
+//   lastUpdatedISO: string;
+// }
+
+// // Absolute path to your JSON data
+// const legalPath = path.join(process.cwd(), '/data/legal.json');
+
+// // Helper to load all pages
+// function getAllLegalPages(): LegalPage[] {
+//   const file = fs.readFileSync(legalPath, 'utf8');
+//   return JSON.parse(file) as LegalPage[];
+// }
+
+// // Helper to find a specific page by slug
+// function getLegalPage(slug: string): LegalPage | undefined {
+//   return getAllLegalPages().find((page) => page.slug === slug);
+// }
+
+// // --------- Static generation ---------
+
+// export async function generateStaticParams() {
+//   const pages = getAllLegalPages();
+//   return pages.map((page) => ({ slug: page.slug }));
+// }
+
+// export async function generateMetadata({
+//   params,
+// }: {
+//   params: { slug: string };
+// }): Promise<Metadata> {
+//   const page = getLegalPage(params.slug);
+//   if (!page) notFound();
+
+//   return {
+//     title: `${page.title} • ${legalVars.companyName}`,
+//     description: `${page.title} information for ${legalVars.companyName}.`,
+//     robots: { index: false, follow: true },
+//   };
+// }
+
+// // --------- Page component ---------
+
+// export default function LegalPage({ params }: { params: { slug: string } }) {
+//   const page = getLegalPage(params.slug);
+//   if (!page) notFound();
+
+//   // Replace placeholders using your helper
+//   const body = replacePlaceholders(page.body);
+
+//   return (
+//     <main className="prose prose-neutral mx-auto max-w-3xl py-12 px-4">
+//       <header className="mb-8">
+//         <h1 className="text-4xl font-bold">{page.title}</h1>
+//         <p className="text-sm text-gray-500">
+//           Version {page.version} — Jurisdiction: {page.jurisdiction}
+//         </p>
+//       </header>
+
+//       <article className="prose-headings:font-semibold prose-a:text-blue-600 prose-a:underline-offset-2">
+//         <ReactMarkdown remarkPlugins={[remarkGfm]}>{body}</ReactMarkdown>
+//       </article>
+
+//       <footer className="mt-12 border-t pt-4 text-sm text-gray-500">
+//         Last updated: {page.lastUpdatedISO}
+//       </footer>
+//     </main>
+//   );
+// }
+import fs from 'fs';
+import path from 'path';
+import { notFound } from 'next/navigation';
+import ReactMarkdown from 'react-markdown';
 import type { Metadata } from 'next';
-import { serialize } from 'next-mdx-remote/serialize';
-import { compileMDX } from 'next-mdx-remote/rsc';
+import remarkGfm from 'remark-gfm';
+import { replacePlaceholders } from '@/lib/utils/replacePlaceholders';
 import { legalVars } from '@/config/legal.config';
-import ClientMDX from '../../../components/ClientMDX';
 
-const LEGAL_DIR = path.join(process.cwd(), 'content', 'legal');
-
-function injectTokens(md: string) {
-  return md.replace(/\{\{(.*?)\}\}/g, (_, key) => {
-    const k = key.trim();
-    try {
-      // eslint-disable-next-line no-new-func
-      const val = new Function('vars', `with(vars){ return ${k}; }`)(legalVars);
-      return (val ?? '').toString();
-    } catch {
-      return (legalVars as any)[k] ?? '';
-    }
-  });
+// Define the LegalPage type
+interface LegalPage {
+  slug: string;
+  title: string;
+  jurisdiction: string;
+  version: string;
+  body: string;
+  lastUpdatedISO: string;
 }
 
+// Absolute path to your JSON data
+const legalPath = path.join(process.cwd(), 'data/legal.json');
+
+// Helper to load all pages
+function getAllLegalPages(): LegalPage[] {
+  const file = fs.readFileSync(legalPath, 'utf8');
+  return JSON.parse(file) as LegalPage[];
+}
+
+// Helper to find a specific page by slug
+function getLegalPage(slug: string): LegalPage | undefined {
+  return getAllLegalPages().find((page) => page.slug === slug);
+}
+
+// --------- Static generation ---------
+
 export async function generateStaticParams() {
-  const files = await fs.readdir(LEGAL_DIR);
-  return files
-    .filter((f) => f.endsWith('.mdx'))
-    .map((f) => ({ slug: f.replace(/\.mdx$/, '') }));
+  const pages = getAllLegalPages();
+  return pages.map((page) => ({ slug: page.slug }));
 }
 
 export async function generateMetadata({
@@ -35,18 +127,17 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const raw = await fs.readFile(path.join(LEGAL_DIR, `${slug}.mdx`), 'utf8');
-  const { data } = matter(raw);
-  const title = data.title
-    ? `${data.title} • ${legalVars.companyName}`
-    : `${slug} • ${legalVars.companyName}`;
+  const page = getLegalPage(slug);
+  if (!page) notFound();
+
   return {
-    title,
-    description: `${data.title ?? slug} for ${legalVars.companyName}`,
-    alternates: { canonical: `${legalVars.websiteUrl}/legal/${slug}` },
-    openGraph: { title, type: 'article' },
+    title: `${page.title} • ${legalVars.companyName}`,
+    description: `${page.title} information for ${legalVars.companyName}.`,
+    robots: { index: false, follow: true },
   };
 }
+
+// --------- Page component ---------
 
 export default async function LegalPage({
   params,
@@ -54,28 +145,27 @@ export default async function LegalPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const filePath = path.join(LEGAL_DIR, `${slug}.mdx`);
-  const file = await fs.readFile(filePath, 'utf8');
-  const { content, data } = matter(file);
-  const hydrated = injectTokens(content);
+  const page = getLegalPage(slug);
+  if (!page) notFound();
 
-  // ✅ Compile to a serialized object (no React element mismatch)
-  const { content: MDX } = await compileMDX({
-    source: hydrated,
-    options: { parseFrontmatter: false },
-    components: {}, // add shortcodes here if you make any
-  });
+  // Replace placeholders using your helper
+  const body = replacePlaceholders(page.body);
+
   return (
-    <main className="mx-auto max-w-3xl px-4 py-12">
-      <h1 className="text-4xl font-bold mb-6">
-        {String(data.title ?? 'Legal')}
-      </h1>
-      <article className="prose prose-slate max-w-none">{MDX}</article>
-      <footer className="mt-12 text-sm text-gray-500">
-        Version: {String(data.version ?? '–')} • Jurisdiction:{' '}
-        {String(data.jurisdiction ?? '–')}
-        <br />
-        Last updated: {String(legalVars.lastUpdatedISO)}
+    <main className="prose prose-neutral mx-auto max-w-3xl py-12 px-4">
+      <header className="mb-8">
+        <h1 className="text-4xl font-bold">{page.title}</h1>
+        <p className="text-sm text-gray-500">
+          Version {page.version} — Jurisdiction: {page.jurisdiction}
+        </p>
+      </header>
+
+      <article className="prose-headings:font-semibold prose-a:text-blue-600 prose-a:underline-offset-2">
+        <ReactMarkdown remarkPlugins={[remarkGfm]}>{body}</ReactMarkdown>
+      </article>
+
+      <footer className="mt-12 border-t pt-4 text-sm text-gray-500">
+        Last updated: {page.lastUpdatedISO}
       </footer>
     </main>
   );

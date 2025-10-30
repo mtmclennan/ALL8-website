@@ -35,7 +35,7 @@ const CONSENT_DEFAULTS: ConsentDefaults = {
 // ---- Global typings ----
 declare global {
   interface Window {
-    dataLayer: any[];
+    dataLayer?: Object[] | undefined;
     gtag: (...args: any[]) => void;
   }
 }

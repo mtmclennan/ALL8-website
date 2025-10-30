@@ -1,21 +1,22 @@
 import * as React from 'react';
+import { Card } from '@/app/(site)/components/SectionWrapper';
 
 function Stat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-2xl border border-[#BFBFBF]/30 bg-white/5 p-4 backdrop-blur">
+    <Card variant="glass" className="p-6 backdrop-blur">
       <p className="text-sm text-slate-300">{label}</p>
       <p className="mt-1 text-2xl font-semibold text-white">{value}</p>
-    </div>
+    </Card>
   );
 }
 
 export function StatGrid() {
   return (
-    <div className="grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
-      <Stat label="Typical Lighthouse" value="95–100" />
-      <Stat label="Avg. lead lift" value="+30–60%" />
-      <Stat label="Core Web Vitals" value="> 90% pass" />
-      <Stat label="Stack" value="Next.js + HeroUI + Tailwind" />
+    <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-4">
+      <Stat label="Built for Growth" value="Scalable by Design" />
+      <Stat label="SEO Ready" value="Optimized from Day One" />
+      <Stat label="Conversion Focused" value="Turn Clicks into Calls" />
+      <Stat label="Modern Stack" value="Next.js + HeroUI + Tailwind" />
     </div>
   );
 }

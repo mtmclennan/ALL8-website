@@ -1,158 +1,215 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 import { LazyMotion, domAnimation, m } from 'framer-motion';
 import {
   Zap,
   Search,
-  Smartphone,
   Target,
-  Rocket,
-  Layers,
   ShieldCheck,
+  type LucideIcon,
 } from 'lucide-react';
-import Link from 'next/link';
+import { ShineIcon } from './ShineIcon';
+import {
+  ButtonGradientWrapper,
+  Section,
+  SectionHeader,
+} from './SectionWrapper';
+import { Button } from '@heroui/button';
 
-// Shared primitives
-import { Section, SectionHeader, Card, IconBadge } from './SectionWrapper'; // adjust path
+const ICONS = {
+  zap: Zap,
+  search: Search,
+  target: Target,
+  shield: ShieldCheck,
+} satisfies Record<string, LucideIcon>;
 
-const BRAND_PRIMARY = '#0047bb'; // Royal Blue
-const BRAND_ACCENT = '#D33F49'; // Assure Red
+type IconKey = keyof typeof ICONS;
 
-const benefits = [
-  {
-    title: 'Speed That Sells',
-    description:
-      'We fine‑tune your site like a high‑performance engine — clean, optimized code that loads in under 2 seconds, keeping visitors engaged long enough to convert.',
-    Icon: Zap,
-  },
-  {
-    title: 'Found on Google from Day One',
-    description:
-      'SEO is baked into the foundation — from meta tags and schema to Google Business optimization — so you start climbing search rankings immediately.',
-    Icon: Search,
-  },
-  {
-    title: 'Mobile‑First Design',
-    description:
-      'Over 60% of your traffic is mobile. We design for phones first, ensuring your site looks and works flawlessly anywhere.',
-    Icon: Smartphone,
-  },
-  {
-    title: 'Built to Convert Visitors into Customers',
-    description:
-      'Strategic layouts, clear calls‑to‑action, and lead capture forms turn browsers into buyers — whether they’re booking a service or making a purchase.',
-    Icon: Target,
-  },
-  {
-    title: 'Ad‑Ready from the Start',
-    description:
-      'We structure your site for Google Ads and tracking from day one — so campaigns can be launched quickly without costly redesigns.',
-    Icon: Rocket,
-  },
-  {
-    title: 'Scalable, Custom Technology',
-    description:
-      'We use modern, scalable tech (Next.js, Node, TypeScript) so your site adapts as your business expands.',
-    Icon: Layers,
-  },
-  {
-    title: 'Hassle‑Free Hosting & Maintenance',
-    description:
-      'Secure hosting, daily backups, uptime monitoring, and ongoing updates keep your site running smoothly.',
-    Icon: ShieldCheck,
-  },
-] as const;
+export type Benefit = {
+  title: string;
+  description: string;
+  icon: IconKey;
+};
 
-export default function WhyWorkWithUsSection() {
+type Props = {
+  title: string;
+  titleHighlight?: string;
+  subtitle: string;
+  ctaHref: string;
+  ctaLabel?: string;
+  benefits: Benefit[];
+  tone?: 'dark' | 'light';
+  reverse?: boolean;
+  clamp?: 2 | 3 | 4;
+  imageSrc?: string;
+  imageAlt?: string;
+};
+
+export default function WhyWorkWithUsTwoCol({
+  title,
+  titleHighlight,
+  subtitle,
+  ctaHref,
+  ctaLabel = 'Get Your Free Consultation',
+  benefits,
+  tone = 'dark',
+  reverse = false,
+  clamp = 3,
+  imageSrc,
+  imageAlt = '',
+}: Props) {
+  const isDark = tone === 'dark';
+  const subText = isDark ? 'text-gray-300' : 'text-gray-600';
+  const ring = isDark ? 'ring-white/10' : 'ring-[#BFBFBF]';
+
   return (
-    <Section tone="base" pattern="grid">
-      <SectionHeader
-        title="How Our Websites Help Your Business Grow"
-        subtitle="We don’t just build websites — we build revenue machines that work 24/7."
-        center
-      />
-
-      <LazyMotion features={domAnimation}>
-        <m.ul
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: '-20%' }}
-          variants={{
-            hidden: { opacity: 1 },
-            show: {
-              opacity: 1,
-              transition: { staggerChildren: 0.08, delayChildren: 0.06 },
-            },
-          }}
-          className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
-        >
-          {benefits.map((b) => {
-            const Icon = b.Icon;
-            return (
-              <m.li
-                key={b.title}
-                variants={{
-                  hidden: { opacity: 0, y: 16 },
-                  show: { opacity: 1, y: 0 },
-                }}
-                className="group"
-              >
-                <Card variant="glass" className="hover:border-foreground/20">
-                  <div className="p-6">
-                    <div className="mb-3 flex items-center gap-3">
-                      <IconBadge>
-                        <Icon className="h-5 w-5" />
-                      </IconBadge>
-                      <h3 className="text-base font-semibold leading-tight">
-                        {b.title}
-                      </h3>
-                    </div>
-                    <p className="text-sm text-foreground/70">
-                      {b.description}
-                    </p>
-
-                    {/* Underline accent on hover */}
-                    <div
-                      className="mt-4 h-px w-0 bg-gradient-to-r from-[var(--from,_transparent)] to-[var(--to,_transparent)] transition-all duration-300 group-hover:w-full"
-                      style={{
-                        ['--from' as any]: `${BRAND_PRIMARY}`,
-                        ['--to' as any]: `${BRAND_ACCENT}`,
-                      }}
-                    />
-                  </div>
-                </Card>
-              </m.li>
-            );
-          })}
-        </m.ul>
-      </LazyMotion>
-
-      <div className="mt-12 text-center">
-        <Link
-          href="/contact"
-          className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium text-white transition focus:outline-none focus:ring-2 focus:ring-offset-2"
-          style={{
-            background: `linear-gradient(135deg, ${BRAND_PRIMARY}, ${BRAND_ACCENT})`,
-          }}
-        >
-          Get Your Free Consultation
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-            className="h-4 w-4"
+    <Section tone="highlight" pattern="none" className="py-20 md:py-24">
+      <div className="mx-auto px-6 max-w-[1400px]">
+        <LazyMotion features={domAnimation}>
+          <SectionHeader
+            title={
+              <>
+                {title}{' '}
+                <m.span
+                  initial={{ scale: 0.95, opacity: 0.6 }}
+                  whileHover={{ scale: 1.2 }}
+                  animate={{ scale: 1.1, opacity: 1 }}
+                  transition={{
+                    type: 'spring',
+                    duration: 0.7,
+                    stiffness: 300,
+                    delay: 0.3,
+                  }}
+                  className="inline-block whitespace-nowrap text-chrome text-fill-transparent font- font-extrabold"
+                >
+                  {titleHighlight}
+                </m.span>{' '}
+              </>
+            }
+            subtitle="Get a free consultation. We'll audit your site, outline a plan, and give you clear next steps—no pressure."
+            center
+            className="sm:text-6xl"
+          />
+        </LazyMotion>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-20">
+          <div></div>
+          <div
+            className={`lg:col-span-5 order-2  ${reverse ? 'lg:order-2' : ''}`}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-            />
-          </svg>
-        </Link>
+            {imageSrc && (
+              <div
+                className={`mt-2 relative overflow-hidden rounded-2xl ring-1 ${ring}`}
+              >
+                <Image
+                  src={imageSrc}
+                  alt={imageAlt}
+                  width={1400}
+                  height={933}
+                  className="w-full h-auto"
+                  sizes="(min-width:1536px) 700px,
+         (min-width:1280px) 600px,
+         (min-width:1024px) 45vw,
+         (min-width:768px) 80vw,
+         100vw"
+                  loading="lazy"
+                  fetchPriority="low"
+                  placeholder="blur"
+                  blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI4MDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEyMDAiIGhlaWdodD0iODAwIiBmaWxsPSIjZGRkZGRkIi8+PC9zdmc+"
+                />
+                <div
+                  className="absolute inset-0 bg-blueprint-overlay"
+                  aria-hidden
+                />
+              </div>
+            )}
+
+            <div className="mt-16 flex justify-center">
+              <ButtonGradientWrapper>
+                <Button
+                  href={ctaHref}
+                  as={Link}
+                  size="lg"
+                  radius="sm"
+                  variant="solid"
+                  className="inline-flex items-center gap-2 rounded-lg px-5 py-3 text-base font-medium text-white bg-chrome-cta hover:bg-chrome-cta-hover active:bg-chrome-cta-active shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-chrome"
+                >
+                  {ctaLabel}
+                </Button>
+              </ButtonGradientWrapper>
+            </div>
+          </div>
+          <div
+            className={`order-1 lg:col-span-6 ${reverse ? 'lg:order-1' : ''}`}
+          >
+            <LazyMotion features={domAnimation}>
+              <m.ul
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, margin: '-20%' }}
+                variants={{
+                  hidden: { opacity: 1 },
+                  show: {
+                    opacity: 1,
+                    transition: {
+                      staggerChildren: 0.08,
+                      delayChildren: 0.06,
+                    },
+                  },
+                }}
+                className="grid grid-cols-1 gap-x-8 gap-y-6"
+              >
+                {benefits.map(({ title, description, icon }, idx) => {
+                  const Icon = ICONS[icon];
+                  return (
+                    <m.li
+                      key={title}
+                      variants={{
+                        hidden: { opacity: 0, y: 12 },
+                        show: { opacity: 1, y: 0 },
+                      }}
+                      className="relative"
+                    >
+                      <div className="">
+                        {idx > 0 && (
+                          <GradientRule tone={tone} className="mb-4" />
+                        )}
+                      </div>
+
+                      <div className="flex items-start gap-4">
+                        <ShineIcon Icon={Icon} size={28} tone={tone} />
+                        <div className="min-w-0">
+                          <h3 className="text-2xl font-semibold">{title}</h3>
+                          <p className={`mt-1 ${subText} line-clamp-3`}>
+                            {description}
+                          </p>
+                        </div>
+                      </div>
+                    </m.li>
+                  );
+                })}
+              </m.ul>
+            </LazyMotion>
+          </div>
+        </div>
       </div>
     </Section>
+  );
+}
+
+function GradientRule({
+  tone,
+  className = '',
+}: {
+  tone: 'dark' | 'light';
+  className?: string;
+}) {
+  return (
+    <div
+      className={`h-px w-full ${className} bg-gradient-rule-${tone}`}
+      aria-hidden
+    />
   );
 }

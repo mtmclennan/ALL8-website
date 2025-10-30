@@ -1,0 +1,49 @@
+{
+  "path": "/contact",
+  "title": "Contact | ALL8 Webworks — Performance-First Websites",
+  "description": "Request a quote or book a call. Let’s improve your site speed, rankings, and leads.",
+  "ogImage": "/og/contact.jpg",
+  "hero": {
+    "titlePrefix": "Start Your",
+    "highlight": "Project",
+    "titleSuffix": "With Us",
+    "subtitle": "We take on a limited number of builds. Fill out this brief intake so we can confirm fit within 1–2 business days.",
+    "note": "Projects typically start at $3,000 CAD.",
+    "ctaLabel": "Request a Proposal",
+    "ctaHref": "#intake-form"
+  },
+  "process": {
+    "title": "What Happens Next",
+    "subtitle": "We make it simple to get in touch and get answers fast.",
+    "steps": [
+      {
+        "title": "Send Us a Message",
+        "description": "Use the contact form or give us a call — whatever’s easiest.",
+        "icon": "ClipboardList"
+      },
+      {
+        "title": "Quick Response",
+        "description": "We’ll reply within 24 hours with clear next steps.",
+        "icon": "Rocket"
+      },
+      {
+        "title": "Discuss Your Needs",
+        "description": "We’ll schedule a quick call or email to understand your goals.",
+        "icon": "Brush"
+      },
+      {
+        "title": "Plan Forward",
+        "description": "If it’s a fit, we’ll outline a simple plan to get started.",
+        "icon": "TrendingUp"
+      }
+    ]
+  },
+  "cta": {
+    "titlePrefix": "We’ll reply within",
+    "highlight": "24 hours",
+    "titleSuffix": "",
+    "subtitle": "Get the answers you need fast.",
+    "ctaLabel": "Send a Message",
+    "ctaHref": "#intake-form"
+  }
+}

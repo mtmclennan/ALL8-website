@@ -1,49 +1,72 @@
-import fs from 'node:fs/promises';
-import path from 'node:path';
-import matter from 'gray-matter';
-import { safeText } from '@/lib/utils/safe';
-import { Metadata } from 'next';
-import { validateMetadata } from '@/lib/utils/seoValidation';
-import { buildStaticMetadata } from '@/lib/utils/page-meta';
+import fs from 'fs';
+import path from 'path';
+import Link from 'next/link';
+import type { Metadata } from 'next';
+import { legalVars } from '@/config/legal.config';
 
-const LEGAL_DIR = path.join(process.cwd(), 'content', 'legal');
-export const metadata: Metadata = buildStaticMetadata('/legal');
+const legalPath = path.join(process.cwd(), 'data/legal.json');
 
-validateMetadata(metadata.title, metadata.description);
+interface LegalPageMeta {
+  slug: string;
+  title: string;
+  version: string;
+  jurisdiction: string;
+}
 
-export default async function LegalIndex() {
-  const files = (await fs.readdir(LEGAL_DIR)).filter((f) => f.endsWith('.mdx'));
-  const items = await Promise.all(
-    files.map(async (f) => {
-      const raw = await fs.readFile(path.join(LEGAL_DIR, f), 'utf8');
-      const { data } = matter(raw);
-      const slug = f.replace(/\.mdx$/, '');
-      return {
-        slug,
-        title: safeText(data.title) ?? slug,
-        version: safeText(data.version) ?? '',
-      };
-    })
-  );
+export const metadata: Metadata = {
+  title: `Legal • ${legalVars.companyName}`,
+  description: `View ${legalVars.companyName} legal policies including Terms, Privacy, and Cookies.`,
+  robots: { index: false, follow: true },
+  openGraph: {
+    title: `Legal Information | ${legalVars.companyName}`,
+    description: `Official legal documents and policies from ${legalVars.companyName}.`,
+    url: `${legalVars.websiteUrl}/legal`,
+    type: 'website',
+  },
+};
+
+export default function LegalIndex() {
+  const file = fs.readFileSync(legalPath, 'utf8');
+  const pages: LegalPageMeta[] = JSON.parse(file);
 
   return (
-    <main className="mx-auto max-w-3xl px-4 py-12">
-      <h1 className="text-4xl font-bold mb-6">Legal</h1>
-      <ul className="space-y-3">
-        {items.map((it) => (
-          <li key={it.slug}>
-            <a
-              className="text-blue-600 hover:underline"
-              href={`/legal/${it.slug}`}
-            >
-              {it.title}
-            </a>
-            {it.version && (
-              <span className="ml-2 text-xs text-gray-500">v{it.version}</span>
-            )}
+    <main className="mx-auto max-w-3xl px-6 py-16">
+      <header className="mb-10">
+        <h1 className="text-4xl font-bold text-gray-900 mb-2">Legal</h1>
+        <p className="text-gray-600">
+          Official legal documents and policies for{' '}
+          <span className="font-medium">{legalVars.companyName}</span>.
+        </p>
+      </header>
+
+      <ul className="divide-y divide-gray-200 border-y border-gray-200">
+        {pages.map((page) => (
+          <li
+            key={page.slug}
+            className="flex flex-col sm:flex-row sm:items-center justify-between py-4"
+          >
+            <div>
+              <Link
+                href={`/legal/${page.slug}`}
+                className="text-lg font-medium text-blue-600 hover:underline"
+              >
+                {page.title}
+              </Link>
+              <p className="text-sm text-gray-500">
+                Jurisdiction: {page.jurisdiction}
+              </p>
+            </div>
+            <p className="mt-1 sm:mt-0 text-sm text-gray-400">
+              v{page.version}
+            </p>
           </li>
         ))}
       </ul>
+
+      <footer className="mt-12 text-sm text-gray-500">
+        © {new Date().getFullYear()} {legalVars.companyName}. All rights
+        reserved.
+      </footer>
     </main>
   );
 }

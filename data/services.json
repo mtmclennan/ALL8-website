@@ -1,16 +1,1106 @@
 [
   {
-    "slug": "contractor-websites",
-    "title": "Contractor Websites",
-    "description": "Fast, SEO-ready sites that turn calls into booked jobs.",
-    "image": "/og/services-contractor.jpg",
-    "priority": 0.8
+    "slug": "websites-that-convert",
+    "title": "Websites That Convert",
+    "short": "Fast, secure, and lead-focused websites built for service businesses.",
+    "description": "Most websites look fine but don’t deliver. We build high-performance, conversion-driven sites that turn local visitors into real calls, quotes, and booked jobs—without the slowdowns, hacks, or plugin headaches of WordPress.",
+    "card": {
+      "image": "/assets/images/services/websites-that-convert-blueprint-data-streams-card.png",
+      "alt": "Websites that convert, shown as a glowing blueprint transforming into a finished site"
+    },
+    "problem": {
+      "title": "Why Most Websites Don’t Work",
+      "subtitle": "Common issues that quietly kill leads and waste ad spend:",
+      "points": [
+        {
+          "icon": "Zap",
+          "title": "Slow Load Times",
+          "description": "Visitors bounce before they ever see your offer—every extra second costs conversions."
+        },
+        {
+          "icon": "PlugZap",
+          "title": "Bloated Plugins",
+          "description": "WordPress updates break things constantly, and every plugin adds risk and bloat."
+        },
+        {
+          "icon": "MousePointerClick",
+          "title": "Weak Calls-to-Action",
+          "description": "Pretty designs but no funnel—users don’t know what to do next."
+        },
+        {
+          "icon": "ShieldOff",
+          "title": "Poor Security",
+          "description": "Open-source platforms are common hack targets and require constant patching."
+        }
+      ]
+    },
+    "solution": {
+      "title": "Our Solution: Modern, Conversion-Focused Builds",
+      "subtitle": "We engineer websites to run fast, stay secure, and turn visitors into customers.",
+      "points": [
+        {
+          "icon": "Rocket",
+          "title": "Blazing Performance",
+          "description": "Optimized for Core Web Vitals and under 2 s load times on all devices."
+        },
+        {
+          "icon": "ShieldCheck",
+          "title": "Locked-Down Security",
+          "description": "Static-first architecture with no plugin vulnerabilities."
+        },
+        {
+          "icon": "MousePointerClick",
+          "title": "Built to Convert",
+          "description": "Clear, compelling CTAs drive calls, quotes, and bookings."
+        },
+        {
+          "icon": "TrendingUp",
+          "title": "SEO-Ready Out of the Box",
+          "description": "Clean metadata, schema, and fast crawl speed for better rankings."
+        }
+      ]
+    },
+    "overview": {
+      "title": "Why Our Websites Work",
+      "description": "Unlike slow, plugin-heavy WordPress templates, our sites are engineered for performance, security, and measurable results. Every page is built to guide visitors toward clear actions—calls, quote requests, and bookings.",
+      "oneLiner": "Modern builds that load fast, stay secure, and actually convert.",
+      "badges": [
+        { "label": "Results-First", "icon": "Rocket" },
+        { "label": "SEO + Local Visibility", "icon": "BadgeCheck" },
+        { "label": "No Plugins or Hacks", "icon": "ShieldCheck" },
+        { "label": "Fast, Secure, Reliable", "icon": "Zap" }
+      ]
+    },
+    "benefits": [
+      "Loads in under 2 seconds — customers don’t bounce",
+      "Clear calls-to-action on every page: calls, quotes, bookings",
+      "Security by design (no plugins to patch or hack)",
+      "SEO foundations built in: metadata, schema, sitemaps"
+    ],
+    "features": [
+      "Next.js build → faster pages, fewer headaches",
+      "HeroUI + Tailwind layouts → clean, mobile-first design",
+      "Conversion-ready contact flows with autoresponders",
+      "Analytics setup (GA4 or privacy-friendly alternatives)"
+    ],
+    "comparison": {
+      "title": "ALL8 vs WordPress Templates",
+      "subtitle": "Here’s why our builds outperform old-school sites.",
+      "points": [
+        {
+          "label": "Speed",
+          "ours": "95+ Lighthouse, under 2 s load",
+          "theirs": "40–60 scores, plugin bloat"
+        },
+        {
+          "label": "Security",
+          "ours": "Static-first, no plugins to hack",
+          "theirs": "Constant patching, common target"
+        },
+        {
+          "label": "Conversions",
+          "ours": "Built-in CTAs and booking flows",
+          "theirs": "Generic templates, no funnel"
+        },
+        {
+          "label": "Cost Over Time",
+          "ours": "One build, minimal upkeep",
+          "theirs": "Cheap upfront, expensive to maintain"
+        }
+      ]
+    },
+    "priceFrom": "$3,000 CAD",
+    "ctaLabel": "Get a Quote",
+    "icon": "Rocket",
+    "faqs": [
+      {
+        "q": "Why not just use WordPress?",
+        "a": "WordPress is cheap upfront but expensive long-term: plugin updates, security holes, and slow templates. Our stack is fast, secure, and designed to generate leads from day one."
+      },
+      {
+        "q": "How long does a typical site take?",
+        "a": "Most service-business sites launch in 2–4 weeks depending on content and revisions."
+      },
+      {
+        "q": "Do you handle content and images?",
+        "a": "Yes — baseline copy editing and licensed stock photos are included. We’ll also integrate your branding and any assets you provide."
+      }
+    ],
+    "seo": {
+      "title": "Custom Business Websites That Convert",
+      "description": "Need a website that drives results? ALL8 Webworks creates custom business websites built to convert, grow traffic, and generate real leads for your brand.",
+      "keywords": "contractor web design, service business websites, Next.js development, fast websites, SEO-ready sites, web design Canada, lead generation sites",
+      "url": "https://all8webworks.com/services/websites-that-convert",
+      "image": "/images/services/websites-og.jpg",
+      "type": "website",
+      "siteName": "ALL8 Webworks"
+    },
+    "priority": 0.8,
+    "image": "/images/services/",
+    "hero": {
+      "titlePrefix": "High-Performance",
+      "highlight": "Websites",
+      "titleSuffix": "That Convert",
+      "subtitle": "Fast, secure, SEO-ready websites engineered to drive calls, leads, and booked jobs — without the plugin headaches.",
+      "ctaLabel": "Start My Project",
+      "ctaHref": "/contact?service=Websites%20That%20Convert",
+      "image": "/assets/images/services/websites-that-convert-hero.png",
+      "alt": "Futuristic website blueprint glowing with digital energy and data streams"
+    },
+    "process": {
+      "title": "Our Website Build Process",
+      "subtitle": "A proven four-step path to websites that deliver real results.",
+      "steps": [
+        {
+          "title": "Discovery",
+          "description": "We get clear on your goals, audience, and competitors.",
+          "icon": "ClipboardList"
+        },
+        {
+          "title": "Design",
+          "description": "Wireframes, layouts, and on-brand visuals focused on conversions.",
+          "icon": "Brush"
+        },
+        {
+          "title": "Build",
+          "description": "Modern stack (Next.js, HeroUI, Tailwind) with SEO baked in.",
+          "icon": "Rocket"
+        },
+        {
+          "title": "Launch",
+          "description": "Secure deployment with analytics, tracking, and optimization.",
+          "icon": "TrendingUp"
+        }
+      ]
+    },
+    "cta": {
+      "titlePrefix": "Ready to",
+      "highlight": "Launch",
+      "titleSuffix": "a Website That Converts?",
+      "subtitle": "Book a free consult and see how we can turn your site into a 24/7 sales engine.",
+      "ctaLabel": "Start My Project",
+      "ctaHref": "/contact?service=Websites%20That%20Convert",
+      "note": "No long-term contracts • Built in Canada • Results-first approach"
+    }
   },
   {
-    "slug": "local-seo",
-    "title": "Local SEO",
-    "description": "Rank in your city and show up when customers are searching.",
-    "image": "/og/services-local-seo.jpg",
-    "priority": 0.75
+    "slug": "website-maintenance-hosting",
+    "title": "Website Maintenance & Hosting",
+    "short": "Keep your website fast, secure, and worry-free with managed updates and monitoring.",
+    "description": "We handle hosting, security, updates, and performance so your site stays online and converting. No downtime, no patching headaches—just reliability and peace of mind.",
+    "card": {
+      "image": "/assets/images/services/maintenance-hosting-server-tools-blue-light.png",
+      "alt": "Website maintenance and hosting tools glowing blue as they adjust a web server"
+    },
+    "problem": {
+      "title": "Why Maintenance Matters",
+      "subtitle": "Most business owners underestimate how quickly a website can fall apart without care.",
+      "points": [
+        {
+          "icon": "AlertTriangle",
+          "title": "Security Risks",
+          "description": "Outdated plugins and dependencies invite hacks and downtime."
+        },
+        {
+          "icon": "Gauge",
+          "title": "Slower Performance",
+          "description": "Unmonitored sites bloat over time, hurting SEO and user experience."
+        },
+        {
+          "icon": "CloudOff",
+          "title": "No Backups or Recovery",
+          "description": "Without regular backups, a single crash can wipe everything."
+        },
+        {
+          "icon": "Wrench",
+          "title": "Hidden Technical Debt",
+          "description": "Ignored updates stack up, turning small issues into costly rebuilds."
+        }
+      ]
+    },
+    "solution": {
+      "title": "Our Solution: Fully Managed Maintenance",
+      "subtitle": "We keep your site secure, fast, and always online.",
+      "points": [
+        {
+          "icon": "ShieldCheck",
+          "title": "Security & Updates",
+          "description": "We apply updates safely, monitor uptime, and handle security patches."
+        },
+        {
+          "icon": "DatabaseBackup",
+          "title": "Automatic Backups",
+          "description": "Daily backups and versioning protect your investment."
+        },
+        {
+          "icon": "Gauge",
+          "title": "Performance Monitoring",
+          "description": "Ongoing checks keep your Core Web Vitals in the green."
+        },
+        {
+          "icon": "Headphones",
+          "title": "Ongoing Support",
+          "description": "Quick help for small changes, edits, or emergencies."
+        }
+      ]
+    },
+    "overview": {
+      "title": "Peace of Mind, Baked In",
+      "description": "Your site should just work. Our managed hosting and maintenance plans keep it that way. We handle the updates, security, backups, and speed so you can focus on running your business.",
+      "oneLiner": "Reliable hosting and maintenance for websites that actually convert.",
+      "badges": [
+        { "label": "99.9% Uptime", "icon": "Activity" },
+        { "label": "Security First", "icon": "ShieldCheck" },
+        { "label": "Performance Monitoring", "icon": "Gauge" },
+        { "label": "Hands-Off for You", "icon": "Clock" }
+      ]
+    },
+    "benefits": [
+      "Stay online 24/7 with managed uptime monitoring",
+      "Automatic backups and disaster recovery",
+      "Core updates and dependency management handled for you",
+      "Quick support for small fixes and content edits"
+    ],
+    "features": [
+      "Managed Next.js hosting on Vercel or DigitalOcean",
+      "Daily backups with version control",
+      "Free SSL, CDN, and performance optimization",
+      "Monthly status reports and uptime tracking"
+    ],
+    "comparison": {
+      "title": "ALL8 vs DIY Maintenance",
+      "subtitle": "Managed hosting saves time, stress, and long-term costs.",
+      "points": [
+        {
+          "label": "Uptime",
+          "ours": "99.9% uptime with monitoring",
+          "theirs": "Frequent outages or slow loads"
+        },
+        {
+          "label": "Security",
+          "ours": "Active patching + firewall",
+          "theirs": "Unpatched plugins and exploits"
+        },
+        {
+          "label": "Backups",
+          "ours": "Automated and versioned",
+          "theirs": "Manual or none"
+        },
+        {
+          "label": "Peace of Mind",
+          "ours": "Fully managed",
+          "theirs": "Constant maintenance chores"
+        }
+      ]
+    },
+    "priceFrom": "$150 CAD/mo",
+    "ctaLabel": "Start Maintenance Plan",
+    "icon": "Server",
+    "faqs": [
+      {
+        "q": "Do I need hosting if my site is already live?",
+        "a": "If it’s running on cheap shared hosting or unmanaged WordPress, yes. We migrate your site to modern, reliable infrastructure."
+      },
+      {
+        "q": "Can I cancel anytime?",
+        "a": "Yes, our plans are month-to-month with no contracts. You keep all files and data."
+      },
+      {
+        "q": "Do you offer content updates?",
+        "a": "Yes, basic content and photo swaps are included monthly."
+      }
+    ],
+    "seo": {
+      "title": "Website Maintenance & Hosting | ALL8 Webworks",
+      "description": "Reliable, secure website maintenance and hosting for contractors and service businesses. Keep your site online, fast, and up to date with ALL8 Webworks.",
+      "keywords": "website maintenance, managed hosting, website updates, secure hosting, uptime monitoring, web support for contractors",
+      "url": "https://all8webworks.com/services/website-maintenance-hosting",
+      "image": "/images/services/maintenance-og.jpg",
+      "type": "website",
+      "siteName": "ALL8 Webworks"
+    },
+    "priority": 0.7,
+    "image": "/images/services/maintenance.jpg",
+    "hero": {
+      "titlePrefix": "Reliable",
+      "highlight": "Maintenance",
+      "titleSuffix": "& Hosting",
+      "subtitle": "Keep your website fast, secure, and online 24/7 with fully managed hosting and updates.",
+      "ctaLabel": "Start Maintenance Plan",
+      "ctaHref": "/contact?service=Website%20Maintenance%20%26%20Hosting",
+      "image": "/assets/images/services/maintenance-hosting-server-tools-blue-light.png",
+      "alt": "Futuristic magnifying glass focusing digital light on a growing search graph"
+    },
+    "process": {
+      "title": "Our Maintenance Process",
+      "subtitle": "A hands-off, transparent approach to keeping your site running perfectly.",
+      "steps": [
+        {
+          "title": "Audit",
+          "description": "We review performance, security, and current hosting setup.",
+          "icon": "ClipboardList"
+        },
+        {
+          "title": "Migration",
+          "description": "We migrate your site to optimized hosting (if needed) with zero downtime.",
+          "icon": "CloudUpload"
+        },
+        {
+          "title": "Optimization",
+          "description": "Performance tuning, caching, and Core Web Vitals checks.",
+          "icon": "Gauge"
+        },
+        {
+          "title": "Monitoring",
+          "description": "24/7 uptime tracking, backups, and reports to your inbox.",
+          "icon": "Activity"
+        }
+      ]
+    },
+    "cta": {
+      "titlePrefix": "Protect Your",
+      "highlight": "Website",
+      "titleSuffix": "and Your Leads",
+      "subtitle": "Join our managed maintenance plan and focus on your business—we’ll handle the tech.",
+      "ctaLabel": "Start Maintenance Plan",
+      "ctaHref": "/contact?service=Website%20Maintenance%20%26%20Hosting",
+      "note": "Cancel anytime • No downtime • Secure by design"
+    }
+  },
+  {
+    "slug": "basic-seo-setup",
+    "title": "Basic SEO Setup",
+    "short": "Get found locally with built-in SEO foundations and Google indexing done right.",
+    "description": "Every ALL8 website includes essential SEO: metadata, schema, sitemaps, and Google indexing. We make sure your site is visible where it counts—local search and Maps.",
+    "card": {
+      "image": "/assets/images/services/basic-seo-rising-graph-magnifying-glow-card.png",
+      "alt": "Basic SEO concept with magnifying glass over a glowing rising graph"
+    },
+    "problem": {
+      "title": "Why So Many Sites Never Get Found",
+      "subtitle": "Most small business websites go live but never show up on Google or Maps.",
+      "points": [
+        {
+          "icon": "SearchX",
+          "title": "Missing SEO Basics",
+          "description": "No meta titles, schema, or proper indexing means Google can’t read your site."
+        },
+        {
+          "icon": "MapPinOff",
+          "title": "Poor Local Visibility",
+          "description": "Without local optimization, your competitors outrank you for every nearby search."
+        },
+        {
+          "icon": "FileQuestion",
+          "title": "Unstructured Content",
+          "description": "No clear hierarchy or semantic tags makes it hard for search engines to understand your content."
+        },
+        {
+          "icon": "Sliders",
+          "title": "No Tracking or Analytics",
+          "description": "You can’t improve what you can’t measure. Many sites launch blind."
+        }
+      ]
+    },
+    "solution": {
+      "title": "Our Solution: SEO Built In from Day One",
+      "subtitle": "We set up every website with clean code, clear structure, and search-ready metadata.",
+      "points": [
+        {
+          "icon": "BadgeCheck",
+          "title": "Metadata + Schema",
+          "description": "Titles, descriptions, and structured data that help Google understand your business."
+        },
+        {
+          "icon": "MapPin",
+          "title": "Local Optimization",
+          "description": "Your Google Business Profile and NAP (Name, Address, Phone) data aligned for Maps."
+        },
+        {
+          "icon": "TrendingUp",
+          "title": "Performance SEO",
+          "description": "Page speed, mobile optimization, and Core Web Vitals tuned for ranking."
+        },
+        {
+          "icon": "BarChart3",
+          "title": "Google Indexing & Analytics",
+          "description": "Search Console, Analytics, and sitemap submissions handled for you."
+        }
+      ]
+    },
+    "overview": {
+      "title": "SEO That Works Quietly in the Background",
+      "description": "You don’t need to pay for ongoing SEO just to get found. Our builds launch ready for Google. From metadata and schema to performance and indexing, we make sure your business shows up where customers are searching.",
+      "oneLiner": "Launch with SEO foundations that help customers find you fast.",
+      "badges": [
+        { "label": "Schema Markup", "icon": "FileCode2" },
+        { "label": "Google Indexing", "icon": "Search" },
+        { "label": "Local Visibility", "icon": "MapPin" },
+        { "label": "Analytics Setup", "icon": "BarChart3" }
+      ]
+    },
+    "benefits": [
+      "Appear on Google Maps and local searches",
+      "Metadata, schema, and sitemaps handled for you",
+      "Google indexing and Search Console verified",
+      "Analytics tracking ready from day one"
+    ],
+    "features": [
+      "Local SEO basics and Google Business Profile alignment",
+      "On-page structure for headings and semantic clarity",
+      "Performance-based ranking signals (speed, mobile, accessibility)",
+      "Analytics + Search Console integration"
+    ],
+    "comparison": {
+      "title": "ALL8 vs Typical Launch SEO",
+      "subtitle": "Most developers skip SEO — we make it standard.",
+      "points": [
+        {
+          "label": "Metadata",
+          "ours": "Optimized titles + descriptions on every page",
+          "theirs": "Blank or duplicated metadata"
+        },
+        {
+          "label": "Schema",
+          "ours": "Business, Service, and Location schema added",
+          "theirs": "None or incorrect"
+        },
+        {
+          "label": "Local Visibility",
+          "ours": "Google Business Profile integrated",
+          "theirs": "Not connected"
+        },
+        {
+          "label": "Performance",
+          "ours": "95+ Core Web Vitals pass rate",
+          "theirs": "Slow, unoptimized builds"
+        }
+      ]
+    },
+    "priceFrom": "Included with all websites",
+    "ctaLabel": "Build My SEO-Ready Site",
+    "icon": "Search",
+    "faqs": [
+      {
+        "q": "Is this a full SEO campaign?",
+        "a": "No — it’s the foundation. You’ll get everything needed for visibility, indexing, and performance, but not ongoing content or link building."
+      },
+      {
+        "q": "Can you help with keyword targeting?",
+        "a": "Yes, we’ll identify your top local search phrases and build them into your site structure and metadata."
+      },
+      {
+        "q": "Do I need to hire a separate SEO agency?",
+        "a": "Not to get started. Most small businesses see strong local visibility with our built-in SEO setup."
+      }
+    ],
+    "seo": {
+      "title": "Basic SEO Setup | ALL8 Webworks",
+      "description": "Essential SEO setup for contractors and service businesses. Metadata, schema, and Google indexing included with every website build.",
+      "keywords": "basic SEO setup, contractor SEO, local SEO Canada, schema markup, Google indexing, SEO for small business websites",
+      "url": "https://all8webworks.com/services/basic-seo-setup",
+      "image": "/images/services/seo-setup-og.jpg",
+      "type": "website",
+      "siteName": "ALL8 Webworks"
+    },
+    "priority": 0.7,
+    "image": "/images/services/seo-setup.jpg",
+    "hero": {
+      "titlePrefix": "SEO Foundations",
+      "highlight": "Built In",
+      "titleSuffix": "From Day One",
+      "subtitle": "Launch your new website with metadata, schema, and local optimization already handled — so customers can find you fast.",
+      "ctaLabel": "Build My SEO-Ready Site",
+      "ctaHref": "/contact?service=Basic%20SEO%20Setup",
+      "image": "/assets/images/services/basic-seo-hero.png",
+      "alt": "Futuristic magnifying glass focusing digital light on a growing search graph"
+    },
+    "process": {
+      "title": "Our SEO Setup Process",
+      "subtitle": "The search optimization basics every business website needs.",
+      "steps": [
+        {
+          "title": "Audit",
+          "description": "We review your target location, competition, and keywords.",
+          "icon": "ClipboardList"
+        },
+        {
+          "title": "Structure",
+          "description": "We organize headings, content, and metadata for SEO clarity.",
+          "icon": "Layers"
+        },
+        {
+          "title": "Implementation",
+          "description": "Add schema, performance tuning, and mobile optimizations.",
+          "icon": "Wrench"
+        },
+        {
+          "title": "Verification",
+          "description": "We connect your site to Google Search Console and submit your sitemap.",
+          "icon": "Search"
+        }
+      ]
+    },
+    "cta": {
+      "titlePrefix": "Ready to Get",
+      "highlight": "Found",
+      "titleSuffix": "on Google?",
+      "subtitle": "Our builds include everything you need to start ranking in local search — no extra SEO contract required.",
+      "ctaLabel": "Build My SEO-Ready Site",
+      "ctaHref": "/contact?service=Basic%20SEO%20Setup",
+      "note": "Built-in optimization • Local focus • Fast results"
+    }
+  },
+  {
+    "slug": "google-business-profile-optimization",
+    "title": "Google Business Profile Optimization",
+    "short": "Stand out on Google Maps and local search with a properly optimized business listing.",
+    "description": "Your Google Business Profile (formerly Google My Business) is often the first impression customers see. We optimize it for visibility, credibility, and conversions—so you get more calls directly from Google Maps.",
+    "card": {
+      "image": "/assets/images/services/google-business-optimization-map-pin-verification-card.png",
+      "alt": "Google Business Optimization with a red location pin and glowing verification checkmark"
+    },
+    "problem": {
+      "title": "Why Most Google Profiles Don’t Perform",
+      "subtitle": "Many businesses have a Google listing—but few actually turn it into calls.",
+      "points": [
+        {
+          "icon": "MapPinOff",
+          "title": "Incomplete Profiles",
+          "description": "Missing hours, services, or categories hurt rankings and credibility."
+        },
+        {
+          "icon": "FileQuestion",
+          "title": "No Optimization",
+          "description": "Without proper setup, you’ll never show up for local service searches."
+        },
+        {
+          "icon": "MessageSquareOff",
+          "title": "Few or No Reviews",
+          "description": "Low review counts or bad responses drive potential customers away."
+        },
+        {
+          "icon": "TrendingDown",
+          "title": "Poor Local Ranking",
+          "description": "Competitors with better-optimized profiles appear first on Maps."
+        }
+      ]
+    },
+    "solution": {
+      "title": "Our Solution: Optimized Profiles That Rank and Convert",
+      "subtitle": "We turn your Google Business Profile into a real customer magnet.",
+      "points": [
+        {
+          "icon": "MapPin",
+          "title": "Profile Setup or Fix",
+          "description": "We claim, verify, and fully complete your Google Business Profile."
+        },
+        {
+          "icon": "Stars",
+          "title": "Review Strategy",
+          "description": "We help you collect and manage reviews to build trust and improve rankings."
+        },
+        {
+          "icon": "Image",
+          "title": "Optimized Photos & Posts",
+          "description": "Showcase your best work with high-quality visuals and keyword-rich updates."
+        },
+        {
+          "icon": "TrendingUp",
+          "title": "Category & Keyword Optimization",
+          "description": "We select the right categories and keywords to boost your visibility in local results."
+        }
+      ]
+    },
+    "overview": {
+      "title": "Show Up Where Customers Are Searching",
+      "description": "A properly optimized Google Business Profile can generate more leads than your website. We handle setup, photos, categories, and reviews to help your business rise to the top of local search results and Google Maps.",
+      "oneLiner": "Turn your Google listing into a steady stream of calls and quote requests.",
+      "badges": [
+        { "label": "Verified Setup", "icon": "ShieldCheck" },
+        { "label": "Map Ranking Boost", "icon": "Map" },
+        { "label": "Review Strategy", "icon": "Star" },
+        { "label": "Optimized Photos", "icon": "Camera" }
+      ]
+    },
+    "benefits": [
+      "Higher visibility on Google Maps and local search",
+      "More calls, quote requests, and direction clicks",
+      "Improved reputation with review management",
+      "Optimized categories and service areas"
+    ],
+    "features": [
+      "Profile verification and optimization",
+      "Review response and reputation guidance",
+      "Photo and post optimization",
+      "Keyword and category targeting"
+    ],
+    "comparison": {
+      "title": "ALL8 vs DIY Google Profiles",
+      "subtitle": "An optimized profile can make the difference between page 1 and page 5.",
+      "points": [
+        {
+          "label": "Visibility",
+          "ours": "Ranks for high-intent service searches",
+          "theirs": "Rarely appears for local results"
+        },
+        {
+          "label": "Trust",
+          "ours": "Consistent reviews, complete info, verified setup",
+          "theirs": "Outdated info and few reviews"
+        },
+        {
+          "label": "Conversion Rate",
+          "ours": "Calls and quotes directly from Google Maps",
+          "theirs": "Low engagement and missed leads"
+        },
+        {
+          "label": "Performance Tracking",
+          "ours": "Insights and call data integrated",
+          "theirs": "No data or tracking"
+        }
+      ]
+    },
+    "priceFrom": "$350 CAD",
+    "ctaLabel": "Optimize My Google Profile",
+    "icon": "MapPin",
+    "faqs": [
+      {
+        "q": "Do you need my login for Google?",
+        "a": "Yes, or we can request manager access to your Business Profile so we can safely optimize it without transferring ownership."
+      },
+      {
+        "q": "Can you help if I don’t have a profile yet?",
+        "a": "Absolutely. We’ll create and verify a brand-new Google Business Profile for your company."
+      },
+      {
+        "q": "Do you manage reviews too?",
+        "a": "We set up a review system and teach you how to respond properly to grow credibility and trust."
+      }
+    ],
+    "seo": {
+      "title": "Google Business Profile Optimization | ALL8 Webworks",
+      "description": "Local SEO and Google Maps optimization for contractors and service companies. Improve visibility, rankings, and customer calls with a properly optimized Google Business Profile.",
+      "keywords": "Google Business Profile optimization, Google Maps SEO, local SEO for contractors, GBP setup Canada, local search optimization, Google My Business ranking",
+      "url": "https://all8webworks.com/services/google-business-profile-optimization",
+      "image": "/images/services/google-business-og.jpg",
+      "type": "website",
+      "siteName": "ALL8 Webworks"
+    },
+    "priority": 0.7,
+    "image": "/images/services/google-business.jpg",
+    "hero": {
+      "titlePrefix": "Dominate",
+      "highlight": "Local Search",
+      "titleSuffix": "with Google Maps",
+      "subtitle": "Show up first where customers are looking — Google Maps and local search. We optimize your Google Business Profile to drive calls and quotes.",
+      "ctaLabel": "Optimize My Google Profile",
+      "ctaHref": "/contact?service=Google%20Business%20Profile%20Optimization",
+      "image": "/assets/images/services/google-business-optimization-hero.png",
+      "alt": "Verified red map pin glowing over a futuristic map grid"
+    },
+    "process": {
+      "title": "Our Google Business Optimization Process",
+      "subtitle": "A proven four-step method for local visibility that converts.",
+      "steps": [
+        {
+          "title": "Audit & Access",
+          "description": "We review your profile, listings, and competitor visibility, then request access or create a new one.",
+          "icon": "ClipboardList"
+        },
+        {
+          "title": "Profile Optimization",
+          "description": "We complete all fields: business info, services, hours, and service areas with accuracy and keywords.",
+          "icon": "Wrench"
+        },
+        {
+          "title": "Review & Media Setup",
+          "description": "Add photos, posts, and reviews that increase engagement and trust.",
+          "icon": "Image"
+        },
+        {
+          "title": "Tracking & Insights",
+          "description": "Set up reporting to monitor searches, calls, and direction requests over time.",
+          "icon": "BarChart3"
+        }
+      ]
+    },
+    "cta": {
+      "titlePrefix": "Ready to",
+      "highlight": "Show Up",
+      "titleSuffix": "Where Customers Are Searching?",
+      "subtitle": "Let’s optimize your Google Business Profile and start turning map views into phone calls.",
+      "ctaLabel": "Optimize My Google Profile",
+      "ctaHref": "/contact?service=Google%20Business%20Profile%20Optimization",
+      "note": "Verified optimization • Real results • Local focus"
+    }
+  },
+  {
+    "slug": "google-ads-setup-integration",
+    "title": "Google Ads Setup & Integration",
+    "short": "Kick-start traffic with Google Ads campaigns that drive real calls and quotes.",
+    "description": "We set up your Google Ads account, create campaigns, and connect tracking tools so you can start generating qualified leads fast. Includes conversion tracking and Google Analytics integration.",
+    "card": {
+      "image": "/assets/images/services/google-ads-setup-holographic-dashboard-target-card.png",
+      "alt": "Google Ads setup visualized by holographic ad dashboard and converging arrows"
+    },
+    "problem": {
+      "title": "Why Most Google Ads Campaigns Fail",
+      "subtitle": "Many small businesses waste thousands because their Ads aren’t set up properly.",
+      "points": [
+        {
+          "icon": "AlertTriangle",
+          "title": "No Conversion Tracking",
+          "description": "Without tracking, you can’t see what’s working or wasting your money."
+        },
+        {
+          "icon": "SearchX",
+          "title": "Broad or Irrelevant Keywords",
+          "description": "Generic targeting burns budget on low-intent searches."
+        },
+        {
+          "icon": "Target",
+          "title": "Weak Landing Pages",
+          "description": "Ads that lead to slow or confusing pages never convert."
+        },
+        {
+          "icon": "LineChart",
+          "title": "No Optimization or Reports",
+          "description": "Most campaigns are left running blind, with no idea what performs."
+        }
+      ]
+    },
+    "solution": {
+      "title": "Our Solution: Proper Setup, Measurable Results",
+      "subtitle": "We build and integrate your Google Ads campaigns the right way — optimized for conversions, not just clicks.",
+      "points": [
+        {
+          "icon": "ClipboardCheck",
+          "title": "Complete Ads Setup",
+          "description": "We create targeted search campaigns and ad groups based on your services and area."
+        },
+        {
+          "icon": "TrendingUp",
+          "title": "Conversion Tracking",
+          "description": "Set up tracking for calls, form fills, and quotes to measure real ROI."
+        },
+        {
+          "icon": "BarChart3",
+          "title": "Analytics Integration",
+          "description": "Connect Ads, Analytics, and Tag Manager for clear performance data."
+        },
+        {
+          "icon": "DollarSign",
+          "title": "Budget Optimization",
+          "description": "Get the most leads for your spend with tuned bids and location targeting."
+        }
+      ]
+    },
+    "overview": {
+      "title": "Get Leads from Google Fast",
+      "description": "We make Google Ads simple and effective. From account creation to keyword setup and tracking, our campaigns focus on what matters most — more calls, quotes, and customers.",
+      "oneLiner": "Google Ads that deliver real leads, not just traffic.",
+      "badges": [
+        { "label": "Conversion Tracking", "icon": "BarChart3" },
+        { "label": "ROI Focused", "icon": "TrendingUp" },
+        { "label": "Analytics Integration", "icon": "Database" },
+        { "label": "Smart Targeting", "icon": "Target" }
+      ]
+    },
+    "benefits": [
+      "Start getting leads within days, not months",
+      "Accurate conversion tracking for calls and forms",
+      "Custom campaigns for your service area",
+      "Clear analytics and performance reports"
+    ],
+    "features": [
+      "Full Google Ads account setup",
+      "Conversion tracking via Tag Manager",
+      "Keyword and location targeting",
+      "Integration with Google Analytics and your website"
+    ],
+    "comparison": {
+      "title": "ALL8 vs DIY Google Ads",
+      "subtitle": "We set up Google Ads for real ROI — not guesswork.",
+      "points": [
+        {
+          "label": "Campaign Setup",
+          "ours": "Strategic ad groups built for local intent",
+          "theirs": "Generic campaigns with wasted clicks"
+        },
+        {
+          "label": "Tracking",
+          "ours": "Conversion tracking for calls and forms",
+          "theirs": "Clicks only, no insight on leads"
+        },
+        {
+          "label": "Integration",
+          "ours": "Connected with Analytics and CRM",
+          "theirs": "Disconnected or incomplete data"
+        },
+        {
+          "label": "Performance",
+          "ours": "Optimized for cost-per-lead and ROI",
+          "theirs": "Random results, no visibility"
+        }
+      ]
+    },
+    "priceFrom": "$650 CAD",
+    "ctaLabel": "Set Up My Ads",
+    "icon": "TrendingUp",
+    "faqs": [
+      {
+        "q": "Do you manage ads every month?",
+        "a": "This service focuses on setup and integration. You can manage campaigns yourself or upgrade later for full management."
+      },
+      {
+        "q": "Can you track calls from my website?",
+        "a": "Yes. We install call tracking and form conversion tags so you can see which ads generate real leads."
+      },
+      {
+        "q": "What’s the minimum ad budget you recommend?",
+        "a": "Most small service businesses start with $10–$20 per day depending on location and competition."
+      }
+    ],
+    "seo": {
+      "title": "Google Ads Setup & Integration | ALL8 Webworks",
+      "description": "Professional Google Ads setup and integration for contractors and service businesses. Track every lead, optimize your spend, and start generating calls and quotes fast.",
+      "keywords": "Google Ads setup, PPC for contractors, lead generation campaigns, conversion tracking, Google Analytics integration, small business advertising",
+      "url": "https://all8webworks.com/services/google-ads-setup-integration",
+      "image": "/images/services/google-ads-og.jpg",
+      "type": "website",
+      "siteName": "ALL8 Webworks"
+    },
+    "priority": 0.7,
+    "image": "/images/services/google-ads.jpg",
+    "hero": {
+      "titlePrefix": "Smart",
+      "highlight": "Google Ads",
+      "titleSuffix": "Setup & Tracking",
+      "subtitle": "Launch effective Google Ads campaigns built to generate calls and leads — with tracking that proves what’s working.",
+      "ctaLabel": "Set Up My Ads",
+      "ctaHref": "/contact?service=Google%20Ads%20Setup%20%26%20Integration",
+      "image": "/assets/images/services/google-ads-setup-hero.png",
+      "alt": "Glowing holographic ad interface with arrows targeting conversion metrics"
+    },
+    "process": {
+      "title": "Our Google Ads Setup Process",
+      "subtitle": "Transparent setup, real tracking, measurable leads.",
+      "steps": [
+        {
+          "title": "Discovery & Goals",
+          "description": "We identify your top services, target areas, and daily budget.",
+          "icon": "ClipboardList"
+        },
+        {
+          "title": "Campaign Setup",
+          "description": "We build ad groups, write copy, and add keyword targeting for your area.",
+          "icon": "Target"
+        },
+        {
+          "title": "Tracking Integration",
+          "description": "We set up conversion tracking via Google Tag Manager and Analytics.",
+          "icon": "BarChart3"
+        },
+        {
+          "title": "Review & Launch",
+          "description": "We test everything, hand over access, and monitor your first results.",
+          "icon": "Rocket"
+        }
+      ]
+    },
+    "cta": {
+      "titlePrefix": "Turn Your Ad Spend into",
+      "highlight": "Real Leads",
+      "titleSuffix": "with Proper Setup",
+      "subtitle": "Let’s configure your Google Ads and tracking the right way — so you know exactly where your calls and customers come from.",
+      "ctaLabel": "Set Up My Ads",
+      "ctaHref": "/contact?service=Google%20Ads%20Setup%20%26%20Integration",
+      "note": "One-time setup • Transparent tracking • Lead-focused campaigns"
+    }
+  },
+  {
+    "slug": "business-tool-integrations",
+    "title": "Business Tool Integrations",
+    "short": "Connect your website to the tools that keep your business running.",
+    "description": "We integrate your website with CRMs, booking platforms, and automation tools like HubSpot, Jobber, and Google Analytics. Simplify your workflow, automate follow-ups, and make sure every lead gets tracked.",
+    "card": {
+      "image": "/assets/images/services/business-tools-integration-gears-circuits-app-icons-card.png",
+      "alt": "Connected gears and circuits linking business tools and software icons"
+    },
+    "problem": {
+      "title": "Why Most Websites Don’t Connect to Your Business Tools",
+      "subtitle": "A great-looking site isn’t enough if it doesn’t talk to your CRM or booking systems.",
+      "points": [
+        {
+          "icon": "PlugZap",
+          "title": "Leads Get Lost",
+          "description": "Form submissions disappear into inboxes instead of your CRM or quoting system."
+        },
+        {
+          "icon": "Workflow",
+          "title": "Manual Data Entry",
+          "description": "Without automation, your team wastes time copying data between systems."
+        },
+        {
+          "icon": "BellOff",
+          "title": "No Notifications or Follow-Ups",
+          "description": "Missed reminders and slow replies mean lost jobs."
+        },
+        {
+          "icon": "BarChart2",
+          "title": "No Tracking or Insights",
+          "description": "If your systems don’t talk, you can’t see what marketing actually drives leads."
+        }
+      ]
+    },
+    "solution": {
+      "title": "Our Solution: Seamless Integrations That Save Time",
+      "subtitle": "We make your website, CRM, and analytics tools work together automatically.",
+      "points": [
+        {
+          "icon": "Plug",
+          "title": "CRM Integration",
+          "description": "Connect your forms directly to tools like HubSpot, Jobber, or Zoho so every lead is captured instantly."
+        },
+        {
+          "icon": "MailCheck",
+          "title": "Automated Responses",
+          "description": "Send instant confirmations, reminders, or quote follow-ups through connected apps."
+        },
+        {
+          "icon": "BarChart3",
+          "title": "Analytics + Conversion Tracking",
+          "description": "Monitor every lead source and see which channels drive revenue."
+        },
+        {
+          "icon": "Clock",
+          "title": "Less Admin, More Work Done",
+          "description": "Automated data syncs free up your time and reduce human error."
+        }
+      ]
+    },
+    "overview": {
+      "title": "Websites That Actually Work With Your Business",
+      "description": "We go beyond design — we connect your website to the systems you already use, from CRMs to analytics. Whether it’s sending new leads straight into Jobber or tracking every conversion in HubSpot, we make your website a real part of your workflow.",
+      "oneLiner": "Integrate your website with your CRM, automation, and analytics — no more lost leads.",
+      "badges": [
+        { "label": "HubSpot Integration", "icon": "Workflow" },
+        { "label": "Jobber Connected", "icon": "Hammer" },
+        { "label": "CRM Sync", "icon": "Plug" },
+        { "label": "Analytics Ready", "icon": "BarChart3" }
+      ]
+    },
+    "benefits": [
+      "Never lose a lead — automatic CRM capture",
+      "Faster response times through automation",
+      "Less manual data entry and admin",
+      "Know exactly where your leads come from"
+    ],
+    "features": [
+      "CRM form and lead syncing (HubSpot, Jobber, Zoho)",
+      "Webhook and API integrations",
+      "Automated notifications and follow-ups",
+      "Analytics and reporting dashboards"
+    ],
+    "comparison": {
+      "title": "ALL8 vs Static Websites",
+      "subtitle": "Your website should be part of your workflow — not a disconnected brochure.",
+      "points": [
+        {
+          "label": "Lead Capture",
+          "ours": "Instant CRM sync + notifications",
+          "theirs": "Leads buried in email inboxes"
+        },
+        {
+          "label": "Automation",
+          "ours": "Automatic responses and tracking",
+          "theirs": "Manual data entry and delays"
+        },
+        {
+          "label": "Analytics",
+          "ours": "Full tracking across Google and CRM",
+          "theirs": "No visibility or conversion data"
+        },
+        {
+          "label": "Scalability",
+          "ours": "Easy to expand with new tools or workflows",
+          "theirs": "Rigid and disconnected"
+        }
+      ]
+    },
+    "priceFrom": "Custom Quote",
+    "ctaLabel": "Connect My Tools",
+    "icon": "Plug",
+    "faqs": [
+      {
+        "q": "What tools can you integrate with my website?",
+        "a": "We commonly integrate HubSpot, Jobber, Zoho, Google Analytics, Google Ads, and most CRM or booking tools with open APIs."
+      },
+      {
+        "q": "Do you build custom automation?",
+        "a": "Yes. If your platform supports APIs or webhooks, we can automate lead capture, follow-ups, or job tracking."
+      },
+      {
+        "q": "Will this work with my existing site?",
+        "a": "Yes — we can often integrate existing sites, but modern stacks like Next.js make it faster and cleaner."
+      }
+    ],
+    "seo": {
+      "title": "Business Tool Integrations | ALL8 Webworks",
+      "description": "Integrate HubSpot, Jobber, and other business tools directly into your website. Automate workflows, track leads, and connect your CRM for faster follow-ups.",
+      "keywords": "HubSpot integration, Jobber integration, CRM website integration, automation for contractors, webhooks, business tool connections, lead tracking integrations",
+      "url": "https://all8webworks.com/services/business-tool-integrations",
+      "image": "/images/services/integrations-og.jpg",
+      "type": "website",
+      "siteName": "ALL8 Webworks"
+    },
+    "priority": 0.7,
+    "image": "/images/services/integrations.jpg",
+    "hero": {
+      "titlePrefix": "Seamless",
+      "highlight": "Business Integrations",
+      "titleSuffix": "That Save You Time",
+      "subtitle": "We connect your website with CRMs, booking tools, and analytics systems so every lead gets tracked and followed up automatically.",
+      "ctaLabel": "Connect My Tools",
+      "ctaHref": "/contact?service=Business%20Tool%20Integrations",
+      "image": "/assets/images/services/business-tools-integration-hero.png",
+      "alt": "Glowing network of gears and app icons representing integrated business systems"
+    },
+    "process": {
+      "title": "Our Integration Process",
+      "subtitle": "From discovery to automation — we make everything connect smoothly.",
+      "steps": [
+        {
+          "title": "Discovery",
+          "description": "We review your workflow and identify what systems need to connect.",
+          "icon": "ClipboardList"
+        },
+        {
+          "title": "Integration Design",
+          "description": "We plan how data flows between your website, CRM, and other tools.",
+          "icon": "Workflow"
+        },
+        {
+          "title": "Implementation",
+          "description": "We configure APIs, forms, and webhooks for seamless data transfer.",
+          "icon": "Plug"
+        },
+        {
+          "title": "Testing & Training",
+          "description": "We verify everything works, then show your team how to monitor it.",
+          "icon": "CheckCircle"
+        }
+      ]
+    },
+    "cta": {
+      "titlePrefix": "Make Your Website",
+      "highlight": "Work Smarter",
+      "titleSuffix": "— Not Harder",
+      "subtitle": "Let’s connect your CRM, quoting tools, and analytics systems so your website becomes part of your business engine.",
+      "ctaLabel": "Connect My Tools",
+      "ctaHref": "/contact?service=Business%20Tool%20Integrations",
+      "note": "Custom integrations • Automated workflows • Built for growth"
+    }
   }
 ]

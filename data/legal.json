@@ -1,0 +1,34 @@
+[
+  {
+    "slug": "terms",
+    "title": "Terms & Conditions",
+    "jurisdiction": "ON, CA",
+    "version": "2025-08-20",
+    "body": "# Terms & Conditions\n\n**Effective date:** {{lastUpdatedISO}}\n\nBy accessing or using {{websiteUrl}} (the \"Site\"), you agree to these Terms. If you do not agree, do not use the Site.\n\n## Use of the Site\n\nYou may use the Site only for lawful purposes and in accordance with these Terms. You will not attempt to interfere with the Site’s operation, scrape data, or access without authorization.\n\n## Intellectual Property\n\nThe Site, content, logos, and designs are owned by {{legalName || companyName}} or its licensors and are protected by law. You receive no license except to view the Site for its intended purpose.\n\n## Third-Party Links\n\nLinks to third parties are provided for convenience. We are not responsible for their content or practices.\n\n## Disclaimers\n\nThe Site is provided \"as is\" and \"as available\" without warranties of any kind. We disclaim all warranties to the extent permitted by law.\n\n## Limitation of Liability\n\nTo the maximum extent permitted by law, we are not liable for indirect, incidental, special, consequential, or punitive damages, or loss of profits, data, or use.\n\n## Indemnity\n\nYou agree to indemnify and hold {{companyName}} harmless from claims arising out of your use of the Site or violation of these Terms.\n\n## Governing Law\n\nThese Terms are governed by the laws of Ontario, Canada, without regard to conflict of law principles. Venue lies in Ontario courts.\n\n## Changes\n\nWe may update these Terms from time to time. The updated version will be posted with a new \"Effective date\".\n\n## Contact\n\nQuestions about these Terms? Email **{{email}}**.",
+    "lastUpdatedISO": "2025-08-20"
+  },
+  {
+    "slug": "privacy-policy",
+    "title": "Privacy Policy",
+    "jurisdiction": "CA",
+    "version": "2025-08-20",
+    "body": "# Privacy Policy for {{companyName}}\n\n**Last updated:** {{lastUpdatedISO}}\n\nThis Privacy Policy describes how {{companyName}} (\"we\", \"us\") collects, uses, and protects information in connection with {{websiteUrl}} (the \"Site\") and our services.\n\n## Information We Collect\n\n- **Contact details** you submit (e.g., name, email, project info) via forms.\n- **Usage data** from analytics (page views, device info) and logs for security.\n- **Cookies** and similar technologies for functionality, analytics, and advertising.\n\n## How We Use Information\n\n- To provide, maintain, and improve our Site and services.\n- To communicate with you (support, proposals, updates).\n- For analytics and advertising (see Cookie Policy) where consented/allowed.\n- To protect against fraud, abuse, or violations of our Terms.\n\n## Legal Bases (if applicable)\n\nWhere required, we rely on consent, contract necessity, and legitimate interests (e.g., Site security, service improvement).\n\n## Sharing\n\nWe may share with service providers that help operate our business (e.g., hosting, email, analytics, advertising) under confidentiality and data protection terms. We do not sell personal information.\n\n## International Transfers\n\nYour data may be processed in other countries. We take steps to protect it in line with applicable laws.\n\n## Retention\n\nWe keep information only as long as necessary for the purposes above or as required by law.\n\n## Your Rights\n\nSubject to law, you may request access, correction, deletion, or restriction, and withdraw consent where applicable. Contact us at **{{dpoEmail || email}}**.\n\n## Cookies & Ads\n\nSee our **Cookie Policy** for details on cookies, ad tech, and your choices.\n\n## Children\n\nOur services target business users and are not directed to children under 13/16.\n\n## Contact\n\n**{{companyName}}**  \n{{address}} ({{provinceOrState}}, {{country}})  \nEmail: **{{email}}**",
+    "lastUpdatedISO": "2025-08-20"
+  },
+  {
+    "slug": "cookie-policy",
+    "title": "Cookie Policy",
+    "jurisdiction": "CA / International",
+    "version": "2025-08-20",
+    "body": "# Cookie Policy\n\n**Last updated:** `{{lastUpdatedISO}}`\n\nThis policy explains how {{companyName}} uses cookies and similar technologies on {{websiteUrl}}.\n\n## What Are Cookies?\n\nCookies are small files placed on your device to store information. We use:\n\n- **Strictly necessary** cookies — required for site functionality and security.\n- **Analytics** cookies — to understand usage and improve the Site.\n- **Advertising** cookies — to deliver and measure ads (if enabled/consented).\n\n## Your Choices\n\nYou can manage cookies in our on-site banner and in your browser settings. If you disable cookies, some features may not work.\n\n## Specific Technologies\n\nWe may use Google Analytics and Google Ads. Where required, these load only after your consent. You can withdraw consent anytime via the banner.\n\n## Retention\n\nCookie lifetimes vary. We set reasonable durations and limit identifiers where possible.\n\n## Contact\n\nQuestions? Email **`{{dpoEmail || email}}`**.",
+    "lastUpdatedISO": "2025-08-20"
+  },
+  {
+    "slug": "disclaimer",
+    "title": "Disclaimer",
+    "jurisdiction": "CA / International",
+    "version": "2025-08-20",
+    "body": "# Disclaimer\n\nContent on {{websiteUrl}} is for informational purposes only. We do not guarantee specific results from any strategy, design, SEO, or advertising discussed. Nothing here is legal, tax, or financial advice. Use third-party tools and services at your own discretion.\n\nIf you have questions, contact **{{email}}**.",
+    "lastUpdatedISO": "2025-08-20"
+  }
+]

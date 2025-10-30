@@ -1,0 +1,82 @@
+{
+  "hero": {
+    "title": "High-performance sites engineered to convert",
+    "subtitle": "From local visitors to calls, quotes, and booked jobs across Canada.",
+    "ctaLabel": "View Our Services",
+    "ctaHref": "/services"
+  },
+  "why": {
+    "title": "Why ALL8",
+    "subtitle": "We engineer websites that perform like a V8 engine — fast, efficient, and built for results.",
+    "benefits": [
+      {
+        "title": "Results, not fluff",
+        "description": "Clear value props, fast pages, clean funnels. Every page has one job and is measured against it.",
+        "icon": "Target"
+      },
+      {
+        "title": "Local SEO baked in",
+        "description": "Schema, Google Business Profile, location pages, review strategy — all tuned for where customers actually buy.",
+        "icon": "Search"
+      },
+      {
+        "title": "Ownable & maintainable",
+        "description": "Modern Next.js stack, clean components, and docs. Launch fast, iterate without drama.",
+        "icon": "Zap"
+      }
+    ],
+    "cta": {
+      "titlePrefix": "Ready to",
+      "highlight": "Grow",
+      "titleSuffix": "Your Business?",
+      "subtitle": "Get a free consultation. We'll audit your site, outline a plan, and give you clear next steps—no pressure.",
+      "ctaLabel": "Book a Free Consultation",
+      "ctaHref": "/contact",
+      "microText": "No long contracts • Transparent pricing • Built for speed & conversions"
+    }
+  },
+  "process": {
+    "title": "Our Process: Simple, Clear, Proven",
+    "subtitle": "Here’s how we take your project from idea to launch — and growth.",
+    "steps": [
+      {
+        "title": "Discovery & Strategy",
+        "description": "We learn your goals, audience, and competition to build a plan tied to revenue.",
+        "icon": "ClipboardList"
+      },
+      {
+        "title": "Design & Build",
+        "description": "Custom, high-performance design with modern tech — fast, accessible, and secure.",
+        "icon": "Brush"
+      },
+      {
+        "title": "Launch & Optimize",
+        "description": "SEO, analytics, and tracking ready from day one.",
+        "icon": "Rocket"
+      },
+      {
+        "title": "Ongoing Growth",
+        "description": "Hosting, updates, SEO tuning, and ads management to keep you ahead.",
+        "icon": "TrendingUp"
+      }
+    ]
+  },
+  "services": {
+    "title": "What We Can Do For You",
+    "subtitle": "Results-first services to build, launch, and grow your online presence.",
+    "show": [
+      "websites-that-convert",
+      "local-seo-lead-systems",
+      "ads-ready-landing-pages"
+    ]
+  },
+  "cta": {
+    "titlePrefix": "Ready to",
+    "highlight": "Grow",
+    "titleSuffix": "Your Business?",
+    "subtitle": "Get a free consultation. We'll audit your site, outline a plan, and give you clear next steps—no pressure.",
+    "ctaLabel": "Book a Free Consultation",
+    "ctaHref": "/contact",
+    "microText": "No long contracts • Transparent pricing • Built for speed & conversions"
+  }
+}

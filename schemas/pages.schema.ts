@@ -1,12 +1,17 @@
 import { z } from 'zod';
 
-export const PageMetaSchema = z.object({
-  path: z.string().min(1), // e.g. "/about"
+/**
+ * Schema for a single static page metadata file
+ * Example: /src/data/pages/about.json
+ */
+export const PageSchema = z.object({
   title: z.string().min(2),
   description: z.string().min(10).max(160),
-  ogImage: z.string().optional(), // path or external URL
-  noindex: z.boolean().optional(),
+  ogImage: z.string().optional(), // Path or absolute URL
+  noindex: z.boolean().optional(), // Whether to block indexing
 });
 
-export const PagesSchema = z.array(PageMetaSchema);
-export type PageMeta = z.infer<typeof PageMetaSchema>;
+/**
+ * Type for use throughout the app
+ */
+export type PageMeta = z.infer<typeof PageSchema>;

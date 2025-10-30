@@ -6,7 +6,7 @@ import { Chip } from '@heroui/chip';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { getIconByName } from '@/lib/icons';
-import type { Service } from '../data/services';
+import type { Service } from '@/data/services';
 
 export function ServiceCard({ service }: { service: Service }) {
   const Icon = getIconByName(service.icon);

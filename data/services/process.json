@@ -1,0 +1,26 @@
+{
+  "title": "Our Service Workflow",
+  "subtitle": "From first call to ongoing results, here’s how we deliver value on every project.",
+  "steps": [
+    {
+      "title": "Initial Consultation",
+      "description": "We review your project needs, budget, and timeline so you know exactly what’s included before we start.",
+      "icon": "clipboard"
+    },
+    {
+      "title": "Custom Proposal",
+      "description": "You get a tailored plan of action — transparent pricing, clear milestones, and no surprise add-ons.",
+      "icon": "brush"
+    },
+    {
+      "title": "Project Execution",
+      "description": "We roll up our sleeves and deliver with efficiency, whether it’s a new build, optimization, or campaign setup.",
+      "icon": "rocket"
+    },
+    {
+      "title": "Reporting & Support",
+      "description": "Regular updates, performance tracking, and ongoing support ensure your investment keeps paying off.",
+      "icon": "trending"
+    }
+  ]
+}

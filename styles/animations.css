@@ -1,0 +1,35 @@
+/* Include motion only for users who allow it */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes parallax-lines {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(50%);
+    }
+  }
+  @keyframes scan-v {
+    0% {
+      transform: translateY(-20%);
+    }
+    100% {
+      transform: translateY(300%);
+    }
+  }
+
+  .animate-parallax-lines {
+    animation: parallax-lines 12s linear infinite;
+  }
+  .scan-v {
+    animation: scan-v 12s linear infinite;
+  }
+
+  .scan-v-background {
+    background-image: linear-gradient(
+      180deg,
+      transparent,
+      rgba(0, 118, 255, 0.2),
+      transparent
+    );
+  }
+}

@@ -1,29 +1,25 @@
+'use client';
+
+import dynamic from 'next/dynamic';
 import { Link } from '@heroui/link';
 import { siteConfig } from '@/config/site';
-import {
-  Facebook,
-  InstagramIcon,
-  LinkedinIcon,
-  LinkIcon,
-  Phone,
-  XIcon,
-} from 'lucide-react';
-import { TwitterIcon } from './icons';
+import { Facebook, InstagramIcon, LinkedinIcon } from 'lucide-react';
+
 import Logo from './Logo';
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-t from-[#0B0F1A] to-[#1C1C1C]  text-gray-200 py-12 px-6 h-full">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-8 text-center md:text-left ">
+    <footer className="bg-[#0B0F1A] border-t border-[#ffffff0d] text-gray-200 py-12 px-6">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-8 text-center md:text-left">
         {/* Contact Info */}
-        <div className="flex flex-col ">
+        <div className="flex flex-col items-center md:items-start">
           <Link href="/">
             <Logo size="lg" variant="stacked" />
           </Link>
-          <h4 className="font-bold text-inherit">{siteConfig.name}</h4>
+          {/* <h4 className="font-bold text-inherit">{siteConfig.name}</h4> */}
 
-          <p>{siteConfig.addressLine || '684 Powerline Rd, Brant, ON'}</p>
-          <Link
+          {/* <p>{siteConfig.addressLine || 'Brant, ON'}</p> */}
+          {/* <Link
             href={`tel:${siteConfig.phone}`}
             className="hover:text-white block mt-2"
           >
@@ -31,7 +27,7 @@ export default function Footer() {
               <Phone size={16} />
               {siteConfig.phone}
             </span>
-          </Link>
+          </Link> */}
         </div>
         {/* Navigation Links */}
         <div>
@@ -50,37 +46,29 @@ export default function Footer() {
         <div>
           <h4 className="text-lg font-semibold mb-2">Stay In Touch</h4>
           <div className="flex justify-center md:justify-start space-x-4">
-            {siteConfig.links.github && (
+            {siteConfig.links.facebook && (
               <Link
-                href={siteConfig.links.github}
+                href={siteConfig.links.facebook}
                 isExternal
                 className="hover:text-white"
               >
                 <Facebook />
               </Link>
             )}
-            {siteConfig.links.twitter && (
+
+            {siteConfig.links.linkedin && (
               <Link
-                href={siteConfig.links.twitter}
+                href={siteConfig.links.linkedin}
                 isExternal
                 className="hover:text-white"
               >
                 <LinkedinIcon />
               </Link>
             )}
-            {siteConfig.links.docs && (
-              <Link
-                href={siteConfig.links.docs}
-                isExternal
-                className="hover:text-white"
-              >
-                <InstagramIcon />
-              </Link>
-            )}
           </div>
         </div>
         <div className="col-span-full justify-self-center text-center">
-          <p className="italic">Powered by ALL8 Webworks</p>
+          {/* <p className="italic">Powered by ALL8 Webworks</p> */}
           <p className="mt-4 text-sm ">
             &copy; {new Date().getFullYear()} {siteConfig.name}
           </p>

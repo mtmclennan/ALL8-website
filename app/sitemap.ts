@@ -1,19 +1,19 @@
 import { MetadataRoute } from 'next';
 import { siteUrl } from '@/config/site.config';
 import { loadServices } from '../lib/utils/data-loaders';
-import { loadPages } from '../lib/utils/page-meta'; // from the static pages setup
+import { loadAllPages } from '../lib/utils/buildStaticMetadata'; // from the static pages setup
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteUrl();
 
   // static pages (from pages.json) — skip noindex pages
-  const staticPages = loadPages()
+  const staticPages = loadAllPages()
     .filter((p) => !p.noindex)
     .map((p) => ({
       url: new URL(p.path, base).toString(),
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
-      priority: 0.6,
+      priority: 0.9,
     }));
 
   // service pages (from services.json)
