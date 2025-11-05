@@ -1,6 +1,6 @@
 'use client';
 
-import { LazyMotion, domAnimation, m } from 'framer-motion';
+import { LazyMotion, domAnimation, motion } from 'framer-motion';
 import { ShineIcon } from '../../components/ShineIcon';
 import {
   Section,
@@ -42,7 +42,7 @@ export default function WhyAll8({ benefits, why, cta }: WhyAll8Props) {
             title={
               <>
                 {why.titlePrefix}{' '}
-                <m.span
+                <motion.span
                   initial={{ scale: 0.95, opacity: 0.6 }}
                   whileHover={{ scale: 1.15 }}
                   animate={{ scale: 1.05, opacity: 1 }}
@@ -55,7 +55,7 @@ export default function WhyAll8({ benefits, why, cta }: WhyAll8Props) {
                   className="inline-block text-chrome font-extrabold"
                 >
                   {why.highlight}
-                </m.span>
+                </motion.span>
                 {why.titleSuffix}
               </>
             }
@@ -68,7 +68,7 @@ export default function WhyAll8({ benefits, why, cta }: WhyAll8Props) {
           {/* Left Column - Benefits */}
           <div className="order-1 lg:col-span-7">
             <LazyMotion features={domAnimation}>
-              <m.ul
+              <motion.ul
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, margin: '-20%' }}
@@ -89,7 +89,7 @@ export default function WhyAll8({ benefits, why, cta }: WhyAll8Props) {
                     lucideIconMap[icon as keyof typeof lucideIconMap] ??
                     lucideIconMap['Target']; // fallback
                   return (
-                    <m.li
+                    <motion.li
                       key={title}
                       variants={{
                         hidden: { opacity: 0, y: 12 },
@@ -110,10 +110,10 @@ export default function WhyAll8({ benefits, why, cta }: WhyAll8Props) {
                           <p className="mt-1 text-gray-300">{description}</p>
                         </div>
                       </div>
-                    </m.li>
+                    </motion.li>
                   );
                 })}
-              </m.ul>
+              </motion.ul>
             </LazyMotion>
           </div>
 

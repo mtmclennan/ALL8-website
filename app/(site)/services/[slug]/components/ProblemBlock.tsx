@@ -2,7 +2,7 @@
 
 import { Section } from '@/app/(site)/components/SectionWrapper';
 import { SectionHeader } from '@/app/(site)/components/SectionWrapper';
-import { m, LazyMotion, domAnimation } from 'framer-motion';
+import { motion, LazyMotion, domAnimation } from 'framer-motion';
 import { AlertTriangle } from 'lucide-react';
 import type { Problem } from '@/data/services';
 import { ShineIcon } from '@/app/(site)/components/ShineIcon';
@@ -28,7 +28,7 @@ export default function ProblemBlock({
         <SectionHeader title={title} subtitle={subtitle} center />
 
         <LazyMotion features={domAnimation}>
-          <m.div
+          <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: '-10%' }}
@@ -47,7 +47,7 @@ export default function ProblemBlock({
                 AlertTriangle;
 
               return (
-                <m.div
+                <motion.div
                   key={i}
                   variants={{
                     hidden: { opacity: 0, y: 12 },
@@ -62,10 +62,10 @@ export default function ProblemBlock({
                   <p className="mt-2 text-sm text-foreground/70 leading-snug">
                     {p.description}
                   </p>
-                </m.div>
+                </motion.div>
               );
             })}
-          </m.div>
+          </motion.div>
         </LazyMotion>
       </div>
     </Section>

@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { LazyMotion, domAnimation, m } from 'framer-motion';
+import { LazyMotion, domAnimation, motion } from 'framer-motion';
 import {
   Zap,
   Search,
@@ -73,7 +73,7 @@ export default function WhyWorkWithUsTwoCol({
             title={
               <>
                 {title}{' '}
-                <m.span
+                <motion.span
                   initial={{ scale: 0.95, opacity: 0.6 }}
                   whileHover={{ scale: 1.2 }}
                   animate={{ scale: 1.1, opacity: 1 }}
@@ -86,7 +86,7 @@ export default function WhyWorkWithUsTwoCol({
                   className="inline-block whitespace-nowrap text-chrome text-fill-transparent font- font-extrabold"
                 >
                   {titleHighlight}
-                </m.span>{' '}
+                </motion.span>{' '}
               </>
             }
             subtitle="Get a free consultation. We'll audit your site, outline a plan, and give you clear next steps—no pressure."
@@ -145,7 +145,7 @@ export default function WhyWorkWithUsTwoCol({
             className={`order-1 lg:col-span-6 ${reverse ? 'lg:order-1' : ''}`}
           >
             <LazyMotion features={domAnimation}>
-              <m.ul
+              <motion.ul
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, margin: '-20%' }}
@@ -164,7 +164,7 @@ export default function WhyWorkWithUsTwoCol({
                 {benefits.map(({ title, description, icon }, idx) => {
                   const Icon = ICONS[icon];
                   return (
-                    <m.li
+                    <motion.li
                       key={title}
                       variants={{
                         hidden: { opacity: 0, y: 12 },
@@ -187,10 +187,10 @@ export default function WhyWorkWithUsTwoCol({
                           </p>
                         </div>
                       </div>
-                    </m.li>
+                    </motion.li>
                   );
                 })}
-              </m.ul>
+              </motion.ul>
             </LazyMotion>
           </div>
         </div>

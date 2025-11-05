@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { LazyMotion, domAnimation, m } from 'framer-motion';
+import { LazyMotion, domAnimation, motion } from 'framer-motion';
 
 import { getServicesWithIcons, ServiceWithIcon } from '@/data/services';
 // Shared primitives
@@ -61,7 +61,7 @@ export default function ServicesOverviewRefactored({
         {variant === 'auto' && (
           <>
             {/* Mobile: horizontal scroll cards */}
-            <m.ul
+            <motion.ul
               variants={containerVariants}
               initial="hidden"
               whileInView="show"
@@ -69,18 +69,18 @@ export default function ServicesOverviewRefactored({
               className="mb-6 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-4 px-4 pb-4 sm:hidden"
             >
               {services.map((s) => (
-                <m.li
+                <motion.li
                   key={s.slug}
                   variants={cardVariants}
                   className="snap-start"
                 >
                   <ServiceCard service={s} />
-                </m.li>
+                </motion.li>
               ))}
-            </m.ul>
+            </motion.ul>
 
             {/* Desktop: responsive grid */}
-            <m.ul
+            <motion.ul
               variants={containerVariants}
               initial="hidden"
               whileInView="show"
@@ -88,16 +88,16 @@ export default function ServicesOverviewRefactored({
               className="hidden grid-cols-1 gap-5 sm:grid md:grid-cols-2 lg:grid-cols-3"
             >
               {services.map((s) => (
-                <m.li key={s.slug} variants={cardVariants}>
+                <motion.li key={s.slug} variants={cardVariants}>
                   <ServiceCard service={s} />
-                </m.li>
+                </motion.li>
               ))}
-            </m.ul>
+            </motion.ul>
           </>
         )}
 
         {isGrid && (
-          <m.ul
+          <motion.ul
             variants={containerVariants}
             initial="hidden"
             whileInView="show"
@@ -105,15 +105,15 @@ export default function ServicesOverviewRefactored({
             className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
           >
             {services.map((s) => (
-              <m.li key={s.slug} variants={cardVariants}>
+              <motion.li key={s.slug} variants={cardVariants}>
                 <ServiceCard service={s} />
-              </m.li>
+              </motion.li>
             ))}
-          </m.ul>
+          </motion.ul>
         )}
 
         {isScroll && (
-          <m.ul
+          <motion.ul
             variants={containerVariants}
             initial="hidden"
             whileInView="show"
@@ -121,11 +121,15 @@ export default function ServicesOverviewRefactored({
             className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2"
           >
             {services.map((s) => (
-              <m.li key={s.slug} variants={cardVariants} className="snap-start">
+              <motion.li
+                key={s.slug}
+                variants={cardVariants}
+                className="snap-start"
+              >
                 <ServiceCard service={s} />
-              </m.li>
+              </motion.li>
             ))}
-          </m.ul>
+          </motion.ul>
         )}
       </LazyMotion>
 

@@ -1,7 +1,12 @@
 'use client';
 
 import React from 'react';
-import { LazyMotion, domAnimation, m, useReducedMotion } from 'framer-motion';
+import {
+  LazyMotion,
+  domAnimation,
+  motion,
+  useReducedMotion,
+} from 'framer-motion';
 import { Section, SectionHeader, Card } from './SectionWrapper';
 import { ClipboardList, Brush, Rocket, TrendingUp } from 'lucide-react';
 
@@ -38,7 +43,7 @@ export function ProcessSection({
 
       <LazyMotion features={domAnimation}>
         <div className="relative pb-10">
-          <m.ul
+          <motion.ul
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
@@ -53,7 +58,7 @@ export function ProcessSection({
             {steps.map((s, i) => {
               const Icon = ICONS[s.icon as keyof typeof ICONS] || Rocket;
               return (
-                <m.li
+                <motion.li
                   key={s.title}
                   variants={{
                     hidden: prefersReduced
@@ -92,10 +97,10 @@ export function ProcessSection({
                       <div className="mt-4 h-px w-0 bg-gradient-to-r from-[var(--from,_#0047bb)] to-[var(--to,_#D33F49)] transition-all duration-300 group-hover:w-full" />
                     </div>
                   </Card>
-                </m.li>
+                </motion.li>
               );
             })}
-          </m.ul>
+          </motion.ul>
         </div>
       </LazyMotion>
     </Section>

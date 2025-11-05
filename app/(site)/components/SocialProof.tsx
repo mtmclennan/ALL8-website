@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { LazyMotion, domAnimation, m } from 'framer-motion';
+import { LazyMotion, domAnimation, motion } from 'framer-motion';
 import { Building2, ShieldCheck, LineChart, Gauge, Quote } from 'lucide-react';
 import {
   Section,
@@ -58,7 +58,7 @@ export default function SocialProofSection() {
 
       <LazyMotion features={domAnimation}>
         {/* Cases grid */}
-        <m.ul
+        <motion.ul
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
@@ -71,7 +71,7 @@ export default function SocialProofSection() {
           {cases.map((c) => {
             const Icon = c.icon;
             return (
-              <m.li
+              <motion.li
                 key={c.title}
                 variants={{
                   hidden: { opacity: 0, y: 16 },
@@ -118,10 +118,10 @@ export default function SocialProofSection() {
                     />
                   </div>
                 </Card>
-              </m.li>
+              </motion.li>
             );
           })}
-        </m.ul>
+        </motion.ul>
 
         {/* Performance proof & testimonial placeholder */}
         <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">

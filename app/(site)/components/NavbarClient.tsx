@@ -8,7 +8,7 @@ export const NavbarClient = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="sticky top-0 h-[64px] w-full bg-background/80 backdrop-blur" />
+      <div className="sticky top-0 h-16 w-full bg-background/80 backdrop-blur" />
     ), // placeholder to prevent layout shift
   }
 );

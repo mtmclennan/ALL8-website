@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { m, LazyMotion, domAnimation } from 'framer-motion';
+import { motion, LazyMotion, domAnimation } from 'framer-motion';
 import Link from 'next/link';
 import {
   ButtonGradientWrapper,
@@ -35,7 +35,7 @@ export default function StrongCTA({
       {/* <div aria-hidden className="pointer-events-none" /> */}
 
       <LazyMotion features={domAnimation}>
-        <m.div
+        <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -46,7 +46,7 @@ export default function StrongCTA({
             title={
               <>
                 {titlePrefix}{' '}
-                <m.span
+                <motion.span
                   initial={{ scale: 0.85, opacity: 0.6 }}
                   whileHover={{ scale: 1.3 }}
                   animate={{ scale: 1.1, opacity: 1 }}
@@ -59,7 +59,7 @@ export default function StrongCTA({
                   className="inline-block whitespace-nowrap text-chrome text-fill-transparent font-extrabold"
                 >
                   {highlight}
-                </m.span>{' '}
+                </motion.span>{' '}
                 {titleSuffix}
               </>
             }
@@ -90,7 +90,7 @@ export default function StrongCTA({
               <p className="text-sm">{microText}</p>
             </div>
           )}
-        </m.div>
+        </motion.div>
       </LazyMotion>
     </Section>
   );

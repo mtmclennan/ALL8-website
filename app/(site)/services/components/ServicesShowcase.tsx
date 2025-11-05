@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { LazyMotion, domAnimation, m } from 'framer-motion';
+import { LazyMotion, domAnimation, motion } from 'framer-motion';
 import { getServicesWithIcons, ServiceWithIcon } from '@/data/services';
 import { Section, SectionHeader } from '@/app/(site)/components/SectionWrapper';
 import { Button } from '@heroui/button';
@@ -40,7 +40,7 @@ export default function ServicesShowcase({
       </div>
 
       <LazyMotion features={domAnimation}>
-        <m.ul
+        <motion.ul
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
@@ -48,11 +48,11 @@ export default function ServicesShowcase({
           className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3"
         >
           {services.map((s) => (
-            <m.li key={s.slug} variants={cardVariants}>
+            <motion.li key={s.slug} variants={cardVariants}>
               <ServiceShowcaseCard service={s} />
-            </m.li>
+            </motion.li>
           ))}
-        </m.ul>
+        </motion.ul>
       </LazyMotion>
     </Section>
   );

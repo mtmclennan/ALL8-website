@@ -1,5 +1,3 @@
-import { link } from 'fs';
-
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
@@ -40,6 +38,12 @@ export const siteConfig = {
     {
       label: 'Home',
       href: '/',
+    },
+  ],
+  navFooter: [
+    {
+      label: 'legal',
+      href: '/legal',
     },
   ],
   links: {

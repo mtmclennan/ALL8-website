@@ -2,7 +2,7 @@
 
 import { Section } from '@/app/(site)/components/SectionWrapper';
 import { Accordion, AccordionItem } from '@heroui/accordion';
-import { m, LazyMotion, domAnimation } from 'framer-motion';
+import { motion, LazyMotion, domAnimation } from 'framer-motion';
 import { ChevronDown, HelpCircle } from 'lucide-react';
 import type { FAQ } from '@/data/services';
 import { ShineIcon } from '@/app/(site)/components/ShineIcon';
@@ -33,7 +33,7 @@ export default function FAQBlock({
         </div>
 
         <LazyMotion features={domAnimation}>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-10%' }}
@@ -63,18 +63,18 @@ export default function FAQBlock({
                     <ChevronDown className="h-5 w-5 text-foreground/70 transition-transform group-data-[open=true]:rotate-180" />
                   }
                 >
-                  <m.div
+                  <motion.div
                     initial={{ opacity: 0, y: 4 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 4 }}
                     transition={{ duration: 0.25, ease: 'easeOut' }}
                   >
                     <p className="mt-1 leading-snug">{faq.a}</p>
-                  </m.div>
+                  </motion.div>
                 </AccordionItem>
               ))}
             </Accordion>
-          </m.div>
+          </motion.div>
         </LazyMotion>
       </div>
     </Section>

@@ -2,7 +2,7 @@
 
 import { Section, SectionHeader } from '@/app/(site)/components/SectionWrapper';
 
-import { m, LazyMotion, domAnimation } from 'framer-motion';
+import { motion, LazyMotion, domAnimation } from 'framer-motion';
 
 type ComparisonPoint = {
   label: string;
@@ -31,7 +31,7 @@ export default function ComparisonBlock({ comparison }: ComparisonBlockProps) {
         <SectionHeader title={title} subtitle={subtitle} center />
 
         <LazyMotion features={domAnimation}>
-          <m.div
+          <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: '-10%' }}
@@ -56,7 +56,7 @@ export default function ComparisonBlock({ comparison }: ComparisonBlockProps) {
 
             <div className="divide-y divide-silver/30">
               {points.map((p, i) => (
-                <m.div
+                <motion.div
                   key={i}
                   variants={{
                     hidden: { opacity: 0, y: 10 },
@@ -73,10 +73,10 @@ export default function ComparisonBlock({ comparison }: ComparisonBlockProps) {
                   <div className="text-center text-foreground/70">
                     {p.theirs}
                   </div>
-                </m.div>
+                </motion.div>
               ))}
             </div>
-          </m.div>
+          </motion.div>
         </LazyMotion>
       </div>
     </Section>

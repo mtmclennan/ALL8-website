@@ -6,7 +6,7 @@ export default function SiteTemplate({ children }: { children: ReactNode }) {
   return (
     <>
       {children}
-      <SchemaRouter />
+      <SchemaRouter pathname="/" />
     </>
   );
 }

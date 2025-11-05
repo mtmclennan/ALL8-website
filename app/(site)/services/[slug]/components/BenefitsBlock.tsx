@@ -2,7 +2,7 @@
 
 import { Section, SectionHeader } from '@/app/(site)/components/SectionWrapper';
 
-import { LazyMotion, domAnimation, m } from 'framer-motion';
+import { LazyMotion, domAnimation, motion } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
 import { ShineIcon } from '@/app/(site)/components/ShineIcon';
 
@@ -26,7 +26,7 @@ export default function BenefitsBlock({
         <SectionHeader title={title} subtitle={subtitle} center />
 
         <LazyMotion features={domAnimation}>
-          <m.div
+          <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: '-10%' }}
@@ -40,7 +40,7 @@ export default function BenefitsBlock({
             className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
           >
             {benefits.map((b, i) => (
-              <m.div
+              <motion.div
                 key={i}
                 variants={{
                   hidden: { opacity: 0, y: 12 },
@@ -52,9 +52,9 @@ export default function BenefitsBlock({
                 <p className="mt-3 text-sm text-foreground/80 leading-snug">
                   {b}
                 </p>
-              </m.div>
+              </motion.div>
             ))}
-          </m.div>
+          </motion.div>
         </LazyMotion>
       </div>
     </Section>

@@ -1,6 +1,6 @@
 'use client';
 import {
-  m,
+  motion,
   LazyMotion,
   domAnimation,
   MotionConfig,
@@ -32,14 +32,14 @@ export default function ContactPageHero({
     <section className="relative mx-auto max-w-4xl px-6 py-16 text-center">
       <LazyMotion features={domAnimation}>
         <MotionConfig reducedMotion={forceMotion ? 'never' : 'user'}>
-          <m.h1
+          <motion.h1
             initial={shouldAnimate ? { opacity: 0, y: 12 } : false}
             animate={shouldAnimate ? { opacity: 1, y: 0 } : undefined}
             transition={{ duration: 0.45 }}
             className="text-4xl font-bold tracking-tight md:text-5xl"
           >
             {hero.titlePrefix}{' '}
-            <m.span
+            <motion.span
               initial={shouldAnimate ? { scale: 0.85, opacity: 0.6 } : false}
               whileHover={shouldAnimate ? { scale: 1.3 } : undefined}
               animate={shouldAnimate ? { scale: 1.03, opacity: 1 } : undefined}
@@ -52,28 +52,28 @@ export default function ContactPageHero({
               className="inline-block text-chrome font-extrabold"
             >
               {hero.highlight}
-            </m.span>{' '}
+            </motion.span>{' '}
             {hero.titleSuffix}
-          </m.h1>
+          </motion.h1>
 
-          <m.p
+          <motion.p
             initial={shouldAnimate ? { opacity: 0 } : false}
             animate={shouldAnimate ? { opacity: 1 } : undefined}
             transition={{ duration: 0.35, delay: 0.2 }}
             className="mx-auto mt-4 max-w-2xl text-base text-foreground/70 md:text-lg"
           >
             {hero.subtitle}
-          </m.p>
+          </motion.p>
 
           {hero.note && (
-            <m.p
+            <motion.p
               initial={shouldAnimate ? { opacity: 0 } : false}
               animate={shouldAnimate ? { opacity: 1 } : undefined}
               transition={{ duration: 0.35, delay: 0.25 }}
               className="mt-2 text-sm text-foreground/60"
             >
               {hero.note}
-            </m.p>
+            </motion.p>
           )}
 
           <div className="mt-8 flex justify-center">
