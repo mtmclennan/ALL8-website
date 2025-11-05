@@ -16,8 +16,9 @@ import clsx from 'clsx';
 import { siteConfig } from '@/config/site';
 import { CalendarCheck } from 'lucide-react';
 import Logo from './Logo';
+import exp from 'constants';
 
-export const Navbar = () => {
+const Navbar = () => {
   return (
     <HeroUINavbar
       maxWidth="xl"
@@ -92,3 +93,5 @@ export const Navbar = () => {
     </HeroUINavbar>
   );
 };
+
+export default Navbar;

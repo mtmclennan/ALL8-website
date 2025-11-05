@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 
 // Lazy-load the real Navbar on the client
 export const NavbarClient = dynamic(
-  () => import('@/app/(site)/components/Navbar').then((m) => m.Navbar),
+  () => import('@/app/(site)/components/Navbar'),
   {
     ssr: false,
     loading: () => (
