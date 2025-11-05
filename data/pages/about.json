@@ -1,7 +1,7 @@
 {
   "path": "/about",
-  "title": "About ALL8 Webworks",
-  "description": "ALL8 Webworks is a Canadian web design and SEO company built for service-based businesses who demand performance and measurable results.",
+  "title": "About ALL8 Webworks | Web Design for Trades",
+  "description": "ALL8 Webworks builds fast, reliable websites for service businesses—no fluff, just performance, SEO, and real results that drive customer growth.",
   "ogImage": "/assets/images/og/about-all8-webworks.png",
   "hero": {
     "title": "Engineering Websites That Drive Calls, Quotes & Jobs",
@@ -46,7 +46,9 @@
     "cta": {
       "label": "Talk To Us",
       "href": "/contact"
-    }
+    },
+    "imageSrc": "/assets/images/about/all8-webworks-contractor-website-design-developer-laptop-construction-tools.webp",
+    "imageAlt": "Team meeting at ALL8 Webworks office"
   },
   "process": {
     "title": "How We Work With You",

@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import {
   LazyMotion,
   domAnimation,
@@ -30,7 +29,7 @@ type ProcessSectionProps = {
   steps: Step[];
 };
 
-export function ProcessSection({
+export default function ProcessSection({
   title,
   subtitle,
   steps,

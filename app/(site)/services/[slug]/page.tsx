@@ -6,7 +6,7 @@ import ServiceHero from './components/ServiceHero';
 import { getServiceBySlug, SERVICES } from '@/data/services';
 import { getIconByName } from '@/lib/icons';
 import CallToAction from '@/app/(site)/components/CallToAction';
-import { ProcessSection } from '@/app/(site)/components/OurProcess';
+import ProcessSection from '@/app/(site)/components/OurProcess';
 import ServiceOverview from './components/ServiceOverview';
 import BenefitsBlock from './components/BenefitsBlock';
 import ProblemBlock from './components/ProblemBlock';

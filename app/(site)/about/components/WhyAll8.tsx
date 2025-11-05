@@ -2,6 +2,7 @@
 
 import { LazyMotion, domAnimation, motion } from 'framer-motion';
 import { ShineIcon } from '../../components/ShineIcon';
+import Image from 'next/image';
 import {
   Section,
   SectionHeader,
@@ -31,9 +32,17 @@ interface WhyAll8Props {
     label: string;
     href: string;
   };
+  imageSrc?: string;
+  imageAlt?: string;
 }
 
-export default function WhyAll8({ benefits, why, cta }: WhyAll8Props) {
+export default function WhyAll8({
+  benefits,
+  why,
+  cta,
+  imageSrc,
+  imageAlt,
+}: WhyAll8Props) {
   return (
     <Section tone="highlight" pattern="none" className="py-20 md:py-24">
       <div className="mx-auto px-6 max-w-[1400px]">
@@ -118,7 +127,31 @@ export default function WhyAll8({ benefits, why, cta }: WhyAll8Props) {
           </div>
 
           {/* Right Column - CTA */}
-          <div className="lg:col-span-5 flex flex-col justify-center items-center mt-12 lg:mt-0">
+          <div className="lg:col-span-5 flex flex-col justify-center gap-4 items-center mt-12 lg:mt-0">
+            {imageSrc && (
+              <div className={`mt-2 relative overflow-hidden rounded-2xl `}>
+                <Image
+                  src={imageSrc}
+                  alt={imageAlt || 'Why Choose ALL8 Webworks'}
+                  width={1400}
+                  height={933}
+                  className="w-full h-auto"
+                  sizes="(min-width:1536px) 700px,
+                     (min-width:1280px) 600px,
+                     (min-width:1024px) 45vw,
+                     (min-width:768px) 80vw,
+                     100vw"
+                  loading="lazy"
+                  fetchPriority="low"
+                  placeholder="blur"
+                  blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI4MDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEyMDAiIGhlaWdodD0iODAwIiBmaWxsPSIjZGRkZGRkIi8+PC9zdmc+"
+                />
+                <div
+                  className="absolute inset-0 bg-blueprint-overlay"
+                  aria-hidden
+                />
+              </div>
+            )}
             <ButtonGradientWrapper>
               <Button
                 href={cta.href}

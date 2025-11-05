@@ -7,7 +7,7 @@ import { validateMetadata } from '@/lib/utils/seoValidation';
 import { buildStaticMetadata } from '@/lib/utils/buildStaticMetadata';
 import ServicesPageHero from './components/ServicesPageHero';
 import ServicesShowcase from './components/ServicesShowcase';
-import { ProcessSection } from '../components/OurProcess';
+import ProcessSection from '../components/OurProcess';
 import CallToAction from '@/app/(site)/components/CallToAction';
 
 export const metadata: Metadata = buildStaticMetadata('/services');

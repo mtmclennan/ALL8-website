@@ -95,7 +95,6 @@ export default function WhyWorkWithUsTwoCol({
           />
         </LazyMotion>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-20">
-          <div></div>
           <div
             className={`lg:col-span-5 order-2  ${reverse ? 'lg:order-2' : ''}`}
           >

@@ -23,7 +23,7 @@ export default function ServiceHero({ hero }: ServiceHeroProps) {
     <section className="relative isolate overflow-hidden bg-primary/5">
       <div className="relative z-10 mx-auto max-w-[1400px] px-6 py-20 md:py-28 grid grid-cols-1 md:grid-cols-12 gap-10">
         {/* Copy */}
-        <div className="md:col-span-7 flex flex-col justify-center">
+        <div className="md:col-span-7 sm:ml-8 flex flex-col justify-center">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
             {hero.titlePrefix}{' '}
             <motion.span

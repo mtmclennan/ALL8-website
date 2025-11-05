@@ -13,10 +13,9 @@ const ServicesOverview = dynamic(() => import('./components/Services'), {
   ssr: false,
 });
 
-const ProcessSection = dynamic(
-  () => import('./components/OurProcess').then((mod) => mod.ProcessSection),
-  { ssr: false }
-);
+const ProcessSection = dynamic(() => import('./components/OurProcess'), {
+  ssr: false,
+});
 
 const CallToAction = dynamic(() => import('./components/CallToAction'), {
   ssr: false,

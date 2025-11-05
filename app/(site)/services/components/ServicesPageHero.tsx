@@ -31,14 +31,14 @@ export default function ServicesPageHero({ hero }: ServicesHeroProps) {
 
       {/* Content */}
       <div className="relative z-10 mx-auto sm:max-w-10/12 2xl:max-w-[1600px] px-4 sm:px-6 py-20 md:py-28">
-        <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-12">
+        <div className="grid grid-cols-1 sm:ml-8 items-center gap-6 lg:grid-cols-12">
           {/* Left copy */}
           <div className="md:col-span-7">
             <motion.h1
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.35 }}
-              className="text-6xl text-center md:text-left font-bold tracking-tight md:text-7xl/20 2xl:text-8xl/25"
+              className="text-4xl text-center md:text-left font-bold tracking-tight md:text-7xl/20 2xl:text-8xl/25"
             >
               {hero.title}
             </motion.h1>
@@ -64,17 +64,23 @@ export default function ServicesPageHero({ hero }: ServicesHeroProps) {
             )}
 
             {/* Feature chips */}
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap justify-center sm:justify-start gap-3">
               <div className="flex items-center gap-2 font-medium text-white">
                 <Gauge size={24} className="text-brand-red" />
                 <span>Performance-First</span>
               </div>
-              <Divider orientation="vertical" className="h-5" />
+              <Divider
+                orientation="vertical"
+                className=" hidden sm:inline-block h-5"
+              />
               <div className="flex items-center gap-2 font-medium text-white">
                 <Rocket size={24} className="text-brand-blue" />
                 <span>SEO + Ads Optimized</span>
               </div>
-              <Divider orientation="vertical" className="h-5" />
+              <Divider
+                orientation="vertical"
+                className="hidden sm:inline-block h-5"
+              />
               <div className="flex items-center gap-2 font-medium text-white">
                 <TrendingUp size={24} className="text-green-600" />
                 <span>Built to Convert</span>
