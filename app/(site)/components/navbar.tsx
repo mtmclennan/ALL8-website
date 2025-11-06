@@ -16,7 +16,6 @@ import clsx from 'clsx';
 import { siteConfig } from '@/config/site';
 import { CalendarCheck } from 'lucide-react';
 import Logo from './Logo';
-import exp from 'constants';
 
 const Navbar = () => {
   return (

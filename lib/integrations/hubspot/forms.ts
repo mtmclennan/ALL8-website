@@ -4,10 +4,16 @@ export type HubSpotFormPayload = {
   email: string;
   company?: string;
   website?: string;
-  projectType: 'new' | 'redesign' | 'ecom' | 'webapp';
+  projectType:
+    | 'website'
+    | 'gmb'
+    | 'ads'
+    | 'intergrations'
+    | 'maintenance'
+    | 'seo';
   goal: 'leads' | 'sell' | 'seo' | 'other';
   timeline: 'asap' | '1-2m' | '3m+' | 'exploring';
-  budget: '3-5k' | '5-10k' | '10k+';
+  budget: 'planning' | '2-3k' | '3-5k' | '5k+';
   notes: string;
 
   // tracking (optional)
