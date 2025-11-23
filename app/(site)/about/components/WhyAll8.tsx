@@ -127,7 +127,7 @@ export default function WhyAll8({
           </div>
 
           {/* Right Column - CTA */}
-          <div className="lg:col-span-5 flex flex-col justify-center gap-4 items-center mt-12 lg:mt-0">
+          <div className="lg:col-span-5 order-1 flex flex-col justify-center gap-4 items-center mt-12 lg:mt-0">
             {imageSrc && (
               <div className={`mt-2 relative overflow-hidden rounded-2xl `}>
                 <Image

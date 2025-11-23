@@ -81,7 +81,7 @@ export default function ProcessSection({
                   </span>
 
                   <Card variant="elevated" className="group-hover:shadow-lg">
-                    <div className="rounded-2xl border min-h-60 border-foreground/10 bg-background/70 p-6 backdrop-blur-sm">
+                    <div className="rounded-2xl border min-h-45 sm:min-h-60 border-foreground/10 bg-background/70 p-6 backdrop-blur-sm">
                       <div className="mb-3 ml-14 sm:ml-1 flex items-center gap-3">
                         <h3 className="mr-auto text-xl font-semibold leading-tight">
                           {s.title}

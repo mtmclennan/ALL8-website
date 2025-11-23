@@ -37,15 +37,15 @@
       rgba(0, 118, 255, 0.2),
       transparent
     );
-    animation: scanV 12s linear infinite;
+    animation: scanV 6s linear forwards;
   }
 
   @keyframes scanV {
     0% {
-      transform: translateY(-20%);
+      transform: translateY(-60%);
     }
     100% {
-      transform: translateY(300%);
+      transform: translateY(70%);
     }
   }
 }

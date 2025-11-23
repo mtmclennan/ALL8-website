@@ -10,7 +10,7 @@ export const IntakeSchema = z.object({
     'website',
     'gmb',
     'ads',
-    'intergrations',
+    'integrations',
     'maintenance',
     'seo',
   ]),

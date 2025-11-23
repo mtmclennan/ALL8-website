@@ -26,6 +26,16 @@ const withAnalyzer = withBundleAnalyzer({
 });
 
 const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+        pathname: '/images/**',
+      },
+    ],
+  },
+
   reactStrictMode: true,
 
   // your existing stuff here

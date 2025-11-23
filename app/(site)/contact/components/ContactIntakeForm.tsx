@@ -21,6 +21,7 @@ import {
   submitIntake,
   type IntakeActionState,
 } from '@/app/actions/submit-intake';
+import { ButtonGradientWrapper } from '../../components/SectionWrapper';
 
 const initialState: IntakeActionState = { ok: false };
 
@@ -120,20 +121,35 @@ export default function ContactIntakeForm() {
 
       <section
         id="intake-form"
-        className="scroll-mt-24 mb-12 mx-auto max-w-2xl rounded-3xl border border-default-200 bg-content1/70 p-6 shadow-small backdrop-blur-sm md:p-8"
+        className="   scroll-mt-24 
+    mb-16 mx-auto max-w-3xl
+    rounded-3xl overflow-hidden
+    border border-white/10
+    bg-black/30 backdrop-blur-xl
+    shadow-[0_0_40px_rgba(0,0,0,0.4)]
+    p-2 md:p-10"
       >
-        <Card shadow="sm" className="border border-default-200">
-          <CardHeader className="flex flex-col items-start gap-1">
-            <h2 className="text-lg font-medium">Quick Project Intake</h2>
-            <p className="text-xs text-foreground/60">
+        <Card
+          shadow="none"
+          className="   bg-black/20 
+    border border-white/10
+    backdrop-blur-md 
+    rounded-2xl p-4
+    sm:p-6 "
+        >
+          <CardHeader className="flex flex-col items-start gap-2 pb-2">
+            <h2 className="text-xl font-semibold tracking-tight text-white">
+              Quick Project Intake
+            </h2>
+            <p className="text-xs text-neutral-400">
               ~1 minute • Projects start at{' '}
-              <span className="font-semibold">$3,000 CAD</span>
+              <span className="font-semibold text-brand-blue">$3,000 CAD</span>
             </p>
           </CardHeader>
 
           <CardBody>
             <Form
-              className="grid gap-6"
+              className="grid gap-8 overflow-x-hidden"
               action={enhancedAction}
               aria-describedby="form-status"
               onReset={() => {
@@ -144,7 +160,7 @@ export default function ContactIntakeForm() {
                 setBudget('');
               }}
             >
-              <div className="grid gap-4 md:grid-cols-2">
+              <div className="grid grid-cols-1 min-w-0 gap-6 md:grid-cols-2">
                 <Input
                   isRequired
                   name="name"
@@ -155,6 +171,12 @@ export default function ContactIntakeForm() {
                   isInvalid={!!clientErrors.name}
                   errorMessage={clientErrors.name}
                   onValueChange={() => clearError('name')}
+                  classNames={{
+                    input: 'text-white',
+                    inputWrapper:
+                      'bg-black/30 border border-white/10 hover:border-brand-blue/50',
+                    label: 'text-xs text-neutral-400',
+                  }}
                 />
                 <Input
                   isRequired
@@ -166,6 +188,12 @@ export default function ContactIntakeForm() {
                   isInvalid={!!clientErrors.email}
                   errorMessage={clientErrors.email}
                   onValueChange={() => clearError('email')}
+                  classNames={{
+                    input: 'text-white',
+                    inputWrapper:
+                      'bg-black/30 border border-white/10 hover:border-brand-blue/50',
+                    label: 'text-xs text-neutral-400',
+                  }}
                 />
                 <Input
                   name="company"
@@ -173,6 +201,12 @@ export default function ContactIntakeForm() {
                   labelPlacement="outside"
                   placeholder="Acme Inc."
                   type="text"
+                  classNames={{
+                    input: 'text-white',
+                    inputWrapper:
+                      'bg-black/30 border border-white/10 hover:border-brand-blue/50',
+                    label: 'text-xs text-neutral-400',
+                  }}
                 />
                 <Input
                   name="website"
@@ -181,6 +215,12 @@ export default function ContactIntakeForm() {
                   placeholder="example.com"
                   type="text"
                   inputMode="url"
+                  classNames={{
+                    input: 'text-white',
+                    inputWrapper:
+                      'bg-black/30 border border-white/10 hover:border-brand-blue/50',
+                    label: 'text-xs text-neutral-400',
+                  }}
                 />
               </div>
 
@@ -214,7 +254,15 @@ export default function ContactIntakeForm() {
                   labelPlacement="outside"
                   placeholder="Choose one"
                   popoverProps={{
-                    classNames: { content: 'bg-background' },
+                    classNames: {
+                      content: 'bg-black border border-white/10 text-white',
+                    },
+                  }}
+                  classNames={{
+                    trigger:
+                      'bg-black/30 border border-white/10 hover:border-brand-blue/50',
+                    label: 'text-xs text-neutral-400',
+                    value: 'text-white',
                   }}
                   selectedKeys={
                     projectType ? new Set([projectType]) : new Set()
@@ -254,7 +302,15 @@ export default function ContactIntakeForm() {
                   labelPlacement="outside"
                   placeholder="Choose one"
                   popoverProps={{
-                    classNames: { content: 'bg-background' },
+                    classNames: {
+                      content: 'bg-black border border-white/10 text-white',
+                    },
+                  }}
+                  classNames={{
+                    trigger:
+                      'bg-black/30 border border-white/10 hover:border-brand-blue/50',
+                    label: 'text-xs text-neutral-400',
+                    value: 'text-white',
                   }}
                   selectedKeys={goal ? new Set([goal]) : new Set()}
                   onSelectionChange={(keys) => {
@@ -280,7 +336,15 @@ export default function ContactIntakeForm() {
                   labelPlacement="outside"
                   placeholder="Choose one"
                   popoverProps={{
-                    classNames: { content: 'bg-background' },
+                    classNames: {
+                      content: 'bg-black border border-white/10 text-white',
+                    },
+                  }}
+                  classNames={{
+                    trigger:
+                      'bg-black/30 border border-white/10 hover:border-brand-blue/50',
+                    label: 'text-xs text-neutral-400',
+                    value: 'text-white',
                   }}
                   selectedKeys={timeline ? new Set([timeline]) : new Set()}
                   onSelectionChange={(keys) => {
@@ -304,7 +368,15 @@ export default function ContactIntakeForm() {
                   labelPlacement="outside"
                   placeholder="Select a range"
                   popoverProps={{
-                    classNames: { content: 'bg-background' },
+                    classNames: {
+                      content: 'bg-black border border-white/10 text-white',
+                    },
+                  }}
+                  classNames={{
+                    trigger:
+                      'bg-black/30 border border-white/10 hover:border-brand-blue/50',
+                    label: 'text-xs text-neutral-400',
+                    value: 'text-white',
                   }}
                   selectedKeys={budget ? new Set([budget]) : new Set()}
                   onSelectionChange={(keys) => {
@@ -338,35 +410,61 @@ export default function ContactIntakeForm() {
                 isInvalid={!!clientErrors.notes}
                 errorMessage={clientErrors.notes}
                 onValueChange={() => clearError('notes')}
+                classNames={{
+                  input: 'text-white',
+                  inputWrapper:
+                    'bg-black/30 border border-white/10 hover:border-brand-blue/50',
+                  label: 'text-xs text-neutral-400',
+                }}
               />
 
-              <Checkbox className="md:ml-4" name="consent" isRequired value="1">
+              <Checkbox
+                classNames={{
+                  base: 'text-white',
+                  wrapper: 'border-white/20',
+                  label: 'text-sm text-neutral-300',
+                }}
+                name="consent"
+                isRequired
+                value="1"
+              >
                 I understand ALL8 projects start at{' '}
                 <span className="font-semibold">$3,000 CAD</span> and focus on
                 performance, SEO, and conversions.
               </Checkbox>
 
-              <div className="flex items-center justify-center gap-3">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                 <p className="text-xs text-foreground/60">
                   No spam. We’ll review and reply within 1–2 business days.
                 </p>
-                <Button
-                  color="primary"
-                  type="submit"
-                  isDisabled={isPending}
-                  aria-disabled={isPending}
-                >
-                  {isPending ? (
-                    <span className="flex items-center gap-2">
-                      <Spinner size="sm" /> Sending…
-                    </span>
-                  ) : (
-                    'Submit'
-                  )}
-                </Button>
-                <Button variant="flat" type="reset" isDisabled={isPending}>
-                  Reset
-                </Button>
+                <ButtonGradientWrapper>
+                  <Button
+                    radius="md"
+                    className="px-6 py-2 text-white font-medium bg-chrome-cta hover:bg-chrome-cta-hover active:bg-chrome-cta-active focus-visible:ring-2 focus-visible:ring-chrome shadow-md"
+                    type="submit"
+                    isDisabled={isPending}
+                    aria-disabled={isPending}
+                  >
+                    {isPending ? (
+                      <span className="flex items-center gap-2">
+                        <Spinner size="sm" /> Sending…
+                      </span>
+                    ) : (
+                      'Submit'
+                    )}
+                  </Button>
+                </ButtonGradientWrapper>
+                <ButtonGradientWrapper>
+                  <Button
+                    variant="solid"
+                    radius="md"
+                    type="reset"
+                    isDisabled={isPending}
+                    className="bg-black/90 hover:bg-black/50"
+                  >
+                    Reset
+                  </Button>
+                </ButtonGradientWrapper>
               </div>
 
               {/* ARIA live region for status; never shows backend stack/details */}

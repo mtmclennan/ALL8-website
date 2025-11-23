@@ -6,6 +6,7 @@ import contactData from '@/data/pages/contact.json';
 import ContactPageHero from '@/app/(site)/contact/components/ContactPageHero';
 import ProcessSection from '../../components/OurProcess';
 import CallToAction from '../../components/CallToAction';
+import ServicesOverviewRefactored from '../../components/Services';
 
 const Contact = () => {
   return (
@@ -25,6 +26,10 @@ const Contact = () => {
         subtitle={contactData.cta.subtitle}
         ctaHref={contactData.cta.ctaHref}
         ctaLabel={contactData.cta.ctaLabel}
+      />
+      <ServicesOverviewRefactored
+        title="What We Build for You"
+        subtitle="Websites, SEO, hosting, and more — everything tuned for speed, search, and results."
       />
     </Fragment>
   );

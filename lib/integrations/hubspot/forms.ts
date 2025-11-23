@@ -8,7 +8,7 @@ export type HubSpotFormPayload = {
     | 'website'
     | 'gmb'
     | 'ads'
-    | 'intergrations'
+    | 'integrations'
     | 'maintenance'
     | 'seo';
   goal: 'leads' | 'sell' | 'seo' | 'other';

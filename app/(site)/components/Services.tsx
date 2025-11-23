@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import Link from 'next/link';
 import { LazyMotion, domAnimation, motion } from 'framer-motion';
 
@@ -66,7 +65,7 @@ export default function ServicesOverviewRefactored({
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: '-20%' }}
-              className="mb-6 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-4 px-4 pb-4 sm:hidden"
+              className="mb-6 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-4 px-0 pb-4 sm:hidden"
             >
               {services.map((s) => (
                 <motion.li
@@ -164,9 +163,9 @@ function ServiceCard({ service }: ServiceProps) {
     <Link href={`/services/${slug}`} className="">
       <Card
         variant="bordered"
-        className="min-w-[280px] max-w-[360px] sm:min-w-0 sm:max-w-none group"
+        className="min-w-[310px] max-w-[360px] sm:min-w-0 sm:max-w-none group"
       >
-        <div className="p-4 min-h-[280px] flex flex-col justify-between">
+        <div className="p-4 min-h-[300px] flex flex-col justify-between">
           <div className="flex items-center gap-3">
             <IconBadge>
               <Icon className="h-6 w-6 text-brand-blue" />

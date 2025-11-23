@@ -13,6 +13,7 @@ import ProblemBlock from './components/ProblemBlock';
 import SolutionBlock from './components/SolutionBlock';
 import ComparisonBlock from './components/ComparisonBlock';
 import FAQBlock from '../../components/FAQBlock';
+import ServicesOverviewRefactored from '../../components/Services';
 
 type Params = { slug: string };
 
@@ -112,6 +113,10 @@ export default async function ServiceDetailPage({
       {service.faqs && service.faqs.length > 0 && (
         <FAQBlock faqs={service.faqs} />
       )}
+      <ServicesOverviewRefactored
+        title="Keep Your Business Running on All 8"
+        subtitle="Check out more high-performance services built to power your growth online."
+      />
     </>
   );
 }

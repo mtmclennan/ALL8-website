@@ -29,14 +29,14 @@ export default function ContactPageHero({
   const prefersReduced = useReducedMotion();
   const shouldAnimate = forceMotion || !prefersReduced;
   return (
-    <section className="relative mx-auto max-w-4xl px-6 py-16 text-center">
+    <section className="relative mx-auto max-w-5xl px-6 py-16  mb-8 text-center">
       <LazyMotion features={domAnimation}>
         <MotionConfig reducedMotion={forceMotion ? 'never' : 'user'}>
           <motion.h1
             initial={shouldAnimate ? { opacity: 0, y: 12 } : false}
             animate={shouldAnimate ? { opacity: 1, y: 0 } : undefined}
             transition={{ duration: 0.45 }}
-            className="text-4xl font-bold tracking-tight md:text-5xl"
+            className="text-4xl pt-8 sm:pt-16 font-bold tracking-tight md:text-7xl"
           >
             {hero.titlePrefix}{' '}
             <motion.span

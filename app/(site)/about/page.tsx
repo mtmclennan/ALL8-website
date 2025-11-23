@@ -4,6 +4,7 @@ import { buildStaticMetadata } from '@/lib/utils/buildStaticMetadata';
 import AboutHero from './components/AboutHero';
 import aboutData from '@/data/pages/about.json';
 import AboutClient from './AboutClient';
+import ServicesOverviewRefactored from '../components/Services';
 
 export const metadata: Metadata = buildStaticMetadata('/about');
 

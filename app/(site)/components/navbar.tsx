@@ -8,6 +8,7 @@ import {
   NavbarItem,
   NavbarMenuItem,
 } from '@heroui/navbar';
+import { useEffect, useState } from 'react';
 import { Button } from '@heroui/button';
 import { Link } from '@heroui/link';
 import { link as linkStyles } from '@heroui/theme';
@@ -16,13 +17,24 @@ import clsx from 'clsx';
 import { siteConfig } from '@/config/site';
 import { CalendarCheck } from 'lucide-react';
 import Logo from './Logo';
+import { usePathname } from 'next/navigation';
+import { ThemeSwitch } from './theme-switch';
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
+
   return (
     <HeroUINavbar
       maxWidth="xl"
       position="sticky"
       className="fixed top-0 left-0 z-50 bg-black/0"
+      isMenuOpen={isMenuOpen}
+      onMenuOpenChange={setIsMenuOpen}
     >
       <NavbarContent>
         <NavbarBrand as="li" className="gap-3 h-full max-w-fit">
@@ -35,7 +47,7 @@ const Navbar = () => {
         </NavbarBrand>
       </NavbarContent>
       <NavbarContent className="basis-1/5 sm:basis-full" justify="center">
-        <ul className="hidden lg:flex gap-4 justify-center ml-2">
+        <ul className="hidden md:flex gap-4 justify-center ml-2">
           {siteConfig.navItems.map((item) => (
             <NavbarItem key={item.href}>
               <NextLink
@@ -57,7 +69,7 @@ const Navbar = () => {
         className="hidden sm:flex basis-1/5 sm:basis-full"
         justify="end"
       >
-        <NavbarItem className="hidden md:flex">
+        <NavbarItem className="hidden sm:flex">
           <Button
             as={Link}
             className="text-sm font-normal text-default-600 bg-default-100"
@@ -70,7 +82,7 @@ const Navbar = () => {
         </NavbarItem>
       </NavbarContent>
 
-      <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
+      <NavbarContent className="md:hidden basis-1 pl-4" justify="end">
         {/* <ThemeSwitch /> */}
         <NavbarMenuToggle />
       </NavbarContent>

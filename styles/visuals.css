@@ -125,12 +125,27 @@
   }
 
   /* Chrome gradient text (used for headings / logos) */
-  .text-chrome {
+  /* .text-chrome {
     background-image: linear-gradient(
       135deg,
       #59bae0 0%,
       #0047bb 55%,
       #022856 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  } */
+
+  .text-chrome {
+    background-image: linear-gradient(
+      135deg,
+      #9be2ff 0%,
+      /* bright cyan for highlight */ #0076ff 40%,
+      /* ALL8 royal blue */ #0047bb 65%,
+      /* deeper blue for body */ #d33f49 90%,
+      /* subtle brand red accent */ #022856 100% /* dark navy tail */
     );
     -webkit-background-clip: text;
     background-clip: text;

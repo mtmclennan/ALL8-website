@@ -45,7 +45,8 @@ export default function StrongCTA({
           <SectionHeader
             title={
               <>
-                {titlePrefix}{' '}
+                {titlePrefix}
+                {'  '}
                 <motion.span
                   initial={{ scale: 0.85, opacity: 0.6 }}
                   whileHover={{ scale: 1.3 }}
@@ -56,10 +57,11 @@ export default function StrongCTA({
                     stiffness: 300,
                     delay: 0.3,
                   }}
-                  className="inline-block whitespace-nowrap text-chrome text-fill-transparent font-extrabold"
+                  className="inline-block whitespace-nowrap text-chrome text-fill-transparent font-extrabold mx-2 sm:mx-3"
                 >
                   {highlight}
-                </motion.span>{' '}
+                </motion.span>
+                {'  '}
                 {titleSuffix}
               </>
             }
