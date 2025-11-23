@@ -2,11 +2,11 @@
 import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { urlFor } from '@/lib/sanity/imageBuilder';
-import { Post } from '@/sanity.types';
+import { urlFor } from '@/app/studio/sanity/lib/image';
+import { Post } from '@/app/studio/sanity.types';
 
 export default function BlogPost({ post }: { post: Post }) {
-  const image = urlFor(post.coverImage);
+  const image = post.coverImage ? urlFor(post.coverImage).url() : null;
   return (
     <article className="relative isolate">
       {/* HERO SECTION */}
@@ -39,14 +39,16 @@ export default function BlogPost({ post }: { post: Post }) {
           transition={{ duration: 0.8 }}
           className="relative w-full max-w-5xl mx-auto  rounded-2xl overflow-hidden shadow-xl"
         >
-          <Image
-            src={image.url() ?? '/assets/images/og/ALL8_Webworks_blog.jpg'}
-            alt={post.coverImage?.alt ? post.coverImage.alt : ''}
-            width={1920}
-            height={1080}
-            className="object-cover w-full h-auto"
-            priority
-          />
+          {image && (
+            <Image
+              src={image ?? '/assets/images/og/ALL8_Webworks_blog.jpg'}
+              alt={post.coverImage?.alt ? post.coverImage.alt : ''}
+              width={1920}
+              height={1080}
+              className="object-cover w-full h-auto"
+              priority
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent dark:from-black/70" />
         </motion.div>
         {post.excerpt && (

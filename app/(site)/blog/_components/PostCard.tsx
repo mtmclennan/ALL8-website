@@ -9,7 +9,7 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 import { Card } from '../../components/SectionWrapper';
-import { urlFor } from '@/lib/sanity/imageBuilder';
+import { urlFor } from '@/app/studio/sanity/lib/image';
 
 interface PostCardProps {
   post: any;

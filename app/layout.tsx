@@ -80,12 +80,7 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin=""
         />
-        <link
-          rel="preload"
-          as="image"
-          href="/assets/website-seo-performance-laptop-analytics-leads-calls.webp"
-          imageSrcSet="/assets/website-seo-performance-laptop-analytics-leads-calls.webp 1x, / "
-        />
+
         <meta name="color-scheme" content="light dark" />
       </head>
 

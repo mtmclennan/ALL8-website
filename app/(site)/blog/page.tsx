@@ -1,12 +1,12 @@
-import { sanity } from '@/lib/sanity/sanityClient';
-import { allPostsQuery } from '@/lib/sanity/queries';
+import { client as sanity } from '@/app/studio/sanity/lib/client';
+import { allPostsQuery } from '@/app/studio/sanity/lib/queries';
 import BlogHero from './_components/BlogHero';
 import FeaturedPosts from './_components/FeaturedPost';
 import LatestPosts from './_components/LatestPosts';
 import StrongCTA from '../components/CallToAction';
 import ServicesOverviewRefactored from '../components/Services';
-import { blogPageQuery } from '@/lib/sanity/queries';
-import { urlFor } from '@/lib/sanity/imageBuilder';
+import { blogPageQuery } from '@/app/studio/sanity/lib/queries';
+import { urlFor } from '@/app/studio/sanity/lib/image';
 
 export async function generateMetadata() {
   const page = await sanity.fetch(blogPageQuery);

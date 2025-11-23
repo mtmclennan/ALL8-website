@@ -5,7 +5,7 @@ import {
   SectionHeader,
   Card,
 } from '@/app/(site)/components/SectionWrapper';
-import { urlFor } from '@/lib/sanity/imageBuilder';
+import { urlFor } from '@/app/studio/sanity/lib/image';
 
 export default function FeaturedPosts({ posts }: { posts: any[] }) {
   const featured = posts[0]; // only the first post

@@ -1,5 +1,5 @@
-import { sanity } from '@/lib/sanity/sanityClient';
-import { singlePostQuery } from '@/lib/sanity/queries';
+import { client as sanity } from '@/app/studio/sanity/lib/client';
+import { singlePostQuery } from '@/app/studio/sanity/lib/queries';
 import BlogPost from './BlogPost';
 import StrongCTA from '@/app/(site)/components/CallToAction';
 import type { Metadata } from 'next';
