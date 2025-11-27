@@ -1,53 +1,50 @@
-# Next.js & HeroUI Template
+# ALL8 Webworks
 
-This is a template for creating applications using Next.js 14 (app directory) and HeroUI (v2).
+ALL8 Webworks is a high-performance web platform built with modern full-stack tools.  
+It showcases my ability to design, build, and deploy fast, SEO-friendly, production-ready websites for service businesses.
 
-[Try it on CodeSandbox](https://githubbox.com/heroui-inc/heroui/next-app-template)
+## Tech Stack
+- Next.js (App Router) + React
+- TypeScript
+- Tailwind CSS + HeroUI
+- DigitalOcean + Nginx
+- PM2 for production
 
-## Technologies Used
+## Key Features
+- Fast, mobile-first design  
+- Reusable component system  
+- Dynamic service pages  
+- Automated SEO metadata + structured data  
+- Optimized images / Core Web Vitals focus  
+- Blog with performance-focused layout  
+- Contact form with analytics + event tracking  
 
-- [Next.js 14](https://nextjs.org/docs/getting-started)
-- [HeroUI v2](https://heroui.com/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
+## Design System
+- Blueprint-inspired UI  
+- Orbitron + DM Sans typography  
+- Brand colors: #0047BB, #D00000, #D33F49  
+- Clean layouts with strong CTAs and lead-driven structure  
 
-## How to Use
+## Project Structure
 
-### Use the template with create-next-app
+app/ – routing + pages
+components/ – UI + layout components
+lib/ – utils + SEO helpers
+public/ – assets
+styles/ – global styles
 
-To create a new project based on this template using `create-next-app`, run the following command:
+## Development
 
-```bash
-npx create-next-app -e https://github.com/heroui-inc/next-app-template
-```
-
-### Install dependencies
-
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
-
-```bash
 npm install
-```
-
-### Run the development server
-
-```bash
 npm run dev
-```
+npm run build
+npm start
 
-### Setup pnpm (optional)
-
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
-
-```bash
-public-hoist-pattern[]=*@heroui/*
-```
-
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
+## Deployment
+Configured for:
+- DigitalOcean Droplet  
+- Nginx reverse proxy  
+- PM2 process manager  
 
 ## License
-
-Licensed under the [MIT license](https://github.com/heroui-inc/next-app-template/blob/main/LICENSE).
+Proprietary project.
