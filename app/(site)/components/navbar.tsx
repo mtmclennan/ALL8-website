@@ -21,7 +21,7 @@ import { usePathname } from 'next/navigation';
 import { ThemeSwitch } from './theme-switch';
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {

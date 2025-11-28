@@ -4,6 +4,9 @@ import BlogPost from './BlogPost';
 import StrongCTA from '@/app/(site)/components/CallToAction';
 import type { Metadata } from 'next';
 
+// REVALIDATE BLOG POSTS AUTOMATICALLY
+export const revalidate = 3600; // 1 hour — safe default
+
 export async function generateStaticParams() {
   const slugs = await sanity.fetch(`*[_type == "post"].slug.current`);
   return slugs.map((slug: string) => ({ slug }));

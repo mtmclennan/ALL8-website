@@ -15,6 +15,8 @@ import ComparisonBlock from './components/ComparisonBlock';
 import FAQBlock from '../../components/FAQBlock';
 import ServicesOverviewRefactored from '../../components/Services';
 
+export const revalidate = 86400; // 24 hours
+
 type Params = { slug: string };
 
 export function generateStaticParams() {
