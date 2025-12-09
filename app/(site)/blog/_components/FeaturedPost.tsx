@@ -9,7 +9,7 @@ import { urlFor } from '@/app/studio/sanity/lib/image';
 
 export default function FeaturedPosts({ posts }: { posts: any[] }) {
   const featured = posts[0]; // only the first post
-  console.log(featured);
+  // console.log(featured);
 
   const imageUrl = urlFor(featured.coverImage);
 

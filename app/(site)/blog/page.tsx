@@ -8,6 +8,8 @@ import ServicesOverviewRefactored from '../components/Services';
 import { blogPageQuery } from '@/app/studio/sanity/lib/queries';
 import { urlFor } from '@/app/studio/sanity/lib/image';
 
+export const revalidate = 3600;
+
 export async function generateMetadata() {
   const page = await sanity.fetch(blogPageQuery);
 
@@ -32,7 +34,7 @@ export async function generateMetadata() {
 
 export default async function BlogIndexPage() {
   const posts = await sanity.fetch(allPostsQuery);
-  console.log(posts);
+  // console.log(posts);
 
   return (
     <div className="relative">

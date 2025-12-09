@@ -4,7 +4,6 @@ import { Link } from '@heroui/link';
 import { siteConfig } from '@/config/site';
 import { Facebook, LinkedinIcon } from 'lucide-react';
 import Logo from './Logo';
-import { S } from '@upstash/redis/zmscore-Cq_Bzgy4';
 
 export default function Footer() {
   return (

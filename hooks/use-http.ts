@@ -1,8 +1,8 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback } from 'react';
 
 interface RequestConfig {
   url: string;
-  method?: "POST" | "DELETE" | "PATCH";
+  method?: 'POST' | 'DELETE' | 'PATCH';
   headers?: HeadersInit;
   body?: any;
   photo?: Boolean;
@@ -21,10 +21,10 @@ const useHttp = () => {
 
       try {
         const response = await fetch(requestConfig.url, {
-          method: requestConfig.method ? requestConfig.method : "GET",
+          method: requestConfig.method ? requestConfig.method : 'GET',
           headers: requestConfig.headers ? requestConfig.headers : {},
           body: requestConfig.body ? JSON.stringify(requestConfig.body) : null,
-          credentials: "include",
+          credentials: 'include',
         });
 
         if (!response.ok) {
@@ -34,15 +34,15 @@ const useHttp = () => {
         }
 
         if (response.status === 204) {
-          const data = { status: "success" };
+          const data = { status: 'success' };
           applyData(data);
         } else {
           const data = await response.json();
-          console.log(data);
+          // console.log(data);
           applyData(data);
         }
       } catch (err: any) {
-        setError(err.message || "Something went wrong!");
+        setError(err.message || 'Something went wrong!');
         console.log(err.message);
       }
       setIsLoading(false);
