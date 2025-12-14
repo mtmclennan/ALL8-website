@@ -52,7 +52,6 @@ export const metadata: Metadata = {
     description: site.description,
     images: [site.defaultOgImage],
   },
-  alternates: { canonical: siteUrl() },
 };
 
 export const viewport: Viewport = {

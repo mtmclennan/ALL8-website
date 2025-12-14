@@ -7,16 +7,23 @@ import StrongCTA from '../components/CallToAction';
 import ServicesOverviewRefactored from '../components/Services';
 import { blogPageQuery } from '@/app/studio/sanity/lib/queries';
 import { urlFor } from '@/app/studio/sanity/lib/image';
+import { siteUrl } from '@/config/site.config';
 
 export const revalidate = 3600;
 
 export async function generateMetadata() {
   const page = await sanity.fetch(blogPageQuery);
+  const canonical = `${siteUrl()}/blog`;
 
   return {
     title: page.title,
     description: page.description,
+    alternates: {
+      canonical,
+    },
     openGraph: {
+      type: 'website',
+      url: canonical,
       title: page.title,
       description: page.description,
       images: page.ogImage
