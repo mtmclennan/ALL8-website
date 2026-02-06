@@ -4,6 +4,7 @@ import BlogPost from './BlogPost';
 import StrongCTA from '@/app/(site)/components/CallToAction';
 import type { Metadata } from 'next';
 import { siteUrl } from '@/config/site.config';
+import { urlFor } from '@/app/studio/sanity/lib/image';
 
 // REVALIDATE BLOG POSTS AUTOMATICALLY
 export const revalidate = 3600; // 1 hour — safe default
@@ -24,13 +25,14 @@ export async function generateMetadata({
 
   const canonical = `${siteUrl()}/blog/${slug}`;
 
-  const baseOgImage = post.coverImage?.asset?.url
-    ? post.coverImage.asset.url
-    : `${siteUrl()}/assets/images/og/og-default.jpg`;
-
-  const ogImage = baseOgImage.includes('?')
-    ? `${baseOgImage}&w=1200&h=630&fit=crop&fm=jpg`
-    : `${baseOgImage}?w=1200&h=630&fit=crop&fm=jpg`;
+  const ogImage = post.coverImage
+    ? urlFor(post.coverImage)
+        .width(1200)
+        .height(630)
+        .fit('crop')
+        .format('jpg')
+        .url()
+    : `${siteUrl()}/assets/images/og-default.jpg`;
 
   const title = post.seo?.metaTitle || post.title;
   const description = post.seo?.metaDescription || post.excerpt;
