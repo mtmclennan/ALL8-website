@@ -5,6 +5,9 @@ import { loadAllPages } from '../lib/utils/buildStaticMetadata'; // from the sta
 import { client as sanity } from '@/app/studio/sanity/lib/client';
 import { allPostsQuery } from '@/app/studio/sanity/lib/queries';
 import { Post } from './studio/sanity.types';
+import { BUILD_DATE } from '@/lib/build-meta';
+
+export const revalidate = 3600; // 1 hour
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = siteUrl();
@@ -14,7 +17,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     .filter((p) => !p.noindex)
     .map((p) => ({
       url: new URL(p.path, base).toString(),
-      lastModified: new Date(),
+      lastModified: BUILD_DATE,
       changeFrequency: 'monthly' as const,
       priority: 0.9,
     }));
@@ -40,8 +43,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // add homepage explicitly
   const home = {
     url: `${base}/`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
+    lastModified: BUILD_DATE,
+    changeFrequency: 'monthly' as const,
     priority: 1.0,
   };
 
