@@ -26,11 +26,11 @@ export async function generateMetadata({
 
   const baseOgImage = post.coverImage?.asset?.url
     ? post.coverImage.asset.url
-    : `${siteUrl()}/assets/images/og-default.webp`;
+    : `${siteUrl()}/assets/images/og/og-default.jpg`;
 
   const ogImage = baseOgImage.includes('?')
-    ? `${baseOgImage}&w=1200&h=630&fit=crop`
-    : `${baseOgImage}?w=1200&h=630&fit=crop`;
+    ? `${baseOgImage}&w=1200&h=630&fit=crop&fm=jpg`
+    : `${baseOgImage}?w=1200&h=630&fit=crop&fm=jpg`;
 
   const title = post.seo?.metaTitle || post.title;
   const description = post.seo?.metaDescription || post.excerpt;
