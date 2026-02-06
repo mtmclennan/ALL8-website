@@ -19,27 +19,34 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+
   const post = await sanity.fetch(singlePostQuery, { slug });
 
   const canonical = `${siteUrl()}/blog/${slug}`;
 
-  const ogImage = post.coverImage?.asset?.url
+  const baseOgImage = post.coverImage?.asset?.url
     ? post.coverImage.asset.url
     : `${siteUrl()}/assets/images/og-default.webp`;
 
-  return {
-    title: post.seo?.metaTitle || post.title,
-    description: post.seo?.metaDescription || post.excerpt,
+  const ogImage = baseOgImage.includes('?')
+    ? `${baseOgImage}&w=1200&h=630&fit=crop`
+    : `${baseOgImage}?w=1200&h=630&fit=crop`;
 
-    alternates: {
-      canonical,
-    },
+  const title = post.seo?.metaTitle || post.title;
+  const description = post.seo?.metaDescription || post.excerpt;
+
+  return {
+    title,
+    description,
+
+    alternates: { canonical },
 
     openGraph: {
       type: 'article',
       url: canonical,
-      title: post.title,
-      description: post.excerpt,
+      siteName: 'ALL8 Webworks',
+      title,
+      description,
       images: [
         {
           url: ogImage,
@@ -52,8 +59,8 @@ export async function generateMetadata({
 
     twitter: {
       card: 'summary_large_image',
-      title: post.title,
-      description: post.excerpt,
+      title,
+      description,
       images: [ogImage],
     },
   };
