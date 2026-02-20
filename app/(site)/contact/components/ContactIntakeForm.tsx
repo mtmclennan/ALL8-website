@@ -1,8 +1,15 @@
 'use client';
-import { useHubSpotContextFields } from '@/hooks/use-hubspotContextFields';
-import Script from 'next/script';
+
 import React, { useActionState, useRef } from 'react';
+import Script from 'next/script';
 import { useRouter } from 'next/navigation';
+
+import { useHubSpotContextFields } from '@/hooks/use-hubspotContextFields';
+import {
+  submitIntake,
+  type IntakeActionState,
+} from '@/app/actions/submit-intake';
+
 import { Form } from '@heroui/form';
 import { Input, Textarea } from '@heroui/input';
 import { Button } from '@heroui/button';
@@ -17,26 +24,50 @@ import {
   ModalFooter,
   ModalHeader,
 } from '@heroui/modal';
-import {
-  submitIntake,
-  type IntakeActionState,
-} from '@/app/actions/submit-intake';
+
 import { ButtonGradientWrapper } from '../../components/SectionWrapper';
 
 const initialState: IntakeActionState = { ok: false };
+
+type Tone = 'idle' | 'submitting' | 'success' | 'error';
+
+type ProjectType =
+  | ''
+  | 'tuneup'
+  | 'website'
+  | 'landing'
+  | 'maintenance'
+  | 'gmb'
+  | 'seo'
+  | 'ads'
+  | 'integrations';
+
+type Goal = '' | 'calls' | 'seo' | 'ads' | 'trust' | 'other';
+
+type Timeline = '' | 'asap' | '1-2w' | '1-2m' | '3m+' | 'exploring';
+
+type Budget =
+  | ''
+  | 'planning'
+  | '750-950'
+  | '150-300mo'
+  | '3-5k'
+  | '5-10k'
+  | '10k+';
 
 export default function ContactIntakeForm() {
   const router = useRouter();
   const [state, formAction, isPending] = useActionState(
     submitIntake,
-    initialState
+    initialState,
   );
 
   const { hutk, pageUrl, pageName, utm } = useHubSpotContextFields();
-  const [projectType, setProjectType] = React.useState('');
-  const [goal, setGoal] = React.useState('');
-  const [timeline, setTimeline] = React.useState('');
-  const [budget, setBudget] = React.useState('');
+
+  const [projectType, setProjectType] = React.useState<ProjectType>('');
+  const [goal, setGoal] = React.useState<Goal>('');
+  const [timeline, setTimeline] = React.useState<Timeline>('');
+  const [budget, setBudget] = React.useState<Budget>('');
   const [clientErrors, setClientErrors] = React.useState<
     Record<string, string | undefined>
   >({});
@@ -46,7 +77,7 @@ export default function ContactIntakeForm() {
   const tokenRef = useRef<HTMLInputElement>(null);
   const hpRef = useRef<HTMLInputElement>(null);
 
-  const status: 'idle' | 'submitting' | 'success' | 'error' = isPending
+  const status: Tone = isPending
     ? 'submitting'
     : state.ok
       ? 'success'
@@ -60,7 +91,7 @@ export default function ContactIntakeForm() {
       const id = setTimeout(() => router.replace('/'), 5000);
       return () => clearTimeout(id);
     }
-  }, [isPending, state.ok]);
+  }, [isPending, state.ok, router]);
 
   React.useEffect(() => {
     // only map server-reported field errors; never show raw backend errors
@@ -69,14 +100,12 @@ export default function ContactIntakeForm() {
       for (const [k, v] of Object.entries(state.fieldErrors)) flat[k] = v?.[0];
       setClientErrors(flat);
     }
-    if (state.ok) {
-      setClientErrors({});
-    }
+    if (state.ok) setClientErrors({});
   }, [state.fieldErrors, state.ok]);
 
   function clearError(name: string) {
     setClientErrors((prev) =>
-      prev[name] ? { ...prev, [name]: undefined } : prev
+      prev[name] ? { ...prev, [name]: undefined } : prev,
     );
   }
 
@@ -93,23 +122,38 @@ export default function ContactIntakeForm() {
     formData.set('utm_medium', utm.medium || '');
     formData.set('utm_campaign', utm.campaign || '');
 
+    // lightweight lead classification (handy in HubSpot)
+    formData.set('leadType', projectType === 'tuneup' ? 'Tune-Up' : 'Project');
+
     // recaptcha v3 (optional; server tolerates missing token)
     const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
     if (siteKey && typeof window !== 'undefined' && 'grecaptcha' in window) {
       try {
         // @ts-expect-error grecaptcha injected by script
         await grecaptcha.ready();
-
         const t = await grecaptcha.execute(siteKey, { action: 'intake' });
         if (tokenRef.current) tokenRef.current.value = t || '';
         formData.set('token', tokenRef.current?.value || '');
       } catch {
-        // non-fatal; server verifyCaptcha() will allow flow to proceed
+        // non-fatal; server verifyCaptcha() should tolerate missing token
       }
     }
 
     return formAction(formData);
   };
+
+  const fieldStyles = {
+    input: 'text-white',
+    inputWrapper:
+      'bg-black/30 border border-white/10 hover:border-brand-blue/50',
+    label: 'text-xs text-neutral-400',
+  } as const;
+
+  const selectStyles = {
+    trigger: 'bg-black/30 border border-white/10 hover:border-brand-blue/50',
+    label: 'text-xs text-neutral-400',
+    value: 'text-white',
+  } as const;
 
   return (
     <>
@@ -121,28 +165,30 @@ export default function ContactIntakeForm() {
 
       <section
         id="intake-form"
-        className="   scroll-mt-24 
-    mb-16 mx-auto max-w-3xl
-    rounded-3xl overflow-hidden
-    border border-white/10
-    bg-black/30 backdrop-blur-xl
-    shadow-[0_0_40px_rgba(0,0,0,0.4)]
-    p-2 md:p-10"
+        className="
+          scroll-mt-24 mb-16 mx-auto max-w-3xl
+          rounded-3xl overflow-hidden
+          border border-white/10
+          bg-black/30 backdrop-blur-xl
+          shadow-[0_0_40px_rgba(0,0,0,0.4)]
+          p-2 md:p-10
+        "
       >
         <Card
           shadow="none"
-          className="   bg-black/20 
-    border border-white/10
-    backdrop-blur-md 
-    rounded-2xl p-4
-    sm:p-6 "
+          className="
+            bg-black/20 border border-white/10
+            backdrop-blur-md rounded-2xl p-4 sm:p-6
+          "
         >
           <CardHeader className="flex flex-col items-start gap-2 pb-2">
             <h2 className="text-xl font-semibold tracking-tight text-white">
-              Quick Project Intake
+              Quick Intake
             </h2>
             <p className="text-xs text-neutral-400">
-              ~1 minute • Projects start at{' '}
+              ~1 minute • Tune-Ups from{' '}
+              <span className="font-semibold text-brand-blue">$950 CAD</span> •
+              Full builds from{' '}
               <span className="font-semibold text-brand-blue">$3,000 CAD</span>
             </p>
           </CardHeader>
@@ -160,6 +206,7 @@ export default function ContactIntakeForm() {
                 setBudget('');
               }}
             >
+              {/* Contact basics */}
               <div className="grid grid-cols-1 min-w-0 gap-6 md:grid-cols-2">
                 <Input
                   isRequired
@@ -171,13 +218,9 @@ export default function ContactIntakeForm() {
                   isInvalid={!!clientErrors.name}
                   errorMessage={clientErrors.name}
                   onValueChange={() => clearError('name')}
-                  classNames={{
-                    input: 'text-white',
-                    inputWrapper:
-                      'bg-black/30 border border-white/10 hover:border-brand-blue/50',
-                    label: 'text-xs text-neutral-400',
-                  }}
+                  classNames={fieldStyles}
                 />
+
                 <Input
                   isRequired
                   name="email"
@@ -188,39 +231,38 @@ export default function ContactIntakeForm() {
                   isInvalid={!!clientErrors.email}
                   errorMessage={clientErrors.email}
                   onValueChange={() => clearError('email')}
-                  classNames={{
-                    input: 'text-white',
-                    inputWrapper:
-                      'bg-black/30 border border-white/10 hover:border-brand-blue/50',
-                    label: 'text-xs text-neutral-400',
-                  }}
+                  classNames={fieldStyles}
                 />
+
                 <Input
                   name="company"
-                  label="Company / Organization"
+                  label="Company (optional)"
                   labelPlacement="outside"
-                  placeholder="Acme Inc."
+                  placeholder="Bellhouse Excavating"
                   type="text"
-                  classNames={{
-                    input: 'text-white',
-                    inputWrapper:
-                      'bg-black/30 border border-white/10 hover:border-brand-blue/50',
-                    label: 'text-xs text-neutral-400',
-                  }}
+                  onValueChange={() => clearError('company')}
+                  classNames={fieldStyles}
                 />
+
                 <Input
                   name="website"
-                  label="Website URL"
+                  label="Website URL (optional)"
                   labelPlacement="outside"
                   placeholder="example.com"
                   type="text"
                   inputMode="url"
-                  classNames={{
-                    input: 'text-white',
-                    inputWrapper:
-                      'bg-black/30 border border-white/10 hover:border-brand-blue/50',
-                    label: 'text-xs text-neutral-400',
-                  }}
+                  onValueChange={() => clearError('website')}
+                  classNames={fieldStyles}
+                />
+
+                <Input
+                  name="serviceArea"
+                  label="Service area (optional)"
+                  labelPlacement="outside"
+                  placeholder="Brantford, Hamilton, KW..."
+                  type="text"
+                  onValueChange={() => clearError('serviceArea')}
+                  classNames={fieldStyles}
                 />
               </div>
 
@@ -244,13 +286,20 @@ export default function ContactIntakeForm() {
                 <input type="hidden" name="utm_source" value={utm.source} />
                 <input type="hidden" name="utm_medium" value={utm.medium} />
                 <input type="hidden" name="utm_campaign" value={utm.campaign} />
+                {/* Lead type for segmentation */}
+                <input
+                  type="hidden"
+                  name="leadType"
+                  value={projectType === 'tuneup' ? 'Tune-Up' : 'Project'}
+                />
               </div>
 
+              {/* Qualifiers */}
               <div className="grid gap-4 md:grid-cols-2">
                 <Select
                   isRequired
                   name="projectType"
-                  label="Project type"
+                  label="What do you need help with?"
                   labelPlacement="outside"
                   placeholder="Choose one"
                   popoverProps={{
@@ -258,41 +307,54 @@ export default function ContactIntakeForm() {
                       content: 'bg-black border border-white/10 text-white',
                     },
                   }}
-                  classNames={{
-                    trigger:
-                      'bg-black/30 border border-white/10 hover:border-brand-blue/50',
-                    label: 'text-xs text-neutral-400',
-                    value: 'text-white',
-                  }}
+                  classNames={selectStyles}
                   selectedKeys={
                     projectType ? new Set([projectType]) : new Set()
                   }
                   onSelectionChange={(keys) => {
-                    const v = Array.from(keys)[0] as string | undefined;
-                    setProjectType(v ?? '');
-                    if (v) clearError('projectType');
+                    const v = Array.from(keys)[0] as ProjectType | undefined;
+                    const next = v ?? '';
+                    setProjectType(next);
+
+                    // helpful default
+                    if (next === 'tuneup' && !budget) setBudget('750-950');
+
+                    if (next) clearError('projectType');
                   }}
                   isInvalid={!!clientErrors.projectType}
                   errorMessage={clientErrors.projectType}
                 >
+                  <SelectItem key="divider-0" isDisabled className="opacity-60">
+                    — Fast Wins —
+                  </SelectItem>
+                  <SelectItem key="tuneup">
+                    Performance &amp; Conversion Tune-Up
+                  </SelectItem>
+
                   <SelectItem key="divider-1" isDisabled className="opacity-60">
-                    — New Builds —
+                    — Website Work —
                   </SelectItem>
                   <SelectItem key="website">New Website / Redesign</SelectItem>
+                  <SelectItem key="landing">Ads-Ready Landing Page</SelectItem>
+
+                  <SelectItem key="divider-2" isDisabled className="opacity-60">
+                    — Visibility &amp; Lead Flow —
+                  </SelectItem>
                   <SelectItem key="gmb">
                     Google Business Profile Optimization
                   </SelectItem>
+                  <SelectItem key="seo">Basic SEO Setup</SelectItem>
                   <SelectItem key="ads">Google Ads Setup</SelectItem>
-                  <SelectItem key="divider-2" isDisabled className="opacity-60">
-                    — Existing Client Services —
+
+                  <SelectItem key="divider-3" isDisabled className="opacity-60">
+                    — Ongoing Support —
+                  </SelectItem>
+                  <SelectItem key="maintenance">
+                    Maintenance &amp; Hosting
                   </SelectItem>
                   <SelectItem key="integrations">
                     Business Tool Integrations
                   </SelectItem>
-                  <SelectItem key="maintenance">
-                    Website Maintenance & Hosting
-                  </SelectItem>
-                  <SelectItem key="seo">Basic SEO Setup</SelectItem>
                 </Select>
 
                 <Select
@@ -306,26 +368,22 @@ export default function ContactIntakeForm() {
                       content: 'bg-black border border-white/10 text-white',
                     },
                   }}
-                  classNames={{
-                    trigger:
-                      'bg-black/30 border border-white/10 hover:border-brand-blue/50',
-                    label: 'text-xs text-neutral-400',
-                    value: 'text-white',
-                  }}
+                  classNames={selectStyles}
                   selectedKeys={goal ? new Set([goal]) : new Set()}
                   onSelectionChange={(keys) => {
-                    const v = Array.from(keys)[0] as string | undefined;
+                    const v = Array.from(keys)[0] as Goal | undefined;
                     setGoal(v ?? '');
                     if (v) clearError('goal');
                   }}
                   isInvalid={!!clientErrors.goal}
                   errorMessage={clientErrors.goal}
                 >
-                  <SelectItem key="leads">Generate leads</SelectItem>
-                  <SelectItem key="sell">Sell products</SelectItem>
-                  <SelectItem key="seo">
-                    Improve SEO &amp; performance
+                  <SelectItem key="calls">
+                    More calls / quote requests
                   </SelectItem>
+                  <SelectItem key="seo">Show up on Google / Maps</SelectItem>
+                  <SelectItem key="ads">Improve ad performance</SelectItem>
+                  <SelectItem key="trust">Look more credible</SelectItem>
                   <SelectItem key="other">Other</SelectItem>
                 </Select>
 
@@ -340,15 +398,10 @@ export default function ContactIntakeForm() {
                       content: 'bg-black border border-white/10 text-white',
                     },
                   }}
-                  classNames={{
-                    trigger:
-                      'bg-black/30 border border-white/10 hover:border-brand-blue/50',
-                    label: 'text-xs text-neutral-400',
-                    value: 'text-white',
-                  }}
+                  classNames={selectStyles}
                   selectedKeys={timeline ? new Set([timeline]) : new Set()}
                   onSelectionChange={(keys) => {
-                    const v = Array.from(keys)[0] as string | undefined;
+                    const v = Array.from(keys)[0] as Timeline | undefined;
                     setTimeline(v ?? '');
                     if (v) clearError('timeline');
                   }}
@@ -356,66 +409,74 @@ export default function ContactIntakeForm() {
                   errorMessage={clientErrors.timeline}
                 >
                   <SelectItem key="asap">ASAP</SelectItem>
+                  <SelectItem key="1-2w">1–2 weeks</SelectItem>
                   <SelectItem key="1-2m">1–2 months</SelectItem>
                   <SelectItem key="3m+">3+ months</SelectItem>
                   <SelectItem key="exploring">Just exploring</SelectItem>
                 </Select>
 
-                <Select
-                  isRequired
-                  name="budget"
-                  label="Budget range (CAD)"
-                  labelPlacement="outside"
-                  placeholder="Select a range"
-                  popoverProps={{
-                    classNames: {
-                      content: 'bg-black border border-white/10 text-white',
-                    },
-                  }}
-                  classNames={{
-                    trigger:
-                      'bg-black/30 border border-white/10 hover:border-brand-blue/50',
-                    label: 'text-xs text-neutral-400',
-                    value: 'text-white',
-                  }}
-                  selectedKeys={budget ? new Set([budget]) : new Set()}
-                  onSelectionChange={(keys) => {
-                    const v = Array.from(keys)[0] as string | undefined;
-                    setBudget(v ?? '');
-                    if (v) clearError('budget');
-                  }}
-                  isInvalid={!!clientErrors.budget}
-                  errorMessage={clientErrors.budget}
-                >
-                  <SelectItem key="planning">
-                    Still planning / need guidance
-                  </SelectItem>
-                  <SelectItem key="2-3k">
-                    $2,000–$3,000 — Starter site
-                  </SelectItem>
-                  <SelectItem key="3-5k">
-                    $3,000–$5,000 — Performance site
-                  </SelectItem>
-                  <SelectItem key="5k+">$5,000+ — Custom or web app</SelectItem>
-                </Select>
+                <div className="space-y-2">
+                  <Select
+                    isRequired
+                    name="budget"
+                    label="Budget range (CAD)"
+                    labelPlacement="outside"
+                    placeholder="Select a range"
+                    popoverProps={{
+                      classNames: {
+                        content: 'bg-black border border-white/10 text-white',
+                      },
+                    }}
+                    classNames={selectStyles}
+                    selectedKeys={budget ? new Set([budget]) : new Set()}
+                    onSelectionChange={(keys) => {
+                      const v = Array.from(keys)[0] as Budget | undefined;
+                      setBudget(v ?? '');
+                      if (v) clearError('budget');
+                    }}
+                    isInvalid={!!clientErrors.budget}
+                    errorMessage={clientErrors.budget}
+                  >
+                    <SelectItem key="planning">
+                      Not sure yet / need guidance
+                    </SelectItem>
+                    <SelectItem key="750-950">$750–$950 — Tune-Up</SelectItem>
+                    <SelectItem key="150-300mo">
+                      $150–$300/mo — Maintenance
+                    </SelectItem>
+                    <SelectItem key="3-5k">
+                      $3,000–$5,000 — Website build
+                    </SelectItem>
+                    <SelectItem key="5-10k">
+                      $5,000–$10,000 — Larger build
+                    </SelectItem>
+                    <SelectItem key="10k+">
+                      $10,000+ — Custom / complex
+                    </SelectItem>
+                  </Select>
+
+                  <p className="text-xs text-foreground/60">
+                    Tune-Ups from{' '}
+                    <span className="text-white font-medium">$950 CAD</span> •
+                    Maintenance from{' '}
+                    <span className="text-white font-medium">$150/mo</span> •
+                    Full builds from{' '}
+                    <span className="text-white font-medium">$3,000 CAD</span>
+                  </p>
+                </div>
               </div>
 
               <Textarea
                 isRequired
                 name="notes"
-                label="Tell us about your project"
+                label="Briefly describe what you want to improve"
                 labelPlacement="outside"
-                placeholder="A few sentences: who it’s for, what you need, any special requirements…"
+                placeholder="Example: Site is slow, people aren’t calling, want better service pages + stronger CTAs..."
                 minRows={4}
                 isInvalid={!!clientErrors.notes}
                 errorMessage={clientErrors.notes}
                 onValueChange={() => clearError('notes')}
-                classNames={{
-                  input: 'text-white',
-                  inputWrapper:
-                    'bg-black/30 border border-white/10 hover:border-brand-blue/50',
-                  label: 'text-xs text-neutral-400',
-                }}
+                classNames={fieldStyles}
               />
 
               <Checkbox
@@ -428,15 +489,15 @@ export default function ContactIntakeForm() {
                 isRequired
                 value="1"
               >
-                I understand ALL8 projects start at{' '}
-                <span className="font-semibold">$3,000 CAD</span> and focus on
-                performance, SEO, and conversions.
+                I understand ALL8 will confirm scope, pricing, and next steps by
+                email after reviewing my details.
               </Checkbox>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                 <p className="text-xs text-foreground/60">
-                  No spam. We’ll review and reply within 1–2 business days.
+                  No spam. We’ll review and reply within 1 business day.
                 </p>
+
                 <ButtonGradientWrapper>
                   <Button
                     radius="md"
@@ -454,6 +515,7 @@ export default function ContactIntakeForm() {
                     )}
                   </Button>
                 </ButtonGradientWrapper>
+
                 <ButtonGradientWrapper>
                   <Button
                     variant="solid"
@@ -481,7 +543,6 @@ export default function ContactIntakeForm() {
                         : 'border-default-200 bg-default-50 text-foreground/80')
                   }
                 >
-                  {/* Show field errors inline (above). Here we keep it generic */}
                   {status === 'success'
                     ? 'Thanks! We’ll review and follow up shortly.'
                     : status === 'error'
@@ -499,7 +560,7 @@ export default function ContactIntakeForm() {
         isOpen={showSuccess}
         onOpenChange={(open) => {
           setShowSuccess(open);
-          if (!open) router.push('/'); // or a thank-you route
+          if (!open) router.push('/');
         }}
         isDismissable
         hideCloseButton={false}
@@ -512,16 +573,14 @@ export default function ContactIntakeForm() {
               Thanks! Your request is in.
             </ModalHeader>
 
-            <ModalBody className=" space-y-4 text-foreground/80">
+            <ModalBody className="space-y-4 text-foreground/80">
               <p className="text-base">
                 We’ll review and follow up within{' '}
-                <span className="font-semibold text-white">
-                  1–2 business days
-                </span>
+                <span className="font-semibold text-white">1 business day</span>
                 .
               </p>
               <ul className="list-disc list-inside text-sm text-foreground/70">
-                <li>Watch your inbox for our next steps</li>
+                <li>Watch your inbox for next steps</li>
                 <li>
                   Replies usually come from{' '}
                   <span className="font-mono text-brand-blue text-center">

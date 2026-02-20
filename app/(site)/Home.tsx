@@ -9,7 +9,7 @@ const WhyWorkWithUs = dynamic(() => import('./components/WhyWorkWithUs'), {
   ssr: false,
 });
 
-const ServicesOverview = dynamic(() => import('./components/Services'), {
+const ServicesShowcase = dynamic(() => import('./components/Services'), {
   ssr: false,
 });
 
@@ -23,46 +23,76 @@ const CallToAction = dynamic(() => import('./components/CallToAction'), {
 
 const benefits: Benefit[] = [
   {
-    title: 'Fast sites that make the phone ring',
+    title: 'Fast sites that get more calls',
     description:
-      'Opens in ~2 seconds on a normal phone. Big call and text buttons so customers reach you fast.',
+      'Loads in under 2 seconds on mobile. Phone and text buttons are impossible to miss, so customers contact you immediately.',
     icon: 'zap',
   },
   {
-    title: 'Show up where customers search',
+    title: 'Show up where customers actually search',
     description:
-      'Google Maps and local search set up properly. Services and areas displayed the way Google expects.',
+      'Optimized for Google Maps and local search. Services and service areas structured the way Google expects.',
     icon: 'search',
   },
   {
-    title: 'Turn clicks into booked jobs',
+    title: 'Turn visitors into booked jobs',
     description:
-      'Short 3-field estimate form, reviews, and clear CTAs. More people finish, more jobs booked.',
+      'Short estimate forms, visible reviews, and strong calls-to-action that move people from browsing to booking.',
     icon: 'target',
   },
   {
-    title: 'Stays up, stays safe, and it’s yours',
+    title: 'Secure, monitored, and fully owned by you',
     description:
-      'Secure hosting, daily backups, basic firewalling, and monitoring. Smaller attack surface than plugin stacks.',
+      'Managed hosting, daily backups, firewall protection, and monitoring. No bloated plugin stacks. Lower risk. Cleaner performance.',
     icon: 'shield',
   },
 ];
+
+// const benefits: Benefit[] = [
+//   {
+//     title: 'Fast sites that make the phone ring',
+//     description:
+//       'Opens in ~2 seconds on a normal phone. Big call and text buttons so customers reach you fast.',
+//     icon: 'zap',
+//   },
+//   {
+//     title: 'Show up where customers search',
+//     description:
+//       'Google Maps and local search set up properly. Services and areas displayed the way Google expects.',
+//     icon: 'search',
+//   },
+//   {
+//     title: 'Turn clicks into booked jobs',
+//     description:
+//       'Short 3-field estimate form, reviews, and clear CTAs. More people finish, more jobs booked.',
+//     icon: 'target',
+//   },
+//   {
+//     title: 'Stays up, stays safe, and it’s yours',
+//     description:
+//       'Secure hosting, daily backups, basic firewalling, and monitoring. Smaller attack surface than plugin stacks.',
+//     icon: 'shield',
+//   },
+// ];
 
 const HomePage = () => {
   return (
     <>
       <WhyWorkWithUs
-        title="How Our Websites Help Your Business"
-        titleHighlight="Grow"
-        subtitle="We don’t just build websites — we build revenue machines that work 24/7."
+        title="Structured for"
+        titleHighlight="Results"
+        subtitle="Clear messaging, fast performance, and conversion-focused layouts that move visitors toward contacting you."
         ctaHref="/contact"
-        ctaLabel="Get Your Free Consultation"
+        ctaLabel="Find Out What’s Costing You Leads"
         benefits={benefits}
-        imageSrc="/assets/all8-webworks-contractor-website-design-developer-laptop-construction-tools.webp" // optional
+        imageSrc="/assets/all8-webworks-contractor-website-design-developer-laptop-construction-tools.webp"
         imageAlt="Web developer coding a contractor website on a laptop, with level, tape measure, gloves and safety vest on a blueprint desk."
-        tone="dark" // or "light"
+        tone="dark"
       />
-      <ServicesOverview />
+      <ServicesShowcase
+        title="Ways We Help You Get More Leads"
+        subtitle="Pick a starting point: a quick performance tune-up, ongoing maintenance, or a full rebuild."
+      />
       {/* <SocialProofSection /> */}
       <ProcessSection
         steps={homeData.process.steps}

@@ -1,59 +1,64 @@
 {
   "path": "/services",
-  "title": "High-Performance Web Design & SEO Services | ALL8 Webworks",
-  "description": "Discover expert web design, SEO, and digital marketing services tailored for contractors and service businesses. ALL8 Webworks drives real online results.",
+  "title": "Web Design & SEO Services for Contractors | ALL8 Webworks",
+  "description": "Websites, local SEO, performance tune-ups, and ongoing maintenance built to help contractors get more calls and booked jobs.",
+
   "ogImage": "/assets/images/og/services-all8-webworks.png",
 
   "hero": {
-    "title": "High-Performance Web Design & SEO Services for Contractors",
-    "subtitle": "From websites and SEO to ads and hosting — everything we build is engineered to grow your business, not just look pretty.",
-    "body": "We combine performance-first design with local SEO, ads, and hosting to give you an end-to-end system that generates measurable results.",
-    "ctaLabel": "Explore Services",
-    "ctaHref": "#services-list",
+    "title": "Websites & SEO Built to Get Contractors More Calls",
+    "subtitle": "From performance tune-ups to full rebuilds, every service is focused on one outcome: more qualified inquiries.",
+    "body": "We design, optimize, and maintain high-performance websites that turn local search traffic into real jobs.",
+    "ctaLabel": "Start with a Performance Tune-Up",
+    "ctaHref": "/performance-tune-up",
     "image": "/assets/images/services/connected-digital-systems-grid-all8-webworks-services.png",
-    "alt": "Connected digital systems grid representing various services offered by ALL8 Webworks"
+    "alt": "Overview of digital services offered by ALL8 Webworks"
   },
+
   "seo": {
-    "title": "Results-Driven Web Design & SEO for Contractors | ALL8 Webworks",
-    "description": "ALL8 Webworks delivers results-driven web design & SEO services for contractors—plus ads, hosting & more—to help grow your business from the ground up."
+    "title": "Contractor Web Design & Local SEO Services | ALL8 Webworks",
+    "description": "Performance-focused web design, local SEO, maintenance, and conversion optimization services built for contractors."
   },
+
   "servicesSection": {
-    "title": "Our Services",
-    "subtitle": "Comprehensive solutions to design, launch, and grow your business online."
+    "title": "Choose a Starting Point",
+    "subtitle": "Start small with a tune-up, move to maintenance, or invest in a full rebuild."
   },
+
   "processSection": {
-    "title": "How We Work With You",
-    "subtitle": "A clear, step-by-step approach so you always know what’s next.",
+    "title": "How We Work",
+    "subtitle": "A clear, focused process built around measurable improvements.",
     "steps": [
       {
-        "title": "Kickoff & Planning",
-        "description": "We review your goals, target audience, and competitors to create a clear action plan.",
+        "title": "Audit",
+        "description": "We review speed, structure, messaging, and calls-to-action.",
         "icon": "ClipboardList"
       },
       {
-        "title": "Design & Development",
-        "description": "Custom designs paired with modern frameworks like Next.js, HeroUI, and Tailwind.",
-        "icon": "Brush"
+        "title": "Plan",
+        "description": "You get a clear outline of what needs improvement and why.",
+        "icon": "Target"
       },
       {
-        "title": "Launch & Optimize",
-        "description": "Every launch includes SEO, analytics, and performance tracking so you’re ad-ready.",
+        "title": "Build & Optimize",
+        "description": "We implement performance and conversion improvements.",
         "icon": "Rocket"
       },
       {
-        "title": "Support & Growth",
-        "description": "Ongoing hosting, updates, SEO tuning, and ad management keep you competitive.",
+        "title": "Measure & Improve",
+        "description": "Analytics and tracking show what’s working and where to refine.",
         "icon": "TrendingUp"
       }
     ]
   },
+
   "cta": {
-    "titlePrefix": "Ready to",
-    "highlight": "Boost",
-    "titleSuffix": "Your Online Presence?",
-    "subtitle": "Let’s turn your website into a growth engine. Book a free consultation and get a clear action plan.",
-    "ctaLabel": "Book My Free Consultation",
-    "ctaHref": "/contact",
-    "note": "No long-term contracts • Transparent pricing • Built in Canada"
+    "titlePrefix": "Ready for a",
+    "highlight": "Clear Plan",
+    "titleSuffix": "to Improve Your Website?",
+    "subtitle": "We’ll show you exactly where performance and conversions can improve — no fluff.",
+    "ctaLabel": "Request a Performance Plan",
+    "ctaHref": "/performance-tune-up",
+    "note": "Flat pricing • Clear scope • Built in Canada"
   }
 }

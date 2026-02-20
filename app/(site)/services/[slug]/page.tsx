@@ -47,7 +47,7 @@ export async function generateMetadata({
     openGraph: {
       title: seo?.title,
       description: seo?.description,
-      url: seo?.url || `https://all8webworks.com/services/${service.slug}`,
+      url: seo?.url || `https://all8webworks.ca/services/${service.slug}`,
       type: (seo?.type as OpenGraphType) || 'website',
       siteName: seo?.siteName || 'ALL8 Webworks',
       images: [

@@ -72,11 +72,13 @@ export default function WhyWorkWithUsTwoCol({
           <SectionHeader
             title={
               <>
-                {title}{' '}
+                {title}
+                {'  '}
+                {'  '}
                 <motion.span
                   initial={{ scale: 0.95, opacity: 0.6 }}
                   whileHover={{ scale: 1.2 }}
-                  animate={{ scale: 1.1, opacity: 1 }}
+                  animate={{ scale: 1.06, opacity: 1 }}
                   transition={{
                     type: 'spring',
                     duration: 0.7,
@@ -89,7 +91,7 @@ export default function WhyWorkWithUsTwoCol({
                 </motion.span>{' '}
               </>
             }
-            subtitle="Get a free consultation. We'll audit your site, outline a plan, and give you clear next steps—no pressure."
+            subtitle={subtitle}
             center
             className="sm:text-6xl"
           />

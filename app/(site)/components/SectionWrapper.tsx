@@ -13,6 +13,7 @@ export type SectionProps = React.PropsWithChildren<{
     | 'gradient';
   pattern?: 'none' | 'grid' | 'dots' | 'blueprint';
   className?: string;
+  containerClassName?: string;
   noPad?: boolean;
 }>;
 
@@ -66,7 +67,7 @@ export function Section({
         tones[tone],
         patterns[pattern],
         'relative isolate',
-        className
+        className,
       )}
     >
       {/* alert visual overlay (self-contained now) */}
@@ -128,7 +129,7 @@ export function SectionHeader({
       <h2
         className={clsx(
           'text-4xl font-semibold tracking-tight sm:text-6xl',
-          className
+          className,
         )}
       >
         {renderContent(title)}
@@ -137,7 +138,7 @@ export function SectionHeader({
         <p
           className={clsx(
             'mt-3 max-w-2xl text text-foreground/70',
-            center && 'mx-auto'
+            center && 'mx-auto',
           )}
         >
           {renderContent(subtitle)}
@@ -207,7 +208,7 @@ export function ButtonGradientWrapper({
         'inline-flex shrink-0 rounded-xl p-[2px]',
         'bg-gradient-to-br from-[#59BAE066] via-[#0047BB66] to-[#D0000066]',
         'w-fit', // keeps it tight around the child
-        className
+        className,
       )}
     >
       {children}

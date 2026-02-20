@@ -7,6 +7,20 @@ import ContactPageHero from '@/app/(site)/contact/components/ContactPageHero';
 import ProcessSection from '../../components/OurProcess';
 import CallToAction from '../../components/CallToAction';
 import ServicesOverviewRefactored from '../../components/Services';
+import FAQBlock from '../../components/FAQBlock';
+
+type FAQTone = 'base' | 'alt' | 'dim';
+
+type ContactPageJson = {
+  faqs?: {
+    title?: string;
+    subtitle?: string;
+    tone?: FAQTone;
+    items?: { q: string; a: string }[];
+  };
+};
+
+const page = contactData as ContactPageJson;
 
 const Contact = () => {
   return (
@@ -18,6 +32,12 @@ const Contact = () => {
         steps={contactData.process.steps}
         title={contactData.process.title}
         subtitle={contactData.process.subtitle}
+      />
+      <FAQBlock
+        subtitle={page.faqs?.subtitle}
+        faqs={page.faqs?.items ?? []}
+        title={page.faqs?.title}
+        tone={page.faqs?.tone}
       />
       <CallToAction
         titlePrefix={contactData.cta.titlePrefix}

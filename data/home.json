@@ -1,82 +1,87 @@
 {
   "hero": {
-    "title": "High-performance sites engineered to convert",
-    "subtitle": "From local visitors to calls, quotes, and booked jobs across Canada.",
-    "ctaLabel": "View Our Services",
-    "ctaHref": "/services"
+    "title": "Websites Built to Get More Calls",
+    "subtitle": "Fast, clear, conversion-focused websites engineered for contractors and service businesses across Canada.",
+    "ctaLabel": "Request a Performance Review",
+    "ctaHref": "/performance-tune-up"
   },
+
   "why": {
     "title": "Why ALL8",
-    "subtitle": "We engineer websites that perform like a V8 engine — fast, efficient, and built for results.",
+    "subtitle": "We build websites around one goal: turning visitors into real inquiries.",
     "benefits": [
       {
-        "title": "Results, not fluff",
-        "description": "Clear value props, fast pages, clean funnels. Every page has one job and is measured against it.",
+        "title": "Clear Structure, Clear Results",
+        "description": "Every page has one job. Clear messaging, visible calls-to-action, and no wasted space.",
         "icon": "Target"
       },
       {
-        "title": "Local SEO baked in",
-        "description": "Schema, Google Business Profile, location pages, review strategy — all tuned for where customers actually buy.",
+        "title": "Local Visibility Built In",
+        "description": "Google-ready structure, service areas, and review strategy so customers can actually find you.",
         "icon": "Search"
       },
       {
-        "title": "Ownable & maintainable",
-        "description": "Modern Next.js stack, clean components, and docs. Launch fast, iterate without drama.",
+        "title": "Fast, Secure, Low-Maintenance",
+        "description": "Clean builds with fewer moving parts. Less risk, better performance.",
         "icon": "Zap"
       }
     ],
     "cta": {
-      "titlePrefix": "Ready to",
-      "highlight": "Grow",
-      "titleSuffix": "Your Business?",
-      "subtitle": "Get a free consultation. We'll audit your site, outline a plan, and give you clear next steps—no pressure.",
-      "ctaLabel": "Book a Free Consultation",
-      "ctaHref": "/contact",
-      "microText": "No long contracts • Transparent pricing • Built for speed & conversions"
+      "titlePrefix": "Start With a",
+      "highlight": "Performance Tune-Up",
+      "titleSuffix": "",
+      "subtitle": "We’ll review your site and show you exactly what’s slowing it down or costing you leads.",
+      "ctaLabel": "Get a 5-Min Review",
+      "ctaHref": "/performance-tune-up",
+      "microText": "Flat pricing • 3–5 day turnaround • No long contracts"
     }
   },
+
   "process": {
-    "title": "Our Process: Simple, Clear, Proven",
-    "subtitle": "Here’s how we take your project from idea to launch — and growth.",
+    "title": "How We Work",
+    "subtitle": "A simple, focused process built around results.",
     "steps": [
       {
-        "title": "Discovery & Strategy",
-        "description": "We learn your goals, audience, and competition to build a plan tied to revenue.",
+        "title": "Audit",
+        "description": "We review your current site, speed, structure, and calls-to-action.",
         "icon": "ClipboardList"
       },
       {
-        "title": "Design & Build",
-        "description": "Custom, high-performance design with modern tech — fast, accessible, and secure.",
-        "icon": "Brush"
+        "title": "Plan",
+        "description": "We outline exactly what needs improvement — no fluff.",
+        "icon": "Target"
       },
       {
-        "title": "Launch & Optimize",
-        "description": "SEO, analytics, and tracking ready from day one.",
+        "title": "Build & Optimize",
+        "description": "We implement improvements focused on speed, clarity, and conversions.",
         "icon": "Rocket"
       },
       {
-        "title": "Ongoing Growth",
-        "description": "Hosting, updates, SEO tuning, and ads management to keep you ahead.",
+        "title": "Measure",
+        "description": "Tracking and analytics show what’s working and where to improve.",
         "icon": "TrendingUp"
       }
     ]
   },
+
   "services": {
-    "title": "What We Can Do For You",
-    "subtitle": "Results-first services to build, launch, and grow your online presence.",
+    "title": "Choose a Starting Point",
+    "subtitle": "Start small with a tune-up or move straight to a full build.",
     "show": [
+      "performance-tune-up",
+      "website-maintenance-hosting",
       "websites-that-convert",
-      "local-seo-lead-systems",
-      "ads-ready-landing-pages"
+      "google-business-profile-optimization"
     ]
   },
+
   "cta": {
-    "titlePrefix": "Ready to",
-    "highlight": "Grow",
-    "titleSuffix": "Your Business?",
-    "subtitle": "Get a free consultation. We'll audit your site, outline a plan, and give you clear next steps—no pressure.",
-    "ctaLabel": "Book a Free Consultation",
-    "ctaHref": "/contact",
-    "microText": "No long contracts • Transparent pricing • Built for speed & conversions"
+    "titlePrefix": "Ready to Improve Your",
+    "highlight": "Website",
+    "titleSuffix": "Performance ?",
+    "subtitle": "Start with a performance review and see exactly what’s holding your site back.",
+    "ctaLabel": "Request a Performance Review",
+    "ctaHref": "/performance-tune-up",
+    "microText": "Clear scope • Transparent pricing • Built in Canada"
   }
 }

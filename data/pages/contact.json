@@ -1,49 +1,94 @@
 {
   "path": "/contact",
-  "title": "Contact | ALL8 Webworks — Performance-First Websites",
-  "description": "Request a quote or book a call. Let’s improve your site speed, rankings, and leads.",
+  "title": "Contact ALL8 Webworks | Website Performance & Growth",
+  "description": "Start with a performance tune-up, maintenance plan, or full website build. We respond within 1 business day with clear next steps.",
   "ogImage": "/assets/images/og/ALL8_Webworks_contact_og.jpg",
+
   "hero": {
-    "titlePrefix": "Start Your",
-    "highlight": "Project",
-    "titleSuffix": "With Us",
-    "subtitle": "We take on a limited number of builds. Fill out this brief intake so we can confirm fit within 1–2 business days.",
-    "note": "Projects typically start at $3,000 CAD.",
-    "ctaLabel": "Request a Proposal",
+    "titlePrefix": "Let’s",
+    "highlight": "Improve",
+    "titleSuffix": "Your Website",
+    "subtitle": "Whether you need a performance tune-up, ongoing maintenance, or a full rebuild — we’ll help you choose the right path.",
+    "note": "Tune-Ups from $950 CAD • Full builds from $3,000 CAD.",
+    "ctaLabel": "Start Here",
     "ctaHref": "#intake-form"
   },
+
+  "intro": {
+    "title": "Tell Us What You’re Looking For",
+    "body": "Fill out the short intake form below. We’ll review your current site, goals, and budget, then reply within 1 business day with clear recommendations."
+  },
+
   "process": {
     "title": "What Happens Next",
-    "subtitle": "We make it simple to get in touch and get answers fast.",
+    "subtitle": "Clear steps. No pressure.",
     "steps": [
       {
-        "title": "Send Us a Message",
-        "description": "Use the contact form or give us a call — whatever’s easiest.",
+        "title": "Submit the Intake Form",
+        "description": "Tell us about your business, your current website, and what you’d like to improve.",
         "icon": "ClipboardList"
       },
       {
-        "title": "Quick Response",
-        "description": "We’ll reply within 24 hours with clear next steps.",
+        "title": "We Review & Audit",
+        "description": "We assess speed, structure, conversion paths, and local visibility.",
+        "icon": "Search"
+      },
+      {
+        "title": "Clear Recommendation",
+        "description": "We suggest a tune-up, maintenance plan, or full rebuild — based on what actually makes sense.",
+        "icon": "Target"
+      },
+      {
+        "title": "Move Forward",
+        "description": "Flat pricing. Clear scope. No long contracts.",
         "icon": "Rocket"
-      },
-      {
-        "title": "Discuss Your Needs",
-        "description": "We’ll schedule a quick call or email to understand your goals.",
-        "icon": "Brush"
-      },
-      {
-        "title": "Plan Forward",
-        "description": "If it’s a fit, we’ll outline a simple plan to get started.",
-        "icon": "TrendingUp"
       }
     ]
   },
+
+  "faqs": {
+    "title": "Common Questions",
+    "subtitle": "Quick answers before you hit send.",
+    "tone": "alt",
+    "items": [
+      {
+        "q": "Do you work on WordPress sites you didn’t build?",
+        "a": "Yes. We can maintain, optimize, and improve WordPress sites even if we didn’t build them. If it’s extremely plugin-heavy or unstable, we’ll tell you upfront what’s worth fixing vs rebuilding."
+      },
+      {
+        "q": "What’s the best starting point: tune-up or full rebuild?",
+        "a": "If your site is slow, not generating leads, or your ads are underperforming, the Performance & Conversion Tune-Up is usually the fastest win. If the site is outdated, structurally broken, or impossible to update, a rebuild makes more sense."
+      },
+      {
+        "q": "How fast can you turn around a tune-up?",
+        "a": "Most tune-ups are completed in 3–5 business days once we have access and your priorities confirmed."
+      },
+      {
+        "q": "What do you need from me?",
+        "a": "A website link, your top services/areas, and access to your hosting or CMS (if applicable). If you’re running Ads or have Analytics, we’ll request access to those too."
+      },
+      {
+        "q": "Do we have to do a phone call?",
+        "a": "No. If you prefer, we can do everything by email. If a short call would save time, we’ll suggest it, but it’s not required."
+      },
+      {
+        "q": "What does pricing look like?",
+        "a": "Performance Tune-Ups start at $950 CAD. Maintenance starts at $150 CAD/month. Full builds typically start at $3,000 CAD depending on scope."
+      }
+    ]
+  },
+  "servicesHint": {
+    "title": "Not Sure What You Need?",
+    "body": "That’s normal. Many clients start with a performance tune-up before deciding on a full rebuild. We’ll guide you based on real data, not guesswork."
+  },
+
   "cta": {
-    "titlePrefix": "We’ll reply within",
-    "highlight": "24 hours",
+    "titlePrefix": "Ready to Make Your Website",
+    "highlight": "Work Harder ?",
     "titleSuffix": "",
-    "subtitle": "Get the answers you need fast.",
-    "ctaLabel": "Send a Message",
-    "ctaHref": "#intake-form"
+    "subtitle": "Send a few details and we’ll tell you exactly what’s worth fixing — and what’s not.",
+    "ctaLabel": "Send My Details",
+    "ctaHref": "#intake-form",
+    "microText": "Built in Canada • Clear pricing • Measurable results"
   }
 }

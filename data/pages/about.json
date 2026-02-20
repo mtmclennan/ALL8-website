@@ -1,23 +1,24 @@
 {
   "path": "/about",
-  "title": "About ALL8 Webworks | Web Design for Trades",
-  "description": "ALL8 Webworks builds fast, reliable websites for service businesses—no fluff, just performance, SEO, and real results that drive customer growth.",
+  "title": "About ALL8 Webworks | Websites Built for Contractors",
+  "description": "ALL8 Webworks builds fast, reliable websites for contractors and service businesses across Canada, designed to generate calls, quotes, and booked jobs.",
   "ogImage": "/assets/images/og/about-all8-webworks.png",
+
   "hero": {
-    "title": "Engineering Websites That Drive Calls, Quotes & Jobs",
-    "subtitle": "ALL8 Webworks is a Canadian web design and SEO agency built for the trades. We use modern tools like Next.js and Tailwind to deliver speed, visibility, and real business results.",
-    "body": "",
-    "ctaLabel": "Our Services",
+    "title": "Websites Built to Win You More Calls",
+    "subtitle": "ALL8 Webworks is a Canadian studio focused on contractors and service businesses. We build fast, clean sites that turn local traffic into calls, quotes, and booked jobs.",
+    "body": "No fluff. No confusing funnels. Just clear pages that do their job.",
+    "ctaLabel": "See How We Help",
     "ctaHref": "/services"
   },
 
   "aboutStory": {
     "heading": "Our Story",
     "paragraphs": [
-      "ALL8 Webworks began with a straightforward belief: websites should perform like a finely tuned engine—fast, reliable, and built to go the distance. Too many businesses settle for sluggish, cookie-cutter sites that look nice on the surface but stall when it matters most: turning visitors into customers.",
-      "With a background in the trades and years spent working alongside service-based businesses, we understand the daily challenges contractors and local companies face. Marketing often feels like a black hole of time and money, with little return. That’s why ALL8 was built differently—from the ground up, like a job site that’s measured twice and cut once.",
-      "We don’t build flimsy WordPress sites weighed down by plugins, hidden fees, and constant patchwork fixes. Instead, we craft clean, modern websites with professional-grade tools—sites designed for speed, search visibility, and real results. No gimmicks. No shortcuts.",
-      "Today, ALL8 Webworks helps hardworking businesses rev up their online presence with websites that actually perform, so they can focus on the work they do best."
+      "ALL8 Webworks started with a simple belief: your website should perform like a well-tuned engine. Fast to load, easy to use, and built to convert.",
+      "After working alongside service-based businesses and the trades, one thing became obvious. Most websites look fine, but don’t produce work. Slow pages, unclear messaging, and weak calls-to-action quietly cost leads every day.",
+      "So we build differently: clear structure, measurable performance, and conversion-focused pages designed around one goal: more qualified inquiries.",
+      "If you’re tired of marketing that feels like guesswork, we’re built for you."
     ]
   },
 
@@ -25,69 +26,76 @@
     "titlePrefix": "Why",
     "highlight": "ALL8",
     "titleSuffix": "",
-    "subtitle": "We engineer websites that perform like a V8 engine — fast, efficient, and built for results.",
+    "subtitle": "Because your website should be a tool that produces work, not a brochure that sits there.",
     "benefits": [
       {
-        "title": "Strategy First",
-        "description": "We take time to understand your business and craft solutions built to last.",
+        "title": "Clarity First",
+        "description": "Clear messaging, simple layouts, and one goal per page so customers know exactly what to do next.",
         "icon": "Target"
       },
       {
-        "title": "Built for Trades & Services",
-        "description": "Not generic templates — websites engineered to generate calls and quotes.",
+        "title": "Built for Local Leads",
+        "description": "Service areas, reviews, and structure that supports Google Maps and local search.",
         "icon": "Search"
       },
       {
-        "title": "Performance Obsessed",
-        "description": "Every build is optimized for speed, SEO, and conversion tracking.",
+        "title": "Performance You Can Measure",
+        "description": "Fast load times, clean tracking, and a site that stays reliable over time.",
         "icon": "Zap"
       }
     ],
     "cta": {
-      "label": "Talk To Us",
-      "href": "/contact"
+      "label": "Request a Performance Review",
+      "href": "/performance-tune-up"
     },
     "imageSrc": "/assets/images/about/all8-webworks-contractor-website-design-developer-laptop-construction-tools.webp",
-    "imageAlt": "Team meeting at ALL8 Webworks office"
+    "imageAlt": "Web developer building a contractor website on a laptop at a blueprint desk with construction tools."
   },
+
   "process": {
-    "title": "How We Work With You",
-    "subtitle": "Our approach is built on clarity, collaboration, and long-term results.",
+    "title": "How We Work",
+    "subtitle": "A focused process that stays clear from kickoff to launch.",
     "steps": [
       {
-        "title": "Listen & Understand",
-        "description": "We start by learning your story, your goals, and the challenges you face.",
+        "title": "Audit & Goals",
+        "description": "We review your current site (or starting point) and define what success looks like: calls, quotes, booked jobs.",
         "icon": "ClipboardList"
       },
       {
-        "title": "Plan Together",
-        "description": "We outline a clear strategy, making sure timelines and outcomes align.",
-        "icon": "Brush"
+        "title": "Plan",
+        "description": "You get a clear scope, timeline, and priorities before anything is built.",
+        "icon": "Target"
       },
       {
-        "title": "Build With Care",
-        "description": "We deliver with clean code, scalable design, and performance built in.",
+        "title": "Build & Optimize",
+        "description": "We build fast pages with clear calls-to-action and local visibility baked in.",
         "icon": "Rocket"
       },
       {
-        "title": "Support & Evolve",
-        "description": "We stay engaged after launch — hosting, SEO, updates, and growth support.",
+        "title": "Support",
+        "description": "After launch, we can maintain, monitor, and improve so your site keeps performing.",
         "icon": "TrendingUp"
       }
     ]
   },
+
   "services": {
-    "title": "How We Support Our Clients",
-    "subtitle": "Services designed to match strategy with execution, long after launch.",
-    "show": ["websites-that-convert", "local-seo-lead-systems"]
+    "title": "How We Help",
+    "subtitle": "Start small or go all-in. Either way, the goal is the same: more qualified inquiries.",
+    "show": [
+      "performance-tune-up",
+      "website-maintenance-hosting",
+      "websites-that-convert"
+    ]
   },
+
   "cta": {
-    "titlePrefix": "Ready to",
-    "highlight": "Partner",
-    "titleSuffix": "With a Team That Delivers?",
-    "subtitle": "We care about long-term results, not quick wins. Let's build something that lasts.",
-    "ctaLabel": "Talk To Us",
-    "ctaHref": "/contact",
-    "microText": "Local expertise • Built for trades • Backed by performance data"
+    "titlePrefix": "Want a Website That Actually",
+    "highlight": " Performs ?",
+    "titleSuffix": "",
+    "subtitle": "Start with a performance review. We’ll show you what’s slowing your site down and what’s costing you leads.",
+    "ctaLabel": "Request a Performance Review",
+    "ctaHref": "/performance-tune-up",
+    "microText": "Clear scope • Flat pricing • Built in Canada"
   }
 }

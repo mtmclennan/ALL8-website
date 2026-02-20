@@ -112,6 +112,7 @@ export type Comparison = {
 
 // ---------- Service ----------
 export type Service = {
+  featured: boolean;
   slug: string;
   title: string;
   short: string;
