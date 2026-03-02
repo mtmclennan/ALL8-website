@@ -1,0 +1,56 @@
+{
+  "path": "/tune-up",
+  "title": "Performance Tune-Up Review | ALL8 Webworks",
+  "description": "Request a focused performance and conversion review for your contractor website. Clear recommendations. No fluff.",
+  "ogImage": "/assets/images/og/tune-up-review.png",
+
+  "hero": {
+    "titlePrefix": "Get a Focused",
+    "highlight": "Tune-Up",
+    "titleSuffix": "Review",
+    "subtitle": "Tell us what’s happening. We’ll review your site and outline exactly what’s worth fixing.",
+    "note": "Review within 1 business day • Flat-scope pricing • Built for contractors"
+  },
+
+  "outcomes": {
+    "title": "What You’ll Receive",
+    "items": [
+      "Focused review of speed + conversion flow",
+      "Clear explanation of what’s hurting inquiries",
+      "Prioritized fix list (no fluff)"
+    ]
+  },
+
+  "whatHappensNext": {
+    "title": "What Happens After You Submit",
+    "steps": [
+      "We review your site within 1 business day",
+      "You receive a short email summary (optional Loom walkthrough)",
+      "If it makes sense, we outline a flat-scope fix"
+    ]
+  },
+
+  "bestFor": {
+    "title": "Best For",
+    "items": [
+      "Contractors getting traffic but not enough calls",
+      "Sites that feel close but underperform",
+      "Businesses not ready for a full rebuild"
+    ]
+  },
+
+  "faq": [
+    {
+      "q": "Is this only for sites you built?",
+      "a": "No. We review most modern websites, even if we didn’t build them."
+    },
+    {
+      "q": "Will this guarantee more leads?",
+      "a": "No one can guarantee leads. We reduce friction and improve clarity so you stop losing the leads you should already be getting."
+    },
+    {
+      "q": "What if my site needs more than a tune-up?",
+      "a": "We’ll tell you honestly. If a rebuild makes more sense, we’ll explain why."
+    }
+  ]
+}

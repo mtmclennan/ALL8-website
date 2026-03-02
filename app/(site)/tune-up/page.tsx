@@ -1,17 +1,21 @@
+import { Section } from '@/app/(site)/_components/SectionWrapper';
+import tuneUpPage from '@/data/pages/tuneUpPage.json';
 import TuneUpReviewForm from './_components/TuneUpReviewForm';
-
-export const metadata = {
-  title: 'Performance Tune-Up Review | ALL8 Webworks',
-  description:
-    'Tell us what’s happening. We’ll review your site and outline exactly what’s worth fixing.',
-};
+import TuneUpHeroWithCompactForm from './_components/TuneUpPageHero';
 
 export default function Page() {
   return (
-    <main className="min-h-[calc(100vh-4rem)]">
-      <div className="mx-auto max-w-3xl px-6 py-12 md:py-20">
-        <TuneUpReviewForm />
-      </div>
+    <main>
+      <Section tone="dim" pattern="none">
+        <div className="mx-auto max-w-6xl px-6 py-12 md:py-20">
+          <TuneUpHeroWithCompactForm
+            hero={tuneUpPage.hero}
+            form={<TuneUpReviewForm />}
+          />
+        </div>
+      </Section>
+
+      {/* next sections below if needed */}
     </main>
   );
 }
