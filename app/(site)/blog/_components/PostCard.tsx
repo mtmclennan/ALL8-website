@@ -8,7 +8,7 @@ import {
 } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Card } from '../../components/SectionWrapper';
+import { Card } from '../../_components/SectionWrapper';
 import { urlFor } from '@/app/studio/sanity/lib/image';
 
 interface PostCardProps {

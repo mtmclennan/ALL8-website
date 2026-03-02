@@ -1,6 +1,8 @@
 [
   {
     "slug": "performance-tune-up",
+    "bucket": "Tune-Up",
+    "systemTag": "Foundation",
     "title": "Performance & Conversion Tune-Up",
     "featured": true,
     "short": "A fast, focused upgrade to speed, clarity, and lead capture.",
@@ -131,7 +133,7 @@
       "title": "Performance & Conversion Tune-Up | ALL8 Webworks",
       "description": "A focused website tune-up for contractors and service businesses. Improve speed, mobile usability, and conversion flow in 3–5 days.",
       "keywords": "website performance tune-up, conversion optimization for contractors, improve website speed Canada, core web vitals, contractor website fixes",
-      "url": "https://all8webworks.ca/performance-tune-up",
+      "url": "https://all8webworks.ca/services/performance-tune-up",
       "image": "/images/services/performance-tune-up-og.jpg",
       "type": "website",
       "siteName": "ALL8 Webworks"
@@ -184,8 +186,11 @@
       "note": "3–5 day turnaround • Fixed scope • Built for contractors"
     }
   },
+
   {
     "slug": "websites-that-convert",
+    "bucket": "Full Build",
+    "systemTag": "Foundation",
     "title": "Websites That Convert",
     "featured": true,
     "short": "Fast, secure, lead-focused websites for contractors and service businesses.",
@@ -369,8 +374,11 @@
       "note": "Built in Canada • Clear scope • Results-focused"
     }
   },
+
   {
     "slug": "website-maintenance-hosting",
+    "bucket": "Protection",
+    "systemTag": "Protection",
     "title": "Website Maintenance & Hosting",
     "featured": true,
     "short": "Keep your site secure, fast, and online with managed maintenance.",
@@ -554,9 +562,12 @@
       "note": "Month-to-month • WordPress supported • Clear scope"
     }
   },
+
   {
-    "slug": "basic-seo-setup",
-    "title": "Basic SEO Setup",
+    "slug": "local-seo-foundation",
+    "bucket": "Foundation",
+    "systemTag": "Visibility",
+    "title": "Local SEO Foundation",
     "short": "Get found locally with solid SEO foundations and proper indexing.",
     "description": "Every strong site needs the basics done right: page titles, structured data, sitemaps, and proper Google indexing. We set up the foundation so your business can show up in local searches.",
     "card": {
@@ -682,10 +693,10 @@
       }
     ],
     "seo": {
-      "title": "Basic SEO Setup | ALL8 Webworks",
-      "description": "Essential SEO setup for contractors and service businesses: metadata, schema, indexing, and local foundations.",
-      "keywords": "basic SEO setup, contractor SEO, local SEO Canada, schema markup, google indexing, small business SEO foundations",
-      "url": "https://all8webworks.ca/services/basic-seo-setup",
+      "title": "Local SEO Foundation | ALL8 Webworks",
+      "description": "Essential SEO foundation for contractors and service businesses: metadata, schema, indexing, and local foundations.",
+      "keywords": "local SEO foundation, contractor SEO, local SEO Canada, schema markup, google indexing, small business SEO foundations",
+      "url": "https://all8webworks.ca/services/local-seo-foundation",
       "image": "/images/services/seo-setup-og.jpg",
       "type": "website",
       "siteName": "ALL8 Webworks"
@@ -693,12 +704,12 @@
     "priority": 0.7,
     "image": "/images/services/seo-setup.jpg",
     "hero": {
-      "titlePrefix": "SEO Foundations",
-      "highlight": "Done Right",
-      "titleSuffix": "From Day One",
+      "titlePrefix": "Local SEO",
+      "highlight": "Foundation",
+      "titleSuffix": "Done Right",
       "subtitle": "Metadata, structure, and indexing so customers can actually find you locally.",
       "ctaLabel": "Get Found Locally",
-      "ctaHref": "/contact?service=Basic%20SEO%20Setup",
+      "ctaHref": "/contact?service=Local%20SEO%20Foundation",
       "image": "/assets/images/services/basic-seo-hero.png",
       "alt": "Magnifying glass focusing on a rising search performance graph"
     },
@@ -732,14 +743,17 @@
       "titlePrefix": "Ready to Get",
       "highlight": "Found",
       "titleSuffix": "on Google?",
-      "subtitle": "Start with clean SEO foundations and proper indexing. No fluff.",
+      "subtitle": "Start with clean local SEO foundations and proper indexing. No fluff.",
       "ctaLabel": "Get Found Locally",
-      "ctaHref": "/contact?service=Basic%20SEO%20Setup",
+      "ctaHref": "/contact?service=Local%20SEO%20Foundation",
       "note": "Local-first • Clean structure • Measurable"
     }
   },
+
   {
     "slug": "google-business-profile-optimization",
+    "bucket": "Visibility",
+    "systemTag": "Visibility",
     "title": "Google Business Profile Optimization",
     "featured": true,
     "short": "Improve Maps visibility and turn searches into calls.",
@@ -923,8 +937,11 @@
       "note": "Local-first • Trust-focused • Practical setup"
     }
   },
+
   {
     "slug": "google-ads-setup-integration",
+    "bucket": "Visibility",
+    "systemTag": "Visibility",
     "title": "Google Ads Setup & Tracking",
     "short": "Launch Ads with proper targeting and conversion tracking.",
     "description": "We set up your Google Ads account, create a clean campaign structure, and connect tracking so you can measure leads, not just clicks. Best paired with a tune-up or strong landing page.",
@@ -1107,8 +1124,11 @@
       "note": "One-time setup • Lead tracking • Clear structure"
     }
   },
+
   {
     "slug": "business-tool-integrations",
+    "bucket": "Protection",
+    "systemTag": "Protection",
     "title": "Business Tool Integrations",
     "short": "Connect leads to your CRM, quoting, or booking tools so nothing gets missed.",
     "description": "We connect your website to the tools that run your business so leads are captured, routed, and followed up properly. This reduces admin work and helps you respond faster.",

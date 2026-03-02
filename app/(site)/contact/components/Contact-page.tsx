@@ -4,10 +4,10 @@ import ContactIntakeForm from './ContactIntakeForm';
 import contactData from '@/data/pages/contact.json';
 // import { contactPageData } from '@/data/contactPage';
 import ContactPageHero from '@/app/(site)/contact/components/ContactPageHero';
-import ProcessSection from '../../components/OurProcess';
-import CallToAction from '../../components/CallToAction';
-import ServicesOverviewRefactored from '../../components/Services';
-import FAQBlock from '../../components/FAQBlock';
+import ProcessSection from '../../_components/OurProcess';
+import CallToAction from '../../_components/CallToAction';
+import ServicesOverviewRefactored from '../../_components/Services';
+import FAQBlock from '../../_components/FAQBlock';
 
 type FAQTone = 'base' | 'alt' | 'dim';
 

@@ -6,6 +6,42 @@
     "ctaHref": "/performance-tune-up"
   },
 
+  "builtForContractors": {
+    "title": "Built for Contractors Across Canada",
+    "subtitle": "High-performance websites built for plumbers, HVAC, electricians, and service contractors who rely on inbound leads.",
+    "body": "Your website should do one job: turn local search into calls and estimate requests. Clear service pages, obvious CTAs, fast load times, and structure that Google understands.",
+    "tradesTitle": "Industries We Build For",
+    "trades": [
+      { "label": "Plumbers", "href": "/services", "icon": "Wrench" },
+      { "label": "HVAC", "href": "/services", "icon": "Wind" },
+      { "label": "Electricians", "href": "/services", "icon": "Zap" },
+      { "label": "Roofing", "href": "/services", "icon": "Home" },
+      { "label": "Landscaping", "href": "/services", "icon": "Leaf" },
+      { "label": "Excavation", "href": "/services", "icon": "Shovel" },
+      { "label": "Concrete", "href": "/services", "icon": "Hammer" },
+      { "label": "Painting", "href": "/services", "icon": "Paintbrush" },
+      { "label": "Garage Doors", "href": "/services", "icon": "DoorOpen" },
+      { "label": "General Contractors", "href": "/services", "icon": "HardHat" }
+    ],
+    "note": "If you run a local service trade business, we build for you."
+  },
+  "whyAll8Strip": {
+    "kicker": "Why ALL8",
+    "title": "Performance-first websites built for real contractors",
+    "items": [
+      { "label": "Performance-first (fast on real phones)", "icon": "Gauge" },
+      {
+        "label": "Structured for Google Maps + local visibility",
+        "icon": "MapPin"
+      },
+      {
+        "label": "Clear scope, no vague ‘strategy’ fluff",
+        "icon": "ListChecks"
+      },
+      { "label": "Built for results, not awards", "icon": "Trophy" }
+    ]
+  },
+
   "why": {
     "title": "Why ALL8",
     "subtitle": "We build websites around one goal: turning visitors into real inquiries.",
@@ -63,6 +99,29 @@
       }
     ]
   },
+
+  "faqs": [
+    {
+      "q": "Do you work across Canada?",
+      "a": "Yes. We work with contractors and service businesses across Canada."
+    },
+    {
+      "q": "Can you improve my current site instead of rebuilding?",
+      "a": "Yes. Start with a Performance Tune-Up and we’ll recommend the fastest path to better speed and more leads."
+    },
+    {
+      "q": "Do I own the website?",
+      "a": "Yes. You own the site and content. No platform lock-in."
+    },
+    {
+      "q": "Do you handle hosting and maintenance?",
+      "a": "Yes. We offer managed hosting, monitoring, backups, and ongoing updates."
+    },
+    {
+      "q": "How long does a build take?",
+      "a": "Most projects take a few weeks depending on scope and how quickly content is approved."
+    }
+  ],
 
   "services": {
     "title": "Choose a Starting Point",

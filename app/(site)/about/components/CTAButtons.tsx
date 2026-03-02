@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import { Button } from '@heroui/button';
-import { ButtonGradientWrapper } from '@/app/(site)/components/SectionWrapper';
+import { ButtonGradientWrapper } from '@/app/(site)/_components/SectionWrapper';
 
 interface CTAButtonsProps {
   ctaHref: string;

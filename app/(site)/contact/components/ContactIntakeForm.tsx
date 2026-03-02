@@ -25,7 +25,7 @@ import {
   ModalHeader,
 } from '@heroui/modal';
 
-import { ButtonGradientWrapper } from '../../components/SectionWrapper';
+import { ButtonGradientWrapper } from '../../_components/SectionWrapper';
 
 const initialState: IntakeActionState = { ok: false };
 

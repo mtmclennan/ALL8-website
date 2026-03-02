@@ -1,11 +1,11 @@
 'use client';
 
-import { Section } from '@/app/(site)/components/SectionWrapper';
-import { SectionHeader } from '@/app/(site)/components/SectionWrapper';
+import { Section } from '@/app/(site)/_components/SectionWrapper';
+import { SectionHeader } from '@/app/(site)/_components/SectionWrapper';
 import { motion, LazyMotion, domAnimation } from 'framer-motion';
 import { AlertTriangle } from 'lucide-react';
 import type { Problem } from '@/data/services';
-import { ShineIcon } from '@/app/(site)/components/ShineIcon';
+import { ShineIcon } from '@/app/(site)/_components/ShineIcon';
 import { lucideIconMap } from '@/data/lucideIconMap';
 
 type ProblemBlockProps = {

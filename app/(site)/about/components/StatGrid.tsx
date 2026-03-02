@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Card } from '@/app/(site)/components/SectionWrapper';
+import { Card } from '@/app/(site)/_components/SectionWrapper';
 import {
   LucideCpu,
   LucideTrendingUp,

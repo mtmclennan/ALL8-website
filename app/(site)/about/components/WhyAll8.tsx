@@ -1,13 +1,13 @@
 'use client';
 
 import { LazyMotion, domAnimation, motion } from 'framer-motion';
-import { ShineIcon } from '../../components/ShineIcon';
+import { ShineIcon } from '../../_components/ShineIcon';
 import Image from 'next/image';
 import {
   Section,
   SectionHeader,
   ButtonGradientWrapper,
-} from '../../components/SectionWrapper';
+} from '../../_components/SectionWrapper';
 import { Button } from '@heroui/button';
 import Link from 'next/link';
 

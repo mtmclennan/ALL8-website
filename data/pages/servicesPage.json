@@ -1,64 +1,94 @@
 {
   "path": "/services",
   "title": "Web Design & SEO Services for Contractors | ALL8 Webworks",
-  "description": "Websites, local SEO, performance tune-ups, and ongoing maintenance built to help contractors get more calls and booked jobs.",
-
+  "description": "Performance-first websites, local visibility, and ongoing protection built to help contractors get more calls and booked jobs.",
   "ogImage": "/assets/images/og/services-all8-webworks.png",
 
   "hero": {
-    "title": "Websites & SEO Built to Get Contractors More Calls",
-    "subtitle": "From performance tune-ups to full rebuilds, every service is focused on one outcome: more qualified inquiries.",
-    "body": "We design, optimize, and maintain high-performance websites that turn local search traffic into real jobs.",
+    "title": "A Complete Website + Visibility System for Contractors",
+    "subtitle": "Start with a tune-up, build a high-performance site, then lock in visibility and protection so it keeps producing calls.",
+    "body": "ALL8 Webworks helps contractors get found locally, convert more visitors into inquiries, and keep their site fast, secure, and reliable over time.",
     "ctaLabel": "Start with a Performance Tune-Up",
-    "ctaHref": "/performance-tune-up",
+    "ctaHref": "/services/performance-tune-up",
     "image": "/assets/images/services/connected-digital-systems-grid-all8-webworks-services.png",
-    "alt": "Overview of digital services offered by ALL8 Webworks"
+    "alt": "Overview of the ALL8 Webworks website, visibility, and maintenance system"
   },
 
   "seo": {
-    "title": "Contractor Web Design & Local SEO Services | ALL8 Webworks",
-    "description": "Performance-focused web design, local SEO, maintenance, and conversion optimization services built for contractors."
+    "title": "Contractor Web Design, Local SEO & Maintenance | ALL8 Webworks",
+    "description": "Performance-first contractor websites, local visibility setup, Google Business optimization, ads tracking, and maintenance built to drive more calls."
   },
 
   "servicesSection": {
-    "title": "Choose a Starting Point",
-    "subtitle": "Start small with a tune-up, move to maintenance, or invest in a full rebuild."
+    "title": "Choose Your Starting Point",
+    "subtitle": "Pick a clear entry, then build the system around it."
   },
+
+  "buckets": [
+    {
+      "title": "Foundation",
+      "subtitle": "Set the base so Google and customers understand what you do.",
+      "items": ["Local SEO Foundation"]
+    },
+    {
+      "title": "Tune-Up",
+      "subtitle": "Fix speed, clarity, and lead capture without a full rebuild.",
+      "items": ["Performance & Conversion Tune-Up"]
+    },
+    {
+      "title": "Full Build",
+      "subtitle": "A modern website built to load fast and convert local traffic.",
+      "items": ["Websites That Convert"]
+    },
+    {
+      "title": "Visibility",
+      "subtitle": "Turn local searches into calls using Maps + Ads.",
+      "items": [
+        "Google Business Profile Optimization",
+        "Google Ads Setup & Tracking"
+      ]
+    },
+    {
+      "title": "Protection",
+      "subtitle": "Keep the system stable with maintenance and workflow integrations.",
+      "items": ["Website Maintenance & Hosting", "Business Tool Integrations"]
+    }
+  ],
 
   "processSection": {
     "title": "How We Work",
-    "subtitle": "A clear, focused process built around measurable improvements.",
+    "subtitle": "A clear process built around measurable improvements.",
     "steps": [
       {
         "title": "Audit",
-        "description": "We review speed, structure, messaging, and calls-to-action.",
+        "description": "We review speed, structure, messaging, and lead paths.",
         "icon": "ClipboardList"
       },
       {
         "title": "Plan",
-        "description": "You get a clear outline of what needs improvement and why.",
+        "description": "You get a clear scope of what changes and why it matters.",
         "icon": "Target"
       },
       {
         "title": "Build & Optimize",
-        "description": "We implement performance and conversion improvements.",
+        "description": "We implement improvements across performance, conversion, and visibility.",
         "icon": "Rocket"
       },
       {
         "title": "Measure & Improve",
-        "description": "Analytics and tracking show what’s working and where to refine.",
+        "description": "Tracking shows what’s working and what to refine next.",
         "icon": "TrendingUp"
       }
     ]
   },
 
   "cta": {
-    "titlePrefix": "Ready for a",
+    "titlePrefix": "Want a",
     "highlight": "Clear Plan",
-    "titleSuffix": "to Improve Your Website?",
-    "subtitle": "We’ll show you exactly where performance and conversions can improve — no fluff.",
-    "ctaLabel": "Request a Performance Plan",
-    "ctaHref": "/performance-tune-up",
+    "titleSuffix": "to Get More Calls?",
+    "subtitle": "Start with a tune-up. We’ll identify the biggest leaks and improve speed + conversion flow fast.",
+    "ctaLabel": "Request a Performance Tune-Up",
+    "ctaHref": "/services/performance-tune-up",
     "note": "Flat pricing • Clear scope • Built in Canada"
   }
 }

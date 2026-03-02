@@ -1,14 +1,14 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import Services from '../components/Services';
+import Services from '../_components/Services';
 import servicePageData from '@/data/pages/servicesPage.json';
 
 import { validateMetadata } from '@/lib/utils/seoValidation';
 import { buildStaticMetadata } from '@/lib/utils/buildStaticMetadata';
 import ServicesPageHero from './components/ServicesPageHero';
 import ServicesShowcase from './components/ServicesShowcase';
-import ProcessSection from '../components/OurProcess';
-import CallToAction from '@/app/(site)/components/CallToAction';
+import ProcessSection from '../_components/OurProcess';
+import CallToAction from '@/app/(site)/_components/CallToAction';
 
 export const metadata: Metadata = buildStaticMetadata('/services');
 

@@ -7,7 +7,7 @@ import {
   useReducedMotion,
 } from 'framer-motion';
 import { Button } from '@heroui/button';
-import { ButtonGradientWrapper } from '../../components/SectionWrapper';
+import { ButtonGradientWrapper } from '../../_components/SectionWrapper';
 
 type ContactHeroProps = {
   hero: {

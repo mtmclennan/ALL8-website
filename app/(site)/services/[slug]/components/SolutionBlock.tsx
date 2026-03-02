@@ -1,8 +1,11 @@
 'use client';
 
-import { Section, SectionHeader } from '@/app/(site)/components/SectionWrapper';
+import {
+  Section,
+  SectionHeader,
+} from '@/app/(site)/_components/SectionWrapper';
 import { motion, LazyMotion, domAnimation } from 'framer-motion';
-import { ShineIcon } from '@/app/(site)/components/ShineIcon';
+import { ShineIcon } from '@/app/(site)/_components/ShineIcon';
 import { lucideIconMap } from '@/data/lucideIconMap';
 import { AlertTriangle } from 'lucide-react';
 import type { IconName } from '@/data/services';

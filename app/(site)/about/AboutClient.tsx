@@ -14,13 +14,13 @@ const StatGrid = dynamic(() => import('./components/StatGrid'), {
 const WhyAll8 = dynamic(() => import('./components/WhyAll8'), {
   loading: () => <div className="h-80 animate-pulse bg-white/5 rounded-2xl" />,
 });
-const Services = dynamic(() => import('../components/Services'), {
+const Services = dynamic(() => import('../_components/Services'), {
   loading: () => <div className="h-80 animate-pulse bg-white/5 rounded-2xl" />,
 });
-const ProcessSection = dynamic(() => import('../components/OurProcess'), {
+const ProcessSection = dynamic(() => import('../_components/OurProcess'), {
   loading: () => <div className="h-80 animate-pulse bg-white/5 rounded-2xl" />,
 });
-const CallToAction = dynamic(() => import('../components/CallToAction'), {
+const CallToAction = dynamic(() => import('../_components/CallToAction'), {
   loading: () => <div className="h-60 animate-pulse bg-white/5 rounded-2xl" />,
 });
 

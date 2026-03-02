@@ -11,7 +11,7 @@ import { getServicesWithIcons, ServiceWithIcon } from '@/data/services';
 import {
   Section,
   ButtonGradientWrapper,
-} from '@/app/(site)/components/SectionWrapper';
+} from '@/app/(site)/_components/SectionWrapper';
 import { Button } from '@heroui/button';
 
 type ServiceShowcaseProps = {

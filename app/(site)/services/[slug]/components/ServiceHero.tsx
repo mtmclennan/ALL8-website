@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@heroui/button';
-import { ButtonGradientWrapper } from '@/app/(site)/components/SectionWrapper';
+import { ButtonGradientWrapper } from '@/app/(site)/_components/SectionWrapper';
 
 type ServiceHeroProps = {
   hero: {

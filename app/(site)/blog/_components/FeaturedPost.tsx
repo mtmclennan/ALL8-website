@@ -4,7 +4,7 @@ import {
   Section,
   SectionHeader,
   Card,
-} from '@/app/(site)/components/SectionWrapper';
+} from '@/app/(site)/_components/SectionWrapper';
 import { urlFor } from '@/app/studio/sanity/lib/image';
 
 export default function FeaturedPosts({ posts }: { posts: any[] }) {

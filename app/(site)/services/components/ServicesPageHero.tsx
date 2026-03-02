@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Button } from '@heroui/button';
 import { Divider } from '@heroui/divider';
 import { Gauge, Rocket, TrendingUp } from 'lucide-react';
-import { ButtonGradientWrapper } from '@/app/(site)/components/SectionWrapper';
+import { ButtonGradientWrapper } from '@/app/(site)/_components/SectionWrapper';
 
 interface ServicesHeroProps {
   hero: {

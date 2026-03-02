@@ -5,7 +5,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { LazyMotion, domAnimation, motion } from 'framer-motion';
 import { getServicesWithIcons, ServiceWithIcon } from '@/data/services';
-import { Section, SectionHeader } from '@/app/(site)/components/SectionWrapper';
+import {
+  Section,
+  SectionHeader,
+} from '@/app/(site)/_components/SectionWrapper';
 import { Button } from '@heroui/button';
 
 interface ServiceShowcaseProps {

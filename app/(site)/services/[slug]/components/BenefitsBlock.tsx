@@ -1,10 +1,13 @@
 'use client';
 
-import { Section, SectionHeader } from '@/app/(site)/components/SectionWrapper';
+import {
+  Section,
+  SectionHeader,
+} from '@/app/(site)/_components/SectionWrapper';
 
 import { LazyMotion, domAnimation, motion } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
-import { ShineIcon } from '@/app/(site)/components/ShineIcon';
+import { ShineIcon } from '@/app/(site)/_components/ShineIcon';
 
 type BenefitsBlockProps = {
   title?: string;

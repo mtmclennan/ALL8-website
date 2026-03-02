@@ -1,5 +1,5 @@
 import styles from '@/app/(site)/components/HeroBlueprint.module.css';
-import Highlight from '../../components/Highlight';
+import Highlight from '../../_components/Highlight';
 
 function BlogHero() {
   return (

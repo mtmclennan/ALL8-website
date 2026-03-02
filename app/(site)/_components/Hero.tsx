@@ -1,5 +1,5 @@
 import React from 'react';
-import { title, subtitle } from '@/app/(site)/components/primitives';
+import { title, subtitle } from '@/app/(site)/_components/primitives';
 import { button as buttonStyles } from '@heroui/theme';
 import { Link } from '@heroui/link';
 import Image from 'next/image';

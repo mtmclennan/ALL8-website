@@ -5,15 +5,15 @@ import { notFound } from 'next/navigation';
 import ServiceHero from './components/ServiceHero';
 import { getServiceBySlug, SERVICES } from '@/data/services';
 import { getIconByName } from '@/lib/icons';
-import CallToAction from '@/app/(site)/components/CallToAction';
-import ProcessSection from '@/app/(site)/components/OurProcess';
+import CallToAction from '@/app/(site)/_components/CallToAction';
+import ProcessSection from '@/app/(site)/_components/OurProcess';
 import ServiceOverview from './components/ServiceOverview';
 import BenefitsBlock from './components/BenefitsBlock';
 import ProblemBlock from './components/ProblemBlock';
 import SolutionBlock from './components/SolutionBlock';
 import ComparisonBlock from './components/ComparisonBlock';
-import FAQBlock from '../../components/FAQBlock';
-import ServicesOverviewRefactored from '../../components/Services';
+import FAQBlock from '../../_components/FAQBlock';
+import ServicesOverviewRefactored from '../../_components/Services';
 
 export const revalidate = 86400; // 24 hours
 

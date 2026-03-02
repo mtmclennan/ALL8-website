@@ -1,23 +1,26 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { Benefit } from './components/WhyWorkWithUs';
+import { Benefit } from './_components/WhyWorkWithUs';
 
 import homeData from '@/data/home.json';
+import BuiltForContractors from './_components/home/BuiltForContractorsSection';
+import WhyAll8Strip from './_components/home/WhyAll8Strip';
+import FAQBlock from './_components/FAQBlock';
 
-const WhyWorkWithUs = dynamic(() => import('./components/WhyWorkWithUs'), {
+const WhyWorkWithUs = dynamic(() => import('./_components/WhyWorkWithUs'), {
   ssr: false,
 });
 
-const ServicesShowcase = dynamic(() => import('./components/Services'), {
+const ServicesShowcase = dynamic(() => import('./_components/Services'), {
   ssr: false,
 });
 
-const ProcessSection = dynamic(() => import('./components/OurProcess'), {
+const ProcessSection = dynamic(() => import('./_components/OurProcess'), {
   ssr: false,
 });
 
-const CallToAction = dynamic(() => import('./components/CallToAction'), {
+const CallToAction = dynamic(() => import('./_components/CallToAction'), {
   ssr: false,
 });
 
@@ -78,6 +81,14 @@ const benefits: Benefit[] = [
 const HomePage = () => {
   return (
     <>
+      <BuiltForContractors
+        data={homeData.builtForContractors}
+        className="py-20 sm:py-24 lg:py-32"
+      />
+      <WhyAll8Strip
+        data={homeData.whyAll8Strip}
+        className="py-20 sm:py-24 lg:py-32"
+      />
       <WhyWorkWithUs
         title="Structured for"
         titleHighlight="Results"
@@ -99,7 +110,7 @@ const HomePage = () => {
         title={homeData.process.title}
         subtitle={homeData.process.subtitle}
       />
-
+      <FAQBlock faqs={homeData.faqs} tone="base" />
       <CallToAction
         ctaHref={homeData.cta.ctaHref}
         ctaLabel={homeData.cta.ctaLabel}

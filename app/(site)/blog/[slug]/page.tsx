@@ -1,7 +1,7 @@
 import { client as sanity } from '@/app/studio/sanity/lib/client';
 import { singlePostQuery } from '@/app/studio/sanity/lib/queries';
 import BlogPost from './BlogPost';
-import StrongCTA from '@/app/(site)/components/CallToAction';
+import StrongCTA from '@/app/(site)/_components/CallToAction';
 import type { Metadata } from 'next';
 import { siteUrl } from '@/config/site.config';
 import { urlFor } from '@/app/studio/sanity/lib/image';

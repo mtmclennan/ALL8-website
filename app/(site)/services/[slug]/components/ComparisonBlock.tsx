@@ -1,6 +1,9 @@
 'use client';
 
-import { Section, SectionHeader } from '@/app/(site)/components/SectionWrapper';
+import {
+  Section,
+  SectionHeader,
+} from '@/app/(site)/_components/SectionWrapper';
 
 import { motion, LazyMotion, domAnimation } from 'framer-motion';
 

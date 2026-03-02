@@ -1,4 +1,4 @@
-import { Section } from '@/app/(site)/components/SectionWrapper';
+import { Section } from '@/app/(site)/_components/SectionWrapper';
 import {
   BadgeCheck,
   MapPin,
@@ -62,7 +62,7 @@ export default function ServiceOverview({ overview }: ServiceOverviewProps) {
                   key={i}
                   className={clsx(
                     'inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm',
-                    'border-silver/40 bg-background/70 text-foreground/80'
+                    'border-silver/40 bg-background/70 text-foreground/80',
                   )}
                 >
                   <Icon className="h-4 w-4 text-primary" />

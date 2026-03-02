@@ -6,11 +6,11 @@ import Script from 'next/script';
 import { GoogleTagManager } from '@next/third-parties/google';
 import { site, siteUrl } from '@/config/site.config';
 import { fontSans } from '@/config/fonts';
-import { FooterClient } from './(site)/components/FooterClient';
-import { NavbarClient } from './(site)/components/NavbarClient';
-import VisualsLoader from './(site)/components/VisualsLoader';
+import { FooterClient } from './(site)/_components/FooterClient';
+import { NavbarClient } from './(site)/_components/NavbarClient';
+import VisualsLoader from './(site)/_components/VisualsLoader';
 import ProvidersClient from './(site)/ProvidersClient';
-import HubspotLoader from '@/app/(site)/components/HubspotLoader';
+import HubspotLoader from '@/app/(site)/_components/HubspotLoader';
 
 import orgSchema from '../data/schema/organization.schema.json';
 import siteSchema from '../data/schema/website.schema.json';
@@ -88,7 +88,7 @@ export default function RootLayout({
           'min-h-screen text-foreground bg-background font-sans antialiased',
           fontSans.variable,
           dmSans.variable,
-          orbitron.variable
+          orbitron.variable,
         )}
       >
         {/* Consent must load before GTM */}

@@ -1,5 +1,5 @@
 import PostCard from './PostCard';
-import { Section, SectionHeader } from '../../components/SectionWrapper';
+import { Section, SectionHeader } from '../../_components/SectionWrapper';
 
 interface LatestPostsProps {
   posts: any[];

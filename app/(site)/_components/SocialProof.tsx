@@ -3,12 +3,7 @@
 import React from 'react';
 import { LazyMotion, domAnimation, motion } from 'framer-motion';
 import { Building2, ShieldCheck, LineChart, Gauge, Quote } from 'lucide-react';
-import {
-  Section,
-  SectionHeader,
-  Card,
-  IconBadge,
-} from '../components/SectionWrapper'; // adjust path
+import { Section, SectionHeader, Card, IconBadge } from './SectionWrapper'; // adjust path
 
 const BRAND_PRIMARY = '#0047bb';
 const BRAND_ACCENT = '#D33F49';
