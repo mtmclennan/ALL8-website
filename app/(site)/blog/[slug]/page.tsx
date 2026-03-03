@@ -83,8 +83,8 @@ export default async function BlogPostPage({
         highlight="full power"
         titleSuffix="— not excuses."
         subtitle="Get a site that runs like a finely tuned V8 engine."
-        ctaLabel="Book a Free Consultation"
-        ctaHref="/contact"
+        ctaLabel="Book a Free Website Review"
+        ctaHref="/tune-up"
         microText="No long contracts • Transparent pricing • Built for performance"
       />
     </>

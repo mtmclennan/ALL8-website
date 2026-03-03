@@ -5,10 +5,9 @@ import Script from 'next/script';
 import { useRouter } from 'next/navigation';
 
 import { useHubSpotContextFields } from '@/hooks/use-hubspotContextFields';
-import {
-  submitTuneUpReview,
-  type TuneUpReviewActionState,
-} from '@/app/actions/submit-tune-up-review';
+import { submitTuneUpReview } from '@/app/actions/submit-tune-up-review';
+
+import type { LeadActionState } from '@/lib/leads/submitLead';
 
 import { Form } from '@heroui/form';
 import { Input, Textarea } from '@heroui/input';
@@ -26,7 +25,7 @@ import {
 
 import { ButtonGradientWrapper } from '@/app/(site)/_components/SectionWrapper';
 
-const initialState: TuneUpReviewActionState = { ok: false };
+const initialState: LeadActionState = { ok: false };
 
 type Tone = 'idle' | 'submitting' | 'success' | 'error';
 type Issue = '' | 'slow' | 'calls' | 'servicePages' | 'seoWeak' | 'notSure';
@@ -278,7 +277,7 @@ export default function TuneUpReviewFormCompact() {
         />
 
         {/* Actions */}
-        <div className="grid gap-2">
+        <div className="flex gap-2 items-center">
           <ButtonGradientWrapper>
             <Button
               radius="md"
@@ -296,22 +295,21 @@ export default function TuneUpReviewFormCompact() {
               )}
             </Button>
           </ButtonGradientWrapper>
+          <Button
+            variant="light"
+            size="sm"
+            type="reset"
+            isDisabled={isPending}
+            className="text-xs text-foreground/70 hover:text-foreground"
+          >
+            Reset
+          </Button>
 
           <div className="flex items-center justify-between">
-            <p className="text-xs text-foreground/60">
+            {/* <p className="text-xs text-foreground/60">
               Tune-Ups from{' '}
               <span className="text-white font-medium">$950 CAD</span>
-            </p>
-
-            <Button
-              variant="light"
-              size="sm"
-              type="reset"
-              isDisabled={isPending}
-              className="text-xs text-foreground/70 hover:text-foreground"
-            >
-              Reset
-            </Button>
+            </p> */}
           </div>
         </div>
 

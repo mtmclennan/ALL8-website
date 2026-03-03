@@ -91,11 +91,11 @@
 
   "cta": {
     "titlePrefix": "Want a Website That Actually",
-    "highlight": " Performs ?",
+    "highlight": " Performs?",
     "titleSuffix": "",
     "subtitle": "Start with a performance review. We’ll show you what’s slowing your site down and what’s costing you leads.",
     "ctaLabel": "Request a Performance Review",
-    "ctaHref": "/performance-tune-up",
+    "ctaHref": "/tune-up",
     "microText": "Clear scope • Flat pricing • Built in Canada"
   }
 }

@@ -54,7 +54,7 @@ export default async function BlogIndexPage() {
         titleSuffix="Like It Should"
         subtitle="Most contractor and service websites look good on the surface but run like a worn-out work truck. Slow, unoptimized, and costing you leads every single day. Let’s fix that."
         ctaLabel="Get My Free Website Audit"
-        ctaHref="/contact"
+        ctaHref="/tune-up"
         microText="No long contracts • Clear reporting • Built for speed & conversions"
       />
       <ServicesOverviewRefactored

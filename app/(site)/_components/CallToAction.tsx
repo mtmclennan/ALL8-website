@@ -75,7 +75,7 @@ export default function StrongCTA({
             <ButtonGradientWrapper>
               <Button
                 href={ctaHref}
-                as={Link}
+                as={'a'}
                 radius="sm"
                 size="lg"
                 variant="solid"

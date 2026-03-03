@@ -1,52 +1,60 @@
 'use server';
-import { IntakeSchema, IntakeData } from '@/lib/intake/schema';
-import { verifyCaptcha } from '@/lib/intake/verifyCaptcha';
-import { checkRateLimit } from '@/lib/intake/rateLimit';
-import { runBackgroundTasks } from '@/lib/intake/backgroundTasks';
 
-export type IntakeActionState = {
-  ok: boolean;
-  message?: string;
-  fieldErrors?: Record<string, string[]>;
-};
+import { IntakeSchema, type IntakeData } from '@/lib/intake/schema';
+import {
+  submitLeadPipeline,
+  type LeadActionState,
+} from '@/lib/leads/submitLead';
+
+function zodToFieldErrors(err: any) {
+  const { fieldErrors } = err.flatten();
+  return fieldErrors as Record<string, string[]>;
+}
 
 export async function submitIntake(
-  _prev: IntakeActionState,
+  _prev: LeadActionState,
   formData: FormData,
-): Promise<IntakeActionState> {
+): Promise<LeadActionState> {
   const raw = Object.fromEntries(formData.entries());
+
   const parsed = IntakeSchema.safeParse({
-    ...Object.fromEntries(formData.entries()),
+    ...raw,
     consent: formData.has('consent'),
     marketingOptIn: formData.has('marketingOptIn'),
   });
 
   if (!parsed.success) {
-    const { fieldErrors } = parsed.error.flatten();
     return {
       ok: false,
-      fieldErrors,
+      fieldErrors: zodToFieldErrors(parsed.error),
       message: 'Please fix the highlighted fields.',
     };
   }
 
-  const data = parsed.data as IntakeData;
+  const d = parsed.data as IntakeData;
 
-  if (data.hp)
-    return { ok: true, message: 'Thanks! We’ll review and follow up shortly.' };
+  // Map IntakeData -> LeadPayload
+  return submitLeadPipeline({
+    leadType: d.projectType === 'tuneup' ? 'tuneup' : 'intake',
+    name: d.name,
+    email: d.email,
+    company: d.company,
+    website: d.website || undefined,
 
-  try {
-    await checkRateLimit();
-  } catch (e) {
-    return { ok: false, message: String(e) };
-  }
+    primary: d.projectType, // store what they asked for
+    goal: d.goal,
+    timeline: d.timeline,
+    budget: d.budget,
+    notes: d.notes,
 
-  const human = await verifyCaptcha(data.token);
-  if (!human)
-    return { ok: false, message: 'Verification failed. Please try again.' };
-
-  // fire and forget
-  runBackgroundTasks(data);
-
-  return { ok: true, message: 'Thanks! We’ll review and follow up shortly.' };
+    hp: d.hp,
+    token: d.token,
+    hutk: d.hutk,
+    pageUrl: d.pageUrl,
+    pageName: d.pageName,
+    utm_source: d.utm_source,
+    utm_medium: d.utm_medium,
+    utm_campaign: d.utm_campaign,
+    marketingOptIn: d.marketingOptIn,
+  });
 }

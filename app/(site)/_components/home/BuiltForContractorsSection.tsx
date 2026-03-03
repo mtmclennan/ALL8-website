@@ -125,7 +125,7 @@ export default function BuiltForContractors({
               <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
                 <ButtonGradientWrapper>
                   <Link
-                    href="/performance-tune-up"
+                    href="/tune-up"
                     className="inline-flex items-center justify-center rounded-xl px-5 py-3 bg-background text-foreground font-medium ring-1 ring-divider hover:bg-content1 transition"
                   >
                     Get a Free Performance Review

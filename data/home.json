@@ -3,7 +3,7 @@
     "title": "Websites Built to Get More Calls",
     "subtitle": "Fast, clear, conversion-focused websites engineered for contractors and service businesses across Canada.",
     "ctaLabel": "Request a Performance Review",
-    "ctaHref": "/performance-tune-up"
+    "ctaHref": "/tune-up"
   },
 
   "builtForContractors": {
@@ -68,7 +68,7 @@
       "titleSuffix": "",
       "subtitle": "We’ll review your site and show you exactly what’s slowing it down or costing you leads.",
       "ctaLabel": "Get a 5-Min Review",
-      "ctaHref": "/performance-tune-up",
+      "ctaHref": "/tune-up",
       "microText": "Flat pricing • 3–5 day turnaround • No long contracts"
     }
   },
@@ -137,10 +137,10 @@
   "cta": {
     "titlePrefix": "Ready to Improve Your",
     "highlight": "Website",
-    "titleSuffix": "Performance ?",
+    "titleSuffix": "Performance?",
     "subtitle": "Start with a performance review and see exactly what’s holding your site back.",
     "ctaLabel": "Request a Performance Review",
-    "ctaHref": "/performance-tune-up",
+    "ctaHref": "/tune-up",
     "microText": "Clear scope • Transparent pricing • Built in Canada"
   }
 }

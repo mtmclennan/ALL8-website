@@ -25,7 +25,7 @@ export default function Hero({ heading, subHeading, ctaText }: HeroProps) {
                 radius: 'sm',
                 variant: 'shadow',
               })}
-              href="/contact"
+              href="/tune-up"
             >
               {ctaText}
             </Link>

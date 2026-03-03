@@ -19,6 +19,7 @@ import { CalendarCheck } from 'lucide-react';
 import Logo from './Logo';
 import { usePathname } from 'next/navigation';
 import { ThemeSwitch } from './theme-switch';
+import { ButtonGradientWrapper } from './SectionWrapper';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -53,7 +54,7 @@ const Navbar = () => {
               <NextLink
                 className={clsx(
                   linkStyles({ color: 'foreground' }),
-                  'data-[active=true]:text-primary data-[active=true]:font-medium hover:text-primary'
+                  'data-[active=true]:text-primary data-[active=true]:font-medium hover:text-primary',
                 )}
                 color="foreground"
                 href={item.href}
@@ -70,15 +71,16 @@ const Navbar = () => {
         justify="end"
       >
         <NavbarItem className="hidden sm:flex">
-          <Button
-            as={Link}
-            className="text-sm font-normal text-default-600 bg-default-100"
-            href="/contact"
-            variant="flat"
-            startContent={<CalendarCheck size={16} />}
-          >
-            Book Now
-          </Button>
+          <ButtonGradientWrapper>
+            <Button
+              as={Link}
+              className="text-sm font-normal text-default-600"
+              href="/tune-up"
+              variant="light"
+            >
+              Get a Free Website Review
+            </Button>
+          </ButtonGradientWrapper>
         </NavbarItem>
       </NavbarContent>
 

@@ -5,10 +5,7 @@ import Script from 'next/script';
 import { useRouter } from 'next/navigation';
 
 import { useHubSpotContextFields } from '@/hooks/use-hubspotContextFields';
-import {
-  submitIntake,
-  type IntakeActionState,
-} from '@/app/actions/submit-intake';
+import { submitIntake } from '@/app/actions/submit-intake';
 
 import { Form } from '@heroui/form';
 import { Input, Textarea } from '@heroui/input';
@@ -26,8 +23,9 @@ import {
 } from '@heroui/modal';
 
 import { ButtonGradientWrapper } from '../../_components/SectionWrapper';
+import { LeadActionState } from '@/lib/leads/submitLead';
 
-const initialState: IntakeActionState = { ok: false };
+const initialState: LeadActionState = { ok: false };
 
 type Tone = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -35,11 +33,9 @@ type ProjectType =
   | ''
   | 'tuneup'
   | 'website'
-  | 'landing'
-  | 'maintenance'
-  | 'gmb'
-  | 'seo'
+  | 'local-seo'
   | 'ads'
+  | 'maintenance'
   | 'integrations';
 
 type Goal = '' | 'calls' | 'seo' | 'ads' | 'trust' | 'other';
@@ -73,7 +69,6 @@ export default function ContactIntakeForm() {
   >({});
   const [showSuccess, setShowSuccess] = React.useState(false);
 
-  // hidden fields refs
   const tokenRef = useRef<HTMLInputElement>(null);
   const hpRef = useRef<HTMLInputElement>(null);
 
@@ -94,7 +89,6 @@ export default function ContactIntakeForm() {
   }, [isPending, state.ok, router]);
 
   React.useEffect(() => {
-    // only map server-reported field errors; never show raw backend errors
     if (state.fieldErrors) {
       const flat: Record<string, string | undefined> = {};
       for (const [k, v] of Object.entries(state.fieldErrors)) flat[k] = v?.[0];
@@ -109,12 +103,9 @@ export default function ContactIntakeForm() {
     );
   }
 
-  // Wrap the server action so we can attach dynamic/hidden fields and captcha
   const enhancedAction = async (formData: FormData) => {
-    // honeypot stays empty; if bots fill it, server short-circuits
     formData.set('hp', hpRef.current?.value || '');
 
-    // hubspot/page/utm context
     formData.set('hutk', hutk || '');
     formData.set('pageUrl', pageUrl || '');
     formData.set('pageName', pageName || '');
@@ -122,10 +113,10 @@ export default function ContactIntakeForm() {
     formData.set('utm_medium', utm.medium || '');
     formData.set('utm_campaign', utm.campaign || '');
 
-    // lightweight lead classification (handy in HubSpot)
-    formData.set('leadType', projectType === 'tuneup' ? 'Tune-Up' : 'Project');
+    // stable classification values (use labels in HubSpot/UI, not raw form values)
+    formData.set('leadType', projectType === 'tuneup' ? 'tuneup' : 'intake');
 
-    // recaptcha v3 (optional; server tolerates missing token)
+    // recaptcha v3 (optional)
     const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
     if (siteKey && typeof window !== 'undefined' && 'grecaptcha' in window) {
       try {
@@ -135,7 +126,7 @@ export default function ContactIntakeForm() {
         if (tokenRef.current) tokenRef.current.value = t || '';
         formData.set('token', tokenRef.current?.value || '');
       } catch {
-        // non-fatal; server verifyCaptcha() should tolerate missing token
+        // non-fatal
       }
     }
 
@@ -157,7 +148,6 @@ export default function ContactIntakeForm() {
 
   return (
     <>
-      {/* reCAPTCHA v3 loader (safe to include even if you don't set the secret) */}
       <Script
         src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ''}`}
         strategy="afterInteractive"
@@ -206,7 +196,6 @@ export default function ContactIntakeForm() {
                 setBudget('');
               }}
             >
-              {/* Contact basics */}
               <div className="grid grid-cols-1 min-w-0 gap-6 md:grid-cols-2">
                 <Input
                   isRequired
@@ -238,7 +227,7 @@ export default function ContactIntakeForm() {
                   name="company"
                   label="Company (optional)"
                   labelPlacement="outside"
-                  placeholder="Bellhouse Excavating"
+                  placeholder="Acme Inc."
                   type="text"
                   onValueChange={() => clearError('company')}
                   classNames={fieldStyles}
@@ -266,9 +255,7 @@ export default function ContactIntakeForm() {
                 />
               </div>
 
-              {/* Hidden anti-spam + context fields */}
               <div className="sr-only" aria-hidden="true">
-                {/* Honeypot: MUST remain empty */}
                 <input
                   ref={hpRef}
                   type="text"
@@ -277,24 +264,20 @@ export default function ContactIntakeForm() {
                   autoComplete="off"
                   defaultValue=""
                 />
-                {/* reCAPTCHA token holder */}
                 <input ref={tokenRef} type="hidden" name="token" />
-                {/* HubSpot + page context */}
                 <input type="hidden" name="hutk" value={hutk} />
                 <input type="hidden" name="pageUrl" value={pageUrl} />
                 <input type="hidden" name="pageName" value={pageName} />
                 <input type="hidden" name="utm_source" value={utm.source} />
                 <input type="hidden" name="utm_medium" value={utm.medium} />
                 <input type="hidden" name="utm_campaign" value={utm.campaign} />
-                {/* Lead type for segmentation */}
                 <input
                   type="hidden"
                   name="leadType"
-                  value={projectType === 'tuneup' ? 'Tune-Up' : 'Project'}
+                  value={projectType === 'tuneup' ? 'tuneup' : 'intake'}
                 />
               </div>
 
-              {/* Qualifiers */}
               <div className="grid gap-4 md:grid-cols-2">
                 <Select
                   isRequired
@@ -316,44 +299,29 @@ export default function ContactIntakeForm() {
                     const next = v ?? '';
                     setProjectType(next);
 
-                    // helpful default
                     if (next === 'tuneup' && !budget) setBudget('750-950');
-
                     if (next) clearError('projectType');
                   }}
                   isInvalid={!!clientErrors.projectType}
                   errorMessage={clientErrors.projectType}
                 >
-                  <SelectItem key="divider-0" isDisabled className="opacity-60">
-                    — Fast Wins —
-                  </SelectItem>
                   <SelectItem key="tuneup">
                     Performance &amp; Conversion Tune-Up
                   </SelectItem>
-
-                  <SelectItem key="divider-1" isDisabled className="opacity-60">
-                    — Website Work —
+                  <SelectItem key="website">
+                    New Website (Built to Convert)
                   </SelectItem>
-                  <SelectItem key="website">New Website / Redesign</SelectItem>
-                  <SelectItem key="landing">Ads-Ready Landing Page</SelectItem>
-
-                  <SelectItem key="divider-2" isDisabled className="opacity-60">
-                    — Visibility &amp; Lead Flow —
+                  <SelectItem key="local-seo">
+                    Local SEO &amp; Google Maps Visibility
                   </SelectItem>
-                  <SelectItem key="gmb">
-                    Google Business Profile Optimization
-                  </SelectItem>
-                  <SelectItem key="seo">Basic SEO Setup</SelectItem>
-                  <SelectItem key="ads">Google Ads Setup</SelectItem>
-
-                  <SelectItem key="divider-3" isDisabled className="opacity-60">
-                    — Ongoing Support —
+                  <SelectItem key="ads">
+                    Google Ads &amp; Landing Pages
                   </SelectItem>
                   <SelectItem key="maintenance">
-                    Maintenance &amp; Hosting
+                    Website Maintenance &amp; Support
                   </SelectItem>
                   <SelectItem key="integrations">
-                    Business Tool Integrations
+                    Website &amp; CRM Integrations
                   </SelectItem>
                 </Select>
 
@@ -469,9 +437,17 @@ export default function ContactIntakeForm() {
               <Textarea
                 isRequired
                 name="notes"
-                label="Briefly describe what you want to improve"
+                label={
+                  projectType === 'tuneup'
+                    ? 'What’s broken right now?'
+                    : 'Briefly describe what you want to improve'
+                }
                 labelPlacement="outside"
-                placeholder="Example: Site is slow, people aren’t calling, want better service pages + stronger CTAs..."
+                placeholder={
+                  projectType === 'tuneup'
+                    ? 'Example: site is slow, mobile feels weird, people aren’t calling, forms don’t convert...'
+                    : 'Example: want better service pages, stronger CTAs, local visibility in Brantford/Hamilton...'
+                }
                 minRows={4}
                 isInvalid={!!clientErrors.notes}
                 errorMessage={clientErrors.notes}
@@ -510,8 +486,10 @@ export default function ContactIntakeForm() {
                       <span className="flex items-center gap-2">
                         <Spinner size="sm" /> Sending…
                       </span>
+                    ) : projectType === 'tuneup' ? (
+                      'Request a Review'
                     ) : (
-                      'Submit'
+                      'Send Details'
                     )}
                   </Button>
                 </ButtonGradientWrapper>
@@ -529,7 +507,6 @@ export default function ContactIntakeForm() {
                 </ButtonGradientWrapper>
               </div>
 
-              {/* ARIA live region for status; never shows backend stack/details */}
               {status !== 'idle' && (
                 <div
                   id="form-status"
@@ -555,7 +532,6 @@ export default function ContactIntakeForm() {
         </Card>
       </section>
 
-      {/* Success Modal */}
       <Modal
         isOpen={showSuccess}
         onOpenChange={(open) => {

@@ -51,33 +51,6 @@ const benefits: Benefit[] = [
   },
 ];
 
-// const benefits: Benefit[] = [
-//   {
-//     title: 'Fast sites that make the phone ring',
-//     description:
-//       'Opens in ~2 seconds on a normal phone. Big call and text buttons so customers reach you fast.',
-//     icon: 'zap',
-//   },
-//   {
-//     title: 'Show up where customers search',
-//     description:
-//       'Google Maps and local search set up properly. Services and areas displayed the way Google expects.',
-//     icon: 'search',
-//   },
-//   {
-//     title: 'Turn clicks into booked jobs',
-//     description:
-//       'Short 3-field estimate form, reviews, and clear CTAs. More people finish, more jobs booked.',
-//     icon: 'target',
-//   },
-//   {
-//     title: 'Stays up, stays safe, and it’s yours',
-//     description:
-//       'Secure hosting, daily backups, basic firewalling, and monitoring. Smaller attack surface than plugin stacks.',
-//     icon: 'shield',
-//   },
-// ];
-
 const HomePage = () => {
   return (
     <>
@@ -93,7 +66,7 @@ const HomePage = () => {
         title="Structured for"
         titleHighlight="Results"
         subtitle="Clear messaging, fast performance, and conversion-focused layouts that move visitors toward contacting you."
-        ctaHref="/contact"
+        ctaHref="/tune-up"
         ctaLabel="Find Out What’s Costing You Leads"
         benefits={benefits}
         imageSrc="/assets/all8-webworks-contractor-website-design-developer-laptop-construction-tools.webp"

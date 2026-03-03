@@ -1,4 +1,4 @@
-import styles from '@/app/(site)/components/HeroBlueprint.module.css';
+import styles from '@/app/(site)/_components/HeroBlueprint.module.css';
 import Highlight from '../../_components/Highlight';
 
 function BlogHero() {

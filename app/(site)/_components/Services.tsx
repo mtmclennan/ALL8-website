@@ -48,7 +48,7 @@ export default function ServicesShowcase({
   subtitle = 'Start with a performance tune-up, ongoing maintenance, or a full rebuild when you’re ready.',
   kicker,
   primaryCta = {
-    href: '/performance-tune-up',
+    href: '/services/performance-tune-up',
     label: 'Performance Tune-Up (From $950)',
   },
   secondaryCta = { href: '/services', label: 'View all services' },
