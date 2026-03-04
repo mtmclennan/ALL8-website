@@ -4,33 +4,44 @@ export type HubSpotFormPayload = {
   email: string;
   company?: string;
   website?: string;
+
   projectType:
+    | 'tuneup'
     | 'website'
     | 'gmb'
     | 'ads'
     | 'integrations'
     | 'maintenance'
-    | 'seo';
-  goal: 'leads' | 'sell' | 'seo' | 'other';
-  timeline: 'asap' | '1-2m' | '3m+' | 'exploring';
-  budget: 'planning' | '2-3k' | '3-5k' | '5k+';
+    | 'local-seo';
+
+  goal: 'seo' | 'ads' | 'calls' | 'trust' | 'other';
+  timeline: 'asap' | '1-2w' | '1-2m' | '3m+' | 'exploring';
+  budget:
+    | 'planning'
+    | '2-3k'
+    | '3-5k'
+    | '5-10k'
+    | '750-950'
+    | '10k+'
+    | '150-300mo';
+
   notes: string;
 
-  // tracking (optional)
   hutk?: string;
   pageUrl?: string;
   pageName?: string;
   utm_source?: string;
   utm_medium?: string;
   utm_campaign?: string;
+  utm_content?: string;
+  utm_term?: string;
 
-  // marketing opt-in (optional)
   marketingOptIn?: boolean;
 };
 
 export async function submitToHubSpotForm(
   data: HubSpotFormPayload,
-  opts?: { portalId?: string; formGuid?: string }
+  opts?: { portalId?: string; formGuid?: string },
 ) {
   const portalId = opts?.portalId ?? process.env.HS_PORTAL_ID!;
   const formGuid = opts?.formGuid ?? process.env.HS_FORM_GUID!;
@@ -85,7 +96,7 @@ export async function submitToHubSpotForm(
                 {
                   value: true,
                   subscriptionTypeId: Number(
-                    process.env.HS_SUBSCRIPTION_ID_MARKETING
+                    process.env.HS_SUBSCRIPTION_ID_MARKETING,
                   ),
                   text:
                     process.env.HS_COMM_TEXT || 'I agree to receive updates.',
@@ -110,7 +121,7 @@ export async function submitToHubSpotForm(
     if (res.ok || res.status === 204) return;
     if (![429, 500, 502, 503, 504].includes(res.status)) {
       throw new Error(
-        `[HubSpot] Submit failed: ${res.status} ${await res.text()}`
+        `[HubSpot] Submit failed: ${res.status} ${await res.text()}`,
       );
     }
     await new Promise((r) => setTimeout(r, 600)); // backoff then retry

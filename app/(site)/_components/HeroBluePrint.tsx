@@ -1,8 +1,10 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Gauge, Rocket, TrendingUp, ShieldCheck } from 'lucide-react';
 import styles from './HeroBlueprint.module.css';
-import heroImage from '@/public/assets/website-seo-performance-laptop-analytics-leads-calls.webp';
+import heroImage from '@/public/assets/Contractor-incoming-calls-leads-website-hero.webp';
 import { ButtonGradientWrapper } from './SectionWrapper';
 
 export default function HeroBlueprint() {
