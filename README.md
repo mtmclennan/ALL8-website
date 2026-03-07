@@ -1,169 +1,228 @@
 # ALL8 Webworks
 
-ALL8 Webworks is a high-performance, production-ready web platform built to showcase modern full-stack development practices for service-based businesses.
+ALL8 Webworks is a production-grade, SEO-focused web platform for contractor and service businesses.
 
-The project demonstrates my ability to design, build, secure, and deploy fast, SEO-focused web applications with real-world infrastructure, integrations, and operational concerns in mind.
+This project was intentionally built to demonstrate **real full-stack engineering competency**: performance-first frontend architecture, secure server-side workflows, typed content pipelines, and reliable third-party integrations that mirror real business operations.
+
+---
+
+## Why this project matters (for employers)
+
+This codebase showcases practical experience with:
+
+- Building and scaling a modern **Next.js App Router** architecture
+- Designing a reusable, component-driven **frontend system**
+- Implementing **secure lead-intake pipelines** with abuse protection
+- Managing **content at scale** using hybrid static JSON + headless CMS
+- Integrating external systems (HubSpot, Google Sheets, email providers)
+- Shipping with production concerns in mind (SEO, analytics, reliability, deployment)
 
 ---
 
 ## Tech Stack
 
-**Frontend**
+### Frontend
+
 - Next.js (App Router)
-- React
-- TypeScript
+- React + TypeScript
 - Tailwind CSS
 - HeroUI
 
-**Backend / Server**
+### Backend / Server
+
 - Next.js Server Actions
-- Node.js
-- Zod (schema validation)
+- Next.js Route Handlers (`app/api/*`)
+- Node.js runtime
+- Zod for runtime schema validation
 
-**Infrastructure**
-- DigitalOcean (Droplet)
-- Nginx (reverse proxy)
-- PM2 (process management)
-- Cloudflare (DNS, firewall, edge protection)
+### Data & Integrations
 
-**Data & Integrations**
-- Sanity Studio (CMS)
-- Upstash (rate limiting)
-- HubSpot (CRM integration)
-- Google Sheets (lead capture)
-- Bravio (transactional email)
-- CAPTCHA verification
+- Sanity Studio (headless CMS for blog/editorial content)
+- Upstash Redis (rate limiting)
+- HubSpot (forms + CRM sync)
+- Google Sheets API (lead export)
+- Brevo / SMTP email pipeline
+- Google reCAPTCHA verification
 
----
+### Infrastructure / Ops
 
-## Key Features
-
-- Fast, mobile-first UI with a focus on Core Web Vitals
-- Reusable component and layout system
-- Dynamic service pages driven by structured content
-- Automated SEO metadata and structured data
-- Optimized image delivery
-- Blog system with performance-focused layouts
-- Secure server-side contact and intake forms
-- Analytics and event tracking
+- DigitalOcean Droplet
+- Nginx reverse proxy
+- PM2 process management
+- Cloudflare DNS + WAF/edge protection
 
 ---
 
-## Secure Intake & Form Handling
+## Architecture Overview
 
-ALL8 includes a hardened server-side intake pipeline designed for real-world production use:
+The application follows a layered architecture with clear responsibilities:
 
-- Schema-validated server actions
-- Honeypot-based bot detection
-- Server-side CAPTCHA verification
-- Rate limiting to prevent abuse
-- Asynchronous background processing for integrations
-- Clean separation between user response and third-party services
+1. **Presentation Layer (UI + Routes)**  
+   `app/` and `app/(site)/` hold route entry points, layouts, and page compositions.
 
-This ensures fast user feedback while safely handling CRM, email, and data exports in the background.
+2. **Domain + Application Layer (server workflows)**  
+   `app/actions/` and `lib/leads/` orchestrate intake and lead-processing logic.
 
----
+3. **Content Layer (typed content sources)**  
+   `data/` stores structured JSON, validated through Zod schemas in `schemas/`.
 
-## Security & Production Setup
+4. **Integration Layer (external services)**  
+   `lib/integrations/*` connects HubSpot, Google APIs, and email providers.
 
-- Cloudflare in front of production infrastructure
-- Server access restricted to Cloudflare IPs
-- Nginx reverse proxy with HTTPS
-- Environment-based configuration
-- No client-side secrets
+5. **Platform Layer (SEO, metadata, config, env)**  
+   `lib/utils/`, `config/`, and framework metadata routes (`sitemap.ts`, `robots.ts`) manage discoverability and runtime configuration.
 
 ---
 
-### Design System
+## Runtime Architecture (request flow)
 
-- Blueprint-inspired UI with technical, structured layouts
-- Typography: Orbitron (display), DM Sans (body)
-- Brand color system:
-  - Primary blue: #0047BB
-  - Accent blue: #0076FF
-  - Danger: #D00000
-  - Warning: #D33F49
-  - Neutrals: #0B0F1A, #1C1C1C, #BFBFBF
-- Semantic theming via HeroUI (light and dark modes)
-- Token-driven colors and spacing for consistency
+### Public page request
 
+1. Request hits Next.js route in `app/(site)/*`
+2. Shared shell from `app/layout.tsx` applies:
+   - global metadata defaults
+   - consent bootstrap + GTM
+   - provider wrappers (theme/UI)
+   - global nav/footer and structured data scripts
+3. Page-level data is sourced from:
+   - typed static JSON loaders, and/or
+   - Sanity queries (blog)
+4. Next.js returns optimized HTML + hydration bundles
+
+### Lead form submission
+
+1. Form submits to a **Server Action** (`app/actions/*`)
+2. Payload is validated with Zod
+3. Security controls run:
+   - honeypot check
+   - IP rate limiting
+   - server-side CAPTCHA verification
+4. User gets immediate response
+5. Background tasks run asynchronously:
+   - HubSpot form submit
+   - transactional email
+   - Google Sheets append (dedupe guard)
+   - HubSpot CRM enrichment (contact/deal/note/task)
+
+This pattern keeps UX fast while isolating third-party latency/failures from the main response path.
+
+---
 
 ## Project Structure
 
-app/ → Next.js App Router (routes, layouts, pages)
-app/(site)/ → Public-facing site routes
-actions/ → Server actions (form handling, integrations)
-api/ → API routes (internal + external integrations)
-studio/ → Sanity Studio configuration
-config/ → Application and environment configuration
-data/ → Static and structured content sources
-hooks/ → Reusable React hooks
-lib/ → Utilities, validation, rate limiting, SEO helpers
-public/ → Static assets (images, icons, fonts)
-schemas/ → Zod schemas for validation and type safety
-styles/ → Global styles and Tailwind configuration
-types/ → Shared TypeScript types
+```txt
+app/
+  layout.tsx                 # Global app shell, SEO defaults, providers, GTM
+  sitemap.ts                 # Dynamic sitemap (static pages + services + blog)
+  robots.ts                  # Robots policy
+  (site)/                    # Public website routes and reusable section components
+  actions/                   # Server Actions (form handlers)
+  api/                       # Route handlers for integration/auth callbacks
+  studio/                    # Embedded Sanity Studio
+
+config/                      # Site + environment-aware configuration
+
+data/                        # Structured content (services, pages, brand, schema)
+lib/
+  intake/                    # CAPTCHA + rate-limit guards + intake schema
+  leads/                     # Lead pipeline orchestration
+  integrations/              # HubSpot, Google, and provider adapters
+  utils/                     # Metadata, SEO helpers, safety utilities
+
+schemas/                     # Zod schemas for typed runtime validation
+styles/                      # Global/theme/animation styles
+hooks/                       # Reusable frontend hooks
+public/                      # Static assets
+types/                       # Shared TypeScript declarations
+```
 
 ---
 
-## Form Intake & Server Actions
+## Content Architecture
 
-The project uses **Next.js Server Actions** for secure form handling and business logic.
+The content model is intentionally hybrid:
 
-Key characteristics:
-- Schema validation using Zod
-- Honeypot detection for bots
-- Server-side CAPTCHA verification
-- Rate limiting to prevent abuse
-- Fire-and-forget background tasks for integrations
+- **Static JSON** powers marketing/service content that benefits from version control and code review.
+- **Sanity CMS** powers editorial/blog workflows requiring non-developer authoring.
+- **Zod schemas** validate static content at runtime to prevent invalid deployments.
 
-This design ensures:
-- Fast user responses
-- No client-side secrets
-- Safe handling of third-party services
+Benefits:
+
+- Fast build-time and runtime performance for core marketing pages
+- Flexible editorial workflow for blog operations
+- Strong type safety + guardrails against malformed content
 
 ---
 
-## Integrations & Background Processing
+## SEO & Discoverability Architecture
 
-Form submissions trigger asynchronous background tasks that may include:
+SEO is treated as a first-class concern:
 
-- CRM submission (HubSpot)
-- Data export (Google Sheets)
-- Transactional email delivery (Bravio)
-- Analytics and event tracking
-
-All integrations are handled server-side and isolated from the user response path.
-
----
-
-## Security & Production Architecture
-
-- Cloudflare sits in front of production infrastructure
-- Server access restricted to Cloudflare IP ranges
-- HTTPS termination via Nginx
-- Environment-based configuration
-- No secrets exposed to the client
-
-This setup reflects a real-world production deployment rather than a demo environment.
+- Shared global metadata and social defaults in root layout
+- Route-level metadata for services/blog entries
+- Canonical URL generation via environment-aware site configuration
+- Structured data (JSON-LD) for organization + website entities
+- Dynamic sitemap generation across static pages, services, and CMS posts
+- Explicit robots rules to block non-indexable/internal paths
 
 ---
 
-## Development
+## Security & Reliability Design
 
+### Security controls
+
+- No client-exposed secrets
+- Server-side validation for all critical intake payloads
+- Honeypot bot filtering
+- Server-side reCAPTCHA verification
+- Multi-window IP rate limiting using Upstash Redis
+- Environment validation and strict config boundaries
+
+### Reliability patterns
+
+- Asynchronous background processing for integrations
+- Error isolation per integration step
+- Partial-failure tolerance (one provider failure does not break all processing)
+- Defensive metadata/content fallbacks for production resilience
+
+---
+
+## Deployment Topology
+
+Production deployment is designed around common SMB SaaS patterns:
+
+- Cloudflare in front of origin (DNS + security edge)
+- Nginx reverse proxy for HTTPS routing
+- PM2 for process supervision
+- Next.js app running on a DigitalOcean droplet
+
+This reflects practical deployment and operations knowledge beyond local development.
+
+---
+
+## Local Development
+
+```bash
 npm install
 npm run dev
+```
+
+Build and run production mode locally:
+
+```bash
 npm run build
 npm start
+```
+
+Lint:
+
+```bash
+npm run lint
+```
 
 ---
 
-## Deployment
-Configured for:
-- DigitalOcean Droplet  
-- Nginx reverse proxy  
-- PM2 process manager  
-
 ## License
-Proprietary project.
-Source available for evaluation and portfolio review.
+
+Proprietary portfolio project.  
+Source is shared for evaluation and technical review.
