@@ -91,6 +91,16 @@ export default defineType({
     }),
 
     defineField({
+      name: 'relatedPosts',
+      title: 'Related Posts',
+      type: 'array',
+      description:
+        'Optional manual picks shown before category, tag, and latest-post fallbacks.',
+      of: [{ type: 'reference', to: [{ type: 'post' }] }],
+      validation: (Rule) => Rule.unique().max(6),
+    }),
+
+    defineField({
       name: 'body',
       title: 'Body',
       type: 'array',

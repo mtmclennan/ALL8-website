@@ -38,6 +38,16 @@ const nextConfig = {
 
   reactStrictMode: true,
 
+  async redirects() {
+    return [
+      {
+        source: '/tuneUpPage',
+        destination: '/services/performance-tune-up',
+        permanent: true,
+      },
+    ];
+  },
+
   // your existing stuff here
   experimental: {
     mdxRs: true,

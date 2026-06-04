@@ -12,11 +12,15 @@ import type { Post as SanityPost } from '@/app/studio/sanity.types';
  * - In GROQ, you're projecting `author-> { name, image }`.
  * So we override the schema type to match the query result.
  */
-export type SinglePost = Omit<SanityPost, 'author'> & {
+export type SinglePost = Omit<SanityPost, 'author' | 'categories'> & {
   author?: {
     name: string;
     image?: unknown;
   };
+  categories?: Array<{
+    title?: string;
+    slug?: string;
+  }>;
 };
 
 type BlogPostProps = { post: SinglePost };

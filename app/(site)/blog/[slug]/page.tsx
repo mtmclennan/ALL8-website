@@ -1,8 +1,21 @@
 import { client as sanity } from '@/app/studio/sanity/lib/client';
-import { singlePostQuery } from '@/app/studio/sanity/lib/queries';
-import BlogPost from './BlogPost';
+import {
+  relatedPostsQuery,
+  singlePostQuery,
+} from '@/app/studio/sanity/lib/queries';
+import {
+  selectRelatedPosts,
+  type RelatedPostsSource,
+} from '@/app/studio/sanity/lib/relatedPosts';
+import { selectRelatedServices } from '@/lib/relatedServices';
+import ArticleBreadcrumbs from '../_components/ArticleBreadcrumbs';
+import ArticleJsonLd from '../_components/ArticleJsonLd';
+import BlogPost, { type SinglePost } from './BlogPost';
+import RelatedArticles from '../_components/RelatedArticles';
+import RelatedServices from '../_components/RelatedServices';
 import StrongCTA from '@/app/(site)/_components/CallToAction';
 import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import { siteUrl } from '@/config/site.config';
 import { urlFor } from '@/app/studio/sanity/lib/image';
 
@@ -22,6 +35,7 @@ export async function generateMetadata({
   const { slug } = await params;
 
   const post = await sanity.fetch(singlePostQuery, { slug });
+  if (!post) return {};
 
   const canonical = `${siteUrl()}/blog/${slug}`;
 
@@ -71,13 +85,26 @@ export async function generateMetadata({
 export default async function BlogPostPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = await sanity.fetch(singlePostQuery, { slug });
+  const [post, relatedPostsSource] = await Promise.all([
+    sanity.fetch<SinglePost | null>(singlePostQuery, { slug }),
+    sanity.fetch<RelatedPostsSource | null>(relatedPostsQuery, { slug }),
+  ]);
+  if (!post) notFound();
+
+  const relatedPosts = selectRelatedPosts(relatedPostsSource);
+  const relatedServices = selectRelatedServices(relatedPostsSource);
+  const primaryCategory = post.categories?.[0] ?? null;
+
   return (
     <>
+      <ArticleJsonLd post={post} slug={slug} />
+      <ArticleBreadcrumbs title={post.title} category={primaryCategory} />
       <BlogPost post={post} />
+      <RelatedServices services={relatedServices} />
+      <RelatedArticles articles={relatedPosts} />
       <StrongCTA
         titlePrefix="Your website deserves"
         highlight="full power"

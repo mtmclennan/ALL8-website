@@ -19,7 +19,7 @@ export default function Footer() {
         {/* --- Quick Links --- */}
         <div>
           <h2 className="text-lg font-semibold mb-2">Quick Links</h2>
-          <ul className="space-y-1" role="list">
+          <ul className="space-y-1">
             {siteConfig.navItems.map((item) => (
               <li key={item.href}>
                 <Link
@@ -47,10 +47,7 @@ export default function Footer() {
         {/* --- Social --- */}
         <div>
           <h3 className="text-lg font-semibold mb-2">Stay In Touch</h3>
-          <ul
-            className="flex justify-center md:justify-start space-x-4"
-            role="list"
-          >
+          <ul className="flex justify-center md:justify-start space-x-4">
             {siteConfig.links.facebook && (
               <li>
                 <Link
