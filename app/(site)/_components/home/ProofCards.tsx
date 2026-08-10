@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { LineChart, Search, MapPin } from "lucide-react";
 
 import { useLeadModal } from "../LeadModalProvider";
@@ -19,6 +20,7 @@ type ProofCardsData = {
     icon: string;
   }[];
   footNote: string;
+  footNoteLink?: { label: string; href: string };
   ctaLede?: string;
   ctaLabel?: string;
 };
@@ -87,7 +89,15 @@ export default function ProofCards({ data }: { data: ProofCardsData }) {
         </div>
 
         <p className="mx-auto mt-9 max-w-[660px] text-center text-[15px] leading-relaxed text-white/70">
-          {data.footNote}
+          {data.footNote}{" "}
+          {data.footNoteLink && (
+            <Link
+              className="text-accent-blue hover:text-[#8ec5ff]"
+              href={data.footNoteLink.href}
+            >
+              {data.footNoteLink.label} →
+            </Link>
+          )}
         </p>
 
         {data.ctaLede && data.ctaLabel && (
