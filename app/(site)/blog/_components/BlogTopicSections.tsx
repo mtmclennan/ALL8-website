@@ -1,6 +1,8 @@
-import Link from 'next/link';
-import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
-import { Card, Section, SectionHeader } from '../../_components/SectionWrapper';
+import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
+
+import Link from "next/link";
+
+import { Card, Section, SectionHeader } from "../../_components/SectionWrapper";
 
 export type BlogIndexPost = {
   _id: string;
@@ -11,6 +13,7 @@ export type BlogIndexPost = {
   excerpt?: string;
   coverImage?: SanityImageSource;
   publishedAt?: string;
+  readingTime?: number;
   tags?: string[];
   author?:
     | string
@@ -44,81 +47,81 @@ type BlogTopicSectionsProps = {
 
 const TOPIC_RULES: TopicRule[] = [
   {
-    title: 'Contractor Websites',
+    title: "Contractor Websites",
     description:
-      'Website strategy, service pages, and trust-building content for contractors and service businesses.',
+      "Website strategy, service pages, and trust-building content for contractors and service businesses.",
     keywords: [
-      'contractor',
-      'contractor website',
-      'website',
-      'service page',
-      'trades',
-      'service business',
+      "contractor",
+      "contractor website",
+      "website",
+      "service page",
+      "trades",
+      "service business",
     ],
-    archiveKeywords: ['contractor', 'website', 'small business'],
+    archiveKeywords: ["contractor", "website", "small business"],
   },
   {
-    title: 'Local SEO',
+    title: "Local SEO",
     description:
-      'Practical local search guidance for getting found in the markets you actually serve.',
-    keywords: ['local seo', 'seo', 'ranking', 'rank', 'search', 'google'],
-    archiveKeywords: ['local seo', 'seo'],
+      "Practical local search guidance for getting found in the markets you actually serve.",
+    keywords: ["local seo", "seo", "ranking", "rank", "search", "google"],
+    archiveKeywords: ["local seo", "seo"],
   },
   {
-    title: 'Google Business Profile',
+    title: "Google Business Profile",
     description:
-      'Advice for improving Maps visibility, profile quality, and local trust signals.',
+      "Advice for improving Maps visibility, profile quality, and local trust signals.",
     keywords: [
-      'google business profile',
-      'business profile',
-      'google maps',
-      'maps',
-      'gbp',
+      "google business profile",
+      "business profile",
+      "google maps",
+      "maps",
+      "gbp",
     ],
-    archiveKeywords: ['google business profile', 'maps', 'gbp'],
+    archiveKeywords: ["google business profile", "maps", "gbp"],
   },
   {
-    title: 'Website Performance',
+    title: "Website Performance",
     description:
-      'Speed, UX, and conversion tuning for sites that need to turn traffic into action.',
+      "Speed, UX, and conversion tuning for sites that need to turn traffic into action.",
     keywords: [
-      'performance',
-      'speed',
-      'fast',
-      'v8',
-      'load',
-      'tune-up',
-      'conversion',
+      "performance",
+      "speed",
+      "fast",
+      "v8",
+      "load",
+      "tune-up",
+      "conversion",
     ],
-    archiveKeywords: ['performance', 'speed'],
+    archiveKeywords: ["performance", "speed"],
   },
   {
-    title: 'Lead Generation',
+    title: "Lead Generation",
     description:
-      'How to turn qualified visitors into calls, quote requests, and booked jobs.',
+      "How to turn qualified visitors into calls, quote requests, and booked jobs.",
     keywords: [
-      'lead',
-      'leads',
-      'conversion',
-      'converting',
-      'traffic',
-      'marketing',
-      'booked',
-      'calls',
+      "lead",
+      "leads",
+      "conversion",
+      "converting",
+      "traffic",
+      "marketing",
+      "booked",
+      "calls",
     ],
-    archiveKeywords: ['lead', 'marketing', 'conversion'],
+    archiveKeywords: ["lead", "marketing", "conversion"],
   },
   {
-    title: 'Case Studies',
+    title: "Case Studies",
     description:
-      'Real examples and breakdowns from local search, AI visibility, and website improvements.',
-    keywords: ['case study', 'real local case', 'example', 'chatgpt'],
-    archiveKeywords: ['case study', 'ai seo'],
+      "Real examples and breakdowns from local search, AI visibility, and website improvements.",
+    keywords: ["case study", "real local case", "example", "chatgpt"],
+    archiveKeywords: ["case study", "ai seo"],
   },
 ];
 
 function normalize(value?: string) {
-  return value?.toLowerCase() ?? '';
+  return value?.toLowerCase() ?? "";
 }
 
 function getPostHref(post: BlogIndexPost) {
@@ -126,7 +129,7 @@ function getPostHref(post: BlogIndexPost) {
 }
 
 function getHeadingId(title: string) {
-  return `blog-topic-${title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+  return `blog-topic-${title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
 }
 
 function getSearchText(post: BlogIndexPost) {
@@ -141,7 +144,7 @@ function getSearchText(post: BlogIndexPost) {
     ]),
   ]
     .filter(Boolean)
-    .join(' ')
+    .join(" ")
     .toLowerCase();
 }
 
@@ -149,7 +152,7 @@ function getArchive(posts: BlogIndexPost[], rule: TopicRule) {
   for (const post of posts) {
     for (const category of post.categories ?? []) {
       const categoryText = normalize(
-        `${category.title ?? ''} ${category.slug ?? ''}`,
+        `${category.title ?? ""} ${category.slug ?? ""}`,
       );
       const matches = rule.archiveKeywords.some((keyword) =>
         categoryText.includes(keyword),
@@ -172,9 +175,11 @@ function getTopicSections(posts: BlogIndexPost[]) {
     const selected = posts
       .filter((post) => {
         const href = getPostHref(post);
+
         if (!href) return false;
 
         const searchText = getSearchText(post);
+
         return rule.keywords.some((keyword) => searchText.includes(keyword));
       })
       .slice(0, 3);
@@ -192,10 +197,10 @@ function getTopicSections(posts: BlogIndexPost[]) {
 function formatDate(value?: string) {
   if (!value) return null;
 
-  return new Date(value).toLocaleDateString('en-CA', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
+  return new Date(value).toLocaleDateString("en-CA", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
   });
 }
 
@@ -220,8 +225,8 @@ export default function BlogTopicSections({ posts }: BlogTopicSectionsProps) {
             <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <h2
-                  id={getHeadingId(section.title)}
                   className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl"
+                  id={getHeadingId(section.title)}
                 >
                   {section.title}
                 </h2>

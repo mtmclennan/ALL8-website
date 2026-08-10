@@ -15,9 +15,10 @@ type FinalCtaData = {
   title: string;
   titleAccent: string;
   subtitle: string;
-  checklist: string[];
+  checklist?: string[];
   ctaLabel: string;
   micro: string;
+  secondary?: { label: string; href: string };
 };
 
 export default function FinalCta({ data }: { data: FinalCtaData }) {
@@ -54,23 +55,25 @@ export default function FinalCta({ data }: { data: FinalCtaData }) {
             {data.subtitle}
           </p>
         </Reveal>
-        <Reveal index={3}>
-          <ul className="mx-auto mb-[38px] flex max-w-[700px] flex-wrap justify-center gap-x-[26px] gap-y-2.5">
-            {data.checklist.map((item) => (
-              <li
-                key={item}
-                className="flex items-center gap-2 text-[14.5px] font-semibold text-white/70"
-              >
-                <Check
-                  className="flex-shrink-0 text-stage-win"
-                  size={16}
-                  strokeWidth={3}
-                />
-                {item}
-              </li>
-            ))}
-          </ul>
-        </Reveal>
+        {data.checklist && data.checklist.length > 0 && (
+          <Reveal index={3}>
+            <ul className="mx-auto mb-[38px] flex max-w-[700px] flex-wrap justify-center gap-x-[26px] gap-y-2.5">
+              {data.checklist.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-center gap-2 text-[14.5px] font-semibold text-white/70"
+                >
+                  <Check
+                    className="flex-shrink-0 text-stage-win"
+                    size={16}
+                    strokeWidth={3}
+                  />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        )}
         <Reveal
           className="flex flex-wrap items-center justify-center gap-3.5"
           index={0}
@@ -79,10 +82,16 @@ export default function FinalCta({ data }: { data: FinalCtaData }) {
             <Search size={18} strokeWidth={2.5} />
             {data.ctaLabel}
           </Button>
-          <Button href={telHref} size="lg" variant="ghost">
-            <Phone size={17} strokeWidth={2.2} />
-            {siteConfig.phone}
-          </Button>
+          {data.secondary ? (
+            <Button href={data.secondary.href} size="lg" variant="ghost">
+              {data.secondary.label}
+            </Button>
+          ) : (
+            <Button href={telHref} size="lg" variant="ghost">
+              <Phone size={17} strokeWidth={2.2} />
+              {siteConfig.phone}
+            </Button>
+          )}
         </Reveal>
         <Reveal index={1}>
           <p className="mt-[22px] text-[13px] text-white/40">{data.micro}</p>

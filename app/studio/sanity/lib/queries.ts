@@ -1,4 +1,4 @@
-import { groq } from 'next-sanity';
+import { groq } from "next-sanity";
 
 const relatedArticleProjection = groq`
   _id,
@@ -23,6 +23,7 @@ export const allPostsQuery = groq`
     publishedAt,
     _updatedAt,
     tags,
+    readingTime,
     "categories": categories[]->{
       title,
       "slug": slug.current
@@ -44,13 +45,15 @@ export const singlePostQuery = groq`
     _updatedAt,
     body,
     seo,
+    readingTime,
     "categories": categories[]->{
       title,
       "slug": slug.current
     },
     "author": author->{
       name,
-      image
+      image,
+      bio
     }
   }
 `;

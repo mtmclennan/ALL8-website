@@ -82,3 +82,22 @@ export const LeadReviewSchema = z.object({
 });
 
 export type LeadReviewData = z.infer<typeof LeadReviewSchema>;
+
+// Blog newsletter signup — email only.
+export const NewsletterSchema = z.object({
+  email: z.string().email("Valid email required"),
+
+  hp: z.string().max(0).optional(),
+  token: z.string().optional(),
+  leadType: z.string().optional(),
+  hutk: z.string().optional(),
+  pageUrl: z.string().optional(),
+  pageName: z.string().optional(),
+  utm_source: z.string().optional(),
+  utm_medium: z.string().optional(),
+  utm_campaign: z.string().optional(),
+  utm_content: z.string().optional(),
+  utm_term: z.string().optional(),
+});
+
+export type NewsletterData = z.infer<typeof NewsletterSchema>;
