@@ -1,3 +1,5 @@
+"use client";
+
 import { LineChart, Search, MapPin } from "lucide-react";
 
 import { useLeadModal } from "../LeadModalProvider";
@@ -17,8 +19,8 @@ type ProofCardsData = {
     icon: string;
   }[];
   footNote: string;
-  ctaLede: string;
-  ctaLabel: string;
+  ctaLede?: string;
+  ctaLabel?: string;
 };
 
 const ICONS: Record<string, typeof LineChart> = {
@@ -88,10 +90,14 @@ export default function ProofCards({ data }: { data: ProofCardsData }) {
           {data.footNote}
         </p>
 
-        <Reveal className="mt-10 flex flex-wrap items-center justify-center gap-6 rounded-[20px] border border-white/[0.08] bg-white/[0.036] px-8 py-8 text-center">
-          <p className="text-lg font-bold tracking-[-.015em]">{data.ctaLede}</p>
-          <Button onClick={openModal}>{data.ctaLabel}</Button>
-        </Reveal>
+        {data.ctaLede && data.ctaLabel && (
+          <Reveal className="mt-10 flex flex-wrap items-center justify-center gap-6 rounded-[20px] border border-white/[0.08] bg-white/[0.036] px-8 py-8 text-center">
+            <p className="text-lg font-bold tracking-[-.015em]">
+              {data.ctaLede}
+            </p>
+            <Button onClick={openModal}>{data.ctaLabel}</Button>
+          </Reveal>
+        )}
       </div>
     </section>
   );

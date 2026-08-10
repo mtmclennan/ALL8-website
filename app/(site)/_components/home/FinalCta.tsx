@@ -1,3 +1,5 @@
+"use client";
+
 import { Search, Check, Phone } from "lucide-react";
 
 import { useLeadModal } from "../LeadModalProvider";
