@@ -1,8 +1,10 @@
-import { Fira_Code as FontMono, Inter as FontSans } from "next/font/google";
+import { Archivo, Fira_Code as FontMono } from "next/font/google";
 
-export const fontSans = FontSans({
+export const fontArchivo = Archivo({
   subsets: ["latin"],
-  variable: "--font-sans",
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-archivo",
+  display: "swap",
 });
 
 export const fontMono = FontMono({

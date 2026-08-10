@@ -1,42 +1,32 @@
-import { Orbitron, DM_Sans } from 'next/font/google';
-import '@/styles/globals.css';
-import type { Metadata, Viewport } from 'next';
-import clsx from 'clsx';
-import Script from 'next/script';
-import { GoogleTagManager } from '@next/third-parties/google';
-import { site, siteUrl } from '@/config/site.config';
-import { fontSans } from '@/config/fonts';
-import { FooterClient } from './(site)/_components/FooterClient';
-import { NavbarClient } from './(site)/_components/NavbarClient';
-import VisualsLoader from './(site)/_components/VisualsLoader';
-import ProvidersClient from './(site)/ProvidersClient';
-import HubspotLoader from '@/app/(site)/_components/HubspotLoader';
+import "@/styles/globals.css";
+import type { Metadata, Viewport } from "next";
 
-import orgSchema from '../data/schema/organization.schema.json';
-import siteSchema from '../data/schema/website.schema.json';
+import clsx from "clsx";
+import Script from "next/script";
+import { GoogleTagManager } from "@next/third-parties/google";
 
-const orbitron = Orbitron({
-  subsets: ['latin'],
-  weight: ['400', '700', '900'],
-  variable: '--font-orbitron',
-  display: 'swap',
-});
+import orgSchema from "../data/schema/organization.schema.json";
+import siteSchema from "../data/schema/website.schema.json";
 
-const dmSans = DM_Sans({
-  subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700'],
-  variable: '--font-dmsans',
-  display: 'swap',
-});
+import { FooterClient } from "./(site)/_components/FooterClient";
+import { NavbarClient } from "./(site)/_components/NavbarClient";
+import VisualsLoader from "./(site)/_components/VisualsLoader";
+import ProvidersClient from "./(site)/ProvidersClient";
+import { LeadModalProvider } from "./(site)/_components/LeadModalProvider";
+import StickyCta from "./(site)/_components/StickyCta";
+
+import HubspotLoader from "@/app/(site)/_components/HubspotLoader";
+import { fontArchivo } from "@/config/fonts";
+import { site, siteUrl } from "@/config/site.config";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
   title:
-    'High-Performance Websites for Contractors & Service Businesses | ALL8 Webworks',
+    "High-Performance Websites for Contractors & Service Businesses | ALL8 Webworks",
   description:
-    'ALL8 Webworks creates high-performance websites for contractors and service pros—built for speed, SEO, and conversions to fuel real business growth.',
+    "ALL8 Webworks creates high-performance websites for contractors and service pros—built for speed, SEO, and conversions to fuel real business growth.",
   openGraph: {
-    type: 'website',
+    type: "website",
     url: siteUrl(),
     siteName: site.name,
     title: site.name,
@@ -45,7 +35,7 @@ export const metadata: Metadata = {
     images: [{ url: site.defaultOgImage, width: 1200, height: 630 }],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: "summary_large_image",
     site: site.social.twitter,
     creator: site.social.twitter,
     title: site.name,
@@ -56,8 +46,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
 };
 
@@ -73,22 +63,20 @@ export default function RootLayout({
     <html suppressHydrationWarning lang="en">
       <head>
         {/* Preconnect and preload critical assets */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link href="https://fonts.googleapis.com" rel="preconnect" />
         <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
           crossOrigin=""
+          href="https://fonts.gstatic.com"
+          rel="preconnect"
         />
 
-        <meta name="color-scheme" content="light dark" />
+        <meta content="light dark" name="color-scheme" />
       </head>
 
       <body
         className={clsx(
-          'min-h-screen text-foreground bg-background font-sans antialiased',
-          fontSans.variable,
-          dmSans.variable,
-          orbitron.variable,
+          "min-h-screen text-foreground bg-background font-sans antialiased",
+          fontArchivo.variable,
         )}
       >
         {/* Consent must load before GTM */}
@@ -110,34 +98,37 @@ export default function RootLayout({
         <GoogleTagManager gtmId={gtmId} />
 
         <ProvidersClient
-          themeProps={{ attribute: 'class', defaultTheme: 'dark' }}
+          themeProps={{ attribute: "class", defaultTheme: "dark" }}
         >
-          <div className="relative flex flex-col min-h-screen">
-            <NavbarClient />
-            <main className="flex-grow">{children}</main>
-            <FooterClient />
-          </div>
+          <LeadModalProvider>
+            <div className="relative flex flex-col min-h-screen">
+              <NavbarClient />
+              <main className="flex-grow">{children}</main>
+              <FooterClient />
+            </div>
+            <StickyCta />
+          </LeadModalProvider>
           <HubspotLoader portalId={hsPortal} />
           <VisualsLoader />
         </ProvidersClient>
 
         {/* Structured data combined for fewer parse events */}
         <Script
-          id="jsonld"
-          type="application/ld+json"
-          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify([orgSchema, siteSchema]),
           }}
+          id="jsonld"
+          strategy="afterInteractive"
+          type="application/ld+json"
         />
 
         <noscript>
           <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
-            title="Google Tag Manager"
             height="0"
+            src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+            style={{ display: "none", visibility: "hidden" }}
+            title="Google Tag Manager"
             width="0"
-            style={{ display: 'none', visibility: 'hidden' }}
           />
         </noscript>
       </body>

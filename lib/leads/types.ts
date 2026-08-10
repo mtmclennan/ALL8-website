@@ -1,4 +1,4 @@
-export type LeadType = 'intake' | 'tuneup';
+export type LeadType = "intake" | "tuneup" | "lead-review";
 
 export type LeadPayload = {
   leadType: LeadType;

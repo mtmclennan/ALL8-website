@@ -11,8 +11,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        display: ['Orbitron', 'ui-sans-serif', 'system-ui'],
-        body: ['DM Sans', 'ui-sans-serif', 'system-ui'],
+        sans: ['var(--font-archivo)', 'ui-sans-serif', 'system-ui'],
+        display: ['var(--font-archivo)', 'ui-sans-serif', 'system-ui'],
+        body: ['var(--font-archivo)', 'ui-sans-serif', 'system-ui'],
       },
       colors: {
         brand: {
@@ -21,6 +22,16 @@ module.exports = {
           silver: '#BFBFBF',
           black: '#0B0F1A',
           charcoal: '#1C1C1C',
+        },
+        // Stage colors — semantic (Get Found / Get Contacted / Respond & Follow Up / Win More Work), never decorative.
+        stage: {
+          found: '#3D97FF',
+          contacted: '#22d3ee',
+          follow: '#f59e0b',
+          win: '#22c55e',
+        },
+        accent: {
+          blue: '#3D97FF', // light blue — links, accents, focus ring
         },
       },
     },
@@ -50,16 +61,16 @@ module.exports = {
         dark: {
           colors: {
             background: '#0B0F1A', // main background
-            content1: 'rgba(255,255,255,0.03)', // cards
-            content2: 'rgba(255,255,255,0.06)', // raised surfaces
-            content3: '#141A22',
+            content1: 'rgba(255,255,255,0.036)', // cards
+            content2: 'rgba(255,255,255,0.058)', // raised surfaces / card hover
+            content3: '#141B27', // alternating section background
             divider: 'rgba(255,255,255,0.25)',
             foreground: '#E8ECF5', // primary text
             text: {
               DEFAULT: '#E8ECF5',
               secondary: 'rgba(232,236,245,0.7)',
             },
-            primary: { DEFAULT: '#0047BB', foreground: '#FFFFFF' },
+            primary: { DEFAULT: '#0076FF', foreground: '#FFFFFF' },
             danger: { DEFAULT: '#D00000', foreground: '#FFFFFF' },
             warning: { DEFAULT: '#D33F49', foreground: '#FFFFFF' },
             focus: '#0076FF',

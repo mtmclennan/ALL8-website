@@ -5,8 +5,8 @@
   "name": "ALL8 Webworks",
   "url": "https://all8webworks.ca",
   "logo": "https://all8webworks.ca/og.png",
-  "description": "Canada-based web design & development studio building performance-first, SEO/analytics-ready sites for service businesses and contractors. Engineered for more calls, leads, and booked jobs.",
-  "serviceType": "Web design and development",
+  "description": "ALL8 WEBWORKS helps service businesses across the United States and Canada generate more opportunities and lose fewer of them — across search visibility, websites, follow-up automation, CRM pipelines and lead tracking.",
+  "serviceType": "Lead systems for service businesses",
   "areaServed": ["CA", "US"],
   "address": {
     "@type": "PostalAddress",
