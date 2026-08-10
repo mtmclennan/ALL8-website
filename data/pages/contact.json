@@ -1,94 +1,82 @@
 {
   "path": "/contact",
-  "title": "Contact ALL8 Webworks | Website Performance & Growth",
-  "description": "Start with a performance tune-up, maintenance plan, or full website build. We respond within 1 business day with clear next steps.",
+  "title": "Contact ALL8 WEBWORKS — Text Us, It's Fastest",
+  "description": "Text, send a lead system review request, or email ALL8 WEBWORKS. Texting gets the fastest reply. Remote-first, Eastern Time, serving the U.S. and Canada.",
   "ogImage": "/assets/images/og/ALL8_Webworks_contact_og.jpg",
 
   "hero": {
-    "titlePrefix": "Let’s",
-    "highlight": "Improve",
-    "titleSuffix": "Your Website",
-    "subtitle": "Whether you need a performance tune-up, ongoing maintenance, or a full rebuild — we’ll help you choose the right path.",
-    "note": "Tune-Ups from $950 CAD • Full builds from $3,000 CAD.",
-    "ctaLabel": "Start Here",
-    "ctaHref": "#intake-form"
+    "pill": "Contact",
+    "titlePrefix": "Text Us. It's the ",
+    "titleEm": "Fastest Way.",
+    "subtitle": "You're on a job site, we're mid-build — neither of us is sitting by a phone. A text gets you a real answer the same working day, usually within a couple of hours."
   },
 
-  "intro": {
-    "title": "Tell Us What You’re Looking For",
-    "body": "Fill out the short intake form below. We’ll review your current site, goals, and budget, then reply within 1 business day with clear recommendations."
+  "channels": {
+    "primary": {
+      "tag": "Fastest reply",
+      "title": "Send Us a Text",
+      "body": "Tell us what your business does and what isn't working. No script, no form fields — just write it the way you'd tell a mate. We'll come back with a real answer, not a calendar link.",
+      "smsBody": "Hi ALL8 — I'd like a lead system review. My business is: ",
+      "note": "Tap to text on mobile · Standard message rates apply",
+      "ctaLabel": "Text Us Now"
+    },
+    "secondary": [
+      {
+        "tag": "Most thorough",
+        "title": "Free Lead System Review",
+        "body": "Send us the details and we'll walk the whole path a customer takes to reach you — search, site, phone, follow-up, tracking — then tell you which stage is costing the most.",
+        "ctaLabel": "Fill out the form below"
+      },
+      {
+        "tag": "If you'd rather talk",
+        "title": "Book a Call",
+        "body": "Text or send the form first and we'll set up a time that suits you. Scheduled calls always beat cold ones — for both of us.",
+        "ctaLabel": "Request a time"
+      }
+    ],
+    "quiet": [
+      {
+        "icon": "mail",
+        "label": "Email",
+        "note": "Best for anything with attachments — access details, reports, existing analytics."
+      },
+      {
+        "icon": "phone",
+        "label": "Phone",
+        "note": "Same number as texting. If we're mid-build we'll call you back the same working day."
+      },
+      {
+        "icon": "clock",
+        "label": "Hours",
+        "value": "Mon–Fri, 8:30–5:30 ET",
+        "note": "Eastern Time overlaps the working day in every U.S. time zone. Texts outside hours get answered next morning."
+      }
+    ]
   },
 
-  "process": {
-    "title": "What Happens Next",
-    "subtitle": "Clear steps. No pressure.",
+  "form": {
+    "eyebrow": "Free Lead System Review",
+    "title": "Tell Us About Your Business",
+    "subtitle": "Five fields. We'll come back with what we found and what we'd fix first — whether or not you hire us."
+  },
+
+  "next": {
+    "eyebrow": "What Happens Next",
+    "title": "No Drip Sequence. No Sales Call You Didn't Ask For.",
     "steps": [
-      {
-        "title": "Submit the Intake Form",
-        "description": "Tell us about your business, your current website, and what you’d like to improve.",
-        "icon": "ClipboardList"
-      },
-      {
-        "title": "We Review & Audit",
-        "description": "We assess speed, structure, conversion paths, and local visibility.",
-        "icon": "Search"
-      },
-      {
-        "title": "Clear Recommendation",
-        "description": "We suggest a tune-up, maintenance plan, or full rebuild — based on what actually makes sense.",
-        "icon": "Target"
-      },
-      {
-        "title": "Move Forward",
-        "description": "Flat pricing. Clear scope. No long contracts.",
-        "icon": "Rocket"
-      }
+      { "title": "You hear back from Matt, not a chatbot", "body": "Same working day for texts, one business day for the form. ALL8 is small enough that the person replying is the person who'd do the work." },
+      { "title": "We look before we talk", "body": "We check where you rank locally, what your site does with its visitors, and whether anything is tracking your leads — so the conversation starts with findings instead of discovery questions." },
+      { "title": "You get the findings either way", "body": "In writing, yours to keep, including the parts we can't help with. If your bottleneck is something we don't do, we'll say so and point you at what would fix it." },
+      { "title": "If it makes sense, we scope it", "body": "Fixed scope and price agreed before any work starts. No long-term commitment, and nothing you'd need to keep paying for to keep what's been built." }
     ]
   },
 
-  "faqs": {
-    "title": "Common Questions",
-    "subtitle": "Quick answers before you hit send.",
-    "tone": "alt",
-    "items": [
-      {
-        "q": "Do you work on WordPress sites you didn’t build?",
-        "a": "Yes. We can maintain, optimize, and improve WordPress sites even if we didn’t build them. If it’s extremely plugin-heavy or unstable, we’ll tell you upfront what’s worth fixing vs rebuilding."
-      },
-      {
-        "q": "What’s the best starting point: tune-up or full rebuild?",
-        "a": "If your site is slow, not generating leads, or your ads are underperforming, the Performance & Conversion Tune-Up is usually the fastest win. If the site is outdated, structurally broken, or impossible to update, a rebuild makes more sense."
-      },
-      {
-        "q": "How fast can you turn around a tune-up?",
-        "a": "Most tune-ups are completed in 3–5 business days once we have access and your priorities confirmed."
-      },
-      {
-        "q": "What do you need from me?",
-        "a": "A website link, your top services/areas, and access to your hosting or CMS (if applicable). If you’re running Ads or have Analytics, we’ll request access to those too."
-      },
-      {
-        "q": "Do we have to do a phone call?",
-        "a": "No. If you prefer, we can do everything by email. If a short call would save time, we’ll suggest it, but it’s not required."
-      },
-      {
-        "q": "What does pricing look like?",
-        "a": "Performance Tune-Ups start at $950 CAD. Maintenance starts at $150 CAD/month. Full builds typically start at $3,000 CAD depending on scope."
-      }
-    ]
-  },
-  "servicesHint": {
-    "title": "Not Sure What You Need?",
-    "body": "That’s normal. Many clients start with a performance tune-up before deciding on a full rebuild. We’ll guide you based on real data, not guesswork."
-  },
-
-  "cta": {
-    "titlePrefix": "Ready to Make Your Website",
-    "highlight": "Work Harder?",
-    "titleSuffix": "",
-    "subtitle": "Send a few details and we’ll tell you exactly what’s worth fixing — and what’s not.",
-    "ctaLabel": "Send My Details",
-    "ctaHref": "#intake-form",
-    "microText": "Built in Canada • Clear pricing • Measurable results"
+  "finalCta": {
+    "eyebrow": "Still Reading?",
+    "title": "Just Send the",
+    "titleAccent": "Text.",
+    "subtitle": "Two sentences about your business and what isn't working is enough to get a useful answer back. You don't need to have it figured out first.",
+    "smsBody": "Hi ALL8 — I'd like a lead system review. My business is: ",
+    "micro": "Mon–Fri, 8:30–5:30 ET  ·  Same-day reply to texts  ·  You keep the findings either way"
   }
 }

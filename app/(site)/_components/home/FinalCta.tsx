@@ -1,6 +1,6 @@
 "use client";
 
-import { Search, Check, Phone } from "lucide-react";
+import { Search, Check, Phone, MessageCircle } from "lucide-react";
 
 import { useLeadModal } from "../LeadModalProvider";
 import Button from "../ui/Button";
@@ -18,6 +18,7 @@ type FinalCtaData = {
   checklist?: string[];
   ctaLabel: string;
   micro: string;
+  primary?: { href: string; icon?: "search" | "sms" };
   secondary?: { label: string; href: string };
 };
 
@@ -78,10 +79,21 @@ export default function FinalCta({ data }: { data: FinalCtaData }) {
           className="flex flex-wrap items-center justify-center gap-3.5"
           index={0}
         >
-          <Button pulse size="lg" onClick={openModal}>
-            <Search size={18} strokeWidth={2.5} />
-            {data.ctaLabel}
-          </Button>
+          {data.primary ? (
+            <Button pulse href={data.primary.href} size="lg">
+              {data.primary.icon === "sms" ? (
+                <MessageCircle size={18} strokeWidth={2.5} />
+              ) : (
+                <Search size={18} strokeWidth={2.5} />
+              )}
+              {data.ctaLabel}
+            </Button>
+          ) : (
+            <Button pulse size="lg" onClick={openModal}>
+              <Search size={18} strokeWidth={2.5} />
+              {data.ctaLabel}
+            </Button>
+          )}
           {data.secondary ? (
             <Button href={data.secondary.href} size="lg" variant="ghost">
               {data.secondary.label}
