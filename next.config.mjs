@@ -46,6 +46,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/tune-up',
+        destination: '/services/lead-generation-websites',
+        permanent: true,
+      },
+      {
         source: '/services/performance-tune-up',
         destination: '/services/lead-generation-websites',
         permanent: true,
