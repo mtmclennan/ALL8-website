@@ -1,9 +1,43 @@
 "use client";
 
+import Link from "next/link";
+
 import { STAGE_HEX, hexToRgba, type Stage } from "@/lib/utils/stage";
 import { useLeadModal } from "@/app/(site)/_components/LeadModalProvider";
 import Reveal from "@/app/(site)/_components/home/Reveal";
 import Button from "@/app/(site)/_components/ui/Button";
+
+const CAPABILITY_SERVICE_LINKS: Record<string, string> = {
+  "Local SEO": "local-seo-google-business-profile",
+  "Google Business Profile": "local-seo-google-business-profile",
+  "Service & location pages": "lead-generation-websites",
+  "Google Ads": "google-ads-lead-generation",
+  "AI & generative search visibility": "local-seo-google-business-profile",
+  "Technical SEO": "lead-generation-websites",
+  "Conversion-focused websites": "lead-generation-websites",
+  "Landing pages": "lead-generation-websites",
+  "Quote & contact forms": "lead-generation-websites",
+  "Call tracking": "call-tracking-lead-attribution",
+  "Business phone / VoIP": "missed-call-recovery",
+  "Missed-call text-back": "missed-call-recovery",
+  "Lead intake & answering": "missed-call-recovery",
+  "CRM setup": "crm-sales-pipeline",
+  "Sales pipeline setup": "crm-sales-pipeline",
+  "Email follow-up": "lead-follow-up-automation",
+  "SMS follow-up": "lead-follow-up-automation",
+  "Lead notifications": "lead-follow-up-automation",
+  "Estimate & appointment workflows": "lead-follow-up-automation",
+  "Lead routing": "crm-sales-pipeline",
+  "Tool integrations": "custom-lead-systems",
+  Analytics: "call-tracking-lead-attribution",
+  "Conversion tracking": "call-tracking-lead-attribution",
+  "Call attribution": "call-tracking-lead-attribution",
+  "Form attribution": "call-tracking-lead-attribution",
+  "Search performance": "local-seo-google-business-profile",
+  "Lead-source tracking": "call-tracking-lead-attribution",
+  "Pipeline visibility": "crm-sales-pipeline",
+  Reporting: "call-tracking-lead-attribution",
+};
 
 type OutcomesData = {
   eyebrow: string;
@@ -74,18 +108,37 @@ export default function OutcomeBlocks({ data }: { data: OutcomesData }) {
                 </p>
               </div>
               <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
-                {block.capabilities.map((cap) => (
-                  <div
-                    key={cap}
-                    className="flex min-h-[52px] items-center gap-3 rounded-2xl border border-white/[0.08] bg-white/[0.036] px-[18px] py-[15px] text-[14.5px] font-semibold text-white/70"
-                  >
+                {block.capabilities.map((cap) => {
+                  const slug = CAPABILITY_SERVICE_LINKS[cap];
+                  const chipClasses =
+                    "flex min-h-[52px] items-center gap-3 rounded-2xl border border-white/[0.08] bg-white/[0.036] px-[18px] py-[15px] text-[14.5px] font-semibold text-white/70 transition-colors";
+                  const dot = (
                     <span
                       className="h-1.5 w-1.5 flex-shrink-0 rounded-full"
                       style={{ backgroundColor: hex }}
                     />
-                    {cap}
-                  </div>
-                ))}
+                  );
+
+                  if (slug) {
+                    return (
+                      <Link
+                        key={cap}
+                        className={`${chipClasses} hover:border-[rgba(0,118,255,.26)] hover:bg-white/[0.058] hover:text-white`}
+                        href={`/services/${slug}`}
+                      >
+                        {dot}
+                        {cap}
+                      </Link>
+                    );
+                  }
+
+                  return (
+                    <div key={cap} className={chipClasses}>
+                      {dot}
+                      {cap}
+                    </div>
+                  );
+                })}
               </div>
             </Reveal>
           );

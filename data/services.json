@@ -1,1314 +1,891 @@
 [
   {
-    "slug": "performance-tune-up",
-    "bucket": "Tune-Up",
-    "systemTag": "Foundation",
-    "title": "Performance & Conversion Tune-Up",
-    "featured": true,
-    "short": "A fast, focused upgrade to speed, clarity, and lead capture.",
-    "description": "If your site is slow, confusing, or leaking leads, this is the quickest fix. We improve load speed, tighten the call-to-action flow, and make it easier for customers to contact you. Most tune-ups are completed in 3–5 business days.",
-    "card": {
-      "image": "/assets/images/services/performance-tune-up-speedometer-call-card.png",
-      "alt": "Performance dial and call icon representing speed and conversions"
-    },
-    "problem": {
-      "title": "Why Websites Leak Leads",
-      "subtitle": "Even good-looking sites can quietly lose jobs when these issues show up:",
-      "points": [
-        {
-          "icon": "Gauge",
-          "title": "Slow Pages",
-          "description": "Visitors bounce before they see your offer or contact info."
-        },
-        {
-          "icon": "MousePointerClick",
-          "title": "Unclear Next Step",
-          "description": "If the call-to-action is buried, people don’t act."
-        },
-        {
-          "icon": "Smartphone",
-          "title": "Weak Mobile Experience",
-          "description": "Most traffic is mobile. If it’s hard to call or request a quote, you lose leads."
-        },
-        {
-          "icon": "SearchX",
-          "title": "Tracking Gaps",
-          "description": "Without basic tracking, you can’t tell what’s working."
-        }
-      ]
-    },
-    "solution": {
-      "title": "Our Solution: A Focused Tune-Up",
-      "subtitle": "A short, practical sprint that improves speed and conversion clarity.",
-      "points": [
-        {
-          "icon": "Zap",
-          "title": "Speed Improvements",
-          "description": "Reduce load time and improve Core Web Vitals where it matters most."
-        },
-        {
-          "icon": "PhoneCall",
-          "title": "Call + Quote Flow Fixes",
-          "description": "Make the primary action obvious: call, text, or request an estimate."
-        },
-        {
-          "icon": "Layout",
-          "title": "Above-the-Fold Clarity",
-          "description": "Tighten the first screen so visitors instantly know what you do and where you work."
-        },
-        {
-          "icon": "BarChart3",
-          "title": "Basic Tracking Setup",
-          "description": "Ensure form submissions and key actions can be measured."
-        }
-      ]
-    },
-    "overview": {
-      "title": "The Best First Step",
-      "description": "Not ready for a full rebuild? Start here. A tune-up is the quickest way to improve performance, reduce friction, and capture more inquiries from the traffic you already have.",
-      "oneLiner": "A 3–5 day upgrade that makes your site faster and easier to convert.",
-      "badges": [
-        { "label": "3–5 Day Turnaround", "icon": "Clock" },
-        { "label": "Speed + Conversion Focus", "icon": "TrendingUp" },
-        { "label": "Clear CTA Flow", "icon": "MousePointerClick" },
-        { "label": "Practical, Not Fluffy", "icon": "Wrench" }
-      ]
-    },
-    "benefits": [
-      "Faster load times and improved mobile experience",
-      "Clearer calls-to-action (call, quote, booking)",
-      "Better lead capture from existing traffic",
-      "Basic tracking so you can measure results"
-    ],
-    "features": [
-      "Speed and Core Web Vitals improvements",
-      "CTA and layout refinements for higher inquiry rate",
-      "Mobile call/text usability fixes",
-      "Tracking checks for key actions"
-    ],
-    "comparison": {
-      "title": "Tune-Up vs Full Rebuild",
-      "subtitle": "Pick the right starting point for where you are today.",
-      "points": [
-        {
-          "label": "Timeline",
-          "ours": "3–5 business days",
-          "theirs": "2–4+ weeks"
-        },
-        {
-          "label": "Scope",
-          "ours": "Fix key leaks and friction",
-          "theirs": "Full redesign and rebuild"
-        },
-        {
-          "label": "Best For",
-          "ours": "Sites that are close but underperforming",
-          "theirs": "Sites that are outdated or structurally broken"
-        },
-        {
-          "label": "Cost",
-          "ours": "Lower upfront investment",
-          "theirs": "Higher upfront investment"
-        }
-      ]
-    },
-    "priceFrom": "$950 CAD",
-    "ctaLabel": "Request a Tune-Up",
-    "icon": "Gauge",
-    "faqs": [
-      {
-        "q": "Is this only for sites you built?",
-        "a": "No. We can tune up most modern sites. If your platform is too limited, we’ll tell you upfront."
-      },
-      {
-        "q": "What do you need from me?",
-        "a": "Your website URL and a short note on what you want more of: calls, quote requests, or bookings."
-      },
-      {
-        "q": "Will this guarantee more leads?",
-        "a": "No one can guarantee leads. But we can reduce friction and improve conversion clarity so you stop losing the leads you already should be getting."
-      }
-    ],
-    "seo": {
-      "title": "Performance & Conversion Tune-Up | ALL8 Webworks",
-      "description": "A focused website tune-up for contractors and service businesses. Improve speed, mobile usability, and conversion flow in 3–5 days.",
-      "keywords": "website performance tune-up, conversion optimization for contractors, improve website speed Canada, core web vitals, contractor website fixes",
-      "url": "https://all8webworks.ca/services/performance-tune-up",
-      "image": "/images/services/performance-tune-up-og.jpg",
-      "type": "website",
-      "siteName": "ALL8 Webworks"
-    },
-    "priority": 0.9,
-    "image": "/images/services/performance-tune-up.jpg",
-    "hero": {
-      "titlePrefix": "Performance &",
-      "highlight": "Conversion",
-      "titleSuffix": "Tune-Up",
-      "subtitle": "A 3–5 day upgrade to speed, clarity, and lead capture. Start here if your site is close, but underperforming.",
-      "ctaLabel": "Request a Tune-Up",
-      "ctaHref": "/contact?service=Performance%20%26%20Conversion%20Tune-Up",
-      "image": "/assets/images/services/performance-tune-up-hero.png",
-      "alt": "Performance gauge with clean interface and call conversion elements"
-    },
-    "process": {
-      "title": "How the Tune-Up Works",
-      "subtitle": "Fast, focused, and designed for real-world improvement.",
-      "steps": [
-        {
-          "title": "Quick Audit",
-          "description": "We identify the biggest performance and conversion leaks.",
-          "icon": "ClipboardList"
-        },
-        {
-          "title": "Fix & Improve",
-          "description": "We ship targeted improvements that impact speed and inquiry flow.",
-          "icon": "Wrench"
-        },
-        {
-          "title": "Verify",
-          "description": "We re-check performance and key user paths on mobile.",
-          "icon": "CheckCircle"
-        },
-        {
-          "title": "Hand-Off",
-          "description": "You get a short summary of what changed and what to do next.",
-          "icon": "FileText"
-        }
-      ]
-    },
-    "cta": {
-      "titlePrefix": "Want a Faster Site and",
-      "highlight": "More Inquiries",
-      "titleSuffix": "Without a Rebuild?",
-      "subtitle": "Start with a tune-up. We’ll improve speed and conversion clarity in 3–5 business days.",
-      "ctaLabel": "Request a Tune-Up",
-      "ctaHref": "/contact?service=Performance%20%26%20Conversion%20Tune-Up",
-      "note": "3–5 day turnaround • Fixed scope • Built for contractors"
-    }
-  },
-
-  {
-    "slug": "websites-that-convert",
-    "bucket": "Full Build",
-    "systemTag": "Foundation",
-    "title": "Websites That Convert",
-    "featured": true,
-    "short": "Fast, secure, lead-focused websites for contractors and service businesses.",
-    "description": "Most websites look fine but don’t produce inquiries. We build modern, performance-first sites designed around one goal: turning local visitors into calls, quote requests, and booked jobs.",
-    "card": {
-      "image": "/assets/images/services/websites-that-convert-blueprint-data-streams-card.png",
-      "alt": "A website blueprint transforming into a finished website"
-    },
-    "problem": {
-      "title": "Why Most Websites Underperform",
-      "subtitle": "Common issues that quietly kill leads and waste ad spend:",
-      "points": [
-        {
-          "icon": "Zap",
-          "title": "Slow Load Times",
-          "description": "Visitors bounce before they see your offer."
-        },
-        {
-          "icon": "MousePointerClick",
-          "title": "Weak Calls-to-Action",
-          "description": "If the next step isn’t obvious, people don’t contact you."
-        },
-        {
-          "icon": "Smartphone",
-          "title": "Poor Mobile Experience",
-          "description": "If it’s hard to call or request a quote on a phone, you lose jobs."
-        },
-        {
-          "icon": "ShieldOff",
-          "title": "Security + Reliability Issues",
-          "description": "Outdated sites and patchwork fixes create risk over time."
-        }
-      ]
-    },
-    "solution": {
-      "title": "Our Solution: Performance-First Websites",
-      "subtitle": "Built to load fast, stay reliable, and guide visitors into action.",
-      "points": [
-        {
-          "icon": "Rocket",
-          "title": "Fast by Design",
-          "description": "Built to pass Core Web Vitals and load quickly on mobile."
-        },
-        {
-          "icon": "ShieldCheck",
-          "title": "Stable + Secure",
-          "description": "Clean architecture with fewer moving parts and less maintenance overhead."
-        },
-        {
-          "icon": "MousePointerClick",
-          "title": "Conversion-Focused Structure",
-          "description": "Clear CTAs and lead paths built into every page."
-        },
-        {
-          "icon": "TrendingUp",
-          "title": "Search-Ready Foundations",
-          "description": "Clean metadata, schema, and structure so Google can understand your services."
-        }
-      ]
-    },
-    "overview": {
-      "title": "Why Our Websites Work",
-      "description": "We build with performance and conversion clarity as the baseline. Every page is designed to answer the customer’s questions quickly and guide them toward the next step: call, quote, or booking.",
-      "oneLiner": "Fast, reliable websites built to generate real inquiries.",
-      "badges": [
-        { "label": "Performance-First", "icon": "Gauge" },
-        { "label": "Local Visibility Ready", "icon": "MapPin" },
-        { "label": "Conversion Structure", "icon": "MousePointerClick" },
-        { "label": "Reliable + Secure", "icon": "ShieldCheck" }
-      ]
-    },
-    "benefits": [
-      "Fast load times so customers don’t bounce",
-      "Clear calls-to-action on every key page",
-      "Reliable setup with less maintenance overhead",
-      "Search-ready structure for local visibility"
-    ],
-    "features": [
-      "Mobile-first layouts with clear call/quote paths",
-      "Conversion-ready contact and estimate flows",
-      "Analytics and event tracking setup",
-      "Basic on-page SEO foundations (metadata, schema, sitemap)"
-    ],
-    "comparison": {
-      "title": "ALL8 vs Typical Template Sites",
-      "subtitle": "A website should be a lead tool, not just a brochure.",
-      "points": [
-        {
-          "label": "Speed",
-          "ours": "Built for fast mobile load times",
-          "theirs": "Often slow due to bloated templates and add-ons"
-        },
-        {
-          "label": "Conversions",
-          "ours": "Clear CTA flow and lead capture paths",
-          "theirs": "Generic layouts with unclear next steps"
-        },
-        {
-          "label": "Maintenance",
-          "ours": "Fewer moving parts over time",
-          "theirs": "More patching and upkeep"
-        },
-        {
-          "label": "Results",
-          "ours": "Designed around inquiries and bookings",
-          "theirs": "Designed around “looking nice”"
-        }
-      ]
-    },
-    "priceFrom": "$3,000 CAD",
-    "ctaLabel": "Request a Website Review",
+    "slug": "lead-generation-websites",
+    "title": "Lead Generation Websites",
+    "category": "contacted",
+    "secondaryCategory": "found",
+    "short": "A website built to turn visitors into calls and quote requests — not just look good.",
     "icon": "Rocket",
-    "faqs": [
-      {
-        "q": "How long does a typical site take?",
-        "a": "Most contractor and service-business sites launch in 2–4 weeks depending on content and revisions."
-      },
-      {
-        "q": "Do you handle content and images?",
-        "a": "Yes. We can help tighten copy, structure pages, and source licensed stock imagery where needed."
-      },
-      {
-        "q": "Do I need a tune-up first?",
-        "a": "If your current site is close but underperforming, a tune-up is often the fastest win before committing to a full rebuild."
-      }
-    ],
-    "seo": {
-      "title": "Contractor Websites That Convert | ALL8 Webworks",
-      "description": "High-performance contractor websites built to generate calls, quote requests, and bookings. Fast, reliable, and conversion-focused.",
-      "keywords": "contractor web design, service business websites, fast websites Canada, conversion-focused website, lead generation website",
-      "url": "https://all8webworks.ca/services/websites-that-convert",
-      "image": "/images/services/websites-og.jpg",
-      "type": "website",
-      "siteName": "ALL8 Webworks"
-    },
-    "priority": 0.8,
-    "image": "/images/services/websites-that-convert.jpg",
-    "hero": {
-      "titlePrefix": "High-Performance",
-      "highlight": "Websites",
-      "titleSuffix": "That Convert",
-      "subtitle": "Fast, reliable websites built to turn local visitors into calls, quote requests, and booked jobs.",
-      "ctaLabel": "Request a Website Review",
-      "ctaHref": "/contact?service=Websites%20That%20Convert",
-      "image": "/assets/images/services/websites-that-convert-hero.png",
-      "alt": "A clean blueprint-style visual representing a high-performance website build"
-    },
-    "process": {
-      "title": "Our Website Build Process",
-      "subtitle": "A clear path to a site that performs and converts.",
-      "steps": [
-        {
-          "title": "Discovery",
-          "description": "We clarify your services, service area, and what a lead should do next.",
-          "icon": "ClipboardList"
-        },
-        {
-          "title": "Structure",
-          "description": "We map pages and calls-to-action so the site guides people into contact.",
-          "icon": "Layers"
-        },
-        {
-          "title": "Build",
-          "description": "We build for speed, reliability, and search-ready structure.",
-          "icon": "Wrench"
-        },
-        {
-          "title": "Launch",
-          "description": "We deploy, verify key flows on mobile, and ensure tracking is working.",
-          "icon": "Rocket"
-        }
-      ]
-    },
-    "cta": {
-      "titlePrefix": "Ready for a Website That",
-      "highlight": "Performs",
-      "titleSuffix": "and Converts?",
-      "subtitle": "If you want more calls and quote requests from your website, let’s build it properly from day one.",
-      "ctaLabel": "Request a Website Review",
-      "ctaHref": "/contact?service=Websites%20That%20Convert",
-      "note": "Built in Canada • Clear scope • Results-focused"
-    }
-  },
-
-  {
-    "slug": "website-maintenance-hosting",
-    "bucket": "Protection",
-    "systemTag": "Protection",
-    "title": "Website Maintenance & Hosting",
     "featured": true,
-    "short": "Keep your site secure, fast, and online with managed maintenance.",
-    "description": "We handle hosting, security, backups, and performance monitoring so your website stays online and keeps converting. We also maintain WordPress sites, even if we didn’t build them.",
-    "card": {
-      "image": "/assets/images/services/maintenance-hosting-server-tools-blue-light.png",
-      "alt": "Maintenance tools and server monitoring visuals"
-    },
-    "problem": {
-      "title": "Why Maintenance Matters",
-      "subtitle": "Websites drift over time. Without care, they get slower, riskier, and harder to trust.",
-      "points": [
-        {
-          "icon": "AlertTriangle",
-          "title": "Security Risks",
-          "description": "Outdated systems and plugins increase the chance of hacks and downtime."
-        },
-        {
-          "icon": "Gauge",
-          "title": "Performance Drift",
-          "description": "Images, scripts, and clutter slowly degrade speed and user experience."
-        },
-        {
-          "icon": "DatabaseBackup",
-          "title": "No Recovery Plan",
-          "description": "Without reliable backups, a crash can become a rebuild."
-        },
-        {
-          "icon": "Wrench",
-          "title": "Small Issues Become Big",
-          "description": "Ignored updates and errors stack up until they cost real money."
-        }
-      ]
-    },
-    "solution": {
-      "title": "Our Solution: Fully Managed Maintenance",
-      "subtitle": "We keep your site stable so you can focus on running your business.",
-      "points": [
-        {
-          "icon": "ShieldCheck",
-          "title": "Updates + Security",
-          "description": "We handle updates safely and monitor for issues."
-        },
-        {
-          "icon": "DatabaseBackup",
-          "title": "Daily Backups",
-          "description": "Automated backups so you can recover quickly if something breaks."
-        },
-        {
-          "icon": "Activity",
-          "title": "Uptime + Monitoring",
-          "description": "We monitor site uptime and basic performance signals."
-        },
-        {
-          "icon": "Headphones",
-          "title": "Support for Small Changes",
-          "description": "Quick help for small fixes, edits, and issues."
-        }
-      ]
-    },
-    "overview": {
-      "title": "Hands-Off, Reliable, and Clear",
-      "description": "Your website should just work. Our maintenance plans keep it secure, backed up, and online. We support both modern sites and WordPress sites, even if we didn’t build them.",
-      "oneLiner": "Maintenance that keeps your website online and working for you.",
-      "badges": [
-        { "label": "Uptime Monitoring", "icon": "Activity" },
-        { "label": "Daily Backups", "icon": "DatabaseBackup" },
-        { "label": "Security Checks", "icon": "ShieldCheck" },
-        { "label": "Fast Support", "icon": "Clock" }
-      ]
-    },
-    "benefits": [
-      "Stay online with uptime monitoring",
-      "Daily backups and recovery support",
-      "Updates handled safely (including WordPress)",
-      "Help for small fixes and content changes"
-    ],
-    "features": [
-      "Managed hosting options (depending on your platform)",
-      "Update management for WordPress and modern sites",
-      "Backups and basic security hardening",
-      "Monthly check-ins or status summaries (optional)"
-    ],
-    "comparison": {
-      "title": "ALL8 vs DIY Maintenance",
-      "subtitle": "Managed maintenance saves time, stress, and long-term costs.",
-      "points": [
-        {
-          "label": "Security",
-          "ours": "Updates + monitoring handled",
-          "theirs": "Delayed updates and unknown risk"
-        },
-        {
-          "label": "Backups",
-          "ours": "Automated and reliable",
-          "theirs": "Manual or missing"
-        },
-        {
-          "label": "Downtime",
-          "ours": "Issues caught early",
-          "theirs": "Issues found after customers do"
-        },
-        {
-          "label": "Support",
-          "ours": "A clear point of contact",
-          "theirs": "Figure it out under pressure"
-        }
-      ]
-    },
-    "priceFrom": "$150 CAD/mo",
-    "ctaLabel": "Start Maintenance",
-    "icon": "Server",
-    "faqs": [
-      {
-        "q": "Do you maintain WordPress sites you didn’t build?",
-        "a": "Yes. We can take over maintenance for WordPress sites, including updates, backups, and monitoring."
-      },
-      {
-        "q": "Can I cancel anytime?",
-        "a": "Yes. Plans are month-to-month. You keep your files and access."
-      },
-      {
-        "q": "Do you do content updates?",
-        "a": "Yes. Small edits and swaps can be included depending on your plan."
-      }
-    ],
-    "seo": {
-      "title": "Website Maintenance & Hosting | ALL8 Webworks",
-      "description": "Reliable website maintenance for contractors and service businesses. Updates, backups, monitoring, and support. WordPress supported too.",
-      "keywords": "website maintenance, wordpress maintenance, managed hosting, website updates, uptime monitoring, web support for contractors",
-      "url": "https://all8webworks.ca/services/website-maintenance-hosting",
-      "image": "/images/services/maintenance-og.jpg",
-      "type": "website",
-      "siteName": "ALL8 Webworks"
-    },
-    "priority": 0.75,
-    "image": "/images/services/maintenance.jpg",
+    "priority": 0.9,
+
     "hero": {
-      "titlePrefix": "Reliable",
-      "highlight": "Maintenance",
-      "titleSuffix": "& Hosting",
-      "subtitle": "Keep your website secure, backed up, and online. WordPress supported even if we didn’t build it.",
-      "ctaLabel": "Start Maintenance",
-      "ctaHref": "/contact?service=Website%20Maintenance%20%26%20Hosting",
-      "image": "/assets/images/services/maintenance-hosting-server-tools-blue-light.png",
-      "alt": "Server monitoring and maintenance visuals"
+      "eyebrow": "GET CONTACTED",
+      "title": "A Website That Asks For The Call",
+      "subtitle": "Traffic that doesn't convert is just a number. We build and rework websites around how your customers actually decide, so the site does its one job: turning visitors into calls and quote requests."
     },
-    "process": {
-      "title": "Our Maintenance Process",
-      "subtitle": "Simple, predictable, and transparent.",
-      "steps": [
-        {
-          "title": "Audit",
-          "description": "We review your site, hosting, and risk areas.",
-          "icon": "ClipboardList"
-        },
-        {
-          "title": "Stabilize",
-          "description": "Backups, updates, and quick fixes to reduce risk.",
-          "icon": "Wrench"
-        },
-        {
-          "title": "Monitor",
-          "description": "Uptime and basic health checks to catch issues early.",
-          "icon": "Activity"
-        },
-        {
-          "title": "Support",
-          "description": "Ongoing help for issues and small changes.",
-          "icon": "Headphones"
-        }
+
+    "problem": {
+      "title": "Why Websites Stop Producing Work",
+      "intro": "A website can look fine and still fail at its one job.",
+      "scenarios": [
+        "The homepage tries to explain everything you do instead of answering the one question the visitor actually has",
+        "The phone number is in the header, but there's no reason to tap it at the moment someone's convinced",
+        "Pages take too long to load on job-site data, so people go back to the search results",
+        "The site works on a desktop monitor but the call-to-action disappears below three scrolls on a phone",
+        "Forms ask for more than a visitor is willing to type before they've decided to trust you"
       ]
     },
-    "cta": {
-      "titlePrefix": "Protect Your",
-      "highlight": "Website",
-      "titleSuffix": "and Your Leads",
-      "subtitle": "Stay online and secure without worrying about updates and backups.",
-      "ctaLabel": "Start Maintenance",
-      "ctaHref": "/contact?service=Website%20Maintenance%20%26%20Hosting",
-      "note": "Month-to-month • WordPress supported • Clear scope"
+
+    "fix": {
+      "title": "What We Build Instead",
+      "body": [
+        "A website designed around the decision your visitor is actually making, with a clear next step above the fold on every device.",
+        "New builds and reworks of existing sites both start the same way — by looking at what's actually stopping people from calling, then fixing that first."
+      ]
+    },
+
+    "howItWorks": {
+      "steps": [
+        { "title": "Review", "description": "We look at your current site (or your starting point, if it's a new build) and the specific pages your best customers land on." },
+        { "title": "Structure", "description": "We map the pages you need around the services you want to sell and the areas you serve." },
+        { "title": "Build", "description": "Pages get built mobile-first, with a clear call-to-action, fast load times, and forms that ask for only what's needed." },
+        { "title": "Connect", "description": "Call tracking, analytics and your CRM or inbox get wired in before launch, not after." }
+      ]
+    },
+
+    "included": {
+      "standard": [
+        "Website strategy and page structure",
+        "Design and development",
+        "Mobile-first, conversion-focused layout",
+        "Service and location pages where relevant",
+        "Quote and contact forms",
+        "Calls-to-action built around your services",
+        "Technical SEO foundation",
+        "Page speed optimization",
+        "Google Analytics setup"
+      ],
+      "addOns": [
+        "Landing pages for specific campaigns",
+        "Call tracking integration",
+        "CRM or form-routing integration"
+      ]
+    },
+
+    "whyItMatters": {
+      "points": [
+        "Visitors get a clear next step instead of a wall of information",
+        "Pages load fast enough to hold attention on a job-site connection",
+        "The site is structured so search engines and AI-generated answers can tell what you do and where",
+        "Call and form tracking means you can see whether the site is actually producing inquiries"
+      ]
+    },
+
+    "worksWith": {
+      "intro": "We can build new or work with what you have.",
+      "tools": [
+        "WordPress and custom-built sites",
+        "Google Analytics and Search Console",
+        "Your existing CRM or inbox",
+        "Call tracking platforms",
+        "Google Ads and Business Profile"
+      ]
+    },
+
+    "pricing": {
+      "label": "From $950 CAD",
+      "note": "Scope depends on whether you need a full rebuild or a focused tune-up of an existing site, and how many service and location pages you need.",
+      "tiers": [
+        { "label": "Tune-Up", "price": "From $950 CAD", "description": "A focused upgrade to speed, clarity and lead capture on a site you already have." },
+        { "label": "Full Build", "price": "From $3,000 CAD", "description": "A new website built around your services, service areas and how customers decide." }
+      ]
+    },
+
+    "faqs": [
+      { "q": "Do I need a completely new website?", "a": "Often no. If the site is structurally sound, a tune-up — fixing speed, calls-to-action, forms and mobile usability — is usually faster and cheaper than a rebuild. We'll tell you which one your site actually needs." },
+      { "q": "Can you work with my existing website?", "a": "Yes. Most of our work starts with an existing site. We keep what's working and fix what's costing you leads." },
+      { "q": "How long does it take?", "a": "A tune-up is typically one to two weeks. A full build is usually three to five weeks depending on the number of pages and how quickly content and access are provided." },
+      { "q": "Do you handle hosting?", "a": "Hosting and ongoing maintenance are a separate service — see Website Care & Optimization — so you're never required to keep paying us just to keep the site online." },
+      { "q": "Will new pages hurt my search rankings?", "a": "We plan URL structure and redirects before launch specifically to avoid this. If pages need to move, the old addresses get redirected." }
+    ],
+
+    "crossLinks": ["local-seo-google-business-profile", "google-ads-lead-generation", "call-tracking-lead-attribution"],
+
+    "seo": {
+      "title": "Lead Generation Websites | ALL8 WEBWORKS",
+      "description": "Websites built to turn visitors into calls and quote requests, not just traffic. Mobile-first, fast, and connected to tracking from day one."
     }
   },
 
   {
-    "slug": "local-seo-foundation",
-    "bucket": "Foundation",
-    "systemTag": "Visibility",
-    "title": "Local SEO Foundation",
-    "short": "Get found locally with solid SEO foundations and proper indexing.",
-    "description": "Every strong site needs the basics done right: page titles, structured data, sitemaps, and proper Google indexing. We set up the foundation so your business can show up in local searches.",
-    "card": {
-      "image": "/assets/images/services/basic-seo-rising-graph-magnifying-glow-card.png",
-      "alt": "Magnifying glass over a rising graph representing SEO growth"
-    },
-    "problem": {
-      "title": "Why Many Sites Never Get Found",
-      "subtitle": "A site can be live and still invisible if Google can’t understand it.",
-      "points": [
-        {
-          "icon": "SearchX",
-          "title": "Missing Basics",
-          "description": "Bad metadata and missing structure make it hard to rank."
-        },
-        {
-          "icon": "FileQuestion",
-          "title": "Unclear Content Structure",
-          "description": "If services and locations aren’t clear, Google guesses and you lose."
-        },
-        {
-          "icon": "MapPinOff",
-          "title": "Weak Local Signals",
-          "description": "Inconsistent business info hurts Maps and local results."
-        },
-        {
-          "icon": "BarChart3",
-          "title": "No Measurement",
-          "description": "Without analytics and Search Console, you’re flying blind."
-        }
-      ]
-    },
-    "solution": {
-      "title": "Our Solution: SEO Foundations Done Right",
-      "subtitle": "We build a clean foundation so your site can be understood and indexed properly.",
-      "points": [
-        {
-          "icon": "BadgeCheck",
-          "title": "Metadata + Structure",
-          "description": "Titles and descriptions that match your services and locations."
-        },
-        {
-          "icon": "FileCode2",
-          "title": "Structured Data",
-          "description": "Schema that helps Google interpret your business and pages."
-        },
-        {
-          "icon": "MapPin",
-          "title": "Local Consistency",
-          "description": "Aligned business info to support Maps visibility."
-        },
-        {
-          "icon": "Search",
-          "title": "Indexing + Verification",
-          "description": "Search Console setup and sitemap submission."
-        }
-      ]
-    },
-    "overview": {
-      "title": "SEO That’s Quietly Essential",
-      "description": "You don’t need a giant SEO contract just to be visible. You need the basics done correctly so Google can read your site and show it to local customers.",
-      "oneLiner": "Launch with SEO foundations that help customers find you.",
-      "badges": [
-        { "label": "Schema Setup", "icon": "FileCode2" },
-        { "label": "Indexing Verified", "icon": "Search" },
-        { "label": "Local Signals", "icon": "MapPin" },
-        { "label": "Tracking Ready", "icon": "BarChart3" }
-      ]
-    },
-    "benefits": [
-      "Better local visibility for core services",
-      "Clean metadata and structured data",
-      "Search Console and sitemap submission",
-      "Analytics readiness for measuring performance"
-    ],
-    "features": [
-      "On-page titles and descriptions aligned to services",
-      "Structured data for business and services",
-      "Sitemap and indexing verification",
-      "Basic analytics setup"
-    ],
-    "comparison": {
-      "title": "ALL8 vs Typical Launch SEO",
-      "subtitle": "Most launches skip the fundamentals. We don’t.",
-      "points": [
-        {
-          "label": "Metadata",
-          "ours": "Clear and intentional",
-          "theirs": "Missing or duplicated"
-        },
-        {
-          "label": "Schema",
-          "ours": "Added where relevant",
-          "theirs": "Often missing"
-        },
-        {
-          "label": "Indexing",
-          "ours": "Verified and submitted",
-          "theirs": "Assumed, not checked"
-        },
-        {
-          "label": "Local Clarity",
-          "ours": "Services and areas structured",
-          "theirs": "Hard for Google to interpret"
-        }
-      ]
-    },
-    "priceFrom": "Included with all websites",
-    "ctaLabel": "Get Found Locally",
-    "icon": "Search",
-    "faqs": [
-      {
-        "q": "Is this a full SEO campaign?",
-        "a": "No. It’s the foundation: indexing, structure, metadata, and tracking readiness."
-      },
-      {
-        "q": "Can you help with keywords?",
-        "a": "Yes. We’ll align your pages to your top local search phrases."
-      },
-      {
-        "q": "Do I still need ongoing SEO?",
-        "a": "Sometimes. Many local businesses do well with solid foundations and good service pages. Ongoing SEO depends on your competition and goals."
-      }
-    ],
-    "seo": {
-      "title": "Local SEO Foundation | ALL8 Webworks",
-      "description": "Essential SEO foundation for contractors and service businesses: metadata, schema, indexing, and local foundations.",
-      "keywords": "local SEO foundation, contractor SEO, local SEO Canada, schema markup, google indexing, small business SEO foundations",
-      "url": "https://all8webworks.ca/services/local-seo-foundation",
-      "image": "/images/services/seo-setup-og.jpg",
-      "type": "website",
-      "siteName": "ALL8 Webworks"
-    },
-    "priority": 0.7,
-    "image": "/images/services/seo-setup.jpg",
-    "hero": {
-      "titlePrefix": "Local SEO",
-      "highlight": "Foundation",
-      "titleSuffix": "Done Right",
-      "subtitle": "Metadata, structure, and indexing so customers can actually find you locally.",
-      "ctaLabel": "Get Found Locally",
-      "ctaHref": "/contact?service=Local%20SEO%20Foundation",
-      "image": "/assets/images/services/basic-seo-hero.png",
-      "alt": "Magnifying glass focusing on a rising search performance graph"
-    },
-    "process": {
-      "title": "Our SEO Setup Process",
-      "subtitle": "The basics every business site needs to be visible.",
-      "steps": [
-        {
-          "title": "Audit",
-          "description": "We review services, locations, and existing visibility.",
-          "icon": "ClipboardList"
-        },
-        {
-          "title": "Structure",
-          "description": "We tighten headings, page intent, and metadata.",
-          "icon": "Layers"
-        },
-        {
-          "title": "Implementation",
-          "description": "We add structured data and submit indexing signals.",
-          "icon": "Wrench"
-        },
-        {
-          "title": "Verification",
-          "description": "Search Console is connected and sitemap is submitted.",
-          "icon": "Search"
-        }
-      ]
-    },
-    "cta": {
-      "titlePrefix": "Ready to Get",
-      "highlight": "Found",
-      "titleSuffix": "on Google?",
-      "subtitle": "Start with clean local SEO foundations and proper indexing. No fluff.",
-      "ctaLabel": "Get Found Locally",
-      "ctaHref": "/contact?service=Local%20SEO%20Foundation",
-      "note": "Local-first • Clean structure • Measurable"
-    }
-  },
-
-  {
-    "slug": "google-business-profile-optimization",
-    "bucket": "Visibility",
-    "systemTag": "Visibility",
-    "title": "Google Business Profile Optimization",
-    "featured": true,
-    "short": "Improve Maps visibility and turn searches into calls.",
-    "description": "Your Google Business Profile is often the first impression customers see. We optimize it for visibility, credibility, and conversions so you get more calls from Maps and local search.",
-    "card": {
-      "image": "/assets/images/services/google-business-optimization-map-pin-verification-card.png",
-      "alt": "Verified map pin representing Google Business Profile optimization"
-    },
-    "problem": {
-      "title": "Why Many Google Profiles Underperform",
-      "subtitle": "A profile can exist, but still not generate calls.",
-      "points": [
-        {
-          "icon": "MapPinOff",
-          "title": "Incomplete Info",
-          "description": "Missing services, categories, and hours hurts rankings and trust."
-        },
-        {
-          "icon": "FileQuestion",
-          "title": "Weak Optimization",
-          "description": "If your listing isn’t structured properly, competitors outrank you."
-        },
-        {
-          "icon": "MessageSquareOff",
-          "title": "Review Gaps",
-          "description": "Low review volume or poor responses reduce conversions."
-        },
-        {
-          "icon": "TrendingDown",
-          "title": "Low Local Visibility",
-          "description": "You’re not showing up for high-intent local searches."
-        }
-      ]
-    },
-    "solution": {
-      "title": "Our Solution: A Profile That Ranks and Converts",
-      "subtitle": "We optimize the setup so your listing drives calls and quote requests.",
-      "points": [
-        {
-          "icon": "MapPin",
-          "title": "Correct Categories + Services",
-          "description": "We align your categories and services to real search intent."
-        },
-        {
-          "icon": "Stars",
-          "title": "Review Strategy",
-          "description": "We help you build a simple, consistent review process."
-        },
-        {
-          "icon": "Image",
-          "title": "Better Photos + Posts",
-          "description": "Stronger visuals and updates that support credibility."
-        },
-        {
-          "icon": "BarChart3",
-          "title": "Insights + Tracking",
-          "description": "We ensure you can see calls, messages, and profile actions over time."
-        }
-      ]
-    },
-    "overview": {
-      "title": "Show Up Where Customers Are Searching",
-      "description": "A well-optimized Google Business Profile can generate leads without a full website rebuild. We focus on visibility, trust signals, and conversion actions like calls and messages.",
-      "oneLiner": "Turn Maps visibility into real calls and quote requests.",
-      "badges": [
-        { "label": "Better Maps Visibility", "icon": "Map" },
-        { "label": "Trust Signals", "icon": "ShieldCheck" },
-        { "label": "Review System", "icon": "Star" },
-        { "label": "Conversion Actions", "icon": "PhoneCall" }
-      ]
-    },
-    "benefits": [
-      "Higher visibility on Maps and local search",
-      "More calls and direction clicks",
-      "Stronger credibility with a review system",
-      "Cleaner categories and service info"
-    ],
-    "features": [
-      "Profile cleanup and optimization",
-      "Category and service alignment",
-      "Review system guidance",
-      "Photo/post recommendations"
-    ],
-    "comparison": {
-      "title": "ALL8 vs DIY Profiles",
-      "subtitle": "Most profiles exist. Few are optimized to convert.",
-      "points": [
-        {
-          "label": "Visibility",
-          "ours": "Built around service intent",
-          "theirs": "Generic or incomplete"
-        },
-        {
-          "label": "Trust",
-          "ours": "Reviews and clarity improved",
-          "theirs": "Low confidence signals"
-        },
-        {
-          "label": "Conversions",
-          "ours": "Calls and messages emphasized",
-          "theirs": "Low engagement"
-        },
-        {
-          "label": "Consistency",
-          "ours": "Info aligned and accurate",
-          "theirs": "Outdated or inconsistent"
-        }
-      ]
-    },
-    "priceFrom": "$350 CAD",
-    "ctaLabel": "Optimize My Profile",
+    "slug": "local-seo-google-business-profile",
+    "title": "Local SEO & Google Business Profile",
+    "category": "found",
+    "short": "Show up when nearby customers search for the work you do — and look credible when they find you.",
     "icon": "MapPin",
-    "faqs": [
-      {
-        "q": "Do you need my Google login?",
-        "a": "We typically request manager access so we can optimize safely without transferring ownership."
-      },
-      {
-        "q": "Can you help if I don’t have a profile yet?",
-        "a": "Yes. We can guide setup and verification."
-      },
-      {
-        "q": "Do you manage reviews for me?",
-        "a": "We set up the system and give you clear guidance. Ongoing management can be added if needed."
-      }
-    ],
-    "seo": {
-      "title": "Google Business Profile Optimization | ALL8 Webworks",
-      "description": "Google Business Profile optimization for contractors and service businesses in Canada. Improve Maps visibility and get more calls.",
-      "keywords": "google business profile optimization, google maps SEO, local SEO for contractors, GBP setup Canada, google my business optimization",
-      "url": "https://all8webworks.ca/services/google-business-profile-optimization",
-      "image": "/images/services/google-business-og.jpg",
-      "type": "website",
-      "siteName": "ALL8 Webworks"
-    },
-    "priority": 0.7,
-    "image": "/images/services/google-business.jpg",
+    "featured": true,
+    "priority": 0.9,
+
     "hero": {
-      "titlePrefix": "Improve",
-      "highlight": "Maps Visibility",
-      "titleSuffix": "and Get More Calls",
-      "subtitle": "We optimize your Google Business Profile for trust, visibility, and conversion actions.",
-      "ctaLabel": "Optimize My Profile",
-      "ctaHref": "/contact?service=Google%20Business%20Profile%20Optimization",
-      "image": "/assets/images/services/google-business-optimization-hero.png",
-      "alt": "Verified map pin over a clean grid map"
+      "eyebrow": "GET FOUND",
+      "title": "Show Up When Someone Nearby Searches",
+      "subtitle": "Being in business isn't the same as being found. We set up and optimize the local search signals — your Google Business Profile, your site's local structure, your service-area pages — that determine whether you show up for the searches that matter."
     },
-    "process": {
-      "title": "Our GBP Optimization Process",
-      "subtitle": "A practical setup that improves visibility and actions.",
-      "steps": [
-        {
-          "title": "Audit",
-          "description": "We review the listing and local competition.",
-          "icon": "ClipboardList"
-        },
-        {
-          "title": "Optimize",
-          "description": "We tighten categories, services, and key info.",
-          "icon": "Wrench"
-        },
-        {
-          "title": "Trust Signals",
-          "description": "We improve photos, posts, and review approach.",
-          "icon": "Star"
-        },
-        {
-          "title": "Verify Tracking",
-          "description": "We confirm insights and conversion actions are measurable.",
-          "icon": "BarChart3"
-        }
+
+    "problem": {
+      "title": "Why Local Customers Can't Find You",
+      "scenarios": [
+        "Your Google Business Profile is claimed but the categories, services and service areas were never filled in properly",
+        "You rank for your business name and nothing else — which means only people who already know you can find you",
+        "Your homepage tries to answer every service you offer instead of having a dedicated page for the one someone's searching for",
+        "Photos, hours and business information are outdated or inconsistent across listings",
+        "There's no way to tell whether your visibility is actually improving month to month"
       ]
     },
-    "cta": {
-      "titlePrefix": "Ready to Get",
-      "highlight": "More Calls",
-      "titleSuffix": "from Google Maps?",
-      "subtitle": "Let’s optimize your profile so local searches turn into real inquiries.",
-      "ctaLabel": "Optimize My Profile",
-      "ctaHref": "/contact?service=Google%20Business%20Profile%20Optimization",
-      "note": "Local-first • Trust-focused • Practical setup"
+
+    "fix": {
+      "title": "What We Set Up",
+      "body": [
+        "A Google Business Profile that's fully built out — the right categories, services and service areas — plus the on-site structure (service pages, location content, technical basics) that search engines and AI-generated answers use to understand what you do and where."
+      ]
+    },
+
+    "howItWorks": {
+      "steps": [
+        { "title": "Audit", "description": "We check your current Business Profile, site structure and how you currently show up for the searches that matter to you." },
+        { "title": "Fix the Foundation", "description": "Categories, services, service areas, business information and technical SEO basics get corrected and completed." },
+        { "title": "Build Content", "description": "Service and location pages get created or improved so each targets a specific thing someone might search for." },
+        { "title": "Verify & Monitor", "description": "We confirm indexing and set up Search Console so visibility can actually be tracked going forward." }
+      ]
+    },
+
+    "included": {
+      "standard": [
+        "Google Business Profile setup and optimization",
+        "Category and service selection",
+        "Service-area configuration",
+        "Local keyword research",
+        "Location and service page content",
+        "Technical local SEO (metadata, structured data, indexing)",
+        "Google Search Console setup"
+      ],
+      "addOns": [
+        "Ongoing local SEO and content program (scoped separately)",
+        "Review-generation strategy",
+        "Citation consistency cleanup"
+      ]
+    },
+
+    "whyItMatters": {
+      "points": [
+        "You show up for the specific services you want to sell, not just your business name",
+        "A complete, accurate Business Profile is more likely to earn the click in the map pack",
+        "Search Console gives you an actual record of what's improving instead of a guess",
+        "The same foundation supports visibility in Google's AI-generated answers"
+      ]
+    },
+
+    "worksWith": {
+      "intro": "We work with what's already claimed and set up wherever possible.",
+      "tools": [
+        "Google Business Profile",
+        "Google Search Console",
+        "Google Analytics",
+        "Your existing website (WordPress or custom)"
+      ]
+    },
+
+    "pricing": {
+      "label": "From $350 CAD",
+      "note": "This covers Business Profile optimization and the local SEO foundation. Ongoing or expanded local SEO programs are scoped and quoted separately based on how many services and areas you're targeting."
+    },
+
+    "faqs": [
+      { "q": "Is this a one-time fix or an ongoing service?", "a": "The Business Profile and technical foundation are a one-time setup. Local rankings build over months, not days, so ongoing content and improvement is a separate, scoped conversation if you want to keep pushing further." },
+      { "q": "Do I need a new website for this to work?", "a": "No. Business Profile optimization and technical SEO can be done on your existing site. If the site's structure is actively working against you, we'll say so." },
+      { "q": "How long until I see results?", "a": "Business Profile changes can show up within days to weeks. Organic ranking improvements from content and technical work typically take a few months." },
+      { "q": "Do you guarantee rankings?", "a": "No. Nobody can honestly guarantee a specific ranking or position — anyone who does is not being straight with you. We can tell you what we're improving and show you the tracking." },
+      { "q": "What if I have multiple locations or service areas?", "a": "Service-area and multi-location setups are supported — scope and pricing depend on how many areas you're targeting." }
+    ],
+
+    "crossLinks": ["lead-generation-websites", "google-ads-lead-generation", "call-tracking-lead-attribution"],
+
+    "seo": {
+      "title": "Local SEO & Google Business Profile | ALL8 WEBWORKS",
+      "description": "Get found when nearby customers search. Google Business Profile optimization and local SEO foundations built for service businesses."
     }
   },
 
   {
-    "slug": "google-ads-setup-integration",
-    "bucket": "Visibility",
-    "systemTag": "Visibility",
-    "title": "Google Ads Setup & Tracking",
-    "short": "Launch Ads with proper targeting and conversion tracking.",
-    "description": "We set up your Google Ads account, create a clean campaign structure, and connect tracking so you can measure leads, not just clicks. Best paired with a tune-up or strong landing page.",
-    "card": {
-      "image": "/assets/images/services/google-ads-setup-holographic-dashboard-target-card.png",
-      "alt": "Ad dashboard and targeting visuals"
-    },
-    "problem": {
-      "title": "Why Ads Waste Money",
-      "subtitle": "Most small campaigns fail because the basics aren’t set correctly.",
-      "points": [
-        {
-          "icon": "AlertTriangle",
-          "title": "No Conversion Tracking",
-          "description": "If you can’t measure calls and forms, you can’t improve results."
-        },
-        {
-          "icon": "SearchX",
-          "title": "Weak Keyword Targeting",
-          "description": "Broad keywords burn budget on low-intent searches."
-        },
-        {
-          "icon": "Target",
-          "title": "Wrong Landing Experience",
-          "description": "Ads that lead to slow or confusing pages don’t convert."
-        },
-        {
-          "icon": "LineChart",
-          "title": "No Optimization Plan",
-          "description": "Without structure and reporting, campaigns drift."
-        }
-      ]
-    },
-    "solution": {
-      "title": "Our Solution: Clean Setup + Real Tracking",
-      "subtitle": "We set Ads up properly so you can measure leads and improve over time.",
-      "points": [
-        {
-          "icon": "ClipboardCheck",
-          "title": "Campaign Structure",
-          "description": "Campaigns and ad groups aligned to services and service area intent."
-        },
-        {
-          "icon": "TrendingUp",
-          "title": "Conversion Tracking",
-          "description": "Track calls and form submissions so ROI is visible."
-        },
-        {
-          "icon": "BarChart3",
-          "title": "Analytics Integration",
-          "description": "Connect key tools so you can see what’s driving leads."
-        },
-        {
-          "icon": "DollarSign",
-          "title": "Budget Efficiency",
-          "description": "Reduce waste with tighter targeting and exclusions."
-        }
-      ]
-    },
-    "overview": {
-      "title": "Ads Should Drive Leads, Not Confusion",
-      "description": "We focus on setup and tracking so you can understand performance. If you’re sending traffic to a weak page, we’ll tell you and recommend a tune-up first.",
-      "oneLiner": "Google Ads setup built around measurable leads.",
-      "badges": [
-        { "label": "Conversion Tracking", "icon": "BarChart3" },
-        { "label": "Local Targeting", "icon": "MapPin" },
-        { "label": "Lead-Focused", "icon": "Target" },
-        { "label": "Clear Reporting", "icon": "FileText" }
-      ]
-    },
-    "benefits": [
-      "Start generating leads faster than SEO alone",
-      "Know which ads produce calls and forms",
-      "Reduce wasted spend with better targeting",
-      "Campaign structure you can actually manage"
-    ],
-    "features": [
-      "Account and campaign setup",
-      "Conversion tracking for calls and forms",
-      "Keyword and location targeting",
-      "Analytics integration checks"
-    ],
-    "comparison": {
-      "title": "ALL8 vs DIY Ads",
-      "subtitle": "Proper tracking separates spending from investing.",
-      "points": [
-        {
-          "label": "Tracking",
-          "ours": "Calls and forms tracked",
-          "theirs": "Clicks only"
-        },
-        {
-          "label": "Structure",
-          "ours": "Clean, service-based ad groups",
-          "theirs": "Messy and broad"
-        },
-        {
-          "label": "Waste",
-          "ours": "Exclusions and tighter intent",
-          "theirs": "Budget burned on irrelevant searches"
-        },
-        {
-          "label": "Clarity",
-          "ours": "Understand what drives leads",
-          "theirs": "Guesswork"
-        }
-      ]
-    },
-    "priceFrom": "$650 CAD",
-    "ctaLabel": "Set Up My Ads",
+    "slug": "google-ads-lead-generation",
+    "title": "Google Ads & Lead Generation",
+    "category": "found",
+    "short": "Paid visibility for the services and seasons where waiting on organic growth costs you work.",
     "icon": "TrendingUp",
-    "faqs": [
-      {
-        "q": "Do you manage Ads monthly?",
-        "a": "This service is setup + tracking. Ongoing management can be added later if you want it."
-      },
-      {
-        "q": "Can you track phone calls?",
-        "a": "Yes. We can track calls and form submissions so you can measure leads, not just clicks."
-      },
-      {
-        "q": "What ad budget should I start with?",
-        "a": "Many local service businesses start around $10–$20/day depending on competition and service area."
-      }
-    ],
-    "seo": {
-      "title": "Google Ads Setup & Tracking | ALL8 Webworks",
-      "description": "Google Ads setup and conversion tracking for contractors and service businesses. Measure calls and leads, not just clicks.",
-      "keywords": "google ads setup, PPC for contractors, conversion tracking, lead generation campaigns, google analytics integration",
-      "url": "https://all8webworks.ca/services/google-ads-setup-integration",
-      "image": "/images/services/google-ads-og.jpg",
-      "type": "website",
-      "siteName": "ALL8 Webworks"
-    },
+    "featured": false,
     "priority": 0.7,
-    "image": "/images/services/google-ads.jpg",
+
     "hero": {
-      "titlePrefix": "Google Ads",
-      "highlight": "Setup",
-      "titleSuffix": "& Tracking",
-      "subtitle": "Launch campaigns with clean structure and tracking so you can measure real leads.",
-      "ctaLabel": "Set Up My Ads",
-      "ctaHref": "/contact?service=Google%20Ads%20Setup%20%26%20Tracking",
-      "image": "/assets/images/services/google-ads-setup-hero.png",
-      "alt": "Clean ad dashboard showing conversions and targeting"
+      "eyebrow": "GET FOUND",
+      "title": "Get In Front of Customers Now",
+      "subtitle": "Organic visibility builds over months. Sometimes you need the phone to ring sooner than that. We set up Google Ads campaigns built around calls and quote requests, with tracking that shows what each click actually produced."
     },
-    "process": {
-      "title": "Our Google Ads Setup Process",
-      "subtitle": "Clear setup, real tracking, measurable leads.",
-      "steps": [
-        {
-          "title": "Discovery",
-          "description": "We identify your top services, target area, and budget range.",
-          "icon": "ClipboardList"
-        },
-        {
-          "title": "Campaign Setup",
-          "description": "We build service-based ad groups and targeting that matches intent.",
-          "icon": "Target"
-        },
-        {
-          "title": "Tracking",
-          "description": "We connect lead tracking for calls and forms.",
-          "icon": "BarChart3"
-        },
-        {
-          "title": "Launch Review",
-          "description": "We verify everything is working and hand over access clearly.",
-          "icon": "Rocket"
-        }
+
+    "problem": {
+      "title": "Why Ad Spend Doesn't Turn Into Work",
+      "scenarios": [
+        "Campaigns are running but nobody can say how many calls or form submissions they actually produced",
+        "Ads send traffic to a homepage instead of a page built to answer that specific search",
+        "Broad keyword targeting burns budget on searches that were never going to become a booked job",
+        "There's no call tracking, so a phone call from an ad looks identical to any other call",
+        "Campaigns were set up once and never adjusted based on what's actually converting"
       ]
     },
-    "cta": {
-      "titlePrefix": "Want Ads That Drive",
-      "highlight": "Real Leads",
-      "titleSuffix": "Not Just Clicks?",
-      "subtitle": "We’ll set up campaigns and tracking properly so performance is measurable.",
-      "ctaLabel": "Set Up My Ads",
-      "ctaHref": "/contact?service=Google%20Ads%20Setup%20%26%20Tracking",
-      "note": "One-time setup • Lead tracking • Clear structure"
+
+    "fix": {
+      "title": "What We Set Up",
+      "body": [
+        "Campaigns built around the specific services and areas that justify the cost per click, sending traffic to pages designed to convert — with conversion tracking in place from day one so you can see what a click actually turned into."
+      ]
+    },
+
+    "howItWorks": {
+      "steps": [
+        { "title": "Strategy", "description": "We identify which services and areas are worth paying for traffic on, based on job value and how much competition exists." },
+        { "title": "Build", "description": "Campaigns, ad groups, ad copy and negative keywords get built around those specific services — not broad, generic terms." },
+        { "title": "Connect Tracking", "description": "Call tracking and form conversion tracking get wired into the campaign so results are measurable, not assumed." },
+        { "title": "Launch & Adjust", "description": "Campaigns go live and get adjusted based on what's actually producing calls and quote requests, where ongoing management is part of the agreement." }
+      ]
+    },
+
+    "included": {
+      "standard": [
+        "Google Search campaign setup",
+        "Keyword and negative-keyword strategy",
+        "Geographic targeting",
+        "Conversion-focused ad groups and ad copy",
+        "Call conversion tracking",
+        "Form conversion tracking",
+        "Landing-page integration",
+        "Analytics and attribution setup"
+      ],
+      "addOns": [
+        "Ongoing campaign management and optimization (scoped separately)",
+        "Additional landing pages per campaign"
+      ]
+    },
+
+    "whyItMatters": {
+      "points": [
+        "Budget goes toward searches connected to real job value, not broad traffic",
+        "You can see which campaigns produced actual calls and form submissions, not just clicks",
+        "Advertising works alongside your organic visibility instead of covering for a site that can't convert",
+        "Tracking data feeds back into deciding what to spend on next"
+      ]
+    },
+
+    "worksWith": {
+      "intro": "Ads are only as good as what they send traffic to.",
+      "tools": [
+        "Google Ads",
+        "Google Analytics",
+        "Your existing or newly built website",
+        "Call tracking platforms",
+        "Your CRM, for lead-source reporting"
+      ]
+    },
+
+    "pricing": {
+      "label": "From $650 CAD",
+      "note": "This covers campaign setup, tracking and launch. Ongoing management, if you want it, is a separate recurring arrangement — ad spend itself is always paid directly to Google, not to ALL8."
+    },
+
+    "faqs": [
+      { "q": "Do you guarantee a certain number of leads or a specific cost per lead?", "a": "No. Nobody can honestly guarantee that — results depend on your market, competition and how well the site converts the traffic. We can tell you what we're optimizing for and show you the data." },
+      { "q": "Do I need Google Ads?", "a": "Not necessarily. If organic visibility already covers the services that matter most, ads may not be worth the spend. We'll tell you if that's the case rather than sell you a campaign you don't need." },
+      { "q": "Can this work without a full website rebuild?", "a": "Yes, if your site has at least one page that can reasonably convert the traffic. We may recommend a dedicated landing page instead of a full rebuild." },
+      { "q": "Who pays Google directly for the ad spend?", "a": "You do — ad spend is billed directly by Google, separate from what you pay ALL8 for setup or management." },
+      { "q": "How do I know the ads are working?", "a": "Call and form tracking are part of the setup, so you can see actual calls and submissions tied to the campaign, not just clicks and impressions." }
+    ],
+
+    "crossLinks": ["lead-generation-websites", "call-tracking-lead-attribution", "local-seo-google-business-profile"],
+
+    "seo": {
+      "title": "Google Ads & Lead Generation | ALL8 WEBWORKS",
+      "description": "Google Ads campaigns built around calls and quote requests, with conversion tracking so you can see what each click actually produced."
     }
   },
 
   {
-    "slug": "business-tool-integrations",
-    "bucket": "Protection",
-    "systemTag": "Protection",
-    "title": "Business Tool Integrations",
-    "short": "Connect leads to your CRM, quoting, or booking tools so nothing gets missed.",
-    "description": "We connect your website to the tools that run your business so leads are captured, routed, and followed up properly. This reduces admin work and helps you respond faster.",
-    "card": {
-      "image": "/assets/images/services/business-tools-integration-gears-circuits-app-icons-card.png",
-      "alt": "Connected systems representing integrated business tools"
-    },
-    "problem": {
-      "title": "Why Leads Get Lost",
-      "subtitle": "If your website doesn’t connect to your workflow, leads fall through cracks.",
-      "points": [
-        {
-          "icon": "PlugZap",
-          "title": "Leads Buried in Email",
-          "description": "Form submissions get missed or delayed when they live in inboxes."
-        },
-        {
-          "icon": "Workflow",
-          "title": "Manual Data Entry",
-          "description": "Copying leads between systems wastes time and increases errors."
-        },
-        {
-          "icon": "BellOff",
-          "title": "Slow Follow-Up",
-          "description": "The longer the response time, the more jobs you lose."
-        },
-        {
-          "icon": "BarChart2",
-          "title": "No Visibility",
-          "description": "If tools don’t connect, you can’t measure where leads come from."
-        }
-      ]
-    },
-    "solution": {
-      "title": "Our Solution: Simple, Reliable Integrations",
-      "subtitle": "We connect systems so leads are captured and acted on quickly.",
-      "points": [
-        {
-          "icon": "Plug",
-          "title": "Lead Capture Routing",
-          "description": "Send leads to the right place automatically (CRM, email, or quoting tool)."
-        },
-        {
-          "icon": "MailCheck",
-          "title": "Automated Confirmations",
-          "description": "Instant customer confirmations so they know you received the request."
-        },
-        {
-          "icon": "BarChart3",
-          "title": "Tracking + Attribution",
-          "description": "Know what marketing sources generate real inquiries."
-        },
-        {
-          "icon": "Clock",
-          "title": "Less Admin Work",
-          "description": "Reduce repetitive tasks and speed up follow-up."
-        }
-      ]
-    },
-    "overview": {
-      "title": "Make Your Website Part of the Workflow",
-      "description": "A website shouldn’t be a disconnected brochure. We help connect your lead capture and tracking to the tools you already use so nothing gets missed.",
-      "oneLiner": "Capture leads cleanly and follow up faster.",
-      "badges": [
-        { "label": "Lead Routing", "icon": "Workflow" },
-        { "label": "Notifications", "icon": "Bell" },
-        { "label": "Tracking Ready", "icon": "BarChart3" },
-        { "label": "Time Saving", "icon": "Clock" }
-      ]
-    },
-    "benefits": [
-      "Fewer missed leads",
-      "Faster response times",
-      "Less admin work",
-      "Clearer tracking and attribution"
-    ],
-    "features": [
-      "CRM or lead destination routing",
-      "Webhook and API-based integrations (when supported)",
-      "Notifications and confirmations",
-      "Tracking alignment across tools"
-    ],
-    "comparison": {
-      "title": "ALL8 vs Static Websites",
-      "subtitle": "Your website should connect to how you actually work.",
-      "points": [
-        {
-          "label": "Lead Capture",
-          "ours": "Leads routed intentionally",
-          "theirs": "Leads sit in inboxes"
-        },
-        {
-          "label": "Speed",
-          "ours": "Faster follow-up",
-          "theirs": "Manual delays"
-        },
-        {
-          "label": "Visibility",
-          "ours": "Know what drove the lead",
-          "theirs": "Unclear attribution"
-        },
-        {
-          "label": "Scale",
-          "ours": "Easier to grow and standardize",
-          "theirs": "More chaos as volume grows"
-        }
-      ]
-    },
-    "priceFrom": "Custom Quote",
-    "ctaLabel": "Discuss Integrations",
-    "icon": "Plug",
-    "faqs": [
-      {
-        "q": "What tools can you integrate with?",
-        "a": "Most systems that support forms, APIs, or webhooks can be integrated. We’ll confirm feasibility during a quick discovery."
-      },
-      {
-        "q": "Will this work with my existing site?",
-        "a": "Often yes. The best approach depends on your platform and access."
-      },
-      {
-        "q": "Is this worth it for a small business?",
-        "a": "If you miss leads or respond late, integrations usually pay for themselves quickly."
-      }
-    ],
-    "seo": {
-      "title": "Business Tool Integrations | ALL8 Webworks",
-      "description": "Connect your website to your CRM, quoting, or booking tools so leads are captured and followed up properly.",
-      "keywords": "website CRM integration, lead routing, contractor automation, form integrations, business tool integrations",
-      "url": "https://all8webworks.ca/services/business-tool-integrations",
-      "image": "/images/services/integrations-og.jpg",
-      "type": "website",
-      "siteName": "ALL8 Webworks"
-    },
-    "priority": 0.65,
-    "image": "/images/services/integrations.jpg",
+    "slug": "missed-call-recovery",
+    "title": "Missed-Call Recovery & Call Handling",
+    "category": "follow",
+    "short": "Stop losing jobs to a phone that rang while nobody could answer it.",
+    "icon": "PhoneMissed",
+    "featured": true,
+    "priority": 0.9,
+
     "hero": {
-      "titlePrefix": "Business",
-      "highlight": "Integrations",
-      "titleSuffix": "That Reduce Admin Work",
-      "subtitle": "Connect lead capture and tracking to your workflow so nothing gets missed.",
-      "ctaLabel": "Discuss Integrations",
-      "ctaHref": "/contact?service=Business%20Tool%20Integrations",
-      "image": "/assets/images/services/business-tools-integration-hero.png",
-      "alt": "Connected systems representing integrated business tools"
+      "eyebrow": "RESPOND & FOLLOW UP",
+      "title": "Stop Losing Work to a Missed Call",
+      "subtitle": "The marketing worked. The customer called. Then nobody answered, and they called the next result instead. We set up the systems that catch that moment — text-back, routing, notifications — so a missed call doesn't have to mean a lost job."
     },
-    "process": {
-      "title": "Our Integration Process",
-      "subtitle": "Simple planning, clean implementation, and reliable testing.",
-      "steps": [
-        {
-          "title": "Discovery",
-          "description": "We review your workflow and where leads should go.",
-          "icon": "ClipboardList"
-        },
-        {
-          "title": "Plan",
-          "description": "We map how data should flow between tools.",
-          "icon": "Workflow"
-        },
-        {
-          "title": "Implement",
-          "description": "We connect the systems and configure routing and notifications.",
-          "icon": "Plug"
-        },
-        {
-          "title": "Test",
-          "description": "We verify lead capture, notifications, and tracking end-to-end.",
-          "icon": "CheckCircle"
-        }
+
+    "problem": {
+      "title": "What Happens When Nobody Answers",
+      "intro": "A business owner may be operating equipment, driving, meeting a customer, or standing on a job site when the phone rings.",
+      "scenarios": [
+        "The call goes to a voicemail box nobody checks until the end of the day, if at all",
+        "The customer doesn't leave a message — they just call the next business on the list",
+        "There's no record that the call happened at all, so the lost opportunity is invisible",
+        "Calls come in outside business hours and get no response until the next morning, if anyone remembers",
+        "Multiple staff might answer, but there's no consistent way to make sure every missed call gets followed up"
       ]
     },
-    "cta": {
-      "titlePrefix": "Want Fewer Missed Leads and",
-      "highlight": "Faster Follow-Up",
-      "titleSuffix": "?",
-      "subtitle": "Let’s connect your website to your workflow so leads are captured and routed properly.",
-      "ctaLabel": "Discuss Integrations",
-      "ctaHref": "/contact?service=Business%20Tool%20Integrations",
-      "note": "Workflow-first • Reliable routing • Measurable"
+
+    "fix": {
+      "title": "What We Set Up",
+      "body": [
+        "A missed call triggers an automatic response — usually a text — so the customer hears something back within seconds instead of silence. Depending on what you already have, that can mean missed-call text-back, call routing across staff, or connecting an answering service to the rest of your system.",
+        "ALL8 doesn't operate a human answering service. Where one is useful, we connect an existing third-party service into your workflow rather than build our own."
+      ]
+    },
+
+    "howItWorks": {
+      "steps": [
+        { "title": "Review", "description": "We look at how calls currently reach you — one number, multiple staff, an existing phone system — and where they're getting missed." },
+        { "title": "Configure", "description": "Missed-call text-back, call routing and notifications get set up on your existing number or a new business line, depending on what you're starting with." },
+        { "title": "Connect", "description": "Missed calls and their outcomes feed into your CRM or lead pipeline so nothing depends on someone remembering to write it down." },
+        { "title": "Track", "description": "Call tracking shows how many calls are coming in, how many are missed, and what that's actually worth." }
+      ]
+    },
+
+    "included": {
+      "standard": [
+        "Missed-call text-back setup",
+        "Call routing and forwarding configuration",
+        "Automated acknowledgement messages",
+        "Call notification setup for staff",
+        "CRM connection for missed-call follow-up",
+        "Call tracking"
+      ],
+      "addOns": [
+        "Business phone / VoIP system setup",
+        "Connection to an existing third-party answering service",
+        "Voicemail-to-text workflow"
+      ]
+    },
+
+    "whyItMatters": {
+      "points": [
+        "A customer who calls gets a response within seconds instead of dead air",
+        "Missed calls become visible and trackable instead of disappearing without a trace",
+        "You can put a real number on what missed calls are costing, using your own call volume",
+        "The fix works with the phone number and system you already have in most cases"
+      ]
+    },
+
+    "worksWith": {
+      "intro": "This is usually built on top of what you already use, not a replacement for it.",
+      "tools": [
+        "Your existing business phone number",
+        "VoIP and business phone platforms",
+        "SMS/text messaging systems",
+        "Your CRM",
+        "Call tracking platforms"
+      ]
+    },
+
+    "pricing": {
+      "label": "Custom Quote",
+      "note": "Scope depends on your current phone setup, call volume, and whether you need a new business line or just automation added to what you have."
+    },
+
+    "faqs": [
+      { "q": "Do I need to change my phone number?", "a": "Usually no. Missed-call text-back and routing can typically be set up on the number you already use. A new business line is only needed in specific cases." },
+      { "q": "Does ALL8 answer the calls?", "a": "No. We don't operate a call centre or answer calls ourselves. We set up automated responses and, where useful, connect an existing third-party answering service into your system." },
+      { "q": "Can I see the messages before they go out to customers?", "a": "Yes. Automated messages are set up and approved with you before anything goes live, and can be adjusted afterward." },
+      { "q": "What happens to a missed call after the text goes out?", "a": "It gets logged so you can see it happened and follow up — either automatically through Lead Follow-Up Automation, or manually through your pipeline." },
+      { "q": "How do you measure what this is worth?", "a": "We use your own call volume and close rate as a starting point. Nobody can promise a specific number of recovered jobs, but the tracking makes it visible instead of a guess." }
+    ],
+
+    "crossLinks": ["lead-follow-up-automation", "crm-sales-pipeline", "call-tracking-lead-attribution"],
+
+    "seo": {
+      "title": "Missed-Call Recovery & Call Handling | ALL8 WEBWORKS",
+      "description": "Stop losing jobs to missed calls. Text-back, call routing and notifications set up so a missed call doesn't mean a lost customer."
+    }
+  },
+
+  {
+    "slug": "lead-follow-up-automation",
+    "title": "Lead Follow-Up Automation",
+    "category": "follow",
+    "short": "Make sure a lead who doesn't respond right away doesn't just get forgotten.",
+    "icon": "MessageSquare",
+    "featured": true,
+    "priority": 0.8,
+
+    "hero": {
+      "eyebrow": "RESPOND & FOLLOW UP",
+      "title": "Make Follow-Up Happen Without Anyone Remembering",
+      "subtitle": "Most quotes get sent once and never mentioned again. We set up the reminders, sequences and alerts that bring a lead back into view before it goes cold — so follow-up happens on its own, not only when someone happens to think of it."
+    },
+
+    "problem": {
+      "title": "How Leads Go Quiet",
+      "scenarios": [
+        "An estimate goes out on a Friday afternoon and gets buried by Monday",
+        "A form submission lands in an inbox nobody checks between jobs",
+        "The first follow-up happens, but there's no second or third touch, and most people don't say yes on the first ask",
+        "Different staff handle follow-up differently, so some leads get chased and others don't",
+        "There's no reminder system, so following up depends entirely on someone remembering to do it"
+      ]
+    },
+
+    "fix": {
+      "title": "What We Set Up",
+      "body": [
+        "Automatic acknowledgements when a lead comes in, reminders when an estimate hasn't been followed up, and sequenced follow-up messages that keep an opportunity visible without requiring someone to manually track it.",
+        "Automation handles the reminding and the first touch. The people on your team still do the selling — this is built to support that, not replace it."
+      ]
+    },
+
+    "howItWorks": {
+      "steps": [
+        { "title": "Map the Path", "description": "We look at what currently happens after a lead comes in — or should happen — from first contact through to an estimate being sent." },
+        { "title": "Build Sequences", "description": "Instant acknowledgements, follow-up reminders and estimate check-ins get set up as automated sequences." },
+        { "title": "Connect Alerts", "description": "Internal notifications make sure your team knows when a lead needs a human follow-up, not just an automated one." },
+        { "title": "Adjust", "description": "Sequences get refined based on what's actually getting responses, once there's data to look at." }
+      ]
+    },
+
+    "included": {
+      "standard": [
+        "Instant inquiry acknowledgement",
+        "SMS follow-up sequences",
+        "Email follow-up sequences",
+        "Estimate and appointment reminders",
+        "Internal lead alerts for your team",
+        "No-response follow-up triggers",
+        "CRM integration for status-based follow-up"
+      ],
+      "addOns": [
+        "Lead routing to specific staff",
+        "Custom workflow automation beyond standard sequences"
+      ]
+    },
+
+    "whyItMatters": {
+      "points": [
+        "A lead gets an acknowledgement within minutes instead of silence",
+        "Estimates get a second and third touch instead of going out once and disappearing",
+        "Follow-up happens the same way every time, not depending on which staff member picked it up",
+        "Your team gets alerted to leads that need a real conversation instead of just another automated message"
+      ]
+    },
+
+    "worksWith": {
+      "intro": "This connects to wherever leads already come in.",
+      "tools": [
+        "Your website's forms",
+        "Your CRM",
+        "Email and SMS platforms",
+        "Your phone system, for call-based leads"
+      ]
+    },
+
+    "pricing": {
+      "label": "Custom Quote",
+      "note": "Scope depends on how many touchpoints you want automated and what's already connected."
+    },
+
+    "faqs": [
+      { "q": "Will this make my follow-up sound like a robot?", "a": "That's the specific thing we're trying to avoid. Automation handles the reminding and the first acknowledgement — the messages are written in your voice, and the goal is to support a human follow-up, not replace one." },
+      { "q": "Can I approve the messages before they go live?", "a": "Yes. Every sequence is reviewed and approved before it starts sending to real leads." },
+      { "q": "Do I need a CRM for this to work?", "a": "It helps, but it's not always required. If you don't have one, CRM & Sales Pipeline Setup is a natural pairing with this." },
+      { "q": "What if a lead responds — does automation keep messaging them?", "a": "No. Sequences are built to stop or change once a lead responds, so people don't keep getting messages once a conversation has started." },
+      { "q": "How is this different from missed-call recovery?", "a": "Missed-Call Recovery handles the moment a call isn't answered. This handles what happens after someone's already been in contact — quotes, estimates and the follow-up that comes after." }
+    ],
+
+    "crossLinks": ["missed-call-recovery", "crm-sales-pipeline", "lead-generation-websites"],
+
+    "seo": {
+      "title": "Lead Follow-Up Automation | ALL8 WEBWORKS",
+      "description": "Automated reminders and follow-up sequences so a quote or inquiry never just gets forgotten. Built to support your team, not replace it."
+    }
+  },
+
+  {
+    "slug": "crm-sales-pipeline",
+    "title": "CRM & Sales Pipeline Setup",
+    "category": "win",
+    "short": "One place to see who contacted you, who needs a follow-up, and what was won.",
+    "icon": "Users",
+    "featured": true,
+    "priority": 0.8,
+
+    "hero": {
+      "eyebrow": "WIN MORE WORK",
+      "title": "Get Every Lead Into One Place",
+      "subtitle": "Leads scattered across texts, inboxes, notebooks and memory are leads that get lost. We set up a simple pipeline so you always know who contacted you, what stage they're at, and what still needs a follow-up."
+    },
+
+    "problem": {
+      "title": "Where Leads Actually Get Lost",
+      "intro": "Leads exist across text messages, inboxes, notebooks, phone call histories, spreadsheets, employees' phones, and people's memory.",
+      "scenarios": [
+        "Nobody has a reliable answer for who contacted the company this week",
+        "It's unclear who's been quoted, who hasn't, and who needs a follow-up call",
+        "A lead that came in through one staff member's phone never makes it into any shared record",
+        "There's no way to tell what marketing brought in the leads that actually turned into jobs",
+        "Following up depends on someone remembering, not on a system that surfaces it"
+      ]
+    },
+
+    "fix": {
+      "title": "What We Set Up",
+      "body": [
+        "A pipeline built around how your business actually books work — new lead, contacted, estimate sent, follow-up, won or lost — kept simple enough that your team will actually use it, not an enterprise system nobody opens."
+      ]
+    },
+
+    "howItWorks": {
+      "steps": [
+        { "title": "Map Your Process", "description": "We look at how a lead actually moves from first contact to booked job in your business today." },
+        { "title": "Design the Pipeline", "description": "Stages get set up to match that — commonly New Lead, Contacted, Site Visit / Appointment, Estimate Sent, Follow-Up, Won, Lost, adjusted to fit how you work." },
+        { "title": "Connect Sources", "description": "Forms, calls, email and text get routed into the pipeline so leads land in one place instead of scattered across tools." },
+        { "title": "Set Up Reminders", "description": "Tasks and reminders get attached to each stage so follow-up doesn't depend on memory." }
+      ]
+    },
+
+    "included": {
+      "standard": [
+        "CRM setup",
+        "Pipeline stage design",
+        "Contact and lead fields",
+        "Lead source tracking",
+        "Task and reminder setup",
+        "Form, email and phone connection",
+        "Basic reporting on pipeline status"
+      ],
+      "addOns": [
+        "Lead assignment/routing across multiple staff",
+        "Custom automation beyond standard reminders",
+        "Migration of existing lead data"
+      ]
+    },
+
+    "whyItMatters": {
+      "points": [
+        "Every lead lands somewhere your whole team can see, not just one person's phone",
+        "You can see at a glance who needs a follow-up and who's waiting on an estimate",
+        "Nothing depends entirely on one person remembering to check in",
+        "Once leads are tracked, you can start connecting outcomes back to what produced them"
+      ]
+    },
+
+    "worksWith": {
+      "intro": "We can set up a new CRM or organize the one you already have.",
+      "tools": [
+        "Common small-business CRM platforms",
+        "Your website's forms",
+        "Email and SMS",
+        "Your phone system",
+        "Quoting or booking tools you already use"
+      ]
+    },
+
+    "pricing": {
+      "label": "Custom Quote",
+      "note": "Scope depends on whether you're starting from scratch or organizing an existing CRM, and how many lead sources need to be connected."
+    },
+
+    "faqs": [
+      { "q": "Do I have to replace the CRM or tools I already use?", "a": "Not necessarily. If what you have can do the job, we connect and organize it rather than replace it. New tools only get recommended when the current ones genuinely can't do what's needed." },
+      { "q": "Is this complicated to use day-to-day?", "a": "It's built to be the opposite. The goal is a pipeline simple enough that your team actually opens it, not an enterprise system that gets ignored after a week." },
+      { "q": "Can this work with just one or two people using it?", "a": "Yes. A pipeline is useful even for a business of one — it's often the first place a business notices leads were being missed." },
+      { "q": "How does this connect to follow-up automation?", "a": "The pipeline is where automated reminders and lead alerts (see Lead Follow-Up Automation) actually attach — the two are commonly set up together." },
+      { "q": "Can you migrate my existing spreadsheet or notes?", "a": "In many cases, yes — this is scoped based on how much existing data there is and what shape it's in." }
+    ],
+
+    "crossLinks": ["lead-follow-up-automation", "call-tracking-lead-attribution", "missed-call-recovery"],
+
+    "seo": {
+      "title": "CRM & Sales Pipeline Setup | ALL8 WEBWORKS",
+      "description": "A simple, practical CRM pipeline so every lead lands in one place instead of getting lost across texts, inboxes and notes."
+    }
+  },
+
+  {
+    "slug": "call-tracking-lead-attribution",
+    "title": "Call Tracking & Lead Attribution",
+    "category": "win",
+    "secondaryCategory": "found",
+    "short": "Know which marketing actually produced the call or the customer.",
+    "icon": "BarChart3",
+    "featured": false,
+    "priority": 0.7,
+
+    "hero": {
+      "eyebrow": "WIN MORE WORK",
+      "title": "Know What Actually Produced the Job",
+      "subtitle": "You're spending on a website, SEO, ads, maybe more — but can you confidently say which one produced a specific call or customer? We connect the tracking that turns that from a guess into evidence."
+    },
+
+    "problem": {
+      "title": "Why \"Where Did This Lead Come From\" Is a Hard Question",
+      "scenarios": [
+        "A call comes in and there's no way to tell whether it came from the website, an ad, a Google search, or a referral",
+        "Form submissions aren't tagged to the page, campaign or source that produced them",
+        "Marketing decisions get made on gut feeling because there's no data connecting spend to outcomes",
+        "Google Ads and Analytics are tracking clicks and impressions, but not what happened after — a real call or job",
+        "Different tools show different numbers and nobody's sure which one to trust"
+      ]
+    },
+
+    "fix": {
+      "title": "What We Connect",
+      "body": [
+        "Call tracking, form attribution and campaign tracking connected to your analytics and CRM, so a call or form submission can be traced back to the search, page or ad that produced it. This isn't perfect — no attribution system catches everything — but it replaces most of the guessing with evidence."
+      ]
+    },
+
+    "howItWorks": {
+      "steps": [
+        { "title": "Audit", "description": "We check what's currently tracked (if anything) and where the gaps are between marketing activity and actual leads." },
+        { "title": "Set Up Tracking", "description": "Call tracking numbers, form attribution and UTM tracking get connected across your site and campaigns." },
+        { "title": "Connect to Reporting", "description": "Google Analytics, Google Ads conversion tracking and your CRM's lead-source field get tied together." },
+        { "title": "Report", "description": "You get a clear, ongoing picture of what's producing leads — reviewed together or handed off, depending on what you want." }
+      ]
+    },
+
+    "included": {
+      "standard": [
+        "Call tracking setup",
+        "Form attribution",
+        "UTM and campaign tracking",
+        "Google Analytics configuration",
+        "Google Ads conversion tracking (where applicable)",
+        "CRM lead-source tracking",
+        "Basic reporting setup"
+      ],
+      "addOns": [
+        "Dynamic phone-number insertion for multi-channel tracking",
+        "Custom reporting dashboards"
+      ]
+    },
+
+    "whyItMatters": {
+      "points": [
+        "Marketing decisions can be based on what's actually producing calls, not a guess",
+        "You can see which channels are worth the spend and which aren't",
+        "Attribution data feeds back into every other part of the system — ads, SEO, the website itself",
+        "Reporting gives you a record to hold any marketing work to, including ALL8's"
+      ]
+    },
+
+    "worksWith": {
+      "intro": "This connects tools you likely already use rather than replacing them.",
+      "tools": [
+        "Google Analytics",
+        "Google Ads",
+        "Google Search Console",
+        "Call tracking platforms",
+        "Your CRM"
+      ]
+    },
+
+    "pricing": {
+      "label": "Custom Quote",
+      "note": "Often scoped as part of a broader engagement (a new website, an ads campaign, or a CRM setup) rather than sold entirely on its own."
+    },
+
+    "faqs": [
+      { "q": "Is attribution ever 100% accurate?", "a": "No, and anyone who claims their tracking is perfect isn't being straight with you. Some paths — word of mouth, someone typing your number from memory — are genuinely hard to track. This replaces most of the guessing, not all of it." },
+      { "q": "Do I need a new website for this to work?", "a": "No. Tracking can typically be added to an existing site, though some older or heavily templated sites have technical limitations worth knowing about upfront." },
+      { "q": "Will this slow down my website?", "a": "Tracking is set up to have minimal impact on load times. If a specific tool is a performance concern, we'll flag it before adding it." },
+      { "q": "Can this tell me which specific ad or keyword produced a job?", "a": "In many cases, yes, down to the campaign or keyword level, provided the tracking is in place before the lead comes in — it can't retroactively attribute past leads." },
+      { "q": "Do I need Google Ads for this to be useful?", "a": "No. Attribution is just as useful for organic search, referrals and your Business Profile — it's not specific to paid advertising." }
+    ],
+
+    "crossLinks": ["crm-sales-pipeline", "google-ads-lead-generation", "lead-generation-websites"],
+
+    "seo": {
+      "title": "Call Tracking & Lead Attribution | ALL8 WEBWORKS",
+      "description": "Connect marketing activity to actual calls and customers. Call tracking, form attribution and reporting built for service businesses."
+    }
+  },
+
+  {
+    "slug": "website-care-optimization",
+    "title": "Website Care & Optimization",
+    "category": "support",
+    "short": "Keep the site secure, fast and online — so the lead system built on top of it keeps working.",
+    "icon": "ShieldCheck",
+    "featured": false,
+    "priority": 0.6,
+
+    "hero": {
+      "eyebrow": "KEEP IT RUNNING",
+      "title": "A Website Isn't a One-Time Project",
+      "subtitle": "Security updates, backups, uptime and performance don't take care of themselves. We keep your site running so the lead-generation system built on top of it — forms, tracking, calls-to-action — keeps working."
+    },
+
+    "problem": {
+      "title": "What Happens When a Website Gets Left Alone",
+      "scenarios": [
+        "Security updates pile up until the site becomes an easy target",
+        "Performance quietly degrades over months until the site is slow again without anyone changing anything on purpose",
+        "There's no backup, so a single bad update or hack means starting over",
+        "A form breaks silently and leads stop arriving with no warning",
+        "Small changes pile up because there's no clear, fast way to get them made"
+      ]
+    },
+
+    "fix": {
+      "title": "What's Covered",
+      "body": [
+        "Ongoing security updates, monitoring, backups and performance checks, plus support for the small changes that come up between bigger projects — so the site stays a working part of your lead system instead of something that quietly decays."
+      ]
+    },
+
+    "howItWorks": {
+      "steps": [
+        { "title": "Baseline", "description": "We start with an audit of the site's current security, performance and backup status." },
+        { "title": "Stabilize", "description": "Outstanding updates, vulnerabilities and performance issues get addressed." },
+        { "title": "Monitor", "description": "Uptime, security and performance get checked on an ongoing basis, not just once." },
+        { "title": "Support", "description": "Small changes and issues get handled as part of the plan, without a separate project every time." }
+      ]
+    },
+
+    "included": {
+      "standard": [
+        "Security updates and patching",
+        "Daily backups",
+        "Uptime monitoring",
+        "Performance checks",
+        "Support for small content changes",
+        "Analytics verification"
+      ],
+      "addOns": [
+        "Larger content or design changes (scoped separately)",
+        "Ongoing conversion improvements"
+      ]
+    },
+
+    "whyItMatters": {
+      "points": [
+        "The forms, tracking and calls-to-action the rest of your lead system depends on keep working",
+        "A security issue or crash gets caught and fixed instead of costing you days of downtime",
+        "Backups mean a bad update or attack isn't a full rebuild",
+        "Small changes don't require starting a new project every time"
+      ]
+    },
+
+    "worksWith": {
+      "tools": [
+        "WordPress and custom-built sites",
+        "Your existing hosting, where it can support the required maintenance",
+        "Google Analytics and Search Console"
+      ]
+    },
+
+    "pricing": {
+      "label": "$150 CAD/mo",
+      "note": "Covers the standard scope above. Larger changes or additional work are scoped separately."
+    },
+
+    "faqs": [
+      { "q": "Do I have to use ALL8 hosting?", "a": "In most cases the site is hosted as part of this plan, but the goal is a site you own and control, not one you're locked into keeping with us." },
+      { "q": "What counts as a 'small change'?", "a": "Text and image updates, minor layout adjustments, and similar quick changes. Larger redesigns or new pages are scoped as separate work." },
+      { "q": "What happens if I cancel?", "a": "You keep the site. There's no long-term contract required to keep what's been built running — though without maintenance, updates and monitoring stop." },
+      { "q": "How fast do you respond to something broken?", "a": "Critical issues (site down, forms broken) are treated as priority. Standard change requests are handled within the plan's normal turnaround." },
+      { "q": "Is this required if I have a new website built?", "a": "No, but a website that isn't maintained tends to slow down and become a security risk over time — this is what prevents that." }
+    ],
+
+    "crossLinks": ["lead-generation-websites", "call-tracking-lead-attribution"],
+
+    "seo": {
+      "title": "Website Care & Optimization | ALL8 WEBWORKS",
+      "description": "Ongoing security, backups, monitoring and support to keep your website online and working as part of your lead system."
+    }
+  },
+
+  {
+    "slug": "custom-lead-systems",
+    "title": "Custom Lead Systems",
+    "category": "support",
+    "short": "When the fix isn't one thing — connecting the website, phone, CRM and follow-up into one system.",
+    "icon": "Plug",
+    "featured": false,
+    "priority": 0.6,
+
+    "hero": {
+      "eyebrow": "THE WHOLE SYSTEM",
+      "title": "When It's Not Just One Thing",
+      "subtitle": "Some businesses don't need a single service — they need the website, the phone, the CRM and the follow-up connected into one working system. This is that: a custom lead system built around your specific tools and process."
+    },
+
+    "problem": {
+      "title": "When a Single Service Isn't the Fix",
+      "scenarios": [
+        "Leads come in through several different channels that don't talk to each other",
+        "You've already got a website, a CRM and a phone system, but none of them are connected",
+        "Fixing one stage (say, the website) would just move the bottleneck somewhere else",
+        "You want the whole path — search to call to follow-up to booked job — working as one system, not five separate projects"
+      ]
+    },
+
+    "fix": {
+      "title": "What This Looks Like",
+      "body": [
+        "A custom-scoped project connecting whichever of the following your business actually needs: website, forms and calls, CRM, text and email follow-up, staff notifications, pipeline, and attribution reporting — built around the tools you already use wherever they can do the job."
+      ]
+    },
+
+    "howItWorks": {
+      "steps": [
+        { "title": "Diagnose", "description": "We walk the whole current path — search, site, forms, calls, follow-up, tracking — the same review behind the free Lead System Review." },
+        { "title": "Design the System", "description": "We map out which pieces need to connect and in what order, based on where the actual constraint is." },
+        { "title": "Build & Connect", "description": "The relevant services get implemented and wired together — this may combine several of ALL8's other services under one scope." },
+        { "title": "Measure & Adjust", "description": "Once connected, the system gets measured and refined based on what's actually happening, not assumptions." }
+      ]
+    },
+
+    "included": {
+      "standard": [
+        "Full lead-path diagnosis",
+        "Custom scope built from ALL8's other services",
+        "Integration between the tools and systems involved",
+        "Reporting across the connected system"
+      ]
+    },
+
+    "whyItMatters": {
+      "points": [
+        "The website, phone, CRM and follow-up work as one system instead of five disconnected pieces",
+        "Fixing the actual constraint instead of guessing at which single service to buy",
+        "Built around your existing tools wherever they're capable of doing the job",
+        "One point of accountability for how the whole path performs, not just one piece of it"
+      ]
+    },
+
+    "worksWith": {
+      "intro": "This is built around whatever you already run.",
+      "tools": [
+        "Your existing website, CRM, phone system and marketing tools — connected rather than replaced wherever possible"
+      ]
+    },
+
+    "pricing": {
+      "label": "Custom Quote",
+      "note": "Scope and price depend entirely on which services are involved and how much integration work is required. There's no fixed starting price because the starting point is different for every business."
+    },
+
+    "faqs": [
+      { "q": "How is this different from just booking multiple services separately?", "a": "The difference is the diagnosis and integration — this starts by finding where the actual constraint is, then scopes only what's needed to fix it, connected as one system rather than as separate unrelated projects." },
+      { "q": "Do I need to already know what I need?", "a": "No. That's what the diagnosis step is for. Most businesses that end up here started with a free Lead System Review." },
+      { "q": "Is this more expensive than booking one service?", "a": "Not necessarily — it depends entirely on scope. Sometimes the answer is one focused service, not a custom system. We'll say so if that's the case." },
+      { "q": "Can this include things not listed elsewhere on the site?", "a": "In some cases, yes, if it's a genuine connection point between systems already in scope. We won't recommend adding something that doesn't serve the actual goal." }
+    ],
+
+    "crossLinks": ["missed-call-recovery", "crm-sales-pipeline", "lead-generation-websites"],
+
+    "seo": {
+      "title": "Custom Lead Systems | ALL8 WEBWORKS",
+      "description": "A custom-scoped system connecting your website, phone, CRM and follow-up into one working lead path, built around the tools you already use."
     }
   }
 ]

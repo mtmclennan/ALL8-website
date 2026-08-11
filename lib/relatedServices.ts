@@ -1,13 +1,15 @@
 import { SERVICES } from "@/data/services";
 
 export const RELATED_SERVICE_SLUGS = [
-  "performance-tune-up",
-  "websites-that-convert",
-  "website-maintenance-hosting",
-  "local-seo-foundation",
-  "google-business-profile-optimization",
-  "google-ads-setup-integration",
-  "business-tool-integrations",
+  "lead-generation-websites",
+  "local-seo-google-business-profile",
+  "google-ads-lead-generation",
+  "missed-call-recovery",
+  "lead-follow-up-automation",
+  "crm-sales-pipeline",
+  "call-tracking-lead-attribution",
+  "website-care-optimization",
+  "custom-lead-systems",
 ] as const;
 
 export type RelatedServiceSlug = (typeof RELATED_SERVICE_SLUGS)[number];
@@ -27,53 +29,17 @@ export type RelatedServiceContext = {
   categorySlugs?: string[];
 };
 
-const FALLBACK_SERVICE_COPY: Record<
-  RelatedServiceSlug,
-  Pick<RelatedService, "title" | "description">
-> = {
-  "performance-tune-up": {
-    title: "Performance & Conversion Tune-Up",
-    description: "Improve speed, mobile usability, and lead capture fast.",
-  },
-  "websites-that-convert": {
-    title: "Websites That Convert",
-    description: "Build a fast, reliable website designed to generate calls.",
-  },
-  "website-maintenance-hosting": {
-    title: "Website Maintenance & Hosting",
-    description: "Keep your site secure, backed up, fast, and online.",
-  },
-  "local-seo-foundation": {
-    title: "Local SEO Foundation",
-    description: "Set up the SEO basics that help local customers find you.",
-  },
-  "google-business-profile-optimization": {
-    title: "Google Business Profile Optimization",
-    description: "Improve Maps visibility, trust signals, and local actions.",
-  },
-  "google-ads-setup-integration": {
-    title: "Google Ads Setup & Tracking",
-    description: "Launch campaigns with clean structure and lead tracking.",
-  },
-  "business-tool-integrations": {
-    title: "Business Tool Integrations",
-    description: "Connect leads to your CRM, quoting, or booking workflow.",
-  },
-};
-
 export const RELATED_SERVICE_METADATA: Record<
   RelatedServiceSlug,
   RelatedService
 > = RELATED_SERVICE_SLUGS.reduce(
   (metadata, slug) => {
     const service = SERVICES.find((item) => item.slug === slug);
-    const fallback = FALLBACK_SERVICE_COPY[slug];
 
     metadata[slug] = {
       slug,
-      title: service?.title ?? fallback.title,
-      description:
-        service?.short ?? service?.description ?? fallback.description,
+      title: service?.title ?? slug,
+      description: service?.short ?? "",
       href: `/services/${slug}`,
     };
 
@@ -83,73 +49,73 @@ export const RELATED_SERVICE_METADATA: Record<
 );
 
 const DEFAULT_SERVICES: RelatedServiceSlug[] = [
-  "performance-tune-up",
-  "websites-that-convert",
-  "local-seo-foundation",
+  "lead-generation-websites",
+  "local-seo-google-business-profile",
+  "lead-follow-up-automation",
 ];
 
 const BLOG_SERVICE_MAP: Record<string, RelatedServiceSlug[]> = {
   "more-traffic-won-t-fix-the-wrong-website": [
-    "performance-tune-up",
-    "websites-that-convert",
-    "google-ads-setup-integration",
+    "lead-generation-websites",
+    "google-ads-lead-generation",
+    "call-tracking-lead-attribution",
   ],
   "the-problem-wasn-t-skill-it-was-the-system": [
-    "business-tool-integrations",
-    "websites-that-convert",
-    "performance-tune-up",
+    "custom-lead-systems",
+    "crm-sales-pipeline",
+    "lead-generation-websites",
   ],
   "how-to-get-your-business-recommended-by-chatgpt-a-real-local-case-study": [
-    "local-seo-foundation",
-    "google-business-profile-optimization",
-    "business-tool-integrations",
+    "local-seo-google-business-profile",
+    "lead-generation-websites",
+    "custom-lead-systems",
   ],
   "why-your-business-isn-t-showing-up-on-google-maps-and-it-s-not-what-you-think":
     [
-      "google-business-profile-optimization",
-      "local-seo-foundation",
-      "websites-that-convert",
+      "local-seo-google-business-profile",
+      "lead-generation-websites",
+      "google-ads-lead-generation",
     ],
   "if-your-business-only-has-a-facebook-page-you-re-invisible-to-google": [
-    "websites-that-convert",
-    "local-seo-foundation",
-    "google-business-profile-optimization",
+    "lead-generation-websites",
+    "local-seo-google-business-profile",
+    "call-tracking-lead-attribution",
   ],
   "building-a-website-is-easy-running-one-is-not": [
-    "website-maintenance-hosting",
-    "websites-that-convert",
-    "business-tool-integrations",
+    "website-care-optimization",
+    "lead-generation-websites",
+    "custom-lead-systems",
   ],
   "why-contractor-websites-fail-and-how-to-fix-yours": [
-    "performance-tune-up",
-    "websites-that-convert",
-    "local-seo-foundation",
+    "lead-generation-websites",
+    "local-seo-google-business-profile",
+    "missed-call-recovery",
   ],
   "what-makes-a-high-converting-service-page-for-trades-businesses": [
-    "websites-that-convert",
-    "performance-tune-up",
-    "local-seo-foundation",
+    "lead-generation-websites",
+    "local-seo-google-business-profile",
+    "lead-follow-up-automation",
   ],
   "local-seo-for-contractors-in-2025-the-ultimate-blueprint-for-ranking-in-google-maps":
     [
-      "local-seo-foundation",
-      "google-business-profile-optimization",
-      "websites-that-convert",
+      "local-seo-google-business-profile",
+      "lead-generation-websites",
+      "google-ads-lead-generation",
     ],
   "the-contractor-s-guide-to-marketing-that-doesn-t-cost-you-clients-or-cash": [
-    "google-ads-setup-integration",
-    "local-seo-foundation",
-    "websites-that-convert",
+    "google-ads-lead-generation",
+    "local-seo-google-business-profile",
+    "lead-generation-websites",
   ],
   "the-contractor-s-guide-to-a-high-performance-website": [
-    "websites-that-convert",
-    "performance-tune-up",
-    "website-maintenance-hosting",
+    "lead-generation-websites",
+    "website-care-optimization",
+    "call-tracking-lead-attribution",
   ],
   "why-your-website-should-perform-like-a-v8-engine": [
-    "performance-tune-up",
-    "websites-that-convert",
-    "website-maintenance-hosting",
+    "lead-generation-websites",
+    "website-care-optimization",
+    "missed-call-recovery",
   ],
 };
 
@@ -159,31 +125,31 @@ const KEYWORD_SERVICE_MAP: Array<{
 }> = [
   {
     matches: ["google maps", "maps", "business profile", "facebook page"],
-    services: ["google-business-profile-optimization", "local-seo-foundation"],
+    services: ["local-seo-google-business-profile", "lead-generation-websites"],
   },
   {
     matches: ["local seo", "seo", "chatgpt", "recommended by chatgpt"],
-    services: ["local-seo-foundation", "google-business-profile-optimization"],
+    services: ["local-seo-google-business-profile", "lead-generation-websites"],
   },
   {
     matches: ["ads", "traffic", "marketing", "campaign"],
-    services: ["google-ads-setup-integration", "websites-that-convert"],
+    services: ["google-ads-lead-generation", "lead-generation-websites"],
   },
   {
     matches: ["performance", "speed", "v8", "conversion", "high-converting"],
-    services: ["performance-tune-up", "websites-that-convert"],
+    services: ["lead-generation-websites", "website-care-optimization"],
   },
   {
     matches: ["website", "contractor website", "service page"],
-    services: ["websites-that-convert", "performance-tune-up"],
+    services: ["lead-generation-websites", "local-seo-google-business-profile"],
   },
   {
     matches: ["maintenance", "hosting", "running one", "secure"],
-    services: ["website-maintenance-hosting", "business-tool-integrations"],
+    services: ["website-care-optimization", "custom-lead-systems"],
   },
   {
     matches: ["system", "workflow", "tools", "integration"],
-    services: ["business-tool-integrations", "websites-that-convert"],
+    services: ["custom-lead-systems", "crm-sales-pipeline"],
   },
 ];
 

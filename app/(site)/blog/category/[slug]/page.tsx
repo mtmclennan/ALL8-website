@@ -44,32 +44,32 @@ const CATEGORY_SERVICE_CTA: Record<
   }
 > = {
   "contractor-websites": {
-    href: "/services/websites-that-convert",
-    label: "Explore Websites That Convert",
+    href: "/services/lead-generation-websites",
+    label: "Explore Lead Generation Websites",
     highlight: "convert",
   },
   "website-strategy": {
-    href: "/services/websites-that-convert",
+    href: "/services/lead-generation-websites",
     label: "Explore Website Strategy",
     highlight: "convert",
   },
   "local-seo": {
-    href: "/services/local-seo-foundation",
-    label: "Explore Local SEO Foundation",
+    href: "/services/local-seo-google-business-profile",
+    label: "Explore Local SEO & Google Business Profile",
     highlight: "found",
   },
   "google-business-profile": {
-    href: "/services/google-business-profile-optimization",
+    href: "/services/local-seo-google-business-profile",
     label: "Improve My Google Business Profile",
     highlight: "visible",
   },
   "website-performance": {
-    href: "/services/performance-tune-up",
-    label: "Book a Performance Tune-Up",
+    href: "/services/lead-generation-websites",
+    label: "Explore Lead Generation Websites",
     highlight: "faster",
   },
   "lead-generation": {
-    href: "/services/performance-tune-up",
+    href: "/services/lead-generation-websites",
     label: "Improve Website Lead Flow",
     highlight: "leads",
   },
@@ -92,7 +92,7 @@ function getServiceCta(category: CategoryArchive) {
 
   return (
     CATEGORY_SERVICE_CTA[slug] ?? {
-      href: "/services/performance-tune-up",
+      href: "/services/lead-generation-websites",
       label: "Book a Website Review",
       highlight: "better",
     }

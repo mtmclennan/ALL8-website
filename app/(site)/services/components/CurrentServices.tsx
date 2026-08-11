@@ -1,9 +1,18 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-import { getServicesWithIcons } from "@/data/services";
+import { getServicesWithIcons, type ServiceWithIcon } from "@/data/services";
+import { STAGE_HEX, STAGE_LABEL, type Stage } from "@/lib/utils/stage";
 import Reveal from "@/app/(site)/_components/home/Reveal";
 import { Card } from "@/app/(site)/_components/SectionWrapper";
+
+const GROUPS: { key: Stage | "support"; label: string; hex: string }[] = [
+  { key: "found", label: STAGE_LABEL.found, hex: STAGE_HEX.found },
+  { key: "contacted", label: STAGE_LABEL.contacted, hex: STAGE_HEX.contacted },
+  { key: "follow", label: STAGE_LABEL.follow, hex: STAGE_HEX.follow },
+  { key: "win", label: STAGE_LABEL.win, hex: STAGE_HEX.win },
+  { key: "support", label: "Keep It Running", hex: "#8b94a8" },
+];
 
 export default function CurrentServices() {
   const services = getServicesWithIcons();
@@ -22,45 +31,90 @@ export default function CurrentServices() {
           </h2>
           <p className="mx-auto mt-3.5 max-w-[560px] text-[17px] leading-relaxed text-white/70">
             The four outcomes above are how we think about the work. These are
-            the actual pages — pricing, process and specifics for each.
+            the actual pages — pricing, process and specifics for each, grouped
+            by what they move.
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-1 gap-[18px] sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, i) => {
-            const Icon = service.Icon;
+        <div className="flex flex-col gap-16">
+          {GROUPS.map((group) => {
+            const groupServices = services.filter(
+              (s) => s.category === group.key,
+            );
+
+            if (!groupServices.length) return null;
 
             return (
-              <Reveal key={service.slug} index={i}>
-                <Card className="h-full p-7" variant="lift">
-                  <Link
-                    className="group flex h-full flex-col"
-                    href={`/services/${service.slug}`}
+              <div key={group.key}>
+                <Reveal className="mb-6 flex items-center gap-3">
+                  <span
+                    className="h-2 w-2 flex-shrink-0 rounded-full"
+                    style={{
+                      backgroundColor: group.hex,
+                      boxShadow: `0 0 8px ${group.hex}`,
+                    }}
+                  />
+                  <h3
+                    className="text-[13px] font-bold uppercase tracking-[.13em]"
+                    style={{ color: group.hex }}
                   >
-                    <div className="mb-4 grid h-11 w-11 flex-shrink-0 place-items-center rounded-xl border border-[rgba(0,118,255,.22)] bg-[rgba(0,118,255,.12)] text-accent-blue">
-                      <Icon height={20} strokeWidth={2} width={20} />
-                    </div>
-                    <h3 className="mb-2 text-lg font-bold tracking-[-.012em] group-hover:text-accent-blue">
-                      {service.title}
-                    </h3>
-                    <p className="mb-4 text-sm leading-relaxed text-white/70">
-                      {service.short}
-                    </p>
-                    <span className="mt-auto inline-flex items-center gap-1.5 text-[13.5px] font-bold text-accent-blue">
-                      View service
-                      <ArrowRight
-                        className="transition-transform group-hover:translate-x-[3px]"
-                        size={13}
-                        strokeWidth={2.5}
-                      />
-                    </span>
-                  </Link>
-                </Card>
-              </Reveal>
+                    {group.label}
+                  </h3>
+                </Reveal>
+
+                <div className="grid grid-cols-1 gap-[18px] sm:grid-cols-2 lg:grid-cols-3">
+                  {groupServices.map((service, i) => (
+                    <ServiceCard
+                      key={service.slug}
+                      index={i}
+                      service={service}
+                    />
+                  ))}
+                </div>
+              </div>
             );
           })}
         </div>
       </div>
     </section>
+  );
+}
+
+function ServiceCard({
+  service,
+  index,
+}: {
+  service: ServiceWithIcon;
+  index: number;
+}) {
+  const Icon = service.Icon;
+
+  return (
+    <Reveal index={index}>
+      <Card className="h-full p-7" variant="lift">
+        <Link
+          className="group flex h-full flex-col"
+          href={`/services/${service.slug}`}
+        >
+          <div className="mb-4 grid h-11 w-11 flex-shrink-0 place-items-center rounded-xl border border-[rgba(0,118,255,.22)] bg-[rgba(0,118,255,.12)] text-accent-blue">
+            <Icon height={20} strokeWidth={2} width={20} />
+          </div>
+          <h3 className="mb-2 text-lg font-bold tracking-[-.012em] group-hover:text-accent-blue">
+            {service.title}
+          </h3>
+          <p className="mb-4 text-sm leading-relaxed text-white/70">
+            {service.short}
+          </p>
+          <span className="mt-auto inline-flex items-center gap-1.5 text-[13.5px] font-bold text-accent-blue">
+            View service
+            <ArrowRight
+              className="transition-transform group-hover:translate-x-[3px]"
+              size={13}
+              strokeWidth={2.5}
+            />
+          </span>
+        </Link>
+      </Card>
+    </Reveal>
   );
 }

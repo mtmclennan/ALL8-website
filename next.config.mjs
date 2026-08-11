@@ -42,7 +42,42 @@ const nextConfig = {
     return [
       {
         source: '/tuneUpPage',
-        destination: '/services/performance-tune-up',
+        destination: '/services/lead-generation-websites',
+        permanent: true,
+      },
+      {
+        source: '/services/performance-tune-up',
+        destination: '/services/lead-generation-websites',
+        permanent: true,
+      },
+      {
+        source: '/services/websites-that-convert',
+        destination: '/services/lead-generation-websites',
+        permanent: true,
+      },
+      {
+        source: '/services/website-maintenance-hosting',
+        destination: '/services/website-care-optimization',
+        permanent: true,
+      },
+      {
+        source: '/services/local-seo-foundation',
+        destination: '/services/local-seo-google-business-profile',
+        permanent: true,
+      },
+      {
+        source: '/services/google-business-profile-optimization',
+        destination: '/services/local-seo-google-business-profile',
+        permanent: true,
+      },
+      {
+        source: '/services/google-ads-setup-integration',
+        destination: '/services/google-ads-lead-generation',
+        permanent: true,
+      },
+      {
+        source: '/services/business-tool-integrations',
+        destination: '/services/custom-lead-systems',
         permanent: true,
       },
     ];
