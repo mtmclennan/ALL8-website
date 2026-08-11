@@ -7,6 +7,7 @@ import FounderSection from "../_components/home/FounderSection";
 import FinalCta from "../_components/home/FinalCta";
 
 import OutcomeBlocks from "./components/OutcomeBlocks";
+import CurrentServices from "./components/CurrentServices";
 import Bottleneck from "./components/Bottleneck";
 import LeadJourney from "./components/LeadJourney";
 import ServicesHero from "./components/ServicesHero";
@@ -73,6 +74,7 @@ export default function ServicesPage() {
       <LeadJourney data={servicesPageData.journey} />
       <Bottleneck data={servicesPageData.bottleneck} />
       <OutcomeBlocks data={servicesPageData.outcomes} />
+      <CurrentServices />
       <IntegrationsFlow data={servicesPageData.connected} />
       <ProofCards data={servicesPageData.proof} />
       <ProcessSteps data={servicesPageData.process} />
