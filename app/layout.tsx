@@ -16,7 +16,7 @@ import { LeadModalProvider } from "./(site)/_components/LeadModalProvider";
 import StickyCta from "./(site)/_components/StickyCta";
 
 import HubspotLoader from "@/app/(site)/_components/HubspotLoader";
-import { fontArchivo } from "@/config/fonts";
+import { fontArchivo, fontDmSans, fontOrbitron } from "@/config/fonts";
 import { site, siteUrl } from "@/config/site.config";
 
 export const metadata: Metadata = {
@@ -77,6 +77,8 @@ export default function RootLayout({
         className={clsx(
           "min-h-screen text-foreground bg-background font-sans antialiased",
           fontArchivo.variable,
+          fontOrbitron.variable,
+          fontDmSans.variable,
         )}
       >
         {/* Consent must load before GTM */}

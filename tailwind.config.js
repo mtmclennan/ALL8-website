@@ -12,8 +12,10 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['var(--font-archivo)', 'ui-sans-serif', 'system-ui'],
-        display: ['var(--font-archivo)', 'ui-sans-serif', 'system-ui'],
-        body: ['var(--font-archivo)', 'ui-sans-serif', 'system-ui'],
+        // Brand wordmark only (Logo.tsx / renderBrandFont) — kept from the
+        // original brand identity, not used for headings or body copy.
+        display: ['var(--font-orbitron)', 'ui-sans-serif', 'system-ui'],
+        body: ['var(--font-dmsans)', 'ui-sans-serif', 'system-ui'],
       },
       colors: {
         brand: {
