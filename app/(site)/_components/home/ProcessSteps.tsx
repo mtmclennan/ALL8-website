@@ -25,7 +25,7 @@ export default function ProcessSteps({ data }: { data: ProcessData }) {
           </p>
         </Reveal>
 
-        <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="relative grid grid-cols-1 gap-y-14 sm:grid-cols-2 sm:gap-y-16 lg:grid-cols-4 lg:gap-y-0">
           <div className="pointer-events-none absolute left-[12.5%] right-[12.5%] top-[37px] hidden h-px bg-gradient-to-r from-transparent via-[rgba(26,124,240,.4)] via-20% to-transparent lg:block" />
           {data.steps.map((step, i) => {
             const hex = STAGE_HEX[step.stage];

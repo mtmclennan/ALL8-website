@@ -112,7 +112,7 @@ export default function HeroSection({ data }: { data: HeroData }) {
         </div>
       </div>
 
-      <div className="pointer-events-none relative mx-auto grid w-full max-w-[1160px] px-6 max-[960px]:mt-6 max-[960px]:place-items-center max-[960px]:px-6 sm:px-10 lg:absolute lg:inset-y-0 lg:right-0 lg:mx-0 lg:w-1/2 lg:max-w-none lg:place-items-center lg:px-0">
+      <div className="pointer-events-none relative mx-auto hidden w-full max-w-[1160px] px-6 max-[960px]:mt-6 max-[960px]:place-items-center max-[960px]:px-6 sm:grid sm:px-10 lg:absolute lg:inset-y-0 lg:right-0 lg:mx-0 lg:w-1/2 lg:max-w-none lg:place-items-center lg:px-0">
         <div className="relative">
           <div
             className="absolute inset-0 z-0"

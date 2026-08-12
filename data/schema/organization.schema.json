@@ -11,14 +11,9 @@
   "areaServed": ["CA", "US"],
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Brantford",
+    "addressLocality": "Paris",
     "addressRegion": "ON",
     "addressCountry": "CA"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 43.1394,
-    "longitude": -80.2644
   },
   "sameAs": [
     "https://www.linkedin.com/company/all8-webworks",
