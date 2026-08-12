@@ -2,8 +2,13 @@ import type { Metadata } from "next";
 
 import HomePage from "./Home";
 
-import { siteUrl } from "@/config/site.config";
+import { site, siteUrl } from "@/config/site.config";
 import { homeData } from "@/data/home";
+
+const ogTitle = "Turn More Searches, Clicks & Calls Into Customers";
+const ogDescription =
+  "We find where opportunities are being lost between a customer searching and you winning the job — then fix the part costing you the most.";
+const ogImage = new URL(site.defaultOgImage, siteUrl()).toString();
 
 export const metadata: Metadata = {
   title: "Turn More Searches, Clicks & Calls Into Customers | ALL8 WEBWORKS",
@@ -13,9 +18,15 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: siteUrl(),
-    title: "Turn More Searches, Clicks & Calls Into Customers",
-    description:
-      "We find where opportunities are being lost between a customer searching and you winning the job — then fix the part costing you the most.",
+    title: ogTitle,
+    description: ogDescription,
+    images: [{ url: ogImage, width: 1200, height: 630, alt: ogTitle }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: ogTitle,
+    description: ogDescription,
+    images: [ogImage],
   },
 };
 
@@ -34,8 +45,8 @@ export default function Home() {
   return (
     <>
       <script
-        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        type="application/ld+json"
       />
       <HomePage />
     </>

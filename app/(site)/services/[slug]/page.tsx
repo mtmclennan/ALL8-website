@@ -17,7 +17,7 @@ import ServiceFinalCta from "./components/ServiceFinalCta";
 
 import FAQBlock from "@/app/(site)/_components/FAQBlock";
 import { getServiceBySlug, SERVICES } from "@/data/services";
-import { siteUrl } from "@/config/site.config";
+import { site, siteUrl } from "@/config/site.config";
 
 export const revalidate = 86400; // 24 hours
 
@@ -47,6 +47,8 @@ export async function generateMetadata({
   const canonical = `${siteUrl()}/services/${service.slug}`;
   const title = seo?.title || `${service.title} | ALL8 WEBWORKS`;
   const description = seo?.description || service.short;
+  const image =
+    seo?.image || new URL(site.defaultOgImage, siteUrl()).toString();
 
   return {
     title,
@@ -58,15 +60,13 @@ export async function generateMetadata({
       url: seo?.url || canonical,
       type: (seo?.type as OpenGraphType) || "website",
       siteName: seo?.siteName || "ALL8 WEBWORKS",
-      images: seo?.image
-        ? [{ url: seo.image, width: 1200, height: 630, alt: title }]
-        : undefined,
+      images: [{ url: image, width: 1200, height: 630, alt: title }],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: seo?.image ? [seo.image] : undefined,
+      images: [image],
     },
   };
 }

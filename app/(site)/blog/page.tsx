@@ -10,7 +10,7 @@ import Newsletter from "./_components/Newsletter";
 import { client as sanity } from "@/app/studio/sanity/lib/client";
 import { allPostsQuery, blogPageQuery } from "@/app/studio/sanity/lib/queries";
 import { urlFor } from "@/app/studio/sanity/lib/image";
-import { siteUrl } from "@/config/site.config";
+import { site, siteUrl } from "@/config/site.config";
 
 export const revalidate = 3600;
 
@@ -31,15 +31,19 @@ export async function generateMetadata() {
       url: canonical,
       title: page?.title,
       description: page?.description,
-      images: page?.ogImage
-        ? [
-            {
+      images: [
+        page?.ogImage
+          ? {
               url: urlFor(page.ogImage).width(1200).height(630).url(),
               width: 1200,
               height: 630,
+            }
+          : {
+              url: new URL(site.defaultOgImage, siteUrl()).toString(),
+              width: 1200,
+              height: 630,
             },
-          ]
-        : [],
+      ],
     },
   };
 }

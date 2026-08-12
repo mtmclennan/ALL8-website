@@ -51,7 +51,7 @@ export async function generateMetadata({
         .fit("crop")
         .format("jpg")
         .url()
-    : `${siteUrl()}/assets/images/og-default.jpg`;
+    : `${siteUrl()}/assets/images/og/og-default.jpg`;
 
   const title = post.seo?.metaTitle || post.title;
   const description = post.seo?.metaDescription || post.excerpt;

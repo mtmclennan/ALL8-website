@@ -5,17 +5,34 @@ import { AlertCircle } from "lucide-react";
 
 import TableOfContents from "../blog/[slug]/TableOfContents";
 
-import { siteUrl } from "@/config/site.config";
+import { site, siteUrl } from "@/config/site.config";
 import { siteConfig } from "@/config/site";
 
 const LAST_UPDATED = "August 10, 2026";
 const LAST_UPDATED_ISO = "2026-08-10";
 
+const pageTitle = "Privacy Policy — What We Collect, and Why | ALL8 WEBWORKS";
+const pageDescription =
+  "What ALL8 WEBWORKS collects when you contact us, why, how long we keep it, and how to ask us to delete it.";
+
 export const metadata: Metadata = {
-  title: "Privacy Policy — What We Collect, and Why | ALL8 WEBWORKS",
-  description:
-    "What ALL8 WEBWORKS collects when you contact us, why, how long we keep it, and how to ask us to delete it.",
+  title: pageTitle,
+  description: pageDescription,
   alternates: { canonical: `${siteUrl()}/privacy` },
+  openGraph: {
+    type: "website",
+    url: `${siteUrl()}/privacy`,
+    title: pageTitle,
+    description: pageDescription,
+    images: [
+      {
+        url: new URL(site.defaultOgImage, siteUrl()).toString(),
+        width: 1200,
+        height: 630,
+        alt: pageTitle,
+      },
+    ],
+  },
 };
 
 const TOC = [

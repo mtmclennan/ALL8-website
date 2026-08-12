@@ -2,6 +2,6 @@
   "name": "ALL8 Webworks",
   "description": "Performance-first websites for service businesses. Faster pages, higher rankings, more leads.",
   "locale": "en_CA",
-  "defaultOgImage": "/og/og-default.jpg",
+  "defaultOgImage": "/assets/images/og/og-default.jpg",
   "social": { "twitter": "@ALL8Webworks" }
 }
