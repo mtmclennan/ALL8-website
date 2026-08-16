@@ -2,7 +2,10 @@
 
 import { verifyCaptcha } from '@/lib/intake/verifyCaptcha';
 import { checkRateLimit } from '@/lib/intake/rateLimit';
-import { runLeadBackgroundTasks } from '@/lib/leads/runLeadBackgroundTasks';
+import {
+  runLeadBackgroundTasks,
+  runNewsletterBackgroundTasks,
+} from '@/lib/leads/runLeadBackgroundTasks';
 import type { LeadPayload } from '@/lib/leads/types';
 
 export type LeadActionState = {
@@ -28,6 +31,13 @@ export async function submitLeadPipeline(
   const human = await verifyCaptcha(data.token);
   if (!human)
     return { ok: false, message: 'Verification failed. Please try again.' };
+
+  if (data.leadType === 'newsletter') {
+    // fire and forget (don’t await) — separate from the sales pipeline
+    void runNewsletterBackgroundTasks(data);
+
+    return { ok: true, message: "You're on the list." };
+  }
 
   // fire and forget (don’t await)
   void runLeadBackgroundTasks(data);

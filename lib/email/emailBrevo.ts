@@ -102,3 +102,54 @@ export default async function sendEmail(payload: Record<string, any>) {
     }),
   ]);
 }
+
+export async function sendNewsletterConfirmation(email: string) {
+  if (!process.env.BREVO_API_KEY) {
+    throw new Error('Missing BREVO_API_KEY');
+  }
+
+  const logo =
+    process.env.ALL8_LOGO_URL || 'https://placehold.co/220x48?text=ALL8';
+  const from = {
+    email: 'no-reply@all8webworks.com',
+    name: 'ALL8 Webworks',
+  };
+
+  const html = `
+  <div style="font-family: Inter, Arial, sans-serif; max-width:640px; margin:auto; border:1px solid #e5e7eb; border-radius:16px; overflow:hidden">
+    <div style="background:#0B0F1A; padding:26px; text-align:center; color:#fff">
+      <img src="${logo}" alt="ALL8 Webworks" style="height:44px; display:block; margin:0 auto 10px"/>
+      <h1 style="margin:0; font-weight:800">You're on the list.</h1>
+    </div>
+    <div style="padding:22px; color:#111827">
+      <p>One short note a month on what's costing service businesses work, and what to do about it. No sequences, no pitches — unsubscribe any time.</p>
+      <div style="border-top:1px solid #e5e7eb; padding-top:12px; margin-top:16px; font-size:13px; color:#6b7280">
+        <p style="margin:0">Didn't sign up for this? You can safely ignore this email.</p>
+      </div>
+    </div>
+    <div style="background:#0B0F1A; color:#fff; padding:14px; text-align:center">
+      <p style="margin:0; font-size:14px">ALL8 Webworks • Ontario, Canada</p>
+    </div>
+  </div>`;
+
+  const res = await fetch('https://api.brevo.com/v3/smtp/email', {
+    method: 'POST',
+    headers: {
+      accept: 'application/json',
+      'api-key': process.env.BREVO_API_KEY!,
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      sender: from,
+      to: [{ email }],
+      subject: "You're subscribed — ALL8 Field Notes",
+      htmlContent: html,
+    }),
+  });
+
+  if (!res.ok) {
+    throw new Error(
+      `[Brevo] Newsletter confirmation failed: ${res.status} ${await res.text()}`,
+    );
+  }
+}

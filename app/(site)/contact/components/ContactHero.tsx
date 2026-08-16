@@ -7,7 +7,7 @@ type ContactHeroData = {
 
 export default function ContactHero({ data }: { data: ContactHeroData }) {
   return (
-    <section className="relative overflow-hidden pt-[68px]">
+    <section className="relative overflow-hidden pt-[68px]" id="hero">
       <div className="absolute inset-0 bg-background" />
       <div
         className="absolute inset-0"

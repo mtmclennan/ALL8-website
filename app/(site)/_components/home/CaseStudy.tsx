@@ -20,7 +20,7 @@ type CaseStudyData = {
   visual: {
     title: string;
     metrics: { value: string; label: string; stage: Stage }[];
-    rows: { label: string; percent: number; stage: Stage; status: string }[];
+    rows: { label: string; stage: Stage; status: string }[];
     flag: string;
   };
 };
@@ -98,19 +98,20 @@ export default function CaseStudy({ data }: { data: CaseStudyData }) {
                       key={row.label}
                       className="flex items-center gap-3 text-[12.5px] text-white/70"
                     >
-                      <span className="w-[132px] flex-shrink-0">
-                        {row.label}
+                      <span
+                        className="h-2 w-2 flex-shrink-0 rounded-full"
+                        style={{ backgroundColor: STAGE_HEX[row.stage] }}
+                      />
+                      <span className="flex-1">{row.label}</span>
+                      <span
+                        className="flex-shrink-0 rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[.04em]"
+                        style={{
+                          color: STAGE_HEX[row.stage],
+                          backgroundColor: hexToRgba(STAGE_HEX[row.stage], 0.14),
+                        }}
+                      >
+                        {row.status}
                       </span>
-                      <span className="h-1.5 flex-1 overflow-hidden rounded-full bg-white/[0.06]">
-                        <span
-                          className="block h-full rounded-full"
-                          style={{
-                            width: `${row.percent}%`,
-                            backgroundColor: STAGE_HEX[row.stage],
-                          }}
-                        />
-                      </span>
-                      <span>{row.status}</span>
                     </div>
                   ))}
                 </div>

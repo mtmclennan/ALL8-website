@@ -57,8 +57,11 @@ export default function StickyCta() {
         show ? "bottom-0" : "-bottom-40",
       )}
     >
-      <Button className="flex-1 justify-center" onClick={openModal}>
-        Free Lead Review
+      <Button
+        className="flex-1 justify-center whitespace-normal text-center"
+        onClick={openModal}
+      >
+        Get My Free Lead System Review
       </Button>
       <a
         aria-label={`Call ${siteConfig.phone}`}

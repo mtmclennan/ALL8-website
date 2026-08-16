@@ -28,18 +28,22 @@ const CHALLENGES = [
 const initialState: LeadActionState = { ok: false };
 
 const inputClass =
-  "w-full min-h-[46px] rounded-[10px] border border-white/[0.08] bg-white/[0.045] px-3.5 py-3 text-[15px] text-white placeholder:text-[#5A7391] transition-colors focus:border-primary focus:bg-white/[0.07] focus:outline-none";
+  "w-full min-h-[46px] rounded-[10px] border border-white/[0.08] bg-white/[0.045] px-3.5 py-3 text-base text-white placeholder:text-[#5A7391] transition-colors focus:border-primary focus:bg-white/[0.07] focus:outline-none";
+
+const inputErrorClass = "border-red-400/60 focus:border-red-400/60";
 
 function Field({
   label,
   htmlFor,
   optional,
+  error,
   className,
   children,
 }: {
   label: string;
   htmlFor: string;
   optional?: boolean;
+  error?: string;
   className?: string;
   children: React.ReactNode;
 }) {
@@ -55,6 +59,15 @@ function Field({
         )}
       </label>
       {children}
+      {error && (
+        <p
+          className="text-[12.5px] font-medium text-red-400"
+          id={`${htmlFor}-error`}
+          role="alert"
+        >
+          {error}
+        </p>
+      )}
     </div>
   );
 }
@@ -264,22 +277,44 @@ export default function LeadModal({
               </div>
 
               <div className="flex flex-col gap-4 sm:flex-row">
-                <Field htmlFor="fName" label="Name">
+                <Field
+                  error={state.fieldErrors?.name?.[0]}
+                  htmlFor="fName"
+                  label="Name"
+                >
                   <input
                     ref={nameRef}
                     required
+                    aria-describedby={
+                      state.fieldErrors?.name ? "fName-error" : undefined
+                    }
+                    aria-invalid={Boolean(state.fieldErrors?.name)}
                     autoComplete="name"
-                    className={inputClass}
+                    className={clsx(
+                      inputClass,
+                      state.fieldErrors?.name && inputErrorClass,
+                    )}
                     id="fName"
                     name="name"
                     type="text"
                   />
                 </Field>
-                <Field htmlFor="fBiz" label="Business name">
+                <Field
+                  error={state.fieldErrors?.business?.[0]}
+                  htmlFor="fBiz"
+                  label="Business name"
+                >
                   <input
                     required
+                    aria-describedby={
+                      state.fieldErrors?.business ? "fBiz-error" : undefined
+                    }
+                    aria-invalid={Boolean(state.fieldErrors?.business)}
                     autoComplete="organization"
-                    className={inputClass}
+                    className={clsx(
+                      inputClass,
+                      state.fieldErrors?.business && inputErrorClass,
+                    )}
                     id="fBiz"
                     name="business"
                     type="text"
@@ -287,10 +322,21 @@ export default function LeadModal({
                 </Field>
               </div>
 
-              <Field htmlFor="fSite" label="Website">
+              <Field
+                error={state.fieldErrors?.website?.[0]}
+                htmlFor="fSite"
+                label="Website"
+              >
                 <input
+                  aria-describedby={
+                    state.fieldErrors?.website ? "fSite-error" : undefined
+                  }
+                  aria-invalid={Boolean(state.fieldErrors?.website)}
                   autoComplete="url"
-                  className={inputClass}
+                  className={clsx(
+                    inputClass,
+                    state.fieldErrors?.website && inputErrorClass,
+                  )}
                   id="fSite"
                   inputMode="url"
                   name="website"
@@ -300,11 +346,22 @@ export default function LeadModal({
               </Field>
 
               <div className="flex flex-col gap-4 sm:flex-row">
-                <Field htmlFor="fEmail" label="Email">
+                <Field
+                  error={state.fieldErrors?.email?.[0]}
+                  htmlFor="fEmail"
+                  label="Email"
+                >
                   <input
                     required
+                    aria-describedby={
+                      state.fieldErrors?.email ? "fEmail-error" : undefined
+                    }
+                    aria-invalid={Boolean(state.fieldErrors?.email)}
                     autoComplete="email"
-                    className={inputClass}
+                    className={clsx(
+                      inputClass,
+                      state.fieldErrors?.email && inputErrorClass,
+                    )}
                     id="fEmail"
                     name="email"
                     type="email"

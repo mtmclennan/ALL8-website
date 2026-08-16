@@ -6,6 +6,7 @@ import { useActionState, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Script from "next/script";
 import { CheckCircle2 } from "lucide-react";
+import clsx from "clsx";
 
 import { useHubSpotContextFields } from "@/hooks/use-hubspotContextFields";
 import { submitLeadReview } from "@/app/actions/submit-lead-review";
@@ -26,17 +27,21 @@ const CHALLENGES = [
 const initialState: LeadActionState = { ok: false };
 
 const inputClass =
-  "w-full min-h-[46px] rounded-[10px] border border-white/[0.08] bg-white/[0.045] px-3.5 py-3 text-[15px] text-white placeholder:text-[#5A7391] transition-colors focus:border-primary focus:bg-white/[0.07] focus:outline-none";
+  "w-full min-h-[46px] rounded-[10px] border border-white/[0.08] bg-white/[0.045] px-3.5 py-3 text-base text-white placeholder:text-[#5A7391] transition-colors focus:border-primary focus:bg-white/[0.07] focus:outline-none";
+
+const inputErrorClass = "border-red-400/60 focus:border-red-400/60";
 
 function Field({
   label,
   htmlFor,
   optional,
+  error,
   children,
 }: {
   label: string;
   htmlFor: string;
   optional?: boolean;
+  error?: string;
   children: React.ReactNode;
 }) {
   return (
@@ -51,6 +56,15 @@ function Field({
         )}
       </label>
       {children}
+      {error && (
+        <p
+          className="text-[12.5px] font-medium text-red-400"
+          id={`${htmlFor}-error`}
+          role="alert"
+        >
+          {error}
+        </p>
+      )}
     </div>
   );
 }
@@ -157,21 +171,43 @@ export default function InlineLeadForm() {
             </div>
 
             <div className="flex flex-col gap-4 sm:flex-row">
-              <Field htmlFor="cName" label="Name">
+              <Field
+                error={state.fieldErrors?.name?.[0]}
+                htmlFor="cName"
+                label="Name"
+              >
                 <input
                   required
+                  aria-describedby={
+                    state.fieldErrors?.name ? "cName-error" : undefined
+                  }
+                  aria-invalid={Boolean(state.fieldErrors?.name)}
                   autoComplete="name"
-                  className={inputClass}
+                  className={clsx(
+                    inputClass,
+                    state.fieldErrors?.name && inputErrorClass,
+                  )}
                   id="cName"
                   name="name"
                   type="text"
                 />
               </Field>
-              <Field htmlFor="cBiz" label="Business name">
+              <Field
+                error={state.fieldErrors?.business?.[0]}
+                htmlFor="cBiz"
+                label="Business name"
+              >
                 <input
                   required
+                  aria-describedby={
+                    state.fieldErrors?.business ? "cBiz-error" : undefined
+                  }
+                  aria-invalid={Boolean(state.fieldErrors?.business)}
                   autoComplete="organization"
-                  className={inputClass}
+                  className={clsx(
+                    inputClass,
+                    state.fieldErrors?.business && inputErrorClass,
+                  )}
                   id="cBiz"
                   name="business"
                   type="text"
@@ -179,10 +215,21 @@ export default function InlineLeadForm() {
               </Field>
             </div>
 
-            <Field htmlFor="cSite" label="Website">
+            <Field
+              error={state.fieldErrors?.website?.[0]}
+              htmlFor="cSite"
+              label="Website"
+            >
               <input
+                aria-describedby={
+                  state.fieldErrors?.website ? "cSite-error" : undefined
+                }
+                aria-invalid={Boolean(state.fieldErrors?.website)}
                 autoComplete="url"
-                className={inputClass}
+                className={clsx(
+                  inputClass,
+                  state.fieldErrors?.website && inputErrorClass,
+                )}
                 id="cSite"
                 inputMode="url"
                 name="website"
@@ -192,11 +239,22 @@ export default function InlineLeadForm() {
             </Field>
 
             <div className="flex flex-col gap-4 sm:flex-row">
-              <Field htmlFor="cEmail" label="Email">
+              <Field
+                error={state.fieldErrors?.email?.[0]}
+                htmlFor="cEmail"
+                label="Email"
+              >
                 <input
                   required
+                  aria-describedby={
+                    state.fieldErrors?.email ? "cEmail-error" : undefined
+                  }
+                  aria-invalid={Boolean(state.fieldErrors?.email)}
                   autoComplete="email"
-                  className={inputClass}
+                  className={clsx(
+                    inputClass,
+                    state.fieldErrors?.email && inputErrorClass,
+                  )}
                   id="cEmail"
                   name="email"
                   type="email"

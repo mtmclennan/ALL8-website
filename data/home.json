@@ -178,10 +178,10 @@
         { "value": "Live", "label": "Lead Tracking", "stage": "win" }
       ],
       "rows": [
-        { "label": "Get Found", "percent": 88, "stage": "found", "status": "Improved" },
-        { "label": "Get Contacted", "percent": 76, "stage": "contacted", "status": "Improved" },
-        { "label": "Respond & Follow Up", "percent": 32, "stage": "follow", "status": "Next" },
-        { "label": "Win More Work", "percent": 50, "stage": "win", "status": "Tracking added" }
+        { "label": "Get Found", "stage": "found", "status": "Improved" },
+        { "label": "Get Contacted", "stage": "contacted", "status": "Improved" },
+        { "label": "Respond & Follow Up", "stage": "follow", "status": "Next" },
+        { "label": "Win More Work", "stage": "win", "status": "Tracking added" }
       ],
       "flag": "Next bottleneck identified: missed calls and inconsistent follow-up. More visibility only pays if someone answers."
     }

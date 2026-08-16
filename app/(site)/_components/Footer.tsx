@@ -126,7 +126,7 @@ export default function Footer() {
                   type="button"
                   onClick={openModal}
                 >
-                  Free Lead System Review
+                  Get My Free Lead System Review
                 </button>
               </li>
               {siteConfig.links.linkedin && (

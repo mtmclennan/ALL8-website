@@ -8,7 +8,7 @@ const DEFAULT_SUBTITLE =
 
 export default function BlogHero({ title, subtitle }: BlogHeroProps) {
   return (
-    <section className="relative overflow-hidden pt-[68px]">
+    <section className="relative overflow-hidden pt-[68px]" id="hero">
       <div className="absolute inset-0 bg-background" />
       <div
         className="absolute inset-0"

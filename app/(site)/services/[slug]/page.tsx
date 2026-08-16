@@ -11,6 +11,7 @@ import ServiceHowItWorks from "./components/ServiceHowItWorks";
 import ServiceIncluded from "./components/ServiceIncluded";
 import ServiceWhyItMatters from "./components/ServiceWhyItMatters";
 import ServiceWorksWith from "./components/ServiceWorksWith";
+import ServiceProof from "./components/ServiceProof";
 import ServicePricing from "./components/ServicePricing";
 import ServiceCrossLinks from "./components/ServiceCrossLinks";
 import ServiceFinalCta from "./components/ServiceFinalCta";
@@ -155,6 +156,7 @@ export default async function ServiceDetailPage({
       <ServiceIncluded included={service.included} />
       <ServiceWhyItMatters whyItMatters={service.whyItMatters} />
       <ServiceWorksWith worksWith={service.worksWith} />
+      <ServiceProof />
       <ServicePricing pricing={service.pricing} />
       {service.faqs?.length > 0 && (
         <FAQBlock

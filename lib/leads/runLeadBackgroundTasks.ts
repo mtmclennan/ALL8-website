@@ -1,4 +1,4 @@
-import sendEmail from '@/lib/email/emailBrevo';
+import sendEmail, { sendNewsletterConfirmation } from '@/lib/email/emailBrevo';
 import { submitToHubSpotForm } from '@/lib/integrations/hubspot/forms';
 import {
   isDuplicateEntry,
@@ -12,6 +12,36 @@ import {
 } from '@/lib/integrations/hubspot/crm';
 
 import type { LeadPayload } from './types';
+
+// Newsletter signups are not sales leads: no HubSpot deal/task, no sales
+// sheet row, no "New Website Intake" notification. Just a marketing contact
+// and a correctly-worded confirmation email.
+export async function runNewsletterBackgroundTasks(
+  data: Pick<LeadPayload, 'email'>,
+) {
+  const errors: string[] = [];
+  const step = async <T>(label: string, fn: () => Promise<T>) => {
+    try {
+      return await fn();
+    } catch (e) {
+      console.error(`[Newsletter] ${label} failed:`, e);
+      errors.push(label);
+    }
+  };
+
+  await Promise.allSettled([
+    step('HubSpot contact upsert', () =>
+      upsertContact(data.email, {
+        lifecyclestage: 'subscriber',
+        all8_lead_source: 'newsletter',
+      }),
+    ),
+    step('Confirmation email', () => sendNewsletterConfirmation(data.email)),
+  ]);
+
+  if (errors.length)
+    console.error('[Newsletter] Background partial errors:', errors);
+}
 
 export async function runLeadBackgroundTasks(data: LeadPayload) {
   const errors: string[] = [];
