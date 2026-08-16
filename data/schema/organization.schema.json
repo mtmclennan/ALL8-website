@@ -1,13 +1,9 @@
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  "@id": "https://all8webworks.ca/#organization",
   "name": "ALL8 Webworks",
-  "url": "https://all8webworks.ca",
-  "logo": "https://all8webworks.ca/og.png",
   "description": "ALL8 WEBWORKS helps service businesses across the United States and Canada generate more opportunities and lose fewer of them — across search visibility, websites, follow-up automation, CRM pipelines and lead tracking.",
   "serviceType": "Lead systems for service businesses",
-  "founder": { "@id": "https://all8webworks.ca/about#founder" },
   "areaServed": ["CA", "US"],
   "address": {
     "@type": "PostalAddress",

@@ -45,6 +45,7 @@ function isExternalHref(href: string) {
   return (
     /^https?:\/\//.test(href) ||
     href.startsWith("tel:") ||
+    href.startsWith("sms:") ||
     href.startsWith("mailto:") ||
     href.startsWith("#")
   );

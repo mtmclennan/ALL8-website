@@ -5,6 +5,7 @@ import { Mail, Phone, Clock, MessageCircle } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { toSmsHref, toTelHref } from "@/lib/utils/phone";
 import Button from "@/app/(site)/_components/ui/Button";
+import { slugify } from "@/lib/utils/slugify";
 
 const QUIET_ICONS = { mail: Mail, phone: Phone, clock: Clock };
 
@@ -74,6 +75,12 @@ export default function ChannelsSection({
                 </p>
                 <Button
                   className="mt-auto self-start"
+                  data-cta={slugify(card.title)}
+                  data-cta-event={
+                    card.title.toLowerCase().includes("book")
+                      ? "book_call_click"
+                      : undefined
+                  }
                   href="#form"
                   variant="ghost"
                 >

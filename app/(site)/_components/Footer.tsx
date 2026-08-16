@@ -164,6 +164,10 @@ export default function Footer() {
             <Link className="hover:text-white" href="/privacy">
               Privacy Policy
             </Link>
+            &nbsp;&middot;&nbsp;
+            <Link className="hover:text-white" href="/legal">
+              Legal
+            </Link>
           </p>
           <div className="flex gap-2.5">
             {siteConfig.links.linkedin && (

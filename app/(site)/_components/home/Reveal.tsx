@@ -8,15 +8,18 @@ export default function Reveal({
   children,
   index = 0,
   className,
+  id,
 }: {
   children: ReactNode;
   index?: number;
   className?: string;
+  id?: string;
 }) {
   const prefersReduced = useReducedMotion();
 
   return (
     <motion.div
+      id={id}
       className={className}
       initial={prefersReduced ? false : { opacity: 0, y: 24 }}
       transition={{

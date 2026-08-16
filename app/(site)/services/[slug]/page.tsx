@@ -98,7 +98,7 @@ export default async function ServiceDetailPage({
           name: "ALL8 WEBWORKS",
           url: base,
         },
-        areaServed: "US-CA",
+        areaServed: ["US", "CA"],
         offers: {
           "@type": "Offer",
           priceCurrency: "CAD",

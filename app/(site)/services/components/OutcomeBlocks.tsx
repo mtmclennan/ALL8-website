@@ -39,6 +39,13 @@ const CAPABILITY_SERVICE_LINKS: Record<string, string> = {
   Reporting: "call-tracking-lead-attribution",
 };
 
+const STAGE_ANCHOR: Record<Stage, string> = {
+  found: "get-found",
+  contacted: "get-contacted",
+  follow: "respond",
+  win: "win",
+};
+
 type OutcomesData = {
   eyebrow: string;
   title: string;
@@ -79,6 +86,7 @@ export default function OutcomeBlocks({ data }: { data: OutcomesData }) {
             <Reveal
               key={block.label}
               className={`grid grid-cols-1 gap-8 border-white/[0.08] py-11 lg:grid-cols-[.85fr_1.15fr] lg:gap-16 ${i === 0 ? "border-t-0 pt-0" : "border-t"}`}
+              id={STAGE_ANCHOR[block.stage]}
               index={i}
             >
               <div>

@@ -101,6 +101,7 @@ type FAQBlockProps = {
   faqs: FAQ[];
   tone?: 'base' | 'alt' | 'dim' | 'highlight' | 'gradient';
   className?: string;
+  id?: string;
 };
 
 export default function FAQBlock({
@@ -109,11 +110,13 @@ export default function FAQBlock({
   faqs,
   tone = 'base',
   className,
+  id,
 }: FAQBlockProps) {
   if (!faqs?.length) return null;
 
   return (
     <Section
+      id={id}
       tone={tone}
       pattern="none"
       className={className ?? 'py-20 sm:py-24'}

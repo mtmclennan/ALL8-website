@@ -14,6 +14,7 @@ import { useHubSpotContextFields } from "@/hooks/use-hubspotContextFields";
 import { submitLeadReview } from "@/app/actions/submit-lead-review";
 import { siteConfig } from "@/config/site";
 import { toTelHref } from "@/lib/utils/phone";
+import { trackFormStart, trackGenerateLead } from "@/lib/analytics/dataLayer";
 
 const CHALLENGES = [
   "Getting found",
@@ -79,16 +80,33 @@ export default function LeadModal({
   const nameRef = useRef<HTMLInputElement>(null);
   const hpRef = useRef<HTMLInputElement>(null);
   const tokenRef = useRef<HTMLInputElement>(null);
+  const formStartedRef = useRef(false);
+  const leadTrackedRef = useRef(false);
 
   useEffect(() => {
-    if (!isPending && state.ok) setDone(true);
-  }, [isPending, state.ok]);
+    if (!isPending && state.ok) {
+      setDone(true);
+      if (!leadTrackedRef.current) {
+        leadTrackedRef.current = true;
+        trackGenerateLead("modal", {
+          utmSource: utm.source,
+          utmMedium: utm.medium,
+          utmCampaign: utm.campaign,
+          utmContent: utm.content,
+          utmTerm: utm.term,
+          pageName,
+        });
+      }
+    }
+  }, [isPending, state.ok, utm, pageName]);
 
   useEffect(() => {
     if (!open) {
       const t = setTimeout(() => {
         setDone(false);
         setChallenge("");
+        formStartedRef.current = false;
+        leadTrackedRef.current = false;
       }, 250);
 
       return () => clearTimeout(t);
@@ -101,6 +119,12 @@ export default function LeadModal({
       clearTimeout(t);
     };
   }, [open]);
+
+  const handleFormFocus = () => {
+    if (formStartedRef.current) return;
+    formStartedRef.current = true;
+    trackFormStart("modal");
+  };
 
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
@@ -216,7 +240,12 @@ export default function LeadModal({
               and show you where the biggest gaps appear to be.
             </p>
 
-            <form noValidate action={enhancedAction} className="space-y-4">
+            <form
+              noValidate
+              action={enhancedAction}
+              className="space-y-4"
+              onFocusCapture={handleFormFocus}
+            >
               <div aria-hidden="true" className="sr-only">
                 <input
                   ref={hpRef}

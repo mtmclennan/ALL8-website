@@ -32,6 +32,7 @@ const HomePage = () => {
       <FounderSection data={homeData.founder} />
       <FAQBlock
         faqs={homeData.faqs}
+        id="faq"
         subtitle="Common questions"
         title="What Owners Ask Before Getting Started"
         tone="alt"

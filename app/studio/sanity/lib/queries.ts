@@ -13,7 +13,7 @@ const relatedArticleProjection = groq`
 `;
 
 export const allPostsQuery = groq`
-*[_type == "post" && !(_id in path("drafts.**"))]
+*[_type == "post" && !(_id in path("drafts.**")) && draft != true]
   | order(publishedAt desc) {
     _id,
     title,
@@ -34,7 +34,7 @@ export const allPostsQuery = groq`
 `;
 
 export const singlePostQuery = groq`
-  *[_type == "post" && slug.current == $slug][0]{
+  *[_type == "post" && slug.current == $slug && draft != true][0]{
     _id,
     title,
     slug,
@@ -73,6 +73,7 @@ export const relatedPostsQuery = groq`
     "candidates": *[
       _type == "post" &&
       !(_id in path("drafts.**")) &&
+      draft != true &&
       slug.current != $slug
     ] | order(publishedAt desc)[0...60] {
       ${relatedArticleProjection},
@@ -104,6 +105,7 @@ export const categoryArchiveSitemapQuery = groq`
     "postCount": count(*[
       _type == "post" &&
       !(_id in path("drafts.**")) &&
+      draft != true &&
       references(^._id)
     ])
   }[postCount > 0]
@@ -118,6 +120,7 @@ export const categoryPostsQuery = groq`
     "posts": *[
       _type == "post" &&
       !(_id in path("drafts.**")) &&
+      draft != true &&
       references(^._id)
     ] | order(publishedAt desc) {
       _id,

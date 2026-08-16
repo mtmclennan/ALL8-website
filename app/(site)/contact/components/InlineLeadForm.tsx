@@ -2,7 +2,7 @@
 
 import type { LeadActionState } from "@/lib/leads/submitLead";
 
-import { useActionState, useRef, useState } from "react";
+import { useActionState, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Script from "next/script";
 import { CheckCircle2 } from "lucide-react";
@@ -12,6 +12,7 @@ import { submitLeadReview } from "@/app/actions/submit-lead-review";
 import { siteConfig } from "@/config/site";
 import { toTelHref } from "@/lib/utils/phone";
 import Button from "@/app/(site)/_components/ui/Button";
+import { trackFormStart, trackGenerateLead } from "@/lib/analytics/dataLayer";
 
 const CHALLENGES = [
   "Getting found",
@@ -64,9 +65,31 @@ export default function InlineLeadForm() {
   const [challenge, setChallenge] = useState("");
   const hpRef = useRef<HTMLInputElement>(null);
   const tokenRef = useRef<HTMLInputElement>(null);
+  const formStartedRef = useRef(false);
+  const leadTrackedRef = useRef(false);
 
   const done = state.ok;
   const telHref = toTelHref(siteConfig.phone);
+
+  useEffect(() => {
+    if (done && !leadTrackedRef.current) {
+      leadTrackedRef.current = true;
+      trackGenerateLead("contact_page", {
+        utmSource: utm.source,
+        utmMedium: utm.medium,
+        utmCampaign: utm.campaign,
+        utmContent: utm.content,
+        utmTerm: utm.term,
+        pageName,
+      });
+    }
+  }, [done, utm, pageName]);
+
+  const handleFormFocus = () => {
+    if (formStartedRef.current) return;
+    formStartedRef.current = true;
+    trackFormStart("contact_page");
+  };
 
   const enhancedAction = async (formData: FormData) => {
     formData.set("hp", hpRef.current?.value || "");
@@ -114,7 +137,12 @@ export default function InlineLeadForm() {
             show you where the biggest gaps appear to be.
           </p>
 
-          <form noValidate action={enhancedAction} className="space-y-4">
+          <form
+            noValidate
+            action={enhancedAction}
+            className="space-y-4"
+            onFocusCapture={handleFormFocus}
+          >
             <div aria-hidden="true" className="sr-only">
               <input
                 ref={hpRef}

@@ -15,6 +15,7 @@ export type SectionProps = React.PropsWithChildren<{
   className?: string;
   containerClassName?: string;
   noPad?: boolean;
+  id?: string;
 }>;
 
 const basePad = "py-16 sm:py-20";
@@ -57,11 +58,13 @@ export function Section({
   className = "",
   children,
   noPad,
+  id,
 }: SectionProps) {
   const isAlert = tone === "alert";
 
   return (
     <section
+      id={id}
       className={clsx(
         !noPad && basePad,
         tones[tone],

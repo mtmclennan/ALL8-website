@@ -39,7 +39,7 @@ export default async function sendEmail(payload: Record<string, any>) {
     </div>
     <div style="background:#0B0F1A; color:#fff; padding:16px; text-align:center">
       <p style="margin:0; font-size:14px">ALL8 Webworks • Ontario, Canada</p>
-      <p style="margin:4px 0 0; font-size:14px"><a href="https://all8webworks.com" style="color:#0076FF; text-decoration:none">all8webworks.ca</a></p>
+      <p style="margin:4px 0 0; font-size:14px"><a href="https://all8webworks.com" style="color:#0076FF; text-decoration:none">all8webworks.com</a></p>
     </div>
   </div>`;
 

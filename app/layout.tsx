@@ -14,6 +14,7 @@ import VisualsLoader from "./(site)/_components/VisualsLoader";
 import ProvidersClient from "./(site)/ProvidersClient";
 import { LeadModalProvider } from "./(site)/_components/LeadModalProvider";
 import StickyCta from "./(site)/_components/StickyCta";
+import AnalyticsBridge from "./(site)/_components/analytics/AnalyticsBridge";
 
 import HubspotLoader from "@/app/(site)/_components/HubspotLoader";
 import { fontArchivo, fontDmSans, fontOrbitron } from "@/config/fonts";
@@ -56,8 +57,38 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const gtmId = process.env.NEXT_PUBLIC_GTM_ID!;
-  const hsPortal = process.env.NEXT_PUBLIC_HS_PORTAL_ID;
+  // Never render a placeholder/unset GTM ID in production — an unconfigured
+  // container is a silent no-op (real request, no tags ever fire), which is
+  // worse than not loading GTM at all: it looks wired up but isn't. A format
+  // check alone isn't enough — "GTM-XXXXX" (the actual placeholder shipped
+  // in .env.local) is made entirely of legal characters, so the suffix must
+  // also fail an all-repeated-character check like XXXXX/000000/YYYYYYY.
+  const rawGtmId = process.env.NEXT_PUBLIC_GTM_ID ?? "";
+  const gtmIdMatch = /^GTM-([A-Z0-9]+)$/.exec(rawGtmId);
+  const gtmId =
+    gtmIdMatch && !/^(.)\1*$/.test(gtmIdMatch[1]) ? rawGtmId : null;
+  // Server-only var (no NEXT_PUBLIC_ prefix needed — read here, on the
+  // server, and passed down as a prop; this was previously read as
+  // NEXT_PUBLIC_HS_PORTAL_ID, which is never set, so the HubSpot script
+  // never loaded).
+  const hsPortal = process.env.HS_PORTAL_ID;
+
+  const base = siteUrl();
+  const jsonLd = [
+    {
+      ...orgSchema,
+      "@id": `${base}/#organization`,
+      url: base,
+      logo: new URL(site.defaultOgImage, base).toString(),
+      founder: { "@id": `${base}/about#founder` },
+    },
+    {
+      ...siteSchema,
+      "@id": `${base}/#website`,
+      url: base,
+      publisher: { "@id": `${base}/#organization` },
+    },
+  ];
 
   return (
     <html suppressHydrationWarning lang="en">
@@ -96,8 +127,8 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* GTM (after consent) */}
-        <GoogleTagManager gtmId={gtmId} />
+        {/* GTM (after consent) — only ever rendered with a real container ID */}
+        {gtmId && <GoogleTagManager gtmId={gtmId} />}
 
         <ProvidersClient
           themeProps={{ attribute: "class", defaultTheme: "dark" }}
@@ -112,27 +143,30 @@ export default function RootLayout({
           </LeadModalProvider>
           <HubspotLoader portalId={hsPortal} />
           <VisualsLoader />
+          <AnalyticsBridge />
         </ProvidersClient>
 
         {/* Structured data combined for fewer parse events */}
         <Script
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify([orgSchema, siteSchema]),
+            __html: JSON.stringify(jsonLd),
           }}
           id="jsonld"
           strategy="afterInteractive"
           type="application/ld+json"
         />
 
-        <noscript>
-          <iframe
-            height="0"
-            src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
-            style={{ display: "none", visibility: "hidden" }}
-            title="Google Tag Manager"
-            width="0"
-          />
-        </noscript>
+        {gtmId && (
+          <noscript>
+            <iframe
+              height="0"
+              src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+              style={{ display: "none", visibility: "hidden" }}
+              title="Google Tag Manager"
+              width="0"
+            />
+          </noscript>
+        )}
       </body>
     </html>
   );

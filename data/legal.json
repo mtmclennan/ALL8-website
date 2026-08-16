@@ -8,14 +8,6 @@
     "lastUpdatedISO": "2025-08-20"
   },
   {
-    "slug": "privacy-policy",
-    "title": "Privacy Policy",
-    "jurisdiction": "CA",
-    "version": "2025-08-20",
-    "body": "# Privacy Policy for {{companyName}}\n\n**Last updated:** {{lastUpdatedISO}}\n\nThis Privacy Policy describes how {{companyName}} (\"we\", \"us\") collects, uses, and protects information in connection with {{websiteUrl}} (the \"Site\") and our services.\n\n## Information We Collect\n\n- **Contact details** you submit (e.g., name, email, project info) via forms.\n- **Usage data** from analytics (page views, device info) and logs for security.\n- **Cookies** and similar technologies for functionality, analytics, and advertising.\n\n## How We Use Information\n\n- To provide, maintain, and improve our Site and services.\n- To communicate with you (support, proposals, updates).\n- For analytics and advertising (see Cookie Policy) where consented/allowed.\n- To protect against fraud, abuse, or violations of our Terms.\n\n## Legal Bases (if applicable)\n\nWhere required, we rely on consent, contract necessity, and legitimate interests (e.g., Site security, service improvement).\n\n## Sharing\n\nWe may share with service providers that help operate our business (e.g., hosting, email, analytics, advertising) under confidentiality and data protection terms. We do not sell personal information.\n\n## International Transfers\n\nYour data may be processed in other countries. We take steps to protect it in line with applicable laws.\n\n## Retention\n\nWe keep information only as long as necessary for the purposes above or as required by law.\n\n## Your Rights\n\nSubject to law, you may request access, correction, deletion, or restriction, and withdraw consent where applicable. Contact us at **{{dpoEmail || email}}**.\n\n## Cookies & Ads\n\nSee our **Cookie Policy** for details on cookies, ad tech, and your choices.\n\n## Children\n\nOur services target business users and are not directed to children under 13/16.\n\n## Contact\n\n**{{companyName}}**  \n{{address}} ({{provinceOrState}}, {{country}})  \nEmail: **{{email}}**",
-    "lastUpdatedISO": "2025-08-20"
-  },
-  {
     "slug": "cookie-policy",
     "title": "Cookie Policy",
     "jurisdiction": "CA / International",

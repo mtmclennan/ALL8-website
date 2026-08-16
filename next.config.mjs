@@ -85,6 +85,11 @@ const nextConfig = {
         destination: '/services/custom-lead-systems',
         permanent: true,
       },
+      {
+        source: '/legal/privacy-policy',
+        destination: '/privacy',
+        permanent: true,
+      },
     ];
   },
 
