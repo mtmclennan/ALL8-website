@@ -1,5 +1,6 @@
 export async function verifyCaptcha(token?: string) {
-  if (!process.env.RECAPTCHA_SECRET || !token) return true;
+  if (!process.env.RECAPTCHA_SECRET) return true;
+  if (!token) return false;
   const res = await fetch('https://www.google.com/recaptcha/api/siteverify', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },

@@ -129,7 +129,7 @@ export default function InlineLeadForm() {
         if (tokenRef.current) tokenRef.current.value = t || "";
         formData.set("token", tokenRef.current?.value || "");
       } catch {
-        // non-fatal
+        // The server fails closed when verification is configured.
       }
     }
 

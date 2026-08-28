@@ -110,18 +110,20 @@ const Navbar = () => {
           <Logo size="sm" variant="horizontal" />
         </Link>
 
-        <ul className="ml-2 flex items-center gap-7 max-[960px]:hidden">
-          {siteConfig.navItems.map((item) => (
-            <li key={item.href}>
-              <Link
-                className="text-sm font-medium text-white/70 transition-colors hover:text-white"
-                href={item.href}
-              >
-                {item.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <nav aria-label="Primary" className="ml-2 max-[960px]:hidden">
+          <ul className="flex items-center gap-7">
+            {siteConfig.navItems.map((item) => (
+              <li key={item.href}>
+                <Link
+                  className="text-sm font-medium text-white/70 transition-colors hover:text-white"
+                  href={item.href}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
         <div className="ml-auto flex items-center gap-4 max-[960px]:hidden">
           <a

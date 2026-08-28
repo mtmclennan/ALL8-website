@@ -195,7 +195,7 @@ export default function LeadModal({
         if (tokenRef.current) tokenRef.current.value = t || "";
         formData.set("token", tokenRef.current?.value || "");
       } catch {
-        // non-fatal — server side treats a missing token as unverified but non-blocking
+        // The server fails closed when verification is configured.
       }
     }
 
