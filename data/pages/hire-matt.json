@@ -1,0 +1,247 @@
+{
+  "path": "/hire-matt",
+  "title": "Matt McLennan | Web Developer & Growth Engineer",
+  "description": "Web developer and growth engineer combining Next.js, technical SEO, analytics, CRM and automation to solve measurable business problems.",
+  "ogImage": "/hire-matt/opengraph-image",
+
+  "hero": {
+    "pill": "Web Developer · Growth Engineer",
+    "titlePrefix": "Developer. Marketer.",
+    "titleEm": "Business Problem Solver.",
+    "subtitle": "I combine web development, SEO, analytics, lead systems, CRM, automation and AI to help businesses find customers, convert opportunities and operate more effectively.",
+    "diff": "I don't need a perfect brief. Give me the business problem and enough context to understand it — I'll figure out what needs to be built.",
+    "primaryLabel": "View My Work",
+    "primaryHref": "#projects",
+    "secondaryLabel": "Request Resume",
+    "secondaryHref": "mailto:hello@all8webworks.com?subject=Resume%20request",
+    "linkedinHref": "https://www.linkedin.com/in/matthew-mclennan-dev/",
+    "email": "hello@all8webworks.com",
+    "geo": "Ontario, Canada · Eastern Time · Remote or hybrid",
+    "image": {
+      "src": "/assets/home/matt-mclennan.webp",
+      "alt": "Matt McLennan",
+      "width": 720,
+      "height": 740
+    },
+    "imageCaption": "Web · Growth · Systems"
+  },
+
+  "proofMetrics": {
+    "eyebrow": "Measured Outcomes · Captured Evidence",
+    "cards": [
+      { "tag": "Search growth", "value": "40 → 90+", "em": true, "label": "Google Search **clicks per rolling 28 days**, March to August 2026 — more than doubled", "color": "#3D97FF" },
+      { "tag": "Local demand", "value": "+76%", "em": true, "label": "Google Business Profile **website clicks**, year over year", "color": "#22d3ee" },
+      { "tag": "Systems thinking", "value": "Search → Ops", "label": "Tracking revealed the **next lead-handling constraint** and shaped an integrated response workflow", "color": "#22c55e" }
+    ],
+    "footLine": "Improved acquisition. Measured what happened next. Found the next constraint.",
+    "footNote": "Search and Business Profile figures are measured client results. Ranking and AI-result visibility are point-in-time captures, not guaranteed positions."
+  },
+
+  "capability": {
+    "eyebrow": "The Difference",
+    "title": "More Than a Developer",
+    "subtitle": "Five disciplines most companies hire separately. I use them together, in sequence, on the same problem.",
+    "columns": [
+      { "title": "Build", "icon": "build", "color": "#3D97FF", "items": ["Websites", "Applications", "Internal tools", "Integrations"] },
+      { "title": "Grow", "icon": "grow", "color": "#22d3ee", "items": ["SEO", "Local search", "Landing pages", "Google Ads", "Content strategy"] },
+      { "title": "Measure", "icon": "measure", "color": "#f59e0b", "items": ["Analytics", "Search Console", "Attribution", "Conversion tracking", "Funnel analysis"] },
+      { "title": "Connect", "icon": "connect", "color": "#22c55e", "items": ["CRM", "Lead capture", "Call tracking", "Follow-up", "Automation"] },
+      { "title": "Improve", "icon": "improve", "color": "#a78bfa", "items": ["AI workflows", "Business processes", "Internal systems", "Customer experience"] }
+    ],
+    "note": "These aren't five separate interests. **They're one loop.** Build something, get it found, measure what happens, connect it to the rest of the business, then use the evidence to decide what to improve next."
+  },
+
+  "caseStudy": {
+    "eyebrow": "Featured Case Study · Identity Withheld",
+    "title": "From a Website Problem to a",
+    "titleAccent": "Revenue-System Problem.",
+    "lede": "An established service business needed to be found online. Following that problem honestly — all the way down the funnel — ended somewhere entirely different from where it started.",
+    "blocks": [
+      {
+        "heading": "The starting environment",
+        "paragraphs": [
+          "Limited marketing infrastructure, limited existing assets, incomplete service information and no dedicated digital marketing function. Downstream sales and operational processes sat outside my direct authority."
+        ],
+        "chips": ["Worked independently", "Ambiguity tolerance", "Self-directed research", "Cross-functional operation", "Influence without authority"]
+      },
+      {
+        "heading": "What I did",
+        "paragraphs": [
+          "Built the website, then a dedicated service-page strategy targeting the specific commercial work the business wanted. Improved local SEO and the Google Business Profile. Added analytics and attribution so lead volume and source became measurable, then lead and call tracking on top of that.",
+          "Every stage was chosen by what the previous stage's data revealed — **not by a predefined scope.**"
+        ]
+      }
+    ],
+    "pivot": {
+      "heading": "The discovery",
+      "text": "Once acquisition improved and better measurement was in place, call data exposed a major downstream lead-handling problem. **More traffic was no longer the only constraint.**",
+      "from": "“How do we generate more leads?”",
+      "to": "“What happens to the leads after we generate them?”"
+    },
+    "afterBlock": {
+      "heading": "Where that pushed the work",
+      "paragraphs": [
+        "Attribution, CRM structure, call tracking, notifications, reminders, follow-up automation and pipeline thinking. The engagement stopped being a marketing project and became a revenue-operations one."
+      ]
+    },
+    "ctaLabel": "View Full Case Study",
+    "ctaHref": "/work/service-business-growth-case-study",
+    "secondaryCtaLabel": "Request Evidence Package",
+    "secondaryCtaHref": "mailto:hello@all8webworks.com?subject=Anonymized%20case%20study%20evidence%20request",
+    "chain": {
+      "title": "following the funnel down",
+      "steps": [
+        { "label": "Website", "color": "#3D97FF" },
+        { "label": "Service-page strategy", "color": "#3D97FF" },
+        { "label": "Local SEO", "color": "#22d3ee" },
+        { "label": "Google Business Profile", "color": "#22d3ee" },
+        { "label": "Analytics & attribution", "color": "#f59e0b" },
+        { "label": "Lead tracking", "color": "#f59e0b" },
+        { "label": "Call analysis", "color": "#22c55e" },
+        { "label": "CRM & follow-up systems", "color": "#22c55e" }
+      ],
+      "resultsHeading": "Captured results",
+      "results": [
+        "Google Search clicks grew from **40 to 90+ per rolling 28 days** between March and August 2026",
+        "**+76% YoY** Google Business Profile website clicks",
+        "Non-branded **commercial-intent** search traffic",
+        "Strong local and organic visibility for **targeted services**",
+        "Demonstrated visibility inside **Google AI-generated answers**"
+      ],
+      "evidenceHeading": "Search Console & ranking screenshots",
+      "evidenceNote": "Captured evidence available on request. Rankings and AI-answer visibility are point-in-time captures, not guaranteed positions."
+    }
+  },
+
+  "process": {
+    "eyebrow": "How I Think",
+    "title": "Give Me the Problem, Not Just the Ticket",
+    "subtitle": "The same six steps run whether the output is a website, a workflow, a report or a piece of software.",
+    "steps": [
+      { "title": "Understand", "color": "#3D97FF", "description": "Learn how the business actually works — who buys, who sells, what breaks, who's involved and what everyone is already doing." },
+      { "title": "Investigate", "color": "#3D97FF", "description": "Research the market, customer behaviour, the available data and the systems already in place, including the ones nobody documented." },
+      { "title": "Identify", "color": "#22d3ee", "description": "Find the real constraint or opportunity — which is often not the thing that was originally asked for." },
+      { "title": "Build", "color": "#f59e0b", "description": "Create the website, software, content, workflow or integration that addresses the constraint, at the smallest scope that will prove it out." },
+      { "title": "Measure", "color": "#22c55e", "description": "Instrument it and track what actually happened, not what was supposed to happen." },
+      { "title": "Improve", "color": "#a78bfa", "description": "Use the evidence to find the next bottleneck, then start again one step further down the system." }
+    ],
+    "note": "I'm comfortable working from incomplete information. **Much of my strongest work has come from figuring out what needed to be done** rather than implementing predefined requirements."
+  },
+
+  "background": {
+    "eyebrow": "Background",
+    "title": "I Understand the Business Behind the Software",
+    "paragraphs": [
+      "I didn't learn business operations from a requirements document. **I've spent roughly 20 years around trades, construction, automotive, fleet, equipment and service businesses** — the people, machines, customers, schedules, estimates, delays, missed calls and real-world problems that software is supposed to help with.",
+      "That sits alongside modern web development, software, SEO, digital marketing, automation and AI. When a company describes an operational problem, I've usually seen the physical version of it, not just the ticket describing it."
+    ],
+    "sectorsHeading": "Particularly relevant to",
+    "sectors": ["Construction tech", "Field service SaaS", "Contractor software", "Automotive", "Industrial", "Logistics", "B2B SaaS", "Small-business technology", "Marketing technology"],
+    "equation": {
+      "real": { "heading": "Real-world operations", "body": "20 years around crews, equipment, estimates, dispatch, customers and the way work actually gets scheduled and won." },
+      "technical": { "heading": "Technical systems", "body": "Development, search, analytics, CRM, integrations, automation and AI workflows." },
+      "result": { "heading": "The result", "body": "Solutions built for how the business runs — not just for how the spec was written." }
+    }
+  },
+
+  "projects": {
+    "eyebrow": "Selected Work",
+    "title": "Four Projects, Four Different Proofs",
+    "subtitle": "Each one exists because a business problem needed something built. Problem, what I built, what it demonstrates.",
+    "cards": [
+      {
+        "name": "Service-Business Growth System",
+        "kind": "Anonymized client work",
+        "href": "/work/service-business-growth-case-study",
+        "linkLabel": "Read the case study",
+        "color": "#3D97FF",
+        "role": "Growth, SEO and lead-system build for a local excavation company",
+        "problem": "Effectively invisible for the commercial work the business wanted, with no way to tell where any lead came from.",
+        "built": "Website, targeted service pages, local SEO and Business Profile work, then analytics, attribution, call tracking and follow-up systems.",
+        "proves": "I can **own an outcome end to end** in an ambiguous environment and keep following the problem past my original scope.",
+        "tags": ["Web Development", "SEO", "Analytics", "Lead Systems", "RevOps"]
+      },
+      {
+        "name": "ALL8 Webworks",
+        "kind": "Own venture",
+        "href": "/",
+        "linkLabel": "View ALL8 Webworks",
+        "color": "#22d3ee",
+        "role": "Service-business lead-system platform and my own testing environment",
+        "problem": "Service businesses buy websites when what they actually lose is leads, somewhere between the search and the signed job.",
+        "built": "The positioning, the site, the conversion architecture, the SEO structure and the acquisition approach behind it.",
+        "proves": "**Commercial judgement** — I can define an offer, build the thing that sells it, and be accountable for whether it works.",
+        "tags": ["Positioning", "Conversion Design", "SEO", "Acquisition", "Business Strategy"]
+      },
+      {
+        "name": "Estivor",
+        "kind": "Product",
+        "color": "#f59e0b",
+        "role": "Trade-focused estimating and contractor workflow software",
+        "problem": "Contractors quote in spreadsheets and memory, then lose margin and follow-up between the estimate and the job.",
+        "built": "Next.js application, estimating and workflow architecture, CRM model, AI assistance and third-party integrations.",
+        "proves": "**Product thinking on real domain knowledge** — software designed around how contractors actually price and win work.",
+        "tags": ["Next.js", "SaaS Architecture", "CRM / Workflow", "AI", "Integrations"]
+      },
+      {
+        "name": "ScoutChase",
+        "kind": "Product",
+        "color": "#a78bfa",
+        "role": "AI-assisted prospecting and sales workflow tool",
+        "problem": "Prospecting eats the day: research, qualification and follow-up are manual, repetitive and easy to drop.",
+        "built": "AI-assisted research and qualification workflow, pipeline model, automation logic and a deliberately simple interface over it.",
+        "proves": "**I can apply AI to a real workflow** rather than bolt a chat box onto a product.",
+        "tags": ["AI Product Design", "Sales Workflow", "Automation", "UX Simplification", "Architecture"]
+      }
+    ]
+  },
+
+  "skills": {
+    "eyebrow": "Capability",
+    "title": "Organized by What It's For",
+    "columns": [
+      { "title": "Software & Web", "color": "#3D97FF", "items": ["React", "Next.js", "TypeScript", "JavaScript", "Node.js", "WordPress", "APIs", "Responsive development"] },
+      { "title": "Search & Growth", "color": "#22d3ee", "items": ["SEO", "Local SEO", "AEO / AI search", "Google Business Profile", "Landing pages", "Content architecture", "Google Ads"] },
+      { "title": "Analytics", "color": "#f59e0b", "items": ["GA4", "Google Search Console", "Conversion tracking", "Attribution", "Funnel analysis"] },
+      { "title": "Systems", "color": "#22c55e", "items": ["CRM", "Lead tracking", "Call workflows", "Automation", "APIs", "Integrations"] },
+      { "title": "AI", "color": "#a78bfa", "items": ["LLM workflows", "AI-assisted development", "Automation", "Agent concepts", "AI-enabled products"] }
+    ]
+  },
+
+  "valueForYou": {
+    "eyebrow": "Where I Can Create Value",
+    "title": "What I Could Do For Your Company",
+    "subtitle": "If any of these sound like a problem you currently have, that's the conversation.",
+    "rows": [
+      { "q": "Your website generates traffic but not enough leads", "a": "I investigate search intent, UX, conversion paths, tracking and landing pages — and find out which of them is actually costing you the conversion." },
+      { "q": "Your marketing data is disconnected", "a": "I connect acquisition, analytics, calls, forms and CRM activity so you can trace a closed deal back to what produced it." },
+      { "q": "Your team has repetitive manual workflows", "a": "I identify where automation or AI removes the manual work without removing the judgement, then build it." },
+      { "q": "You have an idea but no clear technical plan", "a": "I turn an ambiguous business problem into a practical system — scoped small enough to prove and large enough to matter." },
+      { "q": "You need someone who can cross departments", "a": "I'm comfortable operating between development, marketing, sales and operations, and translating between them." }
+    ]
+  },
+
+  "fit": {
+    "eyebrow": "Roles",
+    "title": "Where I Fit Best",
+    "subtitle": "I'm particularly interested in roles involving some combination of:",
+    "roles": ["Web Developer / Marketing Web Developer", "Growth Engineer / Web Growth Engineer", "Marketing Technology / Technical Marketing"],
+    "thread": {
+      "heading": "The connecting thread",
+      "lead": "Using technology to solve customer-acquisition and business-operation problems.",
+      "body": "Every one of those titles is the same job from a different department's point of view. I'd rather be measured on whether the business problem got solved than on which team the work sat in."
+    }
+  },
+
+  "finalCta": {
+    "eyebrow": "Let's Talk",
+    "title": "Have a Business Problem",
+    "titleAccent": "That Needs a Technical Brain?",
+    "subtitle": "I'm looking for a full-time role where I can combine technical execution, business understanding and growth thinking to solve meaningful problems. Send me the problem — I'll tell you honestly whether I'm the right person for it.",
+    "primary": { "label": "Contact Matt", "href": "mailto:hello@all8webworks.com?subject=Opportunity%20for%20Matt" },
+    "secondary": { "label": "Request Resume", "href": "mailto:hello@all8webworks.com?subject=Resume%20request" },
+    "tertiary": { "label": "View LinkedIn", "href": "https://www.linkedin.com/in/matthew-mclennan-dev/" },
+    "micro": "Ontario, Canada · Eastern Time · Open to remote, hybrid and relocation-friendly conversations",
+    "microLink": { "label": "Request the full evidence package →", "href": "mailto:hello@all8webworks.com?subject=Evidence%20package%20request" }
+  }
+}

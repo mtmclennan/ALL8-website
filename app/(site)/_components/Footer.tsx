@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Facebook, Linkedin } from "lucide-react";
 
 import Logo from "./Logo";
@@ -26,8 +27,44 @@ const COMPANY = [
 ];
 
 export default function Footer() {
+  const pathname = usePathname();
   const { openModal } = useLeadModal();
   const telHref = toTelHref(siteConfig.phone);
+
+  if (pathname.startsWith("/hire-matt")) {
+    return (
+      <footer className="border-t border-white/[0.08] bg-[#070A12]">
+        <div className="mx-auto flex max-w-[1160px] flex-col gap-4 px-6 py-8 text-sm text-white/50 sm:flex-row sm:items-center sm:justify-between sm:px-10">
+          <p>
+            &copy; {new Date().getFullYear()} Matt McLennan · Ontario, Canada
+          </p>
+          <div className="flex flex-wrap gap-5">
+            <a
+              className="hover:text-white"
+              data-cta="hire-footer-email"
+              data-cta-event="hire_contact_click"
+              href="mailto:hello@all8webworks.com?subject=Opportunity%20for%20Matt"
+            >
+              Email
+            </a>
+            <a
+              className="hover:text-white"
+              data-cta="hire-footer-linkedin"
+              data-cta-event="hire_linkedin_click"
+              href="https://www.linkedin.com/in/matthew-mclennan-dev/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              LinkedIn
+            </a>
+            <Link className="hover:text-white" href="/">
+              ALL8 Webworks
+            </Link>
+          </div>
+        </div>
+      </footer>
+    );
+  }
 
   return (
     <footer className="border-t border-white/[0.08] bg-[#070A12]">

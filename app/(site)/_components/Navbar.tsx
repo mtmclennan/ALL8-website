@@ -43,6 +43,56 @@ const Navbar = () => {
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [menuOpen]);
 
+  if (pathname.startsWith("/hire-matt")) {
+    return (
+      <header
+        className={clsx(
+          "fixed left-0 right-0 top-0 z-[200] border-b border-white/[0.08] transition-colors",
+          scrolled ? "bg-background/92 backdrop-blur-2xl" : "bg-background/75",
+        )}
+      >
+        <div className="mx-auto flex h-[68px] max-w-[1160px] items-center gap-5 px-6 sm:px-10">
+          <Link className="flex items-center gap-3" href="/hire-matt">
+            <Logo size="sm" variant="horizontal" />
+            <span className="hidden border-l border-white/[0.14] pl-3 text-sm font-bold text-white/70 sm:inline">
+              Matt McLennan
+            </span>
+          </Link>
+          <nav aria-label="Hire Matt" className="ml-auto">
+            <ul className="flex items-center gap-4 text-sm font-semibold sm:gap-6">
+              <li className="max-[520px]:hidden">
+                <Link
+                  className="text-white/70 hover:text-white"
+                  href="/hire-matt#projects"
+                >
+                  Work
+                </Link>
+              </li>
+              <li className="max-[520px]:hidden">
+                <Link
+                  className="text-white/70 hover:text-white"
+                  href="/work/service-business-growth-case-study"
+                >
+                  Case study
+                </Link>
+              </li>
+              <li>
+                <a
+                  className="inline-flex min-h-11 items-center rounded-full bg-accent-blue px-4 py-2 font-bold text-white hover:bg-[#1e8bff]"
+                  data-cta="hire-nav-contact"
+                  data-cta-event="hire_contact_click"
+                  href="mailto:hello@all8webworks.com?subject=Opportunity%20for%20Matt"
+                >
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+    );
+  }
+
   const telHref = toTelHref(siteConfig.phone);
 
   return (

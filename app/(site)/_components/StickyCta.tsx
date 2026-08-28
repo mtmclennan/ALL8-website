@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Phone } from "lucide-react";
 import clsx from "clsx";
 
@@ -16,6 +17,7 @@ import { toTelHref } from "@/lib/utils/phone";
  * `#hero`/`#cta` (most non-homepage routes, for now) simply never trigger it.
  */
 export default function StickyCta() {
+  const pathname = usePathname();
   const { isOpen, openModal } = useLeadModal();
   const [heroPassed, setHeroPassed] = useState(false);
   const [ctaVisible, setCtaVisible] = useState(false);
@@ -48,6 +50,8 @@ export default function StickyCta() {
 
   const show = heroPassed && !ctaVisible && !isOpen;
   const telHref = toTelHref(siteConfig.phone);
+
+  if (pathname.startsWith("/hire-matt")) return null;
 
   return (
     <div
