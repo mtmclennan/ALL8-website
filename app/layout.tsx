@@ -22,10 +22,9 @@ import { site, siteUrl } from "@/config/site.config";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
-  title:
-    "High-Performance Websites for Contractors & Service Businesses | ALL8 Webworks",
+  title: "Lead Systems for Service Businesses | ALL8 Webworks",
   description:
-    "ALL8 Webworks creates high-performance websites for contractors and service pros—built for speed, SEO, and conversions to fuel real business growth.",
+    "ALL8 Webworks helps service businesses get found, get contacted, respond faster, and win more work with connected lead-generation systems.",
   openGraph: {
     type: "website",
     url: siteUrl(),
@@ -65,8 +64,7 @@ export default function RootLayout({
   // also fail an all-repeated-character check like XXXXX/000000/YYYYYYY.
   const rawGtmId = process.env.NEXT_PUBLIC_GTM_ID ?? "";
   const gtmIdMatch = /^GTM-([A-Z0-9]+)$/.exec(rawGtmId);
-  const gtmId =
-    gtmIdMatch && !/^(.)\1*$/.test(gtmIdMatch[1]) ? rawGtmId : null;
+  const gtmId = gtmIdMatch && !/^(.)\1*$/.test(gtmIdMatch[1]) ? rawGtmId : null;
   // Server-only var (no NEXT_PUBLIC_ prefix needed — read here, on the
   // server, and passed down as a prop; this was previously read as
   // NEXT_PUBLIC_HS_PORTAL_ID, which is never set, so the HubSpot script
