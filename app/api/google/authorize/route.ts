@@ -1,5 +1,5 @@
-import { NextResponse } from 'next/server';
-import { google } from 'googleapis';
+import { NextResponse } from "next/server";
+import { google } from "googleapis";
 
 function getOAuth2() {
   const clientId = process.env.GOOGLE_CLIENT_ID;
@@ -8,7 +8,7 @@ function getOAuth2() {
 
   if (!clientId || !clientSecret || !redirectUri) {
     throw new Error(
-      'Missing GOOGLE_CLIENT_ID / GOOGLE_CLIENT_SECRET / GOOGLE_REDIRECT_URI',
+      "Missing GOOGLE_CLIENT_ID / GOOGLE_CLIENT_SECRET / GOOGLE_REDIRECT_URI",
     );
   }
 
@@ -19,9 +19,9 @@ export async function GET() {
   const oauth2 = getOAuth2();
 
   const authUrl = oauth2.generateAuthUrl({
-    access_type: 'offline',
-    prompt: 'consent',
-    scope: ['https://www.googleapis.com/auth/spreadsheets'],
+    access_type: "offline",
+    prompt: "consent",
+    scope: ["https://www.googleapis.com/auth/spreadsheets"],
   });
 
   return NextResponse.redirect(authUrl);

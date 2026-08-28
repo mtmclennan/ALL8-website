@@ -64,7 +64,6 @@ export function Section({
 
   return (
     <section
-      id={id}
       className={clsx(
         !noPad && basePad,
         tones[tone],
@@ -72,6 +71,7 @@ export function Section({
         "relative isolate",
         className,
       )}
+      id={id}
     >
       {/* alert visual overlay (self-contained now) */}
       {isAlert && (

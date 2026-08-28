@@ -6,24 +6,24 @@ export type HubSpotFormPayload = {
   website?: string;
 
   projectType:
-    | 'tuneup'
-    | 'website'
-    | 'gmb'
-    | 'ads'
-    | 'integrations'
-    | 'maintenance'
-    | 'local-seo';
+    | "tuneup"
+    | "website"
+    | "gmb"
+    | "ads"
+    | "integrations"
+    | "maintenance"
+    | "local-seo";
 
-  goal: 'seo' | 'ads' | 'calls' | 'trust' | 'other';
-  timeline: 'asap' | '1-2w' | '1-2m' | '3m+' | 'exploring';
+  goal: "seo" | "ads" | "calls" | "trust" | "other";
+  timeline: "asap" | "1-2w" | "1-2m" | "3m+" | "exploring";
   budget:
-    | 'planning'
-    | '2-3k'
-    | '3-5k'
-    | '5-10k'
-    | '750-950'
-    | '10k+'
-    | '150-300mo';
+    | "planning"
+    | "2-3k"
+    | "3-5k"
+    | "5-10k"
+    | "750-950"
+    | "10k+"
+    | "150-300mo";
 
   notes: string;
 
@@ -48,34 +48,37 @@ export async function submitToHubSpotForm(
   const token = process.env.HUBSPOT_TOKEN?.trim();
 
   const url = `https://api.hsforms.com/submissions/v3/integration/secure/submit/${portalId}/${formGuid}`;
+
   if (!portalId || !formGuid) {
-    console.warn('[HubSpot] Missing portalId/formGuid; skipping submit.');
+    console.warn("[HubSpot] Missing portalId/formGuid; skipping submit.");
+
     return;
   }
 
   const fields = [
-    { name: 'email', value: data.email },
-    { name: 'firstname', value: data.name },
-    { name: 'company', value: data.company ?? '' },
-    { name: 'website', value: data.website ?? '' },
-    { name: 'all8_project_type', value: data.projectType },
-    { name: 'all8_primary_goal', value: data.goal },
-    { name: 'all8_timeline', value: data.timeline },
-    { name: 'all8_budget_range', value: data.budget },
-    { name: 'all8_notes', value: data.notes },
+    { name: "email", value: data.email },
+    { name: "firstname", value: data.name },
+    { name: "company", value: data.company ?? "" },
+    { name: "website", value: data.website ?? "" },
+    { name: "all8_project_type", value: data.projectType },
+    { name: "all8_primary_goal", value: data.goal },
+    { name: "all8_timeline", value: data.timeline },
+    { name: "all8_budget_range", value: data.budget },
+    { name: "all8_notes", value: data.notes },
     ...(data.utm_source
-      ? [{ name: 'utm_source', value: data.utm_source }]
+      ? [{ name: "utm_source", value: data.utm_source }]
       : []),
     ...(data.utm_medium
-      ? [{ name: 'utm_medium', value: data.utm_medium }]
+      ? [{ name: "utm_medium", value: data.utm_medium }]
       : []),
     ...(data.utm_campaign
-      ? [{ name: 'utm_campaign', value: data.utm_campaign }]
+      ? [{ name: "utm_campaign", value: data.utm_campaign }]
       : []),
   ];
 
   // build context piecemeal
   const context: Record<string, any> = {};
+
   if (data.pageUrl) context.pageUri = data.pageUrl;
   if (data.pageName) context.pageName = data.pageName;
   // only pass hutk if non-empty and looks like a token
@@ -83,6 +86,7 @@ export async function submitToHubSpotForm(
     context.hutk = data.hutk;
 
   const body: any = { fields };
+
   if (Object.keys(context).length) body.context = context;
 
   if (process.env.HS_CONSENT_TEXT) {
@@ -99,7 +103,7 @@ export async function submitToHubSpotForm(
                     process.env.HS_SUBSCRIPTION_ID_MARKETING,
                   ),
                   text:
-                    process.env.HS_COMM_TEXT || 'I agree to receive updates.',
+                    process.env.HS_COMM_TEXT || "I agree to receive updates.",
                 },
               ]
             : [],
@@ -110,14 +114,15 @@ export async function submitToHubSpotForm(
   // one simple retry on 429/5xx
   for (let attempt = 0; attempt < 2; attempt++) {
     const res = await fetch(url, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(body),
-      cache: 'no-store',
+      cache: "no-store",
     });
+
     if (res.ok || res.status === 204) return;
     if (![429, 500, 502, 503, 504].includes(res.status)) {
       throw new Error(
@@ -126,5 +131,5 @@ export async function submitToHubSpotForm(
     }
     await new Promise((r) => setTimeout(r, 600)); // backoff then retry
   }
-  throw new Error('[HubSpot] Submit failed after retry.');
+  throw new Error("[HubSpot] Submit failed after retry.");
 }

@@ -29,7 +29,7 @@
 // }
 // lib/integrations/hubspot/client.ts
 
-export type HSInit = Omit<RequestInit, 'headers'> & {
+export type HSInit = Omit<RequestInit, "headers"> & {
   token?: string; // optional override
   headers?: Record<string, string>; // extra headers
   retries?: number; // default 2 (total tries = retries+1)
@@ -59,7 +59,7 @@ export class HubSpotError extends Error {
       init.message;
 
     super(`[HS] ${init.status} ${init.statusText} ${hsMsg}`.trim());
-    this.name = 'HubSpotError';
+    this.name = "HubSpotError";
     this.status = init.status;
     this.statusText = init.statusText;
     this.bodyText = init.bodyText;
@@ -76,7 +76,7 @@ export class HubSpotError extends Error {
   }
 }
 
-const BASE = 'https://api.hubapi.com';
+const BASE = "https://api.hubapi.com";
 
 /** Sleep helper */
 function delay(ms: number) {
@@ -85,24 +85,28 @@ function delay(ms: number) {
 
 /** Parse Retry-After header in seconds (int) → ms */
 function parseRetryAfterMs(h: Headers): number | undefined {
-  const v = h.get('retry-after');
+  const v = h.get("retry-after");
+
   if (!v) return undefined;
   const secs = Number(v);
+
   return Number.isFinite(secs) ? Math.max(0, secs * 1000) : undefined;
 }
 
 /** Build URL with optional query params */
 export function hsUrl(
   path: string,
-  query?: Record<string, string | number | boolean | undefined>
+  query?: Record<string, string | number | boolean | undefined>,
 ) {
-  const url = new URL(path.startsWith('http') ? path : `${BASE}${path}`);
+  const url = new URL(path.startsWith("http") ? path : `${BASE}${path}`);
+
   if (query) {
     for (const [k, v] of Object.entries(query)) {
       if (v === undefined) continue;
       url.searchParams.set(k, String(v));
     }
   }
+
   return url.toString();
 }
 
@@ -123,10 +127,10 @@ export async function HS(path: string, init: HSInit = {}) {
     ...rest
   } = init;
 
-  const url = path.startsWith('http') ? path : `${BASE}${path}`;
+  const url = path.startsWith("http") ? path : `${BASE}${path}`;
   const h: Record<string, string> = {
     Authorization: `Bearer ${token}`,
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json",
     ...(headers ?? {}),
   };
 
@@ -141,7 +145,7 @@ export async function HS(path: string, init: HSInit = {}) {
       const res = await fetch(url, {
         ...rest,
         headers: h,
-        cache: 'no-store',
+        cache: "no-store",
         signal: controller.signal,
       });
 
@@ -150,8 +154,9 @@ export async function HS(path: string, init: HSInit = {}) {
       if (res.ok) return res;
 
       // Non-OK: parse body text + JSON if possible
-      const bodyText = await res.text().catch(() => '');
+      const bodyText = await res.text().catch(() => "");
       let bodyJSON: any | undefined;
+
       try {
         bodyJSON = bodyText ? JSON.parse(bodyText) : undefined;
       } catch {
@@ -170,6 +175,7 @@ export async function HS(path: string, init: HSInit = {}) {
       if (err.isRetryable && attempt < retries) {
         const retryAfter = parseRetryAfterMs(res.headers);
         const backoff = retryAfter ?? 300 * Math.pow(2, attempt); // 300ms, 600ms, 1200ms…
+
         await delay(backoff);
         attempt++;
         lastErr = err;
@@ -182,14 +188,15 @@ export async function HS(path: string, init: HSInit = {}) {
       clearTimeout(timeout);
 
       // If fetch/abort/network error: retry a couple times
-      const isAbort = e?.name === 'AbortError';
+      const isAbort = e?.name === "AbortError";
       const isNetwork =
-        e?.code === 'ECONNRESET' ||
-        e?.code === 'ENOTFOUND' ||
-        e?.code === 'EAI_AGAIN';
+        e?.code === "ECONNRESET" ||
+        e?.code === "ENOTFOUND" ||
+        e?.code === "EAI_AGAIN";
 
       if ((isAbort || isNetwork) && attempt < retries) {
         const backoff = 300 * Math.pow(2, attempt);
+
         await delay(backoff);
         attempt++;
         lastErr = e;
@@ -201,13 +208,15 @@ export async function HS(path: string, init: HSInit = {}) {
   }
 
   // Shouldn’t happen but keeps TS happy
-  throw lastErr ?? new Error('[HS] Unknown error');
+  throw lastErr ?? new Error("[HS] Unknown error");
 }
 
 /** Convenience: ensure 2xx and return parsed JSON (or undefined on 204) */
 export async function HSjson<T = any>(path: string, init: HSInit = {}) {
   const res = await HS(path, init);
+
   if (res.status === 204) return undefined as T;
+
   return (await res.json()) as T;
 }
 
@@ -215,13 +224,15 @@ export async function HSjson<T = any>(path: string, init: HSInit = {}) {
 export async function HSok(
   path: string,
   init: HSInit = {},
-  logErrors = true
+  logErrors = true,
 ): Promise<boolean> {
   try {
     await HS(path, init);
+
     return true;
   } catch (e) {
-    if (logErrors) console.error('[HSok]', e);
+    if (logErrors) console.error("[HSok]", e);
+
     return false;
   }
 }

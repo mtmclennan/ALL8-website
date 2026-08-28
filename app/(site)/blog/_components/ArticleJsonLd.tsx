@@ -1,6 +1,7 @@
-import { urlFor } from '@/app/studio/sanity/lib/image';
-import type { SinglePost } from '@/app/(site)/blog/[slug]/BlogPost';
-import { site, siteUrl } from '@/config/site.config';
+import type { SinglePost } from "@/app/(site)/blog/[slug]/BlogPost";
+
+import { urlFor } from "@/app/studio/sanity/lib/image";
+import { site, siteUrl } from "@/config/site.config";
 
 type ArticleJsonLdProps = {
   post: SinglePost;
@@ -8,29 +9,29 @@ type ArticleJsonLdProps = {
 };
 
 type BlogPostingJsonLd = {
-  '@context': 'https://schema.org';
-  '@type': 'BlogPosting';
+  "@context": "https://schema.org";
+  "@type": "BlogPosting";
   headline?: string;
   description?: string;
   image?: string[];
   datePublished?: string;
   dateModified?: string;
   author: {
-    '@type': 'Person' | 'Organization';
+    "@type": "Person" | "Organization";
     name: string;
   };
   publisher: {
-    '@type': 'Organization';
-    '@id': string;
+    "@type": "Organization";
+    "@id": string;
     name: string;
     logo?: {
-      '@type': 'ImageObject';
+      "@type": "ImageObject";
       url: string;
     };
   };
   mainEntityOfPage: {
-    '@type': 'WebPage';
-    '@id': string;
+    "@type": "WebPage";
+    "@id": string;
   };
   articleSection?: string;
 };
@@ -40,7 +41,7 @@ function absoluteUrl(pathOrUrl: string) {
 }
 
 function safeJsonLd(data: BlogPostingJsonLd) {
-  return JSON.stringify(data).replace(/</g, '\\u003c');
+  return JSON.stringify(data).replace(/</g, "\\u003c");
 }
 
 export default function ArticleJsonLd({ post, slug }: ArticleJsonLdProps) {
@@ -49,46 +50,46 @@ export default function ArticleJsonLd({ post, slug }: ArticleJsonLdProps) {
     ? urlFor(post.coverImage)
         .width(1200)
         .height(630)
-        .fit('crop')
-        .format('jpg')
+        .fit("crop")
+        .format("jpg")
         .url()
     : absoluteUrl(site.defaultOgImage);
 
   const schema: BlogPostingJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
     headline: post.seo?.metaTitle || post.title,
     description: post.seo?.metaDescription || post.excerpt,
     image: image ? [image] : undefined,
     datePublished: post.publishedAt,
     dateModified: post.updatedAt || post._updatedAt || post.publishedAt,
     author: {
-      '@type': post.author?.name ? 'Person' : 'Organization',
+      "@type": post.author?.name ? "Person" : "Organization",
       name: post.author?.name || site.name,
     },
     publisher: {
-      '@type': 'Organization',
-      '@id': `${siteUrl()}/#organization`,
+      "@type": "Organization",
+      "@id": `${siteUrl()}/#organization`,
       name: site.name,
       logo: site.defaultOgImage
         ? {
-            '@type': 'ImageObject',
+            "@type": "ImageObject",
             url: absoluteUrl(site.defaultOgImage),
           }
         : undefined,
     },
     mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': canonical,
+      "@type": "WebPage",
+      "@id": canonical,
     },
     articleSection: post.categories?.[0]?.title,
   };
 
   return (
     <script
+      dangerouslySetInnerHTML={{ __html: safeJsonLd(schema) }}
       id="blog-posting-jsonld"
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: safeJsonLd(schema) }}
     />
   );
 }

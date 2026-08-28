@@ -19,8 +19,8 @@ export default function Reveal({
 
   return (
     <motion.div
-      id={id}
       className={className}
+      id={id}
       initial={prefersReduced ? false : { opacity: 0, y: 24 }}
       transition={{
         duration: 0.55,

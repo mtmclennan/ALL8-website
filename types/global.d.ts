@@ -1,4 +1,4 @@
-declare module '*.css';
+declare module "*.css";
 
 declare const grecaptcha: {
   ready(cb: () => void): void;
