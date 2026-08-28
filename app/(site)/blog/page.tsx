@@ -17,20 +17,20 @@ export const revalidate = 3600;
 export async function generateMetadata() {
   const page = await sanity.fetch(blogPageQuery);
   const canonical = `${siteUrl()}/blog`;
+  const title =
+    "Field Notes on Lead Systems for Service Businesses | ALL8 WEBWORKS";
+  const description =
+    "Practical guidance on local visibility, websites, lead handling, follow-up, CRM and attribution for service businesses.";
 
   return {
-    title:
-      page?.title ??
-      "Field Notes on Lead Systems for Service Businesses | ALL8 WEBWORKS",
-    description:
-      page?.description ??
-      "Practical writing for service business owners on getting found, getting contacted, following up and knowing what works. No growth hacks, no guru talk.",
+    title,
+    description,
     alternates: { canonical },
     openGraph: {
       type: "website",
       url: canonical,
-      title: page?.title,
-      description: page?.description,
+      title,
+      description,
       images: [
         page?.ogImage
           ? {

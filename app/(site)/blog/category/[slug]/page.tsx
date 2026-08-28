@@ -92,9 +92,9 @@ function getServiceCta(category: CategoryArchive) {
 
   return (
     CATEGORY_SERVICE_CTA[slug] ?? {
-      href: "/services/lead-generation-websites",
-      label: "Book a Website Review",
-      highlight: "better",
+      href: "/services",
+      label: "Explore the Lead System",
+      highlight: "connected",
     }
   );
 }
@@ -131,6 +131,10 @@ export async function generateMetadata({
     alternates: {
       canonical: `${siteUrl()}/blog/category/${slug}`,
     },
+    robots:
+      (category.posts?.length ?? 0) < 3
+        ? { index: false, follow: true }
+        : undefined,
   };
 }
 
@@ -180,10 +184,10 @@ export default async function BlogCategoryPage({
         ctaHref={cta.href}
         ctaLabel={cta.label}
         highlight={cta.highlight}
-        microText="No long contracts - Clear reporting - Built for local service businesses"
-        subtitle={`Turn ${category.title ?? "blog"} insights into a faster, clearer website that helps more visitors become real inquiries.`}
-        titlePrefix="Ready to make this work "
-        titleSuffix="on your site?"
+        microText="Clear recommendations - Fixed scope before work begins"
+        subtitle={`Turn ${category.title ?? "these"} insights into a connected path from visibility to response, follow-up and measurement.`}
+        titlePrefix="Ready to put this "
+        titleSuffix="into practice?"
       />
     </>
   );

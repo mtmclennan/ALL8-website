@@ -65,6 +65,14 @@ export default function BlogPost({ post }: BlogPostProps) {
 
   const components: PortableTextComponents = {
     block: {
+      h1: ({ children, value }) => (
+        <h2
+          className="mb-[18px] mt-[52px] scroll-mt-24 text-[clamp(25px,2.6vw,32px)] font-extrabold leading-[1.16] tracking-[-.024em]"
+          id={slugify(getBlockText(value as Block))}
+        >
+          {children}
+        </h2>
+      ),
       h2: ({ children, value }) => (
         <h2
           className="mb-[18px] mt-[52px] scroll-mt-24 text-[clamp(25px,2.6vw,32px)] font-extrabold leading-[1.16] tracking-[-.024em]"
@@ -141,11 +149,12 @@ export default function BlogPost({ post }: BlogPostProps) {
 
         return (
           <figure className="my-9">
-            <img
+            <Image
               alt={value?.alt || ""}
               className="h-auto w-full rounded-2xl shadow-lg"
-              loading="lazy"
+              height={788}
               src={src}
+              width={1400}
             />
             {value?.caption ? (
               <figcaption className="mt-3 text-sm text-white/40">

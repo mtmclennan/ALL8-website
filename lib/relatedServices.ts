@@ -151,6 +151,52 @@ const KEYWORD_SERVICE_MAP: Array<{
     matches: ["system", "workflow", "tools", "integration"],
     services: ["custom-lead-systems", "crm-sales-pipeline"],
   },
+  {
+    matches: [
+      "missed call",
+      "missed-call",
+      "text-back",
+      "text back",
+      "call routing",
+      "voicemail",
+      "answering service",
+    ],
+    services: ["missed-call-recovery", "lead-follow-up-automation"],
+  },
+  {
+    matches: [
+      "follow-up",
+      "follow up",
+      "quote follow",
+      "estimate",
+      "no-response",
+      "lead handling",
+      "sequence",
+      "reminder",
+    ],
+    services: ["lead-follow-up-automation", "missed-call-recovery"],
+  },
+  {
+    matches: [
+      "crm",
+      "sales pipeline",
+      "pipeline",
+      "lead tracking",
+      "lead management",
+    ],
+    services: ["crm-sales-pipeline", "lead-follow-up-automation"],
+  },
+  {
+    matches: [
+      "call tracking",
+      "attribution",
+      "utm",
+      "lead source",
+      "conversion tracking",
+      "phone tracking",
+    ],
+    services: ["call-tracking-lead-attribution", "google-ads-lead-generation"],
+  },
 ];
 
 function addServices(
