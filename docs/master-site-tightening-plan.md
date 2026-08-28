@@ -74,7 +74,7 @@ Final validation on 2026-08-28:
 
 - `npx tsc --noEmit`: pass.
 - `npx eslint .`: pass with 0 errors and the same 16 integration/logging warnings present at baseline.
-- `npm test`: 4/4 pass.
+- `npm test`: 5/5 pass, including the production-configured missing-CAPTCHA-token regression check.
 - `npm run build`: pass; 50 routes generated.
 - Local crawl: 34 routes, 0 broken internal links, 0 invalid H1 counts, 0 invalid canonicals, 0 malformed JSON-LD blocks.
 - Raw-HTML checks: homepage, services, about, Hire Matt and case study each expose one H1 and crawlable links.
