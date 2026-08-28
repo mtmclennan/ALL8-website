@@ -8,10 +8,11 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { usePathname } from "next/navigation";
 
 import LeadModal from "./LeadModal";
 
-import { trackCtaClick } from "@/lib/analytics/dataLayer";
+import { trackCustomEvent } from "@/lib/analytics/dataLayer";
 
 type LeadModalContextValue = {
   isOpen: boolean;
@@ -32,6 +33,7 @@ export function useLeadModal() {
 }
 
 export function LeadModalProvider({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const lastFocusedRef = useRef<HTMLElement | null>(null);
 
@@ -43,7 +45,7 @@ export function LeadModalProvider({ children }: { children: ReactNode }) {
     // sticky bar, hero/final CTAs, all 9 service pages, blog posts) opens
     // the modal through this one function — instrumenting here covers the
     // primary CTA everywhere without editing each of those ~17 call sites.
-    trackCtaClick("lead_system_review");
+    trackCustomEvent("lead_review_click", "lead_system_review");
     setIsOpen(true);
   }, []);
 
@@ -55,7 +57,9 @@ export function LeadModalProvider({ children }: { children: ReactNode }) {
   return (
     <LeadModalContext.Provider value={{ isOpen, openModal, closeModal }}>
       {children}
-      <LeadModal open={isOpen} onClose={closeModal} />
+      {!pathname.startsWith("/hire-matt") && (
+        <LeadModal open={isOpen} onClose={closeModal} />
+      )}
     </LeadModalContext.Provider>
   );
 }

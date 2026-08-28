@@ -1,15 +1,15 @@
 // app/lib/email/sendEmail.ts
 export default async function sendEmail(payload: Record<string, any>) {
   if (!process.env.BREVO_API_KEY) {
-    throw new Error('Missing BREVO_API_KEY');
+    throw new Error("Missing BREVO_API_KEY");
   }
 
-  const submitted = new Date().toLocaleString('en-CA');
+  const submitted = new Date().toLocaleString("en-CA");
   const logo =
-    process.env.ALL8_LOGO_URL || 'https://placehold.co/220x48?text=ALL8';
+    process.env.ALL8_LOGO_URL || "https://placehold.co/220x48?text=ALL8";
   const from = {
-    email: 'no-reply@all8webworks.com',
-    name: 'ALL8 Webworks',
+    email: "no-reply@all8webworks.com",
+    name: "ALL8 Webworks",
   };
 
   // Build the HTML emails (copied from your current code)
@@ -25,8 +25,8 @@ export default async function sendEmail(payload: Record<string, any>) {
       <table style="width:100%; border-collapse:collapse; font-size:14px">
         <tr><td style="padding:6px 0; width:140px; color:#111827"><strong>Name</strong></td><td>${payload.name}</td></tr>
         <tr><td style="padding:6px 0; color:#111827"><strong>Email</strong></td><td><a href="mailto:${payload.email}" style="color:#0076FF; text-decoration:none">${payload.email}</a></td></tr>
-        <tr><td style="padding:6px 0; color:#111827"><strong>Company</strong></td><td>${payload.company || '—'}</td></tr>
-        <tr><td style="padding:6px 0; color:#111827"><strong>Website</strong></td><td>${payload.website || '—'}</td></tr>
+        <tr><td style="padding:6px 0; color:#111827"><strong>Company</strong></td><td>${payload.company || "—"}</td></tr>
+        <tr><td style="padding:6px 0; color:#111827"><strong>Website</strong></td><td>${payload.website || "—"}</td></tr>
         <tr><td style="padding:6px 0; color:#111827"><strong>Project Type</strong></td><td>${payload.projectType}</td></tr>
         <tr><td style="padding:6px 0; color:#111827"><strong>Goal</strong></td><td>${payload.goal}</td></tr>
         <tr><td style="padding:6px 0; color:#111827"><strong>Timeline</strong></td><td>${payload.timeline}</td></tr>
@@ -34,7 +34,7 @@ export default async function sendEmail(payload: Record<string, any>) {
       </table>
       <div style="margin-top:12px">
         <p style="margin:0; color:#111827"><strong>Notes</strong></p>
-        <p style="margin:6px 0 0">${String(payload.notes || '').replace(/\n/g, '<br>')}</p>
+        <p style="margin:6px 0 0">${String(payload.notes || "").replace(/\n/g, "<br>")}</p>
       </div>
     </div>
     <div style="background:#0B0F1A; color:#fff; padding:16px; text-align:center">
@@ -81,38 +81,46 @@ export default async function sendEmail(payload: Record<string, any>) {
   };
 
   // Send both through Brevo’s transactional email API
-  await Promise.all([
-    fetch('https://api.brevo.com/v3/smtp/email', {
-      method: 'POST',
+  const responses = await Promise.all([
+    fetch("https://api.brevo.com/v3/smtp/email", {
+      method: "POST",
       headers: {
-        accept: 'application/json',
-        'api-key': process.env.BREVO_API_KEY!,
-        'content-type': 'application/json',
+        accept: "application/json",
+        "api-key": process.env.BREVO_API_KEY!,
+        "content-type": "application/json",
       },
       body: JSON.stringify(businessMail),
     }),
-    fetch('https://api.brevo.com/v3/smtp/email', {
-      method: 'POST',
+    fetch("https://api.brevo.com/v3/smtp/email", {
+      method: "POST",
       headers: {
-        accept: 'application/json',
-        'api-key': process.env.BREVO_API_KEY!,
-        'content-type': 'application/json',
+        accept: "application/json",
+        "api-key": process.env.BREVO_API_KEY!,
+        "content-type": "application/json",
       },
       body: JSON.stringify(customerMail),
     }),
   ]);
+
+  const failed = responses.find((response) => !response.ok);
+
+  if (failed) {
+    throw new Error(
+      `[Brevo] Lead notification failed: ${failed.status} ${await failed.text()}`,
+    );
+  }
 }
 
 export async function sendNewsletterConfirmation(email: string) {
   if (!process.env.BREVO_API_KEY) {
-    throw new Error('Missing BREVO_API_KEY');
+    throw new Error("Missing BREVO_API_KEY");
   }
 
   const logo =
-    process.env.ALL8_LOGO_URL || 'https://placehold.co/220x48?text=ALL8';
+    process.env.ALL8_LOGO_URL || "https://placehold.co/220x48?text=ALL8";
   const from = {
-    email: 'no-reply@all8webworks.com',
-    name: 'ALL8 Webworks',
+    email: "no-reply@all8webworks.com",
+    name: "ALL8 Webworks",
   };
 
   const html = `
@@ -132,12 +140,12 @@ export async function sendNewsletterConfirmation(email: string) {
     </div>
   </div>`;
 
-  const res = await fetch('https://api.brevo.com/v3/smtp/email', {
-    method: 'POST',
+  const res = await fetch("https://api.brevo.com/v3/smtp/email", {
+    method: "POST",
     headers: {
-      accept: 'application/json',
-      'api-key': process.env.BREVO_API_KEY!,
-      'content-type': 'application/json',
+      accept: "application/json",
+      "api-key": process.env.BREVO_API_KEY!,
+      "content-type": "application/json",
     },
     body: JSON.stringify({
       sender: from,

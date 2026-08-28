@@ -18,7 +18,10 @@ export function trackPageView(pagePath: string) {
   });
 }
 
-export function trackCtaClick(ctaId: string, extra: Record<string, unknown> = {}) {
+export function trackCtaClick(
+  ctaId: string,
+  extra: Record<string, unknown> = {},
+) {
   push("cta_click", {
     cta_id: ctaId,
     page_path: window.location.pathname,
@@ -30,7 +33,7 @@ export function trackFormStart(
   formLocation: LeadFormLocation,
   leadType = "lead_system_review",
 ) {
-  push("form_start", {
+  push(formLocation === "modal" ? "lead_review_start" : "form_start", {
     form_location: formLocation,
     lead_type: leadType,
     page_path: window.location.pathname,
@@ -61,7 +64,10 @@ export function trackGenerateLead(
   });
 }
 
-export function trackLinkClick(kind: "phone_click" | "email_click" | "sms_click", href: string) {
+export function trackLinkClick(
+  kind: "phone_click" | "email_click" | "sms_click",
+  href: string,
+) {
   push(kind, {
     link_url: href,
     page_path: window.location.pathname,

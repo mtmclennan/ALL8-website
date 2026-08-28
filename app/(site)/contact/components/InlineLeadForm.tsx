@@ -17,10 +17,11 @@ import { trackFormStart, trackGenerateLead } from "@/lib/analytics/dataLayer";
 
 const CHALLENGES = [
   "Getting found",
-  "Getting enough calls/leads",
+  "Not enough leads",
+  "Website isn't converting",
   "Missed calls",
   "Follow-up",
-  "Tracking results",
+  "Tracking",
   "Not sure",
 ];
 
