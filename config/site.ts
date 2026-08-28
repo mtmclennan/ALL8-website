@@ -2,7 +2,8 @@ export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
   name: "All8 Webworks",
-  description: "High-Performance Websites that run on all 8 cylinders",
+  description:
+    "Connected lead-generation systems for service businesses across the United States and Canada.",
   // Contact is deliberately excluded — it competes with the primary conversion (Free Lead System Review).
   navItems: [
     {
@@ -59,7 +60,7 @@ export const siteConfig = {
     },
   ],
   links: {
-    github: "https://github.com/heroui-inc/heroui",
+    github: "",
     twitter: "https://twitter.com",
     facebook: "https://www.facebook.com/profile.php?id=61581617706756",
     linkedin: "https://www.linkedin.com/company/all8-webworks",

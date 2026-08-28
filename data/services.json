@@ -31,7 +31,8 @@
       "title": "What We Build Instead",
       "body": [
         "A website designed around the decision your visitor is actually making, with a clear next step above the fold on every device.",
-        "New builds and reworks of existing sites both start the same way — by looking at what's actually stopping people from calling, then fixing that first."
+        "New builds and reworks of existing sites both start the same way — by looking at what's actually stopping people from calling, then fixing that first.",
+        "This is a subscription, not a one-time project you're left to maintain alone. AI handles most of the build work now, which is why the price looks different than it used to — the launch cost is lower, and the monthly fee keeps the site hosted, updated and actually working instead of quietly decaying six months after launch."
       ]
     },
 
@@ -46,15 +47,15 @@
 
     "included": {
       "standard": [
-        "Website strategy and page structure",
-        "Design and development",
-        "Mobile-first, conversion-focused layout",
-        "Service and location pages where relevant",
-        "Quote and contact forms",
-        "Calls-to-action built around your services",
-        "Technical SEO foundation",
-        "Page speed optimization",
-        "Google Analytics setup"
+        "Custom website build, mobile-first and conversion-focused",
+        "Hosting included",
+        "Ongoing maintenance, security updates and backups",
+        "Reasonable ongoing edits and small changes",
+        "Analytics and conversion tracking",
+        "Quote and contact forms built for lead capture",
+        "Technical and local SEO foundation",
+        "Google Analytics (GA4) and Search Console setup and monitoring",
+        "Ongoing performance monitoring"
       ],
       "addOns": [
         "Landing pages for specific campaigns",
@@ -84,27 +85,30 @@
     },
 
     "pricing": {
-      "label": "From $950 CAD",
-      "note": "Scope depends on whether you need a full rebuild or a focused tune-up of an existing site, and how many service and location pages you need.",
+      "label": "$1,500 USD setup + $299/mo",
+      "note": "One subscription covers the build, hosting, maintenance and reasonable ongoing edits — not a one-time project you're on your own with afterward.",
+      "currency": "USD",
+      "billing": { "setupFee": 1500, "monthly": 299 },
       "tiers": [
-        { "label": "Tune-Up", "price": "From $950 CAD", "description": "A focused upgrade to speed, clarity and lead capture on a site you already have." },
-        { "label": "Full Build", "price": "From $3,000 CAD", "description": "A new website built around your services, service areas and how customers decide." }
+        { "label": "Setup Fee", "price": "$1,500 USD", "description": "One-time — the custom build, forms, tracking and technical/local SEO foundation, live before this closes out." },
+        { "label": "Monthly", "price": "$299 USD/mo", "description": "Hosting, security, backups, reasonable ongoing edits and performance monitoring, for as long as you're subscribed." }
       ]
     },
 
     "faqs": [
-      { "q": "Do I need a completely new website?", "a": "Often no. If the site is structurally sound, a tune-up — fixing speed, calls-to-action, forms and mobile usability — is usually faster and cheaper than a rebuild. We'll tell you which one your site actually needs." },
-      { "q": "Can you work with my existing website?", "a": "Yes. Most of our work starts with an existing site. We keep what's working and fix what's costing you leads." },
-      { "q": "How long does it take?", "a": "A tune-up is typically one to two weeks. A full build is usually three to five weeks depending on the number of pages and how quickly content and access are provided." },
-      { "q": "Do you handle hosting?", "a": "Hosting and ongoing maintenance are a separate service — see Website Care & Optimization — so you're never required to keep paying us just to keep the site online." },
-      { "q": "Will new pages hurt my search rankings?", "a": "We plan URL structure and redirects before launch specifically to avoid this. If pages need to move, the old addresses get redirected." }
+      { "q": "Why is this a subscription instead of a one-time website project?", "a": "AI now handles most of the build work, which changes what a website should cost to launch. The $1,500 setup gets you a live, working site. The $299/month covers hosting, security, backups, reasonable ongoing edits and monitoring — the things a website actually needs to keep working, that used to get sold separately as a maintenance contract most people forgot they were paying for." },
+      { "q": "What happens to my website if I cancel?", "a": "You always own your domain, content and business data — that never depends on staying subscribed. The website itself transfers to you outright after 12 months. Cancel earlier and want to take the code with you, there's a declining buyout: $2,000 in months 1–3, $1,500 in months 4–6, $1,000 in months 7–9, $500 in months 10–11, and $0 from month 12 on. That's not the full amount you've paid in — the monthly fee also covers hosting, maintenance and support along the way, not just a payment toward ownership." },
+      { "q": "Do I need a completely new website, or can you work with what I have?", "a": "Either way, the price and process are the same. Most of our work starts with an existing site — we keep what's working and rebuild what's costing you leads, rather than starting from a blank page by default." },
+      { "q": "Is hosting and maintenance really included, or is that a separate charge later?", "a": "Included, for as long as you're subscribed — that's what the $299/month is for. If you'd rather ALL8 maintain a site we didn't build, that's Website Care & Optimization, priced and scoped separately." },
+      { "q": "How long does it take to launch?", "a": "Typically one to three weeks depending on how many pages you need and how quickly content and access are provided. AI-assisted builds move faster than a traditional from-scratch build, but launch still depends on you." },
+      { "q": "Will this hurt my search rankings if I already have a site?", "a": "We plan URL structure and redirects before launch specifically to avoid this. If pages need to move, the old addresses get redirected." }
     ],
 
     "crossLinks": ["local-seo-google-business-profile", "google-ads-lead-generation", "call-tracking-lead-attribution"],
 
     "seo": {
       "title": "Lead Generation Websites | ALL8 WEBWORKS",
-      "description": "Websites built to turn visitors into calls and quote requests, not just traffic. Mobile-first, fast, and connected to tracking from day one."
+      "description": "AI-assisted lead-generation websites, built and maintained as one subscription — $1,500 to launch, $299/month for hosting, security and ongoing edits."
     }
   },
 
@@ -187,8 +191,9 @@
     },
 
     "pricing": {
-      "label": "From $350 CAD",
-      "note": "This covers Business Profile optimization and the local SEO foundation. Ongoing or expanded local SEO programs are scoped and quoted separately based on how many services and areas you're targeting."
+      "label": "From $497 USD",
+      "note": "This covers Business Profile optimization and the local SEO foundation. Ongoing or expanded local SEO programs are scoped and quoted separately based on how many services and areas you're targeting.",
+      "currency": "USD"
     },
 
     "faqs": [
@@ -287,8 +292,9 @@
     },
 
     "pricing": {
-      "label": "From $650 CAD",
-      "note": "This covers campaign setup, tracking and launch. Ongoing management, if you want it, is a separate recurring arrangement — ad spend itself is always paid directly to Google, not to ALL8."
+      "label": "From $897 USD",
+      "note": "This covers campaign setup, tracking and launch. Ongoing management, if you want it, is a separate recurring arrangement — ad spend itself is always paid directly to Google, not to ALL8.",
+      "currency": "USD"
     },
 
     "faqs": [
@@ -712,7 +718,7 @@
     "slug": "website-care-optimization",
     "title": "Website Care & Optimization",
     "category": "support",
-    "short": "Keep the site secure, fast and online — so the lead system built on top of it keeps working.",
+    "short": "Keep an existing or outside-built website secure, fast and online. Included automatically if ALL8 built your site.",
     "icon": "ShieldCheck",
     "featured": false,
     "priority": 0.6,
@@ -720,7 +726,7 @@
     "hero": {
       "eyebrow": "KEEP IT RUNNING",
       "title": "A Website Isn't a One-Time Project",
-      "subtitle": "Security updates, backups, uptime and performance don't take care of themselves. We keep your site running so the lead-generation system built on top of it — forms, tracking, calls-to-action — keeps working."
+      "subtitle": "Security updates, backups, uptime and performance don't take care of themselves. If ALL8 built your site, this is already included in your monthly subscription — this plan is for keeping an existing or outside-built website running instead."
     },
 
     "problem": {
@@ -783,23 +789,25 @@
     },
 
     "pricing": {
-      "label": "$150 CAD/mo",
-      "note": "Covers the standard scope above. Larger changes or additional work are scoped separately."
+      "label": "$149 USD/mo",
+      "note": "For sites ALL8 didn't build. If you're on the Lead Generation Website subscription, this is already included in your $299/month — no separate charge.",
+      "currency": "USD"
     },
 
     "faqs": [
+      { "q": "Is this included if ALL8 built my website?", "a": "Yes. Hosting, security, backups and reasonable ongoing edits are already part of the Lead Generation Website subscription's $299/month. This page and its pricing are for an existing or outside-built site instead." },
       { "q": "Do I have to use ALL8 hosting?", "a": "In most cases the site is hosted as part of this plan, but the goal is a site you own and control, not one you're locked into keeping with us." },
       { "q": "What counts as a 'small change'?", "a": "Text and image updates, minor layout adjustments, and similar quick changes. Larger redesigns or new pages are scoped as separate work." },
       { "q": "What happens if I cancel?", "a": "You keep the site. There's no long-term contract required to keep what's been built running — though without maintenance, updates and monitoring stop." },
       { "q": "How fast do you respond to something broken?", "a": "Critical issues (site down, forms broken) are treated as priority. Standard change requests are handled within the plan's normal turnaround." },
-      { "q": "Is this required if I have a new website built?", "a": "No, but a website that isn't maintained tends to slow down and become a security risk over time — this is what prevents that." }
+      { "q": "Is this required if I have a site that's already well maintained?", "a": "No, but a website that isn't maintained tends to slow down and become a security risk over time — this is what prevents that." }
     ],
 
     "crossLinks": ["lead-generation-websites", "call-tracking-lead-attribution"],
 
     "seo": {
       "title": "Website Care & Optimization | ALL8 WEBWORKS",
-      "description": "Ongoing security, backups, monitoring and support to keep your website online and working as part of your lead system."
+      "description": "Ongoing security, backups, monitoring and support for an existing or outside-built website. Included automatically if ALL8 built your site."
     }
   },
 

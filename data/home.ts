@@ -50,6 +50,8 @@ export type HomeData = {
       stage: Stage;
       title: string;
       description: string;
+      href: string;
+      linkLabel: string;
       items: string[];
     }[];
     footNote: { prefix: string; linkLabel: string };
@@ -64,7 +66,7 @@ export type HomeData = {
     visual: {
       title: string;
       metrics: { value: string; label: string; stage: Stage }[];
-      rows: { label: string; percent: number; stage: Stage; status: string }[];
+      rows: { label: string; stage: Stage; status: string }[];
       flag: string;
     };
   };

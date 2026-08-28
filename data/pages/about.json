@@ -67,7 +67,7 @@
     "title": "Four Things We Don't Bend On",
     "items": [
       { "n": "01", "title": "Diagnosis before proposal", "body": "We look at the whole path — search, site, forms, phone, follow-up, tracking — before recommending anything. If the highest-impact fix is something we don't sell, we'll say so." },
-      { "n": "02", "title": "Your accounts, your data", "body": "Your domain, content, ad accounts, analytics and customer records stay in your name. We build around assets you control wherever possible, and nothing requires a retainer to keep running." },
+      { "n": "02", "title": "Your accounts, your data", "body": "Your domain, content, ad accounts, analytics and customer records stay in your name. Recurring services are identified clearly, and website code transfer follows the published subscription terms." },
       { "n": "03", "title": "Measured, not asserted", "body": "Call and form tracking goes in early, so the work can be judged on leads and sources rather than impressions and adjectives. It also tells us when we've fixed the wrong thing." },
       { "n": "04", "title": "Use what's already working", "body": "If your team already uses a CRM, quoting tool or scheduling software, we connect to it instead of replacing it. New tools get recommended when the current ones genuinely can't do the job." }
     ]
@@ -97,12 +97,12 @@
     "eyebrow": "Proof, Not Promises",
     "title": "The Numbers Behind That Story",
     "cards": [
-      { "value": "+76%", "em": true, "label": "Website Clicks", "sub": "Google Business Profile, year over year", "icon": "chart" },
-      { "value": "Page One", "em": false, "label": "Service Visibility", "sub": "Dedicated service page", "icon": "search" },
-      { "value": "#1 Local", "em": true, "label": "Maps Visibility", "sub": "High-intent local search", "icon": "pin" }
+      { "value": "40 → 90+", "em": true, "label": "Search Clicks", "sub": "Rolling 28 days, March to August 2026", "icon": "chart" },
+      { "value": "+76%", "em": false, "label": "Profile Website Clicks", "sub": "Google Business Profile, year over year", "icon": "pin" },
+      { "value": "Page One", "em": true, "label": "Captured Visibility", "sub": "Targeted service page, point in time", "icon": "search" }
     ],
     "footNote": "Client identity withheld. Identifying details have been removed, but the underlying search and performance data is real.",
-    "footNoteLink": { "label": "See the full case", "href": "/#proof" }
+    "footNoteLink": { "label": "See the full anonymized case study", "href": "/work/service-business-growth-case-study" }
   },
 
   "finalCta": {

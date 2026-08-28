@@ -114,9 +114,9 @@
     "eyebrow": "Proof, Not Promises",
     "title": "Measured Results, Not Adjectives",
     "cards": [
-      { "value": "+76%", "em": true, "label": "Website Clicks", "sub": "Google Business Profile, year over year", "icon": "chart" },
-      { "value": "Page One", "em": false, "label": "Service Visibility", "sub": "Dedicated service page", "icon": "search" },
-      { "value": "#1 Local", "em": true, "label": "Maps Visibility", "sub": "High-intent local search", "icon": "pin" }
+      { "value": "40 → 90+", "em": true, "label": "Search Clicks", "sub": "Rolling 28 days, March to August 2026", "icon": "chart" },
+      { "value": "+76%", "em": false, "label": "Profile Website Clicks", "sub": "Google Business Profile, year over year", "icon": "pin" },
+      { "value": "Page One", "em": true, "label": "Captured Visibility", "sub": "Targeted service page, point in time", "icon": "search" }
     ],
     "footNote": "These results come from documented client work. Identifying details have been removed, but the underlying search and performance data is real. Improving visibility also revealed the next constraint for that business — missed calls and inconsistent follow-up — which is exactly why the four outcomes above exist as one system."
   },

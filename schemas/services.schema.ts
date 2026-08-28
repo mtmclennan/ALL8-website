@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { z } from "zod";
 
 export const SeoSchema = z.object({
   title: z.string().optional(),
