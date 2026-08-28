@@ -107,7 +107,10 @@ export default function CaseStudy({ data }: { data: CaseStudyData }) {
                         className="flex-shrink-0 rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[.04em]"
                         style={{
                           color: STAGE_HEX[row.stage],
-                          backgroundColor: hexToRgba(STAGE_HEX[row.stage], 0.14),
+                          backgroundColor: hexToRgba(
+                            STAGE_HEX[row.stage],
+                            0.14,
+                          ),
                         }}
                       >
                         {row.status}

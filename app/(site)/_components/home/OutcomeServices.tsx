@@ -24,6 +24,8 @@ type OutcomesData = {
     stage: Stage;
     title: string;
     description: string;
+    href: string;
+    linkLabel: string;
     items: string[];
   }[];
   footNote: { prefix: string; linkLabel: string };
@@ -93,11 +95,10 @@ export default function OutcomeServices({ data }: { data: OutcomesData }) {
                   </ul>
                   <Link
                     className="mt-[22px] inline-flex items-center gap-1.5 text-sm font-bold"
-                    href="/services"
+                    href={card.href}
                     style={{ color: hex }}
                   >
-                    What this involves{" "}
-                    <ArrowRight size={14} strokeWidth={2.5} />
+                    {card.linkLabel} <ArrowRight size={14} strokeWidth={2.5} />
                   </Link>
                 </Card>
               </Reveal>
