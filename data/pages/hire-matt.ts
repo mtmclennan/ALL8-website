@@ -95,6 +95,11 @@ export type HireMattPageData = {
       kind: string;
       href?: string;
       linkLabel?: string;
+      brand?: {
+        surface: "light" | "dark";
+        logo: { src: string; width: number; height: number };
+        mark: { src: string; width: number; height: number };
+      };
       color: string;
       role: string;
       problem: string;

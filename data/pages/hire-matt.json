@@ -177,6 +177,11 @@
       {
         "name": "Estivor",
         "kind": "Product",
+        "brand": {
+          "surface": "dark",
+          "logo": { "src": "/assets/hire-matt/projects/estivor-logo-light.png", "width": 805, "height": 151 },
+          "mark": { "src": "/assets/hire-matt/projects/estivor-mark-light.png", "width": 167, "height": 162 }
+        },
         "color": "#f59e0b",
         "role": "Trade-focused estimating and contractor workflow software",
         "problem": "Contractors quote in spreadsheets and memory, then lose margin and follow-up between the estimate and the job.",
@@ -187,6 +192,11 @@
       {
         "name": "ScoutChase",
         "kind": "Product",
+        "brand": {
+          "surface": "light",
+          "logo": { "src": "/assets/hire-matt/projects/scoutchase-logo.png", "width": 1396, "height": 164 },
+          "mark": { "src": "/assets/hire-matt/projects/scoutchase-mark.png", "width": 528, "height": 328 }
+        },
         "color": "#a78bfa",
         "role": "AI-assisted prospecting and sales workflow tool",
         "problem": "Prospecting eats the day: research, qualification and follow-up are manual, repetitive and easy to drop.",

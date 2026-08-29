@@ -1,5 +1,6 @@
 import type { HireMattPageData } from "@/data/pages/hire-matt";
 
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -32,6 +33,51 @@ export default function SelectedProjects({
           {data.cards.map((card, i) => (
             <Reveal key={card.name} index={i}>
               <article className="flex h-full flex-col rounded-2xl bg-white/[0.036] p-[30px] ring-1 ring-white/[0.08] transition-all duration-300 hover:-translate-y-[3px] hover:bg-white/[0.058] hover:shadow-[0_20px_50px_-14px_rgba(0,0,0,.55)] sm:p-[32px]">
+                {card.brand && (
+                  <div
+                    aria-hidden="true"
+                    className="mb-7 grid h-20 grid-cols-[88px_minmax(0,1fr)] gap-3 sm:grid-cols-[104px_minmax(0,1fr)]"
+                  >
+                    <div
+                      className={`flex min-w-0 items-center justify-center overflow-hidden rounded-xl border ${
+                        card.brand.surface === "light"
+                          ? "border-white/15 bg-[#e5e7eb]"
+                          : "border-white/[0.08] bg-black/15"
+                      }`}
+                    >
+                      <Image
+                        alt=""
+                        className={
+                          card.brand.surface === "light"
+                            ? "h-full w-full object-cover"
+                            : "h-full w-full object-contain p-3"
+                        }
+                        height={card.brand.mark.height}
+                        src={card.brand.mark.src}
+                        width={card.brand.mark.width}
+                      />
+                    </div>
+                    <div
+                      className={`flex min-w-0 items-center justify-center overflow-hidden rounded-xl border ${
+                        card.brand.surface === "light"
+                          ? "border-white/15 bg-[#e5e7eb]"
+                          : "border-white/[0.08] bg-black/15"
+                      }`}
+                    >
+                      <Image
+                        alt=""
+                        className={
+                          card.brand.surface === "light"
+                            ? "h-full w-full object-cover"
+                            : "h-full w-full object-contain p-4 sm:p-5"
+                        }
+                        height={card.brand.logo.height}
+                        src={card.brand.logo.src}
+                        width={card.brand.logo.width}
+                      />
+                    </div>
+                  </div>
+                )}
                 <div className="mb-1.5 flex flex-wrap items-baseline justify-between gap-3.5">
                   <h3 className="text-[22px] font-extrabold tracking-[-.022em]">
                     {card.name}
