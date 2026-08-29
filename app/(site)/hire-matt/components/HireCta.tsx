@@ -1,6 +1,6 @@
 import type { HireMattPageData } from "@/data/pages/hire-matt";
 
-import { Mail, Download, Linkedin } from "lucide-react";
+import { Download, Github, Linkedin, Mail } from "lucide-react";
 
 import Reveal from "../../_components/home/Reveal";
 import Button from "../../_components/ui/Button";
@@ -74,6 +74,18 @@ export default function HireCta({
           >
             <Linkedin size={16} strokeWidth={2.3} />
             {data.tertiary.label}
+          </Button>
+          <Button
+            data-cta="hire-final-github"
+            data-cta-event="hire_github_click"
+            href={data.github.href}
+            rel="noopener noreferrer"
+            size="lg"
+            target="_blank"
+            variant="ghost"
+          >
+            <Github size={16} strokeWidth={2.3} />
+            {data.github.label}
           </Button>
         </Reveal>
         <Reveal index={0}>

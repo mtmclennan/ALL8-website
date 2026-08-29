@@ -1,7 +1,7 @@
 import type { HireMattPageData } from "@/data/pages/hire-matt";
 
 import Image from "next/image";
-import { Linkedin, Mail, Download } from "lucide-react";
+import { Download, Github, Linkedin, Mail } from "lucide-react";
 
 import Reveal from "../../_components/home/Reveal";
 import Button from "../../_components/ui/Button";
@@ -80,6 +80,17 @@ export default function Hero({ data }: { data: HireMattPageData["hero"] }) {
               >
                 <Linkedin className="text-white/40" size={15} />
                 LinkedIn
+              </a>
+              <a
+                className="inline-flex min-h-8 items-center gap-[7px] text-sm font-semibold text-white/70 hover:text-white"
+                data-cta="hire-hero-github"
+                data-cta-event="hire_github_click"
+                href={data.githubHref}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <Github className="text-white/40" size={15} />
+                GitHub
               </a>
               <a
                 className="inline-flex min-h-8 items-center gap-[7px] text-sm font-semibold text-white/70 hover:text-white"

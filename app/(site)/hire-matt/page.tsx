@@ -37,7 +37,10 @@ const hireMattJsonLd = {
     worksFor: {
       "@id": `${siteUrl()}/#organization`,
     },
-    sameAs: [hireMattPageData.hero.linkedinHref],
+    sameAs: [
+      hireMattPageData.hero.linkedinHref,
+      hireMattPageData.hero.githubHref,
+    ],
     knowsAbout: [
       "web development",
       "React",

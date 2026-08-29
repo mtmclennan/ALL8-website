@@ -32,7 +32,7 @@ Status values: `CONFIRMED`, `ALREADY FIXED`, `NOT APPLICABLE`, `NEEDS USER INPUT
 | 19 | Hire Matt length | Mobile page is about 19k-21k px tall with repetitive capability sections | Reorder and consolidate sections | CONFIRMED | Target substantial reduction, not redesign |
 | 20 | Hire Matt metric cards | Weak raw Search Console metrics and exact missed-call rate are headline cards | Replace with 40->90+, +76%, and Search->Operations | CONFIRMED | Use private bottleneck wording |
 | 21 | Resume | “Download Resume” is a `mailto:` link; no PDF is present | Rename to “Request Resume” and flag PDF requirement | NEEDS USER INPUT | Recommended future path `/matt-mclennan-resume.pdf` |
-| 22 | Technical evidence | Projects have no screenshots, demos, repositories or detailed stack/role evidence | Improve cards using only verified repository/project facts; flag missing assets/links | NEEDS USER INPUT | GitHub URL and safe project evidence required |
+| 22 | Technical evidence | Verified personal GitHub profile is now available; project screenshots, demos and public repositories remain limited | Link the verified profile and keep project evidence claims conservative | CONFIRMED | GitHub: `https://github.com/mtmclennan`; safe project assets can be added later |
 | 23 | Employer chrome | Hire Matt inherits Lead Review navigation/footer/modal | Add a route-aware employer header/footer mode and suppress customer sticky CTA/modal triggers on Hire Matt | CONFIRMED | Keep Hire Matt out of commercial navigation |
 | 24 | Hire Matt SEO | Existing ProfilePage/Person schema is useful but title and OG asset are not employer-specific enough | Update title/description/schema; add image/url; retain H1 | CONFIRMED | Dedicated 1200x630 asset needs creation/supply |
 | 25 | Internal links | Blog->service exists; service->blog does not; Hire Matt lacks real evidence links | Add intentional bidirectional contextual links | CONFIRMED | Do not link every post to Hire Matt |
@@ -89,5 +89,5 @@ Repository work is implemented. Launch remains dependent on the user-supplied pr
 - Supply `matt-mclennan-resume.pdf`.
 - Confirm whether the client may ever be publicly named.
 - Confirm exact `LIVE`, `TESTED`, `IN VALIDATION`, or `PLANNED` states for Ooma -> Zapier -> Estivor capabilities.
-- Supply a verified personal GitHub URL and any safe demo/repository/project screenshots.
+- Supply any safe demo, repository or project screenshots that can be published.
 - Complete the host/DNS configuration that redirects every `.ca` path to its `.com` equivalent.

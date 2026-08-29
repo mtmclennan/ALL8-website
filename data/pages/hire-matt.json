@@ -15,6 +15,7 @@
     "secondaryLabel": "Request Resume",
     "secondaryHref": "mailto:hello@all8webworks.com?subject=Resume%20request",
     "linkedinHref": "https://www.linkedin.com/in/matthew-mclennan-dev/",
+    "githubHref": "https://github.com/mtmclennan",
     "email": "hello@all8webworks.com",
     "geo": "Ontario, Canada · Eastern Time · Remote or hybrid",
     "image": {
@@ -241,6 +242,7 @@
     "primary": { "label": "Contact Matt", "href": "mailto:hello@all8webworks.com?subject=Opportunity%20for%20Matt" },
     "secondary": { "label": "Request Resume", "href": "mailto:hello@all8webworks.com?subject=Resume%20request" },
     "tertiary": { "label": "View LinkedIn", "href": "https://www.linkedin.com/in/matthew-mclennan-dev/" },
+    "github": { "label": "View GitHub", "href": "https://github.com/mtmclennan" },
     "micro": "Ontario, Canada · Eastern Time · Open to remote, hybrid and relocation-friendly conversations",
     "microLink": { "label": "Request the full evidence package →", "href": "mailto:hello@all8webworks.com?subject=Evidence%20package%20request" }
   }
