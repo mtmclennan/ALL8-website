@@ -15,6 +15,7 @@ export type HireMattPageData = {
     primaryHref: string;
     secondaryLabel: string;
     secondaryHref: string;
+    secondaryDownload?: string;
     linkedinHref: string;
     githubHref: string;
     email: string;
@@ -132,7 +133,7 @@ export type HireMattPageData = {
     titleAccent: string;
     subtitle: string;
     primary: { label: string; href: string };
-    secondary: { label: string; href: string };
+    secondary: { label: string; href: string; download?: string };
     tertiary: { label: string; href: string };
     github: { label: string; href: string };
     micro: string;

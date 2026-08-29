@@ -56,6 +56,7 @@ export default function HireCta({
           <Button
             data-cta="hire-final-resume"
             data-cta-event="hire_resume_click"
+            download={data.secondary.download}
             href={data.secondary.href}
             size="lg"
             variant="ghost"

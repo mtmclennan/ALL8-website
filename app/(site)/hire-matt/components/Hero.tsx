@@ -60,6 +60,7 @@ export default function Hero({ data }: { data: HireMattPageData["hero"] }) {
               <Button
                 data-cta="hire-hero-resume"
                 data-cta-event="hire_resume_click"
+                download={data.secondaryDownload}
                 href={data.secondaryHref}
                 size="lg"
                 variant="ghost"
