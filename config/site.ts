@@ -65,7 +65,7 @@ export const siteConfig = {
     facebook: "https://www.facebook.com/profile.php?id=61581617706756",
     linkedin: "https://www.linkedin.com/company/all8-webworks",
   },
-  phone: "321-987-4567",
+  phone: "(519) 807-3483",
   addressLine: "Paris, Ontario, Canada",
   email: "hello@all8webworks.com",
 };

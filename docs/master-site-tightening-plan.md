@@ -11,7 +11,7 @@ Status values: `CONFIRMED`, `ALREADY FIXED`, `NOT APPLICABLE`, `NEEDS USER INPUT
 | 1 | Primary domain | Local canonical resolves to `.com`; `.com` production currently redirects to the old `.ca` site | Make `.com` the code default and document host-level route-preserving `.ca` redirect | NEEDS USER INPUT | DNS/hosting redirect cannot be completed in repository alone |
 | 1 | `.ca` fallbacks | `siteUrl()` falls back to `.ca` and static helpers contain `.ca` fallback URLs | Change defaults to `.com`; keep `.ca` only as legacy-domain documentation | CONFIRMED | Avoid duplicate canonical domains |
 | 2 | Public-site SSR | Entire provider boundary is dynamically imported with `ssr: false`; initial HTML lacks page H1/content | Restore SSR provider boundary and SSR navigation/footer | CONFIRMED | Highest-priority technical SEO fix |
-| 3 | Public phone | `321-987-4567` is consistently sourced from config but cannot be independently verified | Keep unchanged and flag confirmation | NEEDS USER INPUT | If intentional U.S. line, label it transparently where useful |
+| 3 | Public phone | `(519) 807-3483` was confirmed by Matt as the real public number | Update centralized configuration and Organization schema | CONFIRMED | Display formatting is centralized; telephone links normalize to digits |
 | 3 | Contact consistency | Navbar, footer, SMS and contact page use the same configured phone/email | Preserve centralized configuration | ALREADY FIXED | Schema still needs telephone/email synchronization |
 | 4 | Currency | All public service pricing is USD or custom quote | Preserve amounts; verify schema matches | ALREADY FIXED | No mechanical FX conversion needed |
 | 4 | Subscription pricing | Lead Generation Websites is `$1,500 setup + $299/mo`; Website Care is correctly limited to outside-built sites | Preserve terms and improve structured representation of setup + monthly charges | ALREADY FIXED | Do not reintroduce one-time website tiers |
@@ -85,7 +85,6 @@ Repository work is implemented. Launch remains dependent on the user-supplied pr
 
 ## User-supplied items still required
 
-- Confirm that `321-987-4567` is the intended public U.S. line.
 - Supply a real GTM container ID.
 - Supply `matt-mclennan-resume.pdf`.
 - Confirm whether the client may ever be publicly named.
