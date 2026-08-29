@@ -180,8 +180,7 @@
         "kind": "Product",
         "brand": {
           "surface": "dark",
-          "logo": { "src": "/assets/hire-matt/projects/estivor-logo-light.png", "width": 805, "height": 151 },
-          "mark": { "src": "/assets/hire-matt/projects/estivor-mark-light.png", "width": 167, "height": 162 }
+          "logo": { "src": "/assets/hire-matt/projects/estivor-logo-light.png", "width": 805, "height": 151 }
         },
         "color": "#f59e0b",
         "role": "Trade-focused estimating and contractor workflow software",
@@ -195,8 +194,7 @@
         "kind": "Product",
         "brand": {
           "surface": "light",
-          "logo": { "src": "/assets/hire-matt/projects/scoutchase-logo.png", "width": 1396, "height": 164 },
-          "mark": { "src": "/assets/hire-matt/projects/scoutchase-mark.png", "width": 528, "height": 328 }
+          "logo": { "src": "/assets/hire-matt/projects/scoutchase-logo.png", "width": 1396, "height": 164 }
         },
         "color": "#a78bfa",
         "role": "AI-assisted prospecting and sales workflow tool",

@@ -99,7 +99,6 @@ export type HireMattPageData = {
       brand?: {
         surface: "light" | "dark";
         logo: { src: string; width: number; height: number };
-        mark: { src: string; width: number; height: number };
       };
       color: string;
       role: string;

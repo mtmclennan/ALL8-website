@@ -36,46 +36,23 @@ export default function SelectedProjects({
                 {card.brand && (
                   <div
                     aria-hidden="true"
-                    className="mb-7 grid h-20 grid-cols-[88px_minmax(0,1fr)] gap-3 sm:grid-cols-[104px_minmax(0,1fr)]"
+                    className={`mb-7 flex h-20 min-w-0 items-center justify-center overflow-hidden rounded-xl border ${
+                      card.brand.surface === "light"
+                        ? "border-white/15 bg-[#e5e7eb]"
+                        : "border-white/[0.08] bg-black/15"
+                    }`}
                   >
-                    <div
-                      className={`flex min-w-0 items-center justify-center overflow-hidden rounded-xl border ${
+                    <Image
+                      alt=""
+                      className={
                         card.brand.surface === "light"
-                          ? "border-white/15 bg-[#e5e7eb]"
-                          : "border-white/[0.08] bg-black/15"
-                      }`}
-                    >
-                      <Image
-                        alt=""
-                        className={
-                          card.brand.surface === "light"
-                            ? "h-full w-full object-cover"
-                            : "h-full w-full object-contain p-3"
-                        }
-                        height={card.brand.mark.height}
-                        src={card.brand.mark.src}
-                        width={card.brand.mark.width}
-                      />
-                    </div>
-                    <div
-                      className={`flex min-w-0 items-center justify-center overflow-hidden rounded-xl border ${
-                        card.brand.surface === "light"
-                          ? "border-white/15 bg-[#e5e7eb]"
-                          : "border-white/[0.08] bg-black/15"
-                      }`}
-                    >
-                      <Image
-                        alt=""
-                        className={
-                          card.brand.surface === "light"
-                            ? "h-full w-full object-cover"
-                            : "h-full w-full object-contain p-4 sm:p-5"
-                        }
-                        height={card.brand.logo.height}
-                        src={card.brand.logo.src}
-                        width={card.brand.logo.width}
-                      />
-                    </div>
+                          ? "h-full w-full object-cover"
+                          : "h-full w-full object-contain p-4 sm:p-5"
+                      }
+                      height={card.brand.logo.height}
+                      src={card.brand.logo.src}
+                      width={card.brand.logo.width}
+                    />
                   </div>
                 )}
                 <div className="mb-1.5 flex flex-wrap items-baseline justify-between gap-3.5">
