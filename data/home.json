@@ -17,10 +17,10 @@
     "micro": "15 minutes  ·  No contracts  ·  You get the findings either way",
     "geo": "Remote-first  ·  Eastern Time",
     "image": {
-      "src": "/assets/home/hero-quote-phone-860.webp",
+      "src": "/assets/home/mobile-quote-request-dashboard.png",
       "alt": "A quote request arriving on a phone alongside new call and website lead alerts, a follow-up confirmation and a new customer",
-      "width": 860,
-      "height": 860
+      "width": 1120,
+      "height": 1400
     }
   },
 
