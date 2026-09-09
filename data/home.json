@@ -17,7 +17,7 @@
     "micro": "15 minutes  ·  No contracts  ·  You get the findings either way",
     "geo": "Remote-first  ·  Eastern Time",
     "image": {
-      "src": "/assets/home/mobile-quote-request-dashboard.png",
+      "src": "/assets/home/Mobile-Quote-Request-Dashboard.webp",
       "alt": "A quote request arriving on a phone alongside new call and website lead alerts, a follow-up confirmation and a new customer",
       "width": 1120,
       "height": 1400
@@ -26,8 +26,16 @@
 
   "proofStrip": {
     "items": [
-      { "value": "40 → 100", "label": "Google Search clicks per rolling 28 days", "em": true },
-      { "value": "+76%", "label": "Business Profile website clicks YoY", "em": false }
+      {
+        "value": "40 → 100",
+        "label": "Google Search clicks per rolling 28 days",
+        "em": true
+      },
+      {
+        "value": "+76%",
+        "label": "Business Profile website clicks YoY",
+        "em": false
+      }
     ],
     "note": "Anonymized client · Search: March–September 2026 · Latest window: August 10–September 6"
   },
@@ -95,7 +103,11 @@
         "step": "Stage 03",
         "title": "Respond & Follow Up",
         "description": "Every lead gets a fast reply and a second touch, without you remembering.",
-        "tags": ["Instant notifications", "Email & SMS follow-up", "Review requests"]
+        "tags": [
+          "Instant notifications",
+          "Email & SMS follow-up",
+          "Review requests"
+        ]
       },
       {
         "stage": "win",
@@ -120,7 +132,13 @@
         "description": "You're not visible enough where your customers look. We build the local search presence and, where it pays, the paid coverage around it.",
         "href": "/services/local-seo-google-business-profile",
         "linkLabel": "Explore local visibility services",
-        "items": ["Local SEO", "Google Business Profile", "Service pages", "Google Ads", "Review generation"]
+        "items": [
+          "Local SEO",
+          "Google Business Profile",
+          "Service pages",
+          "Google Ads",
+          "Review generation"
+        ]
       },
       {
         "stage": "contacted",
@@ -128,7 +146,13 @@
         "description": "People are already finding you and leaving. We rebuild the pages around how your customers actually decide, and make contacting you effortless on a phone.",
         "href": "/services/lead-generation-websites",
         "linkLabel": "Explore lead-generation websites",
-        "items": ["Websites", "Landing pages", "Calls-to-action", "Quote forms", "Mobile UX"]
+        "items": [
+          "Websites",
+          "Landing pages",
+          "Calls-to-action",
+          "Quote forms",
+          "Mobile UX"
+        ]
       },
       {
         "stage": "follow",
@@ -136,7 +160,13 @@
         "description": "A lead that waits a day is usually a lead someone else called first. We set up the alerts and automatic follow-up so nothing depends on anyone remembering.",
         "href": "/services/missed-call-recovery",
         "linkLabel": "Explore missed-call recovery",
-        "items": ["Lead alerts", "Missed-call text-back", "Email & SMS automation", "Estimate reminders", "Review requests"]
+        "items": [
+          "Lead alerts",
+          "Missed-call text-back",
+          "Email & SMS automation",
+          "Estimate reminders",
+          "Review requests"
+        ]
       },
       {
         "stage": "win",
@@ -144,7 +174,14 @@
         "description": "Leads live in one place instead of texts, voicemails and sticky notes — and you can finally see which marketing brought them in.",
         "href": "/services/call-tracking-lead-attribution",
         "linkLabel": "Explore call and lead attribution",
-        "items": ["CRM setup", "Pipeline stages", "Call tracking", "Lead source attribution", "Analytics", "Reporting"]
+        "items": [
+          "CRM setup",
+          "Pipeline stages",
+          "Call tracking",
+          "Lead source attribution",
+          "Analytics",
+          "Reporting"
+        ]
       }
     ],
     "footNote": {
@@ -185,7 +222,11 @@
       ],
       "rows": [
         { "label": "Get Found", "stage": "found", "status": "Improved" },
-        { "label": "Get Contacted", "stage": "contacted", "status": "Improved" },
+        {
+          "label": "Get Contacted",
+          "stage": "contacted",
+          "status": "Improved"
+        },
         { "label": "Respond & Follow Up", "stage": "follow", "status": "Next" },
         { "label": "Win More Work", "stage": "win", "status": "Tracking added" }
       ],
@@ -198,12 +239,30 @@
     "title": "Your Website Shouldn't Work Alone",
     "subtitle": "A form that only sends an email is a lead waiting to be forgotten. Here's what we wire up behind it, in plain language.",
     "rows": [
-      { "a": "Someone submits a quote form", "b": "You get a notification within seconds, wherever you are" },
-      { "a": "A new lead comes in", "b": "It lands in your pipeline as a job to quote — not in an inbox" },
-      { "a": "Nobody has replied in 24 hours", "b": "A follow-up email or text goes out automatically" },
-      { "a": "A quote is sent", "b": "A reminder brings it back up before it goes cold" },
-      { "a": "A call comes in", "b": "It's tracked to the page, search or ad that caused it" },
-      { "a": "A job is finished", "b": "A review request goes out, which feeds back into getting found" }
+      {
+        "a": "Someone submits a quote form",
+        "b": "You get a notification within seconds, wherever you are"
+      },
+      {
+        "a": "A new lead comes in",
+        "b": "It lands in your pipeline as a job to quote — not in an inbox"
+      },
+      {
+        "a": "Nobody has replied in 24 hours",
+        "b": "A follow-up email or text goes out automatically"
+      },
+      {
+        "a": "A quote is sent",
+        "b": "A reminder brings it back up before it goes cold"
+      },
+      {
+        "a": "A call comes in",
+        "b": "It's tracked to the page, search or ad that caused it"
+      },
+      {
+        "a": "A job is finished",
+        "b": "A review request goes out, which feeds back into getting found"
+      }
     ],
     "note": "We connect established third-party platforms and the tools you already use — there's no proprietary ALL8 software to get locked into."
   },
@@ -213,10 +272,26 @@
     "title": "Find the Leak. Fix What Matters Most.",
     "subtitle": "Fixed scope before work begins. We prioritise the problem with the clearest potential impact and show you what changed.",
     "steps": [
-      { "stage": "found", "title": "Find the Leak", "description": "We walk your whole path — search, site, forms, follow-up, tracking — and show you where opportunities are being lost." },
-      { "stage": "contacted", "title": "Fix the Biggest One", "description": "Fixed scope, fixed price, no fluff. We prioritise the problem with the clearest potential impact — not the biggest project." },
-      { "stage": "follow", "title": "Connect the System", "description": "Leads route to one place, follow-up happens on its own, and the tools you already use start talking to each other." },
-      { "stage": "win", "title": "Measure & Improve", "description": "Real calls, forms and lead sources — not impressions and bounce rate. Then we go find the next constraint." }
+      {
+        "stage": "found",
+        "title": "Find the Leak",
+        "description": "We walk your whole path — search, site, forms, follow-up, tracking — and show you where opportunities are being lost."
+      },
+      {
+        "stage": "contacted",
+        "title": "Fix the Biggest One",
+        "description": "Fixed scope, fixed price, no fluff. We prioritise the problem with the clearest potential impact — not the biggest project."
+      },
+      {
+        "stage": "follow",
+        "title": "Connect the System",
+        "description": "Leads route to one place, follow-up happens on its own, and the tools you already use start talking to each other."
+      },
+      {
+        "stage": "win",
+        "title": "Measure & Improve",
+        "description": "Real calls, forms and lead sources — not impressions and bounce rate. Then we go find the next constraint."
+      }
     ]
   },
 
@@ -250,8 +325,20 @@
     "eyebrow": "Proof, Not Promises",
     "title": "Measured Results, Not Adjectives",
     "cards": [
-      { "value": "40 → 100", "em": true, "label": "Google Search Clicks", "sub": "Rolling 28 days, March to September 2026 · 2.5× growth", "icon": "chart" },
-      { "value": "+76%", "em": false, "label": "Profile Website Clicks", "sub": "Google Business Profile, year over year", "icon": "pin" }
+      {
+        "value": "40 → 100",
+        "em": true,
+        "label": "Google Search Clicks",
+        "sub": "Rolling 28 days, March to September 2026 · 2.5× growth",
+        "icon": "chart"
+      },
+      {
+        "value": "+76%",
+        "em": false,
+        "label": "Profile Website Clicks",
+        "sub": "Google Business Profile, year over year",
+        "icon": "pin"
+      }
     ],
     "footNote": "Documented, anonymized client work. Latest Search window: August 10–September 6, 2026. Captured local, page-one and AI-result visibility supports the story; it is point-in-time evidence, not a permanent ranking.",
     "ctaLede": "Want to see where your lead system is losing opportunities?",
@@ -277,19 +364,58 @@
   },
 
   "faqs": [
-    { "q": "What does ALL8 WEBWORKS actually do?", "a": "ALL8 WEBWORKS helps service businesses get more opportunities and lose fewer of them. We work across four stages: getting found (local SEO, Google Business Profile, Google Ads), getting contacted (websites, landing pages, quote forms), responding and following up (lead alerts, missed-call text-back, email and SMS automation), and winning more work (CRM pipeline setup, call tracking and lead source attribution). Most engagements start with a free Lead System Review that identifies which stage looks weakest." },
-    { "q": "Do I need a new website?", "a": "Often no. Plenty of businesses have a site that's good enough and a follow-up process that's losing them jobs. If the website is the constraint we'll say so, and if it isn't we'd rather fix the part that is. The review tells you which." },
-    { "q": "What is a Lead System Review?", "a": "A free 15-minute walkthrough of the whole path a customer takes to reach you: where you rank locally, what your site does with the visitors it gets, what happens to a form submission or a missed call, and whether you can tell which marketing produced a lead. You get the findings in writing whether or not you hire us." },
-    { "q": "Can you work with my existing website?", "a": "Yes. If the site is structurally sound we improve what's there — service pages, calls-to-action, forms, mobile experience and speed — rather than starting over. A rebuild only gets recommended when the current site genuinely can't do the job." },
-    { "q": "Can you work with the CRM or phone system we already use?", "a": "Usually. If your team already uses a CRM, quoting tool or scheduling software, we connect to it rather than replace it. We only recommend new tools when what you have can't do what's needed." },
-    { "q": "Do you handle SEO and Google Ads?", "a": "Yes, and we treat them differently. Local SEO and your Google Business Profile build visibility that keeps working; ads buy visibility immediately and stop when you stop paying. For most service businesses we build the organic side and use ads to cover specific services or seasons where the job value justifies the cost per click." },
-    { "q": "Do you set up automated follow-up?", "a": "Yes. Lead alerts, missed-call text-back, automated email and SMS sequences, and estimate or appointment reminders — built on established third-party platforms, connected to wherever your leads already live." },
-    { "q": "Do you replace our phone system?", "a": "No. We don't sell phone systems or answer your calls. We show you how many calls are being missed and what they're worth, add call tracking so you know where they came from, and set up the automatic follow-up that catches the ones nobody got to. An existing answering service can be connected to your pipeline." },
-    { "q": "Do I own what you build?", "a": "Your domain, content, ad accounts, analytics and customer data are yours and stay in your name. Recurring services are identified clearly, and code transfer for an ALL8-built website follows the published Lead Generation Website subscription terms." },
-    { "q": "Do you work with U.S. businesses?", "a": "Yes. ALL8 is based in Ontario, Canada and works with service businesses across the United States and Canada. The process is remote and we keep Eastern Time availability, which overlaps the working day in every U.S. time zone." },
-    { "q": "Do you work with Canadian businesses?", "a": "Yes — Canadian service businesses have been a core part of the work from the start, and that continues. Canadian pricing and Canada-specific details will live on a dedicated page." },
-    { "q": "How long does a project take?", "a": "Follow-up automation and tracking are usually live within one to two weeks. Focused website and conversion work runs one to two weeks; a full build is typically three to five. Local search results build over months rather than days — we'll be straight with you about which is which." },
-    { "q": "How do I get started?", "a": "Book the free Lead System Review from any button on this page, or call us. Fifteen minutes, clear recommendations, and you keep the findings either way." }
+    {
+      "q": "What does ALL8 WEBWORKS actually do?",
+      "a": "ALL8 WEBWORKS helps service businesses get more opportunities and lose fewer of them. We work across four stages: getting found (local SEO, Google Business Profile, Google Ads), getting contacted (websites, landing pages, quote forms), responding and following up (lead alerts, missed-call text-back, email and SMS automation), and winning more work (CRM pipeline setup, call tracking and lead source attribution). Most engagements start with a free Lead System Review that identifies which stage looks weakest."
+    },
+    {
+      "q": "Do I need a new website?",
+      "a": "Often no. Plenty of businesses have a site that's good enough and a follow-up process that's losing them jobs. If the website is the constraint we'll say so, and if it isn't we'd rather fix the part that is. The review tells you which."
+    },
+    {
+      "q": "What is a Lead System Review?",
+      "a": "A free 15-minute walkthrough of the whole path a customer takes to reach you: where you rank locally, what your site does with the visitors it gets, what happens to a form submission or a missed call, and whether you can tell which marketing produced a lead. You get the findings in writing whether or not you hire us."
+    },
+    {
+      "q": "Can you work with my existing website?",
+      "a": "Yes. If the site is structurally sound we improve what's there — service pages, calls-to-action, forms, mobile experience and speed — rather than starting over. A rebuild only gets recommended when the current site genuinely can't do the job."
+    },
+    {
+      "q": "Can you work with the CRM or phone system we already use?",
+      "a": "Usually. If your team already uses a CRM, quoting tool or scheduling software, we connect to it rather than replace it. We only recommend new tools when what you have can't do what's needed."
+    },
+    {
+      "q": "Do you handle SEO and Google Ads?",
+      "a": "Yes, and we treat them differently. Local SEO and your Google Business Profile build visibility that keeps working; ads buy visibility immediately and stop when you stop paying. For most service businesses we build the organic side and use ads to cover specific services or seasons where the job value justifies the cost per click."
+    },
+    {
+      "q": "Do you set up automated follow-up?",
+      "a": "Yes. Lead alerts, missed-call text-back, automated email and SMS sequences, and estimate or appointment reminders — built on established third-party platforms, connected to wherever your leads already live."
+    },
+    {
+      "q": "Do you replace our phone system?",
+      "a": "No. We don't sell phone systems or answer your calls. We show you how many calls are being missed and what they're worth, add call tracking so you know where they came from, and set up the automatic follow-up that catches the ones nobody got to. An existing answering service can be connected to your pipeline."
+    },
+    {
+      "q": "Do I own what you build?",
+      "a": "Your domain, content, ad accounts, analytics and customer data are yours and stay in your name. Recurring services are identified clearly, and code transfer for an ALL8-built website follows the published Lead Generation Website subscription terms."
+    },
+    {
+      "q": "Do you work with U.S. businesses?",
+      "a": "Yes. ALL8 is based in Ontario, Canada and works with service businesses across the United States and Canada. The process is remote and we keep Eastern Time availability, which overlaps the working day in every U.S. time zone."
+    },
+    {
+      "q": "Do you work with Canadian businesses?",
+      "a": "Yes — Canadian service businesses have been a core part of the work from the start, and that continues. Canadian pricing and Canada-specific details will live on a dedicated page."
+    },
+    {
+      "q": "How long does a project take?",
+      "a": "Follow-up automation and tracking are usually live within one to two weeks. Focused website and conversion work runs one to two weeks; a full build is typically three to five. Local search results build over months rather than days — we'll be straight with you about which is which."
+    },
+    {
+      "q": "How do I get started?",
+      "a": "Book the free Lead System Review from any button on this page, or call us. Fifteen minutes, clear recommendations, and you keep the findings either way."
+    }
   ],
 
   "finalCta": {
