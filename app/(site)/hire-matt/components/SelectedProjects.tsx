@@ -2,8 +2,9 @@ import type { HireMattPageData } from "@/data/pages/hire-matt";
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 
+import refinement from "../../_components/VisualRefinement.module.css";
 import Reveal from "../../_components/home/Reveal";
 
 import { renderBold } from "@/lib/utils/renderBold";
@@ -15,7 +16,10 @@ export default function SelectedProjects({
   data: HireMattPageData["projects"];
 }) {
   return (
-    <section className="py-24 max-[960px]:py-16" id="projects">
+    <section
+      className={`${refinement.projects} py-24 max-[960px]:py-16`}
+      id="projects"
+    >
       <div className="mx-auto max-w-[1160px] px-6 sm:px-10">
         <Reveal className="mb-14 max-w-[760px]">
           <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
@@ -60,7 +64,7 @@ export default function SelectedProjects({
                     {card.name}
                   </h3>
                   <span
-                    className="whitespace-nowrap pt-[3px] font-mono text-[10px] font-bold uppercase tracking-[.13em]"
+                    className="whitespace-nowrap pt-[3px] font-mono text-xs font-bold uppercase tracking-[.13em]"
                     style={{ color: card.color }}
                   >
                     {card.kind}
@@ -71,7 +75,7 @@ export default function SelectedProjects({
                 </p>
                 <dl>
                   <div className="grid grid-cols-1 gap-1.5 border-t border-white/[0.08] py-[13px] sm:grid-cols-[74px_1fr] sm:gap-3.5">
-                    <dt className="font-mono text-[10px] font-bold uppercase tracking-[.11em] text-white/40 sm:pt-1">
+                    <dt className="font-mono text-xs font-bold uppercase tracking-[.11em] text-white/40 sm:pt-1">
                       Problem
                     </dt>
                     <dd className="text-[15px] leading-relaxed text-white/70">
@@ -79,7 +83,7 @@ export default function SelectedProjects({
                     </dd>
                   </div>
                   <div className="grid grid-cols-1 gap-1.5 border-t border-white/[0.08] py-[13px] sm:grid-cols-[74px_1fr] sm:gap-3.5">
-                    <dt className="font-mono text-[10px] font-bold uppercase tracking-[.11em] text-white/40 sm:pt-1">
+                    <dt className="font-mono text-xs font-bold uppercase tracking-[.11em] text-white/40 sm:pt-1">
                       Built
                     </dt>
                     <dd className="text-[15px] leading-relaxed text-white/70">
@@ -87,7 +91,7 @@ export default function SelectedProjects({
                     </dd>
                   </div>
                   <div className="grid grid-cols-1 gap-1.5 border-t border-white/[0.08] py-[13px] sm:grid-cols-[74px_1fr] sm:gap-3.5">
-                    <dt className="font-mono text-[10px] font-bold uppercase tracking-[.11em] text-white/40 sm:pt-1">
+                    <dt className="font-mono text-xs font-bold uppercase tracking-[.11em] text-white/40 sm:pt-1">
                       Proves
                     </dt>
                     <dd className="text-[15px] leading-relaxed text-white/70">
@@ -111,14 +115,41 @@ export default function SelectedProjects({
                 </ul>
                 {card.href && card.linkLabel && (
                   <Link
-                    className="mt-6 inline-flex items-center gap-2 self-start text-sm font-bold hover:text-white"
+                    className="mt-6 inline-flex min-h-11 items-center gap-2 self-start text-sm font-bold hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue focus-visible:outline-offset-4"
                     data-cta={`hire-project-${card.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
                     data-cta-event="hire_project_click"
+                    data-destination={card.href}
+                    data-project={card.name
+                      .toLowerCase()
+                      .replace(/[^a-z0-9]+/g, "-")}
                     href={card.href}
+                    rel={
+                      card.href.startsWith("https://")
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
                     style={{ color: card.color }}
+                    target={
+                      card.href.startsWith("https://") ? "_blank" : undefined
+                    }
                   >
                     {card.linkLabel}
-                    <ArrowRight size={15} strokeWidth={2.4} />
+                    {card.href.startsWith("https://") ? (
+                      <>
+                        <ExternalLink
+                          aria-hidden="true"
+                          size={15}
+                          strokeWidth={2.4}
+                        />
+                        <span className="sr-only"> (opens in a new tab)</span>
+                      </>
+                    ) : (
+                      <ArrowRight
+                        aria-hidden="true"
+                        size={15}
+                        strokeWidth={2.4}
+                      />
+                    )}
                   </Link>
                 )}
               </article>

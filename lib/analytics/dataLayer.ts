@@ -74,9 +74,14 @@ export function trackLinkClick(
   });
 }
 
-export function trackCustomEvent(eventName: string, ctaId: string) {
+export function trackCustomEvent(
+  eventName: string,
+  ctaId: string,
+  extra: Record<string, unknown> = {},
+) {
   push(eventName, {
     cta_id: ctaId,
     page_path: window.location.pathname,
+    ...extra,
   });
 }

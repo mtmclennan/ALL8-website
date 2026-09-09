@@ -34,7 +34,7 @@
 
 //         <LazyMotion features={domAnimation}>
 //           <motion.div
-//             initial={{ opacity: 0, y: 10 }}
+//             initial={false}
 //             whileInView={{ opacity: 1, y: 0 }}
 //             viewport={{ once: true, margin: '-10%' }}
 //             transition={{ duration: 0.4, ease: 'easeOut' }}
@@ -127,8 +127,8 @@ export default function FAQBlock({
 
         <LazyMotion features={domAnimation}>
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            transition={{ duration: 0.45, ease: "easeOut" }}
+            initial={false}
+            transition={{ duration: 0.2, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.2 }}
             whileInView={{ opacity: 1, y: 0 }}
           >
@@ -148,6 +148,7 @@ export default function FAQBlock({
                   {faqs.map((faq, i) => (
                     <AccordionItem
                       key={i}
+                      HeadingComponent="h3"
                       indicator={
                         <ChevronDown className="h-5 w-5 text-foreground/70 transition-transform group-data-[open=true]:rotate-180" />
                       }

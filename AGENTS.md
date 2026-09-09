@@ -52,7 +52,7 @@ ALL8 Webworks is a Next.js App Router + TypeScript website using Tailwind CSS an
 ## Proof and Privacy
 
 - `docs/proof-inventory.md` is the source of truth for public result wording.
-- Approved primary proof: Google Search clicks grew from 40 to 90+ per rolling 28 days from March to August 2026; Google Business Profile website clicks increased 76% year over year.
+- Approved primary proof: Google Search clicks grew from 40 to 100 per rolling 28 days from March to September 2026; Google Business Profile website clicks increased 76% year over year.
 - Page-one, local and AI-result visibility are point-in-time supporting evidence, never permanent ranking claims.
 - Keep the service-business client anonymized unless written naming permission is supplied. Exact missed-call rates and sensitive operational details are private.
 - Use acquisition evidence only where it is relevant. Do not use SEO results as proof of CRM, Ads, follow-up or missed-call outcomes.

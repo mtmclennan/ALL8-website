@@ -1,5 +1,6 @@
 import type { HireMattPageData } from "@/data/pages/hire-matt";
 
+import refinement from "../../_components/VisualRefinement.module.css";
 import Reveal from "../../_components/home/Reveal";
 
 export default function WhereIFit({ data }: { data: HireMattPageData["fit"] }) {
@@ -19,7 +20,9 @@ export default function WhereIFit({ data }: { data: HireMattPageData["fit"] }) {
         </Reveal>
 
         <Reveal>
-          <ul className="flex max-w-[880px] flex-wrap gap-2.5">
+          <ul
+            className={`${refinement.fitRoles} flex max-w-[880px] flex-wrap gap-2.5`}
+          >
             {data.roles.map((role) => (
               <li
                 key={role}
@@ -32,7 +35,7 @@ export default function WhereIFit({ data }: { data: HireMattPageData["fit"] }) {
         </Reveal>
 
         <Reveal index={1}>
-          <div className="mt-10 max-w-[820px] rounded-r-[20px] border border-white/[0.08] border-l-2 border-l-accent-blue bg-white/[0.036] px-[34px] py-[30px]">
+          <div className="mt-10 max-w-[820px] rounded-r-[20px] border border-white/[0.08] border-l-2 border-l-accent-blue bg-white/[0.036] px-6 py-6 sm:px-8 sm:py-7">
             <h4 className="mb-3 text-[11px] font-bold uppercase tracking-[.14em] text-white/40">
               {data.thread.heading}
             </h4>

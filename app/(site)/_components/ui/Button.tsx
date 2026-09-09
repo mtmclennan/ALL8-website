@@ -75,6 +75,7 @@ export default function Button(props: ButtonProps) {
       return (
         <a
           className={classes}
+          data-button-variant={variant}
           href={href}
           {...(rest as AnchorHTMLAttributes<HTMLAnchorElement>)}
         >
@@ -86,6 +87,7 @@ export default function Button(props: ButtonProps) {
     return (
       <Link
         className={classes}
+        data-button-variant={variant}
         href={href}
         {...(rest as Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href">)}
       >
@@ -97,6 +99,7 @@ export default function Button(props: ButtonProps) {
   return (
     <button
       className={classes}
+      data-button-variant={variant}
       type="button"
       {...(rest as ButtonHTMLAttributes<HTMLButtonElement>)}
     >

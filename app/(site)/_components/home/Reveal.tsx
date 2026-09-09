@@ -6,7 +6,6 @@ import { motion, useReducedMotion } from "framer-motion";
 
 export default function Reveal({
   children,
-  index = 0,
   className,
   id,
 }: {
@@ -21,11 +20,11 @@ export default function Reveal({
     <motion.div
       className={className}
       id={id}
-      initial={prefersReduced ? false : { opacity: 0, y: 24 }}
+      initial={false}
       transition={{
-        duration: 0.55,
+        duration: prefersReduced ? 0 : 0.2,
         ease: [0.16, 1, 0.3, 1],
-        delay: (index % 4) * 0.09,
+        delay: 0,
       }}
       viewport={{ once: true, amount: 0.2 }}
       whileInView={{ opacity: 1, y: 0 }}

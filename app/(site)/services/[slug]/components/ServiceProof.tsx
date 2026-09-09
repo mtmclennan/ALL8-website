@@ -7,9 +7,9 @@ import { Card } from "@/app/(site)/_components/SectionWrapper";
 const SEARCH_PROOF = [
   {
     icon: LineChart,
-    value: "40 → 90+",
+    value: "40 → 100",
     em: true,
-    label: "Search clicks per rolling 28 days, March to August 2026",
+    label: "Search clicks per rolling 28 days, March to September 2026",
   },
   {
     icon: MapPin,

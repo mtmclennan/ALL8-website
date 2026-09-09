@@ -3,12 +3,15 @@ import type { HireMattPageData } from "@/data/pages/hire-matt";
 import Image from "next/image";
 import { Download, Github, Linkedin, Mail } from "lucide-react";
 
+import refinement from "../../_components/VisualRefinement.module.css";
 import Reveal from "../../_components/home/Reveal";
 import Button from "../../_components/ui/Button";
 
 export default function Hero({ data }: { data: HireMattPageData["hero"] }) {
   return (
-    <header className="relative flex min-h-screen items-center overflow-hidden pt-[150px] pb-[92px] max-[960px]:min-h-0 max-[960px]:pt-[120px] max-[960px]:pb-[68px]">
+    <header
+      className={`${refinement.hireHero} relative flex items-center overflow-hidden`}
+    >
       <div className="absolute inset-0 bg-background" />
       <div
         className="absolute inset-0"
@@ -72,7 +75,7 @@ export default function Hero({ data }: { data: HireMattPageData["hero"] }) {
 
             <div className="flex flex-wrap items-center gap-x-[22px] gap-y-2">
               <a
-                className="inline-flex min-h-8 items-center gap-[7px] text-sm font-semibold text-white/70 hover:text-white"
+                className="inline-flex min-h-11 items-center gap-[7px] text-sm font-semibold text-white/70 hover:text-white"
                 data-cta="hire-hero-linkedin"
                 data-cta-event="hire_linkedin_click"
                 href={data.linkedinHref}
@@ -83,7 +86,7 @@ export default function Hero({ data }: { data: HireMattPageData["hero"] }) {
                 LinkedIn
               </a>
               <a
-                className="inline-flex min-h-8 items-center gap-[7px] text-sm font-semibold text-white/70 hover:text-white"
+                className="inline-flex min-h-11 items-center gap-[7px] text-sm font-semibold text-white/70 hover:text-white"
                 data-cta="hire-hero-github"
                 data-cta-event="hire_github_click"
                 href={data.githubHref}
@@ -94,7 +97,7 @@ export default function Hero({ data }: { data: HireMattPageData["hero"] }) {
                 GitHub
               </a>
               <a
-                className="inline-flex min-h-8 items-center gap-[7px] text-sm font-semibold text-white/70 hover:text-white"
+                className="inline-flex min-h-11 items-center gap-[7px] text-sm font-semibold text-white/70 hover:text-white"
                 data-cta="hire-hero-email"
                 data-cta-event="hire_contact_click"
                 href={`mailto:${data.email}?subject=Opportunity%20for%20Matt`}
@@ -105,7 +108,7 @@ export default function Hero({ data }: { data: HireMattPageData["hero"] }) {
             </div>
           </Reveal>
 
-          <Reveal index={1}>
+          <Reveal className={refinement.portrait} index={1}>
             <div className="relative overflow-hidden rounded-[20px] border border-white/[0.14] bg-content3">
               <Image
                 priority
@@ -122,7 +125,7 @@ export default function Hero({ data }: { data: HireMattPageData["hero"] }) {
                 <b className="block text-[17px] font-extrabold tracking-[-.015em]">
                   {data.image.alt}
                 </b>
-                <span className="mt-[5px] block text-[11px] font-medium uppercase tracking-[.1em] text-[#b9cbdd]">
+                <span className="mt-[5px] block text-xs font-medium uppercase tracking-[.1em] text-[#b9cbdd]">
                   {data.imageCaption}
                 </span>
               </div>

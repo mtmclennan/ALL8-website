@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Facebook, Linkedin } from "lucide-react";
 
+import refinement from "./VisualRefinement.module.css";
 import Logo from "./Logo";
 import { useLeadModal } from "./LeadModalProvider";
 
@@ -33,7 +34,9 @@ export default function Footer() {
 
   if (pathname.startsWith("/hire-matt")) {
     return (
-      <footer className="border-t border-white/[0.08] bg-[#070A12]">
+      <footer
+        className={`${pathname === "/" || pathname.startsWith("/hire-matt") ? refinement.surface : ""} border-t border-white/[0.08] bg-[#070A12]`}
+      >
         <div className="mx-auto flex max-w-[1160px] flex-col gap-4 px-6 py-8 text-sm text-white/50 sm:flex-row sm:items-center sm:justify-between sm:px-10">
           <p>
             &copy; {new Date().getFullYear()} Matt McLennan · Ontario, Canada
@@ -67,7 +70,9 @@ export default function Footer() {
   }
 
   return (
-    <footer className="border-t border-white/[0.08] bg-[#070A12]">
+    <footer
+      className={`${pathname === "/" || pathname.startsWith("/hire-matt") ? refinement.surface : ""} border-t border-white/[0.08] bg-[#070A12]`}
+    >
       <div className="mx-auto max-w-[1160px] px-6 pb-8 pt-16 sm:px-10">
         <div className="grid grid-cols-1 gap-10 pb-12 sm:grid-cols-2 lg:grid-cols-[1.8fr_1fr_1fr_1fr]">
           <div>

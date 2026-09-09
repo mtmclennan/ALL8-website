@@ -23,9 +23,9 @@ export const metadata: Metadata = {
 
 const results = [
   {
-    value: "40 → 90+",
+    value: "40 → 100",
     label: "Google Search clicks per rolling 28 days",
-    detail: "March to August 2026 — more than doubled",
+    detail: "March to September 2026 — 2.5× growth",
   },
   {
     value: "+76%",

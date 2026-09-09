@@ -7,6 +7,7 @@ import clsx from "clsx";
 import { Phone, Menu, X } from "lucide-react";
 
 import { useLeadModal } from "./LeadModalProvider";
+import refinement from "./VisualRefinement.module.css";
 import Logo from "./Logo";
 import Button from "./ui/Button";
 
@@ -48,6 +49,7 @@ const Navbar = () => {
       <header
         className={clsx(
           "fixed left-0 right-0 top-0 z-[200] border-b border-white/[0.08] transition-colors",
+          refinement.surface,
           scrolled ? "bg-background/92 backdrop-blur-2xl" : "bg-background/75",
         )}
       >
@@ -78,7 +80,7 @@ const Navbar = () => {
               </li>
               <li>
                 <a
-                  className="inline-flex min-h-11 items-center rounded-full bg-accent-blue px-4 py-2 font-bold text-white hover:bg-[#1e8bff]"
+                  className="inline-flex min-h-11 items-center rounded-full bg-[#0866cf] px-4 py-2 font-bold text-white hover:bg-[#075bbb]"
                   data-cta="hire-nav-contact"
                   data-cta-event="hire_contact_click"
                   href="mailto:hello@all8webworks.com?subject=Opportunity%20for%20Matt"
@@ -99,18 +101,19 @@ const Navbar = () => {
     <header
       className={clsx(
         "fixed left-0 right-0 top-0 z-[200] transition-[background,box-shadow] duration-300",
+        pathname === "/" && refinement.surface,
         scrolled &&
           "bg-background/90 shadow-[0_1px_0_rgba(255,255,255,.08)] backdrop-blur-2xl",
         menuOpen && !scrolled && "bg-background/95 backdrop-blur-2xl",
       )}
       id="nav"
     >
-      <div className="mx-auto flex h-[68px] max-w-[1160px] items-center gap-8 px-6 sm:px-10">
+      <div className="mx-auto flex h-[68px] max-w-[1160px] items-center gap-2 px-6 sm:gap-5 xl:gap-8 sm:px-10">
         <Link className="flex h-full flex-shrink-0 items-center" href="/">
           <Logo size="sm" variant="horizontal" />
         </Link>
 
-        <nav aria-label="Primary" className="ml-2 max-[960px]:hidden">
+        <nav aria-label="Primary" className="ml-2 max-[1100px]:hidden">
           <ul className="flex items-center gap-7">
             {siteConfig.navItems.map((item) => (
               <li key={item.href}>
@@ -125,9 +128,9 @@ const Navbar = () => {
           </ul>
         </nav>
 
-        <div className="ml-auto flex items-center gap-4 max-[960px]:hidden">
+        <div className="ml-auto flex items-center gap-4 max-[1100px]:hidden">
           <a
-            className="inline-flex items-center gap-[7px] text-sm font-bold text-white hover:text-accent-blue"
+            className="inline-flex items-center whitespace-nowrap gap-[7px] text-sm font-bold text-white hover:text-accent-blue"
             href={telHref}
           >
             <Phone className="text-accent-blue" size={15} />
@@ -140,7 +143,7 @@ const Navbar = () => {
 
         <a
           aria-label={`Call ${siteConfig.phone}`}
-          className="ml-auto hidden min-h-11 items-center px-1.5 max-[960px]:flex"
+          className="ml-auto hidden min-h-11 min-w-11 justify-center items-center px-1.5 max-[1100px]:flex"
           href={telHref}
         >
           <Phone className="text-accent-blue" size={17} />
@@ -150,7 +153,7 @@ const Navbar = () => {
           aria-controls="navPanel"
           aria-expanded={menuOpen}
           aria-label="Menu"
-          className="hidden min-h-11 min-w-11 items-center justify-center max-[960px]:flex"
+          className="hidden min-h-11 min-w-11 items-center justify-center max-[1100px]:flex"
           type="button"
           onClick={() => setMenuOpen((v) => !v)}
         >
@@ -160,10 +163,11 @@ const Navbar = () => {
 
       <div
         className={clsx(
-          "hidden overflow-hidden border-t border-white/[0.08] bg-background transition-[max-height] duration-300 ease-out max-[960px]:block",
+          "hidden overflow-hidden border-t border-white/[0.08] bg-background transition-[max-height] duration-300 ease-out max-[1100px]:block",
           menuOpen ? "max-h-[520px]" : "max-h-0 border-t-0",
         )}
         id="navPanel"
+        inert={!menuOpen}
       >
         <div className="flex flex-col gap-0.5 px-6 pb-6 pt-4">
           {siteConfig.navMenuItems.map((item) => (

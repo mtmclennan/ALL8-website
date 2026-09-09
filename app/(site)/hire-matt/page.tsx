@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+import refinement from "../_components/VisualRefinement.module.css";
+
 import Hero from "./components/Hero";
 import ProofMetrics from "./components/ProofMetrics";
 import BellhouseCaseStudy from "./components/BellhouseCaseStudy";
@@ -70,7 +72,7 @@ export default function HireMattPage() {
   const data = hireMattPageData;
 
   return (
-    <>
+    <div className={refinement.surface}>
       <script
         dangerouslySetInnerHTML={{ __html: JSON.stringify(hireMattJsonLd) }}
         type="application/ld+json"
@@ -84,6 +86,6 @@ export default function HireMattPage() {
       <Background data={data.background} />
       <ValueForYou data={data.valueForYou} />
       <HireCta data={data.finalCta} />
-    </>
+    </div>
   );
 }

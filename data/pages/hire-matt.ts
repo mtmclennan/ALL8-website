@@ -30,6 +30,9 @@ export type HireMattPageData = {
       value: string;
       em?: boolean;
       label: string;
+      context?: string;
+      detail?: string;
+      kind?: "insight";
       color: string;
     }[];
     footLine: string;

@@ -66,6 +66,6 @@ export const siteConfig = {
     linkedin: "https://www.linkedin.com/company/all8-webworks",
   },
   phone: "(519) 807-3483",
-  addressLine: "Paris, Ontario, Canada",
+  addressLine: "Ontario, Canada",
   email: "hello@all8webworks.com",
 };

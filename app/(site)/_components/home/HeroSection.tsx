@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Search, ArrowRight } from "lucide-react";
 
+import refinement from "../VisualRefinement.module.css";
 import { useLeadModal } from "../LeadModalProvider";
 import Button from "../ui/Button";
 
@@ -29,7 +30,7 @@ export default function HeroSection({ data }: { data: HeroData }) {
 
   return (
     <section
-      className="relative flex min-h-screen items-center overflow-hidden pt-[68px] max-[960px]:min-h-0 max-[960px]:flex-col max-[960px]:items-start max-[960px]:pt-[100px]"
+      className={`${refinement.homeHero} relative flex items-center overflow-hidden max-lg:flex-col max-lg:items-start`}
       id="hero"
     >
       <div className="absolute inset-0 bg-background" />
@@ -50,7 +51,9 @@ export default function HeroSection({ data }: { data: HeroData }) {
       />
 
       <div className="relative z-[2] mx-auto w-full max-w-[1160px] px-6 sm:px-10">
-        <div className="relative z-[2] w-[52%] py-20 max-[960px]:w-full max-[960px]:py-10">
+        <div
+          className={`${refinement.heroCopy} relative z-[2] w-[52%] py-20 max-lg:w-full max-lg:py-10`}
+        >
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[rgba(0,118,255,.22)] bg-[rgba(0,118,255,.1)] py-1.5 pl-2.5 pr-3.5 text-[12.5px] font-semibold tracking-[.05em] text-accent-blue">
             <span className="h-[7px] w-[7px] flex-shrink-0 rounded-full bg-stage-win shadow-[0_0_8px_#22c55e]" />
             {data.pill}
@@ -112,7 +115,7 @@ export default function HeroSection({ data }: { data: HeroData }) {
         </div>
       </div>
 
-      <div className="pointer-events-none relative mx-auto hidden w-full max-w-[1160px] px-6 max-[960px]:mt-6 max-[960px]:place-items-center max-[960px]:px-6 sm:grid sm:px-10 lg:absolute lg:inset-y-0 lg:right-0 lg:mx-0 lg:w-1/2 lg:max-w-none lg:place-items-center lg:px-0">
+      <div className="pointer-events-none relative mx-auto hidden w-full max-w-[1160px] px-6 max-lg:mt-6 max-lg:place-items-center max-lg:px-6 sm:grid sm:px-10 lg:absolute lg:inset-y-0 lg:right-[max(0px,calc((100vw-1440px)/2))] lg:mx-0 lg:w-1/2 lg:max-w-none lg:place-items-center lg:px-0">
         <div className="relative">
           <div
             className="absolute inset-0 z-0"
@@ -124,7 +127,7 @@ export default function HeroSection({ data }: { data: HeroData }) {
           <Image
             priority
             alt={data.image.alt}
-            className="relative z-[1] h-auto w-[92%] max-w-[640px] drop-shadow-[0_40px_80px_rgba(0,0,0,.55)] max-[960px]:mx-auto max-[960px]:w-[88%] max-[960px]:max-w-[420px]"
+            className="relative z-[1] h-auto w-[92%] max-w-[640px] drop-shadow-[0_20px_40px_rgba(0,0,0,.35)] max-lg:mx-auto max-lg:w-[88%] max-lg:max-w-[420px]"
             fetchPriority="high"
             height={data.image.height}
             src={data.image.src}

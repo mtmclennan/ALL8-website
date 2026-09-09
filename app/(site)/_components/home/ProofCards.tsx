@@ -46,14 +46,14 @@ export default function ProofCards({ data }: { data: ProofCardsData }) {
           </h2>
         </Reveal>
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+        <div className={`grid grid-cols-1 gap-5 ${data.cards.length === 2 ? "sm:grid-cols-2" : "md:grid-cols-3"}`}>
           {data.cards.map((card, i) => {
             const Icon = ICONS[card.icon] ?? LineChart;
 
             return (
               <Reveal key={card.label} index={i}>
                 <Card
-                  className="relative overflow-hidden p-[34px] sm:p-[34px]"
+                  className="relative overflow-hidden p-6 sm:p-[34px]"
                   variant="lift"
                 >
                   <div

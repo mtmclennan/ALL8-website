@@ -1,10 +1,10 @@
 # ALL8 Proof Inventory
 
-Last reviewed: 2026-08-28. Public claims must use the wording and scope below. Identifying client details and sensitive operating metrics stay private unless Matt supplies explicit permission.
+Last reviewed: 2026-09-09. Public claims must use the wording and scope below. Identifying client details and sensitive operating metrics stay private unless Matt supplies explicit permission.
 
 | Evidence | Source / period | Approved public wording | Strength | Public use | Notes |
 | --- | --- | --- | --- | --- | --- |
-| Search click growth | Google Search Console, rolling 28-day comparison, March to August 2026 | “Google Search clicks grew from 40 to 90+ per rolling 28 days — more than doubled.” | Primary | Homepage proof context, Local SEO / website services, Hire Matt, anonymized case study | Do not round to 100. Keep dates and rolling-window context. |
+| Search click growth | Google Search Console, rolling 28-day comparison; 40-click milestone March 9, 2026; 100-click window August 10–September 6, 2026, confirmed by Matt in the September 9 refinement brief | “Google Search clicks grew from 40 to 100 per rolling 28 days, March to September 2026 — 2.5× growth.” | Primary | Homepage proof context, Local SEO / website services, Hire Matt, anonymized case study | 100 is the newly verified count, not rounding. Supersedes the earlier 90+ milestone. Keep dates and rolling-window context. |
 | Business Profile growth | Google Business Profile, year-over-year comparison | “Google Business Profile website clicks increased 76% year over year.” | Primary | Homepage, Local SEO, Hire Matt, anonymized case study | Say website clicks, not leads, customers or revenue. |
 | Target service visibility | Captured search result / Search Console evidence | “Captured page-one visibility for a targeted service page.” | Supporting | Local SEO, Hire Matt, case study | Point-in-time only. Never imply a permanent or guaranteed rank. |
 | High-intent local visibility | Captured local result | “Captured strong local visibility for a high-intent search.” | Supporting | Local SEO, case study | Avoid generic “#1 Local” without query/date/location context. |

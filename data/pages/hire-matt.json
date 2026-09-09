@@ -31,12 +31,12 @@
   "proofMetrics": {
     "eyebrow": "Measured Outcomes · Captured Evidence",
     "cards": [
-      { "tag": "Search growth", "value": "40 → 90+", "em": true, "label": "Google Search **clicks per rolling 28 days**, March to August 2026 — more than doubled", "color": "#3D97FF" },
-      { "tag": "Local demand", "value": "+76%", "em": true, "label": "Google Business Profile **website clicks**, year over year", "color": "#22d3ee" },
-      { "tag": "Systems thinking", "value": "Search → Ops", "label": "Tracking revealed the **next lead-handling constraint** and shaped an integrated response workflow", "color": "#22c55e" }
+      { "tag": "Search growth", "value": "40 → 100", "em": true, "label": "Google Search **Clicks**", "context": "Per rolling 28 days · March → September 2026", "detail": "2.5× growth", "color": "#3D97FF" },
+      { "tag": "Local demand", "value": "+76%", "em": true, "label": "Google Business Profile", "context": "Website clicks · Year over year", "color": "#22d3ee" },
+      { "tag": "Systems thinking", "value": "Search → Operations", "label": "Tracking revealed the **next bottleneck**", "context": "Led to a connected lead-handling workflow", "detail": "IN VALIDATION · Ooma → Zapier → Estivor", "kind": "insight", "color": "#a8b2c1" }
     ],
     "footLine": "Improved acquisition. Measured what happened next. Found the next constraint.",
-    "footNote": "Search and Business Profile figures are measured client results. Ranking and AI-result visibility are point-in-time captures, not guaranteed positions."
+    "footNote": "Latest Search window: August 10–September 6, 2026. Search and Business Profile clicks are acquisition results; the workflow is development evidence."
   },
 
   "capability": {
@@ -83,7 +83,7 @@
     "afterBlock": {
       "heading": "Where that pushed the work",
       "paragraphs": [
-        "Attribution, CRM structure, call tracking, notifications, reminders, follow-up automation and pipeline thinking. The engagement stopped being a marketing project and became a revenue-operations one."
+        "A connected Ooma Office → Zapier → Estivor lead-handling workflow. Call-event capture, routing and record matching are IN VALIDATION; recovery and escalation remain PLANNED. Estivor itself is LIVE in early access."
       ]
     },
     "ctaLabel": "View Full Case Study",
@@ -104,11 +104,11 @@
       ],
       "resultsHeading": "Captured results",
       "results": [
-        "Google Search clicks grew from **40 to 90+ per rolling 28 days** between March and August 2026",
+        "Google Search clicks grew from **40 to 100 per rolling 28 days** between March and September 2026 — **2.5× growth**",
         "**+76% YoY** Google Business Profile website clicks",
         "Non-branded **commercial-intent** search traffic",
-        "Strong local and organic visibility for **targeted services**",
-        "Demonstrated visibility inside **Google AI-generated answers**"
+        "Captured local and organic visibility for **targeted services**",
+        "Point-in-time visibility inside **Google AI-generated answers**"
       ],
       "evidenceHeading": "Search Console & ranking screenshots",
       "evidenceNote": "Captured evidence available on request. Rankings and AI-answer visibility are point-in-time captures, not guaranteed positions."
@@ -177,7 +177,9 @@
       },
       {
         "name": "Estivor",
-        "kind": "Product",
+        "kind": "Live · Early access",
+        "href": "https://estivor.com",
+        "linkLabel": "Visit Estivor",
         "brand": {
           "surface": "dark",
           "logo": { "src": "/assets/hire-matt/projects/estivor-logo-light.png", "width": 805, "height": 151 }

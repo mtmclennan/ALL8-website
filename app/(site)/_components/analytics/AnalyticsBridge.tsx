@@ -56,7 +56,16 @@ function DelegatedClickTracker() {
       if (ctaId) {
         const eventName = el.getAttribute("data-cta-event") || "cta_click";
 
-        trackCustomEvent(eventName, ctaId);
+        const project = el.getAttribute("data-project");
+        const destination = el.getAttribute("data-destination");
+
+        trackCustomEvent(
+          eventName,
+          ctaId,
+          eventName === "hire_project_click" && project && destination
+            ? { project, destination }
+            : {},
+        );
 
         return;
       }

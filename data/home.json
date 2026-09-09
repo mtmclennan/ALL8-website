@@ -26,11 +26,10 @@
 
   "proofStrip": {
     "items": [
-      { "value": "40 → 90+", "label": "Search clicks per rolling 28 days", "em": true },
-      { "value": "+76%", "label": "Business Profile website clicks YoY", "em": false },
-      { "value": "Page One", "label": "Captured service-page visibility", "em": true }
+      { "value": "40 → 100", "label": "Google Search clicks per rolling 28 days", "em": true },
+      { "value": "+76%", "label": "Business Profile website clicks YoY", "em": false }
     ],
-    "note": "Real anonymized service-business client results"
+    "note": "Anonymized client · Search: March–September 2026 · Latest window: August 10–September 6"
   },
 
   "leak": {
@@ -170,7 +169,7 @@
       },
       {
         "tag": "The result",
-        "text": "Google Search clicks grew from **40 to 90+ per rolling 28 days** between March and August 2026, Business Profile website clicks increased **76% year over year**, and point-in-time evidence captured page-one, strong local and AI-result visibility."
+        "text": "Google Search clicks grew from **40 to 100 per rolling 28 days** between March and September 2026 (2.5× growth), Business Profile website clicks increased **76% year over year**, and point-in-time evidence captured page-one, strong local and AI-result visibility."
       },
       {
         "tag": "What it exposed",
@@ -181,9 +180,8 @@
     "visual": {
       "title": "Lead System Review — findings",
       "metrics": [
-        { "value": "+76%", "label": "Profile Clicks", "stage": "found" },
-        { "value": "Page 1", "label": "Service Pages", "stage": "found" },
-        { "value": "Live", "label": "Lead Tracking", "stage": "win" }
+        { "value": "2.5×", "label": "Google Search growth", "stage": "found" },
+        { "value": "+76%", "label": "GBP website clicks YoY", "stage": "found" }
       ],
       "rows": [
         { "label": "Get Found", "stage": "found", "status": "Improved" },
@@ -252,11 +250,10 @@
     "eyebrow": "Proof, Not Promises",
     "title": "Measured Results, Not Adjectives",
     "cards": [
-      { "value": "40 → 90+", "em": true, "label": "Search Clicks", "sub": "Rolling 28 days, March to August 2026", "icon": "chart" },
-      { "value": "+76%", "em": false, "label": "Profile Website Clicks", "sub": "Google Business Profile, year over year", "icon": "pin" },
-      { "value": "Page One", "em": true, "label": "Captured Visibility", "sub": "Targeted service page, point in time", "icon": "search" }
+      { "value": "40 → 100", "em": true, "label": "Google Search Clicks", "sub": "Rolling 28 days, March to September 2026 · 2.5× growth", "icon": "chart" },
+      { "value": "+76%", "em": false, "label": "Profile Website Clicks", "sub": "Google Business Profile, year over year", "icon": "pin" }
     ],
-    "footNote": "These results come from documented client work. Identifying details have been removed, but the underlying search and performance data is real.",
+    "footNote": "Documented, anonymized client work. Latest Search window: August 10–September 6, 2026. Captured local, page-one and AI-result visibility supports the story; it is point-in-time evidence, not a permanent ranking.",
     "ctaLede": "Want to see where your lead system is losing opportunities?",
     "ctaLabel": "Get My Free Lead System Review"
   },

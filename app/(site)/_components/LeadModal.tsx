@@ -7,7 +7,9 @@ import Link from "next/link";
 import Script from "next/script";
 import { X, CheckCircle2 } from "lucide-react";
 import clsx from "clsx";
+import { usePathname } from "next/navigation";
 
+import refinement from "./VisualRefinement.module.css";
 import Button from "./ui/Button";
 
 import { useHubSpotContextFields } from "@/hooks/use-hubspotContextFields";
@@ -29,7 +31,7 @@ const CHALLENGES = [
 const initialState: LeadActionState = { ok: false };
 
 const inputClass =
-  "w-full min-h-[46px] rounded-[10px] border border-white/[0.08] bg-white/[0.045] px-3.5 py-3 text-base text-white placeholder:text-[#5A7391] transition-colors focus:border-primary focus:bg-white/[0.07] focus:outline-none";
+  "w-full min-h-[46px] rounded-[10px] border border-white/40 bg-white/[0.045] px-3.5 py-3 text-base text-white placeholder:text-[#a8b2c1] transition-colors focus:border-primary focus:bg-white/[0.07] focus:outline-none";
 
 const inputErrorClass = "border-red-400/60 focus:border-red-400/60";
 
@@ -80,6 +82,7 @@ export default function LeadModal({
   open: boolean;
   onClose: () => void;
 }) {
+  const pathname = usePathname();
   const [state, formAction, isPending] = useActionState(
     submitLeadReview,
     initialState,
@@ -207,7 +210,8 @@ export default function LeadModal({
   return (
     <div
       className={clsx(
-        "fixed inset-0 z-[400] grid place-items-center p-6 transition-opacity duration-200",
+        "fixed inset-0 z-[400] grid place-items-center p-4 transition-opacity duration-200 sm:p-6",
+        pathname === "/" && refinement.surface,
         open
           ? "visible opacity-100"
           : "pointer-events-none invisible opacity-0",
@@ -227,14 +231,14 @@ export default function LeadModal({
         aria-labelledby="leadModalTitle"
         aria-modal="true"
         className={clsx(
-          "relative max-h-[90vh] w-full max-w-[520px] overflow-y-auto rounded-[20px] border border-white/[0.14] bg-content3 p-9 shadow-[0_40px_100px_-20px_rgba(0,0,0,.8)] transition-transform duration-200 sm:p-9",
+          "relative max-h-[90dvh] w-full max-w-[520px] overflow-y-auto rounded-[20px] border border-white/[0.14] bg-content3 p-6 shadow-[0_40px_100px_-20px_rgba(0,0,0,.8)] transition-transform duration-200 sm:p-9",
           open ? "translate-y-0" : "translate-y-3.5",
         )}
         role="dialog"
       >
         <button
           aria-label="Close"
-          className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-[10px] text-white/50 transition-colors hover:bg-white/[0.058] hover:text-white"
+          className="absolute right-4 top-4 grid h-11 w-11 place-items-center rounded-[10px] text-white/50 transition-colors hover:bg-white/[0.058] hover:text-white"
           type="button"
           onClick={onClose}
         >

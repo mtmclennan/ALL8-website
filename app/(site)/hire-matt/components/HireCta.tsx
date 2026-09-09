@@ -2,6 +2,7 @@ import type { HireMattPageData } from "@/data/pages/hire-matt";
 
 import { Download, Github, Linkedin, Mail } from "lucide-react";
 
+import refinement from "../../_components/VisualRefinement.module.css";
 import Reveal from "../../_components/home/Reveal";
 import Button from "../../_components/ui/Button";
 
@@ -12,7 +13,7 @@ export default function HireCta({
 }) {
   return (
     <section
-      className="relative overflow-hidden py-[118px] text-center max-[960px]:py-20"
+      className={`${refinement.contact} relative overflow-hidden text-center`}
       id="contact"
     >
       <div
@@ -41,7 +42,7 @@ export default function HireCta({
           </p>
         </Reveal>
         <Reveal
-          className="flex flex-wrap items-center justify-center gap-3.5"
+          className={`${refinement.contactActions} flex flex-wrap items-center justify-center gap-3.5`}
           index={3}
         >
           <Button
