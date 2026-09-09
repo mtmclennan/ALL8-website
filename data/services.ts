@@ -1,138 +1,117 @@
 // src/data/services.ts
-import { lucideIconMap } from './lucideIconMap';
-import type { FC } from 'react';
-import rawServices from './services.json';
+import type { FC } from "react";
+
+import { lucideIconMap } from "./lucideIconMap";
+import rawServices from "./services.json";
 
 // ---------- Types ----------
 export type IconName = keyof typeof lucideIconMap;
 
 export type FAQ = { q: string; a: string };
 
-export type CTA = {
-  titlePrefix: string;
-  highlight: string;
-  titleSuffix: string;
+/** The four-stage lead journey, plus 'support' for services that sit outside it (e.g. maintenance). */
+export type ServiceCategory =
+  | "found"
+  | "contacted"
+  | "follow"
+  | "win"
+  | "support";
+
+export type ServiceHero = {
+  eyebrow: string;
+  title: string;
   subtitle: string;
-  ctaLabel: string;
-  ctaHref: string;
+  ctaLabel?: string;
+  secondary?: { label: string; href: string };
+};
+
+export type ServiceProblem = {
+  title: string;
+  intro?: string;
+  scenarios: string[];
+};
+
+export type ServiceFix = {
+  title: string;
+  body: string[];
+};
+
+export type ServiceStep = { title: string; description: string };
+
+export type ServiceHowItWorks = {
+  title?: string;
+  steps: ServiceStep[];
+};
+
+export type ServiceIncluded = {
+  title?: string;
+  standard: string[];
+  addOns?: string[];
+};
+
+export type ServiceWhyItMatters = {
+  title?: string;
+  points: string[];
+};
+
+export type ServiceWorksWith = {
+  title?: string;
+  intro?: string;
+  tools: string[];
+};
+
+export type ServicePricingTier = {
+  label: string;
+  price: string;
+  description?: string;
+};
+
+export type ServicePricing = {
+  label: string;
   note?: string;
+  tiers?: ServicePricingTier[];
+  /** ISO 4217 currency code for structured data. Defaults to "USD" if omitted. */
+  currency?: string;
+  /** Present only for subscription-billed services (setup fee + recurring monthly). */
+  billing?: {
+    setupFee: number;
+    monthly: number;
+  };
 };
 
-export type ProcessStep = {
-  title: string;
-  description: string;
-  icon: IconName;
-};
-
-export type Process = {
-  title: string;
-  subtitle?: string;
-  steps: ProcessStep[];
-};
-
-export type ImageBlock = {
-  image: string;
-  alt: string;
-};
-
-// ---------- SEO ----------
 export type SEO = {
   title?: string;
   description?: string;
   keywords?: string;
   url?: string;
   image?: string;
-  imageAlt?: string;
   type?: string;
   siteName?: string;
 };
 
-// ---------- Hero ----------
-export type Hero = {
-  image: string;
-  alt: string;
-  titlePrefix: string;
-  highlight: string;
-  titleSuffix: string;
-  subtitle: string;
-  ctaLabel: string;
-  ctaHref: string;
-};
-
-// ---------- Overview ----------
-export type OverviewBadge = {
-  label: string;
-  icon: IconName;
-};
-
-export type Overview = {
-  title: string;
-  description: string;
-  oneLiner?: string;
-  badges: OverviewBadge[];
-};
-
-// ---------- Problem / Solution ----------
-export type ProblemPoint = {
-  icon: IconName;
-  title: string;
-  description: string;
-};
-
-export type Problem = {
-  title?: string;
-  subtitle?: string;
-  points: ProblemPoint[];
-};
-
-export type SolutionPoint = {
-  icon: IconName;
-  title: string;
-  description: string;
-};
-
-export type Solution = {
-  title?: string;
-  subtitle?: string;
-  points: SolutionPoint[];
-};
-
-// ---------- Comparison ----------
-export type ComparisonPoint = {
-  label: string;
-  ours: string;
-  theirs: string;
-};
-
-export type Comparison = {
-  title?: string;
-  subtitle?: string;
-  points: ComparisonPoint[];
-};
-
 // ---------- Service ----------
 export type Service = {
-  featured: boolean;
   slug: string;
   title: string;
+  shortTitle?: string;
+  category: ServiceCategory;
+  secondaryCategory?: ServiceCategory;
   short: string;
-  description: string;
-  benefits: string[];
-  features: string[];
-  priceFrom?: string;
-  ctaLabel?: string;
   icon: IconName;
-  faqs?: FAQ[];
-  seo?: SEO;
+  featured: boolean;
   priority?: number;
-  card?: ImageBlock;
-  hero?: Hero;
-  overview?: Overview;
-  problem?: Problem;
-  solution?: Solution;
-  comparison?: Comparison;
-  process?: Process;
-  cta?: CTA;
+
+  hero: ServiceHero;
+  problem: ServiceProblem;
+  fix: ServiceFix;
+  howItWorks: ServiceHowItWorks;
+  included: ServiceIncluded;
+  whyItMatters: ServiceWhyItMatters;
+  worksWith?: ServiceWorksWith;
+  pricing: ServicePricing;
+  faqs: FAQ[];
+  crossLinks: string[];
+  seo: SEO;
 };
 
 // ---------- Runtime-typed variant ----------
@@ -141,39 +120,7 @@ export type ServiceWithIcon = Service & {
 };
 
 // ---------- JSON Input Shape (looser) ----------
-type ServiceInput = Omit<
-  Service,
-  'icon' | 'process' | 'overview' | 'problem' | 'solution' | 'comparison'
-> & {
-  icon: string;
-  seo?: Omit<SEO, 'imageAlt'> & { imageAlt?: string };
-  process?: {
-    title: string;
-    subtitle?: string;
-    steps: { title: string; description: string; icon: string }[];
-  };
-  overview?: {
-    title: string;
-    description: string;
-    oneLiner?: string;
-    badges: { label: string; icon: string }[];
-  };
-  problem?: {
-    title?: string;
-    subtitle?: string;
-    points: { icon: string; title: string; description: string }[];
-  };
-  solution?: {
-    title?: string;
-    subtitle?: string;
-    points: { icon: string; title: string; description: string }[];
-  };
-  comparison?: {
-    title?: string;
-    subtitle?: string;
-    points: { label: string; ours: string; theirs: string }[];
-  };
-};
+type ServiceInput = Omit<Service, "icon"> & { icon: string };
 
 // ---------- Normalize JSON → strict Service[] ----------
 const raw = rawServices as ServiceInput[];
@@ -181,48 +128,6 @@ const raw = rawServices as ServiceInput[];
 export const SERVICES: Service[] = raw.map((s) => ({
   ...s,
   icon: s.icon as IconName,
-  process: s.process
-    ? {
-        ...s.process,
-        steps: s.process.steps.map((step) => ({
-          ...step,
-          icon: step.icon as IconName,
-        })),
-      }
-    : undefined,
-  overview: s.overview
-    ? {
-        ...s.overview,
-        badges: s.overview.badges.map((b) => ({
-          ...b,
-          icon: b.icon as IconName,
-        })),
-      }
-    : undefined,
-  problem: s.problem
-    ? {
-        ...s.problem,
-        points: s.problem.points.map((p) => ({
-          ...p,
-          icon: p.icon as IconName,
-        })),
-      }
-    : undefined,
-  solution: s.solution
-    ? {
-        ...s.solution,
-        points: s.solution.points.map((p) => ({
-          ...p,
-          icon: p.icon as IconName,
-        })),
-      }
-    : undefined,
-  comparison: s.comparison
-    ? {
-        ...s.comparison,
-        points: s.comparison.points.map((p) => ({ ...p })),
-      }
-    : undefined,
 }));
 
 // ---------- Helpers ----------
@@ -237,11 +142,17 @@ export function getServicesWithIcons(): ServiceWithIcon[] {
 
 export function getServiceBySlug(slug: string): ServiceWithIcon | undefined {
   const s = SERVICES.find((s) => s.slug === slug);
+
   if (!s) return undefined;
+
   return {
     ...s,
     Icon:
       lucideIconMap[s.icon as keyof typeof lucideIconMap] ??
       lucideIconMap.Rocket,
   };
+}
+
+export function getServicesByCategory(category: ServiceCategory): Service[] {
+  return SERVICES.filter((s) => s.category === category);
 }

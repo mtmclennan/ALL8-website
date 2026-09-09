@@ -1,0 +1,28 @@
+# Enable only after both names resolve to this server and the certificate exists.
+# Keep this separate from the ALL8 virtual hosts. See docs/personal-domain.md.
+server {
+    listen 80;
+    listen [::]:80;
+    server_name mattmclennan.dev www.mattmclennan.dev;
+
+    # Preserve HTTP-01 renewal; the challenge webroot must match Certbot's setup.
+    location ^~ /.well-known/acme-challenge/ {
+        root /var/www/letsencrypt;
+    }
+
+    location / {
+        return 308 https://all8webworks.com/hire-matt$is_args$args;
+    }
+}
+
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    server_name mattmclennan.dev www.mattmclennan.dev;
+
+    ssl_certificate /etc/letsencrypt/live/mattmclennan.dev/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/mattmclennan.dev/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+
+    return 308 https://all8webworks.com/hire-matt$is_args$args;
+}

@@ -1,63 +1,189 @@
-'use client';
+"use client";
 
-import { PortableText, type PortableTextComponents } from '@portabletext/react';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { urlFor } from '@/app/studio/sanity/lib/image';
-import type { Post as SanityPost } from '@/app/studio/sanity.types';
+import type { Post as SanityPost } from "@/app/studio/sanity.types";
+
+import Link from "next/link";
+import Image from "next/image";
+import { PortableText, type PortableTextComponents } from "@portabletext/react";
+
+import TableOfContents, { type TocItem } from "./TableOfContents";
+
+import { urlFor } from "@/app/studio/sanity/lib/image";
+import { slugify } from "@/lib/utils/slugify";
+import { useLeadModal } from "@/app/(site)/_components/LeadModalProvider";
 
 /**
  * Query-result type for singlePostQuery:
  * - In Sanity schema, `author` is a reference.
- * - In GROQ, you're projecting `author-> { name, image }`.
+ * - In GROQ, you're projecting `author-> { name, image, bio }`.
  * So we override the schema type to match the query result.
  */
-export type SinglePost = Omit<SanityPost, 'author'> & {
+export type SinglePost = Omit<SanityPost, "author" | "categories"> & {
   author?: {
     name: string;
     image?: unknown;
+    bio?: unknown;
   };
+  categories?: Array<{
+    title?: string;
+    slug?: string;
+  }>;
 };
 
-type BlogPostProps = { post: SinglePost };
+type BlogPostProps = { post: SinglePost; siteOrigin: string };
 
-export default function BlogPost({ post }: BlogPostProps) {
-  const heroSrc =
-    (post.coverImage
-      ? urlFor(post.coverImage).width(1920).height(1080).url()
-      : null) ?? '/assets/images/og/ALL8_Webworks_blog.jpg';
+type Block = {
+  _type?: string;
+  style?: string;
+  _key?: string;
+  children?: { text?: string }[];
+};
 
-  const heroAlt = post.coverImage?.alt || post.title || 'Blog post cover';
+function getBlockText(block: Block) {
+  return (block.children ?? []).map((c) => c.text ?? "").join("");
+}
 
+function extractToc(body: SinglePost["body"]): TocItem[] {
+  if (!Array.isArray(body)) return [];
+
+  return (body as Block[])
+    .filter((b) => b._type === "block" && b.style === "h2")
+    .map((b) => ({ id: slugify(getBlockText(b)), text: getBlockText(b) }));
+}
+
+function internalHref(href: string | undefined, siteOrigin: string) {
+  if (!href) return null;
+  if (href.startsWith("/") && !href.startsWith("//")) return href;
+
+  try {
+    const url = new URL(href);
+
+    if (url.origin !== siteOrigin) return null;
+
+    return `${url.pathname}${url.search}${url.hash}`;
+  } catch {
+    return null;
+  }
+}
+
+export default function BlogPost({ post, siteOrigin }: BlogPostProps) {
   const publishedLabel = post.publishedAt
-    ? new Date(post.publishedAt).toLocaleDateString('en-CA', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
+    ? new Date(post.publishedAt).toLocaleDateString("en-CA", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
       })
     : null;
 
-  const components: PortableTextComponents = {
-    types: {
-      image: ({ value }) => {
-        // Sanity portable text images usually come through as an image object with an asset ref.
-        // urlFor handles that correctly.
-        const src = value?.asset ? urlFor(value).width(1400).url() : null;
-        if (!src) return null;
+  const category = post.categories?.[0]?.title;
+  const toc = extractToc(post.body);
 
-        const alt = value?.alt || '';
+  const components: PortableTextComponents = {
+    block: {
+      h1: ({ children, value }) => (
+        <h2
+          className="mb-[18px] mt-[52px] scroll-mt-24 text-[clamp(25px,2.6vw,32px)] font-extrabold leading-[1.16] tracking-[-.024em]"
+          id={slugify(getBlockText(value as Block))}
+        >
+          {children}
+        </h2>
+      ),
+      h2: ({ children, value }) => (
+        <h2
+          className="mb-[18px] mt-[52px] scroll-mt-24 text-[clamp(25px,2.6vw,32px)] font-extrabold leading-[1.16] tracking-[-.024em]"
+          id={slugify(getBlockText(value as Block))}
+        >
+          {children}
+        </h2>
+      ),
+      h3: ({ children }) => (
+        <h3 className="mb-3 mt-9 text-xl font-extrabold tracking-[-.018em]">
+          {children}
+        </h3>
+      ),
+      blockquote: ({ children }) => (
+        <div className="my-[38px] rounded-r-[14px] border-l-2 border-primary bg-[rgba(0,118,255,.06)] px-[30px] py-7">
+          <p className="text-[clamp(19px,2.1vw,23px)] font-extrabold leading-[1.42] tracking-[-.02em] text-white">
+            {children}
+          </p>
+        </div>
+      ),
+      normal: ({ children }) => (
+        <p className="mb-6 text-lg leading-[1.82] text-white/70">{children}</p>
+      ),
+    },
+    list: {
+      bullet: ({ children }) => (
+        <ul className="mb-[26px] flex flex-col gap-[13px]">{children}</ul>
+      ),
+      number: ({ children }) => (
+        <ol className="mb-[26px] flex flex-col gap-[13px]">{children}</ol>
+      ),
+    },
+    listItem: {
+      bullet: ({ children }) => (
+        <li className="flex gap-3.5 text-[17.5px] leading-[1.75] text-white/70">
+          <span className="mt-[11px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+          <span>{children}</span>
+        </li>
+      ),
+      number: ({ children, index }) => (
+        <li className="flex gap-3.5 text-[17.5px] leading-[1.75] text-white/70">
+          <span className="mt-1 grid h-6 w-6 flex-shrink-0 place-items-center rounded-full border border-[rgba(0,118,255,.3)] bg-[rgba(0,118,255,.14)] text-xs font-extrabold text-accent-blue">
+            {(index ?? 0) + 1}
+          </span>
+          <span>{children}</span>
+        </li>
+      ),
+    },
+    marks: {
+      strong: ({ children }) => (
+        <strong className="font-bold text-white">{children}</strong>
+      ),
+      link: ({ children, value }) => {
+        const href = value?.href as string | undefined;
+        const normalizedInternalHref = internalHref(href, siteOrigin);
+
+        if (normalizedInternalHref) {
+          return (
+            <Link
+              className="text-accent-blue underline decoration-accent-blue/40 underline-offset-2 hover:text-[#8ec5ff]"
+              href={normalizedInternalHref}
+            >
+              {children}
+            </Link>
+          );
+        }
 
         return (
-          <figure className="my-12">
-            <img
+          <a
+            className="text-accent-blue underline decoration-accent-blue/40 underline-offset-2 hover:text-[#8ec5ff]"
+            href={href || "#"}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            {children}
+          </a>
+        );
+      },
+    },
+    types: {
+      image: ({ value }) => {
+        const src = value?.asset ? urlFor(value).width(1400).url() : null;
+
+        if (!src) return null;
+
+        return (
+          <figure className="my-9">
+            <Image
+              alt={value?.alt || ""}
+              className="h-auto w-full rounded-2xl shadow-lg"
+              height={788}
               src={src}
-              alt={alt}
-              className="rounded-2xl shadow-lg w-full h-auto"
-              loading="lazy"
+              width={1400}
             />
-            {/* Optional caption support if you store it */}
             {value?.caption ? (
-              <figcaption className="mt-3 text-sm text-neutral-400">
+              <figcaption className="mt-3 text-sm text-white/40">
                 {value.caption}
               </figcaption>
             ) : null}
@@ -65,134 +191,155 @@ export default function BlogPost({ post }: BlogPostProps) {
         );
       },
     },
-    marks: {
-      link: ({ children, value }) => {
-        const href = value?.href as string | undefined;
-        const isExternal = href ? /^https?:\/\//i.test(href) : false;
+  };
 
-        return (
-          <a
-            href={href || '#'}
-            target={isExternal ? '_blank' : undefined}
-            rel={isExternal ? 'noopener noreferrer' : undefined}
-          >
-            {children}
-          </a>
-        );
-      },
+  const bioComponents: PortableTextComponents = {
+    block: {
+      normal: ({ children }) => <p className="m-0">{children}</p>,
     },
   };
 
   return (
-    <article className="relative isolate pb-16">
-      {/* HERO SECTION */}
-      <section className="relative isolate text-white min-h-[350px] md:min-h-[400px] bg-blueprint bg-primary/5 flex flex-col justify-end pt-18 pb-10 md:pb-24">
-        {/* Background grid + glow */}
+    <article className="pb-24 max-[960px]:pb-16">
+      <section className="relative overflow-hidden pt-[68px]">
+        <div className="absolute inset-0 bg-background" />
         <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 z-0"
-        >
-          <div className="absolute inset-x-0 top-0 h-60 bg-gradient-to-b from-primary/90 to-transparent dark:from-blue-900/10" />
-        </div>
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(0,118,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,118,255,.05) 1px, transparent 1px)",
+            backgroundSize: "44px 44px",
+          }}
+        />
+        <div
+          className="absolute right-0 top-0 h-full w-[60%]"
+          style={{
+            background:
+              "radial-gradient(60% 70% at 80% 25%, rgba(0,64,150,.55) 0%, rgba(11,15,26,0) 65%)",
+          }}
+        />
+        <div className="relative z-[2] mx-auto max-w-[1160px] px-6 pb-16 pt-11 sm:px-10">
+          <div className="max-w-[800px]">
+            <nav
+              aria-label="Breadcrumb"
+              className="mb-[22px] flex flex-wrap items-center gap-2 text-[13px] text-white/70"
+            >
+              <Link className="hover:text-white" href="/">
+                Home
+              </Link>
+              <span className="text-white/40">/</span>
+              <Link className="hover:text-white" href="/blog">
+                Field Notes
+              </Link>
+              <span className="text-white/40">/</span>
+              <span className="max-w-full truncate font-semibold text-accent-blue">
+                {post.title}
+              </span>
+            </nav>
 
-        {/* Hero content */}
-        <div className="relative z-10 mx-auto max-w-5xl text-center px-6">
-          <motion.h1
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-4xl md:text-5xl/14 font-bold mb-6"
-          >
-            {post.title}
-          </motion.h1>
+            <div className="mb-[22px] flex flex-wrap items-center gap-3">
+              {category && (
+                <span className="rounded-full border border-[rgba(0,118,255,.28)] bg-[rgba(0,118,255,.13)] px-3 py-1.5 text-[11.5px] font-bold uppercase tracking-[.06em] text-accent-blue">
+                  {category}
+                </span>
+              )}
+              {publishedLabel && (
+                <span className="text-[13.5px] text-white/70">
+                  {publishedLabel}
+                </span>
+              )}
+              {post.readingTime && (
+                <>
+                  <span className="text-[13.5px] text-white/70">·</span>
+                  <span className="text-[13.5px] text-white/70">
+                    {post.readingTime} min read
+                  </span>
+                </>
+              )}
+            </div>
+
+            <h1 className="text-[clamp(36px,4.2vw,58px)] font-black leading-[1.04] tracking-[-.028em]">
+              {post.title}
+            </h1>
+          </div>
         </div>
       </section>
 
-      {/* Overlapping hero image */}
-      <div className="relative z-10 -translate-y-10 md:-translate-y-20">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          className="relative w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-xl"
-        >
-          <Image
-            src={heroSrc}
-            alt={heroAlt}
-            width={1920}
-            height={1080}
-            className="object-cover w-full h-auto"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent dark:from-black/70" />
-        </motion.div>
-
-        {post.excerpt ? (
-          <p className="text-neutral-300 px-4 italic text-lg max-w-2xl mt-10 mx-auto">
-            {post.excerpt}
-          </p>
-        ) : null}
-      </div>
-
-      {/* MAIN ARTICLE BODY */}
-      <motion.div
-        initial={{ opacity: 0, y: 15 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3 }}
-        className="relative z-20 max-w-3xl mx-auto px-6"
-      >
-        {/* Meta info */}
-        <div className="text-sm text-neutral-400 mb-10 border-b border-white/10 pb-6">
-          <p>
-            {publishedLabel ? (
-              <>
-                Published {publishedLabel}
-                {post.author?.name ? (
-                  <>
-                    {' '}
-                    • Written by{' '}
-                    <span className="text-white font-medium">
-                      {post.author.name}
-                    </span>
-                  </>
-                ) : null}
-              </>
-            ) : (
-              <>
-                {post.author?.name ? (
-                  <>
-                    Written by{' '}
-                    <span className="text-white font-medium">
-                      {post.author.name}
-                    </span>
-                  </>
-                ) : (
-                  ' '
-                )}
-              </>
+      <div className="mx-auto max-w-[1000px] px-6 sm:px-10">
+        <div className="grid grid-cols-1 items-start gap-16 lg:grid-cols-[1fr_232px]">
+          <div className="max-w-[680px]">
+            {post.excerpt && (
+              <p className="mb-[34px] text-[21px] leading-[1.68] text-[#cbd9e8]">
+                {post.excerpt}
+              </p>
             )}
-          </p>
-        </div>
 
-        {/* Main content */}
-        <div
-          className="prose prose-lg prose-invert max-w-none
-          prose-headings:font-semibold prose-headings:text-white
-          prose-p:mt-0
-          prose-h2:mt-16 prose-h2:mb-6 prose-h3:mt-12 prose-h3:mb-4
-          prose-p:leading-relaxed prose-p:my-6 prose-h4:mt-10 prose-h4:mb-2
-          prose-h4:text-xl
-          prose-li:my-2 prose-ul:my-6 prose-ol:my-6
-          prose-blockquote:border-l-4 prose-blockquote:border-blue-500/50 prose-blockquote:pl-6 prose-blockquote:text-neutral-300
-          prose-a:text-blue-400 hover:prose-a:text-blue-300
-          prose-img:rounded-2xl prose-img:shadow-lg
-          prose-hr:border-white/10"
-        >
-          {post.body ? (
-            <PortableText value={post.body} components={components} />
-          ) : null}
+            {post.body ? (
+              <PortableText components={components} value={post.body} />
+            ) : null}
+
+            <div className="mt-14 border-t border-white/[0.08] pt-8">
+              {post.author?.name && (
+                <div className="flex items-center gap-[18px]">
+                  {post.author.image ? (
+                    <Image
+                      alt={post.author.name}
+                      className="flex-shrink-0 rounded-full border border-white/[0.14] object-cover"
+                      height={64}
+                      src={urlFor(post.author.image)
+                        .width(128)
+                        .height(128)
+                        .url()}
+                      width={64}
+                    />
+                  ) : null}
+                  <div>
+                    <div className="text-[15.5px] font-extrabold tracking-[-.01em]">
+                      {post.author.name}
+                    </div>
+                    {post.author.bio ? (
+                      <div className="mt-1 text-[13.5px] leading-relaxed text-white/70">
+                        <PortableText
+                          components={bioComponents}
+                          value={post.author.bio as any}
+                        />
+                      </div>
+                    ) : null}
+                  </div>
+                </div>
+              )}
+
+              <ArticleCta />
+            </div>
+          </div>
+
+          <TableOfContents items={toc} />
         </div>
-      </motion.div>
+      </div>
     </article>
+  );
+}
+
+function ArticleCta() {
+  const { openModal } = useLeadModal();
+
+  return (
+    <div className="mt-8 rounded-[20px] border border-[rgba(0,118,255,.22)] bg-[rgba(0,118,255,.07)] p-[30px]">
+      <h3 className="mb-2 text-xl font-extrabold tracking-[-.02em]">
+        Not sure which stage is yours?
+      </h3>
+      <p className="mb-5 text-[15.5px] leading-relaxed text-white/70">
+        That&apos;s the whole point of the free Lead System Review. Fifteen
+        minutes, we walk the path a customer takes to reach you, and you get the
+        findings in writing either way.
+      </p>
+      <button
+        className="inline-flex items-center gap-2 rounded-full bg-gradient-to-b from-[#1e8bff] to-[#0060d6] px-7 py-3.5 text-[15px] font-bold text-white shadow-[0_8px_28px_-6px_rgba(0,118,255,.45)] transition-all hover:-translate-y-0.5"
+        type="button"
+        onClick={openModal}
+      >
+        Get My Free Lead System Review
+      </button>
+    </div>
   );
 }

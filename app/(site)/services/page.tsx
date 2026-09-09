@@ -1,40 +1,85 @@
-import React from 'react';
-import type { Metadata } from 'next';
-import Services from '../_components/Services';
-import servicePageData from '@/data/pages/servicesPage.json';
+import type { Metadata } from "next";
 
-import { validateMetadata } from '@/lib/utils/seoValidation';
-import { buildStaticMetadata } from '@/lib/utils/buildStaticMetadata';
-import ServicesPageHero from './components/ServicesPageHero';
-import ServicesShowcase from './components/ServicesShowcase';
-import ProcessSection from '../_components/OurProcess';
-import CallToAction from '@/app/(site)/_components/CallToAction';
+import IntegrationsFlow from "../_components/home/IntegrationsFlow";
+import ProofCards from "../_components/home/ProofCards";
+import ProcessSteps from "../_components/home/ProcessSteps";
+import FounderSection from "../_components/home/FounderSection";
+import FinalCta from "../_components/home/FinalCta";
 
-export const metadata: Metadata = buildStaticMetadata('/services');
+import OutcomeBlocks from "./components/OutcomeBlocks";
+import CurrentServices from "./components/CurrentServices";
+import Bottleneck from "./components/Bottleneck";
+import LeadJourney from "./components/LeadJourney";
+import ServicesHero from "./components/ServicesHero";
+
+import { servicesPageData } from "@/data/pages/servicesPage";
+import { siteUrl } from "@/config/site.config";
+import { validateMetadata } from "@/lib/utils/seoValidation";
+import { buildStaticMetadata } from "@/lib/utils/buildStaticMetadata";
+
+export const metadata: Metadata = buildStaticMetadata("/services");
 
 validateMetadata(metadata.title, metadata.description);
+
+const collectionJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": `${siteUrl()}/services#page`,
+      url: `${siteUrl()}/services`,
+      name: servicesPageData.title,
+      description: servicesPageData.description,
+      mainEntity: {
+        "@type": "OfferCatalog",
+        name: "ALL8 WEBWORKS Services",
+        itemListElement: servicesPageData.outcomes.blocks.map((block) => ({
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: block.label,
+            description: block.description,
+          },
+        })),
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: `${siteUrl()}/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Services",
+          item: `${siteUrl()}/services`,
+        },
+      ],
+    },
+  ],
+};
 
 export default function ServicesPage() {
   return (
     <>
-      <ServicesPageHero hero={servicePageData.hero} />
-      <ServicesShowcase
-        title={servicePageData.servicesSection.title}
-        subtitle={servicePageData.servicesSection.subtitle}
+      <script
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }}
+        type="application/ld+json"
       />
-      <ProcessSection
-        steps={servicePageData.processSection.steps}
-        title={servicePageData.processSection.title}
-        subtitle={servicePageData.processSection.subtitle}
-      />
-      <CallToAction
-        titlePrefix={servicePageData.cta.titlePrefix}
-        titleSuffix={servicePageData.cta.titleSuffix}
-        highlight={servicePageData.cta.highlight}
-        subtitle={servicePageData.cta.subtitle}
-        ctaLabel={servicePageData.cta.ctaLabel}
-        ctaHref={servicePageData.cta.ctaHref}
-      />
+      <ServicesHero data={servicesPageData.hero} />
+      <LeadJourney data={servicesPageData.journey} />
+      <Bottleneck data={servicesPageData.bottleneck} />
+      <OutcomeBlocks data={servicesPageData.outcomes} />
+      <CurrentServices />
+      <IntegrationsFlow data={servicesPageData.connected} />
+      <ProofCards data={servicesPageData.proof} />
+      <ProcessSteps data={servicesPageData.process} />
+      <FounderSection data={servicesPageData.founder} />
+      <FinalCta data={servicesPageData.finalCta} />
     </>
   );
 }

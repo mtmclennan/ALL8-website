@@ -1,109 +1,209 @@
-'use client';
-import {
-  Navbar as HeroUINavbar,
-  NavbarContent,
-  NavbarMenu,
-  NavbarMenuToggle,
-  NavbarBrand,
-  NavbarItem,
-  NavbarMenuItem,
-} from '@heroui/navbar';
-import { useEffect, useState } from 'react';
-import { Button } from '@heroui/button';
-import { Link } from '@heroui/link';
-import { link as linkStyles } from '@heroui/theme';
-import NextLink from 'next/link';
-import clsx from 'clsx';
-import { siteConfig } from '@/config/site';
-import { CalendarCheck } from 'lucide-react';
-import Logo from './Logo';
-import { usePathname } from 'next/navigation';
-import { ThemeSwitch } from './theme-switch';
-import { ButtonGradientWrapper } from './SectionWrapper';
+"use client";
+
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import clsx from "clsx";
+import { Phone, Menu, X } from "lucide-react";
+
+import { useLeadModal } from "./LeadModalProvider";
+import refinement from "./VisualRefinement.module.css";
+import Logo from "./Logo";
+import Button from "./ui/Button";
+
+import { toTelHref } from "@/lib/utils/phone";
+import { siteConfig } from "@/config/site";
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { openModal } = useLeadModal();
 
   useEffect(() => {
-    setIsMenuOpen(false);
+    setMenuOpen(false);
   }, [pathname]);
 
-  return (
-    <HeroUINavbar
-      maxWidth="xl"
-      position="sticky"
-      className="fixed top-0 left-0 z-50 bg-black/0"
-      isMenuOpen={isMenuOpen}
-      onMenuOpenChange={setIsMenuOpen}
-    >
-      <NavbarContent>
-        <NavbarBrand as="li" className="gap-3 h-full max-w-fit">
-          <NextLink
-            className="flex h-full justify-start items-center gap-1"
-            href="/"
-          >
-            <Logo />
-          </NextLink>
-        </NavbarBrand>
-      </NavbarContent>
-      <NavbarContent className="basis-1/5 sm:basis-full" justify="center">
-        <ul className="hidden md:flex gap-4 justify-center ml-2">
-          {siteConfig.navItems.map((item) => (
-            <NavbarItem key={item.href}>
-              <NextLink
-                className={clsx(
-                  linkStyles({ color: 'foreground' }),
-                  'data-[active=true]:text-primary data-[active=true]:font-medium hover:text-primary',
-                )}
-                color="foreground"
-                href={item.href}
-              >
-                {item.label}
-              </NextLink>
-            </NavbarItem>
-          ))}
-        </ul>
-      </NavbarContent>
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
 
-      <NavbarContent
-        className="hidden sm:flex basis-1/5 sm:basis-full"
-        justify="end"
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [menuOpen]);
+
+  if (pathname.startsWith("/hire-matt")) {
+    return (
+      <header
+        className={clsx(
+          "fixed left-0 right-0 top-0 z-[200] border-b border-white/[0.08] transition-colors",
+          refinement.surface,
+          scrolled ? "bg-background/92 backdrop-blur-2xl" : "bg-background/75",
+        )}
       >
-        <NavbarItem className="hidden sm:flex">
-          <ButtonGradientWrapper>
-            <Button
-              as={Link}
-              className="text-sm font-normal text-default-600"
-              href="/tune-up"
-              variant="light"
+        <div className="mx-auto flex h-[68px] max-w-[1160px] items-center gap-5 px-6 sm:px-10">
+          <div className="flex min-w-0 items-center gap-3">
+            <Link
+              aria-label="Visit the ALL8 Webworks homepage"
+              className="flex flex-shrink-0 items-center"
+              href="/"
             >
-              Get a Free Website Review
-            </Button>
-          </ButtonGradientWrapper>
-        </NavbarItem>
-      </NavbarContent>
-
-      <NavbarContent className="md:hidden basis-1 pl-4" justify="end">
-        {/* <ThemeSwitch /> */}
-        <NavbarMenuToggle />
-      </NavbarContent>
-
-      <NavbarMenu>
-        <div className="mx-4 mt-2 flex flex-col gap-5">
-          {siteConfig.navMenuItems.map((item, index) => (
-            <NavbarMenuItem
-              className="mt-4 flex items-center justify-center p-4 backdrop-blur-2xl border-1 border-primary/60 rounded-lg"
-              key={`${item}-${index}`}
-            >
-              <Link color={'foreground'} href={item.href} size="lg">
-                {item.label}
-              </Link>
-            </NavbarMenuItem>
-          ))}
+              <Logo showMark={false} size="nav" variant="horizontal" />
+            </Link>
+            <span className="hidden border-l border-white/[0.14] pl-3 text-sm font-bold text-white/70 sm:inline">
+              Matt McLennan
+            </span>
+          </div>
+          <nav aria-label="Hire Matt" className="ml-auto">
+            <ul className="flex items-center gap-4 text-sm font-semibold sm:gap-6">
+              <li className="max-[520px]:hidden">
+                <Link
+                  className="text-white/70 hover:text-white"
+                  href="/hire-matt#projects"
+                >
+                  Work
+                </Link>
+              </li>
+              <li className="max-[520px]:hidden">
+                <Link
+                  className="text-white/70 hover:text-white"
+                  href="/work/service-business-growth-case-study"
+                >
+                  Case study
+                </Link>
+              </li>
+              <li>
+                <a
+                  className="inline-flex min-h-11 items-center rounded-full bg-[#0866cf] px-4 py-2 font-bold text-white hover:bg-[#075bbb]"
+                  data-cta="hire-nav-contact"
+                  data-cta-event="hire_contact_click"
+                  href="mailto:hello@all8webworks.com?subject=Opportunity%20for%20Matt"
+                >
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </nav>
         </div>
-      </NavbarMenu>
-    </HeroUINavbar>
+      </header>
+    );
+  }
+
+  const telHref = toTelHref(siteConfig.phone);
+
+  return (
+    <header
+      className={clsx(
+        "fixed left-0 right-0 top-0 z-[200] transition-[background,box-shadow] duration-300",
+        pathname === "/" && refinement.surface,
+        scrolled &&
+          "bg-background/90 shadow-[0_1px_0_rgba(255,255,255,.08)] backdrop-blur-2xl",
+        menuOpen && !scrolled && "bg-background/95 backdrop-blur-2xl",
+      )}
+      id="nav"
+    >
+      <div className="mx-auto flex h-[68px] max-w-[1160px] items-center gap-2 px-6 sm:gap-5 xl:gap-8 sm:px-10">
+        <Link className="flex h-full flex-shrink-0 items-center" href="/">
+          <Logo size="sm" variant="horizontal" />
+        </Link>
+
+        <nav aria-label="Primary" className="ml-2 max-[1100px]:hidden">
+          <ul className="flex items-center gap-7">
+            {siteConfig.navItems.map((item) => (
+              <li key={item.href}>
+                <Link
+                  className="text-sm font-medium text-white/70 transition-colors hover:text-white"
+                  href={item.href}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="ml-auto flex items-center gap-4 max-[1100px]:hidden">
+          <a
+            className="inline-flex items-center whitespace-nowrap gap-[7px] text-sm font-bold text-white hover:text-accent-blue"
+            href={telHref}
+          >
+            <Phone className="text-accent-blue" size={15} />
+            {siteConfig.phone}
+          </a>
+          <Button size="md" onClick={openModal}>
+            Get My Free Lead System Review
+          </Button>
+        </div>
+
+        <a
+          aria-label={`Call ${siteConfig.phone}`}
+          className="ml-auto hidden min-h-11 min-w-11 justify-center items-center px-1.5 max-[1100px]:flex"
+          href={telHref}
+        >
+          <Phone className="text-accent-blue" size={17} />
+        </a>
+
+        <button
+          aria-controls="navPanel"
+          aria-expanded={menuOpen}
+          aria-label="Menu"
+          className="hidden min-h-11 min-w-11 items-center justify-center max-[1100px]:flex"
+          type="button"
+          onClick={() => setMenuOpen((v) => !v)}
+        >
+          {menuOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
+      </div>
+
+      <div
+        className={clsx(
+          "hidden overflow-hidden border-t border-white/[0.08] bg-background transition-[max-height] duration-300 ease-out max-[1100px]:block",
+          menuOpen ? "max-h-[520px]" : "max-h-0 border-t-0",
+        )}
+        id="navPanel"
+        inert={!menuOpen}
+      >
+        <div className="flex flex-col gap-0.5 px-6 pb-6 pt-4">
+          {siteConfig.navMenuItems.map((item) => (
+            <Link
+              key={item.href}
+              className="block border-b border-white/[0.08] px-1 py-3.5 text-[17px] font-semibold text-white/70 hover:text-white"
+              href={item.href}
+            >
+              {item.label}
+            </Link>
+          ))}
+          <Button
+            className="mt-5 justify-center"
+            onClick={() => {
+              setMenuOpen(false);
+              openModal();
+            }}
+          >
+            Get My Free Lead System Review
+          </Button>
+          <a
+            className="mt-2.5 flex min-h-11 items-center justify-center gap-2 text-[15px] font-bold text-white/70"
+            href={telHref}
+          >
+            <Phone className="text-accent-blue" size={15} />
+            {siteConfig.phone}
+          </a>
+        </div>
+      </div>
+    </header>
   );
 };
 

@@ -1,92 +1,47 @@
-'use client';
+import type { BlogIndexPost } from "./BlogTopicSections";
 
-import {
-  LazyMotion,
-  domAnimation,
-  motion,
-  useReducedMotion,
-} from 'framer-motion';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Card } from '../../_components/SectionWrapper';
-import { urlFor } from '@/app/studio/sanity/lib/image';
+import Link from "next/link";
 
-interface PostCardProps {
-  post: any;
+function formatDate(value?: string) {
+  if (!value) return null;
+
+  return new Date(value).toLocaleDateString("en-CA", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
 }
 
-export default function PostCard({ post }: PostCardProps) {
-  const prefersReduced = useReducedMotion();
-  const cover = urlFor(post.coverImage);
+export default function PostCard({ post }: { post: BlogIndexPost }) {
+  if (!post.slug?.current || !post.title) return null;
+
+  const href = `/blog/${post.slug.current}`;
+  const published = formatDate(post.publishedAt);
+  const category = post.categories?.[0]?.title;
 
   return (
-    <LazyMotion features={domAnimation}>
-      <motion.div
-        initial={prefersReduced ? { opacity: 0 } : { opacity: 0, y: 24 }}
-        whileInView={prefersReduced ? { opacity: 1 } : { opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.55 }}
-        whileHover={prefersReduced ? {} : { rotateX: -3, rotateY: 3 }}
-        className="group relative min-h-[450px]"
-      >
-        <Card
-          variant="elevated"
-          className="transition-all duration-300 group-hover:shadow-xl h-full"
-        >
-          <Link href={`/blog/${post.slug.current}`} className="block h-full">
-            <div className="rounded-2xl border border-foreground/10 bg-background/70 backdrop-blur-sm overflow-hidden h-full">
-              {/* Image */}
-              <div className="relative aspect-[16/9] overflow-hidden">
-                {cover && (
-                  <Image
-                    src={cover.url()}
-                    alt={post.coverImage?.alt || post.title}
-                    fill
-                    className="object-cover object-center transition-all duration-700 
-                               group-hover:scale-[1.06]"
-                  />
-                )}
-
-                <div
-                  className="absolute inset-0 bg-gradient-to-b 
-                                from-transparent to-black/40 opacity-70"
-                />
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
-                <h3
-                  className="text-xl font-semibold leading-tight 
-                               group-hover:text-primary transition mb-1.5"
-                >
-                  {post.title}
-                </h3>
-
-                <p className="text-sm text-foreground/70 line-clamp-3 mb-4">
-                  {post.excerpt}
-                </p>
-
-                <p className="text-sm text-foreground/40">
-                  {new Date(post.publishedAt).toLocaleDateString('en-CA', {
-                    year: 'numeric',
-                    month: 'short',
-                    day: 'numeric',
-                  })}
-                </p>
-
-                {/* Hover underline (same as ProcessSection) */}
-                <div
-                  className="mt-4 h-px w-0 bg-gradient-to-r 
-                                from-[var(--from,_#0047bb)] 
-                                to-[var(--to,_#D33F49)]
-                                transition-all duration-300 
-                                group-hover:w-full"
-                />
-              </div>
-            </div>
-          </Link>
-        </Card>
-      </motion.div>
-    </LazyMotion>
+    <article className="flex h-full flex-col rounded-[20px] border border-white/[0.08] bg-white/[0.036] p-[30px] transition-all duration-200 hover:-translate-y-[3px] hover:border-[rgba(0,118,255,.24)] hover:bg-white/[0.058] hover:shadow-[0_20px_46px_-16px_rgba(0,0,0,.5)]">
+      {category && (
+        <div className="mb-3">
+          <span className="rounded-full border border-[rgba(0,118,255,.28)] bg-[rgba(0,118,255,.13)] px-3 py-1 text-[11.5px] font-bold uppercase tracking-[.06em] text-accent-blue">
+            {category}
+          </span>
+        </div>
+      )}
+      <h3 className="mb-2.5 text-[19px] font-extrabold leading-[1.28] tracking-[-.018em]">
+        <Link className="hover:text-accent-blue" href={href}>
+          {post.title}
+        </Link>
+      </h3>
+      {post.excerpt && (
+        <p className="mb-5 line-clamp-3 text-[15px] leading-relaxed text-white/70">
+          {post.excerpt}
+        </p>
+      )}
+      <div className="mt-auto flex items-center justify-between gap-3 border-t border-white/[0.08] pt-[18px] text-[12.5px] text-white/70">
+        <span>{published}</span>
+        {post.readingTime && <span>{post.readingTime} min read</span>}
+      </div>
+    </article>
   );
 }

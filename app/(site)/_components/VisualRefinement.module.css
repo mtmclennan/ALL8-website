@@ -1,0 +1,200 @@
+/* Scoped to the homepage and employer page, including their shared chrome. */
+.surface {
+  --review-muted: #a8b2c1;
+}
+.surface [class~="text-white/40"],
+.surface [class~="text-white/45"],
+.surface [class~="text-white/50"] {
+  color: var(--review-muted);
+}
+.surface :is(a, button, input):focus-visible {
+  outline: 2px solid #8ec5ff;
+  outline-offset: 4px;
+}
+.surface a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.surface [data-button-variant] {
+  min-height: 48px;
+  max-width: 100%;
+  white-space: normal;
+}
+.surface [data-button-variant="primary"] {
+  background: #0866cf;
+  box-shadow: 0 6px 18px -8px #0076ff66;
+}
+.surface [data-button-variant="primary"]:hover {
+  background: #075bbb;
+  box-shadow: 0 8px 22px -10px #0076ff80;
+  text-decoration: none;
+}
+.surface [data-button-variant="ghost"] {
+  border-width: 1px;
+}
+.surface [data-button-variant]:active {
+  transform: translateY(0);
+}
+.homeHero {
+  min-height: 0;
+  padding-top: 68px;
+}
+.homeHero h1 {
+  font-size: clamp(40px, 4.2vw, 60px);
+  line-height: 1.04;
+}
+.hireHero {
+  min-height: 0;
+  padding-top: 128px;
+  padding-bottom: 80px;
+}
+.hireHero h1 {
+  line-height: 1.04;
+}
+.portrait {
+  width: 100%;
+  max-width: 360px;
+}
+.proofGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.proofGrid > div > div {
+  height: 100%;
+}
+.proofCard {
+  display: flex;
+  flex-direction: column;
+}
+.proofDetail {
+  color: #8ec5ff;
+}
+.proofInsight {
+  background: transparent;
+}
+.proofInsight .proofDetail {
+  color: var(--review-muted);
+  font-size: 0.75rem;
+}
+.proofGrid .systemMetric {
+  font-size: 1.75rem;
+  line-height: 1.15;
+}
+.fitRoles li:last-child {
+  background: transparent;
+  border-color: #ffffff24;
+  color: #b9c5d5;
+}
+.projects article {
+  transition: background-color 200ms ease-out;
+}
+.projects article:hover {
+  transform: none;
+  box-shadow: none;
+}
+.contact {
+  padding-block: 80px;
+}
+.contact h2 {
+  font-size: clamp(2rem, 3.4vw, 2.875rem);
+  line-height: 1.1;
+}
+.contactActions [data-cta$="linkedin"],
+.contactActions [data-cta$="github"] {
+  border: 0;
+  padding-inline: 12px;
+}
+.faq > div {
+  padding-inline: 24px;
+}
+.faq h2 {
+  font-size: clamp(1.875rem, 3.4vw, 2.875rem);
+  line-height: 1.1;
+}
+.faq h3 button {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+@media (max-width: 1023px) {
+  .homeHero {
+    padding-top: 96px;
+  }
+  .homeHero .heroCopy {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+  .hireHero {
+    padding-top: 104px;
+    padding-bottom: 56px;
+  }
+  .portrait {
+    max-width: 320px;
+  }
+  .proofGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .proofGrid > div:last-child {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 639px) {
+  .homeHero h1 {
+    font-size: clamp(2.125rem, 9.3vw, 2.5rem);
+  }
+  .homeHero p[class*="text-lg"] {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  .homeHero [class~="mb-9"] {
+    margin-bottom: 24px;
+  }
+  .homeHero [data-button-variant] {
+    padding-inline: 20px;
+  }
+  .hireHero h1 {
+    font-size: 2.375rem;
+  }
+  .hireHero p {
+    font-size: 1rem;
+  }
+  .hireHero p[class*="border-l-2"] {
+    padding: 16px;
+  }
+  .portrait {
+    max-width: 288px;
+  }
+  .proofGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .projects article {
+    padding: 24px;
+  }
+  .contact {
+    padding-block: 56px;
+  }
+  .contactActions {
+    gap: 12px;
+  }
+  .contactActions [data-cta$="contact"],
+  .contactActions [data-cta$="resume"] {
+    width: 100%;
+  }
+  .surface [class~="mb-14"] {
+    margin-bottom: 32px;
+  }
+  .fitRoles li {
+    border-radius: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .surface *,
+  .surface *::before,
+  .surface *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .surface [data-button-variant]:hover,
+  .projects article:hover {
+    transform: none;
+  }
+}

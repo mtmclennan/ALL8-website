@@ -34,7 +34,7 @@
 
 //         <LazyMotion features={domAnimation}>
 //           <motion.div
-//             initial={{ opacity: 0, y: 10 }}
+//             initial={false}
 //             whileInView={{ opacity: 1, y: 0 }}
 //             viewport={{ once: true, margin: '-10%' }}
 //             transition={{ duration: 0.4, ease: 'easeOut' }}
@@ -81,17 +81,18 @@
 //   );
 // }
 
-'use client';
+"use client";
+
+import { Accordion, AccordionItem } from "@heroui/accordion";
+import { LazyMotion, domAnimation, motion } from "framer-motion";
+import { ChevronDown, HelpCircle } from "lucide-react";
 
 import {
   Section,
   SectionHeader,
   Card,
-} from '@/app/(site)/_components/SectionWrapper';
-import { Accordion, AccordionItem } from '@heroui/accordion';
-import { LazyMotion, domAnimation, motion } from 'framer-motion';
-import { ChevronDown, HelpCircle } from 'lucide-react';
-import { ShineIcon } from '@/app/(site)/_components/ShineIcon';
+} from "@/app/(site)/_components/SectionWrapper";
+import { ShineIcon } from "@/app/(site)/_components/ShineIcon";
 
 export type FAQ = { q: string; a: string };
 
@@ -99,60 +100,64 @@ type FAQBlockProps = {
   title?: string;
   subtitle?: string;
   faqs: FAQ[];
-  tone?: 'base' | 'alt' | 'dim' | 'highlight' | 'gradient';
+  tone?: "base" | "alt" | "dim" | "highlight" | "gradient";
   className?: string;
+  id?: string;
 };
 
 export default function FAQBlock({
-  title = 'Common Questions',
-  subtitle = 'Everything you might want to know before we get started.',
+  title = "Common Questions",
+  subtitle = "Everything you might want to know before we get started.",
   faqs,
-  tone = 'base',
+  tone = "base",
   className,
+  id,
 }: FAQBlockProps) {
   if (!faqs?.length) return null;
 
   return (
     <Section
-      tone={tone}
+      className={className ?? "py-20 sm:py-24"}
+      id={id}
       pattern="none"
-      className={className ?? 'py-20 sm:py-24'}
+      tone={tone}
     >
       <div className="mx-auto max-w-3xl">
-        <SectionHeader title={title} subtitle={subtitle} center />
+        <SectionHeader center subtitle={subtitle} title={title} />
 
         <LazyMotion features={domAnimation}>
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={false}
+            transition={{ duration: 0.2, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.45, ease: 'easeOut' }}
+            whileInView={{ opacity: 1, y: 0 }}
           >
-            <Card variant="elevated" className="h-full">
+            <Card className="h-full" variant="elevated">
               <div className="rounded-2xl border border-foreground/10 bg-background/70 backdrop-blur-sm">
                 <Accordion
-                  variant="bordered"
-                  selectionMode="multiple"
                   className="rounded-2xl"
                   itemClasses={{
-                    base: 'group',
+                    base: "group",
                     title:
-                      'font-medium text-foreground flex items-center gap-2 text-left',
-                    content: 'text-sm text-foreground/70',
+                      "font-medium text-foreground flex items-center gap-2 text-left",
+                    content: "text-sm text-foreground/70",
                   }}
+                  selectionMode="multiple"
+                  variant="bordered"
                 >
                   {faqs.map((faq, i) => (
                     <AccordionItem
                       key={i}
+                      HeadingComponent="h3"
+                      indicator={
+                        <ChevronDown className="h-5 w-5 text-foreground/70 transition-transform group-data-[open=true]:rotate-180" />
+                      }
                       textValue={faq.q}
                       title={
                         <span className="flex items-center gap-2">
                           <ShineIcon Icon={HelpCircle} size={20} tone="dark" />
                           {faq.q}
                         </span>
-                      }
-                      indicator={
-                        <ChevronDown className="h-5 w-5 text-foreground/70 transition-transform group-data-[open=true]:rotate-180" />
                       }
                     >
                       <p className="mt-1 leading-snug">{faq.a}</p>

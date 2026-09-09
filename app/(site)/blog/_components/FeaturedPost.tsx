@@ -1,77 +1,93 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import {
-  Section,
-  SectionHeader,
-  Card,
-} from '@/app/(site)/_components/SectionWrapper';
-import { urlFor } from '@/app/studio/sanity/lib/image';
+import type { BlogIndexPost } from "./BlogTopicSections";
 
-export default function FeaturedPosts({ posts }: { posts: any[] }) {
-  const featured = posts[0]; // only the first post
-  // console.log(featured);
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
-  const imageUrl = urlFor(featured.coverImage);
+import { urlFor } from "@/app/studio/sanity/lib/image";
 
-  if (!featured) return null;
+type FeaturedPostProps = {
+  posts: BlogIndexPost[];
+  title?: string;
+};
+
+function formatDate(value?: string) {
+  if (!value) return null;
+
+  return new Date(value).toLocaleDateString("en-CA", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}
+
+export default function FeaturedPost({
+  posts,
+  title = "The Big One",
+}: FeaturedPostProps) {
+  const post = posts[0];
+
+  if (!post?.slug?.current || !post.title) return null;
+
+  const href = `/blog/${post.slug.current}`;
+  const published = formatDate(post.publishedAt);
+  const minutes = post.readingTime;
+  const imageUrl = post.coverImage ? urlFor(post.coverImage).url() : null;
+  const imageAlt =
+    (post.coverImage &&
+    typeof post.coverImage === "object" &&
+    "alt" in post.coverImage &&
+    typeof post.coverImage.alt === "string"
+      ? post.coverImage.alt
+      : null) ?? post.title;
 
   return (
-    <Section
-      tone="alt"
-      pattern="none"
-      className="relative z-20 pb-28" // overlap into hero
-      //   noPad={true}
-    >
-      <div className="-translate-y-[140px] md:-translate-y-[185px] -mb-[140px] md:-mb-[185px]">
-        <Card
-          variant="bordered"
-          className="max-w-6xl mx-auto overflow-hidden relative z-30 
-                  supports-[backdrop-filter]:backdrop-blur-md"
-        >
-          <Link href={`/blog/${featured.slug.current}`}>
-            {/* Featured Label */}
-
-            {/* Content */}
-            <div className=" px-6 py-4 sm:px-12 sm:pt-12 pb-4 relative z-30">
-              <h3 className="text-4xl font-semibold mb-4 tracking-tight group-hover:text-brand-blue transition">
-                {featured.title}
-              </h3>
-
-              <p className="text-foreground/70 text-lg leading-relaxed mb-6 line-clamp-3">
-                {featured.excerpt}
-              </p>
-
-              <p className="text-sm text-foreground/50">
-                {new Date(featured.publishedAt).toLocaleDateString('en-CA', {
-                  year: 'numeric',
-                  month: 'short',
-                  day: 'numeric',
-                })}
-                {featured.author?.name && (
-                  <>
-                    {' '}
-                    • By{' '}
-                    <span className="text-foreground">
-                      {featured.author.name}
-                    </span>
-                  </>
-                )}
-              </p>
-            </div>
-            {/* Cover Image */}
-            {imageUrl && (
-              <div className="relative h-64 md:h-130 rounded-2xl">
-                <Image
-                  src={imageUrl.url()}
-                  alt={featured.coverImage.alt || featured.title}
-                  fill
-                  className="rounded-2xl"
-                />
-              </div>
-            )}
+    <div className="mb-[52px] grid grid-cols-1 overflow-hidden rounded-[20px] border border-white/[0.08] bg-white/[0.036] transition-colors hover:border-[rgba(0,118,255,.32)] hover:bg-white/[0.058] lg:grid-cols-[1.15fr_.85fr]">
+      <div className="flex flex-col p-9 sm:p-11">
+        <div className="mb-4 flex flex-wrap items-center gap-2.5">
+          <span className="rounded-full border border-[rgba(0,118,255,.28)] bg-[rgba(0,118,255,.13)] px-3 py-1.5 text-[11.5px] font-bold uppercase tracking-[.06em] text-accent-blue">
+            {title}
+          </span>
+          {published && (
+            <span className="text-[13px] text-white/70">
+              {published}
+              {minutes ? ` · ${minutes} min read` : ""}
+            </span>
+          )}
+        </div>
+        <h2 className="mb-3.5 text-[clamp(26px,2.9vw,38px)] font-extrabold leading-[1.1] tracking-[-.026em]">
+          <Link className="hover:text-accent-blue" href={href}>
+            {post.title}
           </Link>
-        </Card>
+        </h2>
+        {post.excerpt && (
+          <p className="mb-6 text-[16.5px] leading-relaxed text-white/70">
+            {post.excerpt}
+          </p>
+        )}
+        <Link
+          className="group mt-auto inline-flex items-center gap-2 self-start py-2 text-[14.5px] font-bold text-accent-blue"
+          href={href}
+        >
+          Read the article
+          <ArrowRight
+            className="transition-transform group-hover:translate-x-[3px]"
+            size={14}
+            strokeWidth={2.5}
+          />
+        </Link>
       </div>
-    </Section>
+      <div className="relative min-h-[240px] border-t border-white/[0.08] bg-gradient-to-br from-[rgba(0,118,255,.16)] to-[rgba(11,15,26,.4)] lg:min-h-[300px] lg:border-l lg:border-t-0">
+        {imageUrl && (
+          <Image
+            fill
+            alt={imageAlt}
+            className="object-cover"
+            sizes="(min-width: 1024px) 40vw, 100vw"
+            src={imageUrl}
+          />
+        )}
+      </div>
+    </div>
   );
 }

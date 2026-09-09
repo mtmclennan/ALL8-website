@@ -1,101 +1,122 @@
 {
   "path": "/about",
-  "title": "About ALL8 Webworks | Websites Built for Contractors",
-  "description": "ALL8 Webworks builds fast, reliable websites for contractors and service businesses across Canada, designed to generate calls, quotes, and booked jobs.",
-  "ogImage": "/assets/images/og/about-all8-webworks.png",
+  "title": "About — Why We Stopped Leading With Websites | ALL8 WEBWORKS",
+  "description": "ALL8 WEBWORKS is an owner-led practice that finds where opportunities are lost between a search and a won job — and fixes the costliest part.",
+  "ogImage": "/assets/images/og/og-default.jpg",
 
   "hero": {
-    "title": "Websites Built to Win You More Calls",
-    "subtitle": "ALL8 Webworks is a Canadian studio focused on contractors and service businesses. We build fast, clean sites that turn local traffic into calls, quotes, and booked jobs.",
-    "body": "No fluff. No confusing funnels. Just clear pages that do their job.",
-    "ctaLabel": "See How We Help",
-    "ctaHref": "/services"
+    "pill": "About ALL8 WEBWORKS",
+    "titlePrefix": "We Stopped Leading With ",
+    "titleEm": "Websites.",
+    "subtitle": "Not because websites stopped mattering — but because the data kept showing us they usually weren't the reason a business wasn't booking enough work. ",
+    "subtitleStrong": "So we changed what we sell.",
+    "primaryLabel": "Read what changed",
+    "primaryHref": "#story",
+    "secondaryLabel": "Get My Free Lead System Review",
+    "geo": "Owner-led  ·  Remote-first  ·  Eastern Time"
   },
 
-  "aboutStory": {
-    "heading": "Our Story",
-    "paragraphs": [
-      "ALL8 Webworks started with a simple belief: your website should perform like a well-tuned engine. Fast to load, easy to use, and built to convert.",
-      "After working alongside service-based businesses and the trades, one thing became obvious. Most websites look fine, but don’t produce work. Slow pages, unclear messaging, and weak calls-to-action quietly cost leads every day.",
-      "So we build differently: clear structure, measurable performance, and conversion-focused pages designed around one goal: more qualified inquiries.",
-      "If you’re tired of marketing that feels like guesswork, we’re built for you."
-    ]
-  },
-
-  "why": {
-    "titlePrefix": "Why",
-    "highlight": "ALL8",
-    "titleSuffix": "",
-    "subtitle": "Because your website should be a tool that produces work, not a brochure that sits there.",
-    "benefits": [
+  "shift": {
+    "eyebrow": "What Changed",
+    "title": "The Job Description Changed. The Work Didn't.",
+    "cards": [
       {
-        "title": "Clarity First",
-        "description": "Clear messaging, simple layouts, and one goal per page so customers know exactly what to do next.",
-        "icon": "Target"
+        "tag": "How it used to work",
+        "title": "A business needs a website. We build the website.",
+        "body": "The project starts with a deliverable that was decided before anyone looked at the business. It launches, it looks good, and whether it produces more work is largely left to chance."
       },
       {
-        "title": "Built for Local Leads",
-        "description": "Service areas, reviews, and structure that supports Google Maps and local search.",
-        "icon": "Search"
-      },
-      {
-        "title": "Performance You Can Measure",
-        "description": "Fast load times, clean tracking, and a site that stays reliable over time.",
-        "icon": "Zap"
+        "tag": "How it works now",
+        "title": "A business needs more work. We find out why it isn't happening.",
+        "body": "The project starts with a diagnosis. Sometimes the answer is a website. Often it's search visibility, or the phone, or what happens to a lead three days after it arrives."
       }
     ],
-    "cta": {
-      "label": "Request a Performance Review",
-      "href": "/performance-tune-up"
-    },
-    "imageSrc": "/assets/images/about/all8-webworks-contractor-website-design-developer-laptop-construction-tools.webp",
-    "imageAlt": "Web developer building a contractor website on a laptop at a blueprint desk with construction tools."
-  },
-
-  "process": {
-    "title": "How We Work",
-    "subtitle": "A focused process that stays clear from kickoff to launch.",
-    "steps": [
-      {
-        "title": "Audit & Goals",
-        "description": "We review your current site (or starting point) and define what success looks like: calls, quotes, booked jobs.",
-        "icon": "ClipboardList"
-      },
-      {
-        "title": "Plan",
-        "description": "You get a clear scope, timeline, and priorities before anything is built.",
-        "icon": "Target"
-      },
-      {
-        "title": "Build & Optimize",
-        "description": "We build fast pages with clear calls-to-action and local visibility baked in.",
-        "icon": "Rocket"
-      },
-      {
-        "title": "Support",
-        "description": "After launch, we can maintain, monitor, and improve so your site keeps performing.",
-        "icon": "TrendingUp"
-      }
+    "story": [
+      "The change didn't come from a strategy session. It came from watching a client's numbers after we'd done what we were hired to do.",
+      "An established service business came to us with weak local search visibility. We rebuilt the site, improved their Google Business Profile, built dedicated pages for the services they actually wanted, and — this is the part that mattered — **added tracking so we could see what happened next.**",
+      "The visibility work performed. Page-one rankings for the targeted service pages, top local visibility for high-intent searches, appearances in Google's AI-generated answers, and a 76% year-over-year increase in Business Profile website clicks.",
+      "Then the tracking showed us something we hadn't been hired to look at. **More people were calling. Not all of those calls were being answered, and the ones that came in as form submissions weren't consistently followed up.**"
+    ],
+    "pullQuote": "We had successfully fixed a problem that was no longer the biggest one.",
+    "storyAfter": [
+      "Without the tracking, nobody would have known. The obvious next move would have been more SEO — more visibility poured into a stage that couldn't hold it.",
+      "That's the whole argument for how we work now. Getting found is one stage of five. If you only ever sell the first stage, you can do genuinely good work and still leave your client's real problem untouched."
     ]
   },
 
-  "services": {
-    "title": "How We Help",
-    "subtitle": "Start small or go all-in. Either way, the goal is the same: more qualified inquiries.",
-    "show": [
-      "performance-tune-up",
-      "website-maintenance-hosting",
-      "websites-that-convert"
+  "founder": {
+    "eyebrow": "Owner-Led · Direct Support",
+    "title": "You Work With the Person Doing the Work",
+    "paragraphs": [
+      "ALL8 is intentionally small. Strategy, implementation and optimization stay close to the person actually doing the work — without layers of account managers or handoffs.",
+      "That's also why the diagnosis comes before the proposal. There's no sales team here carrying a website quota, so the recommendation can be whatever the evidence supports — including telling you your website is fine and the problem is somewhere else.",
+      "Matt works directly with service businesses to find where opportunities are being lost, then connects the website, search visibility, calls, follow-up and reporting around one goal: turning more of them into customers."
+    ],
+    "name": "Matt McLennan",
+    "role": "Founder, ALL8 WEBWORKS",
+    "image": {
+      "src": "/assets/home/matt-mclennan.webp",
+      "alt": "Matt McLennan, founder of ALL8 WEBWORKS",
+      "width": 720,
+      "height": 740
+    }
+  },
+
+  "principles": {
+    "eyebrow": "How We Work",
+    "title": "Four Things We Don't Bend On",
+    "items": [
+      { "n": "01", "title": "Diagnosis before proposal", "body": "We look at the whole path — search, site, forms, phone, follow-up, tracking — before recommending anything. If the highest-impact fix is something we don't sell, we'll say so." },
+      { "n": "02", "title": "Your accounts, your data", "body": "Your domain, content, ad accounts, analytics and customer records stay in your name. Recurring services are identified clearly, and website code transfer follows the published subscription terms." },
+      { "n": "03", "title": "Measured, not asserted", "body": "Call and form tracking goes in early, so the work can be judged on leads and sources rather than impressions and adjectives. It also tells us when we've fixed the wrong thing." },
+      { "n": "04", "title": "Use what's already working", "body": "If your team already uses a CRM, quoting tool or scheduling software, we connect to it instead of replacing it. New tools get recommended when the current ones genuinely can't do the job." }
     ]
   },
 
-  "cta": {
-    "titlePrefix": "Want a Website That Actually",
-    "highlight": " Performs?",
-    "titleSuffix": "",
-    "subtitle": "Start with a performance review. We’ll show you what’s slowing your site down and what’s costing you leads.",
-    "ctaLabel": "Request a Performance Review",
-    "ctaHref": "/tune-up",
-    "microText": "Clear scope • Flat pricing • Built in Canada"
+  "who": {
+    "eyebrow": "Who We Work With",
+    "title": "Businesses Where a Lead Becomes a Conversation",
+    "subtitle": "Not e-commerce, not apps. Service businesses, where an opportunity turns into a call, a consultation, a quote or a booked job — and where losing one is expensive.",
+    "chips": ["Excavation", "Plumbing", "HVAC", "Electrical", "Roofing", "Landscaping", "Construction", "Industrial services", "Recruiting", "Professional services"],
+    "note": "The trade matters less than the shape of the business. If customers find you through search or referral, call or request a quote, and then wait on a human to respond — the same five stages apply, and they fail in the same places."
+  },
+
+  "facts": {
+    "eyebrow": "The Practical Details",
+    "title": "Where We Are and How We Operate",
+    "items": [
+      { "k": "Based in", "v": "Ontario, Canada" },
+      { "k": "Works with", "v": "Service businesses across the U.S. & Canada" },
+      { "k": "How", "v": "Remote-first, on Eastern Time" },
+      { "k": "Engagements", "v": "Fixed scope agreed before work begins" }
+    ],
+    "note": "Eastern Time overlaps the working day in every U.S. time zone, and most of this work doesn't require being in the room. We don't need to be in your city to help you rank in it."
+  },
+
+  "proof": {
+    "eyebrow": "Proof, Not Promises",
+    "title": "The Numbers Behind That Story",
+    "cards": [
+      { "value": "40 → 100", "em": true, "label": "Search Clicks", "sub": "Rolling 28 days, March to September 2026", "icon": "chart" },
+      { "value": "+76%", "em": false, "label": "Profile Website Clicks", "sub": "Google Business Profile, year over year", "icon": "pin" },
+      { "value": "Page One", "em": true, "label": "Captured Visibility", "sub": "Targeted service page, point in time", "icon": "search" }
+    ],
+    "footNote": "Client identity withheld. Identifying details have been removed, but the underlying search and performance data is real.",
+    "footNoteLink": { "label": "See the full anonymized case study", "href": "/work/service-business-growth-case-study" }
+  },
+
+  "finalCta": {
+    "eyebrow": "Free Lead System Review",
+    "title": "Find Out Where You're",
+    "titleAccent": "Losing the Work.",
+    "subtitle": "Spend 15 minutes walking through the path a customer takes from search to contact to follow-up. We'll show you where the biggest gaps appear to be, and what we'd fix first.",
+    "checklist": [
+      "Where you rank locally today",
+      "What your site does with the visitors it gets",
+      "What happens to a lead after it comes in",
+      "Which stage to fix first"
+    ],
+    "ctaLabel": "Get My Free Lead System Review",
+    "micro": "No long-term commitment  ·  Clear recommendations  ·  Fixed scope before work begins"
   }
 }

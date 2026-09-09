@@ -2,11 +2,17 @@
   "name": "next-app-template",
   "version": "0.0.1",
   "private": true,
+  "engines": {
+    "node": ">=24.11.0 <25",
+    "npm": ">=11 <12"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start -p3000 -H 127.0.0.1",
-    "lint": "eslint --fix"
+    "lint": "eslint --fix",
+    "test": "node --no-warnings --experimental-strip-types --test tests/*.test.ts",
+    "validate:local": "node scripts/validate-local.mjs"
   },
   "dependencies": {
     "@heroui/accordion": "^2.2.24",
@@ -32,8 +38,8 @@
     "@mdx-js/loader": "^3.1.1",
     "@mdx-js/mdx": "^2.3.0",
     "@mdx-js/react": "^2.3.0",
-    "@next/mdx": "^16.0.0",
-    "@next/third-parties": "^16.0.0",
+    "@next/mdx": "16.3.4",
+    "@next/third-parties": "16.3.4",
     "@react-aria/ssr": "3.9.10",
     "@react-aria/visually-hidden": "3.8.26",
     "@sanity/icons": "^3.7.4",
@@ -49,7 +55,7 @@
     "gray-matter": "^4.0.3",
     "intl-messageformat": "10.7.16",
     "lucide-react": "^0.536.0",
-    "next": "^16.0.7",
+    "next": "16.3.4",
     "next-sanity": "^12.1.0",
     "next-themes": "0.4.6",
     "nodemailer": "^7.0.6",
@@ -63,12 +69,13 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^16.0.1",
+    "@eslint/compat": "^2.1.0",
+    "@next/bundle-analyzer": "16.3.4",
     "@next/eslint-plugin-next": "15.3.4",
     "@react-types/shared": "3.30.0",
     "@tailwindcss/postcss": "4.1.11",
     "@types/grecaptcha": "^3.0.9",
-    "@types/node": "20.5.7",
+    "@types/node": "20.19.0",
     "@types/nodemailer": "^7.0.1",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",

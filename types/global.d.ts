@@ -1,6 +1,10 @@
-declare module '*.css';
+declare module "*.css";
 
 declare const grecaptcha: {
   ready(cb: () => void): void;
   execute(siteKey: string, opts: { action: string }): Promise<string>;
 };
+
+interface Window {
+  dataLayer?: Record<string, unknown>[];
+}

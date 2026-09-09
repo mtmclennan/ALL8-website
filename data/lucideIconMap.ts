@@ -1,4 +1,4 @@
-import * as Icons from 'lucide-react';
+import * as Icons from "lucide-react";
 
 // Explicitly type your map:
 export const lucideIconMap = {
@@ -18,6 +18,12 @@ export const lucideIconMap = {
   PlugZap: Icons.PlugZap,
   MousePointerClick: Icons.MousePointerClick,
   ShieldOff: Icons.ShieldOff,
+  PhoneMissed: Icons.PhoneMissed,
+  MessageSquare: Icons.MessageSquare,
+  Users: Icons.Users,
+  BarChart3: Icons.BarChart3,
+  Gauge: Icons.Gauge,
+  Plug: Icons.Plug,
 } as const;
 
 // ✅ Strong type alias for icons

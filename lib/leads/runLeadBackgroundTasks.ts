@@ -1,17 +1,76 @@
-import sendEmail from '@/lib/email/emailBrevo';
-import { submitToHubSpotForm } from '@/lib/integrations/hubspot/forms';
+import type { LeadPayload } from "./types";
+
+import sendEmail, { sendNewsletterConfirmation } from "@/lib/email/emailBrevo";
+import { submitToHubSpotForm } from "@/lib/integrations/hubspot/forms";
 import {
   isDuplicateEntry,
   appendLeadRow,
-} from '@/lib/integrations/google/googleSheets';
+} from "@/lib/integrations/google/googleSheets";
 import {
   upsertContact,
   createDealForContact,
   addNoteToContactAndDeal,
   createTaskForContactAndDeal,
-} from '@/lib/integrations/hubspot/crm';
+} from "@/lib/integrations/hubspot/crm";
 
-import type { LeadPayload } from './types';
+function leadEmailPayload(data: LeadPayload) {
+  const projectType =
+    data.primary?.trim() ||
+    (data.leadType === "tuneup" ? "website tune-up" : "lead system review");
+
+  return {
+    leadType: data.leadType,
+    name: data.name,
+    email: data.email,
+    company: data.company,
+    website: data.website,
+    projectType,
+    goal: data.goal,
+    timeline: data.timeline,
+    budget: data.budget,
+    notes: data.notes ?? "",
+    primary: data.primary,
+  };
+}
+
+/**
+ * A lead is only acknowledged after this durable notification succeeds.
+ * HubSpot, Sheets, and CRM enrichment remain secondary and may retry/fail
+ * without losing the original submission.
+ */
+export async function captureLeadNotification(data: LeadPayload) {
+  await sendEmail(leadEmailPayload(data));
+}
+
+// Newsletter signups are not sales leads: no HubSpot deal/task, no sales
+// sheet row or lead-review notification. Just a marketing contact
+// and a correctly-worded confirmation email.
+export async function runNewsletterBackgroundTasks(
+  data: Pick<LeadPayload, "email">,
+) {
+  const errors: string[] = [];
+  const step = async <T>(label: string, fn: () => Promise<T>) => {
+    try {
+      return await fn();
+    } catch (e) {
+      console.error(`[Newsletter] ${label} failed:`, e);
+      errors.push(label);
+    }
+  };
+
+  await Promise.allSettled([
+    step("HubSpot contact upsert", () =>
+      upsertContact(data.email, {
+        lifecyclestage: "subscriber",
+        all8_lead_source: "newsletter",
+      }),
+    ),
+    step("Confirmation email", () => sendNewsletterConfirmation(data.email)),
+  ]);
+
+  if (errors.length)
+    console.error("[Newsletter] Background partial errors:", errors);
+}
 
 export async function runLeadBackgroundTasks(data: LeadPayload) {
   const errors: string[] = [];
@@ -26,20 +85,21 @@ export async function runLeadBackgroundTasks(data: LeadPayload) {
 
   // unify what you write into sheets/email/crm
   const projectType =
-    data.leadType === 'tuneup' ? 'tuneup' : (data.primary ?? 'website');
-  const notes = data.notes ?? '';
+    data.primary?.trim() ||
+    (data.leadType === "tuneup" ? "website tune-up" : "lead system review");
+  const notes = data.notes ?? "";
 
   await Promise.allSettled([
-    step('HubSpot Form', () =>
+    step("HubSpot Form", () =>
       submitToHubSpotForm({
         name: data.name,
         email: data.email,
         company: data.company,
         website: data.website,
         projectType: projectType as any,
-        goal: (data.goal as any) ?? 'other',
-        timeline: (data.timeline as any) ?? 'exploring',
-        budget: (data.budget as any) ?? 'planning',
+        goal: (data.goal as any) ?? "other",
+        timeline: (data.timeline as any) ?? "exploring",
+        budget: (data.budget as any) ?? "planning",
         notes,
         hutk: data.hutk,
         pageUrl: data.pageUrl,
@@ -51,29 +111,14 @@ export async function runLeadBackgroundTasks(data: LeadPayload) {
       }),
     ),
 
-    step('Brevo Email', () =>
-      sendEmail({
-        leadType: data.leadType,
-        name: data.name,
-        email: data.email,
-        company: data.company,
-        website: data.website,
-        projectType,
-        goal: data.goal,
-        timeline: data.timeline,
-        budget: data.budget,
-        notes,
-        primary: data.primary,
-      }),
-    ),
-
-    step('Sheets', async () => {
+    step("Sheets", async () => {
       const dup = await isDuplicateEntry(data.email, projectType);
+
       if (!dup) {
         await appendLeadRow({
           name: data.name,
           email: data.email,
-          phone: '',
+          phone: "",
           projectType,
           message: notes,
         });
@@ -87,7 +132,7 @@ export async function runLeadBackgroundTasks(data: LeadPayload) {
       firstname: data.name,
       company: data.company ?? undefined,
       website: data.website || undefined,
-      lifecyclestage: 'lead',
+      lifecyclestage: "lead",
       all8_project_type: projectType,
       all8_primary_goal: data.goal,
       all8_timeline: data.timeline,
@@ -98,27 +143,27 @@ export async function runLeadBackgroundTasks(data: LeadPayload) {
       const dealId = await createDealForContact(
         contactId,
         `ALL8 – ${data.name}`,
-        data.budget ?? 'planning',
+        data.budget ?? "planning",
         {
-          pipelineId: 'default',
-          stageId: 'appointmentscheduled',
+          pipelineId: "default",
+          stageId: "appointmentscheduled",
         },
       );
 
       if (dealId) {
         const note = [
           `Lead Type: ${data.leadType}`,
-          `Primary: ${data.primary ?? '-'}`,
-          `Website: ${data.website ?? '-'}`,
+          `Primary: ${data.primary ?? "-"}`,
+          `Website: ${data.website ?? "-"}`,
           data.goal ? `Goal: ${data.goal}` : null,
           data.timeline ? `Timeline: ${data.timeline}` : null,
           data.budget ? `Budget: ${data.budget}` : null,
-          '',
-          'Notes:',
-          notes || '-',
+          "",
+          "Notes:",
+          notes || "-",
         ]
           .filter(Boolean)
-          .join('\n');
+          .join("\n");
 
         await Promise.allSettled([
           addNoteToContactAndDeal(contactId, dealId, note),
@@ -126,14 +171,14 @@ export async function runLeadBackgroundTasks(data: LeadPayload) {
             subject: `Follow up: new ${data.leadType} lead`,
             body: `Reach out to ${data.name} (${data.email}).`,
             dueAtISO: new Date(Date.now() + 24 * 3600 * 1000).toISOString(),
-            priority: 'HIGH',
+            priority: "HIGH",
           }),
         ]);
       }
     }
   } catch (e) {
-    console.error('[Lead] HubSpot CRM chain failed:', e);
+    console.error("[Lead] HubSpot CRM chain failed:", e);
   }
 
-  if (errors.length) console.error('[Lead] Background partial errors:', errors);
+  if (errors.length) console.error("[Lead] Background partial errors:", errors);
 }

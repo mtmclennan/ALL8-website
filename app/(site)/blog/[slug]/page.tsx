@@ -1,17 +1,35 @@
-import { client as sanity } from '@/app/studio/sanity/lib/client';
-import { singlePostQuery } from '@/app/studio/sanity/lib/queries';
-import BlogPost from './BlogPost';
-import StrongCTA from '@/app/(site)/_components/CallToAction';
-import type { Metadata } from 'next';
-import { siteUrl } from '@/config/site.config';
-import { urlFor } from '@/app/studio/sanity/lib/image';
+import type { Metadata } from "next";
+
+import { notFound } from "next/navigation";
+
+import ArticleJsonLd from "../_components/ArticleJsonLd";
+import RelatedArticles from "../_components/RelatedArticles";
+import RelatedServices from "../_components/RelatedServices";
+
+import BlogPost, { type SinglePost } from "./BlogPost";
+
+import { client as sanity } from "@/app/studio/sanity/lib/client";
+import {
+  publishedPostSlugsQuery,
+  relatedPostsQuery,
+  singlePostQuery,
+} from "@/app/studio/sanity/lib/queries";
+import {
+  selectRelatedPosts,
+  type RelatedPostsSource,
+} from "@/app/studio/sanity/lib/relatedPosts";
+import { selectRelatedServices } from "@/lib/relatedServices";
+import FinalCta from "@/app/(site)/_components/home/FinalCta";
+import { safeCanonicalUrl, siteUrl } from "@/config/site.config";
+import { urlFor } from "@/app/studio/sanity/lib/image";
 
 // REVALIDATE BLOG POSTS AUTOMATICALLY
 export const revalidate = 3600; // 1 hour — safe default
 
 export async function generateStaticParams() {
-  const slugs = await sanity.fetch(`*[_type == "post"].slug.current`);
-  return slugs.map((slug: string) => ({ slug }));
+  const slugs = await sanity.fetch<string[]>(publishedPostSlugsQuery);
+
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -23,16 +41,18 @@ export async function generateMetadata({
 
   const post = await sanity.fetch(singlePostQuery, { slug });
 
-  const canonical = `${siteUrl()}/blog/${slug}`;
+  if (!post) return {};
+
+  const canonical = safeCanonicalUrl(post.seo?.canonicalUrl, `/blog/${slug}`);
 
   const ogImage = post.coverImage
     ? urlFor(post.coverImage)
         .width(1200)
         .height(630)
-        .fit('crop')
-        .format('jpg')
+        .fit("crop")
+        .format("jpg")
         .url()
-    : `${siteUrl()}/assets/images/og-default.jpg`;
+    : `${siteUrl()}/assets/images/og/og-default.jpg`;
 
   const title = post.seo?.metaTitle || post.title;
   const description = post.seo?.metaDescription || post.excerpt;
@@ -44,9 +64,9 @@ export async function generateMetadata({
     alternates: { canonical },
 
     openGraph: {
-      type: 'article',
+      type: "article",
       url: canonical,
-      siteName: 'ALL8 Webworks',
+      siteName: "ALL8 Webworks",
       title,
       description,
       images: [
@@ -60,32 +80,55 @@ export async function generateMetadata({
     },
 
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title,
       description,
       images: [ogImage],
     },
+    robots: post.seo?.noIndex
+      ? {
+          index: false,
+          follow: true,
+          nocache: true,
+        }
+      : undefined,
   };
 }
 
 export default async function BlogPostPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = await sanity.fetch(singlePostQuery, { slug });
+  const [post, relatedPostsSource] = await Promise.all([
+    sanity.fetch<SinglePost | null>(singlePostQuery, { slug }),
+    sanity.fetch<RelatedPostsSource | null>(relatedPostsQuery, { slug }),
+  ]);
+
+  if (!post) notFound();
+
+  const relatedPosts = selectRelatedPosts(relatedPostsSource);
+  const relatedServices = selectRelatedServices(relatedPostsSource);
+
   return (
     <>
-      <BlogPost post={post} />
-      <StrongCTA
-        titlePrefix="Your website deserves"
-        highlight="full power"
-        titleSuffix="— not excuses."
-        subtitle="Get a site that runs like a finely tuned V8 engine."
-        ctaLabel="Book a Free Website Review"
-        ctaHref="/tune-up"
-        microText="No long contracts • Transparent pricing • Built for performance"
+      <ArticleJsonLd post={post} slug={slug} />
+      <BlogPost post={post} siteOrigin={siteUrl()} />
+      <RelatedServices services={relatedServices} />
+      <RelatedArticles articles={relatedPosts} />
+      <FinalCta
+        data={{
+          eyebrow: "Free Lead System Review",
+          title: "Find Out Where You're",
+          titleAccent: "Losing the Work.",
+          subtitle:
+            "Fifteen minutes on the path a customer takes from search to contact to follow-up. We'll show you where the biggest gaps appear to be, and what we'd fix first.",
+          ctaLabel: "Get My Free Lead System Review",
+          micro:
+            "No long-term commitment  ·  Clear recommendations  ·  Fixed scope before work begins",
+          secondary: { label: "Or just text us", href: "/contact" },
+        }}
       />
     </>
   );

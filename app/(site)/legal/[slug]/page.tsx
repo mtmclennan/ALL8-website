@@ -1,11 +1,14 @@
-import fs from 'fs';
-import path from 'path';
-import { notFound } from 'next/navigation';
-import ReactMarkdown from 'react-markdown';
-import type { Metadata } from 'next';
-import remarkGfm from 'remark-gfm';
-import { replacePlaceholders } from '@/lib/utils/replacePlaceholders';
-import { legalVars } from '@/config/legal.config';
+import type { Metadata } from "next";
+
+import fs from "fs";
+import path from "path";
+
+import { notFound } from "next/navigation";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+
+import { replacePlaceholders } from "@/lib/utils/replacePlaceholders";
+import { legalVars } from "@/config/legal.config";
 
 // ---------------- Types ----------------
 interface LegalPage {
@@ -18,10 +21,11 @@ interface LegalPage {
 }
 
 // ---------------- Data helpers ----------------
-const legalPath = path.join(process.cwd(), 'data/legal.json');
+const legalPath = path.join(process.cwd(), "data/legal.json");
 
 function getAllLegalPages(): LegalPage[] {
-  const file = fs.readFileSync(legalPath, 'utf8');
+  const file = fs.readFileSync(legalPath, "utf8");
+
   return JSON.parse(file) as LegalPage[];
 }
 
@@ -32,6 +36,7 @@ function getLegalPage(slug: string): LegalPage | undefined {
 // ---------------- Static generation ----------------
 export async function generateStaticParams() {
   const pages = getAllLegalPages();
+
   return pages.map((page) => ({ slug: page.slug }));
 }
 
@@ -42,17 +47,19 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const page = getLegalPage(slug);
+
   if (!page) notFound();
 
   return {
     title: `${page.title} • ${legalVars.companyName}`,
     description: `${page.title} information for ${legalVars.companyName}.`,
+    alternates: { canonical: `${legalVars.websiteUrl}/legal/${slug}` },
     robots: { index: false, follow: true },
     openGraph: {
       title: `${page.title} | ${legalVars.companyName}`,
       description: `Legal details and terms for ${legalVars.companyName}.`,
       url: `${legalVars.websiteUrl}/legal/${slug}`,
-      type: 'article',
+      type: "article",
     },
   };
 }
@@ -65,12 +72,13 @@ export default async function LegalDocPage({
 }) {
   const { slug } = await params;
   const page = getLegalPage(slug);
+
   if (!page) notFound();
 
-  const body = replacePlaceholders(page.body);
+  const body = replacePlaceholders(page.body).replace(/^#\s+.+\r?\n+/, "");
 
   return (
-    <main className="relative mx-auto max-w-4xl px-6 py-20 text-gray-300">
+    <div className="relative mx-auto max-w-4xl px-6 py-20 text-gray-300">
       {/* blueprint-style faint glow */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,#0076ff0a,transparent_60%)]" />
 
@@ -96,10 +104,10 @@ export default async function LegalDocPage({
       </article>
 
       <footer className="mt-16 border-t border-slate-700/60 pt-4 text-center text-sm text-gray-500">
-        Last updated: {new Date(page.lastUpdatedISO).toLocaleDateString()}{' '}
+        Last updated: {new Date(page.lastUpdatedISO).toLocaleDateString()}{" "}
         <br />© {new Date().getFullYear()} {legalVars.companyName}. All rights
         reserved.
       </footer>
-    </main>
+    </div>
   );
 }

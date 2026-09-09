@@ -1,19 +1,25 @@
-import React from 'react';
-import type { Metadata } from 'next';
-import { OpenGraphType } from 'next/dist/lib/metadata/types/opengraph-types';
-import { notFound } from 'next/navigation';
-import ServiceHero from './components/ServiceHero';
-import { getServiceBySlug, SERVICES } from '@/data/services';
-import { getIconByName } from '@/lib/icons';
-import CallToAction from '@/app/(site)/_components/CallToAction';
-import ProcessSection from '@/app/(site)/_components/OurProcess';
-import ServiceOverview from './components/ServiceOverview';
-import BenefitsBlock from './components/BenefitsBlock';
-import ProblemBlock from './components/ProblemBlock';
-import SolutionBlock from './components/SolutionBlock';
-import ComparisonBlock from './components/ComparisonBlock';
-import FAQBlock from '../../_components/FAQBlock';
-import ServicesOverviewRefactored from '../../_components/Services';
+import type { Metadata } from "next";
+import type { OpenGraphType } from "next/dist/lib/metadata/types/opengraph-types";
+
+import { notFound } from "next/navigation";
+
+import ServiceBreadcrumbs from "./components/ServiceBreadcrumbs";
+import ServiceHero from "./components/ServiceHero";
+import ServiceProblem from "./components/ServiceProblem";
+import ServiceFix from "./components/ServiceFix";
+import ServiceHowItWorks from "./components/ServiceHowItWorks";
+import ServiceIncluded from "./components/ServiceIncluded";
+import ServiceWhyItMatters from "./components/ServiceWhyItMatters";
+import ServiceWorksWith from "./components/ServiceWorksWith";
+import ServiceProof from "./components/ServiceProof";
+import ServicePricing from "./components/ServicePricing";
+import ServiceCrossLinks from "./components/ServiceCrossLinks";
+import ServiceResources from "./components/ServiceResources";
+import ServiceFinalCta from "./components/ServiceFinalCta";
+
+import FAQBlock from "@/app/(site)/_components/FAQBlock";
+import { getServiceBySlug, SERVICES } from "@/data/services";
+import { site, siteUrl } from "@/config/site.config";
 
 export const revalidate = 86400; // 24 hours
 
@@ -26,44 +32,43 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: Params;
+  params: Promise<Params>;
 }): Promise<Metadata> {
   const { slug } = await params;
   const service = getServiceBySlug(slug);
 
-  if (!service?.seo) {
+  if (!service) {
     return {
-      title: 'ALL8 Webworks',
-      description: 'High-performance websites for contractors and trades.',
+      title: "ALL8 WEBWORKS",
+      description:
+        "Lead systems for service businesses — websites, SEO, ads, follow-up and tracking that work together.",
     };
   }
 
   const { seo } = service;
+  const canonical = `${siteUrl()}/services/${service.slug}`;
+  const title = seo?.title || `${service.title} | ALL8 WEBWORKS`;
+  const description = seo?.description || service.short;
+  const image =
+    seo?.image || new URL(site.defaultOgImage, siteUrl()).toString();
 
   return {
-    title: seo?.title,
-    description: seo?.description,
-    keywords: seo?.keywords,
+    title,
+    description,
+    alternates: { canonical },
     openGraph: {
-      title: seo?.title,
-      description: seo?.description,
-      url: seo?.url || `https://all8webworks.ca/services/${service.slug}`,
-      type: (seo?.type as OpenGraphType) || 'website',
-      siteName: seo?.siteName || 'ALL8 Webworks',
-      images: [
-        {
-          url: seo?.image || '/images/og-default.jpg',
-          width: 1200,
-          height: 630,
-          alt: seo?.title || service.title,
-        },
-      ],
+      title,
+      description,
+      url: seo?.url || canonical,
+      type: (seo?.type as OpenGraphType) || "website",
+      siteName: seo?.siteName || "ALL8 WEBWORKS",
+      images: [{ url: image, width: 1200, height: 630, alt: title }],
     },
     twitter: {
-      card: 'summary_large_image',
-      title: seo?.title,
-      description: seo?.description,
-      images: [seo?.image || '/images/og-default.jpg'],
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
     },
   };
 }
@@ -71,54 +76,126 @@ export async function generateMetadata({
 export default async function ServiceDetailPage({
   params,
 }: {
-  params: Params;
+  params: Promise<Params>;
 }) {
   const { slug } = await params;
   const service = getServiceBySlug(slug);
+
   if (!service) return notFound();
 
-  const Icon = getIconByName(service.icon);
+  const base = siteUrl();
+  const canonical = `${base}/services/${service.slug}`;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": `${canonical}#service`,
+        name: service.title,
+        description: service.seo?.description || service.short,
+        url: canonical,
+        provider: {
+          "@type": "Organization",
+          name: "ALL8 WEBWORKS",
+          url: base,
+        },
+        areaServed: ["US", "CA"],
+        offers: {
+          "@type": "Offer",
+          priceCurrency: service.pricing.currency ?? "USD",
+          description: service.pricing.note
+            ? `${service.pricing.label} — ${service.pricing.note}`
+            : service.pricing.label,
+          ...(service.pricing.billing
+            ? {
+                price: service.pricing.billing.monthly,
+                priceSpecification: [
+                  {
+                    "@type": "UnitPriceSpecification",
+                    price: service.pricing.billing.monthly,
+                    priceCurrency: service.pricing.currency ?? "USD",
+                    billingDuration: "P1M",
+                    referenceQuantity: {
+                      "@type": "QuantitativeValue",
+                      value: 1,
+                      unitCode: "MON",
+                    },
+                  },
+                  {
+                    "@type": "PriceSpecification",
+                    name: "Setup fee",
+                    price: service.pricing.billing.setupFee,
+                    priceCurrency: service.pricing.currency ?? "USD",
+                  },
+                ],
+              }
+            : {}),
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${base}/` },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Services",
+            item: `${base}/services`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: service.title,
+            item: canonical,
+          },
+        ],
+      },
+      ...(service.faqs?.length
+        ? [
+            {
+              "@type": "FAQPage",
+              mainEntity: service.faqs.map((faq) => ({
+                "@type": "Question",
+                name: faq.q,
+                acceptedAnswer: { "@type": "Answer", text: faq.a },
+              })),
+            },
+          ]
+        : []),
+    ],
+  };
 
   return (
     <>
-      {service.hero && <ServiceHero hero={service.hero} />}
-      {/* Process (if defined in JSON) */}
-      {service.problem && <ProblemBlock problems={service.problem} />}
-      {service.solution && <SolutionBlock solution={service.solution} />}
-      {service.overview && <ServiceOverview overview={service.overview} />}
-      {service.benefits && service.benefits.length > 0 && (
-        <BenefitsBlock benefits={service.benefits} />
-      )}
-      {service.process && (
-        <ProcessSection
-          title={service.process.title}
-          subtitle={service.process.subtitle}
-          steps={service.process.steps}
-        />
-      )}
-      {service.comparison && (
-        <ComparisonBlock comparison={service.comparison} />
-      )}
-      {/* Process (if defined in JSON) */}
-
-      {/* Final CTA */}
-      {service.cta && (
-        <CallToAction
-          titleSuffix={service.cta?.titleSuffix}
-          titlePrefix={service.cta.titlePrefix}
-          highlight={service.cta.highlight}
-          subtitle={service.cta.subtitle}
-          ctaLabel={service.cta.ctaLabel}
-          ctaHref={service.cta.ctaHref}
-        />
-      )}
-      {service.faqs && service.faqs.length > 0 && (
-        <FAQBlock faqs={service.faqs} />
-      )}
-      <ServicesOverviewRefactored
-        title="Keep Your Business Running on All 8"
-        subtitle="Check out more high-performance services built to power your growth online."
+      <script
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        type="application/ld+json"
       />
+      <ServiceBreadcrumbs title={service.title} />
+      <ServiceHero
+        hero={service.hero}
+        stage={service.category === "support" ? "win" : service.category}
+      />
+      <ServiceProblem problem={service.problem} />
+      <ServiceFix fix={service.fix} />
+      <ServiceHowItWorks howItWorks={service.howItWorks} />
+      <ServiceIncluded included={service.included} />
+      <ServiceWhyItMatters whyItMatters={service.whyItMatters} />
+      <ServiceWorksWith worksWith={service.worksWith} />
+      <ServiceProof serviceSlug={service.slug} />
+      <ServicePricing pricing={service.pricing} />
+      {service.faqs?.length > 0 && (
+        <FAQBlock
+          faqs={service.faqs}
+          subtitle="Straight answers before you reach out."
+          title={`Questions About ${service.shortTitle || service.title}`}
+          tone="alt"
+        />
+      )}
+      <ServiceResources serviceSlug={service.slug} />
+      <ServiceCrossLinks slugs={service.crossLinks} />
+      <ServiceFinalCta title={service.shortTitle || service.title} />
     </>
   );
 }

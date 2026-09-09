@@ -1,74 +1,76 @@
-import Image from 'next/image';
-import aboutImage from '@/public/assets/all8-webworks-web-design-and-development-logo.png';
-import { CTAButtons } from './CTAButtons';
+"use client";
 
-interface AboutHeroProps {
-  title: string;
+import { useLeadModal } from "@/app/(site)/_components/LeadModalProvider";
+import Button from "@/app/(site)/_components/ui/Button";
+
+type AboutHeroData = {
+  pill: string;
+  titlePrefix: string;
+  titleEm: string;
   subtitle: string;
-  body?: string;
-  ctaLabel: string;
-  ctaHref: string;
-}
+  subtitleStrong: string;
+  primaryLabel: string;
+  primaryHref: string;
+  secondaryLabel: string;
+  geo: string;
+};
 
-export default function AboutHero({
-  title,
-  subtitle,
-  body,
-  ctaLabel,
-  ctaHref,
-}: AboutHeroProps) {
+export default function AboutHero({ data }: { data: AboutHeroData }) {
+  const { openModal } = useLeadModal();
+
   return (
-    <section className="relative isolate overflow-hidden text-white min-h-[80vh] bg-blueprint bg-primary/5">
-      {/* Background grid & glow */}
+    <section className="relative overflow-hidden pt-[68px]" id="hero">
+      <div className="absolute inset-0 bg-background" />
       <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-0"
-      >
-        <div className="absolute inset-0 opacity-70 mix-blend-overlay" />
-        <div className="absolute inset-x-0 top-0 h-60 bg-gradient-to-b from-primary/30 to-transparent" />
-      </div>
+        className="absolute inset-0"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(0,118,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,118,255,.05) 1px, transparent 1px)",
+          backgroundSize: "44px 44px",
+        }}
+      />
+      <div
+        className="absolute right-0 top-0 h-full w-[60%]"
+        style={{
+          background:
+            "radial-gradient(60% 70% at 80% 25%, rgba(0,64,150,.55) 0%, rgba(11,15,26,0) 65%)",
+        }}
+      />
 
-      {/* Content */}
-      <div className="relative z-10 mx-auto max-w-[1600px] px-6 py-20 md:py-28 2xl:py-36">
-        <div className="grid grid-cols-1 md:grid-cols-12 md:ml-4 items-center gap-4 2xl:gap-20">
-          {/* Text */}
-          <div className="max-w-3xl md:col-span-7">
-            <h1 className="text-4xl md:text-6xl 2xl:text-7xl font-bold tracking-tight">
-              {title}
-            </h1>
-            <p className="mt-6 text-base md:text-lg text-foreground/80 max-w-xl">
-              {subtitle}
-            </p>
-            {body && (
-              <p className="mt-6 text-base md:text-lg text-foreground/80 max-w-xl">
-                {body}
-              </p>
-            )}
-
-            {/* CTAs */}
-            <CTAButtons ctaHref={ctaHref} ctaLabel={ctaLabel} />
+      <div className="relative z-[2] mx-auto max-w-[1160px] px-6 py-24 sm:px-10 sm:py-[96px]">
+        <div className="max-w-[840px]">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[rgba(0,118,255,.22)] bg-[rgba(0,118,255,.1)] py-1.5 pl-2.5 pr-3.5 text-[12.5px] font-semibold tracking-[.05em] text-accent-blue">
+            <span className="h-[7px] w-[7px] flex-shrink-0 rounded-full bg-stage-win shadow-[0_0_8px_#22c55e]" />
+            {data.pill}
           </div>
 
-          {/* Image */}
-          <div className="relative md:col-span-5 aspect-[5/4] w-full">
-            <Image
-              src={aboutImage}
-              alt="ALL8 Webworks team building high-performance websites"
-              fill
-              sizes="(min-width: 1280px) 600px, (min-width: 768px) 50vw, 90vw"
-              className="object-contain rounded-2xl shadow-lg"
-              priority
-              quality={75}
-              placeholder="blur"
-            />
-            <div
-              className="pointer-events-none absolute inset-0 -z-10 blur-3xl opacity-30"
-              style={{
-                background:
-                  'radial-gradient(40% 40% at 60% 50%, rgba(0,118,255,0.5), transparent 70%)',
-              }}
-            />
+          <h1 className="mb-[22px] text-[clamp(40px,4.6vw,66px)] font-black leading-[1] tracking-[-.03em]">
+            {data.titlePrefix}
+            <span className="text-accent-blue">{data.titleEm}</span>
+          </h1>
+
+          <p className="mb-[30px] max-w-[680px] text-lg leading-relaxed text-white/70">
+            {data.subtitle}
+            <strong className="font-bold text-white">
+              {data.subtitleStrong}
+            </strong>
+          </p>
+
+          <div className="mb-[22px] flex flex-wrap items-center gap-3.5">
+            <Button href={data.primaryHref}>{data.primaryLabel}</Button>
+            <button
+              className="group inline-flex items-center gap-[7px] px-1 py-3.5 text-[15px] font-bold text-accent-blue hover:text-[#8ec5ff]"
+              type="button"
+              onClick={openModal}
+            >
+              {data.secondaryLabel}
+            </button>
           </div>
+
+          <p className="flex items-center gap-[7px] text-[12.5px] text-white/40">
+            <span className="h-[5px] w-[5px] flex-shrink-0 rounded-full bg-white/40" />
+            {data.geo}
+          </p>
         </div>
       </div>
     </section>

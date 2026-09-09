@@ -1,0 +1,60 @@
+# ALL8 Cloudflare Tunnel origin example
+#
+# Intended request path:
+# Cloudflare -> cloudflared -> 127.0.0.1:8080 -> Nginx -> 127.0.0.1:3000
+#
+# cloudflared must be the only process sending public traffic to this listener.
+# Cloudflare owns TLS and hostname redirects. This file deliberately contains
+# no Certbot configuration, public port listener, or hostname redirect.
+
+map $http_upgrade $all8_connection_upgrade {
+    default upgrade;
+    ""      close;
+}
+
+# Cloudflare replaces CF-Connecting-IP at its edge. Since this Nginx listener
+# is loopback-only, copy the edge-provided single address into a private header
+# that the application reads when TRUST_PROXY_IP_HEADER=true. Always overwrite
+# this header; never forward a client-supplied X-ALL8-Client-IP value.
+map $http_cf_connecting_ip $all8_client_ip {
+    default $http_cf_connecting_ip;
+    ""      $remote_addr;
+}
+
+server {
+    listen 127.0.0.1:8080 default_server;
+    server_name _;
+
+    client_max_body_size 2m;
+    client_body_timeout 30s;
+    keepalive_timeout 65s;
+
+    location / {
+        proxy_pass http://127.0.0.1:3000;
+        proxy_http_version 1.1;
+
+        # Preserve the browser-facing authority and HTTPS scheme so Next.js
+        # redirects and Server Action origin checks see the public request.
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Forwarded-Proto https;
+
+        # Replace, rather than append to, forwarding headers at this trust
+        # boundary. The app rate limiter reads only X-ALL8-Client-IP.
+        proxy_set_header X-Forwarded-For $all8_client_ip;
+        proxy_set_header X-Real-IP $all8_client_ip;
+        proxy_set_header X-ALL8-Client-IP $all8_client_ip;
+
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection $all8_connection_upgrade;
+
+        # App Router responses may stream. Buffering them defeats streaming and
+        # can make long Server Actions appear stalled.
+        proxy_buffering off;
+        proxy_cache off;
+
+        proxy_connect_timeout 10s;
+        proxy_send_timeout 120s;
+        proxy_read_timeout 120s;
+    }
+}
