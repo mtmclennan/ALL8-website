@@ -10,6 +10,7 @@ import BlogPost, { type SinglePost } from "./BlogPost";
 
 import { client as sanity } from "@/app/studio/sanity/lib/client";
 import {
+  publishedPostSlugsQuery,
   relatedPostsQuery,
   singlePostQuery,
 } from "@/app/studio/sanity/lib/queries";
@@ -19,16 +20,16 @@ import {
 } from "@/app/studio/sanity/lib/relatedPosts";
 import { selectRelatedServices } from "@/lib/relatedServices";
 import FinalCta from "@/app/(site)/_components/home/FinalCta";
-import { siteUrl } from "@/config/site.config";
+import { safeCanonicalUrl, siteUrl } from "@/config/site.config";
 import { urlFor } from "@/app/studio/sanity/lib/image";
 
 // REVALIDATE BLOG POSTS AUTOMATICALLY
 export const revalidate = 3600; // 1 hour — safe default
 
 export async function generateStaticParams() {
-  const slugs = await sanity.fetch(`*[_type == "post"].slug.current`);
+  const slugs = await sanity.fetch<string[]>(publishedPostSlugsQuery);
 
-  return slugs.map((slug: string) => ({ slug }));
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -42,7 +43,7 @@ export async function generateMetadata({
 
   if (!post) return {};
 
-  const canonical = `${siteUrl()}/blog/${slug}`;
+  const canonical = safeCanonicalUrl(post.seo?.canonicalUrl, `/blog/${slug}`);
 
   const ogImage = post.coverImage
     ? urlFor(post.coverImage)
@@ -84,6 +85,13 @@ export async function generateMetadata({
       description,
       images: [ogImage],
     },
+    robots: post.seo?.noIndex
+      ? {
+          index: false,
+          follow: true,
+          nocache: true,
+        }
+      : undefined,
   };
 }
 
@@ -106,7 +114,7 @@ export default async function BlogPostPage({
   return (
     <>
       <ArticleJsonLd post={post} slug={slug} />
-      <BlogPost post={post} />
+      <BlogPost post={post} siteOrigin={siteUrl()} />
       <RelatedServices services={relatedServices} />
       <RelatedArticles articles={relatedPosts} />
       <FinalCta

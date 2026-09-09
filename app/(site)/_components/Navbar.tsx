@@ -54,12 +54,18 @@ const Navbar = () => {
         )}
       >
         <div className="mx-auto flex h-[68px] max-w-[1160px] items-center gap-5 px-6 sm:px-10">
-          <Link className="flex items-center gap-3" href="/hire-matt">
-            <Logo size="sm" variant="horizontal" />
+          <div className="flex min-w-0 items-center gap-3">
+            <Link
+              aria-label="Visit the ALL8 Webworks homepage"
+              className="flex flex-shrink-0 items-center"
+              href="/"
+            >
+              <Logo showMark={false} size="nav" variant="horizontal" />
+            </Link>
             <span className="hidden border-l border-white/[0.14] pl-3 text-sm font-bold text-white/70 sm:inline">
               Matt McLennan
             </span>
-          </Link>
+          </div>
           <nav aria-label="Hire Matt" className="ml-auto">
             <ul className="flex items-center gap-4 text-sm font-semibold sm:gap-6">
               <li className="max-[520px]:hidden">

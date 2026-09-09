@@ -50,7 +50,27 @@ export const blockContentType = defineType({
               {
                 title: "URL",
                 name: "href",
-                type: "url",
+                type: "string",
+                description:
+                  "Use /path for ALL8 pages or a complete https:// URL for another site.",
+                validation: (Rule) =>
+                  Rule.custom((value) => {
+                    if (!value) return true;
+                    if (typeof value !== "string") return "Enter a URL.";
+                    if (value.startsWith("/") && !value.startsWith("//")) {
+                      return true;
+                    }
+
+                    try {
+                      const url = new URL(value);
+
+                      return url.protocol === "https:"
+                        ? true
+                        : "External links must use HTTPS.";
+                    } catch {
+                      return "Use a relative /path or a complete HTTPS URL.";
+                    }
+                  }),
               },
             ],
           },

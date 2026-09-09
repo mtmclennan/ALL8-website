@@ -1,3 +1,5 @@
+import { siteUrl } from "@/config/site.config";
+
 export type LegalVars = {
   companyName: string;
   legalName?: string;
@@ -19,7 +21,7 @@ export const legalVars: LegalVars = {
   country: "CA",
   provinceOrState: "ON",
   email: "hello@all8webworks.com",
-  websiteUrl: "https://all8webworks.com",
+  websiteUrl: siteUrl(),
   dpoEmail: "privacy@all8webworks.com",
   lastUpdatedISO: "2025-11-01",
   gaMeasurementId: process.env.NEXT_PUBLIC_GA_ID,

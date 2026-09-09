@@ -47,7 +47,9 @@ async function loadJSONIfExists(filePath: string) {
 /**
  * Returns an authenticated Sheets client using either:
  *  - Service Account (if GOOGLE_SERVICE_ACCOUNT_JSON or google-service-account.json present), or
- *  - OAuth 2.0 user tokens (if token file present and client envs set)
+ *  - previously provisioned OAuth 2.0 user tokens from an explicit path.
+ *
+ * OAuth setup is intentionally not exposed through a public application route.
  */
 async function getSheetsClient() {
   // 1) Try Service Account first (explicit env or file)
@@ -72,30 +74,34 @@ async function getSheetsClient() {
     return google.sheets({ version: "v4", auth });
   }
 
-  // 2) Fallback to OAuth 2.0 user flow (requires token file + client envs)
-  const tokenPath =
-    process.env.GOOGLE_OAUTH_TOKEN_PATH ||
-    path.join(process.cwd(), ".google-oauth-token.json");
+  // 2) Fallback to previously provisioned OAuth credentials. The token must
+  // live outside the application checkout and be mounted/readable at runtime.
+  const tokenPath = process.env.GOOGLE_OAUTH_TOKEN_PATH;
+
+  if (!tokenPath || !path.isAbsolute(tokenPath)) {
+    throw new Error(
+      "No service account credentials found. Set GOOGLE_SERVICE_ACCOUNT_JSON or an absolute GOOGLE_OAUTH_TOKEN_PATH.",
+    );
+  }
+
   const tokens = await loadJSONIfExists(tokenPath);
 
   if (!tokens) {
     throw new Error(
-      `No service account JSON found and no OAuth tokens found.\n` +
-        `Finish the OAuth connect flow (visit /api/google/authorize) to generate ${tokenPath}, or provide service account JSON.`,
+      `No OAuth tokens found at ${tokenPath}. Provision them outside the public application or provide service account credentials.`,
     );
   }
 
   const clientId = process.env.GOOGLE_CLIENT_ID!;
   const clientSecret = process.env.GOOGLE_CLIENT_SECRET!;
-  const redirectUri = process.env.GOOGLE_REDIRECT_URI!;
 
-  if (!clientId || !clientSecret || !redirectUri) {
+  if (!clientId || !clientSecret) {
     throw new Error(
-      "Missing GOOGLE_CLIENT_ID / GOOGLE_CLIENT_SECRET / GOOGLE_REDIRECT_URI for OAuth mode.",
+      "Missing GOOGLE_CLIENT_ID / GOOGLE_CLIENT_SECRET for provisioned OAuth mode.",
     );
   }
 
-  const oauth2 = new google.auth.OAuth2(clientId, clientSecret, redirectUri);
+  const oauth2 = new google.auth.OAuth2(clientId, clientSecret);
 
   oauth2.setCredentials(tokens); // contains refresh_token so it will auto-refresh
 

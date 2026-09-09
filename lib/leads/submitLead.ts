@@ -2,7 +2,7 @@
 
 import type { LeadPayload } from "@/lib/leads/types";
 
-import { verifyCaptcha } from "@/lib/intake/verifyCaptcha";
+import { verifyCaptcha, type CaptchaAction } from "@/lib/intake/verifyCaptcha";
 import { checkRateLimit } from "@/lib/intake/rateLimit";
 import {
   captureLeadNotification,
@@ -18,6 +18,7 @@ export type LeadActionState = {
 
 export async function submitLeadPipeline(
   data: LeadPayload,
+  captchaAction: CaptchaAction,
 ): Promise<LeadActionState> {
   // honeypot
   if (data.hp && data.hp.trim().length > 0) {
@@ -30,14 +31,16 @@ export async function submitLeadPipeline(
     return { ok: false, message: String(e) };
   }
 
-  const human = await verifyCaptcha(data.token);
+  const human = await verifyCaptcha(data.token, captchaAction);
 
   if (!human)
     return { ok: false, message: "Verification failed. Please try again." };
 
   if (data.leadType === "newsletter") {
     // fire and forget (don’t await) — separate from the sales pipeline
-    void runNewsletterBackgroundTasks(data);
+    void runNewsletterBackgroundTasks(data).catch((error) => {
+      console.error("[Newsletter] Background task runner failed:", error);
+    });
 
     return { ok: true, message: "You're on the list." };
   }
@@ -55,7 +58,9 @@ export async function submitLeadPipeline(
   }
 
   // Secondary enrichment must not delay a confirmed, durably captured lead.
-  void runLeadBackgroundTasks(data);
+  void runLeadBackgroundTasks(data).catch((error) => {
+    console.error("[Lead] Background task runner failed:", error);
+  });
 
   return { ok: true, message: "Thanks! We’ll review and follow up shortly." };
 }

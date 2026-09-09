@@ -75,7 +75,7 @@ const CATEGORY_SERVICE_CTA: Record<
   },
   "case-studies": {
     href: "/contact",
-    label: "Talk Through My Website",
+    label: "Get My Free Lead System Review",
     highlight: "next",
   },
 };

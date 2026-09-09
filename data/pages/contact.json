@@ -64,10 +64,22 @@
     "eyebrow": "What Happens Next",
     "title": "No Drip Sequence. No Sales Call You Didn't Ask For.",
     "steps": [
-      { "title": "You hear back from Matt, not a chatbot", "body": "Same working day for texts, one business day for the form. ALL8 is small enough that the person replying is the person who'd do the work." },
-      { "title": "We look before we talk", "body": "We check where you rank locally, what your site does with its visitors, and whether anything is tracking your leads — so the conversation starts with findings instead of discovery questions." },
-      { "title": "You get the findings either way", "body": "In writing, yours to keep, including the parts we can't help with. If your bottleneck is something we don't do, we'll say so and point you at what would fix it." },
-      { "title": "If it makes sense, we scope it", "body": "Fixed scope and price agreed before any work starts. No long-term commitment, and nothing you'd need to keep paying for to keep what's been built." }
+      {
+        "title": "You hear back from Matt, not a chatbot",
+        "body": "Same working day for texts, one business day for the form. ALL8 is small enough that the person replying is the person who'd do the work."
+      },
+      {
+        "title": "We look before we talk",
+        "body": "We check where you rank locally, what your site does with its visitors, and whether anything is tracking your leads — so the conversation starts with findings instead of discovery questions."
+      },
+      {
+        "title": "You get the findings either way",
+        "body": "In writing, yours to keep, including the parts we can't help with. If your bottleneck is something we don't do, we'll say so and point you at what would fix it."
+      },
+      {
+        "title": "If it makes sense, we scope it",
+        "body": "Scope, pricing and any recurring service terms are agreed before work starts. You know what is included, what continues monthly and what remains yours before you commit."
+      }
     ]
   },
 

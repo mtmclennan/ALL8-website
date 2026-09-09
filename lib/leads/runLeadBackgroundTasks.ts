@@ -15,7 +15,8 @@ import {
 
 function leadEmailPayload(data: LeadPayload) {
   const projectType =
-    data.leadType === "tuneup" ? "tuneup" : (data.primary ?? "website");
+    data.primary?.trim() ||
+    (data.leadType === "tuneup" ? "website tune-up" : "lead system review");
 
   return {
     leadType: data.leadType,
@@ -42,7 +43,7 @@ export async function captureLeadNotification(data: LeadPayload) {
 }
 
 // Newsletter signups are not sales leads: no HubSpot deal/task, no sales
-// sheet row, no "New Website Intake" notification. Just a marketing contact
+// sheet row or lead-review notification. Just a marketing contact
 // and a correctly-worded confirmation email.
 export async function runNewsletterBackgroundTasks(
   data: Pick<LeadPayload, "email">,
@@ -84,7 +85,8 @@ export async function runLeadBackgroundTasks(data: LeadPayload) {
 
   // unify what you write into sheets/email/crm
   const projectType =
-    data.leadType === "tuneup" ? "tuneup" : (data.primary ?? "website");
+    data.primary?.trim() ||
+    (data.leadType === "tuneup" ? "website tune-up" : "lead system review");
   const notes = data.notes ?? "";
 
   await Promise.allSettled([

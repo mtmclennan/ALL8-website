@@ -4,7 +4,7 @@ import fs from "fs";
 import path from "path";
 
 import { PageSchema, type PageMeta } from "@/schemas/pages.schema";
-import { site, siteUrl } from "@/config/site.config";
+import { absoluteSiteUrl, site } from "@/config/site.config";
 
 const IS_DEV = process.env.NODE_ENV !== "production";
 
@@ -13,19 +13,6 @@ function normPath(p: string) {
   if (!p) return "/";
 
   return p.startsWith("/") ? p : `/${p}`;
-}
-
-/** Build absolute URL safely */
-function toAbs(base: string | undefined, pathOrUrl: string) {
-  try {
-    const test = new URL(pathOrUrl);
-
-    return test.toString();
-  } catch {
-    const b = base || "https://all8webworks.com";
-
-    return new URL(normPath(pathOrUrl), b).toString();
-  }
 }
 
 /** Helper for reading and validating a JSON file */
@@ -100,10 +87,9 @@ export function buildStaticMetadata(pathStr: string): Metadata {
     };
   }
 
-  const base = siteUrl();
-  const canonical = toAbs(base, p);
+  const canonical = absoluteSiteUrl(p);
   const imageRel = page.ogImage || site.defaultOgImage;
-  const image = toAbs(base, imageRel);
+  const image = absoluteSiteUrl(imageRel);
 
   const robots: Metadata["robots"] | undefined = page.noindex
     ? {

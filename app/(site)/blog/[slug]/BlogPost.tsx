@@ -30,7 +30,7 @@ export type SinglePost = Omit<SanityPost, "author" | "categories"> & {
   }>;
 };
 
-type BlogPostProps = { post: SinglePost };
+type BlogPostProps = { post: SinglePost; siteOrigin: string };
 
 type Block = {
   _type?: string;
@@ -51,7 +51,22 @@ function extractToc(body: SinglePost["body"]): TocItem[] {
     .map((b) => ({ id: slugify(getBlockText(b)), text: getBlockText(b) }));
 }
 
-export default function BlogPost({ post }: BlogPostProps) {
+function internalHref(href: string | undefined, siteOrigin: string) {
+  if (!href) return null;
+  if (href.startsWith("/") && !href.startsWith("//")) return href;
+
+  try {
+    const url = new URL(href);
+
+    if (url.origin !== siteOrigin) return null;
+
+    return `${url.pathname}${url.search}${url.hash}`;
+  } catch {
+    return null;
+  }
+}
+
+export default function BlogPost({ post, siteOrigin }: BlogPostProps) {
   const publishedLabel = post.publishedAt
     ? new Date(post.publishedAt).toLocaleDateString("en-CA", {
         year: "numeric",
@@ -127,14 +142,25 @@ export default function BlogPost({ post }: BlogPostProps) {
       ),
       link: ({ children, value }) => {
         const href = value?.href as string | undefined;
-        const isExternal = href ? /^https?:\/\//i.test(href) : false;
+        const normalizedInternalHref = internalHref(href, siteOrigin);
+
+        if (normalizedInternalHref) {
+          return (
+            <Link
+              className="text-accent-blue underline decoration-accent-blue/40 underline-offset-2 hover:text-[#8ec5ff]"
+              href={normalizedInternalHref}
+            >
+              {children}
+            </Link>
+          );
+        }
 
         return (
           <a
             className="text-accent-blue underline decoration-accent-blue/40 underline-offset-2 hover:text-[#8ec5ff]"
             href={href || "#"}
-            rel={isExternal ? "noopener noreferrer" : undefined}
-            target={isExternal ? "_blank" : undefined}
+            rel="noopener noreferrer"
+            target="_blank"
           >
             {children}
           </a>

@@ -37,23 +37,26 @@ export async function submitLeadReview(
 
   const d = parsed.data;
 
-  return submitLeadPipeline({
-    leadType: "lead-review",
-    name: d.name,
-    email: d.email,
-    company: d.business,
-    website: d.website || undefined,
-    primary: d.challenge || undefined,
-    notes: d.phone ? `Phone: ${d.phone}` : "",
-    hp: d.hp,
-    token: d.token,
-    hutk: d.hutk,
-    pageUrl: d.pageUrl,
-    pageName: d.pageName,
-    utm_source: d.utm_source,
-    utm_medium: d.utm_medium,
-    utm_campaign: d.utm_campaign,
-    utm_content: d.utm_content,
-    utm_term: d.utm_term,
-  });
+  return submitLeadPipeline(
+    {
+      leadType: "lead-review",
+      name: d.name,
+      email: d.email,
+      company: d.business,
+      website: d.website || undefined,
+      primary: d.challenge || undefined,
+      notes: d.phone ? `Phone: ${d.phone}` : "",
+      hp: d.hp,
+      token: d.token,
+      hutk: d.hutk,
+      pageUrl: d.pageUrl,
+      pageName: d.pageName,
+      utm_source: d.utm_source,
+      utm_medium: d.utm_medium,
+      utm_campaign: d.utm_campaign,
+      utm_content: d.utm_content,
+      utm_term: d.utm_term,
+    },
+    d.leadType === "Contact Page Form" ? "contact_form" : "lead_review",
+  );
 }

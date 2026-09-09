@@ -18,7 +18,7 @@ import AnalyticsBridge from "./(site)/_components/analytics/AnalyticsBridge";
 
 import HubspotLoader from "@/app/(site)/_components/HubspotLoader";
 import { fontArchivo, fontDmSans, fontOrbitron } from "@/config/fonts";
-import { site, siteUrl } from "@/config/site.config";
+import { isProductionDeployment, site, siteUrl } from "@/config/site.config";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
@@ -42,6 +42,13 @@ export const metadata: Metadata = {
     description: site.description,
     images: [site.defaultOgImage],
   },
+  robots: isProductionDeployment()
+    ? undefined
+    : {
+        index: false,
+        follow: false,
+        nocache: true,
+      },
 };
 
 export const viewport: Viewport = {

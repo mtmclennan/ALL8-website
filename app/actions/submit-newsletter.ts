@@ -37,19 +37,22 @@ export async function submitNewsletter(
 
   const d = parsed.data;
 
-  return submitLeadPipeline({
-    leadType: "newsletter",
-    name: "Newsletter subscriber",
-    email: d.email,
-    hp: d.hp,
-    token: d.token,
-    hutk: d.hutk,
-    pageUrl: d.pageUrl,
-    pageName: d.pageName,
-    utm_source: d.utm_source,
-    utm_medium: d.utm_medium,
-    utm_campaign: d.utm_campaign,
-    utm_content: d.utm_content,
-    utm_term: d.utm_term,
-  });
+  return submitLeadPipeline(
+    {
+      leadType: "newsletter",
+      name: "Newsletter subscriber",
+      email: d.email,
+      hp: d.hp,
+      token: d.token,
+      hutk: d.hutk,
+      pageUrl: d.pageUrl,
+      pageName: d.pageName,
+      utm_source: d.utm_source,
+      utm_medium: d.utm_medium,
+      utm_campaign: d.utm_campaign,
+      utm_content: d.utm_content,
+      utm_term: d.utm_term,
+    },
+    "newsletter_signup",
+  );
 }
