@@ -18,6 +18,8 @@
 # misc
 .DS_Store
 *.pem
+/%SystemDrive%/
+/tmp/
 
 # debug
 npm-debug.log*
