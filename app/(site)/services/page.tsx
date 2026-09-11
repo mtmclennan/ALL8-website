@@ -13,9 +13,10 @@ import LeadJourney from "./components/LeadJourney";
 import ServicesHero from "./components/ServicesHero";
 
 import { servicesPageData } from "@/data/pages/servicesPage";
-import { siteUrl } from "@/config/site.config";
+import { site, siteUrl } from "@/config/site.config";
 import { validateMetadata } from "@/lib/utils/seoValidation";
 import { buildStaticMetadata } from "@/lib/utils/buildStaticMetadata";
+import { normalizeBrandName } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildStaticMetadata("/services");
 
@@ -28,11 +29,11 @@ const collectionJsonLd = {
       "@type": "CollectionPage",
       "@id": `${siteUrl()}/services#page`,
       url: `${siteUrl()}/services`,
-      name: servicesPageData.title,
-      description: servicesPageData.description,
+      name: normalizeBrandName(servicesPageData.title),
+      description: normalizeBrandName(servicesPageData.description),
       mainEntity: {
         "@type": "OfferCatalog",
-        name: "ALL8 WEBWORKS Services",
+        name: `${site.name} Services`,
         itemListElement: servicesPageData.outcomes.blocks.map((block) => ({
           "@type": "Offer",
           itemOffered: {

@@ -14,6 +14,8 @@ test("site origin accepts and normalizes only an HTTPS origin", () => {
       "http://all8webworks.com",
       "https://all8webworks.com/path",
       "https://all8webworks.com?source=test",
+      "https://all8webworks.ca",
+      "https://preview.example.com",
       "not-a-url",
     ]) {
       process.env.SITE_URL = invalid;

@@ -3,6 +3,7 @@
   "title": "Matt McLennan | Web Developer & Growth Engineer",
   "description": "Web developer and growth engineer combining Next.js, technical SEO, analytics, CRM and automation to solve measurable business problems.",
   "ogImage": "/hire-matt/opengraph-image",
+  "noindex": true,
 
   "hero": {
     "pill": "Web Developer · Growth Engineer",
@@ -31,12 +32,12 @@
   "proofMetrics": {
     "eyebrow": "Measured Outcomes · Captured Evidence",
     "cards": [
-      { "tag": "Search growth", "value": "40 → 100", "em": true, "label": "Google Search **Clicks**", "context": "Per rolling 28 days · March → September 2026", "detail": "2.5× growth", "color": "#3D97FF" },
-      { "tag": "Local demand", "value": "+76%", "em": true, "label": "Google Business Profile", "context": "Website clicks · Year over year", "color": "#22d3ee" },
+      { "tag": "Search growth", "value": "{{proof.search.range}}", "em": true, "label": "Google Search **Clicks**", "context": "Per rolling 28 days · {{proof.search.periodArrow}}", "detail": "{{proof.search.factor}} growth", "color": "#3D97FF" },
+      { "tag": "Local demand", "value": "{{proof.profile.increaseSigned}}", "em": true, "label": "Google Business Profile", "context": "Website clicks · Year over year", "color": "#22d3ee" },
       { "tag": "Systems thinking", "value": "Search → Operations", "label": "Tracking revealed the **next bottleneck**", "context": "Led to a connected lead-handling workflow", "detail": "IN VALIDATION · Ooma → Zapier → Estivor", "kind": "insight", "color": "#a8b2c1" }
     ],
     "footLine": "Improved acquisition. Measured what happened next. Found the next constraint.",
-    "footNote": "Latest Search window: August 10–September 6, 2026. Search and Business Profile clicks are acquisition results; the workflow is development evidence."
+    "footNote": "Latest Search window: {{proof.search.latestWindow}}. Search and Business Profile clicks are acquisition results; the workflow is development evidence."
   },
 
   "capability": {
@@ -104,8 +105,8 @@
       ],
       "resultsHeading": "Captured results",
       "results": [
-        "Google Search clicks grew from **40 to 100 per rolling 28 days** between March and September 2026 — **2.5× growth**",
-        "**+76% YoY** Google Business Profile website clicks",
+        "Google Search clicks grew from **{{proof.search.range}} per rolling 28 days** between {{proof.search.period}} — **{{proof.search.factor}} growth**",
+        "**{{proof.profile.increaseSigned}} YoY** Google Business Profile website clicks",
         "Non-branded **commercial-intent** search traffic",
         "Captured local and organic visibility for **targeted services**",
         "Point-in-time visibility inside **Google AI-generated answers**"

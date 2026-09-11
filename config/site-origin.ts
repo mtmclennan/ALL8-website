@@ -25,6 +25,12 @@ function validatedSiteOrigin(configured: string) {
     );
   }
 
+  if (url.origin !== DEFAULT_SITE_ORIGIN) {
+    throw new Error(
+      `SITE_URL must use the canonical production origin ${DEFAULT_SITE_ORIGIN}.`,
+    );
+  }
+
   return url.origin;
 }
 

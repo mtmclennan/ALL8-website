@@ -20,8 +20,14 @@ import {
 } from "@/app/studio/sanity/lib/relatedPosts";
 import { selectRelatedServices } from "@/lib/relatedServices";
 import FinalCta from "@/app/(site)/_components/home/FinalCta";
-import { safeCanonicalUrl, siteUrl } from "@/config/site.config";
+import { siteUrl } from "@/config/site.config";
 import { urlFor } from "@/app/studio/sanity/lib/image";
+import { buildPageMetadata, withBrandSuffix } from "@/lib/seo/metadata";
+import {
+  canonicalBlogSlug,
+  sourceBlogSlug,
+} from "@/config/permanent-redirects.mjs";
+import { canonicalizePortableTextLinks } from "@/lib/seo/canonicalizePortableTextLinks";
 
 // REVALIDATE BLOG POSTS AUTOMATICALLY
 export const revalidate = 3600; // 1 hour — safe default
@@ -29,7 +35,7 @@ export const revalidate = 3600; // 1 hour — safe default
 export async function generateStaticParams() {
   const slugs = await sanity.fetch<string[]>(publishedPostSlugsQuery);
 
-  return slugs.map((slug) => ({ slug }));
+  return slugs.map((slug) => ({ slug: canonicalBlogSlug(slug) }));
 }
 
 export async function generateMetadata({
@@ -38,61 +44,46 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  const sourceSlug = sourceBlogSlug(slug);
+  const slugs = [...new Set([sourceSlug, canonicalBlogSlug(slug)])];
 
-  const post = await sanity.fetch(singlePostQuery, { slug });
+  const post = await sanity.fetch(singlePostQuery, { slugs });
 
   if (!post) return {};
 
-  const canonical = safeCanonicalUrl(post.seo?.canonicalUrl, `/blog/${slug}`);
+  const canonicalSlug = canonicalBlogSlug(slug);
+  const path = `/blog/${canonicalSlug}`;
 
-  const ogImage = post.coverImage
-    ? urlFor(post.coverImage)
+  const shareImage = post.seo?.ogImage || post.coverImage;
+  const ogImage = shareImage
+    ? urlFor(shareImage).width(1200).height(630).fit("crop").format("jpg").url()
+    : `${siteUrl()}/assets/images/og/og-default.jpg`;
+  const twitterImage = post.seo?.twitterImage
+    ? urlFor(post.seo.twitterImage)
         .width(1200)
         .height(630)
         .fit("crop")
         .format("jpg")
         .url()
-    : `${siteUrl()}/assets/images/og/og-default.jpg`;
+    : ogImage;
 
-  const title = post.seo?.metaTitle || post.title;
+  const title = withBrandSuffix(post.seo?.metaTitle || post.title);
   const description = post.seo?.metaDescription || post.excerpt;
 
-  return {
+  return buildPageMetadata({
     title,
     description,
-
-    alternates: { canonical },
-
-    openGraph: {
-      type: "article",
-      url: canonical,
-      siteName: "ALL8 Webworks",
-      title,
-      description,
-      images: [
-        {
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: post.coverImage?.alt ?? post.title,
-        },
-      ],
-    },
-
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [ogImage],
-    },
-    robots: post.seo?.noIndex
-      ? {
-          index: false,
-          follow: true,
-          nocache: true,
-        }
-      : undefined,
-  };
+    path,
+    canonicalUrl:
+      canonicalSlug === sourceSlug ? post.seo?.canonicalUrl : undefined,
+    type: "article",
+    image: ogImage,
+    twitterImage,
+    imageAlt: shareImage?.alt ?? post.title,
+    openGraphTitle: post.seo?.ogTitle || post.title,
+    openGraphDescription: post.seo?.ogDescription || description,
+    noindex: post.seo?.noIndex,
+  });
 }
 
 export default async function BlogPostPage({
@@ -101,20 +92,29 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  const sourceSlug = sourceBlogSlug(slug);
+  const slugs = [...new Set([sourceSlug, canonicalBlogSlug(slug)])];
   const [post, relatedPostsSource] = await Promise.all([
-    sanity.fetch<SinglePost | null>(singlePostQuery, { slug }),
-    sanity.fetch<RelatedPostsSource | null>(relatedPostsQuery, { slug }),
+    sanity.fetch<SinglePost | null>(singlePostQuery, { slugs }),
+    sanity.fetch<RelatedPostsSource | null>(relatedPostsQuery, {
+      slugs,
+    }),
   ]);
 
   if (!post) notFound();
+
+  const canonicalPost = {
+    ...post,
+    body: canonicalizePortableTextLinks(post.body),
+  };
 
   const relatedPosts = selectRelatedPosts(relatedPostsSource);
   const relatedServices = selectRelatedServices(relatedPostsSource);
 
   return (
     <>
-      <ArticleJsonLd post={post} slug={slug} />
-      <BlogPost post={post} siteOrigin={siteUrl()} />
+      <ArticleJsonLd post={canonicalPost} slug={canonicalBlogSlug(slug)} />
+      <BlogPost post={canonicalPost} siteOrigin={siteUrl()} />
       <RelatedServices services={relatedServices} />
       <RelatedArticles articles={relatedPosts} />
       <FinalCta

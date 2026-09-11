@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import type { OpenGraphType } from "next/dist/lib/metadata/types/opengraph-types";
 
 import { notFound } from "next/navigation";
 
@@ -20,6 +19,7 @@ import ServiceFinalCta from "./components/ServiceFinalCta";
 import FAQBlock from "@/app/(site)/_components/FAQBlock";
 import { getServiceBySlug, SERVICES } from "@/data/services";
 import { site, siteUrl } from "@/config/site.config";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const revalidate = 86400; // 24 hours
 
@@ -39,38 +39,25 @@ export async function generateMetadata({
 
   if (!service) {
     return {
-      title: "ALL8 WEBWORKS",
+      title: site.name,
       description:
         "Lead systems for service businesses — websites, SEO, ads, follow-up and tracking that work together.",
     };
   }
 
   const { seo } = service;
-  const canonical = `${siteUrl()}/services/${service.slug}`;
-  const title = seo?.title || `${service.title} | ALL8 WEBWORKS`;
+  const title = seo?.title || `${service.title} | ${site.name}`;
   const description = seo?.description || service.short;
   const image =
     seo?.image || new URL(site.defaultOgImage, siteUrl()).toString();
 
-  return {
+  return buildPageMetadata({
     title,
     description,
-    alternates: { canonical },
-    openGraph: {
-      title,
-      description,
-      url: seo?.url || canonical,
-      type: (seo?.type as OpenGraphType) || "website",
-      siteName: seo?.siteName || "ALL8 WEBWORKS",
-      images: [{ url: image, width: 1200, height: 630, alt: title }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [image],
-    },
-  };
+    path: `/services/${service.slug}`,
+    image,
+    type: seo?.type === "article" ? "article" : "website",
+  });
 }
 
 export default async function ServiceDetailPage({
@@ -97,7 +84,7 @@ export default async function ServiceDetailPage({
         url: canonical,
         provider: {
           "@type": "Organization",
-          name: "ALL8 WEBWORKS",
+          name: site.name,
           url: base,
         },
         areaServed: ["US", "CA"],

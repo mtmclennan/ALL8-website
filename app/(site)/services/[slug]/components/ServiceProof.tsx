@@ -3,23 +3,24 @@ import { ArrowRight, LineChart, Search, MapPin } from "lucide-react";
 
 import Reveal from "@/app/(site)/_components/home/Reveal";
 import { Card } from "@/app/(site)/_components/SectionWrapper";
+import { proofDisplay } from "@/data/proof";
 
 const SEARCH_PROOF = [
   {
     icon: LineChart,
-    value: "40 → 100",
+    value: proofDisplay.searchRange,
     em: true,
-    label: "Search clicks per rolling 28 days, March to September 2026",
+    label: `Search clicks per rolling 28 days, ${proofDisplay.searchPeriod}`,
   },
   {
     icon: MapPin,
-    value: "+76%",
+    value: proofDisplay.profileIncreaseSigned,
     em: true,
     label: "Business Profile website clicks, year over year",
   },
   {
     icon: Search,
-    value: "Page One",
+    value: proofDisplay.pageOne,
     em: false,
     label: "Captured visibility for a targeted service page",
   },

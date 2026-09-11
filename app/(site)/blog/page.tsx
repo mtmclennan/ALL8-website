@@ -11,41 +11,26 @@ import { client as sanity } from "@/app/studio/sanity/lib/client";
 import { allPostsQuery, blogPageQuery } from "@/app/studio/sanity/lib/queries";
 import { urlFor } from "@/app/studio/sanity/lib/image";
 import { site, siteUrl } from "@/config/site.config";
+import { buildPageMetadata, normalizeBrandName } from "@/lib/seo/metadata";
+import { canonicalBlogSlug } from "@/config/permanent-redirects.mjs";
 
 export const revalidate = 3600;
 
 export async function generateMetadata() {
   const page = await sanity.fetch(blogPageQuery);
-  const canonical = `${siteUrl()}/blog`;
   const title =
     "Field Notes on Lead Systems for Service Businesses | ALL8 WEBWORKS";
   const description =
     "Practical guidance on local visibility, websites, lead handling, follow-up, CRM and attribution for service businesses.";
 
-  return {
+  return buildPageMetadata({
     title,
     description,
-    alternates: { canonical },
-    openGraph: {
-      type: "website",
-      url: canonical,
-      title,
-      description,
-      images: [
-        page?.ogImage
-          ? {
-              url: urlFor(page.ogImage).width(1200).height(630).url(),
-              width: 1200,
-              height: 630,
-            }
-          : {
-              url: new URL(site.defaultOgImage, siteUrl()).toString(),
-              width: 1200,
-              height: 630,
-            },
-      ],
-    },
-  };
+    path: "/blog",
+    image: page?.ogImage
+      ? urlFor(page.ogImage).width(1200).height(630).url()
+      : site.defaultOgImage,
+  });
 }
 
 export default async function BlogIndexPage() {
@@ -60,7 +45,7 @@ export default async function BlogIndexPage() {
     "@context": "https://schema.org",
     "@type": "Blog",
     "@id": `${siteUrl()}/blog#blog`,
-    name: page?.title ?? "Field Notes — ALL8 WEBWORKS",
+    name: normalizeBrandName(page?.title ?? "Field Notes — ALL8 Webworks"),
     url: `${siteUrl()}/blog`,
     blogPost: posts
       .filter((p): p is BlogIndexPost & { slug: { current: string } } =>
@@ -69,7 +54,7 @@ export default async function BlogIndexPage() {
       .map((p) => ({
         "@type": "BlogPosting",
         headline: p.title,
-        url: `${siteUrl()}/blog/${p.slug.current}`,
+        url: `${siteUrl()}/blog/${canonicalBlogSlug(p.slug.current)}`,
         datePublished: p.publishedAt,
       })),
   };

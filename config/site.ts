@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "All8 Webworks",
+  name: "ALL8 Webworks",
   description:
     "Connected lead-generation systems for service businesses across the United States and Canada.",
   // Contact is deliberately excluded — it competes with the primary conversion (Free Lead System Review).
@@ -61,7 +61,6 @@ export const siteConfig = {
   ],
   links: {
     github: "",
-    twitter: "https://twitter.com",
     facebook: "https://www.facebook.com/profile.php?id=61581617706756",
     linkedin: "https://www.linkedin.com/company/all8-webworks",
   },

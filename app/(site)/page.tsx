@@ -4,31 +4,22 @@ import HomePage from "./Home";
 
 import { site, siteUrl } from "@/config/site.config";
 import { homeData } from "@/data/home";
+import { buildPageMetadata, normalizeBrandName } from "@/lib/seo/metadata";
 
 const ogTitle = "Turn More Searches, Clicks & Calls Into Customers";
 const ogDescription =
   "We find where opportunities are being lost between a customer searching and you winning the job — then fix the part costing you the most.";
 const ogImage = new URL(site.defaultOgImage, siteUrl()).toString();
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Turn More Searches, Clicks & Calls Into Customers | ALL8 WEBWORKS",
   description:
     "ALL8 WEBWORKS finds where your service business is losing work — search, website, follow-up or tracking — and fixes the part costing you the most. Lead systems for service businesses across the U.S. and Canada.",
-  alternates: { canonical: siteUrl() },
-  openGraph: {
-    type: "website",
-    url: siteUrl(),
-    title: ogTitle,
-    description: ogDescription,
-    images: [{ url: ogImage, width: 1200, height: 630, alt: ogTitle }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: ogTitle,
-    description: ogDescription,
-    images: [ogImage],
-  },
-};
+  path: "/",
+  image: ogImage,
+  openGraphTitle: ogTitle,
+  openGraphDescription: ogDescription,
+});
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -36,8 +27,11 @@ const faqJsonLd = {
   "@id": `${siteUrl()}/#faq`,
   mainEntity: homeData.faqs.map((faq) => ({
     "@type": "Question",
-    name: faq.q,
-    acceptedAnswer: { "@type": "Answer", text: faq.a },
+    name: normalizeBrandName(faq.q),
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: normalizeBrandName(faq.a),
+    },
   })),
 };
 

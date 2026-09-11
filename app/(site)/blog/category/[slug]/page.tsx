@@ -12,7 +12,7 @@ import {
 } from "@/app/studio/sanity/lib/queries";
 import { Section } from "@/app/(site)/_components/SectionWrapper";
 import StrongCTA from "@/app/(site)/_components/CallToAction";
-import { siteUrl } from "@/config/site.config";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
 type CategoryArchivePost = {
   _id: string;
@@ -125,17 +125,12 @@ export async function generateMetadata({
     category.description ??
     `Browse ALL8 Webworks blog articles in the ${category.title ?? "selected"} category.`;
 
-  return {
+  return buildPageMetadata({
     title,
     description,
-    alternates: {
-      canonical: `${siteUrl()}/blog/category/${slug}`,
-    },
-    robots:
-      (category.posts?.length ?? 0) < 3
-        ? { index: false, follow: true }
-        : undefined,
-  };
+    path: `/blog/category/${slug}`,
+    noindex: (category.posts?.length ?? 0) < 3,
+  });
 }
 
 export default async function BlogCategoryPage({

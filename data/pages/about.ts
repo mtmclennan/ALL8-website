@@ -1,3 +1,5 @@
+import { hydrateProofContent } from "../proof";
+
 import aboutJson from "./about.json";
 
 export type AboutPageData = {
@@ -74,4 +76,4 @@ export type AboutPageData = {
   };
 };
 
-export const aboutPageData = aboutJson as AboutPageData;
+export const aboutPageData = hydrateProofContent(aboutJson) as AboutPageData;

@@ -11,6 +11,7 @@ import TableOfContents, { type TocItem } from "./TableOfContents";
 import { urlFor } from "@/app/studio/sanity/lib/image";
 import { slugify } from "@/lib/utils/slugify";
 import { useLeadModal } from "@/app/(site)/_components/LeadModalProvider";
+import { canonicalInternalPath } from "@/config/permanent-redirects.mjs";
 
 /**
  * Query-result type for singlePostQuery:
@@ -53,14 +54,15 @@ function extractToc(body: SinglePost["body"]): TocItem[] {
 
 function internalHref(href: string | undefined, siteOrigin: string) {
   if (!href) return null;
-  if (href.startsWith("/") && !href.startsWith("//")) return href;
 
   try {
-    const url = new URL(href);
+    const url = new URL(href, siteOrigin);
+    const legacyHosts = new Set(["all8webworks.ca", "www.all8webworks.ca"]);
 
-    if (url.origin !== siteOrigin) return null;
+    if (url.origin !== siteOrigin && !legacyHosts.has(url.hostname))
+      return null;
 
-    return `${url.pathname}${url.search}${url.hash}`;
+    return `${canonicalInternalPath(url.pathname)}${url.search}${url.hash}`;
   } catch {
     return null;
   }

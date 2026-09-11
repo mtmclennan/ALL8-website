@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { urlFor } from "@/app/studio/sanity/lib/image";
+import { canonicalBlogSlug } from "@/config/permanent-redirects.mjs";
 
 type FeaturedPostProps = {
   posts: BlogIndexPost[];
@@ -29,7 +30,7 @@ export default function FeaturedPost({
 
   if (!post?.slug?.current || !post.title) return null;
 
-  const href = `/blog/${post.slug.current}`;
+  const href = `/blog/${canonicalBlogSlug(post.slug.current)}`;
   const published = formatDate(post.publishedAt);
   const minutes = post.readingTime;
   const imageUrl = post.coverImage ? urlFor(post.coverImage).url() : null;

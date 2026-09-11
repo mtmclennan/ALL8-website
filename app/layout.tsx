@@ -18,7 +18,12 @@ import AnalyticsBridge from "./(site)/_components/analytics/AnalyticsBridge";
 
 import HubspotLoader from "@/app/(site)/_components/HubspotLoader";
 import { fontArchivo, fontDmSans, fontOrbitron } from "@/config/fonts";
-import { isProductionDeployment, site, siteUrl } from "@/config/site.config";
+import {
+  absoluteSiteUrl,
+  isProductionDeployment,
+  site,
+  siteUrl,
+} from "@/config/site.config";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
@@ -36,8 +41,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: site.social.twitter,
-    creator: site.social.twitter,
     title: site.name,
     description: site.description,
     images: [site.defaultOgImage],
@@ -84,7 +87,9 @@ export default function RootLayout({
       ...orgSchema,
       "@id": `${base}/#organization`,
       url: base,
-      logo: new URL(site.defaultOgImage, base).toString(),
+      logo: absoluteSiteUrl(
+        "/assets/all8-webworks-web-design-and-development-logo.webp",
+      ),
       founder: { "@id": `${base}/about#founder` },
     },
     {

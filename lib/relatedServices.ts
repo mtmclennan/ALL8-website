@@ -1,4 +1,5 @@
 import { SERVICES } from "@/data/services";
+import { canonicalBlogSlug } from "@/config/permanent-redirects.mjs";
 
 export const RELATED_SERVICE_SLUGS = [
   "lead-generation-websites",
@@ -96,18 +97,17 @@ const BLOG_SERVICE_MAP: Record<string, RelatedServiceSlug[]> = {
     "local-seo-google-business-profile",
     "lead-follow-up-automation",
   ],
-  "local-seo-for-contractors-in-2025-the-ultimate-blueprint-for-ranking-in-google-maps":
-    [
-      "local-seo-google-business-profile",
-      "lead-generation-websites",
-      "google-ads-lead-generation",
-    ],
+  "local-seo-for-contractors-google-maps": [
+    "local-seo-google-business-profile",
+    "lead-generation-websites",
+    "google-ads-lead-generation",
+  ],
   "the-contractor-s-guide-to-marketing-that-doesn-t-cost-you-clients-or-cash": [
     "google-ads-lead-generation",
     "local-seo-google-business-profile",
     "lead-generation-websites",
   ],
-  "the-contractor-s-guide-to-a-high-performance-website": [
+  "high-performance-contractor-website": [
     "lead-generation-websites",
     "website-care-optimization",
     "call-tracking-lead-attribution",
@@ -219,7 +219,7 @@ export function selectRelatedServices(
   const max = Math.min(limit, 3);
   const selected: RelatedServiceSlug[] = [];
   const exactSlugServices = context?.slug
-    ? BLOG_SERVICE_MAP[context.slug]
+    ? BLOG_SERVICE_MAP[canonicalBlogSlug(context.slug)]
     : null;
 
   if (exactSlugServices) addServices(selected, exactSlugServices, max);

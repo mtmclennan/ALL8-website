@@ -1,5 +1,7 @@
 import { defineType, defineField } from "sanity";
 
+import { slugify } from "@/lib/utils/slugify";
+
 export default defineType({
   name: "post",
   title: "Blog Post",
@@ -20,11 +22,7 @@ export default defineType({
         source: "title",
         maxLength: 96,
         slugify: (input: string) =>
-          input
-            .toLowerCase()
-            .replace(/[^a-z0-9]+/g, "-")
-            .replace(/^-+|-+$/g, "")
-            .slice(0, 96),
+          slugify(input).slice(0, 96).replace(/-+$/g, ""),
       },
       validation: (Rule) => Rule.required(),
     }),

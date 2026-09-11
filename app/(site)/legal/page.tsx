@@ -6,6 +6,7 @@ import path from "path";
 import LegalPage from "./legalPage";
 
 import { legalVars } from "@/config/legal.config";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const revalidate = 86400; // 24 hours
 
@@ -18,18 +19,14 @@ interface LegalPageMeta {
   jurisdiction: string;
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: `Legal • ${legalVars.companyName}`,
   description: `View ${legalVars.companyName} legal policies including Terms, Privacy, and Cookies.`,
-  alternates: { canonical: `${legalVars.websiteUrl}/legal` },
-  robots: { index: false, follow: true },
-  openGraph: {
-    title: `Legal Information | ${legalVars.companyName}`,
-    description: `Official legal documents and policies from ${legalVars.companyName}.`,
-    url: `${legalVars.websiteUrl}/legal`,
-    type: "website",
-  },
-};
+  path: "/legal",
+  openGraphTitle: `Legal Information | ${legalVars.companyName}`,
+  openGraphDescription: `Official legal documents and policies from ${legalVars.companyName}.`,
+  noindex: true,
+});
 
 export default async function LegalIndex() {
   const file = await fs.promises.readFile(legalPath, "utf8");

@@ -4,6 +4,8 @@ import Link from "next/link";
 
 import { Card, Section, SectionHeader } from "../../_components/SectionWrapper";
 
+import { canonicalBlogSlug } from "@/config/permanent-redirects.mjs";
+
 export type BlogIndexPost = {
   _id: string;
   title?: string;
@@ -125,7 +127,9 @@ function normalize(value?: string) {
 }
 
 function getPostHref(post: BlogIndexPost) {
-  return post.slug?.current ? `/blog/${post.slug.current}` : null;
+  return post.slug?.current
+    ? `/blog/${canonicalBlogSlug(post.slug.current)}`
+    : null;
 }
 
 function getHeadingId(title: string) {

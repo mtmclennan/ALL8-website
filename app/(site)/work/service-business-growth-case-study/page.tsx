@@ -4,31 +4,32 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 import { siteUrl } from "@/config/site.config";
+import { buildPageMetadata } from "@/lib/seo/metadata";
+import { proofDisplay } from "@/data/proof";
 
 const canonical = `${siteUrl()}/work/service-business-growth-case-study`;
+const shareImage = `${siteUrl()}/assets/website-seo-performance-laptop-analytics-leads-calls.webp`;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Service-Business Growth System Case Study | ALL8 Webworks",
   description:
     "An anonymized case study showing how search growth, local visibility, analytics and lead-flow analysis exposed the next operational constraint.",
-  alternates: { canonical },
-  openGraph: {
-    type: "article",
-    url: canonical,
-    title: "From Search Growth to a Better Lead-Handling System",
-    description:
-      "Measured acquisition gains revealed the next constraint in an established service business.",
-  },
-};
+  path: "/work/service-business-growth-case-study",
+  type: "article",
+  image: shareImage,
+  openGraphTitle: "From Search Growth to a Better Lead-Handling System",
+  openGraphDescription:
+    "Measured acquisition gains revealed the next constraint in an established service business.",
+});
 
 const results = [
   {
-    value: "40 → 100",
+    value: proofDisplay.searchRange,
     label: "Google Search clicks per rolling 28 days",
-    detail: "March to September 2026 — 2.5× growth",
+    detail: `${proofDisplay.searchPeriod} — ${proofDisplay.searchFactor} growth`,
   },
   {
-    value: "+76%",
+    value: proofDisplay.profileIncreaseSigned,
     label: "Google Business Profile website clicks",
     detail: "Year over year",
   },
@@ -73,6 +74,8 @@ const jsonLd = [
     headline: "From Search Growth to a Better Lead-Handling System",
     description: metadata.description,
     url: canonical,
+    image: shareImage,
+    mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
     author: { "@type": "Person", name: "Matt McLennan" },
     publisher: { "@id": `${siteUrl()}/#organization` },
   },
@@ -231,11 +234,10 @@ export default function GrowthCaseStudyPage() {
           <div className="mt-7 flex flex-wrap gap-4">
             <Link
               className="inline-flex items-center gap-2 rounded-full bg-accent-blue px-6 py-3 font-bold text-white"
-              data-cta="case-study-hire-matt"
-              data-cta-event="hire_case_study_click"
-              href="/hire-matt"
+              data-cta="case-study-lead-system-review"
+              href="/contact"
             >
-              See Matt&apos;s full portfolio <ArrowRight size={17} />
+              Get My Free Lead System Review <ArrowRight size={17} />
             </Link>
             <Link
               className="inline-flex items-center gap-2 px-3 py-3 font-bold text-white/70 hover:text-white"

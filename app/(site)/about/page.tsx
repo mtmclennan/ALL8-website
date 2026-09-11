@@ -14,6 +14,7 @@ import { buildStaticMetadata } from "@/lib/utils/buildStaticMetadata";
 import { validateMetadata } from "@/lib/utils/seoValidation";
 import { siteUrl } from "@/config/site.config";
 import { aboutPageData } from "@/data/pages/about";
+import { normalizeBrandName } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildStaticMetadata("/about");
 
@@ -33,8 +34,8 @@ const aboutJsonLd = {
       "@type": "AboutPage",
       "@id": `${siteUrl()}/about#page`,
       url: `${siteUrl()}/about`,
-      name: aboutPageData.title,
-      description: aboutPageData.description,
+      name: normalizeBrandName(aboutPageData.title),
+      description: normalizeBrandName(aboutPageData.description),
       mainEntity: { "@id": `${siteUrl()}/#organization` },
     },
     {

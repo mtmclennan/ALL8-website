@@ -85,7 +85,10 @@ export function selectRelatedPosts(
 
     seen.add(key);
     seen.add(slug);
-    selected.push(post);
+    selected.push({
+      ...post,
+      slug: { ...post.slug, current: canonicalBlogSlug(slug) },
+    });
   };
 
   for (const bucket of buckets) {
@@ -97,3 +100,4 @@ export function selectRelatedPosts(
 
   return selected;
 }
+import { canonicalBlogSlug } from "@/config/permanent-redirects.mjs";

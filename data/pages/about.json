@@ -97,9 +97,9 @@
     "eyebrow": "Proof, Not Promises",
     "title": "The Numbers Behind That Story",
     "cards": [
-      { "value": "40 → 100", "em": true, "label": "Search Clicks", "sub": "Rolling 28 days, March to September 2026", "icon": "chart" },
-      { "value": "+76%", "em": false, "label": "Profile Website Clicks", "sub": "Google Business Profile, year over year", "icon": "pin" },
-      { "value": "Page One", "em": true, "label": "Captured Visibility", "sub": "Targeted service page, point in time", "icon": "search" }
+      { "value": "{{proof.search.range}}", "em": true, "label": "Search Clicks", "sub": "Rolling 28 days, {{proof.search.period}}", "icon": "chart" },
+      { "value": "{{proof.profile.increaseSigned}}", "em": false, "label": "Profile Website Clicks", "sub": "Google Business Profile, year over year", "icon": "pin" },
+      { "value": "{{proof.visibility.pageOne}}", "em": true, "label": "Captured Visibility", "sub": "Targeted service page, point in time", "icon": "search" }
     ],
     "footNote": "Client identity withheld. Identifying details have been removed, but the underlying search and performance data is real.",
     "footNoteLink": { "label": "See the full anonymized case study", "href": "/work/service-business-growth-case-study" }

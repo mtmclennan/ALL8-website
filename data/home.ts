@@ -1,5 +1,6 @@
 import type { Stage } from "@/lib/utils/stage";
 
+import { hydrateProofContent } from "./proof";
 import homeJson from "./home.json";
 
 export type HomeData = {
@@ -128,4 +129,4 @@ export type HomeData = {
   };
 };
 
-export const homeData = homeJson as HomeData;
+export const homeData = hydrateProofContent(homeJson) as HomeData;

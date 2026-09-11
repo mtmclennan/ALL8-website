@@ -27,17 +27,17 @@
   "proofStrip": {
     "items": [
       {
-        "value": "40 → 100",
+        "value": "{{proof.search.range}}",
         "label": "Google Search clicks per rolling 28 days",
         "em": true
       },
       {
-        "value": "+76%",
+        "value": "{{proof.profile.increaseSigned}}",
         "label": "Business Profile website clicks YoY",
         "em": false
       }
     ],
-    "note": "Anonymized client · Search: March–September 2026 · Latest window: August 10–September 6"
+    "note": "Anonymized client · Search: {{proof.search.periodCompact}} · Latest window: {{proof.search.latestWindow}}"
   },
 
   "leak": {
@@ -206,7 +206,7 @@
       },
       {
         "tag": "The result",
-        "text": "Google Search clicks grew from **40 to 100 per rolling 28 days** between March and September 2026 (2.5× growth), Business Profile website clicks increased **76% year over year**, and point-in-time evidence captured page-one, strong local and AI-result visibility."
+        "text": "Google Search clicks grew from **{{proof.search.range}} per rolling 28 days** between {{proof.search.period}} ({{proof.search.factor}} growth), Business Profile website clicks increased **{{proof.profile.increase}} year over year**, and point-in-time evidence captured page-one, strong local and AI-result visibility."
       },
       {
         "tag": "What it exposed",
@@ -217,8 +217,8 @@
     "visual": {
       "title": "Lead System Review — findings",
       "metrics": [
-        { "value": "2.5×", "label": "Google Search growth", "stage": "found" },
-        { "value": "+76%", "label": "GBP website clicks YoY", "stage": "found" }
+        { "value": "{{proof.search.factor}}", "label": "Google Search growth", "stage": "found" },
+        { "value": "{{proof.profile.increaseSigned}}", "label": "GBP website clicks YoY", "stage": "found" }
       ],
       "rows": [
         { "label": "Get Found", "stage": "found", "status": "Improved" },
@@ -326,21 +326,21 @@
     "title": "Measured Results, Not Adjectives",
     "cards": [
       {
-        "value": "40 → 100",
+        "value": "{{proof.search.range}}",
         "em": true,
         "label": "Google Search Clicks",
-        "sub": "Rolling 28 days, March to September 2026 · 2.5× growth",
+        "sub": "Rolling 28 days, {{proof.search.period}} · {{proof.search.factor}} growth",
         "icon": "chart"
       },
       {
-        "value": "+76%",
+        "value": "{{proof.profile.increaseSigned}}",
         "em": false,
         "label": "Profile Website Clicks",
         "sub": "Google Business Profile, year over year",
         "icon": "pin"
       }
     ],
-    "footNote": "Documented, anonymized client work. Latest Search window: August 10–September 6, 2026. Captured local, page-one and AI-result visibility supports the story; it is point-in-time evidence, not a permanent ranking.",
+    "footNote": "Documented, anonymized client work. Latest Search window: {{proof.search.latestWindow}}. Captured local, page-one and AI-result visibility supports the story; it is point-in-time evidence, not a permanent ranking.",
     "ctaLede": "Want to see where your lead system is losing opportunities?",
     "ctaLabel": "Get My Free Lead System Review"
   },

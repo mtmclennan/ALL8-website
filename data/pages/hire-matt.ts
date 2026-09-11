@@ -1,3 +1,5 @@
+import { hydrateProofContent } from "../proof";
+
 import hireMattJson from "./hire-matt.json";
 
 export type HireMattPageData = {
@@ -143,4 +145,6 @@ export type HireMattPageData = {
   };
 };
 
-export const hireMattPageData = hireMattJson as HireMattPageData;
+export const hireMattPageData = hydrateProofContent(
+  hireMattJson,
+) as HireMattPageData;

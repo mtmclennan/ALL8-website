@@ -4,7 +4,8 @@ import fs from "fs";
 import path from "path";
 
 import { PageSchema, type PageMeta } from "@/schemas/pages.schema";
-import { absoluteSiteUrl, site } from "@/config/site.config";
+import { site } from "@/config/site.config";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
 const IS_DEV = process.env.NODE_ENV !== "production";
 
@@ -87,45 +88,11 @@ export function buildStaticMetadata(pathStr: string): Metadata {
     };
   }
 
-  const canonical = absoluteSiteUrl(p);
-  const imageRel = page.ogImage || site.defaultOgImage;
-  const image = absoluteSiteUrl(imageRel);
-
-  const robots: Metadata["robots"] | undefined = page.noindex
-    ? {
-        index: false,
-        follow: false,
-        nocache: true,
-        googleBot: {
-          index: false,
-          follow: false,
-          noimageindex: true,
-          noarchive: true,
-        },
-      }
-    : undefined;
-
-  return {
+  return buildPageMetadata({
     title: page.title,
     description: page.description,
-    alternates: { canonical },
-    openGraph: {
-      url: canonical,
-      title: page.title,
-      description: page.description,
-      siteName: site.name,
-      locale: site.locale,
-      type: "website",
-      images: [{ url: image, width: 1200, height: 630, alt: page.title }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: page.title,
-      description: page.description,
-      images: [image],
-      site: site.social.twitter,
-      creator: site.social.twitter,
-    },
-    robots,
-  };
+    path: p,
+    image: page.ogImage,
+    noindex: page.noindex,
+  });
 }

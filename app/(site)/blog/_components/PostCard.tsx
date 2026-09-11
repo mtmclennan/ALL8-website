@@ -2,6 +2,8 @@ import type { BlogIndexPost } from "./BlogTopicSections";
 
 import Link from "next/link";
 
+import { canonicalBlogSlug } from "@/config/permanent-redirects.mjs";
+
 function formatDate(value?: string) {
   if (!value) return null;
 
@@ -15,7 +17,7 @@ function formatDate(value?: string) {
 export default function PostCard({ post }: { post: BlogIndexPost }) {
   if (!post.slug?.current || !post.title) return null;
 
-  const href = `/blog/${post.slug.current}`;
+  const href = `/blog/${canonicalBlogSlug(post.slug.current)}`;
   const published = formatDate(post.publishedAt);
   const category = post.categories?.[0]?.title;
 

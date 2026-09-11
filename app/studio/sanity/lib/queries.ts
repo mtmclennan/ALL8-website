@@ -51,7 +51,7 @@ export const singlePostQuery = groq`
   *[
     _type == "post" &&
     !(_id in path("drafts.**")) &&
-    slug.current == $slug &&
+    slug.current in $slugs &&
     draft != true
   ][0]{
     _id,
@@ -78,7 +78,7 @@ export const singlePostQuery = groq`
 `;
 
 export const relatedPostsQuery = groq`
-  *[_type == "post" && slug.current == $slug][0]{
+  *[_type == "post" && slug.current in $slugs][0]{
     _id,
     title,
     "slug": slug.current,
@@ -94,7 +94,7 @@ export const relatedPostsQuery = groq`
       !(_id in path("drafts.**")) &&
       draft != true &&
       seo.noIndex != true &&
-      slug.current != $slug
+      !(slug.current in $slugs)
     ] | order(publishedAt desc)[0...60] {
       ${relatedArticleProjection},
       "categoryIds": categories[]._ref,

@@ -1,5 +1,7 @@
 import type { Stage } from "@/lib/utils/stage";
 
+import { hydrateProofContent } from "../proof";
+
 import servicesPageJson from "./servicesPage.json";
 
 export type ServicesPageData = {
@@ -97,4 +99,6 @@ export type ServicesPageData = {
   };
 };
 
-export const servicesPageData = servicesPageJson as ServicesPageData;
+export const servicesPageData = hydrateProofContent(
+  servicesPageJson,
+) as ServicesPageData;
