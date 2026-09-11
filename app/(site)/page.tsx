@@ -12,9 +12,9 @@ const ogDescription =
 const ogImage = new URL(site.defaultOgImage, siteUrl()).toString();
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Turn More Searches, Clicks & Calls Into Customers | ALL8 WEBWORKS",
+  title: "Service Business Websites, Local SEO & Lead Systems",
   description:
-    "ALL8 WEBWORKS finds where your service business is losing work — search, website, follow-up or tracking — and fixes the part costing you the most. Lead systems for service businesses across the U.S. and Canada.",
+    "ALL8 helps U.S. and Canadian service businesses improve websites, local search, lead response, follow-up and tracking so more opportunities become customers.",
   path: "/",
   image: ogImage,
   openGraphTitle: ogTitle,

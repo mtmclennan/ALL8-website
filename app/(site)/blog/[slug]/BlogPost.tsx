@@ -12,6 +12,7 @@ import { urlFor } from "@/app/studio/sanity/lib/image";
 import { slugify } from "@/lib/utils/slugify";
 import { useLeadModal } from "@/app/(site)/_components/LeadModalProvider";
 import { canonicalInternalPath } from "@/config/permanent-redirects.mjs";
+import { formatCategoryLabel } from "@/lib/blogTaxonomy";
 
 /**
  * Query-result type for singlePostQuery:
@@ -77,7 +78,8 @@ export default function BlogPost({ post, siteOrigin }: BlogPostProps) {
       })
     : null;
 
-  const category = post.categories?.[0]?.title;
+  const categoryData = post.categories?.[0];
+  const category = formatCategoryLabel(categoryData?.title, categoryData?.slug);
   const toc = extractToc(post.body);
 
   const components: PortableTextComponents = {

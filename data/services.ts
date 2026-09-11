@@ -1,5 +1,6 @@
 // src/data/services.ts
 import type { FC } from "react";
+import type { Stage } from "@/lib/utils/stage";
 
 import { lucideIconMap } from "./lucideIconMap";
 import rawServices from "./services.json";
@@ -96,6 +97,7 @@ export type Service = {
   shortTitle?: string;
   category: ServiceCategory;
   secondaryCategory?: ServiceCategory;
+  journeyStages: Stage[];
   short: string;
   icon: IconName;
   featured: boolean;

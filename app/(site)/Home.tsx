@@ -1,5 +1,3 @@
-"use client";
-
 import refinement from "./_components/VisualRefinement.module.css";
 import HeroSection from "./_components/home/HeroSection";
 import ProofStrip from "./_components/home/ProofStrip";
@@ -14,6 +12,7 @@ import ProofCards from "./_components/home/ProofCards";
 import FounderSection from "./_components/home/FounderSection";
 import FAQBlock from "./_components/FAQBlock";
 import FinalCta from "./_components/home/FinalCta";
+import HomeResources from "./_components/home/HomeResources";
 
 import { homeData } from "@/data/home";
 
@@ -26,6 +25,7 @@ const HomePage = () => {
       <SystemRail data={homeData.system} />
       <OutcomeServices data={homeData.outcomes} />
       <CaseStudy data={homeData.caseStudy} />
+      <HomeResources />
       <IntegrationsFlow data={homeData.flow} />
       <ProcessSteps data={homeData.process} />
       <WhyAll8 data={homeData.why} />

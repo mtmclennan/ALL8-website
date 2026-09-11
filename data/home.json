@@ -214,6 +214,10 @@
       }
     ],
     "ctaLabel": "Get My Free Lead System Review",
+    "secondaryLink": {
+      "label": "View results and case studies",
+      "href": "/work"
+    },
     "visual": {
       "title": "Lead System Review — findings",
       "metrics": [

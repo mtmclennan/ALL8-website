@@ -96,11 +96,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const permanentPages: MetadataRoute.Sitemap = [
     "/privacy",
+    "/work",
     "/work/service-business-growth-case-study",
   ].map((path) => ({
     url: `${base}${path}`,
     changeFrequency: "monthly" as const,
-    priority: path.startsWith("/work/") ? 0.8 : 0.4,
+    priority: path === "/work" ? 0.9 : path.startsWith("/work/") ? 0.8 : 0.4,
   }));
 
   const entries: MetadataRoute.Sitemap = [

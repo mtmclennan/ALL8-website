@@ -73,6 +73,7 @@ export type ServicesPageData = {
       icon: string;
     }[];
     footNote: string;
+    footNoteLink?: { label: string; href: string };
   };
   process: {
     eyebrow: string;

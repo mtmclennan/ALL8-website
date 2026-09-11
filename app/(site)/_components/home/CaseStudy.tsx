@@ -1,6 +1,7 @@
 "use client";
 
 import { AlertTriangle } from "lucide-react";
+import Link from "next/link";
 
 import { useLeadModal } from "../LeadModalProvider";
 import Button from "../ui/Button";
@@ -17,6 +18,7 @@ type CaseStudyData = {
   lede: string;
   steps: { tag: string; text: string }[];
   ctaLabel: string;
+  secondaryLink: { label: string; href: string };
   visual: {
     title: string;
     metrics: { value: string; label: string; stage: Stage }[];
@@ -48,7 +50,10 @@ export default function CaseStudy({ data }: { data: CaseStudyData }) {
             </p>
             <div className="flex flex-col gap-6">
               {data.steps.map((step) => (
-                <div key={step.tag} className="flex flex-col items-start gap-2 sm:flex-row sm:gap-4">
+                <div
+                  key={step.tag}
+                  className="flex flex-col items-start gap-2 sm:flex-row sm:gap-4"
+                >
                   <div className="sm:w-[88px] flex-shrink-0 sm:pt-[5px] text-[11px] font-bold uppercase tracking-[.1em] text-white/40">
                     {step.tag}
                   </div>
@@ -58,8 +63,14 @@ export default function CaseStudy({ data }: { data: CaseStudyData }) {
                 </div>
               ))}
             </div>
-            <div className="mt-9">
+            <div className="mt-9 flex flex-wrap items-center gap-5">
               <Button onClick={openModal}>{data.ctaLabel}</Button>
+              <Link
+                className="inline-flex min-h-11 items-center py-2 font-bold text-accent-blue hover:text-[#8ec5ff]"
+                href={data.secondaryLink.href}
+              >
+                {data.secondaryLink.label} →
+              </Link>
             </div>
           </Reveal>
 

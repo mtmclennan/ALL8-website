@@ -18,10 +18,9 @@ export const revalidate = 3600;
 
 export async function generateMetadata() {
   const page = await sanity.fetch(blogPageQuery);
-  const title =
-    "Field Notes on Lead Systems for Service Businesses | ALL8 WEBWORKS";
+  const title = "SEO, Websites & Lead Follow-Up Guides | ALL8 Webworks";
   const description =
-    "Practical guidance on local visibility, websites, lead handling, follow-up, CRM and attribution for service businesses.";
+    "Practical guides for service businesses on local search visibility, higher-converting websites, lead handling, follow-up, CRM and measurable growth.";
 
   return buildPageMetadata({
     title,

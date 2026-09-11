@@ -105,8 +105,21 @@ function ServiceCard({
           <p className="mb-4 text-sm leading-relaxed text-white/70">
             {service.short}
           </p>
+          <ul
+            aria-label={`${service.title} lead journey stages`}
+            className="mb-5 flex flex-wrap gap-2"
+          >
+            {service.journeyStages.map((stage) => (
+              <li
+                key={stage}
+                className="rounded-full border border-white/[0.09] bg-white/[0.035] px-2.5 py-1 text-[11px] font-semibold text-white/60"
+              >
+                {STAGE_LABEL[stage]}
+              </li>
+            ))}
+          </ul>
           <span className="mt-auto inline-flex items-center gap-1.5 text-[13.5px] font-bold text-accent-blue">
-            View service
+            Explore {service.shortTitle || service.title}
             <ArrowRight
               className="transition-transform group-hover:translate-x-[3px]"
               size={13}

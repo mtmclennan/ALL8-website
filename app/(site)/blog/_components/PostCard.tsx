@@ -3,6 +3,7 @@ import type { BlogIndexPost } from "./BlogTopicSections";
 import Link from "next/link";
 
 import { canonicalBlogSlug } from "@/config/permanent-redirects.mjs";
+import { formatCategoryLabel } from "@/lib/blogTaxonomy";
 
 function formatDate(value?: string) {
   if (!value) return null;
@@ -19,7 +20,8 @@ export default function PostCard({ post }: { post: BlogIndexPost }) {
 
   const href = `/blog/${canonicalBlogSlug(post.slug.current)}`;
   const published = formatDate(post.publishedAt);
-  const category = post.categories?.[0]?.title;
+  const categoryData = post.categories?.[0];
+  const category = formatCategoryLabel(categoryData?.title, categoryData?.slug);
 
   return (
     <article className="flex h-full flex-col rounded-[20px] border border-white/[0.08] bg-white/[0.036] p-[30px] transition-all duration-200 hover:-translate-y-[3px] hover:border-[rgba(0,118,255,.24)] hover:bg-white/[0.058] hover:shadow-[0_20px_46px_-16px_rgba(0,0,0,.5)]">

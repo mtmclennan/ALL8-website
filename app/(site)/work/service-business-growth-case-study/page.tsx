@@ -13,7 +13,7 @@ const shareImage = `${siteUrl()}/assets/website-seo-performance-laptop-analytics
 export const metadata: Metadata = buildPageMetadata({
   title: "Service-Business Growth System Case Study | ALL8 Webworks",
   description:
-    "An anonymized case study showing how search growth, local visibility, analytics and lead-flow analysis exposed the next operational constraint.",
+    "See how ALL8 improved local search visibility and lead-source measurement for a service business, then found the next response and follow-up constraint.",
   path: "/work/service-business-growth-case-study",
   type: "article",
   image: shareImage,
@@ -87,6 +87,12 @@ const jsonLd = [
       {
         "@type": "ListItem",
         position: 2,
+        name: "Work",
+        item: `${siteUrl()}/work`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
         name: "Case Study",
         item: canonical,
       },
@@ -102,6 +108,22 @@ export default function GrowthCaseStudyPage() {
         type="application/ld+json"
       />
       <header className="mx-auto max-w-[920px] px-6 sm:px-10">
+        <nav
+          aria-label="Breadcrumb"
+          className="mb-6 flex flex-wrap items-center gap-2 text-sm text-white/60"
+        >
+          <Link className="hover:text-white" href="/">
+            Home
+          </Link>
+          <span aria-hidden="true">/</span>
+          <Link className="hover:text-white" href="/work">
+            Results &amp; Case Studies
+          </Link>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page" className="text-white/80">
+            Service-business growth system
+          </span>
+        </nav>
         <p className="text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
           Anonymized Client Case Study · Identifying Details Withheld
         </p>
@@ -224,28 +246,22 @@ export default function GrowthCaseStudyPage() {
         </div>
 
         <section className="mt-20 rounded-2xl border border-[rgba(61,151,255,.25)] bg-[rgba(61,151,255,.08)] p-8 sm:p-10">
-          <h2 className="text-3xl font-extrabold">What gets measured next</h2>
+          <h2 className="text-3xl font-extrabold">
+            Where are leads slipping through your business?
+          </h2>
           <p className="mt-4 max-w-[820px] text-lg leading-relaxed text-white/70">
-            The next measurement framework focuses on response time, contact
-            attempts, recovered conversations, qualified opportunities and won
-            work. No downstream revenue result is claimed here yet; the workflow
-            must be validated before those outcomes can be assessed.
+            ALL8 can review the full journey from search visibility and your
+            website through calls, response time, follow-up and conversion. You
+            get the findings in writing, including which stage appears to be
+            costing the most and what to fix first.
           </p>
-          <div className="mt-7 flex flex-wrap gap-4">
-            <Link
-              className="inline-flex items-center gap-2 rounded-full bg-accent-blue px-6 py-3 font-bold text-white"
-              data-cta="case-study-lead-system-review"
-              href="/contact"
-            >
-              Get My Free Lead System Review <ArrowRight size={17} />
-            </Link>
-            <Link
-              className="inline-flex items-center gap-2 px-3 py-3 font-bold text-white/70 hover:text-white"
-              href="/services/call-tracking-lead-attribution"
-            >
-              Explore call tracking and attribution <ArrowRight size={17} />
-            </Link>
-          </div>
+          <Link
+            className="mt-7 inline-flex min-h-11 items-center gap-2 rounded-full bg-accent-blue px-6 py-3 font-bold text-white"
+            data-cta="case-study-lead-system-review"
+            href="/contact"
+          >
+            Get My Free Lead System Review <ArrowRight size={17} />
+          </Link>
         </section>
       </div>
     </article>

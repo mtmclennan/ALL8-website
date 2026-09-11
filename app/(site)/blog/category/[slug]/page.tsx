@@ -13,6 +13,7 @@ import {
 import { Section } from "@/app/(site)/_components/SectionWrapper";
 import StrongCTA from "@/app/(site)/_components/CallToAction";
 import { buildPageMetadata } from "@/lib/seo/metadata";
+import { formatCategoryLabel } from "@/lib/blogTaxonomy";
 
 type CategoryArchivePost = {
   _id: string;
@@ -120,10 +121,11 @@ export async function generateMetadata({
 
   if (!category) return {};
 
-  const title = `${category.title ?? "Category"} Articles | ALL8 Webworks`;
+  const categoryTitle = formatCategoryLabel(category.title, category.slug);
+  const title = `${categoryTitle ?? "Category"} Articles | ALL8 Webworks`;
   const description =
     category.description ??
-    `Browse ALL8 Webworks blog articles in the ${category.title ?? "selected"} category.`;
+    `Browse ALL8 Webworks blog articles in the ${categoryTitle ?? "selected"} category.`;
 
   return buildPageMetadata({
     title,
@@ -148,6 +150,7 @@ export default async function BlogCategoryPage({
 
   const posts = category.posts ?? [];
   const cta = getServiceCta(category);
+  const categoryTitle = formatCategoryLabel(category.title, category.slug);
 
   return (
     <>
@@ -157,7 +160,7 @@ export default async function BlogCategoryPage({
             ALL8 Webworks Blog
           </p>
           <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-6xl">
-            {category.title ?? "Category"} Articles
+            {categoryTitle ?? "Category"} Articles
           </h1>
           <p className="mt-5 text-base leading-relaxed text-foreground/70 sm:text-lg">
             {getIntroCopy(category)}
@@ -180,7 +183,7 @@ export default async function BlogCategoryPage({
         ctaLabel={cta.label}
         highlight={cta.highlight}
         microText="Clear recommendations - Fixed scope before work begins"
-        subtitle={`Turn ${category.title ?? "these"} insights into a connected path from visibility to response, follow-up and measurement.`}
+        subtitle={`Turn ${categoryTitle ?? "these"} insights into a connected path from visibility to response, follow-up and measurement.`}
         titlePrefix="Ready to put this "
         titleSuffix="into practice?"
       />

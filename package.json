@@ -12,7 +12,8 @@
     "start": "next start -p3000 -H 127.0.0.1",
     "lint": "eslint --fix",
     "test": "node --no-warnings --experimental-strip-types --test tests/*.test.ts",
-    "validate:local": "node scripts/validate-local.mjs"
+    "validate:local": "node scripts/validate-local.mjs",
+    "validate:phase2": "node scripts/verify-phase2-routes.mjs"
   },
   "dependencies": {
     "@heroui/accordion": "^2.2.24",

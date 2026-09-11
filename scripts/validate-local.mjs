@@ -4,6 +4,7 @@ const queue = [
   "/",
   "/services",
   "/hire-matt",
+  "/work",
   "/work/service-business-growth-case-study",
 ];
 const seen = new Set();

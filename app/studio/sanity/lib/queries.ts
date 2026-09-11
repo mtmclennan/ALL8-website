@@ -38,6 +38,25 @@ export const allPostsQuery = groq`
 
 `;
 
+export const homeStrategicPostsQuery = groq`
+  *[
+    _type == "post" &&
+    !(_id in path("drafts.**")) &&
+    draft != true &&
+    seo.noIndex != true &&
+    slug.current in $slugs
+  ] {
+    _id,
+    title,
+    slug,
+    excerpt,
+    "category": categories[0]->{
+      title,
+      "slug": slug.current
+    }
+  }
+`;
+
 export const publishedPostSlugsQuery = groq`
   *[
     _type == "post" &&

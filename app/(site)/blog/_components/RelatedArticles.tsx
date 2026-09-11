@@ -2,6 +2,8 @@ import type { RelatedArticle } from "@/app/studio/sanity/lib/relatedPosts";
 
 import Link from "next/link";
 
+import { formatCategoryLabel } from "@/lib/blogTaxonomy";
+
 type RelatedArticlesProps = {
   articles: RelatedArticle[];
   limit?: number;
@@ -64,7 +66,7 @@ export default function RelatedArticles({
                 <div className="mb-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-foreground/50">
                   {article.category?.title ? (
                     <span className="font-medium text-blue-300">
-                      {article.category.title}
+                      {formatCategoryLabel(article.category.title)}
                     </span>
                   ) : null}
                   {publishedLabel ? (

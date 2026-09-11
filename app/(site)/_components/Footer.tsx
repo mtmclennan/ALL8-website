@@ -22,7 +22,7 @@ const OUTCOMES = [
 const COMPANY = [
   { label: 'About ALL8', href: '/about' },
   { label: 'Blog', href: '/blog' },
-  { label: 'Results', href: '/#proof' },
+  { label: 'Results', href: '/work' },
   { label: 'How It Works', href: '/#system' },
   { label: 'FAQ', href: '/#faq' },
 ];

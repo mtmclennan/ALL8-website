@@ -64,6 +64,7 @@ export type HomeData = {
     lede: string;
     steps: { tag: string; text: string }[];
     ctaLabel: string;
+    secondaryLink: { label: string; href: string };
     visual: {
       title: string;
       metrics: { value: string; label: string; stage: Stage }[];

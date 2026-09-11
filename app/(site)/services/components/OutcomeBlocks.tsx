@@ -10,10 +10,11 @@ import Button from "@/app/(site)/_components/ui/Button";
 const CAPABILITY_SERVICE_LINKS: Record<string, string> = {
   "Local SEO": "local-seo-google-business-profile",
   "Google Business Profile": "local-seo-google-business-profile",
-  "Service & location pages": "lead-generation-websites",
+  "Lead-generation service pages": "lead-generation-websites",
   "Google Ads": "google-ads-lead-generation",
-  "AI & generative search visibility": "local-seo-google-business-profile",
-  "Technical SEO": "lead-generation-websites",
+  "Local search & AI visibility foundations":
+    "local-seo-google-business-profile",
+  "Technical local SEO": "local-seo-google-business-profile",
   "Conversion-focused websites": "lead-generation-websites",
   "Landing pages": "lead-generation-websites",
   "Quote & contact forms": "lead-generation-websites",
@@ -33,7 +34,7 @@ const CAPABILITY_SERVICE_LINKS: Record<string, string> = {
   "Conversion tracking": "call-tracking-lead-attribution",
   "Call attribution": "call-tracking-lead-attribution",
   "Form attribution": "call-tracking-lead-attribution",
-  "Search performance": "local-seo-google-business-profile",
+  "Organic search reporting": "local-seo-google-business-profile",
   "Lead-source tracking": "call-tracking-lead-attribution",
   "Pipeline visibility": "crm-sales-pipeline",
   Reporting: "call-tracking-lead-attribution",
