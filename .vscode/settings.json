@@ -10,4 +10,8 @@
   ],
   // If you're in a monorepo, you can point directly:
   "tailwindCSS.experimental.configFile": "styles/globals.css"
+  {
+  "files.eol": "\n",
+  "editor.formatOnSave": true
+}
 }
