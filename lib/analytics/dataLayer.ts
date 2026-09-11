@@ -29,6 +29,16 @@ export function trackCtaClick(
   });
 }
 
+export function trackEvent(
+  eventName: string,
+  params: Record<string, unknown> = {},
+) {
+  push(eventName, {
+    page_path: window.location.pathname,
+    ...params,
+  });
+}
+
 export function trackFormStart(
   formLocation: LeadFormLocation,
   leadType = "lead_system_review",

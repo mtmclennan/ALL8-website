@@ -4,6 +4,8 @@ const queue = [
   "/",
   "/services",
   "/hire-matt",
+  "/tools",
+  "/tools/missed-call-revenue-calculator",
   "/work",
   "/work/service-business-growth-case-study",
 ];

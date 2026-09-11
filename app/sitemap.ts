@@ -96,12 +96,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const permanentPages: MetadataRoute.Sitemap = [
     "/privacy",
+    "/tools",
+    "/tools/missed-call-revenue-calculator",
     "/work",
     "/work/service-business-growth-case-study",
   ].map((path) => ({
     url: `${base}${path}`,
     changeFrequency: "monthly" as const,
-    priority: path === "/work" ? 0.9 : path.startsWith("/work/") ? 0.8 : 0.4,
+    priority:
+      path === "/work" || path === "/tools/missed-call-revenue-calculator"
+        ? 0.9
+        : path.startsWith("/work/") || path === "/tools"
+          ? 0.8
+          : 0.4,
   }));
 
   const entries: MetadataRoute.Sitemap = [

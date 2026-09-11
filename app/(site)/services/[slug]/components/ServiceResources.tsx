@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { ArrowRight, BookOpen } from "lucide-react";
+import { ArrowRight, BookOpen, Calculator } from "lucide-react";
 
 import Reveal from "@/app/(site)/_components/home/Reveal";
 
-type Resource = { title: string; href: string };
+type Resource = { title: string; href: string; kind?: "article" | "tool" };
 
 const RESOURCES: Partial<Record<string, Resource[]>> = {
   "lead-generation-websites": [
@@ -34,6 +34,11 @@ const RESOURCES: Partial<Record<string, Resource[]>> = {
     },
   ],
   "missed-call-recovery": [
+    {
+      title: "Estimate the value of your missed calls",
+      href: "/tools/missed-call-revenue-calculator",
+      kind: "tool",
+    },
     {
       title: "The Problem Wasn't Skill. It Was the System.",
       href: "/blog/the-problem-wasn-t-skill-it-was-the-system",
@@ -98,10 +103,19 @@ export default function ServiceResources({
                 className="group flex h-full items-start gap-4 rounded-2xl border border-white/[0.09] bg-white/[0.035] p-5 hover:border-white/[0.18] hover:bg-white/[0.055]"
                 href={resource.href}
               >
-                <BookOpen
-                  className="mt-0.5 flex-shrink-0 text-accent-blue"
-                  size={20}
-                />
+                {resource.kind === "tool" ? (
+                  <Calculator
+                    aria-hidden="true"
+                    className="mt-0.5 flex-shrink-0 text-accent-blue"
+                    size={20}
+                  />
+                ) : (
+                  <BookOpen
+                    aria-hidden="true"
+                    className="mt-0.5 flex-shrink-0 text-accent-blue"
+                    size={20}
+                  />
+                )}
                 <span className="flex-1 font-bold leading-snug text-white/80 group-hover:text-white">
                   {resource.title}
                 </span>

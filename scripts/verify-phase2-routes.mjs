@@ -7,6 +7,7 @@ const routes = [
     h1: "Turn More Searches, Clicks & Calls Into Customers.",
     links: [
       "/work",
+      "/tools",
       "/blog/local-seo-for-contractors-google-maps",
       "/blog/more-traffic-won-t-fix-the-wrong-website",
     ],
@@ -26,7 +27,21 @@ const routes = [
   },
   {
     path: "/services/missed-call-recovery",
-    links: ["/work/service-business-growth-case-study"],
+    links: [
+      "/work/service-business-growth-case-study",
+      "/tools/missed-call-revenue-calculator",
+    ],
+  },
+  {
+    path: "/tools",
+    h1: "Tools for Service Businesses",
+    links: ["/tools/missed-call-revenue-calculator"],
+  },
+  {
+    path: "/tools/missed-call-revenue-calculator",
+    h1: "Missed Call Revenue Calculator",
+    links: ["/tools", "/services/missed-call-recovery"],
+    includes: ["Calculate My Estimate"],
   },
   {
     path: "/work",
@@ -165,6 +180,11 @@ for (const route of routes) {
       errors.push(`contains excluded text ${JSON.stringify(text)}`);
     }
   }
+  for (const text of route.includes ?? []) {
+    if (!decodeHtml(html.replace(/<[^>]+>/g, " ")).includes(text)) {
+      errors.push(`missing text ${JSON.stringify(text)}`);
+    }
+  }
 
   failureCount += errors.length;
   console.log(
@@ -174,8 +194,8 @@ for (const route of routes) {
 }
 
 if (failureCount) {
-  console.error(`\nPhase 2 route verification failed with ${failureCount} issue(s).`);
+  console.error(`\nRoute verification failed with ${failureCount} issue(s).`);
   process.exitCode = 1;
 } else {
-  console.log(`\nPhase 2 route verification passed for ${routes.length} representative routes.`);
+  console.log(`\nRoute verification passed for ${routes.length} representative routes.`);
 }
