@@ -13,7 +13,9 @@
     "hero": {
       "eyebrow": "GET CONTACTED",
       "title": "A Website That Asks For The Call",
-      "subtitle": "Traffic that doesn't convert is just a number. We build and rework websites around how your customers actually decide, so the site does its one job: turning visitors into calls and quote requests."
+      "subtitle": "Traffic that doesn't convert is just a number. We build and rework websites around how your customers actually decide, so the site does its one job: turning visitors into calls and quote requests.",
+      "ctaLabel": "Review My Website & Lead Flow",
+      "secondary": { "label": "See pricing", "href": "#pricing" }
     },
 
     "problem": {
@@ -126,7 +128,9 @@
     "hero": {
       "eyebrow": "GET FOUND",
       "title": "Show Up When Someone Nearby Searches",
-      "subtitle": "Being in business isn't the same as being found. We set up and optimize the local search signals — your Google Business Profile, your site's local structure, your service-area pages — that determine whether you show up for the searches that matter."
+      "subtitle": "Being in business isn't the same as being found. We set up and optimize the local search signals — your Google Business Profile, your site's local structure, your service-area pages — that determine whether you show up for the searches that matter.",
+      "ctaLabel": "Review My Local Visibility",
+      "secondary": { "label": "See pricing", "href": "#pricing" }
     },
 
     "problem": {
@@ -227,7 +231,9 @@
     "hero": {
       "eyebrow": "GET FOUND",
       "title": "Get In Front of Customers Now",
-      "subtitle": "Organic visibility builds over months. Sometimes you need the phone to ring sooner than that. We set up Google Ads campaigns built around calls and quote requests, with tracking that shows what each click actually produced."
+      "subtitle": "Organic visibility builds over months. Sometimes you need the phone to ring sooner than that. We set up Google Ads campaigns built around calls and quote requests, with tracking that shows what each click actually produced.",
+      "ctaLabel": "Review My Ad Spend & Lead Flow",
+      "secondary": { "label": "See pricing", "href": "#pricing" }
     },
 
     "problem": {
@@ -329,7 +335,9 @@
     "hero": {
       "eyebrow": "RESPOND & FOLLOW UP",
       "title": "Stop Losing Work to a Missed Call",
-      "subtitle": "The marketing worked. The customer called. Then nobody answered, and they called the next result instead. We set up the systems that catch that moment — text-back, routing, notifications — so a missed call doesn't have to mean a lost job."
+      "subtitle": "The marketing worked. The customer called. Then nobody answered, and they called the next result instead. We set up the systems that catch that moment — text-back, routing, notifications — so a missed call doesn't have to mean a lost job.",
+      "ctaLabel": "Find Where I'm Losing Leads",
+      "secondary": { "label": "See what's included", "href": "#included" }
     },
 
     "problem": {
@@ -431,7 +439,9 @@
     "hero": {
       "eyebrow": "RESPOND & FOLLOW UP",
       "title": "Make Follow-Up Happen Without Anyone Remembering",
-      "subtitle": "Most quotes get sent once and never mentioned again. We set up the reminders, sequences and alerts that bring a lead back into view before it goes cold — so follow-up happens on its own, not only when someone happens to think of it."
+      "subtitle": "Most quotes get sent once and never mentioned again. We set up the reminders, sequences and alerts that bring a lead back into view before it goes cold — so follow-up happens on its own, not only when someone happens to think of it.",
+      "ctaLabel": "Fix My Follow-Up Gaps",
+      "secondary": { "label": "See what's included", "href": "#included" }
     },
 
     "problem": {
@@ -531,7 +541,9 @@
     "hero": {
       "eyebrow": "WIN MORE WORK",
       "title": "Get Every Lead Into One Place",
-      "subtitle": "Leads scattered across texts, inboxes, notebooks and memory are leads that get lost. We set up a simple pipeline so you always know who contacted you, what stage they're at, and what still needs a follow-up."
+      "subtitle": "Leads scattered across texts, inboxes, notebooks and memory are leads that get lost. We set up a simple pipeline so you always know who contacted you, what stage they're at, and what still needs a follow-up.",
+      "ctaLabel": "Review My Sales Pipeline",
+      "secondary": { "label": "See what's included", "href": "#included" }
     },
 
     "problem": {
@@ -634,7 +646,9 @@
     "hero": {
       "eyebrow": "WIN MORE WORK",
       "title": "Know What Actually Produced the Job",
-      "subtitle": "You're spending on a website, SEO, ads, maybe more — but can you confidently say which one produced a specific call or customer? We connect the tracking that turns that from a guess into evidence."
+      "subtitle": "You're spending on a website, SEO, ads, maybe more — but can you confidently say which one produced a specific call or customer? We connect the tracking that turns that from a guess into evidence.",
+      "ctaLabel": "Review My Lead Tracking",
+      "secondary": { "label": "See what's included", "href": "#included" }
     },
 
     "problem": {
@@ -734,7 +748,9 @@
     "hero": {
       "eyebrow": "KEEP IT RUNNING",
       "title": "A Website Isn't a One-Time Project",
-      "subtitle": "Security updates, backups, uptime and performance don't take care of themselves. If ALL8 built your site, this is already included in your monthly subscription — this plan is for keeping an existing or outside-built website running instead."
+      "subtitle": "Security updates, backups, uptime and performance don't take care of themselves. If ALL8 built your site, this is already included in your monthly subscription — this plan is for keeping an existing or outside-built website running instead.",
+      "ctaLabel": "Review My Website Care Plan",
+      "secondary": { "label": "See pricing", "href": "#pricing" }
     },
 
     "problem": {
@@ -832,7 +848,8 @@
     "hero": {
       "eyebrow": "THE WHOLE SYSTEM",
       "title": "When It's Not Just One Thing",
-      "subtitle": "Some businesses don't need a single service — they need the website, the phone, the CRM and the follow-up connected into one working system. This is that: a custom lead system built around your specific tools and process."
+      "subtitle": "Some businesses don't need a single service — they need the website, the phone, the CRM and the follow-up connected into one working system. This is that: a custom lead system built around your specific tools and process.",
+      "secondary": { "label": "See what we can build", "href": "#included" }
     },
 
     "problem": {

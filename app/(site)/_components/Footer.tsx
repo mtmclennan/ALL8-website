@@ -1,31 +1,31 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { Facebook, Linkedin } from 'lucide-react';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Facebook, Linkedin } from "lucide-react";
 
-import refinement from './VisualRefinement.module.css';
-import Logo from './Logo';
-import { useLeadModal } from './LeadModalProvider';
-import Button from './ui/Button';
-import { siteConfig } from '@/config/site';
-import { toTelHref } from '@/lib/utils/phone';
+import refinement from "./VisualRefinement.module.css";
+import Logo from "./Logo";
+import { useLeadModal } from "./LeadModalProvider";
+
+import { siteConfig } from "@/config/site";
+import { toTelHref } from "@/lib/utils/phone";
 
 const OUTCOMES = [
-  { label: 'Get More Opportunities', href: '/services#get-found' },
-  { label: 'Convert More Visitors', href: '/services#get-contacted' },
-  { label: 'Faster Follow-Up', href: '/services#respond' },
-  { label: 'Pipeline & Tracking', href: '/services#win' },
-  { label: 'All Services', href: '/services' },
+  { label: "Get More Opportunities", href: "/services#get-found" },
+  { label: "Convert More Visitors", href: "/services#get-contacted" },
+  { label: "Faster Follow-Up", href: "/services#respond" },
+  { label: "Pipeline & Tracking", href: "/services#win" },
+  { label: "All Services", href: "/services" },
 ];
 
 const COMPANY = [
-  { label: 'About ALL8', href: '/about' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Tools', href: '/tools' },
-  { label: 'Results', href: '/work' },
-  { label: 'How It Works', href: '/#system' },
-  { label: 'FAQ', href: '/#faq' },
+  { label: "About ALL8", href: "/about" },
+  { label: "Blog", href: "/blog" },
+  { label: "Tools", href: "/tools" },
+  { label: "Results", href: "/work" },
+  { label: "How It Works", href: "/#system" },
+  { label: "FAQ", href: "/#faq" },
 ];
 
 export default function Footer() {
@@ -33,10 +33,10 @@ export default function Footer() {
   const { openModal } = useLeadModal();
   const telHref = toTelHref(siteConfig.phone);
 
-  if (pathname.startsWith('/hire-matt')) {
+  if (pathname.startsWith("/hire-matt")) {
     return (
       <footer
-        className={`${pathname === '/' || pathname.startsWith('/hire-matt') ? refinement.surface : ''} border-t border-white/[0.08] bg-[#070A12]`}
+        className={`${pathname === "/" || pathname.startsWith("/hire-matt") ? refinement.surface : ""} border-t border-white/[0.08] bg-[#070A12]`}
       >
         <div className="mx-auto flex max-w-[1160px] flex-col gap-4 px-6 py-8 text-sm text-white/50 sm:flex-row sm:items-center sm:justify-between sm:px-10">
           <p>
@@ -72,7 +72,7 @@ export default function Footer() {
 
   return (
     <footer
-      className={`${pathname === '/' || pathname.startsWith('/hire-matt') ? refinement.surface : ''} border-t border-white/[0.08] bg-[#070A12]`}
+      className={`${pathname === "/" || pathname.startsWith("/hire-matt") ? refinement.surface : ""} border-t border-white/[0.08] bg-[#070A12]`}
     >
       <div className="mx-auto max-w-[1160px] px-6 pb-8 pt-16 sm:px-10">
         <div className="grid grid-cols-1 gap-10 pb-12 sm:grid-cols-2 lg:grid-cols-[1.8fr_1fr_1fr_1fr]">
@@ -203,7 +203,7 @@ export default function Footer() {
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/[0.08] pt-[26px]">
           <p className="text-[13px] text-white/40">
             &copy; {new Date().getFullYear()} ALL8 WEBWORKS. All rights
-            reserved. Based in Ontario, Canada. &nbsp;&middot;&nbsp;{' '}
+            reserved. Based in Ontario, Canada. &nbsp;&middot;&nbsp;{" "}
             <Link className="hover:text-white" href="/privacy">
               Privacy Policy
             </Link>

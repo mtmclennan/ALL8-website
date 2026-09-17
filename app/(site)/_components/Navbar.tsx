@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import clsx from 'clsx';
-import { Phone, Menu, X } from 'lucide-react';
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import clsx from "clsx";
+import { Phone, Menu, X } from "lucide-react";
 
-import { useLeadModal } from './LeadModalProvider';
-import refinement from './VisualRefinement.module.css';
-import Logo from './Logo';
-import Button from './ui/Button';
+import { useLeadModal } from "./LeadModalProvider";
+import refinement from "./VisualRefinement.module.css";
+import Logo from "./Logo";
+import Button from "./ui/Button";
 
-import { toTelHref } from '@/lib/utils/phone';
-import { siteConfig } from '@/config/site';
+import { toTelHref } from "@/lib/utils/phone";
+import { siteConfig } from "@/config/site";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -28,29 +28,29 @@ const Navbar = () => {
     const onScroll = () => setScrolled(window.scrollY > 20);
 
     onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
 
-    return () => window.removeEventListener('scroll', onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
     if (!menuOpen) return;
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setMenuOpen(false);
+      if (e.key === "Escape") setMenuOpen(false);
     };
 
-    document.addEventListener('keydown', onKeyDown);
+    document.addEventListener("keydown", onKeyDown);
 
-    return () => document.removeEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
   }, [menuOpen]);
 
-  if (pathname.startsWith('/hire-matt')) {
+  if (pathname.startsWith("/hire-matt")) {
     return (
       <header
         className={clsx(
-          'fixed left-0 right-0 top-0 z-[200] border-b border-white/[0.08] transition-colors',
+          "fixed left-0 right-0 top-0 z-[200] border-b border-white/[0.08] transition-colors",
           refinement.surface,
-          scrolled ? 'bg-background/92 backdrop-blur-2xl' : 'bg-background/75',
+          scrolled ? "bg-background/92 backdrop-blur-2xl" : "bg-background/75",
         )}
       >
         <div className="mx-auto flex h-[68px] max-w-[1160px] items-center gap-5 px-6 sm:px-10">
@@ -106,11 +106,11 @@ const Navbar = () => {
   return (
     <header
       className={clsx(
-        'fixed left-0 right-0 top-0 z-[200] transition-[background,box-shadow] duration-300',
-        pathname === '/' && refinement.surface,
+        "fixed left-0 right-0 top-0 z-[200] transition-[background,box-shadow] duration-300",
+        pathname === "/" && refinement.surface,
         scrolled &&
-          'bg-background/90 shadow-[0_1px_0_rgba(255,255,255,.08)] backdrop-blur-2xl',
-        menuOpen && !scrolled && 'bg-background/95 backdrop-blur-2xl',
+          "bg-background/90 shadow-[0_1px_0_rgba(255,255,255,.08)] backdrop-blur-2xl",
+        menuOpen && !scrolled && "bg-background/95 backdrop-blur-2xl",
       )}
       id="nav"
     >
@@ -169,8 +169,8 @@ const Navbar = () => {
 
       <div
         className={clsx(
-          'hidden overflow-hidden border-t border-white/[0.08] bg-background transition-[max-height] duration-300 ease-out max-[1100px]:block',
-          menuOpen ? 'max-h-[520px]' : 'max-h-0 border-t-0',
+          "hidden overflow-hidden border-t border-white/[0.08] bg-background transition-[max-height] duration-300 ease-out max-[1100px]:block",
+          menuOpen ? "max-h-[520px]" : "max-h-0 border-t-0",
         )}
         id="navPanel"
         inert={!menuOpen}

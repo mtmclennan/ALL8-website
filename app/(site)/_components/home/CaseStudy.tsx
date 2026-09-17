@@ -85,24 +85,26 @@ export default function CaseStudy({ data }: { data: CaseStudyData }) {
                 </span>
               </div>
               <div className="p-[26px]">
-                <div className="mb-6 flex flex-col gap-3 sm:flex-row">
-                  {data.visual.metrics.map((m) => (
-                    <div
-                      key={m.label}
-                      className="flex-1 rounded-[10px] border border-white/[0.08] bg-white/[0.04] px-3 py-4 text-center"
-                    >
+                {data.visual.metrics.length > 0 && (
+                  <div className="mb-6 flex flex-col gap-3 sm:flex-row">
+                    {data.visual.metrics.map((m) => (
                       <div
-                        className="text-[22px] font-black leading-[1.1] tracking-[-.02em]"
-                        style={{ color: STAGE_HEX[m.stage] }}
+                        key={m.label}
+                        className="flex-1 rounded-[10px] border border-white/[0.08] bg-white/[0.04] px-3 py-4 text-center"
                       >
-                        {m.value}
+                        <div
+                          className="text-[22px] font-black leading-[1.1] tracking-[-.02em]"
+                          style={{ color: STAGE_HEX[m.stage] }}
+                        >
+                          {m.value}
+                        </div>
+                        <div className="mt-1.5 text-[10.5px] font-semibold uppercase tracking-[.05em] text-white/60">
+                          {m.label}
+                        </div>
                       </div>
-                      <div className="mt-1.5 text-[10.5px] font-semibold uppercase tracking-[.05em] text-white/60">
-                        {m.label}
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                    ))}
+                  </div>
+                )}
                 <div className="flex flex-col gap-3">
                   {data.visual.rows.map((row) => (
                     <div

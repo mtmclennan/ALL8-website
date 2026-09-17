@@ -11,7 +11,7 @@
       { "label": "Respond faster", "stage": "follow" },
       { "label": "Win more work", "stage": "win" }
     ],
-    "ctaLabel": "Get My Free Lead System Review",
+    "ctaLabel": "See Where I'm Losing Leads",
     "secondaryLabel": "See how it works",
     "secondaryHref": "#leak",
     "micro": "15 minutes  ·  No contracts  ·  You get the findings either way",
@@ -27,17 +27,17 @@
   "proofStrip": {
     "items": [
       {
-        "value": "{{proof.search.range}}",
-        "label": "Google Search clicks per rolling 28 days",
+        "value": "{{proof.search.factor}}",
+        "label": "Organic Search Growth",
         "em": true
       },
       {
-        "value": "{{proof.profile.increaseSigned}}",
-        "label": "Business Profile website clicks YoY",
+        "value": "{{proof.profile.increaseSigned}} YoY",
+        "label": "Google Business Profile Website Clicks",
         "em": false
       }
     ],
-    "note": "Anonymized client · Search: {{proof.search.periodCompact}} · Latest window: {{proof.search.latestWindow}}"
+    "note": "Measured client results"
   },
 
   "leak": {
@@ -118,7 +118,7 @@
       }
     ],
     "footNote": "You don't have to do all four. **We start with the stage that appears to be costing you the most** — for some businesses that's rankings, for others it's a website that doesn't ask for the call, and often it's what happens after the phone rings.",
-    "ctaLabel": "Get My Free Lead System Review"
+    "ctaLabel": "See What I Should Fix First"
   },
 
   "outcomes": {
@@ -191,10 +191,10 @@
   },
 
   "caseStudy": {
-    "eyebrow": "Real Client Result · Identity Withheld",
+    "eyebrow": "Real Client Result · Service Business Growth",
     "title": "Visibility Improved.",
-    "titleAccent": "Then the Real Bottleneck Appeared.",
-    "lede": "An established service business had weak local search visibility and an outdated lead flow — plenty of capability, not enough incoming work to fill the schedule.",
+    "titleAccent": "Found the Next Growth Constraint.",
+    "lede": "An established excavation and service business in Southern Ontario had weak local search visibility and an outdated lead flow — plenty of capability, not enough incoming work to fill the schedule.",
     "steps": [
       {
         "tag": "The problem",
@@ -206,11 +206,11 @@
       },
       {
         "tag": "The result",
-        "text": "Google Search clicks grew from **{{proof.search.range}} per rolling 28 days** between {{proof.search.period}} ({{proof.search.factor}} growth), Business Profile website clicks increased **{{proof.profile.increase}} year over year**, and point-in-time evidence captured page-one, strong local and AI-result visibility."
+        "text": "**Organic Google Search traffic increased {{proof.search.factor}}**, while **Google Business Profile website clicks increased {{proof.profile.increase}} year over year.** Search Console showed growth from approximately {{proof.search.before}} to {{proof.search.after}} clicks per rolling 28-day period between the measured March and September 2026 windows. Point-in-time evidence also captured page-one, strong local and AI-result visibility."
       },
       {
         "tag": "What it exposed",
-        "text": "More visibility surfaced the next constraint: **missed calls and inconsistent follow-up.** That discovery is what expanded our work beyond websites and SEO into the whole lead-conversion system."
+        "text": "Better attribution and call tracking showed that **lead handling and follow-up had become a larger constraint than traffic alone.** That discovery expanded our work beyond websites and SEO into the whole lead-conversion system."
       }
     ],
     "ctaLabel": "Get My Free Lead System Review",
@@ -220,10 +220,7 @@
     },
     "visual": {
       "title": "Lead System Review — findings",
-      "metrics": [
-        { "value": "{{proof.search.factor}}", "label": "Google Search growth", "stage": "found" },
-        { "value": "{{proof.profile.increaseSigned}}", "label": "GBP website clicks YoY", "stage": "found" }
-      ],
+      "metrics": [],
       "rows": [
         { "label": "Get Found", "stage": "found", "status": "Improved" },
         {
@@ -234,7 +231,7 @@
         { "label": "Respond & Follow Up", "stage": "follow", "status": "Next" },
         { "label": "Win More Work", "stage": "win", "status": "Tracking added" }
       ],
-      "flag": "Next bottleneck identified: missed calls and inconsistent follow-up. More visibility only pays if someone answers."
+      "flag": "Found the next growth constraint: better attribution and call tracking showed that lead handling and follow-up had become a larger constraint than traffic alone."
     }
   },
 
@@ -330,21 +327,21 @@
     "title": "Measured Results, Not Adjectives",
     "cards": [
       {
-        "value": "{{proof.search.range}}",
+        "value": "{{proof.search.factor}}",
         "em": true,
-        "label": "Google Search Clicks",
-        "sub": "Rolling 28 days, {{proof.search.period}} · {{proof.search.factor}} growth",
+        "label": "Organic Search Growth",
+        "sub": "Google organic Search clicks increased from approximately {{proof.search.before}} to {{proof.search.after}} per rolling 28-day period.",
         "icon": "chart"
       },
       {
-        "value": "{{proof.profile.increaseSigned}}",
+        "value": "{{proof.profile.increaseSigned}} YoY",
         "em": false,
-        "label": "Profile Website Clicks",
-        "sub": "Google Business Profile, year over year",
+        "label": "Google Business Profile Website Clicks",
+        "sub": "Measured year over year for an established excavation and service business in Southern Ontario.",
         "icon": "pin"
       }
     ],
-    "footNote": "Documented, anonymized client work. Latest Search window: {{proof.search.latestWindow}}. Captured local, page-one and AI-result visibility supports the story; it is point-in-time evidence, not a permanent ranking.",
+    "footNote": "Measured client results. Search growth compares rolling 28-day periods during 2026; the latest window was {{proof.search.latestWindow}}. Captured local, page-one and AI-result visibility supports the story; it is point-in-time evidence, not a permanent ranking.",
     "ctaLede": "Want to see where your lead system is losing opportunities?",
     "ctaLabel": "Get My Free Lead System Review"
   },

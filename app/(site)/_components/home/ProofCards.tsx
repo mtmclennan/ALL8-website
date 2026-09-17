@@ -46,7 +46,9 @@ export default function ProofCards({ data }: { data: ProofCardsData }) {
           </h2>
         </Reveal>
 
-        <div className={`grid grid-cols-1 gap-5 ${data.cards.length === 2 ? "sm:grid-cols-2" : "md:grid-cols-3"}`}>
+        <div
+          className={`grid grid-cols-1 gap-5 ${data.cards.length === 2 ? "sm:grid-cols-2" : "md:grid-cols-3"}`}
+        >
           {data.cards.map((card, i) => {
             const Icon = ICONS[card.icon] ?? LineChart;
 
@@ -80,7 +82,7 @@ export default function ProofCards({ data }: { data: ProofCardsData }) {
                     {card.sub}
                   </div>
                   <div className="relative mt-[22px] border-t border-white/[0.08] pt-4 text-[11.5px] font-semibold uppercase tracking-[.05em] text-white/70">
-                    Real anonymized client data
+                    Measured client result
                   </div>
                 </Card>
               </Reveal>

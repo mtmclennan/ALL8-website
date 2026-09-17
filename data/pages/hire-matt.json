@@ -32,12 +32,12 @@
   "proofMetrics": {
     "eyebrow": "Measured Outcomes · Captured Evidence",
     "cards": [
-      { "tag": "Search growth", "value": "{{proof.search.range}}", "em": true, "label": "Google Search **Clicks**", "context": "Per rolling 28 days · {{proof.search.periodArrow}}", "detail": "{{proof.search.factor}} growth", "color": "#3D97FF" },
-      { "tag": "Local demand", "value": "{{proof.profile.increaseSigned}}", "em": true, "label": "Google Business Profile", "context": "Website clicks · Year over year", "color": "#22d3ee" },
-      { "tag": "Systems thinking", "value": "Search → Operations", "label": "Tracking revealed the **next bottleneck**", "context": "Led to a connected lead-handling workflow", "detail": "IN VALIDATION · Ooma → Zapier → Estivor", "kind": "insight", "color": "#a8b2c1" }
+      { "tag": "Search growth", "value": "{{proof.search.factor}}", "em": true, "label": "Organic Search **Growth**", "context": "Google organic Search clicks increased from approximately {{proof.search.before}} to {{proof.search.after}} per rolling 28-day period.", "color": "#3D97FF" },
+      { "tag": "Local demand", "value": "{{proof.profile.increaseSigned}} YoY", "em": true, "label": "Google Business Profile **Website Clicks**", "context": "Measured year over year for the same established service business", "color": "#22d3ee" },
+      { "tag": "Systems thinking", "value": "Found the Next Growth Constraint", "label": "Better attribution and call tracking showed that **lead handling and follow-up had become a larger constraint than traffic alone.**", "context": "Expanded the system beyond marketing", "detail": "IN VALIDATION · Ooma → Zapier → Estivor", "kind": "insight", "color": "#a8b2c1" }
     ],
     "footLine": "Improved acquisition. Measured what happened next. Found the next constraint.",
-    "footNote": "Latest Search window: {{proof.search.latestWindow}}. Search and Business Profile clicks are acquisition results; the workflow is development evidence."
+    "footNote": "Measured client results. Search growth compares rolling 28-day periods during 2026; the latest window was {{proof.search.latestWindow}}. Search and Business Profile clicks are acquisition results; the workflow is development evidence."
   },
 
   "capability": {
@@ -55,10 +55,10 @@
   },
 
   "caseStudy": {
-    "eyebrow": "Featured Case Study · Identity Withheld",
+    "eyebrow": "Featured Case Study · Service Business Growth",
     "title": "From a Website Problem to a",
     "titleAccent": "Revenue-System Problem.",
-    "lede": "An established service business needed to be found online. Following that problem honestly — all the way down the funnel — ended somewhere entirely different from where it started.",
+    "lede": "An established excavation and service business in Southern Ontario needed to be found online. Following that problem honestly — all the way down the funnel — ended somewhere entirely different from where it started.",
     "blocks": [
       {
         "heading": "The starting environment",
@@ -76,8 +76,8 @@
       }
     ],
     "pivot": {
-      "heading": "The discovery",
-      "text": "Once acquisition improved and better measurement was in place, call data exposed a major downstream lead-handling problem. **More traffic was no longer the only constraint.**",
+      "heading": "Found the Next Growth Constraint",
+      "text": "Better attribution and call tracking showed that **lead handling and follow-up had become a larger constraint than traffic alone.**",
       "from": "“How do we generate more leads?”",
       "to": "“What happens to the leads after we generate them?”"
     },
@@ -90,7 +90,7 @@
     "ctaLabel": "View Full Case Study",
     "ctaHref": "/work/service-business-growth-case-study",
     "secondaryCtaLabel": "Request Evidence Package",
-    "secondaryCtaHref": "mailto:hello@all8webworks.com?subject=Anonymized%20case%20study%20evidence%20request",
+    "secondaryCtaHref": "mailto:hello@all8webworks.com?subject=Service%20business%20case%20study%20evidence%20request",
     "chain": {
       "title": "following the funnel down",
       "steps": [
@@ -105,7 +105,7 @@
       ],
       "resultsHeading": "Captured results",
       "results": [
-        "Google Search clicks grew from **{{proof.search.range}} per rolling 28 days** between {{proof.search.period}} — **{{proof.search.factor}} growth**",
+        "**{{proof.search.factor}} organic Search growth.** Search Console showed growth from approximately {{proof.search.before}} to {{proof.search.after}} clicks per rolling 28-day period between the measured March and September 2026 windows.",
         "**{{proof.profile.increaseSigned}} YoY** Google Business Profile website clicks",
         "Non-branded **commercial-intent** search traffic",
         "Captured local and organic visibility for **targeted services**",
@@ -154,7 +154,7 @@
     "cards": [
       {
         "name": "Service-Business Growth System",
-        "kind": "Anonymized client work",
+        "kind": "Service-business client work",
         "href": "/work/service-business-growth-case-study",
         "linkLabel": "Read the case study",
         "color": "#3D97FF",

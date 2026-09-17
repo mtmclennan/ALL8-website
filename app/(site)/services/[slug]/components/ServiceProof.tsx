@@ -94,14 +94,14 @@ export default function ServiceProof({ serviceSlug }: { serviceSlug: string }) {
 
         <p className="mx-auto mt-8 max-w-[560px] text-center text-[13.5px] leading-relaxed text-white/60">
           {hasDirectSearchProof
-            ? "Real anonymized client data — identifying details removed, results documented. Rankings are point-in-time captures."
+            ? "Real client data — results documented. Rankings are point-in-time captures."
             : "The exact baseline and targets are agreed before work begins; no result is claimed for this service until it is measured."}
         </p>
         <Link
           className="mx-auto mt-5 flex w-fit items-center gap-2 text-sm font-bold text-accent-blue hover:text-[#8ec5ff]"
           href="/work/service-business-growth-case-study"
         >
-          Read the anonymized growth-system case study
+          Read the growth-system case study
           <ArrowRight size={15} strokeWidth={2.4} />
         </Link>
       </div>

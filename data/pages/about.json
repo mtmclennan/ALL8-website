@@ -101,8 +101,8 @@
       { "value": "{{proof.profile.increaseSigned}}", "em": false, "label": "Profile Website Clicks", "sub": "Google Business Profile, year over year", "icon": "pin" },
       { "value": "{{proof.visibility.pageOne}}", "em": true, "label": "Captured Visibility", "sub": "Targeted service page, point in time", "icon": "search" }
     ],
-    "footNote": "Client identity withheld. Identifying details have been removed, but the underlying search and performance data is real.",
-    "footNoteLink": { "label": "See the full anonymized case study", "href": "/work/service-business-growth-case-study" }
+    "footNote": "Results from an established excavation and service business in Southern Ontario. The underlying search and performance data is documented.",
+    "footNoteLink": { "label": "See the full service-business growth case study", "href": "/work/service-business-growth-case-study" }
   },
 
   "finalCta": {

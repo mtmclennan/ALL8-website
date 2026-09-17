@@ -39,6 +39,8 @@ export const proofMetrics = {
 } as const satisfies ProofMetrics;
 
 export const proofDisplay = {
+  searchBefore: String(proofMetrics.searchClicks.before),
+  searchAfter: String(proofMetrics.searchClicks.after),
   searchRange: `${proofMetrics.searchClicks.before} → ${proofMetrics.searchClicks.after}`,
   searchFactor: proofMetrics.searchClicks.factor,
   searchPeriod: proofMetrics.searchClicks.period,
@@ -51,6 +53,8 @@ export const proofDisplay = {
 } as const;
 
 const PROOF_TOKENS: Readonly<Record<string, string>> = {
+  "{{proof.search.before}}": proofDisplay.searchBefore,
+  "{{proof.search.after}}": proofDisplay.searchAfter,
   "{{proof.search.range}}": proofDisplay.searchRange,
   "{{proof.search.factor}}": proofDisplay.searchFactor,
   "{{proof.search.period}}": proofDisplay.searchPeriod,

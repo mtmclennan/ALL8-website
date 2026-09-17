@@ -272,7 +272,7 @@ function ResultsPanel({ results }: { results: MissedCallResults }) {
         </p>
         <div className="mt-6 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
           <Button type="button" onClick={handleLeadReviewClick}>
-            Get My Free Lead System Review <ArrowRight size={17} />
+            Find Where I&apos;m Losing Leads <ArrowRight size={17} />
           </Button>
           <Link
             className="inline-flex min-h-11 items-center gap-2 py-2 font-bold text-accent-blue hover:text-[#8ec5ff] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-blue"

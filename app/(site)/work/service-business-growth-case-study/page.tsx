@@ -125,15 +125,16 @@ export default function GrowthCaseStudyPage() {
           </span>
         </nav>
         <p className="text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
-          Anonymized Client Case Study · Identifying Details Withheld
+          Featured Case Study · Service Business Growth
         </p>
         <h1 className="mt-4 text-[clamp(40px,6vw,72px)] font-black leading-[.98] tracking-[-.04em]">
           From Search Growth to a Better Lead-Handling System
         </h1>
         <p className="mt-7 max-w-[760px] text-xl leading-relaxed text-white/70">
-          An established service business needed more visibility. The work grew
-          search demand, made lead sources measurable, and then revealed the
-          next constraint: what happened after prospects made contact.
+          An established excavation and service business in Southern Ontario
+          needed more visibility. The work grew search demand, made lead sources
+          measurable, and then revealed the next constraint: what happened after
+          prospects made contact.
         </p>
       </header>
 
