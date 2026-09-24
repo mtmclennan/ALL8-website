@@ -270,7 +270,7 @@ function ResultsPanel({ results }: { results: MissedCallResults }) {
           ownership and poor lead tracking can create similar gaps. ALL8 can
           review the full path and identify what to fix first.
         </p>
-        <div className="mt-6 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+        <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
           <Button type="button" onClick={handleLeadReviewClick}>
             Find Where I&apos;m Losing Leads <ArrowRight size={17} />
           </Button>

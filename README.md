@@ -6,6 +6,36 @@ This project was intentionally built to demonstrate **real full-stack engineerin
 
 ---
 
+## Screenshots
+
+Real captures of the running site (see [docs/portfolio-screenshots.md](docs/portfolio-screenshots.md)).
+
+![ALL8 Webworks home page: lead systems for service businesses](screenshots/home-hero.png)
+*A Next.js lead-generation site for service businesses, built around get found, get contacted, respond faster, win the work.*
+
+### Missed-call revenue calculator
+
+![Missed-call revenue calculator with a filled-in estimate](screenshots/missed-call-calculator.png)
+*Interactive calculator with validated inputs and instant results, all computed in the browser.*
+
+### Case study with sourced results
+
+![Case study results with validation status labels](screenshots/case-study-results.png)
+*Sourced results with explicit validation status instead of unsupported claims.*
+
+### Lead-journey model
+
+![Service overview showing the five-step lead journey](screenshots/services-overview.png)
+*The lead-journey model that structures the site's service pages.*
+
+### Mobile
+
+<img src="screenshots/home-mobile.png" alt="ALL8 Webworks home page on mobile" width="320">
+
+*Mobile-first layout with the same hierarchy and CTA as desktop.*
+
+---
+
 ## Why this project matters (for employers)
 
 This codebase showcases practical experience with:
