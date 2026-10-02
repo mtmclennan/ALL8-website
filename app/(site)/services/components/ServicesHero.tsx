@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Search } from "lucide-react";
 
 import { STAGE_HEX, type Stage } from "@/lib/utils/stage";
@@ -17,6 +18,13 @@ type ServicesHeroData = {
   micro: string;
   geo: string;
   badges: { label: string; stage: Stage }[];
+};
+
+const BADGE_HREF: Record<Stage, string> = {
+  found: "/services/local-seo-google-business-profile",
+  contacted: "/services/lead-generation-websites",
+  follow: "/services/lead-follow-up-automation",
+  win: "/services/crm-sales-pipeline",
 };
 
 export default function ServicesHero({ data }: { data: ServicesHeroData }) {
@@ -81,9 +89,10 @@ export default function ServicesHero({ data }: { data: ServicesHeroData }) {
 
           <div className="flex flex-wrap gap-2.5">
             {data.badges.map((b) => (
-              <div
+              <Link
                 key={b.label}
-                className="flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/5 px-[15px] py-2 text-[13px] font-semibold text-white/70"
+                className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/[0.08] bg-white/5 px-[15px] py-2 text-[13px] font-semibold text-white/70 transition-colors hover:border-white/30 hover:bg-white/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue"
+                href={BADGE_HREF[b.stage]}
               >
                 <span
                   className="h-[7px] w-[7px] flex-shrink-0 rounded-full"
@@ -93,7 +102,7 @@ export default function ServicesHero({ data }: { data: ServicesHeroData }) {
                   }}
                 />
                 {b.label}
-              </div>
+              </Link>
             ))}
           </div>
         </div>

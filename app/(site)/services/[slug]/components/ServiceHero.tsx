@@ -19,7 +19,7 @@ export default function ServiceHero({ hero, stage }: ServiceHeroProps) {
   const hex = STAGE_HEX[stage];
 
   return (
-    <section className="relative overflow-hidden pt-[68px]" id="hero">
+    <section className="relative overflow-hidden" id="hero">
       <div className="absolute inset-0 bg-background" />
       <div
         className="absolute inset-0"

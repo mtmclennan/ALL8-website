@@ -72,10 +72,10 @@ export default function ServicesPage() {
         type="application/ld+json"
       />
       <ServicesHero data={servicesPageData.hero} />
+      <CurrentServices />
       <LeadJourney data={servicesPageData.journey} />
       <Bottleneck data={servicesPageData.bottleneck} />
       <OutcomeBlocks data={servicesPageData.outcomes} />
-      <CurrentServices />
       <IntegrationsFlow data={servicesPageData.connected} />
       <ProofCards data={servicesPageData.proof} />
       <ProcessSteps data={servicesPageData.process} />

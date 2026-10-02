@@ -195,6 +195,8 @@
       {
         "name": "ScoutChase",
         "kind": "Product",
+        "href": "https://scoutchase.com",
+        "linkLabel": "Visit ScoutChase",
         "brand": {
           "surface": "light",
           "logo": { "src": "/assets/hire-matt/projects/scoutchase-logo.png", "width": 1396, "height": 164 }

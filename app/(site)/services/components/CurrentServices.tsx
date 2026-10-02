@@ -20,9 +20,12 @@ export default function CurrentServices() {
   if (!services.length) return null;
 
   return (
-    <section className="py-24 max-[960px]:py-16" id="current-services">
+    <section
+      className="scroll-mt-[68px] pb-24 pt-12 max-[960px]:pb-16 max-[960px]:pt-10"
+      id="current-services"
+    >
       <div className="mx-auto max-w-[1160px] px-6 sm:px-10">
-        <Reveal className="mx-auto mb-[52px] max-w-[640px] text-center">
+        <Reveal className="mx-auto mb-8 max-w-[640px] text-center">
           <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
             Browse by Service
           </div>
@@ -30,9 +33,8 @@ export default function CurrentServices() {
             Every Page, In One Place
           </h2>
           <p className="mx-auto mt-3.5 max-w-[560px] text-[17px] leading-relaxed text-white/70">
-            The four outcomes above are how we think about the work. These are
-            the actual pages — pricing, process and specifics for each, grouped
-            by what they move.
+            Explore the actual services — with pricing, process and specifics
+            for each, grouped by what they help you improve.
           </p>
         </Reveal>
 
@@ -93,7 +95,7 @@ function ServiceCard({
     <Reveal index={index}>
       <Card className="h-full p-7" variant="lift">
         <Link
-          className="group flex h-full flex-col"
+          className="group flex h-full flex-col rounded-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue"
           href={`/services/${service.slug}`}
         >
           <div className="mb-4 grid h-11 w-11 flex-shrink-0 place-items-center rounded-xl border border-[rgba(0,118,255,.22)] bg-[rgba(0,118,255,.12)] text-accent-blue">

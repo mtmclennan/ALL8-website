@@ -1,4 +1,6 @@
+import Link from "next/link";
 import {
+  ArrowUpRight,
   Search,
   MousePointerClick,
   Phone,
@@ -30,6 +32,14 @@ const ICONS = {
   check: CheckCircle2,
 };
 
+const STEP_HREF: Record<JourneyData["steps"][number]["icon"], string> = {
+  search: "/services/local-seo-google-business-profile",
+  click: "/services/lead-generation-websites",
+  phone: "/services/lead-generation-websites",
+  follow: "/services/lead-follow-up-automation",
+  check: "/services/crm-sales-pipeline",
+};
+
 export default function LeadJourney({ data }: { data: JourneyData }) {
   return (
     <section className="bg-content3 py-24 max-[960px]:py-16" id="journey">
@@ -54,7 +64,10 @@ export default function LeadJourney({ data }: { data: JourneyData }) {
 
             return (
               <Reveal key={step.title} className="relative" index={i}>
-                <div className="h-full rounded-2xl border border-white/[0.08] bg-white/[0.036] p-[26px_16px] text-center transition-colors hover:bg-white/[0.058]">
+                <Link
+                  className="group block h-full rounded-2xl border border-white/[0.08] bg-white/[0.036] p-[26px_16px] text-center transition-colors hover:border-white/20 hover:bg-white/[0.058] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue"
+                  href={STEP_HREF[step.icon]}
+                >
                   <div
                     className="mx-auto mb-3.5 grid h-10 w-10 place-items-center rounded-xl"
                     style={{
@@ -65,13 +78,18 @@ export default function LeadJourney({ data }: { data: JourneyData }) {
                   >
                     <Icon size={19} strokeWidth={2.2} />
                   </div>
-                  <h3 className="mb-1.5 text-[15.5px] font-bold tracking-[-.01em]">
+                  <h3 className="mb-1.5 inline-flex items-center gap-1 text-[15.5px] font-bold tracking-[-.01em]">
                     {step.title}
+                    <ArrowUpRight
+                      aria-hidden="true"
+                      className="text-white/40 transition-colors group-hover:text-accent-blue group-focus-visible:text-accent-blue"
+                      size={14}
+                    />
                   </h3>
                   <p className="text-[13px] leading-relaxed text-white/70">
                     {step.description}
                   </p>
-                </div>
+                </Link>
                 {!isLast && (
                   <span
                     aria-hidden

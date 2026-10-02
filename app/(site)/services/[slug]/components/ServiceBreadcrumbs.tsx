@@ -4,7 +4,7 @@ export default function ServiceBreadcrumbs({ title }: { title: string }) {
   return (
     <nav
       aria-label="Breadcrumb"
-      className="relative z-30 bg-background/95 border-b border-white/10"
+      className="relative z-30 border-b border-white/10 bg-background/95 pt-[68px]"
     >
       <ol className="mx-auto flex max-w-[1160px] flex-wrap items-center gap-2 px-6 py-4 text-sm text-foreground/60 sm:px-10">
         <li>
