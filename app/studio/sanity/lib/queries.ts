@@ -81,7 +81,17 @@ export const singlePostQuery = groq`
     publishedAt,
     updatedAt,
     _updatedAt,
-    body,
+    body[]{
+      ...,
+      _type in ["image", "bodyImage"] => {
+        ...,
+        "assetMetadata": asset->{
+          "dimensions": metadata.dimensions,
+          description,
+          originalFilename
+        }
+      }
+    },
     seo,
     readingTime,
     "categories": categories[]->{

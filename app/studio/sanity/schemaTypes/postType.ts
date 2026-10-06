@@ -1,6 +1,7 @@
 import { defineType, defineField } from "sanity";
 
 import { slugify } from "../../../../lib/utils/slugify";
+import { validateBlogHref } from "../../../../lib/blogHref";
 
 export default defineType({
   name: "post",
@@ -101,7 +102,52 @@ export default defineType({
       name: "body",
       title: "Body",
       type: "array",
-      of: [{ type: "block" }, { type: "image", options: { hotspot: true } }],
+      description:
+        "Use Body Image for new images. Existing image blocks remain available for older posts.",
+      of: [
+        {
+          type: "block",
+          marks: {
+            annotations: [
+              {
+                name: "link",
+                title: "Link",
+                type: "object",
+                fields: [
+                  defineField({
+                    name: "href",
+                    title: "Destination",
+                    type: "string",
+                    description:
+                      "Use /path for ALL8 pages or a complete HTTPS URL for another site.",
+                    validation: (Rule) =>
+                      Rule.required().custom(validateBlogHref),
+                  }),
+                ],
+              },
+            ],
+          },
+        },
+        {
+          type: "image",
+          title: "Legacy Image",
+          options: { hotspot: true },
+        },
+        { type: "bodyImage" },
+        { type: "table" },
+      ],
+      components: {
+        portableText: {
+          plugins: (props) =>
+            props.renderDefault({
+              ...props,
+              plugins: {
+                ...props.plugins,
+                table: { enabled: true },
+              },
+            }),
+        },
+      },
       validation: (Rule) => Rule.required(),
     }),
 

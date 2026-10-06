@@ -1,16 +1,23 @@
-"use client";
-
-import type { Post as SanityPost } from "@/app/studio/sanity.types";
+import type { Post as SanityPost, Table } from "@/app/studio/sanity.types";
+import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
 import Link from "next/link";
 import Image from "next/image";
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
 
-import TableOfContents, { type TocItem } from "./TableOfContents";
+import TableOfContents from "./TableOfContents";
+import ArticleCta from "./ArticleCta";
 
 import { urlFor } from "@/app/studio/sanity/lib/image";
-import { slugify } from "@/lib/utils/slugify";
-import { useLeadModal } from "@/app/(site)/_components/LeadModalProvider";
+import { buildArticleHeadings } from "@/lib/blogHeadings";
+import {
+  getArticleImageAlt,
+  getArticleImageDimensions,
+  getArticleImageSourceUrl,
+  type ArticleImageValue,
+} from "@/lib/blogImage";
+import { validateBlogHref } from "@/lib/blogHref";
+import { getTableHeaderCount } from "@/lib/blogTable";
 import { canonicalInternalPath } from "@/config/permanent-redirects.mjs";
 import { formatCategoryLabel } from "@/lib/blogTaxonomy";
 
@@ -34,24 +41,7 @@ export type SinglePost = Omit<SanityPost, "author" | "categories"> & {
 
 type BlogPostProps = { post: SinglePost; siteOrigin: string };
 
-type Block = {
-  _type?: string;
-  style?: string;
-  _key?: string;
-  children?: { text?: string }[];
-};
-
-function getBlockText(block: Block) {
-  return (block.children ?? []).map((c) => c.text ?? "").join("");
-}
-
-function extractToc(body: SinglePost["body"]): TocItem[] {
-  if (!Array.isArray(body)) return [];
-
-  return (body as Block[])
-    .filter((b) => b._type === "block" && b.style === "h2")
-    .map((b) => ({ id: slugify(getBlockText(b)), text: getBlockText(b) }));
-}
+type TableRow = NonNullable<Table["rows"]>[number];
 
 function internalHref(href: string | undefined, siteOrigin: string) {
   if (!href) return null;
@@ -80,28 +70,82 @@ export default function BlogPost({ post, siteOrigin }: BlogPostProps) {
 
   const categoryData = post.categories?.[0];
   const category = formatCategoryLabel(categoryData?.title, categoryData?.slug);
-  const toc = extractToc(post.body);
+  const { toc, idsByKey } = buildArticleHeadings(post.body);
 
+  const renderBodyImage = (value: ArticleImageValue) => {
+    if (!value.asset) return null;
+
+    const dimensions = getArticleImageDimensions(value);
+    const width = Math.min(dimensions?.width ?? 1400, 1400);
+    const height = dimensions
+      ? Math.max(1, Math.round((width * dimensions.height) / dimensions.width))
+      : 933;
+    const src = urlFor(value as SanityImageSource)
+      .width(width)
+      .url();
+    const caption = value.caption?.trim();
+    const credit = value.credit?.trim();
+    const sourceUrl = getArticleImageSourceUrl(value);
+
+    return (
+      <figure className="my-9">
+        <Image
+          alt={getArticleImageAlt(value, post.title ?? "this article")}
+          className="h-auto w-full rounded-2xl shadow-lg"
+          height={height}
+          sizes="(min-width: 1024px) 680px, (min-width: 640px) calc(100vw - 5rem), calc(100vw - 3rem)"
+          src={src}
+          width={width}
+        />
+        {(caption || credit || sourceUrl) && (
+          <figcaption className="mt-3 space-y-1 text-sm leading-relaxed text-white/70">
+            {caption && <span className="block">{caption}</span>}
+            {(credit || sourceUrl) && (
+              <span className="block text-white/60">
+                {sourceUrl ? (
+                  <a
+                    className="underline decoration-white/40 underline-offset-2 hover:text-white"
+                    href={sourceUrl}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    {credit ? `Credit: ${credit}` : "Image source"}
+                  </a>
+                ) : (
+                  `Credit: ${credit}`
+                )}
+              </span>
+            )}
+          </figcaption>
+        )}
+      </figure>
+    );
+  };
+
+  /* eslint-disable jsx-a11y/no-noninteractive-tabindex -- Wide tables need keyboard-focusable horizontal scrolling. */
   const components: PortableTextComponents = {
     block: {
-      h1: ({ children, value }) => (
+      h1: ({ children, value, index }) => (
         <h2
           className="mb-[18px] mt-[52px] scroll-mt-24 text-[clamp(25px,2.6vw,32px)] font-extrabold leading-[1.16] tracking-[-.024em]"
-          id={slugify(getBlockText(value as Block))}
+          id={idsByKey.get(value._key ?? `index:${index}`)}
         >
           {children}
         </h2>
       ),
-      h2: ({ children, value }) => (
+      h2: ({ children, value, index }) => (
         <h2
           className="mb-[18px] mt-[52px] scroll-mt-24 text-[clamp(25px,2.6vw,32px)] font-extrabold leading-[1.16] tracking-[-.024em]"
-          id={slugify(getBlockText(value as Block))}
+          id={idsByKey.get(value._key ?? `index:${index}`)}
         >
           {children}
         </h2>
       ),
-      h3: ({ children }) => (
-        <h3 className="mb-3 mt-9 text-xl font-extrabold tracking-[-.018em]">
+      h3: ({ children, value, index }) => (
+        <h3
+          className="mb-3 mt-9 text-xl font-extrabold tracking-[-.018em]"
+          id={idsByKey.get(value._key ?? `index:${index}`)}
+        >
           {children}
         </h3>
       ),
@@ -146,6 +190,9 @@ export default function BlogPost({ post, siteOrigin }: BlogPostProps) {
       ),
       link: ({ children, value }) => {
         const href = value?.href as string | undefined;
+
+        if (validateBlogHref(href) !== true) return <span>{children}</span>;
+
         const normalizedInternalHref = internalHref(href, siteOrigin);
 
         if (normalizedInternalHref) {
@@ -162,7 +209,7 @@ export default function BlogPost({ post, siteOrigin }: BlogPostProps) {
         return (
           <a
             className="text-accent-blue underline decoration-accent-blue/40 underline-offset-2 hover:text-[#8ec5ff]"
-            href={href || "#"}
+            href={href}
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -172,30 +219,94 @@ export default function BlogPost({ post, siteOrigin }: BlogPostProps) {
       },
     },
     types: {
-      image: ({ value }) => {
-        const src = value?.asset ? urlFor(value).width(1400).url() : null;
+      table: ({ value }) => {
+        const { rows = [], headerRows = 0, title, caption } = value as Table;
 
-        if (!src) return null;
+        if (rows.length === 0) return null;
+
+        const headerCount = getTableHeaderCount(headerRows, rows.length);
+        const renderRow = (
+          row: TableRow,
+          rowIndex: number,
+          isHeader: boolean,
+        ) => (
+          <tr
+            key={row._key ?? rowIndex}
+            className="border-b border-white/15 last:border-b-0"
+          >
+            {(row.cells ?? []).map((cell, cellIndex) => {
+              const content = cell.value?.length ? (
+                <PortableText components={components} value={cell.value} />
+              ) : null;
+              const cellClassName =
+                "min-w-28 px-4 py-3 align-top [&_p]:mb-0 [&_p]:text-sm [&_p]:leading-relaxed";
+
+              return isHeader ? (
+                <th
+                  key={cell._key ?? cellIndex}
+                  className={`${cellClassName} bg-white/[0.06] font-semibold text-white [&_p]:text-white`}
+                  scope="col"
+                >
+                  {content}
+                </th>
+              ) : (
+                <td
+                  key={cell._key ?? cellIndex}
+                  className={`${cellClassName} text-white/70`}
+                >
+                  {content}
+                </td>
+              );
+            })}
+          </tr>
+        );
 
         return (
-          <figure className="my-9">
-            <Image
-              alt={value?.alt || ""}
-              className="h-auto w-full rounded-2xl shadow-lg"
-              height={788}
-              src={src}
-              width={1400}
-            />
-            {value?.caption ? (
-              <figcaption className="mt-3 text-sm text-white/40">
-                {value.caption}
-              </figcaption>
-            ) : null}
-          </figure>
+          <div
+            aria-label={
+              title ||
+              "Article data table, scroll horizontally to see all columns"
+            }
+            className="my-9 max-w-full overflow-x-auto rounded-xl border border-white/15 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            role="region"
+            tabIndex={0}
+          >
+            <table className="w-full min-w-[32rem] border-collapse text-left text-sm">
+              {(title || caption) && (
+                <caption className="px-4 py-3 text-left">
+                  {title && (
+                    <span className="block font-semibold text-white">
+                      {title}
+                    </span>
+                  )}
+                  {caption && (
+                    <span className="block text-white/70">{caption}</span>
+                  )}
+                </caption>
+              )}
+              {headerCount > 0 && (
+                <thead>
+                  {rows
+                    .slice(0, headerCount)
+                    .map((row, index) => renderRow(row, index, true))}
+                </thead>
+              )}
+              <tbody>
+                {rows
+                  .slice(headerCount)
+                  .map((row, index) =>
+                    renderRow(row, headerCount + index, false),
+                  )}
+              </tbody>
+            </table>
+          </div>
         );
       },
+      image: ({ value }) => renderBodyImage(value as ArticleImageValue),
+      bodyImage: ({ value }) => renderBodyImage(value as ArticleImageValue),
     },
   };
+  /* eslint-enable jsx-a11y/no-noninteractive-tabindex */
 
   const bioComponents: PortableTextComponents = {
     block: {
@@ -321,29 +432,5 @@ export default function BlogPost({ post, siteOrigin }: BlogPostProps) {
         </div>
       </div>
     </article>
-  );
-}
-
-function ArticleCta() {
-  const { openModal } = useLeadModal();
-
-  return (
-    <div className="mt-8 rounded-[20px] border border-[rgba(0,118,255,.22)] bg-[rgba(0,118,255,.07)] p-[30px]">
-      <h3 className="mb-2 text-xl font-extrabold tracking-[-.02em]">
-        Not sure which stage is yours?
-      </h3>
-      <p className="mb-5 text-[15.5px] leading-relaxed text-white/70">
-        That&apos;s the whole point of the free Lead System Review. Fifteen
-        minutes, we walk the path a customer takes to reach you, and you get the
-        findings in writing either way.
-      </p>
-      <button
-        className="inline-flex items-center gap-2 rounded-full bg-gradient-to-b from-[#1e8bff] to-[#0060d6] px-7 py-3.5 text-[15px] font-bold text-white shadow-[0_8px_28px_-6px_rgba(0,118,255,.45)] transition-all hover:-translate-y-0.5"
-        type="button"
-        onClick={openModal}
-      >
-        Get My Free Lead System Review
-      </button>
-    </div>
   );
 }
