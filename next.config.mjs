@@ -41,7 +41,14 @@ const nextConfig = {
   reactStrictMode: true,
 
   async redirects() {
-    return PERMANENT_REDIRECTS;
+    return [
+      ...PERMANENT_REDIRECTS,
+      {
+        source: "/studio/:path*",
+        destination: "https://all8webworks.sanity.studio/:path*",
+        permanent: false,
+      },
+    ];
   },
 
   // your existing stuff here

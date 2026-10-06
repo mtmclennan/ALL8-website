@@ -1,6 +1,6 @@
 import { defineType, defineField } from "sanity";
 
-import { slugify } from "@/lib/utils/slugify";
+import { slugify } from "../../../../lib/utils/slugify";
 
 export default defineType({
   name: "post",
