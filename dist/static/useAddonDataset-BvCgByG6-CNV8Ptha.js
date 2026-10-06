@@ -1,1 +1,0 @@
-import{r as e}from"./rolldown-runtime-hePW80VL.js";import{Ef as t}from"./PerspectiveProvider-qJFIbsuW-Bw-vN-E0.js";import{n}from"./jsx-runtime-DAl2ytAo.js";var r=e(n(),1);function i(){let e=(0,r.useContext)(t);if(!e)throw Error(`useAddonDataset: missing context value`);return e}export{i as t};

@@ -1,7 +1,18 @@
-// Keep the hosted Studio pointed at the same project and dataset as the
-// existing embedded Studio.
-export { default } from './app/studio/sanity.cli';
+import { defineCliConfig } from 'sanity/cli';
 
-deployment: {
-  appId: 'po4zgu1tmheynqwmzd3wmvjm';
-}
+const projectId =
+  process.env.SANITY_STUDIO_PROJECT_ID ||
+  process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
+
+const dataset =
+  process.env.SANITY_STUDIO_DATASET || process.env.NEXT_PUBLIC_SANITY_DATASET;
+
+export default defineCliConfig({
+  api: {
+    projectId,
+    dataset,
+  },
+  deployment: {
+    appId: 'po4zgu1tmheynqwmzd3wmvjm',
+  },
+});
