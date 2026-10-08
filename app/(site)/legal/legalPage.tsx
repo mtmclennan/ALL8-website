@@ -24,7 +24,7 @@ export default function LegalPage({ pages, companyName }: LegalPageProps) {
       <header className="text-center mb-14 relative">
         <motion.h1
           animate={{ opacity: 1, y: 0 }}
-          className="text-5xl font-bold text-blue-400 tracking-tight drop-shadow-[0_0_10px_rgba(0,118,255,0.4)]"
+          className="all8-h1 font-bold text-blue-400 tracking-tight drop-shadow-[0_0_10px_rgba(0,118,255,0.4)]"
           initial={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.3 }}
         >

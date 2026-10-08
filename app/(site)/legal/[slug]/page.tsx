@@ -83,7 +83,7 @@ export default async function LegalDocPage({
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,#0076ff0a,transparent_60%)]" />
 
       <header className="mb-10 relative text-center">
-        <h1 className="text-4xl md:text-5xl font-bold text-blue-400 tracking-tight drop-shadow-[0_0_10px_rgba(0,118,255,0.3)]">
+        <h1 className="all8-h1 font-bold text-blue-400 tracking-tight drop-shadow-[0_0_10px_rgba(0,118,255,0.3)]">
           {page.title}
         </h1>
         <p className="mt-2 text-sm text-gray-500">

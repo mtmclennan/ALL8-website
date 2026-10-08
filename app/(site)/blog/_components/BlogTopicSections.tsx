@@ -255,19 +255,19 @@ export default function BlogTopicSections({ posts }: BlogTopicSectionsProps) {
                 if (!href || !post.title) return null;
 
                 return (
-                  <Card
+                  <Link
                     key={`${section.title}-${post._id}`}
-                    className="h-full p-5"
-                    variant="elevated"
+                    className="group block h-full rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue"
+                    href={href}
                   >
-                    <Link className="block h-full" href={href}>
+                    <Card className="h-full p-5" interactive variant="elevated">
                       <article className="flex h-full flex-col">
                         {post.categories?.[0]?.title ? (
                           <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-primary">
                             {post.categories[0].title}
                           </p>
                         ) : null}
-                        <h3 className="text-lg font-semibold leading-snug text-foreground transition hover:text-primary">
+                        <h3 className="text-lg font-semibold leading-snug text-foreground transition-colors group-hover:text-accent-blue group-focus-visible:text-accent-blue">
                           {post.title}
                         </h3>
                         {post.excerpt ? (
@@ -281,8 +281,8 @@ export default function BlogTopicSections({ posts }: BlogTopicSectionsProps) {
                           </p>
                         ) : null}
                       </article>
-                    </Link>
-                  </Card>
+                    </Card>
+                  </Link>
                 );
               })}
             </div>

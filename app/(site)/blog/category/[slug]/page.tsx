@@ -76,7 +76,7 @@ const CATEGORY_SERVICE_CTA: Record<
   },
   "case-studies": {
     href: "/contact",
-    label: "Get My Free Lead System Review",
+    label: "Get My Free Lead Leak Review",
     highlight: "next",
   },
 };
@@ -159,7 +159,7 @@ export default async function BlogCategoryPage({
           <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-primary">
             ALL8 Webworks Blog
           </p>
-          <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-6xl">
+          <h1 className="all8-h1 font-semibold tracking-tight text-foreground">
             {categoryTitle ?? "Category"} Articles
           </h1>
           <p className="mt-5 text-base leading-relaxed text-foreground/70 sm:text-lg">

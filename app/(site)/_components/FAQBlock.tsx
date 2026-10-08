@@ -139,8 +139,8 @@ export default function FAQBlock({
                   itemClasses={{
                     base: "group",
                     title:
-                      "font-medium text-foreground flex items-center gap-2 text-left",
-                    content: "text-sm text-foreground/70",
+                      "font-sans font-medium text-foreground flex items-center gap-2 text-left",
+                    content: "font-body text-sm text-foreground/70",
                   }}
                   selectionMode="multiple"
                   variant="bordered"

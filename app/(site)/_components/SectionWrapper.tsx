@@ -18,8 +18,8 @@ export type SectionProps = React.PropsWithChildren<{
   id?: string;
 }>;
 
-const basePad = "py-16 sm:py-20";
-const container = "relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8";
+const basePad = "py-16 sm:py-24";
+const container = "relative z-10 mx-auto max-w-[1160px] px-6 sm:px-10";
 
 /* --- background tone layers --- */
 const tones = {
@@ -31,7 +31,7 @@ const tones = {
   alert: "relative overflow-hidden bg-[#111]",
   callout: "bg-background overflow-hidden",
   gradient:
-    "relative overflow-hidden isolate bg-gradient-to-br from-[#0047bb0f] via-transparent to-[#d000000f]",
+    "relative overflow-hidden isolate bg-gradient-to-br from-[#0076ff14] via-transparent to-[#141b27]",
 } as const;
 
 /* --- simplified pattern layers --- */
@@ -135,7 +135,7 @@ export function SectionHeader({
     <div className={clsx("mb-12", center && "text-center")}>
       <h2
         className={clsx(
-          "text-4xl font-semibold tracking-tight sm:text-6xl",
+          "all8-h2 font-semibold tracking-tight",
           className,
         )}
       >
@@ -144,7 +144,7 @@ export function SectionHeader({
       {subtitle && (
         <p
           className={clsx(
-            "mt-3 max-w-2xl text text-foreground/70",
+            "mt-3 max-w-2xl text-foreground/70",
             center && "mx-auto",
           )}
         >
@@ -169,22 +169,26 @@ export function Card({
   children,
   className = "",
   variant = "glass" as const,
+  interactive = false,
 }: React.PropsWithChildren<{
   className?: string;
   variant?: "plain" | "glass" | "bordered" | "elevated" | "lift";
+  /** Use only when a parent semantic link covers the entire card. */
+  interactive?: boolean;
 }>) {
-  const base = "rounded-2xl transition-all duration-300";
+  const base = "rounded-2xl";
   const styles = {
     plain: "bg-content1 ring-1 ring-divider",
     glass:
       "bg-content1/70 ring-1 ring-divider supports-[backdrop-filter]:backdrop-blur-md",
     bordered:
-      "p-[2px] bg-gradient-to-br from-[#59BAE066] via-[#0047BB66] to-[#D0000066]",
+      "p-[2px] bg-gradient-to-br from-[#3D97FF66] via-[#0076FF66] to-[#141B2766]",
     elevated:
-      "bg-content1 ring-1 ring-divider shadow-[0_10px_40px_rgba(0,0,0,0.45)] hover:shadow-[0_18px_70px_rgba(0,0,0,0.55)]",
-    // Matches the ALL8 lead-system redesign's flatter card treatment: fainter border, subtle lift on hover.
-    lift: "bg-white/[0.036] ring-1 ring-white/[0.08] hover:bg-white/[0.058] hover:-translate-y-[3px] hover:shadow-[0_20px_50px_-14px_rgba(0,0,0,.55)]",
+      "bg-content1 ring-1 ring-divider shadow-[0_10px_40px_rgba(0,0,0,0.45)]",
+    lift: "bg-white/[0.036] ring-1 ring-white/[0.08]",
   } as const;
+  const interaction =
+    "transition-[background-color,box-shadow,transform] duration-200 ease-out group-hover:-translate-y-0.5 group-hover:bg-white/[0.058] group-hover:shadow-[0_16px_40px_-16px_rgba(0,0,0,.55)] group-focus-visible:-translate-y-0.5 group-focus-visible:ring-2 group-focus-visible:ring-accent-blue motion-reduce:transform-none";
 
   if (variant === "bordered") {
     return (
@@ -197,30 +201,13 @@ export function Card({
   }
 
   return (
-    <div className={clsx(base, styles[variant], className)}>{children}</div>
+    <div className={clsx(base, styles[variant], interactive && interaction, className)}>
+      {children}
+    </div>
   );
 }
 
 /* ---------- Divider ---------- */
 export function SectionDivider() {
   return <div className="h-px w-full bg-divider" />;
-}
-
-/* ---------- Gradient Button Wrapper ---------- */
-export function ButtonGradientWrapper({
-  children,
-  className,
-}: React.PropsWithChildren<{ className?: string }>) {
-  return (
-    <div
-      className={clsx(
-        "inline-flex shrink-0 rounded-xl p-[2px]",
-        "bg-gradient-to-br from-[#59BAE066] via-[#0047BB66] to-[#D0000066]",
-        "w-fit", // keeps it tight around the child
-        className,
-      )}
-    >
-      {children}
-    </div>
-  );
 }

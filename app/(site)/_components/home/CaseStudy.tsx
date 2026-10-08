@@ -38,7 +38,7 @@ export default function CaseStudy({ data }: { data: CaseStudyData }) {
             <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
               {data.eyebrow}
             </div>
-            <h2 className="mb-4 text-[clamp(30px,3.4vw,46px)] font-extrabold leading-[1.06] tracking-[-.025em]">
+            <h2 className="mb-4 all8-h2 font-extrabold leading-[1.06] tracking-[-.025em]">
               {data.title}
               <br />
               <span className="bg-gradient-to-br from-[#7ec8ff] to-[#1a7cf0] bg-clip-text text-transparent">

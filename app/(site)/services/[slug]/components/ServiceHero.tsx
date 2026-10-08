@@ -3,6 +3,7 @@
 import type { ServiceHero as ServiceHeroData } from "@/data/services";
 
 import { ArrowRight, Search } from "lucide-react";
+import Link from "next/link";
 
 import { STAGE_HEX, STAGE_LABEL, type Stage } from "@/lib/utils/stage";
 import { useLeadModal } from "@/app/(site)/_components/LeadModalProvider";
@@ -12,9 +13,14 @@ import Button from "@/app/(site)/_components/ui/Button";
 type ServiceHeroProps = {
   hero: ServiceHeroData;
   stage: Stage;
+  audience: string;
 };
 
-export default function ServiceHero({ hero, stage }: ServiceHeroProps) {
+export default function ServiceHero({
+  hero,
+  stage,
+  audience,
+}: ServiceHeroProps) {
   const { openModal } = useLeadModal();
   const hex = STAGE_HEX[stage];
 
@@ -50,14 +56,14 @@ export default function ServiceHero({ hero, stage }: ServiceHeroProps) {
             >
               <span
                 className="h-[7px] w-[7px] flex-shrink-0 rounded-full"
-                style={{ backgroundColor: hex, boxShadow: `0 0 8px ${hex}` }}
+                style={{ backgroundColor: hex }}
               />
               {hero.eyebrow || STAGE_LABEL[stage]}
             </div>
           </Reveal>
 
           <Reveal index={1}>
-            <h1 className="mb-[22px] text-[clamp(36px,4.4vw,60px)] font-black leading-[1.04] tracking-[-.03em]">
+            <h1 className="mb-[22px] all8-h1 font-black leading-[1.04] tracking-[-.03em]">
               {hero.title}
             </h1>
           </Reveal>
@@ -66,16 +72,20 @@ export default function ServiceHero({ hero, stage }: ServiceHeroProps) {
             <p className="mb-[30px] max-w-[660px] text-lg leading-relaxed text-white/70">
               {hero.subtitle}
             </p>
+            <p className="mb-7 max-w-[660px] font-body text-sm leading-relaxed text-white/70">
+              <span className="font-bold text-white">Best for: </span>
+              {audience}
+            </p>
           </Reveal>
 
           <Reveal className="flex flex-wrap items-center gap-3.5" index={3}>
             <Button onClick={openModal}>
               <Search size={16} strokeWidth={2.5} />
-              {hero.ctaLabel || "Get My Free Lead System Review"}
+              {hero.ctaLabel || "Get My Free Lead Leak Review"}
             </Button>
             {hero.secondary && (
-              <a
-                className="group inline-flex items-center gap-[7px] px-1 py-3.5 text-[15px] font-bold text-accent-blue hover:text-[#8ec5ff]"
+              <Link
+                className="group inline-flex min-h-11 items-center gap-[7px] rounded-lg px-1 py-3.5 text-[15px] font-bold text-accent-blue hover:text-[#8ec5ff] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue"
                 href={hero.secondary.href}
               >
                 {hero.secondary.label}
@@ -84,7 +94,7 @@ export default function ServiceHero({ hero, stage }: ServiceHeroProps) {
                   size={15}
                   strokeWidth={2.5}
                 />
-              </a>
+              </Link>
             )}
           </Reveal>
         </div>

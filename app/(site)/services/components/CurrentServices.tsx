@@ -2,15 +2,40 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { getServicesWithIcons, type ServiceWithIcon } from "@/data/services";
-import { STAGE_HEX, STAGE_LABEL, type Stage } from "@/lib/utils/stage";
+import {
+  STAGE_HEX,
+  STAGE_LABEL,
+  hexToRgba,
+  type Stage,
+} from "@/lib/utils/stage";
 import Reveal from "@/app/(site)/_components/home/Reveal";
 import { Card } from "@/app/(site)/_components/SectionWrapper";
 
-const GROUPS: { key: Stage | "support"; label: string; hex: string }[] = [
-  { key: "found", label: STAGE_LABEL.found, hex: STAGE_HEX.found },
-  { key: "contacted", label: STAGE_LABEL.contacted, hex: STAGE_HEX.contacted },
-  { key: "follow", label: STAGE_LABEL.follow, hex: STAGE_HEX.follow },
-  { key: "win", label: STAGE_LABEL.win, hex: STAGE_HEX.win },
+const GROUPS: {
+  key: Stage | "support";
+  label: string;
+  hex: string;
+  anchor?: string;
+}[] = [
+  {
+    key: "found",
+    label: STAGE_LABEL.found,
+    hex: STAGE_HEX.found,
+    anchor: "get-found",
+  },
+  {
+    key: "contacted",
+    label: STAGE_LABEL.contacted,
+    hex: STAGE_HEX.contacted,
+    anchor: "get-contacted",
+  },
+  {
+    key: "follow",
+    label: STAGE_LABEL.follow,
+    hex: STAGE_HEX.follow,
+    anchor: "respond",
+  },
+  { key: "win", label: STAGE_LABEL.win, hex: STAGE_HEX.win, anchor: "win" },
   { key: "support", label: "Keep It Running", hex: "#8b94a8" },
 ];
 
@@ -29,12 +54,12 @@ export default function CurrentServices() {
           <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
             Browse by Service
           </div>
-          <h2 className="text-[clamp(30px,3.4vw,46px)] font-extrabold leading-[1.06] tracking-[-.022em]">
+          <h2 className="all8-h2 font-extrabold leading-[1.06] tracking-[-.022em]">
             Every Page, In One Place
           </h2>
           <p className="mx-auto mt-3.5 max-w-[560px] text-[17px] leading-relaxed text-white/70">
-            Explore the actual services — with pricing, process and specifics
-            for each, grouped by what they help you improve.
+            Explore the services, their roles in the lead path, and how each
+            helps your business move more opportunities toward booked work.
           </p>
         </Reveal>
 
@@ -47,13 +72,12 @@ export default function CurrentServices() {
             if (!groupServices.length) return null;
 
             return (
-              <div key={group.key}>
+              <div key={group.key} className="scroll-mt-24" id={group.anchor}>
                 <Reveal className="mb-6 flex items-center gap-3">
                   <span
                     className="h-2 w-2 flex-shrink-0 rounded-full"
                     style={{
                       backgroundColor: group.hex,
-                      boxShadow: `0 0 8px ${group.hex}`,
                     }}
                   />
                   <h3
@@ -93,11 +117,11 @@ function ServiceCard({
 
   return (
     <Reveal index={index}>
-      <Card className="h-full p-7" variant="lift">
-        <Link
-          className="group flex h-full flex-col rounded-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue"
-          href={`/services/${service.slug}`}
-        >
+      <Link
+        className="group block h-full rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue"
+        href={`/services/${service.slug}`}
+      >
+        <Card interactive className="flex h-full flex-col p-7" variant="lift">
           <div className="mb-4 grid h-11 w-11 flex-shrink-0 place-items-center rounded-xl border border-[rgba(0,118,255,.22)] bg-[rgba(0,118,255,.12)] text-accent-blue">
             <Icon height={20} strokeWidth={2} width={20} />
           </div>
@@ -114,7 +138,11 @@ function ServiceCard({
             {service.journeyStages.map((stage) => (
               <li
                 key={stage}
-                className="rounded-full border border-white/[0.09] bg-white/[0.035] px-2.5 py-1 text-[11px] font-semibold text-white/60"
+                className="all8-stage-chip"
+                style={{
+                  borderColor: hexToRgba(STAGE_HEX[stage], 0.35),
+                  color: STAGE_HEX[stage],
+                }}
               >
                 {STAGE_LABEL[stage]}
               </li>
@@ -128,8 +156,8 @@ function ServiceCard({
               strokeWidth={2.5}
             />
           </span>
-        </Link>
-      </Card>
+        </Card>
+      </Link>
     </Reveal>
   );
 }

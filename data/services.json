@@ -9,13 +9,14 @@
     "icon": "Rocket",
     "featured": true,
     "priority": 0.9,
+    "audience": "Contractors and service businesses whose website is not turning visits into enough calls or quote requests.",
 
     "hero": {
       "eyebrow": "GET CONTACTED",
-      "title": "A Website That Asks For The Call",
-      "subtitle": "Traffic that doesn't convert is just a number. We build and rework websites around how your customers actually decide, so the site does its one job: turning visitors into calls and quote requests.",
-      "ctaLabel": "Review My Website & Lead Flow",
-      "secondary": { "label": "See pricing", "href": "#pricing" }
+      "title": "Lead Generation Websites for Service Businesses",
+      "subtitle": "Custom websites for contractors and service businesses, built to turn visitors into calls and quote requests. Hosting, monitoring and minor updates are included through the Managed Website plan.",
+      "ctaLabel": "Get My Free Lead Leak Review",
+      "secondary": { "label": "See plans for this service", "href": "#pricing" }
     },
 
     "problem": {
@@ -35,7 +36,7 @@
       "body": [
         "A website designed around the decision your visitor is actually making, with a clear next step above the fold on every device.",
         "New builds and reworks of existing sites both start the same way — by looking at what's actually stopping people from calling, then fixing that first.",
-        "This is a subscription, not a one-time project you're left to maintain alone. AI handles most of the build work now, which is why the price looks different than it used to — the launch cost is lower, and the monthly fee keeps the site hosted, updated and actually working instead of quietly decaying six months after launch."
+        "The Managed Website plan keeps an ALL8-built site hosted, secure and monitored after launch. Matt still plans the structure, checks the work and adapts it to your business. Lead System adds visibility, lead tracking and follow-up around the site."
       ]
     },
 
@@ -44,7 +45,7 @@
         { "title": "Review", "description": "We look at your current site (or your starting point, if it's a new build) and the specific pages your best customers land on." },
         { "title": "Structure", "description": "We map the pages you need around the services you want to sell and the areas you serve." },
         { "title": "Build", "description": "Pages get built mobile-first, with a clear call-to-action, fast load times, and forms that ask for only what's needed." },
-        { "title": "Connect", "description": "Call tracking, analytics and your CRM or inbox get wired in before launch, not after." }
+        { "title": "Connect", "description": "Analytics, conversion tracking and lead-capture forms are connected before launch. Call tracking and CRM or custom inbox routing can be scoped separately if needed." }
       ]
     },
 
@@ -56,14 +57,15 @@
         "Reasonable ongoing edits and small changes",
         "Analytics and conversion tracking",
         "Quote and contact forms built for lead capture",
-        "Technical and local SEO foundation",
+        "Technical SEO foundation",
         "Google Analytics (GA4) and Search Console setup and monitoring",
         "Ongoing performance monitoring"
       ],
       "addOns": [
         "Landing pages for specific campaigns",
         "Call tracking integration",
-        "CRM or form-routing integration"
+        "CRM or form-routing integration",
+        "Local SEO and Google Business Profile optimization"
       ]
     },
 
@@ -72,7 +74,7 @@
         "Visitors get a clear next step instead of a wall of information",
         "Pages load fast enough to hold attention on a job-site connection",
         "The site is structured so search engines and AI-generated answers can tell what you do and where",
-        "Call and form tracking means you can see whether the site is actually producing inquiries"
+        "Analytics and form conversion tracking help you see whether the site is producing inquiries; optional call tracking can add phone attribution"
       ]
     },
 
@@ -87,22 +89,10 @@
       ]
     },
 
-    "pricing": {
-      "label": "$1,500 USD setup + $299/mo",
-      "note": "One subscription covers the build, hosting, maintenance and reasonable ongoing edits — not a one-time project you're on your own with afterward.",
-      "currency": "USD",
-      "billing": { "setupFee": 1500, "monthly": 299 },
-      "tiers": [
-        { "label": "Setup Fee", "price": "$1,500 USD", "description": "One-time — the custom build, forms, tracking and technical/local SEO foundation, live before this closes out." },
-        { "label": "Monthly", "price": "$299 USD/mo", "description": "Hosting, security, backups, reasonable ongoing edits and performance monitoring, for as long as you're subscribed." }
-      ]
-    },
-
     "faqs": [
-      { "q": "Why is this a subscription instead of a one-time website project?", "a": "AI now handles most of the build work, which changes what a website should cost to launch. The $1,500 setup gets you a live, working site. The $299/month covers hosting, security, backups, reasonable ongoing edits and monitoring — the things a website actually needs to keep working, that used to get sold separately as a maintenance contract most people forgot they were paying for." },
-      { "q": "What happens to my website if I cancel?", "a": "You always own your domain, content and business data — that never depends on staying subscribed. The website itself transfers to you outright after 12 months. Cancel earlier and want to take the code with you, there's a declining buyout: $2,000 in months 1–3, $1,500 in months 4–6, $1,000 in months 7–9, $500 in months 10–11, and $0 from month 12 on. That's not the full amount you've paid in — the monthly fee also covers hosting, maintenance and support along the way, not just a payment toward ownership." },
-      { "q": "Do I need a completely new website, or can you work with what I have?", "a": "Either way, the price and process are the same. Most of our work starts with an existing site — we keep what's working and rebuild what's costing you leads, rather than starting from a blank page by default." },
-      { "q": "Is hosting and maintenance really included, or is that a separate charge later?", "a": "Included, for as long as you're subscribed — that's what the $299/month is for. If you'd rather ALL8 maintain a site we didn't build, that's Website Care & Optimization, priced and scoped separately." },
+      { "q": "Why is an ALL8-built website an ongoing plan?", "a": "The Managed Website plan covers the site and the work that keeps it useful after launch: hosting, security, backups, form and uptime monitoring, minor content updates and monthly performance checks. See the Pricing page for the setup fee, monthly fee and minimum term." },
+      { "q": "Do I need a completely new website, or can you work with what I have?", "a": "We review what is already working and what is costing you leads before recommending a path. A new site is not the automatic answer." },
+      { "q": "Is hosting and maintenance included in Managed Website?", "a": "Yes. Hosting, SSL, security, backups, uptime and form monitoring, minor updates and a monthly performance check are included in Managed Website. Work on outside-built sites is scoped separately." },
       { "q": "How long does it take to launch?", "a": "Typically one to three weeks depending on how many pages you need and how quickly content and access are provided. AI-assisted builds move faster than a traditional from-scratch build, but launch still depends on you." },
       { "q": "Will this hurt my search rankings if I already have a site?", "a": "We plan URL structure and redirects before launch specifically to avoid this. If pages need to move, the old addresses get redirected." }
     ],
@@ -111,7 +101,7 @@
 
     "seo": {
       "title": "Lead Generation Websites | ALL8 WEBWORKS",
-      "description": "AI-assisted lead-generation websites, built and maintained as one subscription — $1,500 to launch, $299/month for hosting, security and ongoing edits."
+      "description": "Conversion-focused websites for service businesses. See how Managed Website and Lead System connect the site, hosting, monitoring and lead handling."
     }
   },
 
@@ -124,13 +114,14 @@
     "icon": "MapPin",
     "featured": true,
     "priority": 0.9,
+    "audience": "Service businesses that need a stronger Google Business Profile and clearer service-area visibility.",
 
     "hero": {
       "eyebrow": "GET FOUND",
-      "title": "Show Up When Someone Nearby Searches",
-      "subtitle": "Being in business isn't the same as being found. We set up and optimize the local search signals — your Google Business Profile, your site's local structure, your service-area pages — that determine whether you show up for the searches that matter.",
-      "ctaLabel": "Review My Local Visibility",
-      "secondary": { "label": "See pricing", "href": "#pricing" }
+      "title": "Local SEO & Google Business Profile Optimization",
+      "subtitle": "We improve your Google Business Profile, local search signals and service-area content so nearby customers can understand what you do and where you work.",
+      "ctaLabel": "Get My Free Lead Leak Review",
+      "secondary": { "label": "See plans for this service", "href": "#pricing" }
     },
 
     "problem": {
@@ -196,14 +187,8 @@
       ]
     },
 
-    "pricing": {
-      "label": "From $497 USD",
-      "note": "This covers Business Profile optimization and the local SEO foundation. Ongoing or expanded local SEO programs are scoped and quoted separately based on how many services and areas you're targeting.",
-      "currency": "USD"
-    },
-
     "faqs": [
-      { "q": "Is this a one-time fix or an ongoing service?", "a": "The Business Profile and technical foundation are a one-time setup. Local rankings build over months, not days, so ongoing content and improvement is a separate, scoped conversation if you want to keep pushing further." },
+      { "q": "Is this a one-time fix or an ongoing service?", "a": "Google Business Profile optimization and local SEO are included in Lead System. A focused Tune-Up may address a specific visibility issue when it is the highest priority; ongoing growth work is scoped in Growth System." },
       { "q": "Do I need a new website for this to work?", "a": "No. Business Profile optimization and technical SEO can be done on your existing site. If the site's structure is actively working against you, we'll say so." },
       { "q": "How long until I see results?", "a": "Business Profile changes can show up within days to weeks. Organic ranking improvements from content and technical work typically take a few months." },
       { "q": "Do you guarantee rankings?", "a": "No. Nobody can honestly guarantee a specific ranking or position — anyone who does is not being straight with you. We can tell you what we're improving and show you the tracking." },
@@ -227,13 +212,14 @@
     "icon": "TrendingUp",
     "featured": false,
     "priority": 0.7,
+    "audience": "Service businesses ready to reach customers searching for specific work and measure calls and quote requests from paid traffic.",
 
     "hero": {
       "eyebrow": "GET FOUND",
-      "title": "Get In Front of Customers Now",
-      "subtitle": "Organic visibility builds over months. Sometimes you need the phone to ring sooner than that. We set up Google Ads campaigns built around calls and quote requests, with tracking that shows what each click actually produced.",
-      "ctaLabel": "Review My Ad Spend & Lead Flow",
-      "secondary": { "label": "See pricing", "href": "#pricing" }
+      "title": "Google Ads Management for Service Businesses",
+      "subtitle": "We set up and manage Google Search campaigns with relevant keywords, ad copy, landing-page alignment and conversion tracking. Google bills you directly for ad spend.",
+      "ctaLabel": "Get My Free Lead Leak Review",
+      "secondary": { "label": "See plans for this service", "href": "#pricing" }
     },
 
     "problem": {
@@ -300,12 +286,6 @@
       ]
     },
 
-    "pricing": {
-      "label": "From $897 USD",
-      "note": "This covers campaign setup, tracking and launch. Ongoing management, if you want it, is a separate recurring arrangement — ad spend itself is always paid directly to Google, not to ALL8.",
-      "currency": "USD"
-    },
-
     "faqs": [
       { "q": "Do you guarantee a certain number of leads or a specific cost per lead?", "a": "No. Nobody can honestly guarantee that — results depend on your market, competition and how well the site converts the traffic. We can tell you what we're optimizing for and show you the data." },
       { "q": "Do I need Google Ads?", "a": "Not necessarily. If organic visibility already covers the services that matter most, ads may not be worth the spend. We'll tell you if that's the case rather than sell you a campaign you don't need." },
@@ -331,13 +311,14 @@
     "icon": "PhoneMissed",
     "featured": true,
     "priority": 0.9,
+    "audience": "Teams that miss calls while on jobs or after hours and need a reliable acknowledgement and follow-up path.",
 
     "hero": {
       "eyebrow": "RESPOND & FOLLOW UP",
-      "title": "Stop Losing Work to a Missed Call",
-      "subtitle": "The marketing worked. The customer called. Then nobody answered, and they called the next result instead. We set up the systems that catch that moment — text-back, routing, notifications — so a missed call doesn't have to mean a lost job.",
-      "ctaLabel": "Find Where I'm Losing Leads",
-      "secondary": { "label": "See what's included", "href": "#included" }
+      "title": "Missed-Call Recovery & Call Handling",
+      "subtitle": "We set up missed-call text-back, staff alerts and call-routing connections so an unanswered call has a clear next step.",
+      "ctaLabel": "Get My Free Lead Leak Review",
+      "secondary": { "label": "See plans for this service", "href": "#pricing" }
     },
 
     "problem": {
@@ -405,11 +386,6 @@
       ]
     },
 
-    "pricing": {
-      "label": "Custom Quote",
-      "note": "Scope depends on your current phone setup, call volume, and whether you need a new business line or just automation added to what you have."
-    },
-
     "faqs": [
       { "q": "Do I need to change my phone number?", "a": "Usually no. Missed-call text-back and routing can typically be set up on the number you already use. A new business line is only needed in specific cases." },
       { "q": "Does ALL8 answer the calls?", "a": "No. We don't operate a call centre or answer calls ourselves. We set up automated responses and, where useful, connect an existing third-party answering service into your system." },
@@ -435,13 +411,14 @@
     "icon": "MessageSquare",
     "featured": true,
     "priority": 0.8,
+    "audience": "Teams whose new inquiries or open estimates need timely reminders and a consistent human follow-up process.",
 
     "hero": {
       "eyebrow": "RESPOND & FOLLOW UP",
-      "title": "Make Follow-Up Happen Without Anyone Remembering",
-      "subtitle": "Most quotes get sent once and never mentioned again. We set up the reminders, sequences and alerts that bring a lead back into view before it goes cold — so follow-up happens on its own, not only when someone happens to think of it.",
-      "ctaLabel": "Fix My Follow-Up Gaps",
-      "secondary": { "label": "See what's included", "href": "#included" }
+      "title": "Lead Follow-Up Automation",
+      "subtitle": "We connect lead alerts, acknowledgements and follow-up sequences to your intake and pipeline so new inquiries and open estimates stay visible.",
+      "ctaLabel": "Get My Free Lead Leak Review",
+      "secondary": { "label": "See plans for this service", "href": "#pricing" }
     },
 
     "problem": {
@@ -507,11 +484,6 @@
       ]
     },
 
-    "pricing": {
-      "label": "Custom Quote",
-      "note": "Scope depends on how many touchpoints you want automated and what's already connected."
-    },
-
     "faqs": [
       { "q": "Will this make my follow-up sound like a robot?", "a": "That's the specific thing we're trying to avoid. Automation handles the reminding and the first acknowledgement — the messages are written in your voice, and the goal is to support a human follow-up, not replace one." },
       { "q": "Can I approve the messages before they go live?", "a": "Yes. Every sequence is reviewed and approved before it starts sending to real leads." },
@@ -537,13 +509,14 @@
     "icon": "Users",
     "featured": true,
     "priority": 0.8,
+    "audience": "Service businesses tracking inquiries across texts, inboxes and notes without one clear view of the next action.",
 
     "hero": {
       "eyebrow": "WIN MORE WORK",
-      "title": "Get Every Lead Into One Place",
-      "subtitle": "Leads scattered across texts, inboxes, notebooks and memory are leads that get lost. We set up a simple pipeline so you always know who contacted you, what stage they're at, and what still needs a follow-up.",
-      "ctaLabel": "Review My Sales Pipeline",
-      "secondary": { "label": "See what's included", "href": "#included" }
+      "title": "CRM & Sales Pipeline Setup",
+      "subtitle": "We organize incoming leads in a practical CRM pipeline, connect the sources you use and make follow-up tasks visible to your team.",
+      "ctaLabel": "Get My Free Lead Leak Review",
+      "secondary": { "label": "See plans for this service", "href": "#pricing" }
     },
 
     "problem": {
@@ -611,11 +584,6 @@
       ]
     },
 
-    "pricing": {
-      "label": "Custom Quote",
-      "note": "Scope depends on whether you're starting from scratch or organizing an existing CRM, and how many lead sources need to be connected."
-    },
-
     "faqs": [
       { "q": "Do I have to replace the CRM or tools I already use?", "a": "Not necessarily. If what you have can do the job, we connect and organize it rather than replace it. New tools only get recommended when the current ones genuinely can't do what's needed." },
       { "q": "Is this complicated to use day-to-day?", "a": "It's built to be the opposite. The goal is a pipeline simple enough that your team actually opens it, not an enterprise system that gets ignored after a week." },
@@ -642,13 +610,14 @@
     "icon": "BarChart3",
     "featured": false,
     "priority": 0.7,
+    "audience": "Businesses that need to see which searches, pages or campaigns produce calls and inquiries.",
 
     "hero": {
       "eyebrow": "WIN MORE WORK",
-      "title": "Know What Actually Produced the Job",
-      "subtitle": "You're spending on a website, SEO, ads, maybe more — but can you confidently say which one produced a specific call or customer? We connect the tracking that turns that from a guess into evidence.",
-      "ctaLabel": "Review My Lead Tracking",
-      "secondary": { "label": "See what's included", "href": "#included" }
+      "title": "Call Tracking & Lead Attribution",
+      "subtitle": "We connect call, form and campaign tracking to analytics and your pipeline so you can see where new opportunities started.",
+      "ctaLabel": "Get My Free Lead Leak Review",
+      "secondary": { "label": "See plans for this service", "href": "#pricing" }
     },
 
     "problem": {
@@ -714,11 +683,6 @@
       ]
     },
 
-    "pricing": {
-      "label": "Custom Quote",
-      "note": "Often scoped as part of a broader engagement (a new website, an ads campaign, or a CRM setup) rather than sold entirely on its own."
-    },
-
     "faqs": [
       { "q": "Is attribution ever 100% accurate?", "a": "No, and anyone who claims their tracking is perfect isn't being straight with you. Some paths — word of mouth, someone typing your number from memory — are genuinely hard to track. This replaces most of the guessing, not all of it." },
       { "q": "Do I need a new website for this to work?", "a": "No. Tracking can typically be added to an existing site, though some older or heavily templated sites have technical limitations worth knowing about upfront." },
@@ -744,13 +708,14 @@
     "icon": "ShieldCheck",
     "featured": false,
     "priority": 0.6,
+    "audience": "Businesses with an outside-built site that needs upkeep; care for ALL8-built sites is included in Managed Website.",
 
     "hero": {
       "eyebrow": "KEEP IT RUNNING",
-      "title": "A Website Isn't a One-Time Project",
-      "subtitle": "Security updates, backups, uptime and performance don't take care of themselves. If ALL8 built your site, this is already included in your monthly subscription — this plan is for keeping an existing or outside-built website running instead.",
-      "ctaLabel": "Review My Website Care Plan",
-      "secondary": { "label": "See pricing", "href": "#pricing" }
+      "title": "Website Care & Optimization for Existing Sites",
+      "subtitle": "We review and maintain an existing website's security, backups, uptime, forms and performance. For ALL8-built sites, these capabilities are already in Managed Website.",
+      "ctaLabel": "Get My Free Lead Leak Review",
+      "secondary": { "label": "See plans for this service", "href": "#pricing" }
     },
 
     "problem": {
@@ -776,14 +741,14 @@
         { "title": "Baseline", "description": "We start with an audit of the site's current security, performance and backup status." },
         { "title": "Stabilize", "description": "Outstanding updates, vulnerabilities and performance issues get addressed." },
         { "title": "Monitor", "description": "Uptime, security and performance get checked on an ongoing basis, not just once." },
-        { "title": "Support", "description": "Small changes and issues get handled as part of the plan, without a separate project every time." }
+        { "title": "Support", "description": "Small changes and issues are handled within the agreed scope." }
       ]
     },
 
     "included": {
       "standard": [
         "Security updates and patching",
-        "Daily backups",
+        "Backups",
         "Uptime monitoring",
         "Performance checks",
         "Support for small content changes",
@@ -812,18 +777,11 @@
       ]
     },
 
-    "pricing": {
-      "label": "$149 USD/mo",
-      "note": "For sites ALL8 didn't build. If you're on the Lead Generation Website subscription, this is already included in your $299/month — no separate charge.",
-      "currency": "USD"
-    },
-
     "faqs": [
-      { "q": "Is this included if ALL8 built my website?", "a": "Yes. Hosting, security, backups and reasonable ongoing edits are already part of the Lead Generation Website subscription's $299/month. This page and its pricing are for an existing or outside-built site instead." },
-      { "q": "Do I have to use ALL8 hosting?", "a": "In most cases the site is hosted as part of this plan, but the goal is a site you own and control, not one you're locked into keeping with us." },
+      { "q": "Is this included if ALL8 built my website?", "a": "Yes. Hosting, security, backups, form and uptime monitoring, and minor updates are included in Managed Website. Care for an outside-built site is scoped separately." },
+      { "q": "Do I have to use ALL8 hosting?", "a": "Managed Website includes hosting. For an outside-built site, we review the existing setup and agree on the care scope before work starts." },
       { "q": "What counts as a 'small change'?", "a": "Text and image updates, minor layout adjustments, and similar quick changes. Larger redesigns or new pages are scoped as separate work." },
-      { "q": "What happens if I cancel?", "a": "You keep the site. There's no long-term contract required to keep what's been built running — though without maintenance, updates and monitoring stop." },
-      { "q": "How fast do you respond to something broken?", "a": "Critical issues (site down, forms broken) are treated as priority. Standard change requests are handled within the plan's normal turnaround." },
+      { "q": "How fast do you respond to something broken?", "a": "Critical issues such as a site outage or broken form are treated as priority. Turnaround for other requests follows the agreed scope." },
       { "q": "Is this required if I have a site that's already well maintained?", "a": "No, but a website that isn't maintained tends to slow down and become a security risk over time — this is what prevents that." }
     ],
 
@@ -844,12 +802,14 @@
     "icon": "Plug",
     "featured": false,
     "priority": 0.6,
+    "audience": "Service businesses with separate website, phone, CRM and follow-up tools that need to work together.",
 
     "hero": {
       "eyebrow": "THE WHOLE SYSTEM",
-      "title": "When It's Not Just One Thing",
-      "subtitle": "Some businesses don't need a single service — they need the website, the phone, the CRM and the follow-up connected into one working system. This is that: a custom lead system built around your specific tools and process.",
-      "secondary": { "label": "See what we can build", "href": "#included" }
+      "title": "Custom Lead Systems for Service Businesses",
+      "subtitle": "We connect the website, forms, calls, CRM and follow-up around the specific gaps in your lead path, using your existing tools where they fit.",
+      "ctaLabel": "Get My Free Lead Leak Review",
+      "secondary": { "label": "See plans for this service", "href": "#pricing" }
     },
 
     "problem": {
@@ -871,7 +831,7 @@
 
     "howItWorks": {
       "steps": [
-        { "title": "Diagnose", "description": "We walk the whole current path — search, site, forms, calls, follow-up, tracking — the same review behind the free Lead System Review." },
+        { "title": "Diagnose", "description": "We walk the whole current path — search, site, forms, calls, follow-up, tracking — the same review behind the free Lead Leak Review." },
         { "title": "Design the System", "description": "We map out which pieces need to connect and in what order, based on where the actual constraint is." },
         { "title": "Build & Connect", "description": "The relevant services get implemented and wired together — this may combine several of ALL8's other services under one scope." },
         { "title": "Measure & Adjust", "description": "Once connected, the system gets measured and refined based on what's actually happening, not assumptions." }
@@ -903,14 +863,9 @@
       ]
     },
 
-    "pricing": {
-      "label": "Custom Quote",
-      "note": "Scope and price depend entirely on which services are involved and how much integration work is required. There's no fixed starting price because the starting point is different for every business."
-    },
-
     "faqs": [
       { "q": "How is this different from just booking multiple services separately?", "a": "The difference is the diagnosis and integration — this starts by finding where the actual constraint is, then scopes only what's needed to fix it, connected as one system rather than as separate unrelated projects." },
-      { "q": "Do I need to already know what I need?", "a": "No. That's what the diagnosis step is for. Most businesses that end up here started with a free Lead System Review." },
+      { "q": "Do I need to already know what I need?", "a": "No. That's what the diagnosis step is for. Most businesses that end up here started with a free Lead Leak Review." },
       { "q": "Is this more expensive than booking one service?", "a": "Not necessarily — it depends entirely on scope. Sometimes the answer is one focused service, not a custom system. We'll say so if that's the case." },
       { "q": "Can this include things not listed elsewhere on the site?", "a": "In some cases, yes, if it's a genuine connection point between systems already in scope. We won't recommend adding something that doesn't serve the actual goal." }
     ],

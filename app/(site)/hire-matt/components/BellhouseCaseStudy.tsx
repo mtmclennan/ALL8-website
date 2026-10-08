@@ -120,7 +120,7 @@ export default function BellhouseCaseStudy({
               <div className="flex items-center gap-2.5 border-b border-white/[0.08] bg-white/[0.04] px-5 py-3.5">
                 <span className="h-2.5 w-2.5 rounded-full bg-brand-red" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#f59e0b]" />
-                <span className="h-2.5 w-2.5 rounded-full bg-stage-win" />
+                <span className="h-2.5 w-2.5 rounded-full bg-emerald-500" />
                 <span className="ml-1.5 text-[11.5px] tracking-[.05em] text-white/70">
                   {data.chain.title}
                 </span>
@@ -161,7 +161,7 @@ export default function BellhouseCaseStudy({
                       className="flex items-start gap-2.5 text-sm leading-snug text-white/70"
                     >
                       <CheckCircle2
-                        className="mt-[3px] flex-shrink-0 text-stage-win"
+                        className="mt-[3px] flex-shrink-0 text-accent-blue"
                         size={15}
                         strokeWidth={2.6}
                       />

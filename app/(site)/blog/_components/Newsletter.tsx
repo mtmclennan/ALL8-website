@@ -8,6 +8,7 @@ import Script from "next/script";
 import { useHubSpotContextFields } from "@/hooks/use-hubspotContextFields";
 import { submitNewsletter } from "@/app/actions/submit-newsletter";
 import Button from "@/app/(site)/_components/ui/Button";
+import RecaptchaDisclosure from "@/app/(site)/_components/RecaptchaDisclosure";
 
 const initialState: LeadActionState = { ok: false };
 
@@ -72,7 +73,7 @@ export default function Newsletter() {
         </div>
         <div>
           {state.ok ? (
-            <p className="text-[15px] font-semibold text-stage-win">
+            <p className="text-[15px] font-semibold text-emerald-400">
               You&apos;re on the list. First note lands next month.
             </p>
           ) : (
@@ -97,7 +98,7 @@ export default function Newsletter() {
                 required
                 aria-label="Email address"
                 autoComplete="email"
-                className="min-w-[200px] flex-1 rounded-[10px] border border-white/[0.08] bg-white/[0.045] px-3.5 py-3 text-base text-white placeholder:text-[#5A7391] focus:border-primary focus:bg-white/[0.07] focus:outline-none"
+                className="min-w-[200px] flex-1 rounded-[10px] border border-white/[0.08] bg-white/[0.045] px-3.5 py-3 text-base text-white placeholder:text-[#5A7391] focus:border-primary focus:bg-white/[0.07]"
                 name="email"
                 placeholder="you@yourbusiness.com"
                 type="email"
@@ -113,9 +114,12 @@ export default function Newsletter() {
             </p>
           )}
           {!state.ok && (
-            <p className="mt-3 text-[12.5px] text-white/70">
-              Monthly. Unsubscribe any time.
-            </p>
+            <>
+              <p className="mt-3 text-[12.5px] text-white/70">
+                Monthly. Unsubscribe any time.
+              </p>
+              <RecaptchaDisclosure />
+            </>
           )}
         </div>
       </div>

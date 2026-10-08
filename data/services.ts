@@ -61,25 +61,6 @@ export type ServiceWorksWith = {
   tools: string[];
 };
 
-export type ServicePricingTier = {
-  label: string;
-  price: string;
-  description?: string;
-};
-
-export type ServicePricing = {
-  label: string;
-  note?: string;
-  tiers?: ServicePricingTier[];
-  /** ISO 4217 currency code for structured data. Defaults to "USD" if omitted. */
-  currency?: string;
-  /** Present only for subscription-billed services (setup fee + recurring monthly). */
-  billing?: {
-    setupFee: number;
-    monthly: number;
-  };
-};
-
 export type SEO = {
   title?: string;
   description?: string;
@@ -102,6 +83,7 @@ export type Service = {
   icon: IconName;
   featured: boolean;
   priority?: number;
+  audience: string;
 
   hero: ServiceHero;
   problem: ServiceProblem;
@@ -110,7 +92,6 @@ export type Service = {
   included: ServiceIncluded;
   whyItMatters: ServiceWhyItMatters;
   worksWith?: ServiceWorksWith;
-  pricing: ServicePricing;
   faqs: FAQ[];
   crossLinks: string[];
   seo: SEO;

@@ -70,6 +70,10 @@ const RESOURCES: Partial<Record<string, Resource[]>> = {
   ],
 };
 
+export function hasServiceResources(serviceSlug: string) {
+  return !!RESOURCES[serviceSlug]?.length;
+}
+
 export default function ServiceResources({
   serviceSlug,
 }: {
@@ -80,54 +84,40 @@ export default function ServiceResources({
   if (!resources?.length) return null;
 
   return (
-    <section
-      aria-labelledby="service-resources-title"
-      className="py-20 max-[960px]:py-16"
-    >
-      <div className="mx-auto max-w-[900px] px-6 sm:px-10">
-        <Reveal>
-          <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
-            Practical Resources
-          </div>
-          <h2
-            className="text-[clamp(26px,2.8vw,36px)] font-extrabold"
-            id="service-resources-title"
-          >
-            Learn What to Look For
-          </h2>
-        </Reveal>
-        <div className="mt-7 grid gap-4 sm:grid-cols-2">
-          {resources.map((resource, index) => (
-            <Reveal key={resource.href} index={index}>
-              <Link
-                className="group flex h-full items-start gap-4 rounded-2xl border border-white/[0.09] bg-white/[0.035] p-5 hover:border-white/[0.18] hover:bg-white/[0.055]"
-                href={resource.href}
-              >
-                {resource.kind === "tool" ? (
-                  <Calculator
-                    aria-hidden="true"
-                    className="mt-0.5 flex-shrink-0 text-accent-blue"
-                    size={20}
-                  />
-                ) : (
-                  <BookOpen
-                    aria-hidden="true"
-                    className="mt-0.5 flex-shrink-0 text-accent-blue"
-                    size={20}
-                  />
-                )}
-                <span className="flex-1 font-bold leading-snug text-white/80 group-hover:text-white">
-                  {resource.title}
-                </span>
-                <ArrowRight
-                  className="mt-0.5 flex-shrink-0 text-white/40 group-hover:text-accent-blue"
-                  size={17}
+    <div className="mt-10" id="resources">
+      <h3 className="all8-h3 font-bold">Related reading and tools</h3>
+      <div className="mt-5 grid gap-4 sm:grid-cols-2">
+        {resources.map((resource, index) => (
+          <Reveal key={resource.href} index={index}>
+            <Link
+              className="group flex h-full min-h-14 items-start gap-4 rounded-2xl border border-white/[0.09] bg-white/[0.035] p-5 transition-[border-color,background-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-accent-blue/60 hover:bg-white/[0.055] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue motion-reduce:transform-none"
+              href={resource.href}
+            >
+              {resource.kind === "tool" ? (
+                <Calculator
+                  aria-hidden="true"
+                  className="mt-0.5 flex-shrink-0 text-accent-blue"
+                  size={20}
                 />
-              </Link>
-            </Reveal>
-          ))}
-        </div>
+              ) : (
+                <BookOpen
+                  aria-hidden="true"
+                  className="mt-0.5 flex-shrink-0 text-accent-blue"
+                  size={20}
+                />
+              )}
+              <span className="flex-1 font-bold leading-snug text-white/80 group-hover:text-white">
+                {resource.title}
+              </span>
+              <ArrowRight
+                aria-hidden="true"
+                className="mt-0.5 flex-shrink-0 text-white/40 group-hover:text-accent-blue"
+                size={17}
+              />
+            </Link>
+          </Reveal>
+        ))}
       </div>
-    </section>
+    </div>
   );
 }

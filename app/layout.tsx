@@ -147,7 +147,7 @@ export default function RootLayout({
             <div className="relative flex flex-col min-h-screen">
               <NavbarClient />
               <main className="flex-grow">{children}</main>
-              <FooterClient />
+              <FooterClient year={new Date().getUTCFullYear()} />
             </div>
             <StickyCta />
           </LeadModalProvider>

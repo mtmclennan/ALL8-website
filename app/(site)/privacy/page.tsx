@@ -4,6 +4,7 @@ import Link from "next/link";
 import { AlertCircle } from "lucide-react";
 
 import TableOfContents from "../blog/[slug]/TableOfContents";
+import Button from "../_components/ui/Button";
 
 import { site, siteUrl } from "@/config/site.config";
 import { siteConfig } from "@/config/site";
@@ -43,8 +44,7 @@ const p = "mb-6 text-lg leading-[1.82] text-white/70";
 const ul = "mb-[26px] flex flex-col gap-[13px]";
 const bulletLi = "flex gap-3.5 text-[17.5px] leading-[1.75] text-white/70";
 const dot = "mt-[11px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary";
-const link =
-  "text-accent-blue underline decoration-accent-blue/40 underline-offset-2 hover:text-[#8ec5ff]";
+const link = "all8-body-link";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -102,11 +102,11 @@ export default function PrivacyPage() {
             </nav>
 
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[rgba(0,118,255,.22)] bg-[rgba(0,118,255,.1)] py-1.5 pl-2.5 pr-3.5 text-[12.5px] font-semibold tracking-[.05em] text-accent-blue">
-              <span className="h-[7px] w-[7px] flex-shrink-0 rounded-full bg-stage-win shadow-[0_0_8px_#22c55e]" />
+              <span className="h-[7px] w-[7px] flex-shrink-0 rounded-full bg-accent-blue" />
               Privacy
             </div>
 
-            <h1 className="mb-[22px] text-[clamp(40px,4.6vw,66px)] font-black leading-[1] tracking-[-.03em]">
+            <h1 className="mb-[22px] all8-h1 font-black leading-[1] tracking-[-.03em]">
               What We Collect, and{" "}
               <span className="text-accent-blue">Why.</span>
             </h1>
@@ -220,8 +220,8 @@ export default function PrivacyPage() {
                     <strong className="font-bold text-white">
                       To reply to you.
                     </strong>{" "}
-                    If you ask for a lead system review, we need a way to send
-                    you the findings.
+                    If you ask for a Lead Leak Review, we need a way to send you
+                    the findings.
                   </>,
                   <>
                     <strong className="font-bold text-white">
@@ -418,12 +418,9 @@ export default function PrivacyPage() {
                   Email us and a person will answer — there&apos;s only one
                   person here.
                 </p>
-                <a
-                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-b from-[#1e8bff] to-[#0060d6] px-7 py-3.5 text-[15px] font-bold text-white shadow-[0_8px_28px_-6px_rgba(0,118,255,.45)] transition-all hover:-translate-y-0.5"
-                  href={`mailto:${siteConfig.email}`}
-                >
+                <Button href={`mailto:${siteConfig.email}`}>
                   {siteConfig.email}
-                </a>
+                </Button>
               </div>
             </div>
 

@@ -41,7 +41,7 @@ export function LeadModalProvider({ children }: { children: ReactNode }) {
     if (typeof document !== "undefined") {
       lastFocusedRef.current = document.activeElement as HTMLElement;
     }
-    // Every "Get My Free Lead System Review" trigger sitewide (nav, footer,
+    // Every "Get My Free Lead Leak Review" trigger sitewide (nav, footer,
     // sticky bar, hero/final CTAs, all 9 service pages, blog posts) opens
     // the modal through this one function — instrumenting here covers the
     // primary CTA everywhere without editing each of those ~17 call sites.

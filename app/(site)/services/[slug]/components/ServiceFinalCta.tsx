@@ -1,16 +1,12 @@
 "use client";
 
-import { Search, Phone } from "lucide-react";
+import { Search } from "lucide-react";
 
 import { useLeadModal } from "@/app/(site)/_components/LeadModalProvider";
 import Reveal from "@/app/(site)/_components/home/Reveal";
 import Button from "@/app/(site)/_components/ui/Button";
-import { siteConfig } from "@/config/site";
-import { toTelHref } from "@/lib/utils/phone";
-
-export default function ServiceFinalCta({ title }: { title: string }) {
+export default function ServiceFinalCta() {
   const { openModal } = useLeadModal();
-  const telHref = toTelHref(siteConfig.phone);
 
   return (
     <section
@@ -26,37 +22,36 @@ export default function ServiceFinalCta({ title }: { title: string }) {
       />
       <div className="relative z-[1] mx-auto max-w-[900px] px-6 sm:px-10">
         <Reveal className="mb-4 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
-          Free Lead System Review
+          Free Lead Leak Review
         </Reveal>
         <Reveal index={1}>
           <h2 className="mb-[18px] text-[clamp(32px,3.8vw,50px)] font-black leading-[1.05] tracking-[-.03em]">
-            Not Sure If {title} Is the Right Place to Start?
+            Find the right first fix.
           </h2>
         </Reveal>
         <Reveal index={2}>
           <p className="mx-auto mb-[38px] max-w-[560px] text-lg leading-relaxed text-white/70">
-            Spend 15 minutes walking through your whole lead path. We&rsquo;ll
-            tell you which stage is actually costing you the most — including if
-            it&rsquo;s not this one.
+            Send your business and website details. Matt will review the lead
+            path and send written findings on what to fix first. A short call
+            afterward is optional.
           </p>
         </Reveal>
         <Reveal
           className="flex flex-wrap items-center justify-center gap-3.5"
           index={3}
         >
-          <Button pulse size="lg" onClick={openModal}>
+          <Button size="lg" onClick={openModal}>
             <Search size={18} strokeWidth={2.5} />
-            Get My Free Lead System Review
+            Get My Free Lead Leak Review
           </Button>
-          <Button href={telHref} size="lg" variant="ghost">
-            <Phone size={17} strokeWidth={2.2} />
-            {siteConfig.phone}
+          <Button href="/pricing" size="lg" variant="ghost">
+            View Plans &amp; Pricing
           </Button>
         </Reveal>
         <Reveal index={4}>
           <p className="mt-[22px] text-[13px] text-white/40">
-            No long-term commitment · Clear recommendations · Fixed scope before
-            work begins
+            Written findings · Optional call · Scope explained before work
+            begins
           </p>
         </Reveal>
       </div>

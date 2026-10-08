@@ -6,7 +6,6 @@ import { Facebook, Linkedin } from "lucide-react";
 
 import refinement from "./VisualRefinement.module.css";
 import Logo from "./Logo";
-import { useLeadModal } from "./LeadModalProvider";
 
 import { siteConfig } from "@/config/site";
 import { toTelHref } from "@/lib/utils/phone";
@@ -21,16 +20,16 @@ const OUTCOMES = [
 
 const COMPANY = [
   { label: "About ALL8", href: "/about" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Blog", href: "/blog" },
   { label: "Tools", href: "/tools" },
-  { label: "Results", href: "/work" },
+  { label: "Work", href: "/work" },
   { label: "How It Works", href: "/#system" },
   { label: "FAQ", href: "/#faq" },
 ];
 
-export default function Footer() {
+export default function Footer({ year }: { year: number }) {
   const pathname = usePathname();
-  const { openModal } = useLeadModal();
   const telHref = toTelHref(siteConfig.phone);
 
   if (pathname.startsWith("/hire-matt")) {
@@ -39,12 +38,10 @@ export default function Footer() {
         className={`${pathname === "/" || pathname.startsWith("/hire-matt") ? refinement.surface : ""} border-t border-white/[0.08] bg-[#070A12]`}
       >
         <div className="mx-auto flex max-w-[1160px] flex-col gap-4 px-6 py-8 text-sm text-white/50 sm:flex-row sm:items-center sm:justify-between sm:px-10">
-          <p>
-            &copy; {new Date().getFullYear()} Matt McLennan · Ontario, Canada
-          </p>
+          <p>&copy; {year} Matt McLennan · Ontario, Canada</p>
           <div className="flex flex-wrap gap-5">
             <a
-              className="hover:text-white"
+              className="inline-flex min-h-11 items-center hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue"
               data-cta="hire-footer-email"
               data-cta-event="hire_contact_click"
               href="mailto:hello@all8webworks.com?subject=Opportunity%20for%20Matt"
@@ -52,7 +49,7 @@ export default function Footer() {
               Email
             </a>
             <a
-              className="hover:text-white"
+              className="inline-flex min-h-11 items-center hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue"
               data-cta="hire-footer-linkedin"
               data-cta-event="hire_linkedin_click"
               href="https://www.linkedin.com/in/matthew-mclennan-dev/"
@@ -61,7 +58,10 @@ export default function Footer() {
             >
               LinkedIn
             </a>
-            <Link className="hover:text-white" href="/">
+            <Link
+              className="inline-flex min-h-11 items-center hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue"
+              href="/"
+            >
               ALL8 Webworks
             </Link>
           </div>
@@ -77,28 +77,34 @@ export default function Footer() {
       <div className="mx-auto max-w-[1160px] px-6 pb-8 pt-16 sm:px-10">
         <div className="grid grid-cols-1 gap-10 pb-12 sm:grid-cols-2 lg:grid-cols-[1.8fr_1fr_1fr_1fr]">
           <div>
-            <Link className="mb-3.5 flex items-center gap-2.5" href="/">
+            <Link
+              className="mb-3.5 flex min-h-11 items-center gap-2.5 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue"
+              href="/"
+            >
               <Logo size="sm" variant="horizontal" />
             </Link>
-            <p className="max-w-[250px] text-sm leading-relaxed text-white/45">
+            <p className="all8-muted max-w-[250px] text-sm leading-relaxed">
               Lead systems for service businesses — connecting search
               visibility, websites, calls, follow-up and tracking.
             </p>
-            <div className="mt-4 flex items-center gap-2 text-[13px] text-white/45">
-              <span className="h-[7px] w-[7px] flex-shrink-0 rounded-full bg-stage-win shadow-[0_0_8px_#22c55e]" />
+            <div className="all8-faint mt-4 flex items-center gap-2 text-[13px]">
+              <span className="h-[7px] w-[7px] flex-shrink-0 rounded-full bg-accent-blue" />
               Serving service businesses across the U.S. &amp; Canada
             </div>
-            <p className="mt-[18px] max-w-[250px] text-sm leading-relaxed text-white/45">
+            <p className="all8-faint mt-[18px] max-w-[250px] text-sm leading-relaxed">
               ALL8 WEBWORKS
               <br />
               {siteConfig.addressLine}
               <br />
-              <a className="text-white/70 hover:text-white" href={telHref}>
+              <a
+                className="all8-body-link inline-flex min-h-11 items-center rounded-sm"
+                href={telHref}
+              >
                 {siteConfig.phone}
               </a>
               <br />
               <a
-                className="text-white/70 hover:text-white"
+                className="all8-body-link inline-flex min-h-11 items-center rounded-sm"
                 href={`mailto:${siteConfig.email}`}
               >
                 {siteConfig.email}
@@ -107,14 +113,14 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-[18px] text-xs font-bold uppercase tracking-[.12em] text-white/40">
+            <h2 className="all8-faint mb-[18px] text-xs font-bold uppercase tracking-[.12em]">
               Outcomes
-            </h4>
-            <ul className="flex flex-col gap-[11px]">
+            </h2>
+            <ul className="flex flex-col gap-1">
               {OUTCOMES.map((item) => (
                 <li key={item.label}>
                   <Link
-                    className="text-sm text-white/70 hover:text-white"
+                    className="inline-flex min-h-11 items-center rounded-lg px-1 text-sm text-white/70 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue"
                     href={item.href}
                   >
                     {item.label}
@@ -125,14 +131,14 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-[18px] text-xs font-bold uppercase tracking-[.12em] text-white/40">
+            <h2 className="all8-faint mb-[18px] text-xs font-bold uppercase tracking-[.12em]">
               Company
-            </h4>
-            <ul className="flex flex-col gap-[11px]">
+            </h2>
+            <ul className="flex flex-col gap-1">
               {COMPANY.map((item) => (
                 <li key={item.label}>
                   <Link
-                    className="text-sm text-white/70 hover:text-white"
+                    className="inline-flex min-h-11 items-center rounded-lg px-1 text-sm text-white/70 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue"
                     href={item.href}
                   >
                     {item.label}
@@ -143,13 +149,13 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-[18px] text-xs font-bold uppercase tracking-[.12em] text-white/40">
+            <h2 className="all8-faint mb-[18px] text-xs font-bold uppercase tracking-[.12em]">
               Contact
-            </h4>
-            <ul className="flex flex-col gap-[11px]">
+            </h2>
+            <ul className="flex flex-col gap-1">
               <li>
                 <Link
-                  className="text-sm text-white/70 hover:text-white"
+                  className="inline-flex min-h-11 items-center rounded-lg px-1 text-sm text-white/70 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue"
                   href="/contact"
                 >
                   Contact
@@ -157,7 +163,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  className="text-sm text-white/70 hover:text-white"
+                  className="inline-flex min-h-11 items-center rounded-lg px-1 text-sm text-white/70 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue"
                   href={`mailto:${siteConfig.email}`}
                 >
                   {siteConfig.email}
@@ -166,7 +172,7 @@ export default function Footer() {
               {siteConfig.links.linkedin && (
                 <li>
                   <a
-                    className="text-sm text-white/70 hover:text-white"
+                    className="inline-flex min-h-11 items-center rounded-lg px-1 text-sm text-white/70 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue"
                     href={siteConfig.links.linkedin}
                     rel="noopener noreferrer"
                     target="_blank"
@@ -178,7 +184,7 @@ export default function Footer() {
               {siteConfig.links.facebook && (
                 <li>
                   <a
-                    className="text-sm text-white/70 hover:text-white"
+                    className="inline-flex min-h-11 items-center rounded-lg px-1 text-sm text-white/70 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue"
                     href={siteConfig.links.facebook}
                     rel="noopener noreferrer"
                     target="_blank"
@@ -189,11 +195,11 @@ export default function Footer() {
               )}
               {/* <li>
                 <Button
-                  className="text-sm text-white/70 hover:text-white"
+                  className="inline-flex min-h-11 items-center rounded-lg px-1 text-sm text-white/70 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue"
                   type="button"
                   onClick={openModal}
                 >
-                  Get My Free Lead System Review
+                  Get My Free Lead Leak Review
                 </Button>
               </li> */}
             </ul>
@@ -202,13 +208,19 @@ export default function Footer() {
 
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/[0.08] pt-[26px]">
           <p className="text-[13px] text-white/40">
-            &copy; {new Date().getFullYear()} ALL8 WEBWORKS. All rights
-            reserved. Based in Ontario, Canada. &nbsp;&middot;&nbsp;{" "}
-            <Link className="hover:text-white" href="/privacy">
+            &copy; {year} ALL8 WEBWORKS. All rights reserved. Based in Ontario,
+            Canada. &nbsp;&middot;&nbsp;{" "}
+            <Link
+              className="inline-flex min-h-11 items-center hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue"
+              href="/privacy"
+            >
               Privacy Policy
             </Link>
             &nbsp;&middot;&nbsp;
-            <Link className="hover:text-white" href="/legal">
+            <Link
+              className="inline-flex min-h-11 items-center hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue"
+              href="/legal"
+            >
               Legal
             </Link>
           </p>
@@ -216,7 +228,7 @@ export default function Footer() {
             {siteConfig.links.linkedin && (
               <a
                 aria-label="Visit ALL8 Webworks on LinkedIn"
-                className="grid h-9 w-9 place-items-center rounded-[10px] border border-white/[0.08] bg-white/[0.036] text-white/40 transition-colors hover:border-white/[0.14] hover:text-white"
+                className="grid h-11 w-11 place-items-center rounded-[10px] border border-white/[0.08] bg-white/[0.036] text-white/70 transition-colors hover:border-accent-blue hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue"
                 href={siteConfig.links.linkedin}
                 rel="noopener noreferrer"
                 target="_blank"
@@ -227,7 +239,7 @@ export default function Footer() {
             {siteConfig.links.facebook && (
               <a
                 aria-label="Visit ALL8 Webworks on Facebook"
-                className="grid h-9 w-9 place-items-center rounded-[10px] border border-white/[0.08] bg-white/[0.036] text-white/40 transition-colors hover:border-white/[0.14] hover:text-white"
+                className="grid h-11 w-11 place-items-center rounded-[10px] border border-white/[0.08] bg-white/[0.036] text-white/70 transition-colors hover:border-accent-blue hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue"
                 href={siteConfig.links.facebook}
                 rel="noopener noreferrer"
                 target="_blank"

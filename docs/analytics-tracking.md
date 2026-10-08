@@ -1,5 +1,7 @@
 # Analytics & Tracking
 
+> Business naming has changed to **Free Lead Leak Review** with the preferred CTA **Get My Free Lead Leak Review** (`AGENTS.md`). The event IDs and trigger labels documented below describe the current implementation and must be reconciled during the later implementation phase; this instruction update does not change tracking code or claim that it has migrated.
+
 GTM is the single tagging layer. The app never loads GA4 or Google Ads scripts
 directly — it only pushes typed events to `window.dataLayer`. GA4 and (later)
 Google Ads conversions are configured entirely inside the GTM container as

@@ -37,22 +37,18 @@ export default function RelatedServices({
 
         <div className="grid gap-5 md:grid-cols-3">
           {relatedServices.map((service) => (
-            <article
+            <Link
               key={service.slug}
-              className="group rounded-xl border border-foreground/10 bg-background/70 p-5 transition-all duration-300 hover:border-blue-400/50"
+              className="group block h-full rounded-xl border border-foreground/10 bg-background/70 p-5 transition-[border-color,background-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-accent-blue/60 hover:bg-content2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue motion-reduce:transform-none"
+              href={service.href}
             >
-              <h3 className="text-lg font-semibold leading-tight text-white">
-                <Link
-                  className="outline-none transition-colors group-hover:text-blue-300 focus-visible:text-blue-300 focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-4 focus-visible:ring-offset-background"
-                  href={service.href}
-                >
-                  {service.title}
-                </Link>
+              <h3 className="text-lg font-semibold leading-tight text-white transition-colors group-hover:text-accent-blue group-focus-visible:text-accent-blue">
+                {service.title}
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-foreground/70">
                 {service.description}
               </p>
-            </article>
+            </Link>
           ))}
         </div>
       </div>

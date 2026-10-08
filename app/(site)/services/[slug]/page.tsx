@@ -7,13 +7,9 @@ import ServiceHero from "./components/ServiceHero";
 import ServiceProblem from "./components/ServiceProblem";
 import ServiceFix from "./components/ServiceFix";
 import ServiceHowItWorks from "./components/ServiceHowItWorks";
-import ServiceIncluded from "./components/ServiceIncluded";
-import ServiceWhyItMatters from "./components/ServiceWhyItMatters";
-import ServiceWorksWith from "./components/ServiceWorksWith";
 import ServiceProof from "./components/ServiceProof";
 import ServicePricing from "./components/ServicePricing";
 import ServiceCrossLinks from "./components/ServiceCrossLinks";
-import ServiceResources from "./components/ServiceResources";
 import ServiceFinalCta from "./components/ServiceFinalCta";
 
 import FAQBlock from "@/app/(site)/_components/FAQBlock";
@@ -88,37 +84,6 @@ export default async function ServiceDetailPage({
           url: base,
         },
         areaServed: ["US", "CA"],
-        offers: {
-          "@type": "Offer",
-          priceCurrency: service.pricing.currency ?? "USD",
-          description: service.pricing.note
-            ? `${service.pricing.label} — ${service.pricing.note}`
-            : service.pricing.label,
-          ...(service.pricing.billing
-            ? {
-                price: service.pricing.billing.monthly,
-                priceSpecification: [
-                  {
-                    "@type": "UnitPriceSpecification",
-                    price: service.pricing.billing.monthly,
-                    priceCurrency: service.pricing.currency ?? "USD",
-                    billingDuration: "P1M",
-                    referenceQuantity: {
-                      "@type": "QuantitativeValue",
-                      value: 1,
-                      unitCode: "MON",
-                    },
-                  },
-                  {
-                    "@type": "PriceSpecification",
-                    name: "Setup fee",
-                    price: service.pricing.billing.setupFee,
-                    priceCurrency: service.pricing.currency ?? "USD",
-                  },
-                ],
-              }
-            : {}),
-        },
       },
       {
         "@type": "BreadcrumbList",
@@ -156,22 +121,32 @@ export default async function ServiceDetailPage({
   return (
     <>
       <script
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
         type="application/ld+json"
       />
       <ServiceBreadcrumbs title={service.title} />
       <ServiceHero
+        audience={service.audience}
         hero={service.hero}
         stage={service.category === "support" ? "win" : service.category}
       />
-      <ServiceProblem problem={service.problem} />
-      <ServiceFix fix={service.fix} />
+      <ServiceProblem
+        problem={service.problem}
+        whyItMatters={service.whyItMatters}
+      />
+      <ServiceFix
+        fix={service.fix}
+        included={service.included}
+        worksWith={service.worksWith}
+      />
       <ServiceHowItWorks howItWorks={service.howItWorks} />
-      <ServiceIncluded included={service.included} />
-      <ServiceWhyItMatters whyItMatters={service.whyItMatters} />
-      <ServiceWorksWith worksWith={service.worksWith} />
-      <ServiceProof serviceSlug={service.slug} />
-      <ServicePricing pricing={service.pricing} />
+      <ServiceProof
+        serviceSlug={service.slug}
+        serviceTitle={service.shortTitle || service.title}
+      />
+      <ServicePricing slug={service.slug} />
       {service.faqs?.length > 0 && (
         <FAQBlock
           faqs={service.faqs}
@@ -180,9 +155,11 @@ export default async function ServiceDetailPage({
           tone="alt"
         />
       )}
-      <ServiceResources serviceSlug={service.slug} />
-      <ServiceCrossLinks slugs={service.crossLinks} />
-      <ServiceFinalCta title={service.shortTitle || service.title} />
+      <ServiceCrossLinks
+        currentSlug={service.slug}
+        slugs={service.crossLinks}
+      />
+      <ServiceFinalCta />
     </>
   );
 }

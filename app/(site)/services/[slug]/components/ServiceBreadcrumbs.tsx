@@ -8,7 +8,10 @@ export default function ServiceBreadcrumbs({ title }: { title: string }) {
     >
       <ol className="mx-auto flex max-w-[1160px] flex-wrap items-center gap-2 px-6 py-4 text-sm text-foreground/60 sm:px-10">
         <li>
-          <Link className="transition hover:text-foreground" href="/">
+          <Link
+            className="inline-flex min-h-11 items-center rounded-lg transition hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue"
+            href="/"
+          >
             Home
           </Link>
         </li>
@@ -16,7 +19,10 @@ export default function ServiceBreadcrumbs({ title }: { title: string }) {
           /
         </li>
         <li>
-          <Link className="transition hover:text-foreground" href="/services">
+          <Link
+            className="inline-flex min-h-11 items-center rounded-lg transition hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue"
+            href="/services"
+          >
             Services
           </Link>
         </li>

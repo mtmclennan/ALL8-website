@@ -11,6 +11,7 @@ import { usePathname } from "next/navigation";
 
 import refinement from "./VisualRefinement.module.css";
 import Button from "./ui/Button";
+import RecaptchaDisclosure from "./RecaptchaDisclosure";
 
 import { useHubSpotContextFields } from "@/hooks/use-hubspotContextFields";
 import { submitLeadReview } from "@/app/actions/submit-lead-review";
@@ -31,7 +32,7 @@ const CHALLENGES = [
 const initialState: LeadActionState = { ok: false };
 
 const inputClass =
-  "w-full min-h-[46px] rounded-[10px] border border-white/40 bg-white/[0.045] px-3.5 py-3 text-base text-white placeholder:text-[#a8b2c1] transition-colors focus:border-primary focus:bg-white/[0.07] focus:outline-none";
+  "w-full min-h-[46px] rounded-[10px] border border-white/40 bg-white/[0.045] px-3.5 py-3 text-base text-white placeholder:text-[#a8b2c1] transition-colors focus:border-primary focus:bg-white/[0.07]";
 
 const inputErrorClass = "border-red-400/60 focus:border-red-400/60";
 
@@ -88,7 +89,7 @@ export default function LeadModal({
     initialState,
   );
   const { hutk, pageUrl, pageName, utm } =
-    useHubSpotContextFields("Lead System Review");
+    useHubSpotContextFields("Lead Leak Review");
 
   const [challenge, setChallenge] = useState("");
   const [done, setDone] = useState(false);
@@ -217,10 +218,12 @@ export default function LeadModal({
           : "pointer-events-none invisible opacity-0",
       )}
     >
-      <Script
-        src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ""}`}
-        strategy="lazyOnload"
-      />
+      {process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && (
+        <Script
+          src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+          strategy="lazyOnload"
+        />
+      )}
       <div
         aria-hidden="true"
         className="absolute inset-0 bg-[rgba(4,7,14,.82)] backdrop-blur-[6px]"
@@ -251,11 +254,12 @@ export default function LeadModal({
               className="pr-9 text-[25px] font-extrabold tracking-[-.022em]"
               id="leadModalTitle"
             >
-              Get Your Free Lead System Review
+              Get Your Free Lead Leak Review
             </h2>
             <p className="mb-6 mt-2 text-[14.5px] leading-relaxed text-white/70">
-              Fifteen minutes. We walk the path a customer takes to reach you
-              and show you where the biggest gaps appear to be.
+              Send your business and website details. Matt will review your lead
+              path and send specific findings. A short follow-up call is
+              optional.
             </p>
 
             <form
@@ -274,11 +278,7 @@ export default function LeadModal({
                   type="text"
                 />
                 <input ref={tokenRef} name="token" type="hidden" />
-                <input
-                  name="leadType"
-                  type="hidden"
-                  value="Lead System Review"
-                />
+                <input name="leadType" type="hidden" value="Lead Leak Review" />
               </div>
 
               <div className="flex flex-col gap-4 sm:flex-row">
@@ -438,13 +438,14 @@ export default function LeadModal({
                   Privacy Policy
                 </Link>
               </p>
+              <RecaptchaDisclosure />
             </form>
           </div>
         ) : (
           <div className="py-4 text-center">
             <div className="mx-auto mb-5 grid h-[60px] w-[60px] place-items-center rounded-full border border-[rgba(34,197,94,.32)] bg-[rgba(34,197,94,.13)]">
               <CheckCircle2
-                className="text-stage-win"
+                className="text-emerald-400"
                 size={26}
                 strokeWidth={2.6}
               />

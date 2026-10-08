@@ -55,11 +55,11 @@ export default function HeroSection({ data }: { data: HeroData }) {
           className={`${refinement.heroCopy} relative z-[2] w-full py-20 max-lg:py-10`}
         >
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[rgba(0,118,255,.22)] bg-[rgba(0,118,255,.1)] py-1.5 pl-2.5 pr-3.5 text-[12.5px] font-semibold tracking-[.05em] text-accent-blue">
-            <span className="h-[7px] w-[7px] flex-shrink-0 rounded-full bg-stage-win shadow-[0_0_8px_#22c55e]" />
+            <span className="h-[7px] w-[7px] flex-shrink-0 rounded-full bg-accent-blue" />
             {data.pill}
           </div>
 
-          <h1 className="mb-[22px] text-[clamp(40px,4.6vw,66px)] font-black leading-[1] tracking-[-.03em]">
+          <h1 className="mb-[22px] all8-display font-black leading-[1] tracking-[-.03em]">
             {data.titlePrefix}
             <span className="text-accent-blue">{data.titleEm}</span>
           </h1>
@@ -75,13 +75,12 @@ export default function HeroSection({ data }: { data: HeroData }) {
             {data.badges.map((b) => (
               <div
                 key={b.label}
-                className="flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/5 px-[15px] py-2 text-[13px] font-semibold text-white/70"
+                className="all8-stage-chip"
               >
                 <span
                   className="h-[7px] w-[7px] flex-shrink-0 rounded-full"
                   style={{
                     backgroundColor: STAGE_HEX[b.stage],
-                    boxShadow: `0 0 7px ${STAGE_HEX[b.stage]}`,
                   }}
                 />
                 {b.label}

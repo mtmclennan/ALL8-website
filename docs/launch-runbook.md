@@ -30,10 +30,12 @@ the actual host and test it before enabling it.
 
 ## Forms and analytics
 
-1. Submit a real test Lead System Review and confirm the owner and customer emails arrive.
+The approved offer name is **Free Lead Leak Review**. Existing event IDs and modal copy may still use older naming until the implementation phase; validate the deployed behavior against the code at release time.
+
+1. Submit a real test Free Lead Leak Review and confirm the owner and customer emails arrive.
 2. Confirm the same submission appears in configured secondary destinations; investigate logs if it does not.
 3. Verify one `lead_review_click`, one `lead_review_start` and one `generate_lead` event. `generate_lead` must fire only after the server returns success.
-4. On `/hire-matt`, verify contact, resume-request, LinkedIn, case-study and project events use their `hire_*` names and never open the customer Lead Review modal.
+4. On `/hire-matt`, verify contact, resume-request, LinkedIn, case-study and project events use their `hire_*` names and never open the customer review modal.
 
 ## Release checks
 

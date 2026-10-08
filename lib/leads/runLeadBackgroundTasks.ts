@@ -16,7 +16,7 @@ import {
 function leadEmailPayload(data: LeadPayload) {
   const projectType =
     data.primary?.trim() ||
-    (data.leadType === "tuneup" ? "website tune-up" : "lead system review");
+    (data.leadType === "tuneup" ? "website tune-up" : "lead leak review");
 
   return {
     leadType: data.leadType,
@@ -86,7 +86,7 @@ export async function runLeadBackgroundTasks(data: LeadPayload) {
   // unify what you write into sheets/email/crm
   const projectType =
     data.primary?.trim() ||
-    (data.leadType === "tuneup" ? "website tune-up" : "lead system review");
+    (data.leadType === "tuneup" ? "website tune-up" : "lead leak review");
   const notes = data.notes ?? "";
 
   await Promise.allSettled([

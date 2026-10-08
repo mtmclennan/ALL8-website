@@ -2,13 +2,9 @@
 
 import React from "react";
 import { motion, LazyMotion, domAnimation } from "framer-motion";
-import { Button } from "@heroui/button";
 
-import {
-  ButtonGradientWrapper,
-  Section,
-  SectionHeader,
-} from "./SectionWrapper";
+import Button from "./ui/Button";
+import { Section, SectionHeader } from "./SectionWrapper";
 
 type StrongCTAProps = {
   titlePrefix: string;
@@ -27,7 +23,7 @@ export default function StrongCTA({
   subtitle,
   ctaLabel,
   ctaHref,
-  microText = "No long contracts • Transparent pricing • Built for speed & conversions",
+  microText = "Clear scope • Published plan pricing • Built for speed & conversions",
 }: StrongCTAProps) {
   return (
     <Section pattern="none" tone="gradient">
@@ -44,7 +40,6 @@ export default function StrongCTA({
         >
           <SectionHeader
             center
-            className="sm:text-8xl"
             subtitle={subtitle}
             title={
               <>
@@ -60,7 +55,6 @@ export default function StrongCTA({
                     stiffness: 300,
                     delay: 0.3,
                   }}
-                  whileHover={{ scale: 1.3 }}
                 >
                   {highlight}
                 </motion.span>
@@ -72,18 +66,9 @@ export default function StrongCTA({
 
           {/* CTA Buttons */}
           <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <ButtonGradientWrapper>
-              <Button
-                as={"a"}
-                className="inline-flex items-center gap-2 rounded-lg px-5 py-3 text-lg font-medium text-white bg-chrome-cta hover:bg-chrome-cta-hover active:bg-chrome-cta-active shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-chrome"
-                href={ctaHref}
-                radius="sm"
-                size="lg"
-                variant="solid"
-              >
-                {ctaLabel}
-              </Button>
-            </ButtonGradientWrapper>
+            <Button href={ctaHref} size="lg">
+              {ctaLabel}
+            </Button>
           </div>
 
           {/* Micro-trust row */}

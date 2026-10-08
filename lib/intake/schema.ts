@@ -56,7 +56,7 @@ export const IntakeSchema = z.object({
 
 export type IntakeData = z.infer<typeof IntakeSchema>;
 
-// Lightweight "Free Lead System Review" modal — the primary homepage conversion path.
+// Lightweight "Free Lead Leak Review" modal — the primary homepage conversion path.
 export const LeadReviewSchema = z.object({
   name: z.string().min(2, "Name is required"),
   business: z.string().min(1, "Business name is required"),

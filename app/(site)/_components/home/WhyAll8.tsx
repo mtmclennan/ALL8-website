@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Target, Shield, LineChart } from "lucide-react";
 
 import { Card } from "../SectionWrapper";
@@ -13,13 +14,26 @@ type WhyData = {
   cards: { title: string; description: string; icon: string; color: string }[];
 };
 
+type FounderData = {
+  name: string;
+  role: string;
+  paragraphs: string[];
+  image: { src: string; alt: string; width: number; height: number };
+};
+
 const ICONS: Record<string, typeof Target> = {
   target: Target,
   shield: Shield,
   chart: LineChart,
 };
 
-export default function WhyAll8({ data }: { data: WhyData }) {
+export default function WhyAll8({
+  data,
+  founder,
+}: {
+  data: WhyData;
+  founder: FounderData;
+}) {
   return (
     <section className="py-20 max-[960px]:py-16" id="why">
       <div className="mx-auto max-w-[1160px] px-6 sm:px-10">
@@ -27,7 +41,7 @@ export default function WhyAll8({ data }: { data: WhyData }) {
           <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
             {data.eyebrow}
           </div>
-          <h2 className="text-[clamp(30px,3.4vw,46px)] font-extrabold leading-[1.06] tracking-[-.022em]">
+          <h2 className="all8-h2 font-extrabold leading-[1.06] tracking-[-.022em]">
             {data.title}
           </h2>
           <p className="mt-3.5 max-w-[620px] text-[17px] leading-relaxed text-white/70">
@@ -63,6 +77,25 @@ export default function WhyAll8({ data }: { data: WhyData }) {
               </Reveal>
             );
           })}
+        </div>
+
+        <div className="mt-8 flex flex-col gap-6 rounded-2xl border border-white/[0.09] bg-white/[0.036] p-7 sm:flex-row sm:items-center">
+          <Image
+            alt={founder.image.alt}
+            className="h-24 w-24 flex-shrink-0 rounded-2xl object-cover"
+            height={96}
+            src={founder.image.src}
+            width={96}
+          />
+          <div>
+            <h3 className="all8-h3 font-bold">Work directly with Matt</h3>
+            <p className="mt-2 text-sm leading-relaxed text-white/70">
+              {founder.paragraphs[0]}
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-white/60">
+              {founder.name} · {founder.role}. {founder.paragraphs[2]}
+            </p>
+          </div>
         </div>
       </div>
     </section>

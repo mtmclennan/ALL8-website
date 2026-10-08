@@ -1,5 +1,7 @@
 # ALL8 Webworks
 
+For current business positioning, offers, pricing, information architecture, and design rules, see [AGENTS.md](AGENTS.md). Screenshots and architecture examples below may show earlier site iterations.
+
 ALL8 Webworks is a production-grade, SEO-focused web platform for contractor and service businesses.
 
 This project was intentionally built to demonstrate **real full-stack engineering competency**: performance-first frontend architecture, secure server-side workflows, typed content pipelines, and reliable third-party integrations that mirror real business operations.
@@ -25,8 +27,8 @@ Real captures of the running site (see [docs/portfolio-screenshots.md](docs/port
 
 ### Lead-journey model
 
-![Service overview showing the five-step lead journey](screenshots/services-overview.png)
-*The lead-journey model that structures the site's service pages.*
+![Historical service overview showing the earlier five-step lead journey](screenshots/services-overview.png)
+*Historical service overview. The current four-stage system is defined in [AGENTS.md](AGENTS.md).*
 
 ### Mobile
 

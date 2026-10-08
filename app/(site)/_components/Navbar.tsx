@@ -57,7 +57,7 @@ const Navbar = () => {
           <div className="flex min-w-0 items-center gap-3">
             <Link
               aria-label="Visit the ALL8 Webworks homepage"
-              className="flex flex-shrink-0 items-center"
+              className="flex min-h-11 flex-shrink-0 items-center rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue"
               href="/"
             >
               <Logo showMark={false} size="nav" variant="horizontal" />
@@ -70,7 +70,7 @@ const Navbar = () => {
             <ul className="flex items-center gap-4 text-sm font-semibold sm:gap-6">
               <li className="max-[520px]:hidden">
                 <Link
-                  className="text-white/70 hover:text-white"
+                  className="inline-flex min-h-11 items-center rounded-lg text-white/70 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue"
                   href="/hire-matt#projects"
                 >
                   Work
@@ -78,21 +78,21 @@ const Navbar = () => {
               </li>
               <li className="max-[520px]:hidden">
                 <Link
-                  className="text-white/70 hover:text-white"
+                  className="inline-flex min-h-11 items-center rounded-lg text-white/70 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue"
                   href="/work/service-business-growth-case-study"
                 >
                   Case study
                 </Link>
               </li>
               <li>
-                <a
-                  className="inline-flex min-h-11 items-center rounded-full bg-[#0866cf] px-4 py-2 font-bold text-white hover:bg-[#075bbb]"
+                <Button
+                  className="px-4"
                   data-cta="hire-nav-contact"
                   data-cta-event="hire_contact_click"
                   href="mailto:hello@all8webworks.com?subject=Opportunity%20for%20Matt"
                 >
                   Contact
-                </a>
+                </Button>
               </li>
             </ul>
           </nav>
@@ -115,16 +115,31 @@ const Navbar = () => {
       id="nav"
     >
       <div className="mx-auto flex h-[68px] max-w-[1160px] items-center gap-2 px-6 sm:gap-5 xl:gap-8 sm:px-10">
-        <Link className="flex h-full flex-shrink-0 items-center" href="/">
+        <Link
+          className="flex h-full flex-shrink-0 items-center rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue"
+          href="/"
+        >
           <Logo size="sm" variant="horizontal" />
         </Link>
 
         <nav aria-label="Primary" className="ml-2 max-[1100px]:hidden">
-          <ul className="flex items-center gap-7">
+          <ul className="flex items-center gap-5">
             {siteConfig.navItems.map((item) => (
               <li key={item.href}>
                 <Link
-                  className="text-sm font-medium text-white/70 transition-colors hover:text-white"
+                  aria-current={
+                    pathname === item.href ||
+                    pathname.startsWith(`${item.href}/`)
+                      ? "page"
+                      : undefined
+                  }
+                  className={clsx(
+                    "inline-flex min-h-11 items-center whitespace-nowrap rounded-lg text-sm font-medium transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue",
+                    pathname === item.href ||
+                      pathname.startsWith(`${item.href}/`)
+                      ? "text-white"
+                      : "text-white/70",
+                  )}
                   href={item.href}
                 >
                   {item.label}
@@ -136,20 +151,20 @@ const Navbar = () => {
 
         <div className="ml-auto flex items-center gap-4 max-[1100px]:hidden">
           <a
-            className="inline-flex items-center whitespace-nowrap gap-[7px] text-sm font-bold text-white hover:text-accent-blue"
+            className="inline-flex min-h-11 items-center whitespace-nowrap gap-[7px] text-sm font-bold text-white hover:text-accent-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue max-[1500px]:hidden"
             href={telHref}
           >
             <Phone className="text-accent-blue" size={15} />
             {siteConfig.phone}
           </a>
-          <Button size="md" onClick={openModal}>
-            Get My Free Lead System Review
+          <Button className="whitespace-nowrap" size="md" onClick={openModal}>
+            Get My Free Lead Leak Review
           </Button>
         </div>
 
         <a
           aria-label={`Call ${siteConfig.phone}`}
-          className="ml-auto hidden min-h-11 min-w-11 justify-center items-center px-1.5 max-[1100px]:flex"
+          className="ml-auto hidden min-h-11 min-w-11 justify-center items-center rounded-lg px-1.5 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue max-[1100px]:flex"
           href={telHref}
         >
           <Phone className="text-accent-blue" size={17} />
@@ -158,8 +173,8 @@ const Navbar = () => {
         <button
           aria-controls="navPanel"
           aria-expanded={menuOpen}
-          aria-label="Menu"
-          className="hidden min-h-11 min-w-11 items-center justify-center max-[1100px]:flex"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          className="hidden min-h-11 min-w-11 items-center justify-center rounded-lg hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue max-[1100px]:flex"
           type="button"
           onClick={() => setMenuOpen((v) => !v)}
         >
@@ -169,8 +184,10 @@ const Navbar = () => {
 
       <div
         className={clsx(
-          "hidden overflow-hidden border-t border-white/[0.08] bg-background transition-[max-height] duration-300 ease-out max-[1100px]:block",
-          menuOpen ? "max-h-[520px]" : "max-h-0 border-t-0",
+          "hidden border-t border-white/[0.08] bg-background transition-[max-height] duration-300 ease-out max-[1100px]:block",
+          menuOpen
+            ? "max-h-[calc(100dvh-68px)] overflow-y-auto"
+            : "max-h-0 overflow-hidden border-t-0",
         )}
         id="navPanel"
         inert={!menuOpen}
@@ -179,7 +196,12 @@ const Navbar = () => {
           {siteConfig.navMenuItems.map((item) => (
             <Link
               key={item.href}
-              className="block border-b border-white/[0.08] px-1 py-3.5 text-[17px] font-semibold text-white/70 hover:text-white"
+              aria-current={
+                pathname === item.href || pathname.startsWith(`${item.href}/`)
+                  ? "page"
+                  : undefined
+              }
+              className="block min-h-11 border-b border-white/[0.08] px-1 py-3.5 text-[17px] font-semibold text-white/70 hover:bg-white/5 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue"
               href={item.href}
             >
               {item.label}
@@ -192,10 +214,10 @@ const Navbar = () => {
               openModal();
             }}
           >
-            Get My Free Lead System Review
+            Get My Free Lead Leak Review
           </Button>
           <a
-            className="mt-2.5 flex min-h-11 items-center justify-center gap-2 text-[15px] font-bold text-white/70"
+            className="mt-2.5 flex min-h-11 items-center justify-center gap-2 rounded-lg text-[15px] font-bold text-white/70 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue"
             href={telHref}
           >
             <Phone className="text-accent-blue" size={15} />

@@ -48,7 +48,7 @@ export default function LeadJourney({ data }: { data: JourneyData }) {
           <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
             {data.eyebrow}
           </div>
-          <h2 className="text-[clamp(30px,3.4vw,46px)] font-extrabold leading-[1.06] tracking-[-.022em]">
+          <h2 className="all8-h2 font-extrabold leading-[1.06] tracking-[-.022em]">
             {data.title}
           </h2>
           <p className="mx-auto mt-3.5 max-w-[560px] text-[17px] leading-relaxed text-white/70">
@@ -65,7 +65,7 @@ export default function LeadJourney({ data }: { data: JourneyData }) {
             return (
               <Reveal key={step.title} className="relative" index={i}>
                 <Link
-                  className="group block h-full rounded-2xl border border-white/[0.08] bg-white/[0.036] p-[26px_16px] text-center transition-colors hover:border-white/20 hover:bg-white/[0.058] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue"
+                  className="group block h-full min-h-44 cursor-pointer rounded-2xl border border-white/[0.08] bg-white/[0.036] p-[26px_16px] text-center transition-colors hover:border-white/20 hover:bg-white/[0.058] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue"
                   href={STEP_HREF[step.icon]}
                 >
                   <div

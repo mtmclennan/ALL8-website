@@ -74,12 +74,12 @@ export default async function BlogIndexPage() {
       </section>
       <FinalCta
         data={{
-          eyebrow: "Free Lead System Review",
+          eyebrow: "Free Lead Leak Review",
           title: "Rather Skip the Reading?",
           titleAccent: "We'll Just Tell You.",
           subtitle:
-            "Fifteen minutes on the path a customer takes to reach you — search, site, phone, follow-up, tracking — and which stage is costing you the most.",
-          ctaLabel: "Get My Free Lead System Review",
+            "Send your business and website details. Matt will review the lead path and send specific findings on what to fix first. A short call afterward is optional.",
+          ctaLabel: "Get My Free Lead Leak Review",
           micro:
             "No long-term commitment  ·  Clear recommendations  ·  Fixed scope before work begins",
           secondary: { label: "Or just text us", href: "/contact" },

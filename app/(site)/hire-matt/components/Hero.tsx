@@ -33,12 +33,13 @@ export default function Hero({ data }: { data: HireMattPageData["hero"] }) {
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.32fr_.68fr] lg:gap-16">
           <Reveal>
             <div className="mb-[26px] inline-flex items-start gap-2.5 rounded-full border border-[rgba(34,197,94,.24)] bg-[rgba(34,197,94,.09)] py-2 pl-3 pr-4 text-[12.5px] font-semibold leading-[1.45] tracking-[.03em] text-[#86e0a8]">
-              <span className="mt-[5px] h-[7px] w-[7px] flex-shrink-0 rounded-full bg-stage-win shadow-[0_0_8px_#22c55e]" />
+              <span className="mt-[5px] h-[7px] w-[7px] flex-shrink-0 rounded-full bg-accent-blue" />
               {data.pill}
             </div>
 
-            <h1 className="mb-6 text-[clamp(38px,4.9vw,68px)] font-black leading-[.98] tracking-[-.035em]">
+            <h1 className="mb-6 all8-h1 font-black leading-[.98] tracking-[-.035em]">
               {data.titlePrefix}
+              {" "}
               <br />
               <span className="text-accent-blue">{data.titleEm}</span>
             </h1>

@@ -1,5 +1,7 @@
 # Phase 2 Information Architecture Audit
 
+> Historical audit of the earlier site structure. `AGENTS.md` now defines the current System → Capabilities → Plans model and the Free Lead Leak Review name. Old service and CTA labels below document what was present then; they do not authorize future copy or pricing.
+
 ## Repository findings
 
 - Phase 1 canonical, redirect, robots, sitemap, metadata, proof, and `/hire-matt` separation remain intact.

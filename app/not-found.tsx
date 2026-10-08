@@ -46,7 +46,7 @@ export default function NotFound() {
         <div className="flex flex-wrap items-center justify-center gap-3.5">
           <Button href="/">Back to Home</Button>
           <Button variant="ghost" onClick={openModal}>
-            Get My Free Lead System Review
+            Get My Free Lead Leak Review
           </Button>
         </div>
 

@@ -16,6 +16,16 @@ export type ArticleImageValue = {
   sourceUrl?: string;
 };
 
+export function getCoverImageAlt(value: unknown, fallback: string) {
+  if (typeof value === "object" && value !== null && "alt" in value) {
+    const alt = value.alt;
+
+    if (typeof alt === "string" && alt.trim()) return alt.trim();
+  }
+
+  return fallback;
+}
+
 function assetDimensions(value: ArticleImageValue): Dimensions | null {
   const dimensions = value.assetMetadata?.dimensions;
 

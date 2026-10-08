@@ -12,7 +12,7 @@
     "subtitleStrong": "So we changed what we sell.",
     "primaryLabel": "Read what changed",
     "primaryHref": "#story",
-    "secondaryLabel": "Get My Free Lead System Review",
+    "secondaryLabel": "Get My Free Lead Leak Review",
     "geo": "Owner-led  ·  Remote-first  ·  Eastern Time"
   },
 
@@ -67,7 +67,7 @@
     "title": "Four Things We Don't Bend On",
     "items": [
       { "n": "01", "title": "Diagnosis before proposal", "body": "We look at the whole path — search, site, forms, phone, follow-up, tracking — before recommending anything. If the highest-impact fix is something we don't sell, we'll say so." },
-      { "n": "02", "title": "Your accounts, your data", "body": "Your domain, content, ad accounts, analytics and customer records stay in your name. Recurring services are identified clearly, and website code transfer follows the published subscription terms." },
+      { "n": "02", "title": "Your accounts, your data", "body": "Your domain, content, ad accounts, analytics and customer records stay in your name. Scope and recurring fees are explained before work begins." },
       { "n": "03", "title": "Measured, not asserted", "body": "Call and form tracking goes in early, so the work can be judged on leads and sources rather than impressions and adjectives. It also tells us when we've fixed the wrong thing." },
       { "n": "04", "title": "Use what's already working", "body": "If your team already uses a CRM, quoting tool or scheduling software, we connect to it instead of replacing it. New tools get recommended when the current ones genuinely can't do the job." }
     ]
@@ -106,17 +106,17 @@
   },
 
   "finalCta": {
-    "eyebrow": "Free Lead System Review",
+    "eyebrow": "Free Lead Leak Review",
     "title": "Find Out Where You're",
     "titleAccent": "Losing the Work.",
-    "subtitle": "Spend 15 minutes walking through the path a customer takes from search to contact to follow-up. We'll show you where the biggest gaps appear to be, and what we'd fix first.",
+    "subtitle": "Send your business and website details. Matt will review the lead path and send specific findings on the biggest gaps and what to fix first. A short call afterward is optional.",
     "checklist": [
       "Where you rank locally today",
       "What your site does with the visitors it gets",
       "What happens to a lead after it comes in",
       "Which stage to fix first"
     ],
-    "ctaLabel": "Get My Free Lead System Review",
+    "ctaLabel": "Get My Free Lead Leak Review",
     "micro": "No long-term commitment  ·  Clear recommendations  ·  Fixed scope before work begins"
   }
 }

@@ -4,7 +4,7 @@ export const siteConfig = {
   name: "ALL8 Webworks",
   description:
     "Connected lead-generation systems for service businesses across the United States and Canada.",
-  // Contact is deliberately excluded — it competes with the primary conversion (Free Lead System Review).
+  // Contact is deliberately excluded — it competes with the primary conversion (Free Lead Leak Review).
   navItems: [
     {
       label: "How It Works",
@@ -15,7 +15,11 @@ export const siteConfig = {
       href: "/services",
     },
     {
-      label: "Results",
+      label: "Pricing",
+      href: "/pricing",
+    },
+    {
+      label: "Work",
       href: "/work",
     },
     {
@@ -37,7 +41,11 @@ export const siteConfig = {
       href: "/services",
     },
     {
-      label: "Results",
+      label: "Pricing",
+      href: "/pricing",
+    },
+    {
+      label: "Work",
       href: "/work",
     },
     {

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Search } from "lucide-react";
+import { ArrowUpRight, Search } from "lucide-react";
 
 import { STAGE_HEX, type Stage } from "@/lib/utils/stage";
 import { useLeadModal } from "@/app/(site)/_components/LeadModalProvider";
@@ -52,11 +52,11 @@ export default function ServicesHero({ data }: { data: ServicesHeroData }) {
       <div className="relative z-[2] mx-auto max-w-[1160px] px-6 py-24 sm:px-10 sm:py-[96px]">
         <div className="max-w-[820px]">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[rgba(0,118,255,.22)] bg-[rgba(0,118,255,.1)] py-1.5 pl-2.5 pr-3.5 text-[12.5px] font-semibold tracking-[.05em] text-accent-blue">
-            <span className="h-[7px] w-[7px] flex-shrink-0 rounded-full bg-stage-win shadow-[0_0_8px_#22c55e]" />
+            <span className="h-[7px] w-[7px] flex-shrink-0 rounded-full bg-accent-blue" />
             {data.pill}
           </div>
 
-          <h1 className="mb-[22px] text-[clamp(40px,4.6vw,66px)] font-black leading-[1] tracking-[-.03em]">
+          <h1 className="mb-[22px] all8-h1 font-black leading-[1] tracking-[-.03em]">
             {data.titlePrefix}
             <span className="text-accent-blue">{data.titleEm}</span>
           </h1>
@@ -71,7 +71,7 @@ export default function ServicesHero({ data }: { data: ServicesHeroData }) {
           <div className="mb-[22px] flex flex-wrap items-center gap-3.5">
             <Button onClick={openModal}>
               <Search size={16} strokeWidth={2.5} />
-              Get My Free Lead System Review
+              Get My Free Lead Leak Review
             </Button>
             <a
               className="group inline-flex items-center gap-[7px] px-1 py-3.5 text-[15px] font-bold text-accent-blue hover:text-[#8ec5ff]"
@@ -91,17 +91,21 @@ export default function ServicesHero({ data }: { data: ServicesHeroData }) {
             {data.badges.map((b) => (
               <Link
                 key={b.label}
-                className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/[0.08] bg-white/5 px-[15px] py-2 text-[13px] font-semibold text-white/70 transition-colors hover:border-white/30 hover:bg-white/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue"
+                className="all8-stage-chip group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue"
                 href={BADGE_HREF[b.stage]}
               >
                 <span
                   className="h-[7px] w-[7px] flex-shrink-0 rounded-full"
                   style={{
                     backgroundColor: STAGE_HEX[b.stage],
-                    boxShadow: `0 0 7px ${STAGE_HEX[b.stage]}`,
                   }}
                 />
                 {b.label}
+                <ArrowUpRight
+                  aria-hidden="true"
+                  className="text-white/40 group-hover:text-white"
+                  size={13}
+                />
               </Link>
             ))}
           </div>

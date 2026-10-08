@@ -55,21 +55,23 @@ export default function StickyCta() {
 
   return (
     <div
+      aria-hidden={!show}
       className={clsx(
         "fixed inset-x-0 z-[180] hidden items-center gap-2.5 border-t border-white/[0.08] bg-background/95 px-4 backdrop-blur-xl transition-[bottom] duration-300 ease-out max-[960px]:flex",
         "py-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))]",
         show ? "bottom-0" : "-bottom-40",
       )}
+      inert={!show}
     >
       <Button
         className="flex-1 justify-center whitespace-normal text-center"
         onClick={openModal}
       >
-        Get My Free Lead System Review
+        Get My Free Lead Leak Review
       </Button>
       <a
         aria-label={`Call ${siteConfig.phone}`}
-        className="grid h-12 w-12 flex-shrink-0 place-items-center rounded-full border-[1.5px] border-white/[0.14] text-white hover:bg-white/[0.06]"
+        className="grid h-12 w-12 flex-shrink-0 place-items-center rounded-full border border-white/25 text-white hover:border-accent-blue hover:bg-white/[0.06] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue"
         href={telHref}
       >
         <Phone size={19} />

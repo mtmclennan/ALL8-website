@@ -59,9 +59,10 @@ export default function RelatedArticles({
             if (!slug || !article.title) return null;
 
             return (
-              <article
+              <Link
                 key={article._id ?? slug}
-                className="group rounded-2xl border border-foreground/10 bg-background/70 p-6 transition-all duration-300 hover:border-blue-400/50 hover:shadow-xl"
+                className="group block h-full rounded-2xl border border-foreground/10 bg-background/70 p-6 transition-[border-color,background-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-accent-blue/60 hover:bg-content2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue motion-reduce:transform-none"
+                href={`/blog/${slug}`}
               >
                 <div className="mb-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-foreground/50">
                   {article.category?.title ? (
@@ -74,13 +75,8 @@ export default function RelatedArticles({
                   ) : null}
                 </div>
 
-                <h3 className="text-xl font-semibold leading-tight text-white">
-                  <Link
-                    className="outline-none transition-colors group-hover:text-blue-300 focus-visible:text-blue-300 focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-4 focus-visible:ring-offset-background"
-                    href={`/blog/${slug}`}
-                  >
-                    {article.title}
-                  </Link>
+                <h3 className="text-xl font-semibold leading-tight text-white transition-colors group-hover:text-accent-blue group-focus-visible:text-accent-blue">
+                  {article.title}
                 </h3>
 
                 {article.excerpt ? (
@@ -88,7 +84,7 @@ export default function RelatedArticles({
                     {article.excerpt}
                   </p>
                 ) : null}
-              </article>
+              </Link>
             );
           })}
         </div>

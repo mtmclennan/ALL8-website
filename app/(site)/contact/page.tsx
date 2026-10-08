@@ -23,8 +23,8 @@ export default function ContactPage() {
   return (
     <>
       <ContactHero data={contactPageData.hero} />
+      <FormSection />
       <ChannelsSection data={contactPageData.channels} />
-      <FormSection data={contactPageData.form} />
       <NextSteps data={contactPageData.next} />
       <FinalCta
         data={{

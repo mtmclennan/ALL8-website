@@ -25,7 +25,7 @@ export default function SelectedProjects({
           <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
             {data.eyebrow}
           </div>
-          <h2 className="text-[clamp(30px,3.4vw,46px)] font-extrabold leading-[1.06] tracking-[-.024em]">
+          <h2 className="all8-h2 font-extrabold leading-[1.06] tracking-[-.024em]">
             {data.title}
           </h2>
           <p className="mt-4 max-w-[620px] text-[17px] leading-relaxed text-white/70">
@@ -36,7 +36,7 @@ export default function SelectedProjects({
         <div className="grid grid-cols-1 gap-[22px] lg:grid-cols-2">
           {data.cards.map((card, i) => (
             <Reveal key={card.name} index={i}>
-              <article className="flex h-full flex-col rounded-2xl bg-white/[0.036] p-[30px] ring-1 ring-white/[0.08] transition-all duration-300 hover:-translate-y-[3px] hover:bg-white/[0.058] hover:shadow-[0_20px_50px_-14px_rgba(0,0,0,.55)] sm:p-[32px]">
+              <article className="flex h-full flex-col rounded-2xl bg-white/[0.036] p-[30px] ring-1 ring-white/[0.08] sm:p-[32px]">
                 {card.brand && (
                   <div
                     aria-hidden="true"

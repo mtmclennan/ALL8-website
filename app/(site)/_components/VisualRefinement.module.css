@@ -11,36 +11,18 @@
   outline: 2px solid #8ec5ff;
   outline-offset: 4px;
 }
-.surface a:hover {
+.surface a:not(:global(.group)):hover {
   text-decoration: underline;
   text-underline-offset: 4px;
 }
-.surface [data-button-variant] {
-  min-height: 48px;
-  max-width: 100%;
-  white-space: normal;
-}
-.surface [data-button-variant="primary"] {
-  background: #0866cf;
-  box-shadow: 0 6px 18px -8px #0076ff66;
-}
-.surface [data-button-variant="primary"]:hover {
-  background: #075bbb;
-  box-shadow: 0 8px 22px -10px #0076ff80;
+.surface [data-button-variant]:hover {
   text-decoration: none;
-}
-.surface [data-button-variant="ghost"] {
-  border-width: 1px;
-}
-.surface [data-button-variant]:active {
-  transform: translateY(0);
 }
 .homeHero {
   min-height: 0;
   padding-top: 68px;
 }
 .homeHero h1 {
-  font-size: clamp(40px, 4.2vw, 60px);
   line-height: 1.04;
 }
 .hireHero {
@@ -137,9 +119,6 @@
   }
 }
 @media (max-width: 639px) {
-  .homeHero h1 {
-    font-size: clamp(2.125rem, 9.3vw, 2.5rem);
-  }
   .homeHero p[class*="text-lg"] {
     font-size: 1rem;
     line-height: 1.6;

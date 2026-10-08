@@ -5,8 +5,15 @@ import Reveal from "@/app/(site)/_components/home/Reveal";
 import { Card } from "@/app/(site)/_components/SectionWrapper";
 import { getServiceBySlug } from "@/data/services";
 
-export default function ServiceCrossLinks({ slugs }: { slugs: string[] }) {
-  const services = slugs
+export default function ServiceCrossLinks({
+  currentSlug,
+  slugs,
+}: {
+  currentSlug: string;
+  slugs: string[];
+}) {
+  const services = Array.from(new Set(slugs))
+    .filter((slug) => slug !== currentSlug)
     .map((slug) => getServiceBySlug(slug))
     .filter((s): s is NonNullable<typeof s> => !!s);
 
@@ -19,8 +26,8 @@ export default function ServiceCrossLinks({ slugs }: { slugs: string[] }) {
           <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
             Related Services
           </div>
-          <h2 className="text-[clamp(26px,2.8vw,36px)] font-extrabold leading-[1.08] tracking-[-.022em]">
-            Often Paired With This
+          <h2 className="all8-h2 font-extrabold leading-[1.08] tracking-[-.022em]">
+            Related services
           </h2>
         </Reveal>
 
@@ -30,10 +37,14 @@ export default function ServiceCrossLinks({ slugs }: { slugs: string[] }) {
 
             return (
               <Reveal key={service.slug} index={i}>
-                <Card className="h-full p-7" variant="lift">
-                  <Link
-                    className="group flex h-full flex-col"
-                    href={`/services/${service.slug}`}
+                <Link
+                  className="group block h-full rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue"
+                  href={`/services/${service.slug}`}
+                >
+                  <Card
+                    interactive
+                    className="flex h-full flex-col p-7"
+                    variant="lift"
                   >
                     <div className="mb-4 grid h-11 w-11 flex-shrink-0 place-items-center rounded-xl border border-[rgba(0,118,255,.22)] bg-[rgba(0,118,255,.12)] text-accent-blue">
                       <Icon height={20} strokeWidth={2} width={20} />
@@ -45,15 +56,15 @@ export default function ServiceCrossLinks({ slugs }: { slugs: string[] }) {
                       {service.short}
                     </p>
                     <span className="mt-auto inline-flex items-center gap-1.5 text-[13.5px] font-bold text-accent-blue">
-                      View service
+                      Explore {service.shortTitle || service.title}
                       <ArrowRight
                         className="transition-transform group-hover:translate-x-[3px]"
                         size={13}
                         strokeWidth={2.5}
                       />
                     </span>
-                  </Link>
-                </Card>
+                  </Card>
+                </Link>
               </Reveal>
             );
           })}

@@ -42,28 +42,28 @@ const results = [
 
 const workflow = [
   {
-    name: "Ooma call events",
+    name: "Log each incoming call automatically",
     status: "In validation",
     description:
-      "Validate reliable call-event inputs before automating downstream actions.",
+      "Validate reliable Ooma call events before automating downstream actions.",
   },
   {
-    name: "Zapier event routing",
+    name: "Send call details to the right workflow",
     status: "In validation",
     description:
-      "Validate field mapping, deduplication and failure handling across the workflow.",
+      "Validate Zapier field mapping, deduplication and failure handling across the workflow.",
   },
   {
-    name: "Estivor contact and activity matching",
+    name: "Match calls to customer records",
     status: "In validation",
     description:
-      "Validate how call activity associates with the correct customer or opportunity record.",
+      "Validate how Estivor associates call activity with the correct customer or opportunity record.",
   },
   {
-    name: "Missed-call recovery and escalation",
+    name: "Prompt a callback when a call is missed",
     status: "Planned",
     description:
-      "Design callback tasks, Needs Attention states and follow-up rules after validation.",
+      "Design callback tasks, Needs Attention status and follow-up rules after validation.",
   },
 ];
 
@@ -127,7 +127,7 @@ export default function GrowthCaseStudyPage() {
         <p className="text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
           Featured Case Study · Service Business Growth
         </p>
-        <h1 className="mt-4 text-[clamp(40px,6vw,72px)] font-black leading-[.98] tracking-[-.04em]">
+        <h1 className="mt-4 all8-h1 font-black leading-[.98] tracking-[-.04em]">
           From Search Growth to a Better Lead-Handling System
         </h1>
         <p className="mt-7 max-w-[760px] text-xl leading-relaxed text-white/70">
@@ -191,7 +191,7 @@ export default function GrowthCaseStudyPage() {
                 ].map((item) => (
                   <li key={item} className="flex gap-3">
                     <CheckCircle2
-                      className="mt-1 flex-shrink-0 text-stage-win"
+                      className="mt-1 flex-shrink-0 text-accent-blue"
                       size={20}
                     />
                     {item}
@@ -221,9 +221,9 @@ export default function GrowthCaseStudyPage() {
             </p>
             <h2 className="mt-3 text-2xl font-extrabold">System response</h2>
             <p className="mt-3 leading-relaxed text-white/60">
-              The next system connects call events, routing and opportunity
-              records. The labels below deliberately separate validated work
-              from planned capability.
+              The next system aims to make every call visible and easier to
+              follow up. The implementation details and status below show what
+              is being validated and what is still planned.
             </p>
             <ol className="mt-7 space-y-5">
               {workflow.map((step) => (
@@ -261,7 +261,7 @@ export default function GrowthCaseStudyPage() {
             data-cta="case-study-lead-system-review"
             href="/contact"
           >
-            Get My Free Lead System Review <ArrowRight size={17} />
+            Get My Free Lead Leak Review <ArrowRight size={17} />
           </Link>
         </section>
       </div>

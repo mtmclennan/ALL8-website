@@ -147,7 +147,7 @@ export default function MissedCallRevenueCalculatorPage() {
         <p className="text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
           Respond &amp; Follow Up
         </p>
-        <h1 className="mt-4 text-[clamp(38px,6vw,66px)] font-black leading-[.98] tracking-[-.04em]">
+        <h1 className="mt-4 all8-h1 font-black leading-[.98] tracking-[-.04em]">
           Missed Call Revenue Calculator
         </h1>
         <p className="mx-auto mt-5 max-w-[760px] text-xl leading-relaxed text-white/70">

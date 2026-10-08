@@ -13,6 +13,7 @@ import { submitLeadReview } from "@/app/actions/submit-lead-review";
 import { siteConfig } from "@/config/site";
 import { toTelHref } from "@/lib/utils/phone";
 import Button from "@/app/(site)/_components/ui/Button";
+import RecaptchaDisclosure from "@/app/(site)/_components/RecaptchaDisclosure";
 import { trackFormStart, trackGenerateLead } from "@/lib/analytics/dataLayer";
 
 const CHALLENGES = [
@@ -28,7 +29,7 @@ const CHALLENGES = [
 const initialState: LeadActionState = { ok: false };
 
 const inputClass =
-  "w-full min-h-[46px] rounded-[10px] border border-white/[0.08] bg-white/[0.045] px-3.5 py-3 text-base text-white placeholder:text-[#5A7391] transition-colors focus:border-primary focus:bg-white/[0.07] focus:outline-none";
+  "w-full min-h-[46px] rounded-[10px] border border-white/[0.08] bg-white/[0.045] px-3.5 py-3 text-base text-white placeholder:text-[#5A7391] transition-colors focus:border-primary focus:bg-white/[0.07]";
 
 const inputErrorClass = "border-red-400/60 focus:border-red-400/60";
 
@@ -137,19 +138,18 @@ export default function InlineLeadForm() {
   };
 
   return (
-    <div className="mx-auto max-w-[620px] rounded-[20px] border border-white/[0.08] bg-white/[0.036] p-9 sm:p-[38px]">
-      <Script
-        src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ""}`}
-        strategy="lazyOnload"
-      />
+    <div className="mx-auto max-w-[620px] rounded-[20px] border border-white/[0.08] bg-white/[0.036] p-6 sm:p-[38px]">
+      {process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && (
+        <Script
+          src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+          strategy="lazyOnload"
+        />
+      )}
       {!done ? (
         <>
-          <h2 className="mb-2 text-2xl font-extrabold tracking-[-.022em]">
-            Get Your Free Lead System Review
-          </h2>
-          <p className="mb-7 text-[15px] leading-relaxed text-white/70">
-            Fifteen minutes. We walk the path a customer takes to reach you and
-            show you where the biggest gaps appear to be.
+          <p className="mb-5 text-[15px] leading-relaxed text-white/70">
+            Takes under a minute. Matt will send specific findings and what to
+            fix first. A short follow-up call is optional.
           </p>
 
           <form
@@ -323,13 +323,14 @@ export default function InlineLeadForm() {
                 Privacy Policy
               </Link>
             </p>
+            <RecaptchaDisclosure />
           </form>
         </>
       ) : (
         <div className="py-4 text-center">
           <div className="mx-auto mb-5 grid h-[60px] w-[60px] place-items-center rounded-full border border-[rgba(34,197,94,.32)] bg-[rgba(34,197,94,.13)]">
             <CheckCircle2
-              className="text-stage-win"
+              className="text-emerald-400"
               size={26}
               strokeWidth={2.6}
             />

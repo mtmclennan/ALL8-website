@@ -11,10 +11,10 @@
       { "label": "Respond faster", "stage": "follow" },
       { "label": "Win more work", "stage": "win" }
     ],
-    "ctaLabel": "See Where I'm Losing Leads",
+    "ctaLabel": "Get My Free Lead Leak Review",
     "secondaryLabel": "See how it works",
-    "secondaryHref": "#leak",
-    "micro": "15 minutes  ·  No contracts  ·  You get the findings either way",
+    "secondaryHref": "#system",
+    "micro": "Written findings  ·  No required call  ·  You keep the review",
     "geo": "Remote-first  ·  Eastern Time",
     "image": {
       "src": "/assets/home/Mobile-Quote-Request-Dashboard.webp",
@@ -27,8 +27,8 @@
   "proofStrip": {
     "items": [
       {
-        "value": "{{proof.search.factor}}",
-        "label": "Organic Search Growth",
+        "value": "{{proof.search.range}}",
+        "label": "Google Search Clicks per Rolling 28 Days",
         "em": true
       },
       {
@@ -37,7 +37,7 @@
         "em": false
       }
     ],
-    "note": "Measured client results"
+    "note": "Search clicks: March–September 2026 · Google Business Profile website clicks: year over year"
   },
 
   "leak": {
@@ -213,13 +213,13 @@
         "text": "Better attribution and call tracking showed that **lead handling and follow-up had become a larger constraint than traffic alone.** That discovery expanded our work beyond websites and SEO into the whole lead-conversion system."
       }
     ],
-    "ctaLabel": "Get My Free Lead System Review",
+    "ctaLabel": "Get My Free Lead Leak Review",
     "secondaryLink": {
       "label": "View results and case studies",
       "href": "/work"
     },
     "visual": {
-      "title": "Lead System Review — findings",
+      "title": "Lead Leak Review — findings",
       "metrics": [],
       "rows": [
         { "label": "Get Found", "stage": "found", "status": "Improved" },
@@ -309,7 +309,7 @@
       },
       {
         "title": "Your Accounts, Your Data — No Lock-In",
-        "description": "Your domain, content, ad and analytics accounts, and customer data stay under your control. Recurring services are identified clearly, and website code transfer follows the published subscription terms.",
+        "description": "Your domain, content, ad and analytics accounts, and customer data stay under your control. Scope and recurring fees are explained before work begins.",
         "icon": "shield",
         "color": "#22c55e"
       },
@@ -343,7 +343,7 @@
     ],
     "footNote": "Measured client results. Search growth compares rolling 28-day periods during 2026; the latest window was {{proof.search.latestWindow}}. Captured local, page-one and AI-result visibility supports the story; it is point-in-time evidence, not a permanent ranking.",
     "ctaLede": "Want to see where your lead system is losing opportunities?",
-    "ctaLabel": "Get My Free Lead System Review"
+    "ctaLabel": "Get My Free Lead Leak Review"
   },
 
   "founder": {
@@ -367,15 +367,15 @@
   "faqs": [
     {
       "q": "What does ALL8 WEBWORKS actually do?",
-      "a": "ALL8 WEBWORKS helps service businesses get more opportunities and lose fewer of them. We work across four stages: getting found (local SEO, Google Business Profile, Google Ads), getting contacted (websites, landing pages, quote forms), responding and following up (lead alerts, missed-call text-back, email and SMS automation), and winning more work (CRM pipeline setup, call tracking and lead source attribution). Most engagements start with a free Lead System Review that identifies which stage looks weakest."
+      "a": "ALL8 WEBWORKS helps service businesses get more opportunities and lose fewer of them. We work across four stages: getting found (local SEO, Google Business Profile, Google Ads), getting contacted (websites, landing pages, quote forms), responding and following up (lead alerts, missed-call text-back, email and SMS automation), and winning more work (CRM pipeline setup, call tracking and lead source attribution). Most engagements start with a free Lead Leak Review that identifies which stage looks weakest."
     },
     {
       "q": "Do I need a new website?",
       "a": "Often no. Plenty of businesses have a site that's good enough and a follow-up process that's losing them jobs. If the website is the constraint we'll say so, and if it isn't we'd rather fix the part that is. The review tells you which."
     },
     {
-      "q": "What is a Lead System Review?",
-      "a": "A free 15-minute walkthrough of the whole path a customer takes to reach you: where you rank locally, what your site does with the visitors it gets, what happens to a form submission or a missed call, and whether you can tell which marketing produced a lead. You get the findings in writing whether or not you hire us."
+      "q": "What is a Lead Leak Review?",
+      "a": "Send your business and website information. Matt reviews search visibility, the website, contact and response paths, follow-up, and obvious lead leaks. You get specific findings in writing and what to fix first, whether or not you hire us. A short call to walk through them is optional."
     },
     {
       "q": "Can you work with my existing website?",
@@ -399,7 +399,7 @@
     },
     {
       "q": "Do I own what you build?",
-      "a": "Your domain, content, ad accounts, analytics and customer data are yours and stay in your name. Recurring services are identified clearly, and code transfer for an ALL8-built website follows the published Lead Generation Website subscription terms."
+      "a": "Your domain, content, ad accounts, analytics and customer data stay in your name. We explain the work scope and recurring fees before you commit."
     },
     {
       "q": "Do you work with U.S. businesses?",
@@ -407,7 +407,7 @@
     },
     {
       "q": "Do you work with Canadian businesses?",
-      "a": "Yes — Canadian service businesses have been a core part of the work from the start, and that continues. Canadian pricing and Canada-specific details will live on a dedicated page."
+      "a": "Yes. Canadian clients pay the same numeric plan prices in CAD, plus applicable HST. U.S. clients pay in USD. See the Pricing page for the plans and minimum terms."
     },
     {
       "q": "How long does a project take?",
@@ -415,22 +415,22 @@
     },
     {
       "q": "How do I get started?",
-      "a": "Book the free Lead System Review from any button on this page, or call us. Fifteen minutes, clear recommendations, and you keep the findings either way."
+      "a": "Request the free Lead Leak Review from any button on this page, or text us. Send your business and website details; Matt will send written findings and what to fix first. A follow-up call is optional."
     }
   ],
 
   "finalCta": {
-    "eyebrow": "Free Lead System Review",
+    "eyebrow": "Free Lead Leak Review",
     "title": "Find Out Where You're",
     "titleAccent": "Losing the Work.",
-    "subtitle": "Spend 15 minutes walking through the path a customer takes from search to contact to follow-up. We'll show you where the biggest gaps appear to be, and what we'd fix first.",
+    "subtitle": "Send your business and website details. Matt will review your search visibility, website, contact path and follow-up, then send specific findings and what to fix first. A short call afterward is optional.",
     "checklist": [
       "Where you rank locally today",
       "What your site does with the visitors it gets",
       "What happens to a lead after it comes in",
       "Which stage to fix first"
     ],
-    "ctaLabel": "Get My Free Lead System Review",
+    "ctaLabel": "Get My Free Lead Leak Review",
     "micro": "No long-term commitment  ·  Clear recommendations  ·  Fixed scope before work begins"
   }
 }

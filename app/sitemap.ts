@@ -96,6 +96,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const permanentPages: MetadataRoute.Sitemap = [
     "/privacy",
+    "/pricing",
     "/tools",
     "/tools/missed-call-revenue-calculator",
     "/work",

@@ -27,7 +27,7 @@ export default function MoreThanDeveloper({
           <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
             {data.eyebrow}
           </div>
-          <h2 className="text-[clamp(30px,3.4vw,46px)] font-extrabold leading-[1.06] tracking-[-.024em]">
+          <h2 className="all8-h2 font-extrabold leading-[1.06] tracking-[-.024em]">
             {data.title}
           </h2>
           <p className="mx-auto mt-4 max-w-[620px] text-[17.5px] leading-relaxed text-white/70">

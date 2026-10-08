@@ -27,13 +27,16 @@ export default function SystemRail({ data }: { data: SystemData }) {
   const { openModal } = useLeadModal();
 
   return (
-    <section className="bg-content3 py-[132px] max-[960px]:py-20" id="system">
+    <section
+      className="scroll-mt-20 bg-content3 py-[132px] max-[960px]:py-20"
+      id="system"
+    >
       <div className="mx-auto max-w-[1160px] px-6 sm:px-10">
         <Reveal className="mx-auto mb-[60px] max-w-[640px] text-center">
           <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
             {data.eyebrow}
           </div>
-          <h2 className="text-[clamp(30px,3.4vw,46px)] font-extrabold leading-[1.06] tracking-[-.022em]">
+          <h2 className="all8-h2 font-extrabold leading-[1.06] tracking-[-.022em]">
             {data.title}
           </h2>
           <p className="mx-auto mt-3.5 max-w-[560px] text-[17px] leading-relaxed text-white/70">
@@ -61,9 +64,6 @@ export default function SystemRail({ data }: { data: SystemData }) {
                   style={{
                     borderColor: hexToRgba(hex, isLast ? 0.68 : 0.42),
                     backgroundColor: isLast ? hexToRgba(hex, 0.14) : undefined,
-                    boxShadow: isLast
-                      ? `0 0 28px -4px ${hexToRgba(hex, 0.55)}`
-                      : undefined,
                   }}
                 >
                   <StageIcon hex={hex} stage={s.stage} />
@@ -84,7 +84,7 @@ export default function SystemRail({ data }: { data: SystemData }) {
                   {s.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full px-[11px] py-[5px] text-xs font-semibold"
+                      className="rounded-lg px-[11px] py-[5px] text-xs font-semibold"
                       style={{
                         backgroundColor: `${hex}17`,
                         border: `1px solid ${hex}38`,

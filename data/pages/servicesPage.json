@@ -12,7 +12,7 @@
     "subtitleStrong": "tools, not products.",
     "secondaryLabel": "Browse SEO, Websites, Ads & More",
     "secondaryHref": "#current-services",
-    "micro": "15 minutes  ·  No contracts  ·  You get the findings either way",
+    "micro": "Written findings  ·  No required call  ·  You keep the review",
     "geo": "Remote-first  ·  Eastern Time",
     "badges": [
       { "label": "Get found", "stage": "found" },
@@ -92,7 +92,7 @@
     "winBand": {
       "title": "All Four Point at One Thing: Win More Customers.",
       "subtitle": "Improving any single stage helps. Connecting all four is what changes how much work you actually book.",
-      "ctaLabel": "Get My Free Lead System Review"
+      "ctaLabel": "Get My Free Lead Leak Review"
     }
   },
 
@@ -156,17 +156,17 @@
   },
 
   "finalCta": {
-    "eyebrow": "Free Lead System Review",
+    "eyebrow": "Free Lead Leak Review",
     "title": "Find the Weakest Point in",
     "titleAccent": "Your Lead System.",
-    "subtitle": "Spend 15 minutes walking through the path a customer takes from search to contact to follow-up. We'll show you where the biggest gaps appear to be, and what we'd fix first.",
+    "subtitle": "Send your business and website details. Matt will review the lead path and send specific findings on the biggest gaps and what to fix first. A short call afterward is optional.",
     "checklist": [
       "Where you rank locally today",
       "What your site does with the visitors it gets",
       "What happens to a lead after it comes in",
       "Which stage to fix first"
     ],
-    "ctaLabel": "Get My Free Lead System Review",
+    "ctaLabel": "Get My Free Lead Leak Review",
     "micro": "No long-term commitment  ·  Clear recommendations  ·  Fixed scope before work begins"
   }
 }

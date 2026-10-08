@@ -65,7 +65,7 @@ export default function FinalCta({ data }: { data: FinalCtaData }) {
                   className="flex items-center gap-2 text-[14.5px] font-semibold text-white/70"
                 >
                   <Check
-                    className="flex-shrink-0 text-stage-win"
+                    className="flex-shrink-0 text-accent-blue"
                     size={16}
                     strokeWidth={3}
                   />
@@ -80,7 +80,7 @@ export default function FinalCta({ data }: { data: FinalCtaData }) {
           index={0}
         >
           {data.primary ? (
-            <Button pulse href={data.primary.href} size="lg">
+            <Button href={data.primary.href} size="lg">
               {data.primary.icon === "sms" ? (
                 <MessageCircle size={18} strokeWidth={2.5} />
               ) : (
@@ -89,7 +89,7 @@ export default function FinalCta({ data }: { data: FinalCtaData }) {
               {data.ctaLabel}
             </Button>
           ) : (
-            <Button pulse size="lg" onClick={openModal}>
+            <Button size="lg" onClick={openModal}>
               <Search size={18} strokeWidth={2.5} />
               {data.ctaLabel}
             </Button>

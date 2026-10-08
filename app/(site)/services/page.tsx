@@ -1,14 +1,10 @@
 import type { Metadata } from "next";
 
-import IntegrationsFlow from "../_components/home/IntegrationsFlow";
 import ProofCards from "../_components/home/ProofCards";
 import ProcessSteps from "../_components/home/ProcessSteps";
-import FounderSection from "../_components/home/FounderSection";
 import FinalCta from "../_components/home/FinalCta";
 
-import OutcomeBlocks from "./components/OutcomeBlocks";
 import CurrentServices from "./components/CurrentServices";
-import Bottleneck from "./components/Bottleneck";
 import LeadJourney from "./components/LeadJourney";
 import ServicesHero from "./components/ServicesHero";
 
@@ -32,16 +28,19 @@ const collectionJsonLd = {
       name: normalizeBrandName(servicesPageData.title),
       description: normalizeBrandName(servicesPageData.description),
       mainEntity: {
-        "@type": "OfferCatalog",
-        name: `${site.name} Services`,
-        itemListElement: servicesPageData.outcomes.blocks.map((block) => ({
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: block.label,
-            description: block.description,
-          },
-        })),
+        "@type": "ItemList",
+        name: `${site.name} Capabilities`,
+        itemListElement: servicesPageData.outcomes.blocks.map(
+          (block, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            item: {
+              "@type": "Service",
+              name: block.label,
+              description: block.description,
+            },
+          }),
+        ),
       },
     },
     {
@@ -68,18 +67,16 @@ export default function ServicesPage() {
   return (
     <>
       <script
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(collectionJsonLd).replace(/</g, "\\u003c"),
+        }}
         type="application/ld+json"
       />
       <ServicesHero data={servicesPageData.hero} />
-      <LeadJourney data={servicesPageData.journey} />
       <CurrentServices />
-      <Bottleneck data={servicesPageData.bottleneck} />
-      <OutcomeBlocks data={servicesPageData.outcomes} />
-      <IntegrationsFlow data={servicesPageData.connected} />
+      <LeadJourney data={servicesPageData.journey} />
       <ProofCards data={servicesPageData.proof} />
       <ProcessSteps data={servicesPageData.process} />
-      <FounderSection data={servicesPageData.founder} />
       <FinalCta data={servicesPageData.finalCta} />
     </>
   );

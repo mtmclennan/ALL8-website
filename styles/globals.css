@@ -5,3 +5,87 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* The disclosure beside each protected form replaces the floating badge. */
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
+/* Shared presentation scale; page-specific exceptions can keep their own size. */
+.all8-display {
+  font-size: clamp(2.5rem, 4.6vw, 4.125rem);
+}
+
+.all8-h1 {
+  font-size: clamp(2.25rem, 4.2vw, 3.5rem);
+}
+
+.all8-h2 {
+  font-size: clamp(1.75rem, 3.2vw, 2.625rem);
+}
+
+.all8-h3 {
+  font-size: clamp(1.125rem, 1.6vw, 1.25rem);
+}
+
+.all8-muted {
+  color: #a8b2c1;
+}
+
+.all8-faint {
+  color: #8d9aab;
+}
+
+.all8-stage-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgb(255 255 255 / 14%);
+  border-radius: 0.5rem;
+  background: rgb(255 255 255 / 3.5%);
+  padding: 0.375rem 0.625rem;
+  color: #a8b2c1;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+a.all8-stage-chip {
+  min-height: 2.75rem;
+  transition: border-color 200ms ease-out, background-color 200ms ease-out, color 200ms ease-out;
+}
+
+a.all8-stage-chip:hover {
+  border-color: #3d97ff;
+  background: rgb(255 255 255 / 7%);
+  color: #fff;
+}
+
+.all8-body-link {
+  color: #3d97ff;
+  text-decoration: underline;
+  text-decoration-color: rgb(61 151 255 / 45%);
+  text-underline-offset: 3px;
+  transition: color 200ms ease-out, text-decoration-color 200ms ease-out;
+}
+
+.all8-body-link:hover {
+  color: #8ec5ff;
+  text-decoration-color: currentColor;
+}
+
+:where(a, button, input, select, textarea, summary):focus-visible {
+  outline: 2px solid #3d97ff;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  :where(a, button, input, select, textarea, summary) {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

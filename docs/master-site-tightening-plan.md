@@ -1,5 +1,7 @@
 # ALL8 Webworks Master Site Tightening Tracker
 
+> Historical implementation record from August 2026. Its offer names, prices, and proposed actions are not current instructions. Use `AGENTS.md` for the approved plans, pricing, naming, design system, and future phase order. Do not reuse the $1,500 website setup price or the former prohibition on Tune-Up offers.
+
 Baseline captured on 2026-08-28 from branch `redesign/homepage` before this implementation pass.
 
 Status values: `CONFIRMED`, `ALREADY FIXED`, `NOT APPLICABLE`, `NEEDS USER INPUT`, `IMPLEMENTED`.

@@ -14,6 +14,7 @@ import {
   getArticleImageAlt,
   getArticleImageDimensions,
   getArticleImageSourceUrl,
+  getCoverImageAlt,
   type ArticleImageValue,
 } from "@/lib/blogImage";
 import { validateBlogHref } from "@/lib/blogHref";
@@ -127,7 +128,7 @@ export default function BlogPost({ post, siteOrigin }: BlogPostProps) {
     block: {
       h1: ({ children, value, index }) => (
         <h2
-          className="mb-[18px] mt-[52px] scroll-mt-24 text-[clamp(25px,2.6vw,32px)] font-extrabold leading-[1.16] tracking-[-.024em]"
+          className="mb-[18px] mt-[52px] scroll-mt-24 font-sans text-[clamp(25px,2.6vw,32px)] font-extrabold leading-[1.16] tracking-[-.024em]"
           id={idsByKey.get(value._key ?? `index:${index}`)}
         >
           {children}
@@ -135,7 +136,7 @@ export default function BlogPost({ post, siteOrigin }: BlogPostProps) {
       ),
       h2: ({ children, value, index }) => (
         <h2
-          className="mb-[18px] mt-[52px] scroll-mt-24 text-[clamp(25px,2.6vw,32px)] font-extrabold leading-[1.16] tracking-[-.024em]"
+          className="mb-[18px] mt-[52px] scroll-mt-24 font-sans text-[clamp(25px,2.6vw,32px)] font-extrabold leading-[1.16] tracking-[-.024em]"
           id={idsByKey.get(value._key ?? `index:${index}`)}
         >
           {children}
@@ -143,7 +144,7 @@ export default function BlogPost({ post, siteOrigin }: BlogPostProps) {
       ),
       h3: ({ children, value, index }) => (
         <h3
-          className="mb-3 mt-9 text-xl font-extrabold tracking-[-.018em]"
+          className="mb-3 mt-9 font-sans text-xl font-extrabold tracking-[-.018em]"
           id={idsByKey.get(value._key ?? `index:${index}`)}
         >
           {children}
@@ -373,7 +374,7 @@ export default function BlogPost({ post, siteOrigin }: BlogPostProps) {
               )}
             </div>
 
-            <h1 className="text-[clamp(36px,4.2vw,58px)] font-black leading-[1.04] tracking-[-.028em]">
+            <h1 className="all8-h1 font-black leading-[1.04] tracking-[-.028em]">
               {post.title}
             </h1>
           </div>
@@ -389,8 +390,30 @@ export default function BlogPost({ post, siteOrigin }: BlogPostProps) {
               </p>
             )}
 
+            {post.coverImage && (
+              <figure className="relative mb-10 aspect-[1200/630] w-full overflow-hidden rounded-2xl bg-content3">
+                <Image
+                  fill
+                  priority
+                  alt={getCoverImageAlt(
+                    post.coverImage,
+                    post.title ?? "Article cover",
+                  )}
+                  className="object-cover"
+                  sizes="(min-width: 1024px) 680px, (min-width: 640px) calc(100vw - 5rem), calc(100vw - 3rem)"
+                  src={urlFor(post.coverImage)
+                    .width(1200)
+                    .height(630)
+                    .fit("crop")
+                    .url()}
+                />
+              </figure>
+            )}
+
             {post.body ? (
-              <PortableText components={components} value={post.body} />
+              <div className="font-body">
+                <PortableText components={components} value={post.body} />
+              </div>
             ) : null}
 
             <div className="mt-14 border-t border-white/[0.08] pt-8">

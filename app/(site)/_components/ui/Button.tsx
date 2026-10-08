@@ -7,13 +7,12 @@ import type {
 import Link from "next/link";
 import clsx from "clsx";
 
-type Variant = "primary" | "ghost";
+type Variant = "primary" | "ghost" | "tertiary";
 type Size = "md" | "lg";
 
 type CommonProps = {
   variant?: Variant;
   size?: Size;
-  pulse?: boolean;
   className?: string;
   children: ReactNode;
 };
@@ -27,18 +26,20 @@ type ButtonAsLink = CommonProps &
 export type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-full font-bold text-[15px] tracking-[.005em] whitespace-nowrap transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue focus-visible:outline-offset-[3px] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 cursor-pointer";
+  "inline-flex min-h-12 max-w-full cursor-pointer items-center justify-center gap-2 rounded-full text-center text-[15px] font-bold tracking-[.005em] whitespace-normal transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-accent-blue active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 disabled:shadow-none disabled:hover:translate-y-0";
 
 const variants: Record<Variant, string> = {
   primary:
-    "text-white bg-gradient-to-b from-[#1e8bff] to-[#0060d6] shadow-[0_8px_28px_-6px_rgba(0,118,255,.45)] hover:-translate-y-0.5 hover:shadow-[0_14px_36px_-4px_rgba(0,118,255,.65)]",
+    "bg-brand-blue text-white shadow-[0_6px_18px_-8px_rgba(0,118,255,.5)] hover:-translate-y-0.5 hover:bg-[#0066df] hover:shadow-[0_8px_22px_-10px_rgba(0,118,255,.6)]",
   ghost:
-    "text-white bg-transparent border-[1.5px] border-white/[0.14] hover:border-white/[0.38] hover:bg-white/5",
+    "border border-white/25 bg-transparent text-white hover:border-accent-blue hover:bg-white/5",
+  tertiary:
+    "text-accent-blue underline-offset-4 hover:text-[#8ec5ff] hover:underline",
 };
 
 const sizes: Record<Size, string> = {
-  md: "px-7 py-3.5",
-  lg: "px-[34px] py-[17px] text-base",
+  md: "px-7 py-3",
+  lg: "px-[34px] py-4 text-base",
 };
 
 function isExternalHref(href: string) {
@@ -55,7 +56,6 @@ export default function Button(props: ButtonProps) {
   const {
     variant = "primary",
     size = "md",
-    pulse,
     className,
     children,
     href,
@@ -66,7 +66,6 @@ export default function Button(props: ButtonProps) {
     base,
     variants[variant],
     sizes[size],
-    pulse && "animate-cta-pulse",
     className,
   );
 

@@ -41,7 +41,7 @@ export default async function sendEmail(payload: Record<string, any>) {
   <div style="font-family: Inter, Arial, sans-serif; max-width:640px; margin:auto; border:1px solid #e5e7eb; border-radius:16px; overflow:hidden">
     <div style="background:#0B0F1A; padding:20px; text-align:center; color:#fff">
       <img src="${logo}" alt="ALL8 Webworks" style="height:44px; display:block; margin:0 auto 6px"/>
-      <h2 style="margin:0; font-weight:800; letter-spacing:.2px">New Lead System Review Request</h2>
+      <h2 style="margin:0; font-weight:800; letter-spacing:.2px">New Lead Leak Review Request</h2>
       <p style="margin:8px 0 0; opacity:.8; font-size:14px">${submitted}</p>
     </div>
     <div style="padding:22px">

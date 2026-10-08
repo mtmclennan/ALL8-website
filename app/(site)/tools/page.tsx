@@ -71,7 +71,7 @@ export default function ToolsPage() {
         <p className="text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
           Practical resources
         </p>
-        <h1 className="mt-4 text-[clamp(40px,6vw,68px)] font-black leading-[.98] tracking-[-.04em]">
+        <h1 className="mt-4 all8-h1 font-black leading-[.98] tracking-[-.04em]">
           Tools for Service Businesses
         </h1>
         <p className="mt-6 max-w-[720px] text-xl leading-relaxed text-white/70">

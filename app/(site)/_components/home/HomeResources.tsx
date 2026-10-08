@@ -53,7 +53,7 @@ export default async function HomeResources() {
               Practical field notes
             </p>
             <h2
-              className="mt-3 text-[clamp(30px,3.4vw,46px)] font-extrabold leading-[1.06] tracking-[-.022em]"
+              className="mt-3 all8-h2 font-extrabold leading-[1.06] tracking-[-.022em]"
               id="home-resources-title"
             >
               Understand the Problem Before Buying the Fix
@@ -76,9 +76,10 @@ export default async function HomeResources() {
             const href = `/blog/${canonicalBlogSlug(post.slug.current)}`;
 
             return (
-              <article
+              <Link
                 key={post._id}
-                className="flex h-full flex-col rounded-[20px] border border-white/[0.09] bg-white/[0.035] p-7 transition-colors hover:border-[rgba(0,118,255,.26)] hover:bg-white/[0.055]"
+                className="group flex h-full flex-col rounded-[20px] border border-white/[0.09] bg-white/[0.035] p-7 transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-accent-blue/60 hover:bg-white/[0.055] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue motion-reduce:transform-none"
+                href={href}
               >
                 <div className="mb-5 flex items-center gap-3 text-accent-blue">
                   <BookOpen aria-hidden="true" size={20} />
@@ -86,26 +87,18 @@ export default async function HomeResources() {
                     {post.category?.title ?? "Field Note"}
                   </span>
                 </div>
-                <h3 className="text-2xl font-extrabold leading-tight tracking-[-.02em]">
-                  <Link
-                    className="hover:text-accent-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-blue"
-                    href={href}
-                  >
-                    {post.title}
-                  </Link>
+                <h3 className="text-2xl font-extrabold leading-tight tracking-[-.02em] group-hover:text-accent-blue group-focus-visible:text-accent-blue">
+                  {post.title}
                 </h3>
                 {post.excerpt ? (
                   <p className="mt-4 line-clamp-3 text-base leading-relaxed text-white/70">
                     {post.excerpt}
                   </p>
                 ) : null}
-                <Link
-                  className="mt-6 inline-flex min-h-11 items-center gap-2 self-start py-2 text-sm font-bold text-accent-blue hover:text-[#8ec5ff]"
-                  href={href}
-                >
+                <span className="mt-6 inline-flex min-h-11 items-center gap-2 self-start py-2 text-sm font-bold text-accent-blue group-hover:text-[#8ec5ff]">
                   Read {post.title} <ArrowRight size={15} />
-                </Link>
-              </article>
+                </span>
+              </Link>
             );
           })}
         </div>

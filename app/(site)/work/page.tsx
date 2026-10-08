@@ -68,7 +68,7 @@ export default function WorkPage() {
         <p className="text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
           Work by {site.name}
         </p>
-        <h1 className="mt-4 text-[clamp(40px,6vw,72px)] font-black leading-[.98] tracking-[-.04em]">
+        <h1 className="mt-4 all8-h1 font-black leading-[.98] tracking-[-.04em]">
           Results &amp; Case Studies
         </h1>
         <p className="mt-7 max-w-[760px] text-xl leading-relaxed text-white/70">

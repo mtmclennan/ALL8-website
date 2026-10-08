@@ -22,7 +22,7 @@ These are briefs, not drafts — topic, angle, target keyword, and outline only.
   2. Why this is invisible: no record exists that the call happened, so nobody notices the leak.
   3. What a text-back / call-routing setup actually looks like (plain-language, not a feature dump).
   4. A simple way to estimate what missed calls are already costing, using the reader's own call volume.
-  5. CTA into Free Lead System Review.
+  5. CTA into Free Lead Leak Review.
 - **Category:** Lead Handling. **Secondary category:** Digital Marketing.
 - **Tags:** missed calls, call handling, lead generation, contractor marketing
 - **Feeds:** `missed-call-recovery` (primary), `lead-follow-up-automation` (secondary)
@@ -38,7 +38,7 @@ These are briefs, not drafts — topic, angle, target keyword, and outline only.
   2. Why most people don't say yes on the first ask — the case for a second and third touch.
   3. What automated follow-up actually is (acknowledgement, reminders, sequenced check-ins) vs. what it isn't (a robot doing your selling).
   4. How this connects to a CRM/pipeline if the reader doesn't have one yet.
-  5. CTA into Free Lead System Review.
+  5. CTA into Free Lead Leak Review.
 - **Category:** Lead Handling. **Secondary category:** Small Business Insights.
 - **Tags:** follow-up, lead nurturing, sales pipeline, contractor sales
 - **Feeds:** `lead-follow-up-automation` (primary), `crm-sales-pipeline` (secondary)
@@ -63,7 +63,7 @@ These are briefs, not drafts — topic, angle, target keyword, and outline only.
   2. Why gut-feel marketing decisions are expensive — spending more on what's already working vs. what feels like it's working.
   3. What call tracking, form attribution, and UTM tracking actually do, explained without jargon.
   4. What attribution can't do (word of mouth, memorized phone numbers) — building trust by being honest about limits.
-  5. CTA into Free Lead System Review.
+  5. CTA into Free Lead Leak Review.
 - **Category:** Tracking & Attribution. **Secondary category:** Digital Strategy.
 - **Tags:** attribution, call tracking, marketing ROI, analytics
 - **Feeds:** `call-tracking-lead-attribution` (primary), `google-ads-lead-generation` (secondary)
@@ -79,7 +79,7 @@ These are briefs, not drafts — topic, angle, target keyword, and outline only.
   2. Why that gap makes it impossible to know if ad spend is working or just burning budget.
   3. What real conversion tracking looks like connected to calls and form submissions, not just landing-page visits.
   4. How this connects back to attribution and the CRM once tracking exists.
-  5. CTA into Free Lead System Review.
+  5. CTA into Free Lead Leak Review.
 - **Category:** Tracking & Attribution. **Secondary category:** Digital Marketing.
 - **Tags:** Google Ads, conversion tracking, PPC, lead generation
 - **Feeds:** `google-ads-lead-generation` (primary), `call-tracking-lead-attribution` (secondary)
