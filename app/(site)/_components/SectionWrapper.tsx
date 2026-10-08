@@ -134,10 +134,7 @@ export function SectionHeader({
   return (
     <div className={clsx("mb-12", center && "text-center")}>
       <h2
-        className={clsx(
-          "all8-h2 font-semibold tracking-tight",
-          className,
-        )}
+        className={clsx("all8-h2 font-extrabold tracking-[-.022em]", className)}
       >
         {renderContent(title)}
       </h2>

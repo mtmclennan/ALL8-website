@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
+import PlanPrice from "@/app/(site)/pricing/components/PlanPrice";
 import { getPlan } from "@/data/plans";
 
 type Recommendation = { id: string; detail: string };
@@ -183,11 +184,17 @@ export default function ServicePricing({ slug }: { slug: string }) {
                 <h3 className="all8-h3 font-bold text-white group-hover:text-accent-blue">
                   {plan.name}
                 </h3>
-                <p className="mt-3 flex-1 font-body text-sm leading-relaxed text-white/70">
+                <PlanPrice className="mt-3" plan={plan} size="sm" />
+                <p className="mt-4 flex-1 border-t border-white/[0.09] pt-4 font-body text-sm leading-relaxed text-white/70">
                   {detail}
                 </p>
-                <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-accent-blue">
-                  View plan details <ArrowRight aria-hidden="true" size={16} />
+                <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-accent-blue">
+                  View plan details
+                  <ArrowRight
+                    aria-hidden="true"
+                    className="transition-transform group-hover:translate-x-[3px] motion-reduce:group-hover:translate-x-0"
+                    size={16}
+                  />
                 </span>
               </Link>
             );
@@ -199,10 +206,15 @@ export default function ServicePricing({ slug }: { slug: string }) {
           </p>
         )}
         <Link
-          className="mt-5 inline-flex min-h-11 items-center rounded-lg text-sm font-bold text-accent-blue underline underline-offset-4 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue"
+          className="group mt-5 inline-flex min-h-11 items-center gap-1.5 text-sm font-bold text-accent-blue hover:underline hover:underline-offset-4"
           href="/pricing"
         >
-          View all plans and pricing
+          Compare all plans
+          <ArrowRight
+            aria-hidden="true"
+            className="transition-transform group-hover:translate-x-[3px] motion-reduce:group-hover:translate-x-0"
+            size={16}
+          />
         </Link>
       </div>
     </section>

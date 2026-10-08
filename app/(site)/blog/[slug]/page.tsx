@@ -120,14 +120,15 @@ export default async function BlogPostPage({
       <FinalCta
         data={{
           eyebrow: "Free Lead Leak Review",
-          title: "Find Out Where You're",
-          titleAccent: "Losing the Work.",
+          title: "Want This Checked",
+          titleAccent: "in Your Business?",
           subtitle:
             "Send your business and website details. Matt will review the lead path and send specific findings on what to fix first. A short call afterward is optional.",
           ctaLabel: "Get My Free Lead Leak Review",
           micro:
             "No long-term commitment  ·  Clear recommendations  ·  Fixed scope before work begins",
-          secondary: { label: "Or just text us", href: "/contact" },
+          secondary: { label: "View Pricing", href: "/pricing" },
+          links: [{ label: "Explore services", href: "/services" }],
         }}
       />
     </>

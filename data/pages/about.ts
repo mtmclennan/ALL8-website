@@ -61,6 +61,7 @@ export type AboutPageData = {
       label: string;
       sub: string;
       icon: string;
+      evidence?: "measured" | "observed";
     }[];
     footNote: string;
     footNoteLink: { label: string; href: string };

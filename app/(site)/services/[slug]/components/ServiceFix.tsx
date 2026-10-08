@@ -4,7 +4,7 @@ import type {
   ServiceWorksWith as ServiceWorksWithData,
 } from "@/data/services";
 
-import { Check, Plug, Plus } from "lucide-react";
+import { Check, Plus } from "lucide-react";
 
 export default function ServiceFix({
   fix,
@@ -85,16 +85,15 @@ export default function ServiceFix({
                 {worksWith.intro}
               </p>
             )}
-            <ul className="mt-4 flex flex-wrap gap-2.5">
+            <ul className="mt-4 grid max-w-[900px] gap-x-7 gap-y-2.5 sm:grid-cols-2">
               {worksWith.tools.map((tool) => (
                 <li
                   key={tool}
-                  className="flex items-center gap-2 rounded-full border border-white/[0.1] bg-white/[0.04] px-4 py-2 text-sm text-white/70"
+                  className="flex items-start gap-2.5 font-body text-[15px] leading-relaxed text-white/70"
                 >
-                  <Plug
+                  <span
                     aria-hidden="true"
-                    className="text-accent-blue"
-                    size={14}
+                    className="mt-[9px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent-blue"
                   />
                   {tool}
                 </li>

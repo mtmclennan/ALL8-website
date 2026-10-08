@@ -127,10 +127,10 @@ export default function MissedCallRevenueCalculatorPage() {
         type="application/ld+json"
       />
 
-      <header className="mx-auto max-w-[980px] px-6 text-center sm:px-10">
+      <header className="mx-auto max-w-[1080px] px-6 sm:px-10">
         <nav
           aria-label="Breadcrumb"
-          className="mb-5 flex flex-wrap justify-center gap-2 text-sm text-white/60"
+          className="mb-5 flex flex-wrap gap-2 text-sm text-white/60"
         >
           <Link className="hover:text-white" href="/">
             Home
@@ -150,7 +150,7 @@ export default function MissedCallRevenueCalculatorPage() {
         <h1 className="mt-4 all8-h1 font-black leading-[.98] tracking-[-.04em]">
           Missed Call Revenue Calculator
         </h1>
-        <p className="mx-auto mt-5 max-w-[760px] text-xl leading-relaxed text-white/70">
+        <p className="mt-5 max-w-[760px] text-xl leading-relaxed text-white/70">
           Estimate how much potential sales opportunity may be tied up in
           unanswered business calls—using your own numbers, not assumed industry
           averages.

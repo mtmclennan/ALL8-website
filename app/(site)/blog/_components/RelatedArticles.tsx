@@ -1,8 +1,7 @@
 import type { RelatedArticle } from "@/app/studio/sanity/lib/relatedPosts";
+import type { BlogIndexPost } from "./BlogTopicSections";
 
-import Link from "next/link";
-
-import { formatCategoryLabel } from "@/lib/blogTaxonomy";
+import PostCard from "./PostCard";
 
 type RelatedArticlesProps = {
   articles: RelatedArticle[];
@@ -11,16 +10,25 @@ type RelatedArticlesProps = {
 
 const DEFAULT_LIMIT = 3;
 
-const dateFormatter = new Intl.DateTimeFormat("en-CA", {
-  year: "numeric",
-  month: "short",
-  day: "numeric",
-});
-
-function formatPublishDate(publishedAt?: string) {
-  if (!publishedAt) return null;
-
-  return dateFormatter.format(new Date(publishedAt));
+/** Related picks use the same card as the blog index, so they read as one publication. */
+function toCardPost(article: RelatedArticle): BlogIndexPost {
+  return {
+    _id: article._id ?? article.slug?.current ?? "",
+    title: article.title,
+    slug: article.slug,
+    excerpt: article.excerpt,
+    coverImage: article.coverImage,
+    publishedAt: article.publishedAt,
+    readingTime: article.readingTime,
+    categories: article.category
+      ? [
+          {
+            title: article.category.title,
+            slug: article.category.slug?.current,
+          },
+        ]
+      : undefined,
+  };
 }
 
 export default function RelatedArticles({
@@ -36,57 +44,23 @@ export default function RelatedArticles({
   return (
     <section
       aria-labelledby="related-articles-title"
-      className="relative z-20 mx-auto max-w-5xl px-6 pb-16"
+      className="mx-auto max-w-[1160px] px-6 pb-8 pt-4 sm:px-10"
     >
-      <div className="border-t border-white/10 pt-12">
-        <div className="mb-8">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-blue-400">
-            Keep Reading
-          </p>
-          <h2
-            className="text-3xl font-semibold tracking-tight text-white"
-            id="related-articles-title"
-          >
-            Related Articles
-          </h2>
-        </div>
+      <div className="border-t border-white/[0.08] pt-12">
+        <h2
+          className="all8-h2 mb-8 font-extrabold tracking-[-.022em]"
+          id="related-articles-title"
+        >
+          Keep reading
+        </h2>
 
-        <div className="grid gap-6 md:grid-cols-3">
-          {relatedArticles.map((article) => {
-            const slug = article.slug?.current;
-            const publishedLabel = formatPublishDate(article.publishedAt);
-
-            if (!slug || !article.title) return null;
-
-            return (
-              <Link
-                key={article._id ?? slug}
-                className="group block h-full rounded-2xl border border-foreground/10 bg-background/70 p-6 transition-[border-color,background-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-accent-blue/60 hover:bg-content2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue motion-reduce:transform-none"
-                href={`/blog/${slug}`}
-              >
-                <div className="mb-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-foreground/50">
-                  {article.category?.title ? (
-                    <span className="font-medium text-blue-300">
-                      {formatCategoryLabel(article.category.title)}
-                    </span>
-                  ) : null}
-                  {publishedLabel ? (
-                    <time dateTime={article.publishedAt}>{publishedLabel}</time>
-                  ) : null}
-                </div>
-
-                <h3 className="text-xl font-semibold leading-tight text-white transition-colors group-hover:text-accent-blue group-focus-visible:text-accent-blue">
-                  {article.title}
-                </h3>
-
-                {article.excerpt ? (
-                  <p className="mt-4 line-clamp-3 text-sm leading-relaxed text-foreground/70">
-                    {article.excerpt}
-                  </p>
-                ) : null}
-              </Link>
-            );
-          })}
+        <div className="grid grid-cols-1 gap-[22px] sm:grid-cols-2 lg:grid-cols-3">
+          {relatedArticles.map((article) => (
+            <PostCard
+              key={article._id ?? article.slug?.current}
+              post={toCardPost(article)}
+            />
+          ))}
         </div>
       </div>
     </section>

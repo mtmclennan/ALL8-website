@@ -90,7 +90,6 @@ import { ChevronDown, HelpCircle } from "lucide-react";
 import {
   Section,
   SectionHeader,
-  Card,
 } from "@/app/(site)/_components/SectionWrapper";
 import { ShineIcon } from "@/app/(site)/_components/ShineIcon";
 
@@ -132,8 +131,9 @@ export default function FAQBlock({
             viewport={{ once: true, amount: 0.2 }}
             whileInView={{ opacity: 1, y: 0 }}
           >
-            <Card className="h-full" variant="elevated">
-              <div className="rounded-2xl border border-foreground/10 bg-background/70 backdrop-blur-sm">
+            {/* Standard card border; no extra ring or shadow layers. */}
+            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.036] px-2 sm:px-3">
+              <div>
                 <Accordion
                   className="rounded-2xl"
                   itemClasses={{
@@ -143,7 +143,7 @@ export default function FAQBlock({
                     content: "font-body text-sm text-foreground/70",
                   }}
                   selectionMode="multiple"
-                  variant="bordered"
+                  variant="light"
                 >
                   {faqs.map((faq, i) => (
                     <AccordionItem
@@ -165,7 +165,7 @@ export default function FAQBlock({
                   ))}
                 </Accordion>
               </div>
-            </Card>
+            </div>
           </motion.div>
         </LazyMotion>
       </div>

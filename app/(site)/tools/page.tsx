@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Calculator } from "lucide-react";
 
+import Button from "@/app/(site)/_components/ui/Button";
 import { siteUrl } from "@/config/site.config";
 import { ALL8_TOOLS } from "@/data/tools";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -113,12 +114,10 @@ export default function ToolsPage() {
                   <p className="mt-4 max-w-[720px] text-lg leading-relaxed text-white/70">
                     {tool.description}
                   </p>
-                  <Link
-                    className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-full bg-accent-blue px-6 py-3 font-bold text-white hover:bg-[#2388f7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-blue"
-                    href={tool.href}
-                  >
-                    Use the missed-call calculator <ArrowRight size={17} />
-                  </Link>
+                  <Button className="mt-6" href={tool.href} variant="ghost">
+                    Use the missed-call calculator{" "}
+                    <ArrowRight aria-hidden="true" size={17} />
+                  </Button>
                 </div>
               </div>
             </article>

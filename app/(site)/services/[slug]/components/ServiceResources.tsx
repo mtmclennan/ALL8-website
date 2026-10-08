@@ -20,7 +20,7 @@ const RESOURCES: Partial<Record<string, Resource[]>> = {
     {
       title:
         "Local SEO for Contractors: The Blueprint for Ranking in Google Maps",
-      href: "/blog/local-seo-for-contractors-in-2025-the-ultimate-blueprint-for-ranking-in-google-maps",
+      href: "/blog/local-seo-for-contractors-google-maps",
     },
     {
       title: "Why Your Business Isn't Showing Up on Google Maps",
@@ -76,17 +76,20 @@ export function hasServiceResources(serviceSlug: string) {
 
 export default function ServiceResources({
   serviceSlug,
+  flush = false,
 }: {
   serviceSlug: string;
+  /** Render without top spacing when attached directly under another section. */
+  flush?: boolean;
 }) {
   const resources = RESOURCES[serviceSlug];
 
   if (!resources?.length) return null;
 
   return (
-    <div className="mt-10" id="resources">
+    <div className={flush ? undefined : "mt-10"} id="resources">
       <h3 className="all8-h3 font-bold">Related reading and tools</h3>
-      <div className="mt-5 grid gap-4 sm:grid-cols-2">
+      <div className="mt-5 grid max-w-[900px] gap-4 sm:grid-cols-2">
         {resources.map((resource, index) => (
           <Reveal key={resource.href} index={index}>
             <Link

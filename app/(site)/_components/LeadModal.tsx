@@ -1,6 +1,6 @@
 "use client";
 
-import type { LeadActionState } from "@/lib/leads/submitLead";
+import type { LeadActionState } from "@/lib/leads/leadSubmission";
 
 import { useActionState, useEffect, useRef, useState } from "react";
 import Link from "next/link";
@@ -104,7 +104,8 @@ export default function LeadModal({
   useEffect(() => {
     if (!isPending && state.ok) {
       setDone(true);
-      if (!leadTrackedRef.current) {
+      // Honeypot responses look successful but capture nothing: never track them.
+      if (!leadTrackedRef.current && state.captured !== false) {
         leadTrackedRef.current = true;
         trackGenerateLead("modal", {
           utmSource: utm.source,
@@ -116,7 +117,7 @@ export default function LeadModal({
         });
       }
     }
-  }, [isPending, state.ok, utm, pageName]);
+  }, [isPending, state.ok, state.captured, utm, pageName]);
 
   useEffect(() => {
     if (!open) {

@@ -8,7 +8,7 @@ import refinement from "../VisualRefinement.module.css";
 import { useLeadModal } from "../LeadModalProvider";
 import Button from "../ui/Button";
 
-import { STAGE_HEX, type Stage } from "@/lib/utils/stage";
+import { type Stage } from "@/lib/utils/stage";
 
 type HeroData = {
   pill: string;
@@ -71,23 +71,6 @@ export default function HeroSection({ data }: { data: HeroData }) {
             </strong>
           </p>
 
-          <div className="mb-9 flex flex-wrap gap-2.5">
-            {data.badges.map((b) => (
-              <div
-                key={b.label}
-                className="all8-stage-chip"
-              >
-                <span
-                  className="h-[7px] w-[7px] flex-shrink-0 rounded-full"
-                  style={{
-                    backgroundColor: STAGE_HEX[b.stage],
-                  }}
-                />
-                {b.label}
-              </div>
-            ))}
-          </div>
-
           <div className="mb-[22px] flex flex-wrap items-center gap-3.5">
             <Button onClick={openModal}>
               <Search size={16} strokeWidth={2.5} />
@@ -107,10 +90,6 @@ export default function HeroSection({ data }: { data: HeroData }) {
           </div>
 
           <p className="text-[13px] text-white/40">{data.micro}</p>
-          <p className="mt-[9px] flex items-center gap-[7px] text-[12.5px] text-white/40">
-            <span className="h-[5px] w-[5px] flex-shrink-0 rounded-full bg-white/40" />
-            {data.geo}
-          </p>
         </div>
 
         <div className="pointer-events-none relative hidden w-full place-items-center sm:grid max-lg:mt-6">
@@ -125,7 +104,7 @@ export default function HeroSection({ data }: { data: HeroData }) {
             <Image
               priority
               alt={data.image.alt}
-              className="relative z-[1] mx-auto h-auto w-full max-w-[600px] drop-shadow-[0_20px_40px_rgba(0,0,0,.35)] max-lg:max-w-[420px] max-lg:w-[88%]"
+              className="relative z-[1] mx-auto h-auto w-full max-w-[600px] drop-shadow-[0_20px_40px_rgba(0,0,0,.35)] max-lg:w-[88%] max-lg:max-w-[300px]"
               fetchPriority="high"
               height={data.image.height}
               src={data.image.src}

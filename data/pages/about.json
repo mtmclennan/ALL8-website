@@ -97,9 +97,9 @@
     "eyebrow": "Proof, Not Promises",
     "title": "The Numbers Behind That Story",
     "cards": [
-      { "value": "{{proof.search.range}}", "em": true, "label": "Search Clicks", "sub": "Rolling 28 days, {{proof.search.period}}", "icon": "chart" },
-      { "value": "{{proof.profile.increaseSigned}}", "em": false, "label": "Profile Website Clicks", "sub": "Google Business Profile, year over year", "icon": "pin" },
-      { "value": "{{proof.visibility.pageOne}}", "em": true, "label": "Captured Visibility", "sub": "Targeted service page, point in time", "icon": "search" }
+      { "value": "{{proof.search.range}}", "em": true, "label": "Search Clicks", "sub": "Rolling 28 days, {{proof.search.period}}", "icon": "chart", "evidence": "measured" },
+      { "value": "{{proof.profile.increaseSigned}}", "em": false, "label": "Profile Website Clicks", "sub": "Google Business Profile, year over year", "icon": "pin", "evidence": "measured" },
+      { "value": "{{proof.visibility.pageOne}}", "em": true, "label": "Captured Visibility", "sub": "Targeted service page, point in time", "icon": "search", "evidence": "observed" }
     ],
     "footNote": "Results from an established excavation and service business in Southern Ontario. The underlying search and performance data is documented.",
     "footNoteLink": { "label": "See the full service-business growth case study", "href": "/work/service-business-growth-case-study" }

@@ -68,8 +68,12 @@ export default function ServicesPreview() {
                   {service.short}
                 </p>
                 <span className="mt-auto inline-flex min-h-11 items-center gap-2 pt-4 text-sm font-bold text-accent-blue">
-                  Explore {service.shortTitle || service.title}
-                  <ArrowRight aria-hidden="true" size={15} />
+                  Explore service
+                  <ArrowRight
+                    aria-hidden="true"
+                    className="transition-transform group-hover:translate-x-[3px] motion-reduce:group-hover:translate-x-0"
+                    size={15}
+                  />
                 </span>
               </Link>
             );

@@ -67,7 +67,8 @@ export default function StickyCta() {
         className="flex-1 justify-center whitespace-normal text-center"
         onClick={openModal}
       >
-        Get My Free Lead Leak Review
+        <span className="max-[399px]:hidden">Get My Free Lead Leak Review</span>
+        <span className="min-[400px]:hidden">Free Lead Leak Review</span>
       </Button>
       <a
         aria-label={`Call ${siteConfig.phone}`}

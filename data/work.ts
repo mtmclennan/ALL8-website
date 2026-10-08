@@ -4,16 +4,14 @@ export type WorkCaseStudy = {
   slug: string;
   title: string;
   summary: string;
-  image: {
-    src: string;
-    alt: string;
-    width: number;
-    height: number;
-  };
+  /** Context shown on the branded panel; no imagery that could imply a ranking claim. */
+  panelLabel: string;
   results: Array<{
     value: string;
     label: string;
     detail: string;
+    /** "measured" = analytics over a stated period; "observed" = point-in-time capture. */
+    evidence: "measured" | "observed";
   }>;
   relatedServices: Array<{
     label: string;
@@ -27,27 +25,25 @@ export const workCaseStudies: WorkCaseStudy[] = [
     title: "From Search Growth to a Better Lead-Handling System",
     summary:
       "An established service business improved local visibility and made lead sources measurable. That progress exposed the next constraint: inconsistent response and follow-up after prospects made contact.",
-    image: {
-      src: "/assets/website-seo-performance-laptop-analytics-leads-calls.webp",
-      alt: "Website analytics dashboard showing search performance and lead activity",
-      width: 1600,
-      height: 1067,
-    },
+    panelLabel: "Excavation & service business · Southern Ontario",
     results: [
       {
         value: proofDisplay.searchRange,
         label: "Google Search clicks",
         detail: `Per rolling 28 days, ${proofDisplay.searchPeriod}`,
+        evidence: "measured",
       },
       {
         value: proofDisplay.profileIncreaseSigned,
         label: "Business Profile website clicks",
         detail: "Year over year",
+        evidence: "measured",
       },
       {
         value: proofDisplay.pageOne,
         label: "Targeted service-page visibility",
-        detail: "Point-in-time supporting evidence",
+        detail: "Point-in-time capture, not a permanent ranking",
+        evidence: "observed",
       },
     ],
     relatedServices: [

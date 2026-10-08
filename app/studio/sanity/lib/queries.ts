@@ -5,7 +5,9 @@ const relatedArticleProjection = groq`
   title,
   slug,
   excerpt,
+  coverImage,
   publishedAt,
+  readingTime,
   "category": categories[0]->{
     title,
     slug
@@ -50,7 +52,10 @@ export const homeStrategicPostsQuery = groq`
     title,
     slug,
     excerpt,
-    "category": categories[0]->{
+    coverImage,
+    publishedAt,
+    readingTime,
+    "categories": categories[]->{
       title,
       "slug": slug.current
     }
@@ -107,7 +112,11 @@ export const singlePostQuery = groq`
 `;
 
 export const relatedPostsQuery = groq`
-  *[_type == "post" && slug.current in $slugs][0]{
+  *[
+    _type == "post" &&
+    !(_id in path("drafts.**")) &&
+    slug.current in $slugs
+  ][0]{
     _id,
     title,
     "slug": slug.current,
@@ -115,8 +124,10 @@ export const relatedPostsQuery = groq`
     "categoryTitles": categories[]->title,
     "categorySlugs": categories[]->slug.current,
     tags,
+    // Manual picks keep editor order; unpublished/noindex ones are skipped in selectRelatedPosts.
     "manual": relatedPosts[]->{
-      ${relatedArticleProjection}
+      ${relatedArticleProjection},
+      "isUnavailable": draft == true || seo.noIndex == true
     },
     "candidates": *[
       _type == "post" &&

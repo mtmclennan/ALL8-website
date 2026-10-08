@@ -1,6 +1,6 @@
 "use client";
 
-import type { LeadActionState } from "@/lib/leads/submitLead";
+import type { LeadActionState } from "@/lib/leads/leadSubmission";
 
 import { useActionState, useEffect, useRef, useState } from "react";
 import Link from "next/link";
@@ -88,7 +88,8 @@ export default function InlineLeadForm() {
   const telHref = toTelHref(siteConfig.phone);
 
   useEffect(() => {
-    if (done && !leadTrackedRef.current) {
+    // Honeypot responses look successful but capture nothing: never track them.
+    if (done && state.captured !== false && !leadTrackedRef.current) {
       leadTrackedRef.current = true;
       trackGenerateLead("contact_page", {
         utmSource: utm.source,
@@ -99,7 +100,7 @@ export default function InlineLeadForm() {
         pageName,
       });
     }
-  }, [done, utm, pageName]);
+  }, [done, state.captured, utm, pageName]);
 
   const handleFormFocus = () => {
     if (formStartedRef.current) return;

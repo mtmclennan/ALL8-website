@@ -33,7 +33,7 @@ export default function CaseStudy({ data }: { data: CaseStudyData }) {
   return (
     <section className="bg-content3 py-24 max-[960px]:py-16" id="proof">
       <div className="mx-auto max-w-[1160px] px-6 sm:px-10">
-        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.05fr_.95fr] lg:gap-[70px]">
+        <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[1.05fr_.95fr] lg:gap-[70px]">
           <Reveal>
             <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
               {data.eyebrow}
@@ -74,7 +74,7 @@ export default function CaseStudy({ data }: { data: CaseStudyData }) {
             </div>
           </Reveal>
 
-          <Reveal index={1}>
+          <Reveal className="lg:sticky lg:top-28" index={1}>
             <div className="overflow-hidden rounded-[20px] border border-white/[0.08] bg-white/[0.036]">
               <div className="flex items-center gap-2 border-b border-white/[0.08] bg-white/[0.04] px-[18px] py-3.5">
                 <span className="h-2.5 w-2.5 rounded-full bg-[#D00000]" />

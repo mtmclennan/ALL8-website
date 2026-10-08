@@ -1,6 +1,7 @@
 "use client";
 
-import { Search, Check, Phone, MessageCircle } from "lucide-react";
+import Link from "next/link";
+import { Search, Check, Phone, MessageCircle, ArrowRight } from "lucide-react";
 
 import { useLeadModal } from "../LeadModalProvider";
 import Button from "../ui/Button";
@@ -20,6 +21,8 @@ type FinalCtaData = {
   micro: string;
   primary?: { href: string; icon?: "search" | "sms" };
   secondary?: { label: string; href: string };
+  /** Optional low-emphasis text links under the buttons (e.g. "Explore services"). */
+  links?: Array<{ label: string; href: string }>;
 };
 
 export default function FinalCta({ data }: { data: FinalCtaData }) {
@@ -43,9 +46,8 @@ export default function FinalCta({ data }: { data: FinalCtaData }) {
           {data.eyebrow}
         </Reveal>
         <Reveal index={1}>
-          <h2 className="mb-[18px] text-[clamp(36px,4.4vw,60px)] font-black leading-[1.02] tracking-[-.03em]">
-            {data.title}
-            <br />
+          <h2 className="mx-auto mb-[18px] max-w-[880px] text-[clamp(36px,4.4vw,60px)] font-black leading-[1.02] tracking-[-.03em] [text-wrap:balance]">
+            {data.title}{" "}
             <span className="bg-gradient-to-br from-white from-40% to-accent-blue bg-clip-text text-transparent">
               {data.titleAccent}
             </span>
@@ -105,6 +107,28 @@ export default function FinalCta({ data }: { data: FinalCtaData }) {
             </Button>
           )}
         </Reveal>
+        {data.links && data.links.length > 0 && (
+          <Reveal
+            className="mt-5 flex flex-wrap items-center justify-center gap-x-6 gap-y-1"
+            index={1}
+          >
+            {data.links.map((link) => (
+              <Link
+                key={link.href}
+                className="group inline-flex min-h-11 items-center gap-1.5 text-[14.5px] font-bold text-accent-blue hover:underline hover:underline-offset-4"
+                href={link.href}
+              >
+                {link.label}
+                <ArrowRight
+                  aria-hidden="true"
+                  className="transition-transform group-hover:translate-x-[3px] motion-reduce:group-hover:translate-x-0"
+                  size={14}
+                  strokeWidth={2.5}
+                />
+              </Link>
+            ))}
+          </Reveal>
+        )}
         <Reveal index={1}>
           <p className="mt-[22px] text-[13px] text-white/40">{data.micro}</p>
         </Reveal>

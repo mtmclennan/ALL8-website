@@ -44,7 +44,7 @@ export default async function BlogIndexPage() {
     "@context": "https://schema.org",
     "@type": "Blog",
     "@id": `${siteUrl()}/blog#blog`,
-    name: normalizeBrandName(page?.title ?? "Field Notes — ALL8 Webworks"),
+    name: normalizeBrandName(page?.title ?? "Blog — ALL8 Webworks"),
     url: `${siteUrl()}/blog`,
     blogPost: posts
       .filter((p): p is BlogIndexPost & { slug: { current: string } } =>

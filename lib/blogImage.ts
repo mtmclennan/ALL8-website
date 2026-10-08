@@ -58,6 +58,30 @@ export function getArticleImageDimensions(value: ArticleImageValue) {
   };
 }
 
+/** Rendered width cap for body images; the article column is ~680px wide. */
+export const BODY_IMAGE_MAX_WIDTH = 1400;
+
+export type BodyImageLayout = {
+  orientation: "landscape" | "square" | "portrait";
+  /** Tall or highly detailed images get an "open full-size" link for mobile legibility. */
+  offerFullSize: boolean;
+};
+
+export function getBodyImageLayout(
+  dimensions: { width: number; height: number } | null,
+): BodyImageLayout {
+  if (!dimensions) return { orientation: "landscape", offerFullSize: false };
+
+  const ratio = dimensions.height / dimensions.width;
+  const orientation =
+    ratio > 1.1 ? "portrait" : ratio < 0.9 ? "landscape" : "square";
+
+  return {
+    orientation,
+    offerFullSize: ratio > 1.25 || dimensions.width > BODY_IMAGE_MAX_WIDTH,
+  };
+}
+
 export function getArticleImageAlt(
   value: ArticleImageValue,
   articleTitle: string,

@@ -1,6 +1,6 @@
 "use client";
 
-import type { LeadActionState } from "@/lib/leads/submitLead";
+import type { LeadActionState } from "@/lib/leads/leadSubmission";
 
 import { useActionState, useRef } from "react";
 import Script from "next/script";

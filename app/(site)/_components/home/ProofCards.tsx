@@ -9,6 +9,8 @@ import Button from "../ui/Button";
 
 import Reveal from "./Reveal";
 
+import EvidenceTag from "@/app/(site)/_components/EvidenceTag";
+
 type ProofCardsData = {
   eyebrow: string;
   title: string;
@@ -18,6 +20,8 @@ type ProofCardsData = {
     label: string;
     sub: string;
     icon: string;
+    /** Point-in-time captures (e.g. page-one visibility) are "observed", never "measured". */
+    evidence?: "measured" | "observed";
   }[];
   footNote: string;
   footNoteLink?: { label: string; href: string };
@@ -81,8 +85,11 @@ export default function ProofCards({ data }: { data: ProofCardsData }) {
                   <div className="relative text-[14.5px] leading-relaxed text-white/70">
                     {card.sub}
                   </div>
-                  <div className="relative mt-[22px] border-t border-white/[0.08] pt-4 text-[11.5px] font-semibold uppercase tracking-[.05em] text-white/70">
-                    Measured client result
+                  <div className="relative mt-[22px] flex flex-wrap items-center gap-2.5 border-t border-white/[0.08] pt-4 text-[13px] text-white/70">
+                    <EvidenceTag kind={card.evidence ?? "measured"} />
+                    {card.evidence === "observed"
+                      ? "Point-in-time observation"
+                      : "Measured client result"}
                   </div>
                 </Card>
               </Reveal>

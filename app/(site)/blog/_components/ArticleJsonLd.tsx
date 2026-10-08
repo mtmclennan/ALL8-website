@@ -46,14 +46,11 @@ function safeJsonLd(data: BlogPostingJsonLd) {
 
 export default function ArticleJsonLd({ post, slug }: ArticleJsonLdProps) {
   const canonical = `${siteUrl()}/blog/${slug}`;
-  const image = post.coverImage
-    ? urlFor(post.coverImage)
-        .width(1200)
-        .height(630)
-        .fit("crop")
-        .format("jpg")
-        .url()
-    : absoluteUrl(site.defaultOgImage);
+  // Only an image that belongs to this post; a sitewide default would misdescribe it.
+  const postImage = post.coverImage || post.seo?.ogImage;
+  const image = postImage
+    ? urlFor(postImage).width(1200).height(630).fit("crop").format("jpg").url()
+    : undefined;
 
   const schema: BlogPostingJsonLd = {
     "@context": "https://schema.org",

@@ -16,6 +16,7 @@ import { LeadModalProvider } from "./(site)/_components/LeadModalProvider";
 import StickyCta from "./(site)/_components/StickyCta";
 import AnalyticsBridge from "./(site)/_components/analytics/AnalyticsBridge";
 
+import { SERVICES } from "@/data/services";
 import HubspotLoader from "@/app/(site)/_components/HubspotLoader";
 import { fontArchivo, fontDmSans, fontOrbitron } from "@/config/fonts";
 import {
@@ -101,7 +102,7 @@ export default function RootLayout({
   ];
 
   return (
-    <html suppressHydrationWarning lang="en">
+    <html suppressHydrationWarning data-scroll-behavior="smooth" lang="en">
       <head>
         {/* Preconnect and preload critical assets */}
         <link href="https://fonts.googleapis.com" rel="preconnect" />
@@ -147,7 +148,13 @@ export default function RootLayout({
             <div className="relative flex flex-col min-h-screen">
               <NavbarClient />
               <main className="flex-grow">{children}</main>
-              <FooterClient year={new Date().getUTCFullYear()} />
+              <FooterClient
+                services={SERVICES.map((service) => ({
+                  label: service.shortTitle || service.title,
+                  href: `/services/${service.slug}`,
+                }))}
+                year={new Date().getUTCFullYear()}
+              />
             </div>
             <StickyCta />
           </LeadModalProvider>

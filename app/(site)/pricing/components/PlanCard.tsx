@@ -1,71 +1,98 @@
 import type { Plan } from "@/data/plans";
 
 import Link from "next/link";
+import clsx from "clsx";
 import { ArrowRight, Check } from "lucide-react";
+
+import PlanPrice from "./PlanPrice";
 
 export default function PlanCard({
   plan,
   compact = false,
+  horizontal = false,
 }: {
   plan: Plan;
   compact?: boolean;
+  /** Full-width layout: price and fit on the left, inclusions on the right. */
+  horizontal?: boolean;
 }) {
-  return (
-    <article
-      className="flex h-full min-w-0 flex-col rounded-2xl border border-white/[0.12] bg-white/[0.036] p-6 sm:p-7"
-      id={compact ? undefined : plan.id}
-    >
-      <h3 className="all8-h3 font-bold leading-tight">{plan.name}</h3>
-      <div className="mt-5">
-        <p className="text-xs font-bold uppercase tracking-[.1em] text-white/60">
-          {plan.kind === "entry"
-            ? plan.id === "free-review"
-              ? "Review"
-              : "One-time fee"
-            : "Setup fee"}
-        </p>
-        <p className="text-[25px] font-extrabold leading-tight tracking-[-.02em] text-white">
-          {plan.setup}
-        </p>
-        {plan.monthly && (
-          <p className="mt-2 text-sm font-semibold text-accent-blue">
-            Monthly fee: {plan.monthly}
-          </p>
-        )}
-        <p className="mt-2 text-sm font-semibold text-white/70">{plan.term}</p>
-      </div>
+  const summary = (
+    <>
+      <h3 className="all8-h3 font-bold">{plan.name}</h3>
+      <PlanPrice className="mt-4" plan={plan} />
       <p className="mt-5 border-t border-white/[0.09] pt-4 text-sm leading-relaxed text-white/70">
         <span className="font-bold text-white">Best for: </span>
         {plan.bestFor}
       </p>
-      {!compact && (
+    </>
+  );
+
+  const details = (
+    <>
+      <ul className="space-y-3 text-sm leading-relaxed text-white/70">
+        {plan.adds && (
+          <li className="flex gap-2.5 font-bold text-white">
+            <Check
+              aria-hidden="true"
+              className="mt-0.5 shrink-0 text-accent-blue"
+              size={16}
+            />
+            <span>{plan.adds}</span>
+          </li>
+        )}
+        {plan.inclusions.map((item) => (
+          <li key={item} className="flex gap-2.5">
+            <Check
+              aria-hidden="true"
+              className="mt-0.5 shrink-0 text-accent-blue"
+              size={16}
+            />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+      {plan.note && (
+        <p className="mt-5 text-sm leading-relaxed text-white/60">
+          {plan.note}
+        </p>
+      )}
+      <Link
+        className="group mt-auto inline-flex min-h-11 items-center gap-1.5 self-start pt-6 text-sm font-bold text-accent-blue hover:underline hover:underline-offset-4"
+        href="/contact"
+      >
+        {plan.id === "free-review"
+          ? "Get My Free Lead Leak Review"
+          : `Discuss ${plan.name}`}
+        <ArrowRight
+          aria-hidden="true"
+          className="transition-transform group-hover:translate-x-[3px] motion-reduce:group-hover:translate-x-0"
+          size={16}
+        />
+      </Link>
+    </>
+  );
+
+  return (
+    <article
+      className={clsx(
+        "h-full min-w-0 rounded-2xl border border-white/[0.12] bg-white/[0.036] p-6 sm:p-7",
+        horizontal
+          ? "grid gap-6 md:grid-cols-[minmax(0,.9fr)_minmax(0,1.1fr)] md:gap-10"
+          : "flex flex-col",
+      )}
+      id={compact ? undefined : plan.id}
+    >
+      {horizontal ? (
         <>
-          <ul className="mt-5 space-y-3 text-sm leading-relaxed text-white/70">
-            {plan.inclusions.map((item) => (
-              <li key={item} className="flex gap-2.5">
-                <Check
-                  aria-hidden="true"
-                  className="mt-0.5 shrink-0 text-accent-blue"
-                  size={16}
-                />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-          {plan.note && (
-            <p className="mt-5 text-sm leading-relaxed text-white/60">
-              {plan.note}
-            </p>
+          <div>{summary}</div>
+          {!compact && <div className="flex flex-col">{details}</div>}
+        </>
+      ) : (
+        <>
+          {summary}
+          {!compact && (
+            <div className="mt-5 flex flex-1 flex-col">{details}</div>
           )}
-          <Link
-            className="mt-auto inline-flex min-h-11 items-center gap-2 self-start rounded-lg pt-6 text-sm font-bold text-accent-blue underline-offset-4 hover:text-white hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue"
-            href="/contact"
-          >
-            {plan.id === "free-review"
-              ? "Get My Free Lead Leak Review"
-              : `Discuss ${plan.name}`}
-            <ArrowRight aria-hidden="true" size={16} />
-          </Link>
         </>
       )}
     </article>

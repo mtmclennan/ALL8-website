@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 import PlanCard from "./components/PlanCard";
 
@@ -136,28 +137,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <section aria-labelledby="plans-heading" className="py-16 sm:py-24">
-        <div className="mx-auto max-w-[1160px] px-6 sm:px-10">
-          <h2 className="all8-h2 font-extrabold" id="plans-heading">
-            Ongoing systems
-          </h2>
-          <p className="mt-3 max-w-[760px] text-white/70">
-            Each level builds on the one before it. The stated terms are minimum
-            commitments; the scope of Growth System work is agreed around your
-            goals.
-          </p>
-          <div className="mt-8 grid gap-5 lg:grid-cols-3">
-            {ongoing.map((plan) => (
-              <PlanCard key={plan.id} plan={plan} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section
-        aria-labelledby="compare-heading"
-        className="bg-content3 py-16 sm:py-24"
-      >
+      <section aria-labelledby="compare-heading" className="py-16 sm:py-24">
         <div className="mx-auto max-w-[1160px] px-6 sm:px-10">
           <h2 className="all8-h2 font-extrabold" id="compare-heading">
             What changes at each level
@@ -209,11 +189,37 @@ export default function PricingPage() {
             ))}
           </div>
           <Link
-            className="mt-7 inline-flex min-h-11 items-center rounded-lg font-bold text-accent-blue underline underline-offset-4 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue"
+            className="group mt-7 inline-flex min-h-11 items-center gap-1.5 font-bold text-accent-blue hover:underline hover:underline-offset-4"
             href="/services"
           >
             Explore the capabilities behind these plans
+            <ArrowRight
+              aria-hidden="true"
+              className="transition-transform group-hover:translate-x-[3px] motion-reduce:group-hover:translate-x-0"
+              size={16}
+            />
           </Link>
+        </div>
+      </section>
+
+      <section
+        aria-labelledby="plans-heading"
+        className="bg-content3 py-16 sm:py-24"
+      >
+        <div className="mx-auto max-w-[1160px] px-6 sm:px-10">
+          <h2 className="all8-h2 font-extrabold" id="plans-heading">
+            Ongoing systems
+          </h2>
+          <p className="mt-3 max-w-[760px] text-white/70">
+            Each level builds on the one before it. The stated terms are minimum
+            commitments; the scope of Growth System work is agreed around your
+            goals.
+          </p>
+          <div className="mt-8 grid gap-5 max-lg:max-w-[640px] lg:grid-cols-3">
+            {ongoing.map((plan) => (
+              <PlanCard key={plan.id} plan={plan} />
+            ))}
+          </div>
         </div>
       </section>
 
@@ -233,8 +239,8 @@ export default function PricingPage() {
                 include Google ad spend.
               </p>
             </div>
-            <div className="mt-8 max-w-[760px]">
-              <PlanCard plan={ads} />
+            <div className="mt-8">
+              <PlanCard horizontal plan={ads} />
             </div>
           </div>
         </section>

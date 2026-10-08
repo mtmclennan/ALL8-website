@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUpRight, Search } from "lucide-react";
+import { ArrowDown, Search } from "lucide-react";
 
 import { STAGE_HEX, type Stage } from "@/lib/utils/stage";
 import { useLeadModal } from "@/app/(site)/_components/LeadModalProvider";
@@ -20,11 +20,12 @@ type ServicesHeroData = {
   badges: { label: string; stage: Stage }[];
 };
 
+// In-page jumps to the matching stage group in the service directory.
 const BADGE_HREF: Record<Stage, string> = {
-  found: "/services/local-seo-google-business-profile",
-  contacted: "/services/lead-generation-websites",
-  follow: "/services/lead-follow-up-automation",
-  win: "/services/crm-sales-pipeline",
+  found: "#get-found",
+  contacted: "#get-contacted",
+  follow: "#respond",
+  win: "#win",
 };
 
 export default function ServicesHero({ data }: { data: ServicesHeroData }) {
@@ -81,11 +82,7 @@ export default function ServicesHero({ data }: { data: ServicesHeroData }) {
             </a>
           </div>
 
-          <p className="text-[13px] text-white/40">{data.micro}</p>
-          <p className="mb-9 mt-[9px] flex items-center gap-[7px] text-[12.5px] text-white/40">
-            <span className="h-[5px] w-[5px] flex-shrink-0 rounded-full bg-white/40" />
-            {data.geo}
-          </p>
+          <p className="mb-9 text-[13px] text-white/40">{data.micro}</p>
 
           <div className="flex flex-wrap gap-2.5">
             {data.badges.map((b) => (
@@ -101,7 +98,7 @@ export default function ServicesHero({ data }: { data: ServicesHeroData }) {
                   }}
                 />
                 {b.label}
-                <ArrowUpRight
+                <ArrowDown
                   aria-hidden="true"
                   className="text-white/40 group-hover:text-white"
                   size={13}

@@ -56,9 +56,10 @@ export default function ServiceCrossLinks({
                       {service.short}
                     </p>
                     <span className="mt-auto inline-flex items-center gap-1.5 text-[13.5px] font-bold text-accent-blue">
-                      Explore {service.shortTitle || service.title}
+                      Explore service
                       <ArrowRight
-                        className="transition-transform group-hover:translate-x-[3px]"
+                        aria-hidden="true"
+                        className="transition-transform group-hover:translate-x-[3px] motion-reduce:group-hover:translate-x-0"
                         size={13}
                         strokeWidth={2.5}
                       />

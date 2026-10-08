@@ -34,14 +34,6 @@ export type ContactPageData = {
     title: string;
     steps: { title: string; body: string }[];
   };
-  finalCta: {
-    eyebrow: string;
-    title: string;
-    titleAccent: string;
-    subtitle: string;
-    smsBody: string;
-    micro: string;
-  };
 };
 
 export const contactPageData = contactJson as ContactPageData;

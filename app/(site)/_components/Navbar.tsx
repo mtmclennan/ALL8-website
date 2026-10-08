@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
@@ -33,15 +33,24 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const panelRef = useRef<HTMLDivElement>(null);
+
+  // Full-screen mobile sheet: lock page scroll, move focus inside, Escape closes.
   useEffect(() => {
     if (!menuOpen) return;
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") setMenuOpen(false);
     };
+    const previousOverflow = document.body.style.overflow;
 
+    document.body.style.overflow = "hidden";
     document.addEventListener("keydown", onKeyDown);
+    panelRef.current?.querySelector<HTMLElement>("a, button")?.focus();
 
-    return () => document.removeEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKeyDown);
+    };
   }, [menuOpen]);
 
   if (pathname.startsWith("/hire-matt")) {
@@ -108,9 +117,11 @@ const Navbar = () => {
       className={clsx(
         "fixed left-0 right-0 top-0 z-[200] transition-[background,box-shadow] duration-300",
         pathname === "/" && refinement.surface,
+        // backdrop-filter would trap the fixed menu sheet inside the header box.
         scrolled &&
+          !menuOpen &&
           "bg-background/90 shadow-[0_1px_0_rgba(255,255,255,.08)] backdrop-blur-2xl",
-        menuOpen && !scrolled && "bg-background/95 backdrop-blur-2xl",
+        menuOpen && "bg-background",
       )}
       id="nav"
     >
@@ -183,16 +194,15 @@ const Navbar = () => {
       </div>
 
       <div
+        ref={panelRef}
         className={clsx(
-          "hidden border-t border-white/[0.08] bg-background transition-[max-height] duration-300 ease-out max-[1100px]:block",
-          menuOpen
-            ? "max-h-[calc(100dvh-68px)] overflow-y-auto"
-            : "max-h-0 overflow-hidden border-t-0",
+          "fixed inset-x-0 bottom-0 top-[68px] overflow-y-auto overscroll-contain border-t border-white/[0.08] bg-background min-[1101px]:hidden",
+          !menuOpen && "hidden",
         )}
         id="navPanel"
         inert={!menuOpen}
       >
-        <div className="flex flex-col gap-0.5 px-6 pb-6 pt-4">
+        <div className="mx-auto flex max-w-[640px] flex-col gap-0.5 px-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))] pt-4">
           {siteConfig.navMenuItems.map((item) => (
             <Link
               key={item.href}
@@ -201,8 +211,9 @@ const Navbar = () => {
                   ? "page"
                   : undefined
               }
-              className="block min-h-11 border-b border-white/[0.08] px-1 py-3.5 text-[17px] font-semibold text-white/70 hover:bg-white/5 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue"
+              className="block min-h-11 border-b border-white/[0.08] px-1 py-3.5 text-[17px] font-semibold text-white/70 hover:bg-white/5 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue aria-[current=page]:text-white"
               href={item.href}
+              onClick={() => setMenuOpen(false)}
             >
               {item.label}
             </Link>

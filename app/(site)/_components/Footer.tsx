@@ -6,29 +6,66 @@ import { Facebook, Linkedin } from "lucide-react";
 
 import refinement from "./VisualRefinement.module.css";
 import Logo from "./Logo";
+import Button from "./ui/Button";
 
 import { siteConfig } from "@/config/site";
+import { PLANS } from "@/data/plans";
 import { toTelHref } from "@/lib/utils/phone";
 
-const OUTCOMES = [
-  { label: "Get More Opportunities", href: "/services#get-found" },
-  { label: "Convert More Visitors", href: "/services#get-contacted" },
-  { label: "Faster Follow-Up", href: "/services#respond" },
-  { label: "Pipeline & Tracking", href: "/services#win" },
-  { label: "All Services", href: "/services" },
-];
+export type FooterLink = { label: string; href: string };
 
-const COMPANY = [
-  { label: "About ALL8", href: "/about" },
-  { label: "Pricing", href: "/pricing" },
+const PLAN_LINKS: FooterLink[] = PLANS.map((plan) => ({
+  label: plan.name,
+  href: `/pricing#${plan.id}`,
+}));
+
+const RESOURCES: FooterLink[] = [
   { label: "Blog", href: "/blog" },
-  { label: "Tools", href: "/tools" },
+  {
+    label: "Missed-Call Calculator",
+    href: "/tools/missed-call-revenue-calculator",
+  },
   { label: "Work", href: "/work" },
-  { label: "How It Works", href: "/#system" },
-  { label: "FAQ", href: "/#faq" },
+  { label: "About ALL8", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
-export default function Footer({ year }: { year: number }) {
+const LINK_CLASS =
+  "inline-flex min-h-11 items-center rounded-lg px-1 text-sm text-white/70 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue";
+
+function FooterColumn({
+  title,
+  links,
+}: {
+  title: string;
+  links: FooterLink[];
+}) {
+  return (
+    <div>
+      <h2 className="mb-[18px] text-xs font-bold uppercase tracking-[.12em] text-white/60">
+        {title}
+      </h2>
+      <ul className="flex flex-col">
+        {links.map((item) => (
+          <li key={item.href}>
+            <Link className={LINK_CLASS} href={item.href}>
+              {item.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default function Footer({
+  year,
+  services,
+}: {
+  year: number;
+  /** Passed from the server layout so the full service catalogue stays out of the client bundle. */
+  services: FooterLink[];
+}) {
   const pathname = usePathname();
   const telHref = toTelHref(siteConfig.phone);
 
@@ -75,135 +112,39 @@ export default function Footer({ year }: { year: number }) {
       className={`${pathname === "/" || pathname.startsWith("/hire-matt") ? refinement.surface : ""} border-t border-white/[0.08] bg-[#070A12]`}
     >
       <div className="mx-auto max-w-[1160px] px-6 pb-8 pt-16 sm:px-10">
-        <div className="grid grid-cols-1 gap-10 pb-12 sm:grid-cols-2 lg:grid-cols-[1.8fr_1fr_1fr_1fr]">
+        <div className="grid grid-cols-1 gap-10 pb-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_1.2fr_1fr_1fr]">
           <div>
-            <Link
-              className="mb-3.5 flex min-h-11 items-center gap-2.5 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue"
-              href="/"
-            >
+            <Link className="mb-3.5 flex items-center gap-2.5" href="/">
               <Logo size="sm" variant="horizontal" />
             </Link>
-            <p className="all8-muted max-w-[250px] text-sm leading-relaxed">
+            <p className="max-w-[270px] text-sm leading-relaxed text-white/60">
               Lead systems for service businesses — connecting search
               visibility, websites, calls, follow-up and tracking.
             </p>
-            <div className="all8-faint mt-4 flex items-center gap-2 text-[13px]">
-              <span className="h-[7px] w-[7px] flex-shrink-0 rounded-full bg-accent-blue" />
-              Serving service businesses across the U.S. &amp; Canada
-            </div>
-            <p className="all8-faint mt-[18px] max-w-[250px] text-sm leading-relaxed">
-              ALL8 WEBWORKS
-              <br />
+            <p className="mt-3 text-[13px] text-white/60">
+              Serving service businesses across the U.S. &amp; Canada ·{" "}
               {siteConfig.addressLine}
-              <br />
-              <a
-                className="all8-body-link inline-flex min-h-11 items-center rounded-sm"
-                href={telHref}
-              >
-                {siteConfig.phone}
-              </a>
-              <br />
-              <a
-                className="all8-body-link inline-flex min-h-11 items-center rounded-sm"
-                href={`mailto:${siteConfig.email}`}
-              >
-                {siteConfig.email}
-              </a>
             </p>
-          </div>
-
-          <div>
-            <h2 className="all8-faint mb-[18px] text-xs font-bold uppercase tracking-[.12em]">
-              Outcomes
-            </h2>
-            <ul className="flex flex-col gap-1">
-              {OUTCOMES.map((item) => (
-                <li key={item.label}>
-                  <Link
-                    className="inline-flex min-h-11 items-center rounded-lg px-1 text-sm text-white/70 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue"
-                    href={item.href}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h2 className="all8-faint mb-[18px] text-xs font-bold uppercase tracking-[.12em]">
-              Company
-            </h2>
-            <ul className="flex flex-col gap-1">
-              {COMPANY.map((item) => (
-                <li key={item.label}>
-                  <Link
-                    className="inline-flex min-h-11 items-center rounded-lg px-1 text-sm text-white/70 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue"
-                    href={item.href}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h2 className="all8-faint mb-[18px] text-xs font-bold uppercase tracking-[.12em]">
-              Contact
-            </h2>
-            <ul className="flex flex-col gap-1">
+            <ul className="mt-3 flex flex-col">
               <li>
-                <Link
-                  className="inline-flex min-h-11 items-center rounded-lg px-1 text-sm text-white/70 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue"
-                  href="/contact"
-                >
-                  Contact
-                </Link>
+                <a className={LINK_CLASS} href={telHref}>
+                  {siteConfig.phone}
+                </a>
               </li>
               <li>
-                <a
-                  className="inline-flex min-h-11 items-center rounded-lg px-1 text-sm text-white/70 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue"
-                  href={`mailto:${siteConfig.email}`}
-                >
+                <a className={LINK_CLASS} href={`mailto:${siteConfig.email}`}>
                   {siteConfig.email}
                 </a>
               </li>
-              {siteConfig.links.linkedin && (
-                <li>
-                  <a
-                    className="inline-flex min-h-11 items-center rounded-lg px-1 text-sm text-white/70 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue"
-                    href={siteConfig.links.linkedin}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    LinkedIn
-                  </a>
-                </li>
-              )}
-              {siteConfig.links.facebook && (
-                <li>
-                  <a
-                    className="inline-flex min-h-11 items-center rounded-lg px-1 text-sm text-white/70 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue"
-                    href={siteConfig.links.facebook}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    Facebook
-                  </a>
-                </li>
-              )}
-              {/* <li>
-                <Button
-                  className="inline-flex min-h-11 items-center rounded-lg px-1 text-sm text-white/70 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blue"
-                  type="button"
-                  onClick={openModal}
-                >
-                  Get My Free Lead Leak Review
-                </Button>
-              </li> */}
             </ul>
+            <Button className="mt-4" href="/contact" variant="ghost">
+              Free Lead Leak Review
+            </Button>
           </div>
+
+          <FooterColumn links={services} title="Services" />
+          <FooterColumn links={PLAN_LINKS} title="Plans" />
+          <FooterColumn links={RESOURCES} title="Resources" />
         </div>
 
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/[0.08] pt-[26px]">

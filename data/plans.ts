@@ -7,6 +7,8 @@ export type Plan = {
   term: string;
   bestFor: string;
   inclusions: readonly string[];
+  /** What this level adds over the one below it, shown first and in bold. */
+  adds?: string;
   note?: string;
 };
 
@@ -62,6 +64,7 @@ export const PLANS: readonly Plan[] = [
     monthly: "$995/month",
     term: "6-month minimum",
     bestFor: "Connecting visibility, lead capture, response and follow-up.",
+    adds: "Adds: local SEO & GBP, CRM pipeline, missed-call text-back, follow-up, monthly lead reporting",
     inclusions: [
       "Everything in Managed Website",
       "Google Business Profile optimization and local SEO",
@@ -69,7 +72,7 @@ export const PLANS: readonly Plan[] = [
       "Lead alerts, new-lead and open-estimate follow-up, review requests",
       "Monthly lead and pipeline reporting; one-page Lead Handling Agreement",
     ],
-    note: "Software costs are included subject to current pricing assumptions.",
+    note: "Standard software and automation costs are included. Additional integrations, third-party subscriptions, or usage beyond the agreed scope may require separate pricing, which we'll discuss and approve before implementation.",
   },
   {
     id: "growth-system",
@@ -80,6 +83,7 @@ export const PLANS: readonly Plan[] = [
     term: "6-month minimum",
     bestFor:
       "A connected lead system with ongoing growth work scoped to your goals.",
+    adds: "Adds: scoped ongoing SEO, content and automation work",
     inclusions: [
       "Everything in Lead System",
       "Scoped ongoing work, such as SEO strategy, new pages or conversion improvements",
@@ -111,4 +115,38 @@ export function getPlan(id: string): Plan {
   if (!plan) throw new Error(`Unknown plan: ${id}`);
 
   return plan;
+}
+
+export type PlanPriceDisplay = {
+  /** The figure a visitor compares first: the recurring fee for ongoing plans. */
+  amount: string;
+  /** Unit attached to the amount, e.g. "/mo" or "/mo + ad spend". */
+  unit?: string;
+  /** Secondary terms: setup fee, minimum commitment or "one-time". */
+  detail: string;
+};
+
+const MONTHLY_PATTERN = /^(From )?(\$[\d,]+)\/month(.*)$/;
+
+/** Monthly-first price presentation shared by every plan card on the site. */
+export function getPlanPriceDisplay(plan: Plan): PlanPriceDisplay {
+  if (plan.id === "free-review") {
+    return { amount: plan.setup, detail: plan.term };
+  }
+
+  const monthly = plan.monthly?.match(MONTHLY_PATTERN);
+
+  if (!monthly) {
+    return { amount: plan.setup, detail: "One-time fee" };
+  }
+
+  const [, from, amount, extra] = monthly;
+  const setup =
+    plan.setup === "Quoted" ? "Setup quoted" : `+ ${plan.setup} one-time setup`;
+
+  return {
+    amount: `${from ?? ""}${amount}`,
+    unit: `/mo${extra}`,
+    detail: `${setup} · ${plan.term}`,
+  };
 }

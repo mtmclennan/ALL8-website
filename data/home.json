@@ -14,7 +14,7 @@
     "ctaLabel": "Get My Free Lead Leak Review",
     "secondaryLabel": "See how it works",
     "secondaryHref": "#system",
-    "micro": "Written findings  ·  No required call  ·  You keep the review",
+    "micro": "Written findings  ·  No required call  ·  Remote-first, Eastern Time",
     "geo": "Remote-first  ·  Eastern Time",
     "image": {
       "src": "/assets/home/Mobile-Quote-Request-Dashboard.webp",
@@ -118,7 +118,7 @@
       }
     ],
     "footNote": "You don't have to do all four. **We start with the stage that appears to be costing you the most** — for some businesses that's rankings, for others it's a website that doesn't ask for the call, and often it's what happens after the phone rings.",
-    "ctaLabel": "See What I Should Fix First"
+    "ctaLabel": "Get My Free Lead Leak Review"
   },
 
   "outcomes": {
@@ -365,58 +365,13 @@
   },
 
   "faqs": [
-    {
-      "q": "What does ALL8 WEBWORKS actually do?",
-      "a": "ALL8 WEBWORKS helps service businesses get more opportunities and lose fewer of them. We work across four stages: getting found (local SEO, Google Business Profile, Google Ads), getting contacted (websites, landing pages, quote forms), responding and following up (lead alerts, missed-call text-back, email and SMS automation), and winning more work (CRM pipeline setup, call tracking and lead source attribution). Most engagements start with a free Lead Leak Review that identifies which stage looks weakest."
-    },
-    {
-      "q": "Do I need a new website?",
-      "a": "Often no. Plenty of businesses have a site that's good enough and a follow-up process that's losing them jobs. If the website is the constraint we'll say so, and if it isn't we'd rather fix the part that is. The review tells you which."
-    },
-    {
-      "q": "What is a Lead Leak Review?",
-      "a": "Send your business and website information. Matt reviews search visibility, the website, contact and response paths, follow-up, and obvious lead leaks. You get specific findings in writing and what to fix first, whether or not you hire us. A short call to walk through them is optional."
-    },
-    {
-      "q": "Can you work with my existing website?",
-      "a": "Yes. If the site is structurally sound we improve what's there — service pages, calls-to-action, forms, mobile experience and speed — rather than starting over. A rebuild only gets recommended when the current site genuinely can't do the job."
-    },
-    {
-      "q": "Can you work with the CRM or phone system we already use?",
-      "a": "Usually. If your team already uses a CRM, quoting tool or scheduling software, we connect to it rather than replace it. We only recommend new tools when what you have can't do what's needed."
-    },
-    {
-      "q": "Do you handle SEO and Google Ads?",
-      "a": "Yes, and we treat them differently. Local SEO and your Google Business Profile build visibility that keeps working; ads buy visibility immediately and stop when you stop paying. For most service businesses we build the organic side and use ads to cover specific services or seasons where the job value justifies the cost per click."
-    },
-    {
-      "q": "Do you set up automated follow-up?",
-      "a": "Yes. Lead alerts, missed-call text-back, automated email and SMS sequences, and estimate or appointment reminders — built on established third-party platforms, connected to wherever your leads already live."
-    },
-    {
-      "q": "Do you replace our phone system?",
-      "a": "No. We don't sell phone systems or answer your calls. We show you how many calls are being missed and what they're worth, add call tracking so you know where they came from, and set up the automatic follow-up that catches the ones nobody got to. An existing answering service can be connected to your pipeline."
-    },
-    {
-      "q": "Do I own what you build?",
-      "a": "Your domain, content, ad accounts, analytics and customer data stay in your name. We explain the work scope and recurring fees before you commit."
-    },
-    {
-      "q": "Do you work with U.S. businesses?",
-      "a": "Yes. ALL8 is based in Ontario, Canada and works with service businesses across the United States and Canada. The process is remote and we keep Eastern Time availability, which overlaps the working day in every U.S. time zone."
-    },
-    {
-      "q": "Do you work with Canadian businesses?",
-      "a": "Yes. Canadian clients pay the same numeric plan prices in CAD, plus applicable HST. U.S. clients pay in USD. See the Pricing page for the plans and minimum terms."
-    },
-    {
-      "q": "How long does a project take?",
-      "a": "Follow-up automation and tracking are usually live within one to two weeks. Focused website and conversion work runs one to two weeks; a full build is typically three to five. Local search results build over months rather than days — we'll be straight with you about which is which."
-    },
-    {
-      "q": "How do I get started?",
-      "a": "Request the free Lead Leak Review from any button on this page, or text us. Send your business and website details; Matt will send written findings and what to fix first. A follow-up call is optional."
-    }
+    {"q": "What does ALL8 WEBWORKS actually do?", "a": "ALL8 WEBWORKS helps service businesses get more opportunities and lose fewer of them. We work across four stages: getting found (local SEO, Google Business Profile, Google Ads), getting contacted (websites, landing pages, quote forms), responding and following up (lead alerts, missed-call text-back, email and SMS automation), and winning more work (CRM pipeline setup, call tracking and lead source attribution). Most engagements start with a free Lead Leak Review that identifies which stage looks weakest."},
+    {"q": "Do I need a new website?", "a": "Often no. Plenty of businesses have a site that's good enough and a follow-up process that's losing them jobs. If the website is the constraint we'll say so, and if it isn't we'd rather fix the part that is. The review tells you which."},
+    {"q": "What is a Lead Leak Review?", "a": "Send your business and website information. Matt reviews search visibility, the website, contact and response paths, follow-up, and obvious lead leaks. You get specific findings in writing and what to fix first, whether or not you hire us. A short call to walk through them is optional."},
+    {"q": "Can you work with my existing website?", "a": "Yes. If the site is structurally sound we improve what's there — service pages, calls-to-action, forms, mobile experience and speed — rather than starting over. A rebuild only gets recommended when the current site genuinely can't do the job."},
+    {"q": "Do you handle SEO and Google Ads?", "a": "Yes, and we treat them differently. Local SEO and your Google Business Profile build visibility that keeps working; ads buy visibility immediately and stop when you stop paying. For most service businesses we build the organic side and use ads to cover specific services or seasons where the job value justifies the cost per click."},
+    {"q": "Do I own what you build?", "a": "Your domain, content, ad accounts, analytics and customer data stay in your name. We explain the work scope and recurring fees before you commit."},
+    {"q": "Do you work with U.S. businesses?", "a": "Yes. ALL8 is based in Ontario, Canada and works with service businesses across the United States and Canada. The process is remote and we keep Eastern Time availability, which overlaps the working day in every U.S. time zone."}
   ],
 
   "finalCta": {

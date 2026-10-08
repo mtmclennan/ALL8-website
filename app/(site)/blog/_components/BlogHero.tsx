@@ -30,7 +30,7 @@ export default function BlogHero({ title, subtitle }: BlogHeroProps) {
         <div className="max-w-[800px]">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[rgba(0,118,255,.22)] bg-[rgba(0,118,255,.1)] py-1.5 pl-2.5 pr-3.5 text-[12.5px] font-semibold tracking-[.05em] text-accent-blue">
             <span className="h-[7px] w-[7px] flex-shrink-0 rounded-full bg-accent-blue" />
-            Field Notes
+            Blog
           </div>
 
           <h1 className="mb-[22px] all8-h1 font-black leading-[1] tracking-[-.03em]">

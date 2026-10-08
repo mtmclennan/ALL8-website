@@ -1,6 +1,7 @@
 "use server";
 
 import type { LeadPayload } from "@/lib/leads/types";
+import type { LeadActionState } from "@/lib/leads/leadSubmission";
 
 import { verifyCaptcha, type CaptchaAction } from "@/lib/intake/verifyCaptcha";
 import { checkRateLimit } from "@/lib/intake/rateLimit";
@@ -10,11 +11,7 @@ import {
   runNewsletterBackgroundTasks,
 } from "@/lib/leads/runLeadBackgroundTasks";
 
-export type LeadActionState = {
-  ok: boolean;
-  message?: string;
-  fieldErrors?: Record<string, string[]>;
-};
+export type { LeadActionState };
 
 export async function submitLeadPipeline(
   data: LeadPayload,
@@ -22,7 +19,11 @@ export async function submitLeadPipeline(
 ): Promise<LeadActionState> {
   // honeypot
   if (data.hp && data.hp.trim().length > 0) {
-    return { ok: true, message: "Thanks! We’ll review and follow up shortly." };
+    return {
+      ok: true,
+      captured: false,
+      message: "Thanks! We’ll review and follow up shortly.",
+    };
   }
 
   try {

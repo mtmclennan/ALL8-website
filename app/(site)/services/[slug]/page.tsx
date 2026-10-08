@@ -142,10 +142,7 @@ export default async function ServiceDetailPage({
         worksWith={service.worksWith}
       />
       <ServiceHowItWorks howItWorks={service.howItWorks} />
-      <ServiceProof
-        serviceSlug={service.slug}
-        serviceTitle={service.shortTitle || service.title}
-      />
+      <ServiceProof serviceSlug={service.slug} />
       <ServicePricing slug={service.slug} />
       {service.faqs?.length > 0 && (
         <FAQBlock

@@ -7,10 +7,6 @@ export const siteConfig = {
   // Contact is deliberately excluded — it competes with the primary conversion (Free Lead Leak Review).
   navItems: [
     {
-      label: "How It Works",
-      href: "/#system",
-    },
-    {
       label: "Services",
       href: "/services",
     },
@@ -33,10 +29,6 @@ export const siteConfig = {
   ],
   navMenuItems: [
     {
-      label: "How It Works",
-      href: "/#system",
-    },
-    {
       label: "Services",
       href: "/services",
     },
@@ -55,10 +47,6 @@ export const siteConfig = {
     {
       label: "Blog",
       href: "/blog",
-    },
-    {
-      label: "FAQ",
-      href: "/#faq",
     },
   ],
   navFooter: [

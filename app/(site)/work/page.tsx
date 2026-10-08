@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
+import Button from "@/app/(site)/_components/ui/Button";
+import CoverFallback from "@/app/(site)/blog/_components/CoverFallback";
+import FinalCta from "@/app/(site)/_components/home/FinalCta";
 import { site, siteUrl } from "@/config/site.config";
 import { workCaseStudies } from "@/data/work";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -27,7 +29,7 @@ const jsonLd = {
       "@type": "CollectionPage",
       "@id": `${canonical}#page`,
       url: canonical,
-      name: "Results & Case Studies",
+      name: "Work & Case Studies",
       description: metadata.description,
       isPartOf: { "@id": `${siteUrl()}/#website` },
       about: {
@@ -58,7 +60,7 @@ const jsonLd = {
 
 export default function WorkPage() {
   return (
-    <main className="pb-24 pt-[132px] max-[960px]:pb-16">
+    <div className="pt-[132px] max-[960px]:pt-[112px]">
       <script
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         type="application/ld+json"
@@ -69,7 +71,7 @@ export default function WorkPage() {
           Work by {site.name}
         </p>
         <h1 className="mt-4 all8-h1 font-black leading-[.98] tracking-[-.04em]">
-          Results &amp; Case Studies
+          Work &amp; Case Studies
         </h1>
         <p className="mt-7 max-w-[760px] text-xl leading-relaxed text-white/70">
           ALL8 improves the path from being found to winning the work. These
@@ -82,35 +84,25 @@ export default function WorkPage() {
         aria-labelledby="featured-work-heading"
         className="mx-auto mt-16 max-w-[1160px] px-6 sm:px-10"
       >
-        <div className="mb-7">
-          <p className="text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
-            Featured case study
-          </p>
-          <h2
-            className="mt-3 text-[clamp(28px,3.2vw,42px)] font-extrabold tracking-[-.025em]"
-            id="featured-work-heading"
-          >
-            What has ALL8 actually done?
-          </h2>
-        </div>
+        <h2
+          className="all8-h2 mb-7 font-extrabold tracking-[-.025em]"
+          id="featured-work-heading"
+        >
+          Featured case study
+        </h2>
 
         <div className="space-y-8">
           {workCaseStudies.map((caseStudy) => (
             <article
               key={caseStudy.slug}
-              className="overflow-hidden rounded-[22px] border border-white/[0.1] bg-content3"
+              className="overflow-hidden rounded-2xl border border-white/[0.1] bg-content3"
             >
               <div className="grid lg:grid-cols-[.9fr_1.1fr]">
-                <div className="relative min-h-[280px] border-b border-white/[0.08] lg:min-h-full lg:border-b-0 lg:border-r">
-                  <Image
-                    fill
-                    priority
-                    alt={caseStudy.image.alt}
-                    className="object-cover"
-                    sizes="(min-width: 1024px) 42vw, 100vw"
-                    src={caseStudy.image.src}
+                <div className="relative min-h-[160px] border-b border-white/[0.08] lg:min-h-full lg:border-b-0 lg:border-r">
+                  <CoverFallback
+                    className="p-7 sm:p-10"
+                    label={caseStudy.panelLabel}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/55 via-transparent to-transparent" />
                 </div>
 
                 <div className="p-7 sm:p-10">
@@ -133,7 +125,18 @@ export default function WorkPage() {
                         className="rounded-2xl border border-white/[0.09] bg-white/[0.035] p-4"
                       >
                         <dt className="text-sm font-bold text-white">
-                          {result.label}
+                          <span
+                            className={
+                              result.evidence === "measured"
+                                ? "mb-2 inline-flex rounded-md border border-[rgba(34,197,94,.35)] bg-[rgba(34,197,94,.12)] px-2 py-0.5 text-[11px] font-bold text-[#4ade80]"
+                                : "mb-2 inline-flex rounded-md border border-[rgba(61,151,255,.35)] bg-[rgba(61,151,255,.12)] px-2 py-0.5 text-[11px] font-bold text-accent-blue"
+                            }
+                          >
+                            {result.evidence === "measured"
+                              ? "Measured"
+                              : "Observed"}
+                          </span>
+                          <span className="block">{result.label}</span>
                         </dt>
                         <dd className="mt-2 text-2xl font-black text-accent-blue">
                           {result.value}
@@ -163,18 +166,34 @@ export default function WorkPage() {
                     </ul>
                   </div>
 
-                  <Link
-                    className="mt-8 inline-flex min-h-11 items-center gap-2 rounded-full bg-accent-blue px-6 py-3 font-bold text-white hover:bg-[#2388f7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-blue"
+                  <Button
+                    className="mt-8"
                     href={`/work/${caseStudy.slug}`}
+                    variant="ghost"
                   >
-                    Read the full case study <ArrowRight size={17} />
-                  </Link>
+                    Read the full case study{" "}
+                    <ArrowRight aria-hidden="true" size={17} />
+                  </Button>
                 </div>
               </div>
             </article>
           ))}
         </div>
       </section>
-    </main>
+
+      <FinalCta
+        data={{
+          eyebrow: "Free Lead Leak Review",
+          title: "Find Out Where You're",
+          titleAccent: "Losing the Work.",
+          subtitle:
+            "Send your business and website details. Matt will review the lead path and send specific findings on what to fix first. A short call afterward is optional.",
+          ctaLabel: "Get My Free Lead Leak Review",
+          micro:
+            "No long-term commitment  ·  Clear recommendations  ·  Fixed scope before work begins",
+          secondary: { label: "View Pricing", href: "/pricing" },
+        }}
+      />
+    </div>
   );
 }

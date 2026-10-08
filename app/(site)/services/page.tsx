@@ -5,7 +5,6 @@ import ProcessSteps from "../_components/home/ProcessSteps";
 import FinalCta from "../_components/home/FinalCta";
 
 import CurrentServices from "./components/CurrentServices";
-import LeadJourney from "./components/LeadJourney";
 import ServicesHero from "./components/ServicesHero";
 
 import { servicesPageData } from "@/data/pages/servicesPage";
@@ -74,7 +73,6 @@ export default function ServicesPage() {
       />
       <ServicesHero data={servicesPageData.hero} />
       <CurrentServices />
-      <LeadJourney data={servicesPageData.journey} />
       <ProofCards data={servicesPageData.proof} />
       <ProcessSteps data={servicesPageData.process} />
       <FinalCta data={servicesPageData.finalCta} />

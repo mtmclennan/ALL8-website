@@ -2,12 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { getServicesWithIcons, type ServiceWithIcon } from "@/data/services";
-import {
-  STAGE_HEX,
-  STAGE_LABEL,
-  hexToRgba,
-  type Stage,
-} from "@/lib/utils/stage";
+import { STAGE_HEX, STAGE_LABEL, type Stage } from "@/lib/utils/stage";
 import Reveal from "@/app/(site)/_components/home/Reveal";
 import { Card } from "@/app/(site)/_components/SectionWrapper";
 
@@ -63,7 +58,7 @@ export default function CurrentServices() {
           </p>
         </Reveal>
 
-        <div className="flex flex-col gap-16">
+        <div className="flex flex-col gap-12 lg:gap-14">
           {GROUPS.map((group) => {
             const groupServices = services.filter(
               (s) => s.category === group.key,
@@ -72,10 +67,14 @@ export default function CurrentServices() {
             if (!groupServices.length) return null;
 
             return (
-              <div key={group.key} className="scroll-mt-24" id={group.anchor}>
-                <Reveal className="mb-6 flex items-center gap-3">
+              <div
+                key={group.key}
+                className="grid scroll-mt-24 gap-5 lg:grid-cols-[220px_1fr] lg:gap-8"
+                id={group.anchor}
+              >
+                <Reveal className="flex items-center gap-3 lg:items-start lg:pt-7">
                   <span
-                    className="h-2 w-2 flex-shrink-0 rounded-full"
+                    className="h-2 w-2 flex-shrink-0 rounded-full lg:mt-[5px]"
                     style={{
                       backgroundColor: group.hex,
                     }}
@@ -88,7 +87,7 @@ export default function CurrentServices() {
                   </h3>
                 </Reveal>
 
-                <div className="grid grid-cols-1 gap-[18px] sm:grid-cols-2 lg:grid-cols-3">
+                <div className="grid grid-cols-1 gap-[18px] sm:grid-cols-2">
                   {groupServices.map((service, i) => (
                     <ServiceCard
                       key={service.slug}
@@ -101,6 +100,23 @@ export default function CurrentServices() {
             );
           })}
         </div>
+
+        <p className="mt-12 max-w-[760px] text-[15.5px] leading-relaxed text-white/70 lg:ml-[252px]">
+          Most clients get these as part of a plan — Managed Website, Lead
+          System or Growth System.{" "}
+          <Link
+            className="group inline-flex items-center gap-1.5 font-bold text-accent-blue hover:underline hover:underline-offset-4"
+            href="/pricing"
+          >
+            Compare plans
+            <ArrowRight
+              aria-hidden="true"
+              className="transition-transform group-hover:translate-x-[3px] motion-reduce:group-hover:translate-x-0"
+              size={14}
+              strokeWidth={2.5}
+            />
+          </Link>
+        </p>
       </div>
     </section>
   );
@@ -128,30 +144,14 @@ function ServiceCard({
           <h3 className="mb-2 text-lg font-bold tracking-[-.012em] group-hover:text-accent-blue">
             {service.title}
           </h3>
-          <p className="mb-4 text-sm leading-relaxed text-white/70">
+          <p className="mb-5 text-sm leading-relaxed text-white/70">
             {service.short}
           </p>
-          <ul
-            aria-label={`${service.title} lead journey stages`}
-            className="mb-5 flex flex-wrap gap-2"
-          >
-            {service.journeyStages.map((stage) => (
-              <li
-                key={stage}
-                className="all8-stage-chip"
-                style={{
-                  borderColor: hexToRgba(STAGE_HEX[stage], 0.35),
-                  color: STAGE_HEX[stage],
-                }}
-              >
-                {STAGE_LABEL[stage]}
-              </li>
-            ))}
-          </ul>
           <span className="mt-auto inline-flex items-center gap-1.5 text-[13.5px] font-bold text-accent-blue">
-            Explore {service.shortTitle || service.title}
+            Explore service
             <ArrowRight
-              className="transition-transform group-hover:translate-x-[3px]"
+              aria-hidden="true"
+              className="transition-transform group-hover:translate-x-[3px] motion-reduce:group-hover:translate-x-0"
               size={13}
               strokeWidth={2.5}
             />

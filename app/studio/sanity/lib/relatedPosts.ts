@@ -1,3 +1,5 @@
+import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
+
 export type RelatedArticle = {
   _id?: string;
   title?: string;
@@ -5,7 +7,9 @@ export type RelatedArticle = {
     current?: string;
   };
   excerpt?: string;
+  coverImage?: SanityImageSource;
   publishedAt?: string;
+  readingTime?: number;
   category?: {
     title?: string;
     slug?: {
@@ -17,6 +21,8 @@ export type RelatedArticle = {
 type RelatedArticleCandidate = RelatedArticle & {
   categoryIds?: string[];
   tags?: string[];
+  /** Manual picks that are drafts or noindex; linking them would 404 or leak. */
+  isUnavailable?: boolean;
 };
 
 export type RelatedPostsSource = {
@@ -24,8 +30,9 @@ export type RelatedPostsSource = {
   slug?: string;
   categoryIds?: string[];
   tags?: string[];
-  manual?: RelatedArticleCandidate[];
-  candidates?: RelatedArticleCandidate[];
+  // A reference to a deleted post dereferences to null.
+  manual?: Array<RelatedArticleCandidate | null>;
+  candidates?: Array<RelatedArticleCandidate | null>;
 };
 
 const DEFAULT_RELATED_LIMIT = 3;
@@ -58,7 +65,9 @@ export function selectRelatedPosts(
   const currentTags = new Set(
     (source.tags ?? []).map((tag) => tag.toLowerCase()),
   );
-  const candidates = source.candidates ?? [];
+  const candidates = (source.candidates ?? []).filter(
+    (post): post is RelatedArticleCandidate => post !== null,
+  );
   const buckets = [
     source.manual ?? [],
     candidates.filter((post) => hasCategoryOverlap(post, currentCategoryIds)),
@@ -66,7 +75,9 @@ export function selectRelatedPosts(
     candidates,
   ];
 
-  const addPost = (post: RelatedArticleCandidate) => {
+  const addPost = (post: RelatedArticleCandidate | null) => {
+    if (!post || post.isUnavailable) return;
+
     const slug = post.slug?.current;
 
     if (

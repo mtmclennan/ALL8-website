@@ -12,7 +12,7 @@
     "subtitleStrong": "tools, not products.",
     "secondaryLabel": "Browse SEO, Websites, Ads & More",
     "secondaryHref": "#current-services",
-    "micro": "Written findings  ·  No required call  ·  You keep the review",
+    "micro": "Written findings  ·  No required call  ·  Remote-first, Eastern Time",
     "geo": "Remote-first  ·  Eastern Time",
     "badges": [
       { "label": "Get found", "stage": "found" },
@@ -114,11 +114,11 @@
     "eyebrow": "Proof, Not Promises",
     "title": "Measured Results, Not Adjectives",
     "cards": [
-      { "value": "{{proof.search.range}}", "em": true, "label": "Search Clicks", "sub": "Rolling 28 days, {{proof.search.period}}", "icon": "chart" },
-      { "value": "{{proof.profile.increaseSigned}}", "em": false, "label": "Profile Website Clicks", "sub": "Google Business Profile, year over year", "icon": "pin" },
-      { "value": "{{proof.visibility.pageOne}}", "em": true, "label": "Captured Visibility", "sub": "Targeted service page, point in time", "icon": "search" }
+      { "value": "{{proof.search.range}}", "em": true, "label": "Search Clicks", "sub": "Rolling 28 days, {{proof.search.period}}", "icon": "chart", "evidence": "measured" },
+      { "value": "{{proof.profile.increaseSigned}}", "em": false, "label": "Profile Website Clicks", "sub": "Google Business Profile, year over year", "icon": "pin", "evidence": "measured" },
+      { "value": "{{proof.visibility.pageOne}}", "em": true, "label": "Captured Visibility", "sub": "Targeted service page, point in time", "icon": "search", "evidence": "observed" }
     ],
-    "footNote": "These results come from documented work for an established excavation and service business in Southern Ontario. Improving visibility also revealed the next constraint for that business — missed calls and inconsistent follow-up — which is exactly why the four outcomes above exist as one system.",
+    "footNote": "These results come from documented work for an established excavation and service business in Southern Ontario. Improving visibility also revealed the next constraint for that business — missed calls and inconsistent follow-up — which is why the services above are built to work as one system.",
     "footNoteLink": {
       "label": "Explore results and case studies",
       "href": "/work"
