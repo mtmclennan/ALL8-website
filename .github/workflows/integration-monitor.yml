@@ -1,0 +1,59 @@
+name: ALL8 Daily Integration Monitor
+
+on:
+  schedule:
+    - cron: '17 12 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: all8-integration-monitor
+  cancel-in-progress: false
+
+jobs:
+  integrations:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.11.0'
+      - name: Restore last notified incident
+        uses: actions/cache/restore@v4
+        with:
+          path: .monitoring/state
+          key: ${{ github.workflow }}-incident-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            ${{ github.workflow }}-incident-v1-
+      - name: Check inbox delivery and HubSpot metadata
+        env:
+          EMAIL_MONITOR_ENABLED: ${{ vars.EMAIL_MONITOR_ENABLED }}
+          HUBSPOT_MONITOR_ENABLED: ${{ vars.HUBSPOT_MONITOR_ENABLED }}
+          MONITOR_BREVO_API_KEY: ${{ secrets.MONITOR_BREVO_API_KEY }}
+          MONITOR_EMAIL_FROM: ${{ secrets.MONITOR_EMAIL_FROM }}
+          MONITOR_EMAIL_TO: ${{ secrets.MONITOR_EMAIL_TO }}
+          MONITOR_GMAIL_CLIENT_ID: ${{ secrets.MONITOR_GMAIL_CLIENT_ID }}
+          MONITOR_GMAIL_CLIENT_SECRET: ${{ secrets.MONITOR_GMAIL_CLIENT_SECRET }}
+          MONITOR_GMAIL_REFRESH_TOKEN: ${{ secrets.MONITOR_GMAIL_REFRESH_TOKEN }}
+          MONITOR_HUBSPOT_TOKEN: ${{ secrets.MONITOR_HUBSPOT_TOKEN }}
+          MONITOR_HS_PORTAL_ID: ${{ secrets.MONITOR_HS_PORTAL_ID }}
+          MONITOR_HS_FORM_GUID: ${{ secrets.MONITOR_HS_FORM_GUID }}
+        run: node scripts/monitoring/run.mjs integrations
+      - name: Notify Slack on a new failure
+        if: ${{ always() && !cancelled() }}
+        env:
+          JOB_STATUS: ${{ job.status }}
+          CHECK_NAME: ${{ github.workflow }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: node scripts/monitoring/notify.mjs
+      - name: Save last notified incident
+        if: ${{ always() && !cancelled() }}
+        uses: actions/cache/save@v4
+        with:
+          path: .monitoring/state
+          key: ${{ github.workflow }}-incident-v1-${{ github.run_id }}-${{ github.run_attempt }}

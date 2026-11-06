@@ -2,9 +2,9 @@
 
 import type { LeadActionState } from "@/lib/leads/leadSubmission";
 
-import { useActionState, useRef } from "react";
-import Script from "next/script";
+import { useActionState, useEffect, useRef } from "react";
 
+import { loadRecaptcha, withCaptcha } from "@/lib/intake/clientCaptcha";
 import { useHubSpotContextFields } from "@/hooks/use-hubspotContextFields";
 import { submitNewsletter } from "@/app/actions/submit-newsletter";
 import Button from "@/app/(site)/_components/ui/Button";
@@ -14,32 +14,26 @@ const initialState: LeadActionState = { ok: false };
 
 export default function Newsletter() {
   const [state, formAction, isPending] = useActionState(
-    submitNewsletter,
+    withCaptcha(
+      submitNewsletter,
+      process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
+      "newsletter_signup",
+    ),
     initialState,
   );
   const { hutk, pageUrl, pageName, utm } =
     useHubSpotContextFields("Blog Newsletter");
   const hpRef = useRef<HTMLInputElement>(null);
-  const tokenRef = useRef<HTMLInputElement>(null);
-  const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
-  const enhancedAction = async (formData: FormData) => {
-    if (siteKey && typeof window !== "undefined" && "grecaptcha" in window) {
-      try {
-        // @ts-expect-error grecaptcha injected by script
-        await grecaptcha.ready();
-        const token = await grecaptcha.execute(siteKey, {
-          action: "newsletter_signup",
-        });
+  useEffect(() => {
+    // Warm the shared loader after hydration; a failed load is retried on submit.
+    void loadRecaptcha(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY).catch(
+      () => {},
+    );
+  }, []);
 
-        if (tokenRef.current) tokenRef.current.value = token;
-      } catch {
-        if (tokenRef.current) tokenRef.current.value = "";
-      }
-    }
-
+  const enhancedAction = (formData: FormData) => {
     formData.set("hp", hpRef.current?.value || "");
-    formData.set("token", tokenRef.current?.value || "");
     formData.set("hutk", hutk || "");
     formData.set("pageUrl", pageUrl || "");
     formData.set("pageName", pageName || "");
@@ -54,12 +48,6 @@ export default function Newsletter() {
 
   return (
     <>
-      {siteKey ? (
-        <Script
-          src={`https://www.google.com/recaptcha/api.js?render=${siteKey}`}
-          strategy="afterInteractive"
-        />
-      ) : null}
       <div className="mt-14 grid grid-cols-1 items-center gap-[34px] rounded-[20px] border border-[rgba(0,118,255,.24)] bg-gradient-to-br from-[rgba(0,118,255,.12)] to-[rgba(11,15,26,.2)] p-11 max-[960px]:p-7 lg:grid-cols-[1.1fr_.9fr]">
         <div>
           <h2 className="mb-2.5 text-[clamp(23px,2.4vw,30px)] font-extrabold leading-[1.14] tracking-[-.024em]">
@@ -92,7 +80,6 @@ export default function Newsletter() {
                 tabIndex={-1}
                 type="text"
               />
-              <input ref={tokenRef} name="token" type="hidden" />
               <input name="leadType" type="hidden" value="Blog Newsletter" />
               <input
                 required

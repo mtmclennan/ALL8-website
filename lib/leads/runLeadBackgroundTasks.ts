@@ -48,28 +48,23 @@ export async function captureLeadNotification(data: LeadPayload) {
 export async function runNewsletterBackgroundTasks(
   data: Pick<LeadPayload, "email">,
 ) {
-  const errors: string[] = [];
-  const step = async <T>(label: string, fn: () => Promise<T>) => {
-    try {
-      return await fn();
-    } catch (e) {
-      console.error(`[Newsletter] ${label} failed:`, e);
-      errors.push(label);
-    }
-  };
-
-  await Promise.allSettled([
-    step("HubSpot contact upsert", () =>
-      upsertContact(data.email, {
-        lifecyclestage: "subscriber",
-        all8_lead_source: "newsletter",
-      }),
-    ),
-    step("Confirmation email", () => sendNewsletterConfirmation(data.email)),
-  ]);
-
-  if (errors.length)
-    console.error("[Newsletter] Background partial errors:", errors);
+  // The subscriber record is primary capture. Never acknowledge an uncaptured
+  // subscription or send a confirmation before this succeeds.
+  await upsertContact(data.email, {
+    lifecyclestage: "subscriber",
+    all8_lead_source: "newsletter",
+  });
+  try {
+    await sendNewsletterConfirmation(data.email);
+  } catch (error) {
+    // Do not log provider responses, credentials, or the subscriber's address.
+    console.error("[Newsletter] Confirmation delivery failed", {
+      reason:
+        error instanceof Error && error.name === "TimeoutError"
+          ? "timeout"
+          : "provider_error",
+    });
+  }
 }
 
 export async function runLeadBackgroundTasks(data: LeadPayload) {

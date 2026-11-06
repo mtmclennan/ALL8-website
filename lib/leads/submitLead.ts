@@ -38,12 +38,19 @@ export async function submitLeadPipeline(
     return { ok: false, message: "Verification failed. Please try again." };
 
   if (data.leadType === "newsletter") {
-    // fire and forget (don’t await) — separate from the sales pipeline
-    void runNewsletterBackgroundTasks(data).catch((error) => {
-      console.error("[Newsletter] Background task runner failed:", error);
-    });
+    try {
+      await runNewsletterBackgroundTasks(data);
+    } catch (error) {
+      console.error("[Newsletter] Primary capture failed:", error);
 
-    return { ok: true, message: "You're on the list." };
+      return {
+        ok: false,
+        captured: false,
+        message: "We couldn't save your subscription. Please try again.",
+      };
+    }
+
+    return { ok: true, captured: true, message: "You're on the list." };
   }
 
   try {

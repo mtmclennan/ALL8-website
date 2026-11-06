@@ -1,0 +1,47 @@
+name: ALL8 Website Monitor
+
+on:
+  schedule:
+    - cron: '7,22,37,52 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: all8-website-monitor
+  cancel-in-progress: false
+
+jobs:
+  website:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.11.0'
+      - name: Restore last notified incident
+        uses: actions/cache/restore@v4
+        with:
+          path: .monitoring/state
+          key: ${{ github.workflow }}-incident-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            ${{ github.workflow }}-incident-v1-
+      - name: Check public pages and canonical redirects (GET only)
+        run: node scripts/monitoring/run.mjs website
+      - name: Notify Slack on a new failure
+        if: ${{ always() && !cancelled() }}
+        env:
+          JOB_STATUS: ${{ job.status }}
+          CHECK_NAME: ${{ github.workflow }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: node scripts/monitoring/notify.mjs
+      - name: Save last notified incident
+        if: ${{ always() && !cancelled() }}
+        uses: actions/cache/save@v4
+        with:
+          path: .monitoring/state
+          key: ${{ github.workflow }}-incident-v1-${{ github.run_id }}-${{ github.run_attempt }}

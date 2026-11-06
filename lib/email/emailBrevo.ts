@@ -1,8 +1,12 @@
 import { siteUrl } from "@/config/site.config";
 
+// Newsletter acknowledgement is secondary to durable subscriber capture.
+export const NEWSLETTER_CONFIRMATION_TIMEOUT_MS = 10_000;
+
 async function sendBrevoMail(
   payload: Record<string, unknown>,
   failureLabel: string,
+  signal?: AbortSignal,
 ) {
   const response = await fetch("https://api.brevo.com/v3/smtp/email", {
     method: "POST",
@@ -12,12 +16,11 @@ async function sendBrevoMail(
       "content-type": "application/json",
     },
     body: JSON.stringify(payload),
+    signal,
   });
 
   if (!response.ok) {
-    throw new Error(
-      `[Brevo] ${failureLabel}: ${response.status} ${await response.text()}`,
-    );
+    throw new Error(`[Brevo] ${failureLabel}: HTTP ${response.status}`);
   }
 }
 
@@ -145,13 +148,35 @@ export async function sendNewsletterConfirmation(email: string) {
     </div>
   </div>`;
 
-  await sendBrevoMail(
-    {
-      sender: from,
-      to: [{ email }],
-      subject: "You're subscribed — ALL8 Field Notes",
-      htmlContent: html,
-    },
-    "Newsletter confirmation failed",
-  );
+  const controller = new AbortController();
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  const timeout = new Promise<never>((_resolve, reject) => {
+    timer = setTimeout(() => {
+      const error = new Error("Newsletter confirmation timed out");
+
+      error.name = "TimeoutError";
+      controller.abort(error);
+      reject(error);
+    }, NEWSLETTER_CONFIRMATION_TIMEOUT_MS);
+  });
+
+  try {
+    // Abort the actual fetch; the race also bounds a transport that ignores abort.
+    // Never retry an ambiguous send: Brevo may already have accepted the message.
+    await Promise.race([
+      sendBrevoMail(
+        {
+          sender: from,
+          to: [{ email }],
+          subject: "You're subscribed — ALL8 Field Notes",
+          htmlContent: html,
+        },
+        "Newsletter confirmation failed",
+        controller.signal,
+      ),
+      timeout,
+    ]);
+  } finally {
+    clearTimeout(timer);
+  }
 }

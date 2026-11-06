@@ -4,7 +4,6 @@ import type { LeadActionState } from "@/lib/leads/leadSubmission";
 
 import { useActionState, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import Script from "next/script";
 import { X, CheckCircle2 } from "lucide-react";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
@@ -13,6 +12,7 @@ import refinement from "./VisualRefinement.module.css";
 import Button from "./ui/Button";
 import RecaptchaDisclosure from "./RecaptchaDisclosure";
 
+import { loadRecaptcha, withCaptcha } from "@/lib/intake/clientCaptcha";
 import { useHubSpotContextFields } from "@/hooks/use-hubspotContextFields";
 import { submitLeadReview } from "@/app/actions/submit-lead-review";
 import { siteConfig } from "@/config/site";
@@ -85,7 +85,11 @@ export default function LeadModal({
 }) {
   const pathname = usePathname();
   const [state, formAction, isPending] = useActionState(
-    submitLeadReview,
+    withCaptcha(
+      submitLeadReview,
+      process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
+      "lead_review",
+    ),
     initialState,
   );
   const { hutk, pageUrl, pageName, utm } =
@@ -97,7 +101,6 @@ export default function LeadModal({
   const dialogRef = useRef<HTMLDivElement>(null);
   const nameRef = useRef<HTMLInputElement>(null);
   const hpRef = useRef<HTMLInputElement>(null);
-  const tokenRef = useRef<HTMLInputElement>(null);
   const formStartedRef = useRef(false);
   const leadTrackedRef = useRef(false);
 
@@ -177,7 +180,14 @@ export default function LeadModal({
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [open, onClose]);
 
-  const enhancedAction = async (formData: FormData) => {
+  useEffect(() => {
+    // Warm the shared loader after hydration; a failed load is retried on submit.
+    void loadRecaptcha(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY).catch(
+      () => {},
+    );
+  }, []);
+
+  const enhancedAction = (formData: FormData) => {
     formData.set("hp", hpRef.current?.value || "");
     formData.set("hutk", hutk || "");
     formData.set("pageUrl", pageUrl || "");
@@ -188,21 +198,6 @@ export default function LeadModal({
     formData.set("utm_content", utm.content || "");
     formData.set("utm_term", utm.term || "");
     formData.set("challenge", challenge);
-
-    const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
-
-    if (siteKey && typeof window !== "undefined" && "grecaptcha" in window) {
-      try {
-        // @ts-expect-error grecaptcha injected by script
-        await grecaptcha.ready();
-        const t = await grecaptcha.execute(siteKey, { action: "lead_review" });
-
-        if (tokenRef.current) tokenRef.current.value = t || "";
-        formData.set("token", tokenRef.current?.value || "");
-      } catch {
-        // The server fails closed when verification is configured.
-      }
-    }
 
     return formAction(formData);
   };
@@ -219,12 +214,6 @@ export default function LeadModal({
           : "pointer-events-none invisible opacity-0",
       )}
     >
-      {process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && (
-        <Script
-          src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
-          strategy="lazyOnload"
-        />
-      )}
       <div
         aria-hidden="true"
         className="absolute inset-0 bg-[rgba(4,7,14,.82)] backdrop-blur-[6px]"
@@ -278,7 +267,6 @@ export default function LeadModal({
                   tabIndex={-1}
                   type="text"
                 />
-                <input ref={tokenRef} name="token" type="hidden" />
                 <input name="leadType" type="hidden" value="Lead Leak Review" />
               </div>
 

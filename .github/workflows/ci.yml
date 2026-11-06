@@ -1,0 +1,70 @@
+name: ALL8 CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: all8-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      NEXT_TELEMETRY_DISABLED: '1'
+      DEPLOYMENT_ENV: test
+      SITE_URL: https://all8webworks.com
+      NEXT_PUBLIC_RECAPTCHA_SITE_KEY: all8-test-site-key
+      RECAPTCHA_SECRET: all8-test-secret
+      # Public content configuration only; never pass CRM/email/Google credentials.
+      NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ vars.NEXT_PUBLIC_SANITY_PROJECT_ID }}
+      NEXT_PUBLIC_SANITY_DATASET: ${{ vars.NEXT_PUBLIC_SANITY_DATASET }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.11.0'
+          cache: npm
+      - run: npm ci
+      - name: Generate Next.js route types
+        run: npx next typegen
+      - name: TypeScript validation
+        run: npm run typecheck
+      - name: Lint without fixes
+        run: npm run lint:ci
+      - name: Unit tests
+        run: npm test
+      - name: Mocked form and server integration tests
+        run: npm run test:integration
+      - name: Monitoring regression tests (mocked)
+        run: npm run test:monitoring
+      - name: Verify Webpack build (no artifact upload or deployment)
+        run: npm run build -- --webpack
+
+  notify:
+    needs: validate
+    if: ${{ failure() && github.event_name != 'pull_request' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.11.0'
+      - name: Alert Slack
+        env:
+          JOB_STATUS: failure
+          CHECK_NAME: ALL8 CI
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: node scripts/monitoring/notify.mjs

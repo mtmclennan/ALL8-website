@@ -4,10 +4,10 @@ import type { LeadActionState } from "@/lib/leads/leadSubmission";
 
 import { useActionState, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import Script from "next/script";
 import { CheckCircle2 } from "lucide-react";
 import clsx from "clsx";
 
+import { loadRecaptcha, withCaptcha } from "@/lib/intake/clientCaptcha";
 import { useHubSpotContextFields } from "@/hooks/use-hubspotContextFields";
 import { submitLeadReview } from "@/app/actions/submit-lead-review";
 import { siteConfig } from "@/config/site";
@@ -73,14 +73,17 @@ function Field({
 
 export default function InlineLeadForm() {
   const [state, formAction, isPending] = useActionState(
-    submitLeadReview,
+    withCaptcha(
+      submitLeadReview,
+      process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
+      "contact_form",
+    ),
     initialState,
   );
   const { hutk, pageUrl, pageName, utm } =
     useHubSpotContextFields("Contact Page Form");
   const [challenge, setChallenge] = useState("");
   const hpRef = useRef<HTMLInputElement>(null);
-  const tokenRef = useRef<HTMLInputElement>(null);
   const formStartedRef = useRef(false);
   const leadTrackedRef = useRef(false);
 
@@ -108,7 +111,14 @@ export default function InlineLeadForm() {
     trackFormStart("contact_page");
   };
 
-  const enhancedAction = async (formData: FormData) => {
+  useEffect(() => {
+    // Warm the shared loader after hydration; a failed load is retried on submit.
+    void loadRecaptcha(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY).catch(
+      () => {},
+    );
+  }, []);
+
+  const enhancedAction = (formData: FormData) => {
     formData.set("hp", hpRef.current?.value || "");
     formData.set("hutk", hutk || "");
     formData.set("pageUrl", pageUrl || "");
@@ -120,32 +130,11 @@ export default function InlineLeadForm() {
     formData.set("utm_term", utm.term || "");
     formData.set("challenge", challenge);
 
-    const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
-
-    if (siteKey && typeof window !== "undefined" && "grecaptcha" in window) {
-      try {
-        // @ts-expect-error grecaptcha injected by script
-        await grecaptcha.ready();
-        const t = await grecaptcha.execute(siteKey, { action: "contact_form" });
-
-        if (tokenRef.current) tokenRef.current.value = t || "";
-        formData.set("token", tokenRef.current?.value || "");
-      } catch {
-        // The server fails closed when verification is configured.
-      }
-    }
-
     return formAction(formData);
   };
 
   return (
     <div className="mx-auto max-w-[620px] rounded-[20px] border border-white/[0.08] bg-white/[0.036] p-6 sm:p-[38px]">
-      {process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && (
-        <Script
-          src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
-          strategy="lazyOnload"
-        />
-      )}
       {!done ? (
         <>
           <p className="mb-5 text-[15px] leading-relaxed text-white/70">
@@ -168,7 +157,6 @@ export default function InlineLeadForm() {
                 tabIndex={-1}
                 type="text"
               />
-              <input ref={tokenRef} name="token" type="hidden" />
               <input name="leadType" type="hidden" value="Contact Page Form" />
             </div>
 
