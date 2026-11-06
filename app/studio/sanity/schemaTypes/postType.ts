@@ -136,18 +136,6 @@ export default defineType({
         { type: "bodyImage" },
         { type: "table" },
       ],
-      components: {
-        portableText: {
-          plugins: (props) =>
-            props.renderDefault({
-              ...props,
-              plugins: {
-                ...props.plugins,
-                table: { enabled: true },
-              },
-            }),
-        },
-      },
       validation: (Rule) => Rule.required(),
     }),
 

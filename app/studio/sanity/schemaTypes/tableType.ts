@@ -20,7 +20,7 @@ export const tableType = defineType({
       rows: 2,
       description: "Optional context shown with the table title.",
     }),
-    defineField({ name: "headerRows", type: "number" }),
+    defineField({ name: "headerRows", type: "number", initialValue: 1 }),
     defineField({
       name: "rows",
       type: "array",
