@@ -13,6 +13,7 @@ import { submitLeadReview } from "@/app/actions/submit-lead-review";
 import { siteConfig } from "@/config/site";
 import { toTelHref } from "@/lib/utils/phone";
 import Button from "@/app/(site)/_components/ui/Button";
+import HoneypotField from "@/app/(site)/_components/HoneypotField";
 import RecaptchaDisclosure from "@/app/(site)/_components/RecaptchaDisclosure";
 import { trackFormStart, trackGenerateLead } from "@/lib/analytics/dataLayer";
 
@@ -83,7 +84,6 @@ export default function InlineLeadForm() {
   const { hutk, pageUrl, pageName, utm } =
     useHubSpotContextFields("Contact Page Form");
   const [challenge, setChallenge] = useState("");
-  const hpRef = useRef<HTMLInputElement>(null);
   const formStartedRef = useRef(false);
   const leadTrackedRef = useRef(false);
 
@@ -91,8 +91,8 @@ export default function InlineLeadForm() {
   const telHref = toTelHref(siteConfig.phone);
 
   useEffect(() => {
-    // Honeypot responses look successful but capture nothing: never track them.
-    if (done && state.captured !== false && !leadTrackedRef.current) {
+    // Only a confirmed durable capture counts as a completed lead.
+    if (done && state.captured === true && !leadTrackedRef.current) {
       leadTrackedRef.current = true;
       trackGenerateLead("contact_page", {
         utmSource: utm.source,
@@ -119,7 +119,6 @@ export default function InlineLeadForm() {
   }, []);
 
   const enhancedAction = (formData: FormData) => {
-    formData.set("hp", hpRef.current?.value || "");
     formData.set("hutk", hutk || "");
     formData.set("pageUrl", pageUrl || "");
     formData.set("pageName", pageName || "");
@@ -148,15 +147,8 @@ export default function InlineLeadForm() {
             className="space-y-4"
             onFocusCapture={handleFormFocus}
           >
-            <div aria-hidden="true" className="sr-only">
-              <input
-                ref={hpRef}
-                autoComplete="off"
-                defaultValue=""
-                name="hp"
-                tabIndex={-1}
-                type="text"
-              />
+            <div hidden aria-hidden="true">
+              <HoneypotField />
               <input name="leadType" type="hidden" value="Contact Page Form" />
             </div>
 

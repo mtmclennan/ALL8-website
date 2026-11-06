@@ -42,6 +42,27 @@ describe.each([
     return { ...view, form };
   }
 
+  it('keeps the trap hidden, unfocusable and present in the submission snapshot', async () => {
+    const { form } = mount();
+    const trap = form.querySelector<HTMLInputElement>('input[name="hp"]')!;
+    expect(trap.closest('[hidden]')).not.toBeNull();
+    expect(trap.getAttribute('aria-hidden')).toBe('true');
+    expect(trap.tabIndex).toBe(-1);
+    expect(trap.autocomplete).toBe('off');
+    expect(trap.disabled).toBe(false);
+    trap.value = 'bot-filled';
+    fireEvent.submit(form);
+    await waitFor(() => expect(submit).toHaveBeenCalledOnce());
+    expect(submit.mock.calls[0][1].get('hp')).toBe('bot-filled');
+  });
+
+  it('sends an empty trap for a legitimate submission', async () => {
+    const { form } = mount();
+    fireEvent.submit(form);
+    await waitFor(() => expect(submit).toHaveBeenCalledOnce());
+    expect(submit.mock.calls[0][1].get('hp')).toBe('');
+  });
+
   it('uses the correct CAPTCHA action and shows success only after server confirmation', async () => {
     let resolve: (state: LeadActionState) => void = () => {};
     submit.mockImplementationOnce(() => new Promise<LeadActionState>((done) => { resolve = done; }));
@@ -90,7 +111,8 @@ describe.each([
     submit.mockResolvedValueOnce({ ok: true, captured: false });
     const { form } = mount();
     fireEvent.submit(form);
-    await screen.findByText(success);
+    expect((await screen.findByRole('alert')).textContent).toContain("couldn't confirm");
+    expect(screen.queryByText(success)).toBeNull();
     expect(events()).toHaveLength(0);
   });
 });

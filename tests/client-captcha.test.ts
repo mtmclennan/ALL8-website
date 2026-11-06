@@ -64,7 +64,7 @@ async function browser(t: TestContext) {
   const dispatched: string[] = [];
   const submit = async (_previous: LeadActionState, data: FormData) => {
     dispatched.push(String(data.get("token")));
-    return { ok: true };
+    return { ok: true, captured: true };
   };
   return { ...client, scripts, calls, install, windowMock, dispatched, submit };
 }
@@ -300,4 +300,23 @@ test("all three actual forms wire their expected action and keep accessible erro
     b.calls,
     cases.map(([, action]) => action),
   );
+});
+
+
+test("uncaptured success becomes a visible failure without retrying or clearing the trap", async (t) => {
+  const b = await browser(t);
+  b.install();
+  const data = new FormData();
+  data.set("hp", "filled");
+  let calls = 0;
+  const result = await b.withCaptcha(async () => {
+    calls++;
+    return { ok: true, captured: false };
+  }, "site-key", "lead_review")({ ok: false }, data);
+  assert.equal(result.ok, false);
+  assert.equal(result.captured, false);
+  assert.match(result.message!, /couldn't confirm/);
+  assert.equal(calls, 1);
+  assert.equal(data.get("hp"), "filled");
+  assert.equal(data.has("token"), false);
 });

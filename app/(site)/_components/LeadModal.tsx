@@ -10,6 +10,7 @@ import { usePathname } from "next/navigation";
 
 import refinement from "./VisualRefinement.module.css";
 import Button from "./ui/Button";
+import HoneypotField from "./HoneypotField";
 import RecaptchaDisclosure from "./RecaptchaDisclosure";
 
 import { loadRecaptcha, withCaptcha } from "@/lib/intake/clientCaptcha";
@@ -100,15 +101,14 @@ export default function LeadModal({
 
   const dialogRef = useRef<HTMLDivElement>(null);
   const nameRef = useRef<HTMLInputElement>(null);
-  const hpRef = useRef<HTMLInputElement>(null);
   const formStartedRef = useRef(false);
   const leadTrackedRef = useRef(false);
 
   useEffect(() => {
     if (!isPending && state.ok) {
       setDone(true);
-      // Honeypot responses look successful but capture nothing: never track them.
-      if (!leadTrackedRef.current && state.captured !== false) {
+      // Only a confirmed durable capture counts as a completed lead.
+      if (!leadTrackedRef.current && state.captured === true) {
         leadTrackedRef.current = true;
         trackGenerateLead("modal", {
           utmSource: utm.source,
@@ -188,7 +188,6 @@ export default function LeadModal({
   }, []);
 
   const enhancedAction = (formData: FormData) => {
-    formData.set("hp", hpRef.current?.value || "");
     formData.set("hutk", hutk || "");
     formData.set("pageUrl", pageUrl || "");
     formData.set("pageName", pageName || "");
@@ -258,15 +257,8 @@ export default function LeadModal({
               className="space-y-4"
               onFocusCapture={handleFormFocus}
             >
-              <div aria-hidden="true" className="sr-only">
-                <input
-                  ref={hpRef}
-                  autoComplete="off"
-                  defaultValue=""
-                  name="hp"
-                  tabIndex={-1}
-                  type="text"
-                />
+              <div hidden aria-hidden="true">
+                <HoneypotField />
                 <input name="leadType" type="hidden" value="Lead Leak Review" />
               </div>
 

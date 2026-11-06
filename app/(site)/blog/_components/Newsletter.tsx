@@ -2,12 +2,13 @@
 
 import type { LeadActionState } from "@/lib/leads/leadSubmission";
 
-import { useActionState, useEffect, useRef } from "react";
+import { useActionState, useEffect } from "react";
 
 import { loadRecaptcha, withCaptcha } from "@/lib/intake/clientCaptcha";
 import { useHubSpotContextFields } from "@/hooks/use-hubspotContextFields";
 import { submitNewsletter } from "@/app/actions/submit-newsletter";
 import Button from "@/app/(site)/_components/ui/Button";
+import HoneypotField from "@/app/(site)/_components/HoneypotField";
 import RecaptchaDisclosure from "@/app/(site)/_components/RecaptchaDisclosure";
 
 const initialState: LeadActionState = { ok: false };
@@ -23,7 +24,6 @@ export default function Newsletter() {
   );
   const { hutk, pageUrl, pageName, utm } =
     useHubSpotContextFields("Blog Newsletter");
-  const hpRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     // Warm the shared loader after hydration; a failed load is retried on submit.
@@ -33,7 +33,6 @@ export default function Newsletter() {
   }, []);
 
   const enhancedAction = (formData: FormData) => {
-    formData.set("hp", hpRef.current?.value || "");
     formData.set("hutk", hutk || "");
     formData.set("pageUrl", pageUrl || "");
     formData.set("pageName", pageName || "");
@@ -70,16 +69,7 @@ export default function Newsletter() {
               action={enhancedAction}
               className="flex flex-wrap gap-2.5"
             >
-              <input
-                ref={hpRef}
-                aria-hidden="true"
-                autoComplete="off"
-                className="sr-only"
-                defaultValue=""
-                name="hp"
-                tabIndex={-1}
-                type="text"
-              />
+              <HoneypotField />
               <input name="leadType" type="hidden" value="Blog Newsletter" />
               <input
                 required

@@ -3,10 +3,37 @@ import { siteUrl } from "@/config/site.config";
 // Newsletter acknowledgement is secondary to durable subscriber capture.
 export const NEWSLETTER_CONFIRMATION_TIMEOUT_MS = 10_000;
 
+class BrevoHttpError extends Error {
+  constructor(
+    label: string,
+    readonly status: number,
+  ) {
+    super(`[Brevo] ${label}: HTTP ${status}`);
+  }
+}
+
+// Only fixed categories and numeric status codes may enter server diagnostics.
+function deliveryDiagnostic(
+  event: "owner_notification_failed" | "customer_acknowledgement_failed",
+  error: unknown,
+) {
+  console.error("[LeadSubmission]", {
+    event,
+    reason:
+      error instanceof BrevoHttpError
+        ? "provider_http_error"
+        : (error instanceof Error || error instanceof DOMException) &&
+            (error.name === "TimeoutError" || error.name === "AbortError")
+          ? "provider_timeout"
+          : "provider_network_error",
+    ...(error instanceof BrevoHttpError ? { status: error.status } : {}),
+  });
+}
+
 async function sendBrevoMail(
   payload: Record<string, unknown>,
   failureLabel: string,
-  signal?: AbortSignal,
+  signal: AbortSignal = AbortSignal.timeout(10_000),
 ) {
   const response = await fetch("https://api.brevo.com/v3/smtp/email", {
     method: "POST",
@@ -20,13 +47,26 @@ async function sendBrevoMail(
   });
 
   if (!response.ok) {
-    throw new Error(`[Brevo] ${failureLabel}: HTTP ${response.status}`);
+    throw new BrevoHttpError(failureLabel, response.status);
   }
 }
 
 export default async function sendEmail(payload: Record<string, any>) {
   if (!process.env.BREVO_API_KEY) {
+    console.error("[LeadSubmission]", {
+      event: "owner_notification_failed",
+      reason: "missing_provider_key",
+    });
+
     throw new Error("Missing BREVO_API_KEY");
+  }
+  if (!process.env.CONTACT_TO?.trim()) {
+    console.error("[LeadSubmission]", {
+      event: "owner_notification_failed",
+      reason: "missing_owner_recipient",
+    });
+
+    throw new Error("Missing CONTACT_TO");
   }
 
   const submitted = new Date().toLocaleString("en-CA");
@@ -110,12 +150,17 @@ export default async function sendEmail(payload: Record<string, any>) {
   // The owner notification is the durable primary capture. Only acknowledge
   // the form after Brevo accepts it. Customer acknowledgement is secondary:
   // log its failure, but do not tell the user their captured lead was lost.
-  await sendBrevoMail(businessMail, "Owner lead notification failed");
+  try {
+    await sendBrevoMail(businessMail, "Owner lead notification failed");
+  } catch (error) {
+    deliveryDiagnostic("owner_notification_failed", error);
+    throw new Error("Owner lead notification failed");
+  }
 
   try {
     await sendBrevoMail(customerMail, "Customer acknowledgement failed");
   } catch (error) {
-    console.error("[Lead] Customer acknowledgement failed:", error);
+    deliveryDiagnostic("customer_acknowledgement_failed", error);
   }
 }
 

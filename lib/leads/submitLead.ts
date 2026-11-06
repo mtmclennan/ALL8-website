@@ -19,6 +19,11 @@ export async function submitLeadPipeline(
 ): Promise<LeadActionState> {
   // honeypot
   if (data.hp && data.hp.trim().length > 0) {
+    console.warn("[LeadSubmission]", {
+      event: "submission_rejected",
+      reason: "honeypot",
+    });
+
     return {
       ok: true,
       captured: false,
@@ -28,20 +33,58 @@ export async function submitLeadPipeline(
 
   try {
     await checkRateLimit();
-  } catch (e) {
-    return { ok: false, message: String(e) };
+  } catch {
+    console.warn("[LeadSubmission]", {
+      event: "submission_rejected",
+      reason: "rate_limit",
+    });
+
+    return {
+      ok: false,
+      captured: false,
+      message:
+        "Unable to accept your request right now. Please wait and try again.",
+    };
   }
 
-  const human = await verifyCaptcha(data.token, captchaAction);
+  let human: boolean;
 
-  if (!human)
-    return { ok: false, message: "Verification failed. Please try again." };
+  try {
+    human = await verifyCaptcha(data.token, captchaAction);
+  } catch {
+    console.error("[LeadSubmission]", {
+      event: "submission_rejected",
+      reason: "verification_error",
+    });
+
+    return {
+      ok: false,
+      captured: false,
+      message: "Verification unavailable. Please try again.",
+    };
+  }
+
+  if (!human) {
+    console.warn("[LeadSubmission]", {
+      event: "submission_rejected",
+      reason: "captcha",
+    });
+
+    return {
+      ok: false,
+      captured: false,
+      message: "Verification failed. Please try again.",
+    };
+  }
 
   if (data.leadType === "newsletter") {
     try {
       await runNewsletterBackgroundTasks(data);
-    } catch (error) {
-      console.error("[Newsletter] Primary capture failed:", error);
+    } catch {
+      console.error("[LeadSubmission]", {
+        event: "submission_rejected",
+        reason: "newsletter_capture_failed",
+      });
 
       return {
         ok: false,
@@ -55,20 +98,31 @@ export async function submitLeadPipeline(
 
   try {
     await captureLeadNotification(data);
-  } catch (error) {
-    console.error("[Lead] Primary notification failed:", error);
+  } catch {
+    console.error("[LeadSubmission]", {
+      event: "submission_rejected",
+      reason: "owner_notification_failed",
+    });
 
     return {
       ok: false,
+      captured: false,
       message:
         "We couldn't save your request just now. Please try again or email hello@all8webworks.com.",
     };
   }
 
   // Secondary enrichment must not delay a confirmed, durably captured lead.
-  void runLeadBackgroundTasks(data).catch((error) => {
-    console.error("[Lead] Background task runner failed:", error);
+  void runLeadBackgroundTasks(data).catch(() => {
+    console.error("[LeadSubmission]", {
+      event: "enrichment_failed",
+      reason: "background_runner_failed",
+    });
   });
 
-  return { ok: true, message: "Thanks! We’ll review and follow up shortly." };
+  return {
+    ok: true,
+    captured: true,
+    message: "Thanks! We’ll review and follow up shortly.",
+  };
 }

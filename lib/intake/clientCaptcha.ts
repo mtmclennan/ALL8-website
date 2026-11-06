@@ -130,7 +130,20 @@ export function withCaptcha(
     }
 
     try {
-      return await submit(previous, formData);
+      const result = await submit(previous, formData);
+
+      // A decoy response must never look like a saved request to a real visitor.
+      // Keep the server's silent honeypot response and never retry automatically.
+      if (result.ok && result.captured !== true) {
+        return {
+          ok: false,
+          captured: false,
+          message:
+            "We couldn't confirm your request was saved. Please try again or email hello@all8webworks.com.",
+        };
+      }
+
+      return result;
     } finally {
       formData.delete("token");
     }

@@ -53,13 +53,28 @@ export async function handleLeadReviewSubmission(
   raw: Record<string, unknown>,
   pipeline: LeadPipeline,
 ): Promise<LeadActionState> {
-  if (isHoneypotTripped(raw)) return honeypotResponse();
+  if (isHoneypotTripped(raw)) {
+    console.warn("[LeadSubmission]", {
+      event: "submission_rejected",
+      form: "lead-review",
+      reason: "honeypot",
+    });
+
+    return honeypotResponse();
+  }
 
   const parsed = LeadReviewSchema.safeParse(raw);
 
   if (!parsed.success) {
+    console.warn("[LeadSubmission]", {
+      event: "submission_rejected",
+      form: "lead-review",
+      reason: "validation",
+    });
+
     return {
       ok: false,
+      captured: false,
       fieldErrors: toFieldErrors(parsed.error),
       message: "Please fix the highlighted fields.",
     };
@@ -95,13 +110,28 @@ export async function handleNewsletterSubmission(
   raw: Record<string, unknown>,
   pipeline: LeadPipeline,
 ): Promise<LeadActionState> {
-  if (isHoneypotTripped(raw)) return honeypotResponse(NEWSLETTER_THANKS);
+  if (isHoneypotTripped(raw)) {
+    console.warn("[LeadSubmission]", {
+      event: "submission_rejected",
+      form: "newsletter",
+      reason: "honeypot",
+    });
+
+    return honeypotResponse(NEWSLETTER_THANKS);
+  }
 
   const parsed = NewsletterSchema.safeParse(raw);
 
   if (!parsed.success) {
+    console.warn("[LeadSubmission]", {
+      event: "submission_rejected",
+      form: "newsletter",
+      reason: "validation",
+    });
+
     return {
       ok: false,
+      captured: false,
       fieldErrors: toFieldErrors(parsed.error),
       message: "Enter a valid email address.",
     };
