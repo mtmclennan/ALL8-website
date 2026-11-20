@@ -29,9 +29,11 @@ import {
 } from "@/config/permanent-redirects.mjs";
 import { canonicalizePortableTextLinks } from "@/lib/seo/canonicalizePortableTextLinks";
 import { getBlogCanonicalUrl } from "@/lib/seo/blogCanonical";
+import { articleRevisionMeta } from "@/lib/indexnow/publicPage";
 
-// REVALIDATE BLOG POSTS AUTOMATICALLY
-export const revalidate = 3600; // 1 hour — safe default
+// Posts published after the build can also enter ISR on first visit.
+export const dynamic = "force-static";
+export const revalidate = 3600;
 
 export async function generateStaticParams() {
   const slugs = await sanity.fetch<string[]>(publishedPostSlugsQuery);
@@ -48,9 +50,9 @@ export async function generateMetadata({
   const sourceSlug = sourceBlogSlug(slug);
   const slugs = [...new Set([sourceSlug, canonicalBlogSlug(slug)])];
 
-  const post = await sanity.fetch(singlePostQuery, { slugs });
+  const post = await sanity.fetch<SinglePost | null>(singlePostQuery, { slugs });
 
-  if (!post) return {};
+  if (!post?.title) return {};
 
   const canonicalSlug = canonicalBlogSlug(slug);
   const path = `/blog/${canonicalSlug}`;
@@ -69,9 +71,9 @@ export async function generateMetadata({
     : ogImage;
 
   const title = withBrandSuffix(post.seo?.metaTitle || post.title);
-  const description = post.seo?.metaDescription || post.excerpt;
+  const description = post.seo?.metaDescription || post.excerpt || post.title;
 
-  return buildPageMetadata({
+  const metadata = buildPageMetadata({
     title,
     description,
     path,
@@ -84,6 +86,8 @@ export async function generateMetadata({
     openGraphDescription: post.seo?.ogDescription || description,
     noindex: post.seo?.noIndex,
   });
+
+  return { ...metadata, other: { [articleRevisionMeta]: post._rev } };
 }
 
 export default async function BlogPostPage({

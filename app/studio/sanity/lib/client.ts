@@ -6,5 +6,7 @@ export const client = createClient({
   projectId,
   dataset,
   apiVersion,
-  useCdn: true, // Set to false if statically generating pages, using ISR or tag-based revalidation
+  perspective: "published",
+  // Next caches rendered routes. Regeneration must read the current publication.
+  useCdn: false,
 });

@@ -40,6 +40,17 @@ const nextConfig = {
 
   reactStrictMode: true,
 
+  async rewrites() {
+    return {
+      fallback: [
+        {
+          source: "/:key([A-Za-z0-9-]{8,128}).txt",
+          destination: "/api/indexnow/key/:key",
+        },
+      ],
+    };
+  },
+
   async redirects() {
     return [
       ...PERMANENT_REDIRECTS,
