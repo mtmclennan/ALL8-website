@@ -49,13 +49,11 @@
   },
 
   "form": {
-    "eyebrow": "Start Here",
     "title": "Tell Us About Your Business",
     "subtitle": "Takes under a minute. Matt will send what he finds and what to fix first. A follow-up call is optional."
   },
 
   "next": {
-    "eyebrow": "What Happens Next",
     "title": "No Drip Sequence. No Sales Call You Didn't Ask For.",
     "steps": [
       {

@@ -10,7 +10,7 @@ import { siteConfig } from "@/config/site";
 import { toTelHref } from "@/lib/utils/phone";
 
 type FinalCtaData = {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   titleAccent: string;
   subtitle: string;

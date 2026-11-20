@@ -3,7 +3,7 @@ import Image from "next/image";
 import Reveal from "./Reveal";
 
 type FounderData = {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   paragraphs: string[];
   name: string;
@@ -31,9 +31,11 @@ export default function FounderSection({ data }: { data: FounderData }) {
           </Reveal>
 
           <Reveal index={1}>
-            <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
-              {data.eyebrow}
-            </div>
+            {data.eyebrow ? (
+              <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
+                {data.eyebrow}
+              </div>
+            ) : null}
             <h2 className="mb-5 text-[clamp(28px,3vw,40px)] font-extrabold leading-[1.08] tracking-[-.025em]">
               {data.title}
             </h2>

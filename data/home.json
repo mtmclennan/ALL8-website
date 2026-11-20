@@ -41,7 +41,6 @@
   },
 
   "leak": {
-    "eyebrow": "Common Contractor Problems",
     "title": "Where Contractors Lose Jobs",
     "subtitle": "Most contractors aren't short on demand. The work slips away somewhere between a customer searching and you winning the job. See which of these sound familiar.",
     "columns": [
@@ -127,7 +126,6 @@
   },
 
   "process": {
-    "eyebrow": "How We Work",
     "title": "How Getting Started Works",
     "subtitle": "Fixed scope before work begins. You know what we'll fix and what it costs before anything starts.",
     "steps": [
@@ -155,7 +153,6 @@
   },
 
   "why": {
-    "eyebrow": "Why ALL8",
     "title": "Why Contractors Choose ALL8",
     "subtitle": "You don't need a brand exercise. You need the phone to ring and the leads to get answered.",
     "cards": [

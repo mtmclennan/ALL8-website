@@ -3,7 +3,7 @@ import type { Stage } from "@/lib/utils/stage";
 import Reveal from "./Reveal";
 
 type ProcessData = {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   subtitle: string;
   steps: { stage: Stage; title: string; description: string }[];
@@ -14,9 +14,11 @@ export default function ProcessSteps({ data }: { data: ProcessData }) {
     <section className="bg-content3 py-24 max-[960px]:py-16">
       <div className="mx-auto max-w-[1160px] px-6 sm:px-10">
         <Reveal className="mx-auto mb-[60px] max-w-[640px] text-center">
-          <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
-            {data.eyebrow}
-          </div>
+          {data.eyebrow ? (
+            <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
+              {data.eyebrow}
+            </div>
+          ) : null}
           <h2 className="all8-h2 font-extrabold leading-[1.06] tracking-[-.022em]">
             {data.title}
           </h2>

@@ -12,7 +12,7 @@ import { STAGE_HEX, hexToRgba, type Stage } from "@/lib/utils/stage";
 import { renderBold } from "@/lib/utils/renderBold";
 
 type CaseStudyData = {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   titleAccent: string;
   lede: string;
@@ -35,9 +35,11 @@ export default function CaseStudy({ data }: { data: CaseStudyData }) {
       <div className="mx-auto max-w-[1160px] px-6 sm:px-10">
         <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[1.05fr_.95fr] lg:gap-[70px]">
           <Reveal>
-            <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
-              {data.eyebrow}
-            </div>
+            {data.eyebrow ? (
+              <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
+                {data.eyebrow}
+              </div>
+            ) : null}
             <h2 className="mb-4 all8-h2 font-extrabold leading-[1.06] tracking-[-.025em]">
               {data.title}
               <br />

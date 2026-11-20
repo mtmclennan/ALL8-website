@@ -46,9 +46,6 @@ export default function CurrentServices() {
     >
       <div className="mx-auto max-w-[1160px] px-6 sm:px-10">
         <Reveal className="mx-auto mb-8 max-w-[640px] text-center">
-          <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
-            Browse by Service
-          </div>
           <h2 className="all8-h2 font-extrabold leading-[1.06] tracking-[-.022em]">
             Every Page, In One Place
           </h2>

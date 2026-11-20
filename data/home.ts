@@ -23,7 +23,7 @@ export type HomeData = {
     note: string;
   };
   leak: {
-    eyebrow: string;
+    eyebrow?: string;
     title: string;
     subtitle: string;
     columns: { label: string; stage: Stage; items: string[] }[];
@@ -31,7 +31,7 @@ export type HomeData = {
     link?: { prefix: string; label: string; href: string };
   };
   caseStudy: {
-    eyebrow: string;
+    eyebrow?: string;
     title: string;
     titleAccent: string;
     lede: string;
@@ -46,13 +46,13 @@ export type HomeData = {
     };
   };
   process: {
-    eyebrow: string;
+    eyebrow?: string;
     title: string;
     subtitle: string;
     steps: { stage: Stage; title: string; description: string }[];
   };
   why: {
-    eyebrow: string;
+    eyebrow?: string;
     title: string;
     subtitle: string;
     cards: {
@@ -63,7 +63,7 @@ export type HomeData = {
     }[];
   };
   founder: {
-    eyebrow: string;
+    eyebrow?: string;
     title: string;
     paragraphs: string[];
     name: string;
@@ -72,7 +72,7 @@ export type HomeData = {
   };
   faqs: { q: string; a: string }[];
   finalCta: {
-    eyebrow: string;
+    eyebrow?: string;
     title: string;
     titleAccent: string;
     subtitle: string;

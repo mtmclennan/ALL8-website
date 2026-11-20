@@ -7,7 +7,7 @@ import { STAGE_HEX, type Stage } from "@/lib/utils/stage";
 import { renderBold } from "@/lib/utils/renderBold";
 
 type LeakData = {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   subtitle: string;
   columns: { label: string; stage: Stage; items: string[] }[];
@@ -20,9 +20,11 @@ export default function LeakSection({ data }: { data: LeakData }) {
     <section className="py-24 max-[960px]:py-16" id="leak">
       <div className="mx-auto max-w-[1160px] px-6 sm:px-10">
         <Reveal className="mb-[52px] max-w-[720px]">
-          <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
-            {data.eyebrow}
-          </div>
+          {data.eyebrow ? (
+            <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
+              {data.eyebrow}
+            </div>
+          ) : null}
           <h2 className="all8-h2 font-extrabold leading-[1.06] tracking-[-.022em]">
             {data.title}
           </h2>

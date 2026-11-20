@@ -23,7 +23,6 @@
   },
 
   "proof": {
-    "eyebrow": "Proof, Not Promises",
     "title": "Measured Results, Not Adjectives",
     "cards": [
       { "value": "{{proof.search.range}}", "em": true, "label": "Search Clicks", "sub": "Rolling 28 days, {{proof.search.period}}", "icon": "chart", "evidence": "measured" },
@@ -38,7 +37,6 @@
   },
 
   "process": {
-    "eyebrow": "How Engagement Works",
     "title": "Review, Prioritize, Implement, Measure",
     "subtitle": "Start with a free review or a one-time Tune-Up. Ongoing plans have minimum terms, shown on the pricing page.",
     "steps": [

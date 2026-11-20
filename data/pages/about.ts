@@ -19,7 +19,7 @@ export type AboutPageData = {
     micro: string;
   };
   shift: {
-    eyebrow: string;
+    eyebrow?: string;
     title: string;
     cards: { tag: string; title: string; body: string }[];
     story: string[];
@@ -27,7 +27,7 @@ export type AboutPageData = {
     storyAfter: string[];
   };
   founder: {
-    eyebrow: string;
+    eyebrow?: string;
     title: string;
     paragraphs: string[];
     name: string;
@@ -35,25 +35,25 @@ export type AboutPageData = {
     image: { src: string; alt: string; width: number; height: number };
   };
   principles: {
-    eyebrow: string;
+    eyebrow?: string;
     title: string;
     items: { n: string; title: string; body: string }[];
   };
   who: {
-    eyebrow: string;
+    eyebrow?: string;
     title: string;
     subtitle: string;
     chips: string[];
     note: string;
   };
   facts: {
-    eyebrow: string;
+    eyebrow?: string;
     title: string;
     items: { k: string; v: string }[];
     note: string;
   };
   proof: {
-    eyebrow: string;
+    eyebrow?: string;
     title: string;
     cards: {
       value: string;
@@ -67,7 +67,7 @@ export type AboutPageData = {
     footNoteLink: { label: string; href: string };
   };
   finalCta: {
-    eyebrow: string;
+    eyebrow?: string;
     title: string;
     titleAccent: string;
     subtitle: string;
