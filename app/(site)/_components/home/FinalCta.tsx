@@ -1,9 +1,7 @@
-"use client";
-
 import Link from "next/link";
 import { Search, Check, Phone, MessageCircle, ArrowRight } from "lucide-react";
 
-import { useLeadModal } from "../LeadModalProvider";
+import LeadReviewButton from "../LeadReviewButton";
 import Button from "../ui/Button";
 
 import Reveal from "./Reveal";
@@ -26,7 +24,6 @@ type FinalCtaData = {
 };
 
 export default function FinalCta({ data }: { data: FinalCtaData }) {
-  const { openModal } = useLeadModal();
   const telHref = toTelHref(siteConfig.phone);
 
   return (
@@ -91,10 +88,10 @@ export default function FinalCta({ data }: { data: FinalCtaData }) {
               {data.ctaLabel}
             </Button>
           ) : (
-            <Button size="lg" onClick={openModal}>
+            <LeadReviewButton size="lg">
               <Search size={18} strokeWidth={2.5} />
               {data.ctaLabel}
-            </Button>
+            </LeadReviewButton>
           )}
           {data.secondary ? (
             <Button href={data.secondary.href} size="lg" variant="ghost">

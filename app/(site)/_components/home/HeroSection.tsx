@@ -1,12 +1,9 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { Search, ArrowRight } from "lucide-react";
 
 import refinement from "../VisualRefinement.module.css";
-import { useLeadModal } from "../LeadModalProvider";
-import Button from "../ui/Button";
+import LeadReviewButton from "../LeadReviewButton";
 
 import { type Stage } from "@/lib/utils/stage";
 
@@ -25,9 +22,10 @@ type HeroData = {
   image: { src: string; alt: string; width: number; height: number };
 };
 
-export default function HeroSection({ data }: { data: HeroData }) {
-  const { openModal } = useLeadModal();
+const transparentPixel =
+  "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
 
+export default function HeroSection({ data }: { data: HeroData }) {
   return (
     <section
       className={`${refinement.homeHero} relative overflow-hidden`}
@@ -72,10 +70,10 @@ export default function HeroSection({ data }: { data: HeroData }) {
           </p>
 
           <div className="mb-[22px] flex flex-wrap items-center gap-3.5">
-            <Button onClick={openModal}>
+            <LeadReviewButton>
               <Search size={16} strokeWidth={2.5} />
               {data.ctaLabel}
-            </Button>
+            </LeadReviewButton>
             <Link
               className="group inline-flex items-center gap-[7px] px-1 py-3.5 text-[15px] font-bold text-accent-blue hover:text-[#8ec5ff]"
               href={data.secondaryHref}
@@ -101,15 +99,19 @@ export default function HeroSection({ data }: { data: HeroData }) {
                   "radial-gradient(50% 46% at 52% 50%, rgba(0,90,210,.22) 0%, transparent 70%)",
               }}
             />
-            <Image
-              priority
-              alt={data.image.alt}
-              className="relative z-[1] mx-auto h-auto w-full max-w-[600px] drop-shadow-[0_20px_40px_rgba(0,0,0,.35)] max-lg:w-[88%] max-lg:max-w-[300px]"
-              fetchPriority="high"
-              height={data.image.height}
-              src={data.image.src}
-              width={data.image.width}
-            />
+            <picture>
+              <source media="(width < 640px)" srcSet={transparentPixel} />
+              <Image
+                alt={data.image.alt}
+                className="relative z-[1] mx-auto h-auto w-full max-w-[600px] drop-shadow-[0_20px_40px_rgba(0,0,0,.35)] max-lg:w-[88%] max-lg:max-w-[300px]"
+                fetchPriority="high"
+                height={data.image.height}
+                loading="eager"
+                sizes="(min-width: 1280px) 550px, (min-width: 1024px) 45vw, 300px"
+                src={data.image.src}
+                width={data.image.width}
+              />
+            </picture>
           </div>
         </div>
       </div>

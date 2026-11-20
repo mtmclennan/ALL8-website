@@ -9,15 +9,21 @@ vi.mock('@/app/actions/submit-lead-review', () => ({ submitLeadReview: mocks.lea
 vi.mock('@/app/actions/submit-newsletter', () => ({ submitNewsletter: mocks.newsletter }));
 vi.mock('next/navigation', () => ({ usePathname: () => '/' }));
 vi.mock('next/link', () => ({ default: (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...props} /> }));
-vi.mock('@/hooks/use-hubspotContextFields', () => ({ useHubSpotContextFields: () => ({ hutk: '', pageUrl: 'http://localhost/', pageName: 'Test', utm: {} }) }));
+vi.mock('@/lib/intake/clientCaptcha', async (importOriginal) => ({
+  ...await importOriginal<typeof import('@/lib/intake/clientCaptcha')>(),
+  warmRecaptcha: vi.fn(),
+}));
 vi.mock('@/app/(site)/_components/ui/Button', () => ({ default: ({ variant: _variant, ...props }: ButtonHTMLAttributes<HTMLButtonElement> & { variant?: string }) => <button {...props} /> }));
 
 import LeadModal from '../../app/(site)/_components/LeadModal';
 import InlineLeadForm from '../../app/(site)/contact/components/InlineLeadForm';
 import Newsletter from '../../app/(site)/blog/_components/Newsletter';
+import { warmRecaptcha } from '@/lib/intake/clientCaptcha';
 
 const execute = vi.fn();
 beforeEach(() => {
+  vi.mocked(warmRecaptcha).mockClear();
+  document.cookie = 'hubspotutk=; Max-Age=0';
   mocks.lead.mockReset().mockResolvedValue({ ok: true, captured: true });
   mocks.newsletter.mockReset().mockResolvedValue({ ok: true, captured: true });
   execute.mockReset().mockResolvedValue('test-token');
@@ -25,6 +31,40 @@ beforeEach(() => {
 });
 
 const events = () => (window.dataLayer ?? []).filter((item: { event?: string }) => item.event === 'generate_lead');
+
+it('does not warm CAPTCHA until the lead modal opens', () => {
+  const onClose = vi.fn();
+  const { rerender } = render(<LeadModal open={false} onClose={onClose} />);
+
+  expect(warmRecaptcha).not.toHaveBeenCalled();
+  rerender(<LeadModal open onClose={onClose} />);
+  expect(warmRecaptcha).toHaveBeenCalledWith('all8-test-site-key');
+  expect(execute).not.toHaveBeenCalled();
+  fireEvent.keyDown(document, { key: 'Escape' });
+  expect(onClose).toHaveBeenCalledOnce();
+});
+
+it.each([InlineLeadForm, Newsletter])('warms CAPTCHA when a visitor focuses a visible form', (Form) => {
+  const { container } = render(<Form />);
+
+  expect(warmRecaptcha).not.toHaveBeenCalled();
+  fireEvent.focus(container.querySelector('input[name="email"]')!);
+  expect(warmRecaptcha).toHaveBeenCalledWith('all8-test-site-key');
+  expect(execute).not.toHaveBeenCalled();
+});
+
+it('submits the tracking cookie even if HubSpot set it after the form mounted', async () => {
+  const { container } = render(<Newsletter />);
+  const form = container.querySelector('form')!;
+
+  document.cookie = 'hubspotutk=late-attribution-value';
+  fireEvent.change(form.querySelector('input[name="email"]')!, {
+    target: { value: 'monitor@example.invalid' },
+  });
+  fireEvent.submit(form);
+  await waitFor(() => expect(mocks.newsletter).toHaveBeenCalledOnce());
+  expect(mocks.newsletter.mock.calls[0][1].get('hutk')).toBe('late-attribution-value');
+});
 
 describe.each([
   { name: 'homepage lead modal', component: () => <LeadModal open onClose={() => {}} />, action: 'lead_review', success: /Request received/i, submit: mocks.lead, conversion: true },

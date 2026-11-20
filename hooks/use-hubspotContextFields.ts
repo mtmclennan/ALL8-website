@@ -9,8 +9,11 @@ type Utm = {
   term: string;
 };
 
+export function getHubSpotTrackingCookie() {
+  return document.cookie.match(/(?:^|;\s*)hubspotutk=([^;]+)/)?.[1] ?? "";
+}
+
 export function useHubSpotContextFields(pageName = "Contact Intake") {
-  const [hutk, setHutk] = useState("");
   const [pageUrl, setPageUrl] = useState("");
   const [referrer, setReferrer] = useState("");
   const [utm, setUtm] = useState<Utm>({
@@ -23,9 +26,6 @@ export function useHubSpotContextFields(pageName = "Contact Intake") {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-
-    // HubSpot tracking cookie (if present)
-    setHutk(document.cookie.match(/hubspotutk=([^;]+)/)?.[1] ?? "");
 
     // Page context
     setPageUrl(window.location.href);
@@ -43,5 +43,5 @@ export function useHubSpotContextFields(pageName = "Contact Intake") {
     });
   }, []);
 
-  return { hutk, pageUrl, pageName, referrer, utm };
+  return { pageUrl, pageName, referrer, utm };
 }

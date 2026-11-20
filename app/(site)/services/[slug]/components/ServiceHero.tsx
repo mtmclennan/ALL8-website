@@ -1,14 +1,11 @@
-"use client";
-
 import type { ServiceHero as ServiceHeroData } from "@/data/services";
 
 import { ArrowRight, Search } from "lucide-react";
 import Link from "next/link";
 
 import { STAGE_HEX, STAGE_LABEL, type Stage } from "@/lib/utils/stage";
-import { useLeadModal } from "@/app/(site)/_components/LeadModalProvider";
+import LeadReviewButton from "@/app/(site)/_components/LeadReviewButton";
 import Reveal from "@/app/(site)/_components/home/Reveal";
-import Button from "@/app/(site)/_components/ui/Button";
 
 type ServiceHeroProps = {
   hero: ServiceHeroData;
@@ -21,7 +18,6 @@ export default function ServiceHero({
   stage,
   audience,
 }: ServiceHeroProps) {
-  const { openModal } = useLeadModal();
   const hex = STAGE_HEX[stage];
 
   return (
@@ -79,10 +75,10 @@ export default function ServiceHero({
           </Reveal>
 
           <Reveal className="flex flex-wrap items-center gap-3.5" index={3}>
-            <Button onClick={openModal}>
+            <LeadReviewButton>
               <Search size={16} strokeWidth={2.5} />
               {hero.ctaLabel || "Get My Free Lead Leak Review"}
-            </Button>
+            </LeadReviewButton>
             {hero.secondary && (
               <Link
                 className="group inline-flex min-h-11 items-center gap-[7px] rounded-lg px-1 py-3.5 text-[15px] font-bold text-accent-blue hover:text-[#8ec5ff] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue"

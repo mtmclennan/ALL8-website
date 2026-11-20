@@ -13,8 +13,11 @@ import Button from "./ui/Button";
 import HoneypotField from "./HoneypotField";
 import RecaptchaDisclosure from "./RecaptchaDisclosure";
 
-import { loadRecaptcha, withCaptcha } from "@/lib/intake/clientCaptcha";
-import { useHubSpotContextFields } from "@/hooks/use-hubspotContextFields";
+import { warmRecaptcha, withCaptcha } from "@/lib/intake/clientCaptcha";
+import {
+  getHubSpotTrackingCookie,
+  useHubSpotContextFields,
+} from "@/hooks/use-hubspotContextFields";
 import { submitLeadReview } from "@/app/actions/submit-lead-review";
 import { siteConfig } from "@/config/site";
 import { toTelHref } from "@/lib/utils/phone";
@@ -93,7 +96,7 @@ export default function LeadModal({
     ),
     initialState,
   );
-  const { hutk, pageUrl, pageName, utm } =
+  const { pageUrl, pageName, utm } =
     useHubSpotContextFields("Lead Leak Review");
 
   const [challenge, setChallenge] = useState("");
@@ -181,14 +184,11 @@ export default function LeadModal({
   }, [open, onClose]);
 
   useEffect(() => {
-    // Warm the shared loader after hydration; a failed load is retried on submit.
-    void loadRecaptcha(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY).catch(
-      () => {},
-    );
-  }, []);
+    if (open) warmRecaptcha(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY);
+  }, [open]);
 
   const enhancedAction = (formData: FormData) => {
-    formData.set("hutk", hutk || "");
+    formData.set("hutk", getHubSpotTrackingCookie());
     formData.set("pageUrl", pageUrl || "");
     formData.set("pageName", pageName || "");
     formData.set("utm_source", utm.source || "");
