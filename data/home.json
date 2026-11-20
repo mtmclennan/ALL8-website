@@ -125,33 +125,6 @@
     }
   },
 
-  "process": {
-    "title": "How Getting Started Works",
-    "subtitle": "Fixed scope before work begins. You know what we'll fix and what it costs before anything starts.",
-    "steps": [
-      {
-        "stage": "found",
-        "title": "Free Review",
-        "description": "Send your business and website details. Matt checks how customers find you, contact you and get followed up, then sends written findings."
-      },
-      {
-        "stage": "contacted",
-        "title": "Agree on the Fix",
-        "description": "We recommend what to fix first. Scope and price are agreed before any work starts."
-      },
-      {
-        "stage": "follow",
-        "title": "Fix It",
-        "description": "We build or fix the website, Google visibility, call handling or follow-up, using the tools you already have where they work."
-      },
-      {
-        "stage": "win",
-        "title": "Keep It Working",
-        "description": "Call and form tracking shows what's coming in and where from. Then we move on to the next problem."
-      }
-    ]
-  },
-
   "why": {
     "title": "Why Contractors Choose ALL8",
     "subtitle": "You don't need a brand exercise. You need the phone to ring and the leads to get answered.",
@@ -164,13 +137,13 @@
       },
       {
         "title": "You Own Your Accounts and Data",
-        "description": "Your domain, content, ad and analytics accounts, and customer data stay under your control. Scope and recurring fees are explained before work begins.",
+        "description": "Your domain, content, ad and analytics accounts, and customer data stay under your control.",
         "icon": "shield",
         "color": "#22c55e"
       },
       {
         "title": "Plain English, Numbers You Can Check",
-        "description": "Fixed scope and price before we start. Then call and form tracking, so you can see how many leads came in and where they came from — and hold the work to that.",
+        "description": "Call and form tracking goes in early, so you can see how many leads came in and where they came from, and hold the work to that.",
         "icon": "chart",
         "color": "#22d3ee"
       }

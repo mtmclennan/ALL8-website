@@ -39,7 +39,7 @@ export default async function HomeResources() {
   return (
     <section
       aria-labelledby="home-resources-title"
-      className="py-24 max-[960px]:py-16"
+      className="bg-content3 py-24 max-[960px]:py-16"
       id="resources"
     >
       <div className="mx-auto max-w-[1160px] px-6 sm:px-10">

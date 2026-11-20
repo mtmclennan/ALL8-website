@@ -5,7 +5,6 @@ import LeakSection from "./_components/home/LeakSection";
 import ServicesPreview from "./_components/home/ServicesPreview";
 import PlansPreview from "./_components/home/PlansPreview";
 import CaseStudy from "./_components/home/CaseStudy";
-import ProcessSteps from "./_components/home/ProcessSteps";
 import WhyAll8 from "./_components/home/WhyAll8";
 import FAQBlock from "./_components/FAQBlock";
 import FinalCta from "./_components/home/FinalCta";
@@ -18,12 +17,11 @@ const HomePage = () => {
     <div className={refinement.surface}>
       <HeroSection data={homeData.hero} />
       <ProofStrip data={homeData.proofStrip} />
+      <CaseStudy data={homeData.caseStudy} />
       <LeakSection data={homeData.leak} />
       <ServicesPreview />
-      <CaseStudy data={homeData.caseStudy} />
       <WhyAll8 data={homeData.why} founder={homeData.founder} />
       <PlansPreview />
-      <ProcessSteps data={homeData.process} />
       <HomeResources />
       <FAQBlock
         className={refinement.faq}
@@ -31,7 +29,7 @@ const HomePage = () => {
         id="faq"
         subtitle="Common questions"
         title="What Contractors Ask Before Getting Started"
-        tone="alt"
+        tone="base"
       />
       <FinalCta data={homeData.finalCta} />
     </div>

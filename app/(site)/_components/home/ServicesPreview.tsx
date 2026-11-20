@@ -3,16 +3,17 @@ import { ArrowRight } from "lucide-react";
 
 import { getServicesWithIcons, type ServiceWithIcon } from "@/data/services";
 
+// One problem-led card per stage of the journey; the rest are text links.
 const FEATURED_SLUGS = [
   "local-seo-google-business-profile",
   "lead-generation-websites",
-  "google-ads-lead-generation",
   "missed-call-recovery",
   "lead-follow-up-automation",
-  "crm-sales-pipeline",
 ] as const;
 
 const MORE_SLUGS = [
+  "google-ads-lead-generation",
+  "crm-sales-pipeline",
   "call-tracking-lead-attribution",
   "website-care-optimization",
   "custom-lead-systems",
@@ -31,7 +32,7 @@ export default function ServicesPreview() {
 
   return (
     <section
-      className="scroll-mt-20 bg-content3 py-24 max-[960px]:py-16"
+      className="scroll-mt-20 py-24 max-[960px]:py-16"
       id="services"
     >
       <div className="mx-auto max-w-[1160px] px-6 sm:px-10">
@@ -47,7 +48,7 @@ export default function ServicesPreview() {
           </p>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {featured.map((service) => {
             const Icon = service.Icon;
 

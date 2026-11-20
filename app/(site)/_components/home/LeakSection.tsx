@@ -17,7 +17,7 @@ type LeakData = {
 
 export default function LeakSection({ data }: { data: LeakData }) {
   return (
-    <section className="py-24 max-[960px]:py-16" id="leak">
+    <section className="bg-content3 py-24 max-[960px]:py-16" id="leak">
       <div className="mx-auto max-w-[1160px] px-6 sm:px-10">
         <Reveal className="mb-[52px] max-w-[720px]">
           {data.eyebrow ? (

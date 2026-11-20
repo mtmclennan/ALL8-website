@@ -45,12 +45,6 @@ export type HomeData = {
       flag: string;
     };
   };
-  process: {
-    eyebrow?: string;
-    title: string;
-    subtitle: string;
-    steps: { stage: Stage; title: string; description: string }[];
-  };
   why: {
     eyebrow?: string;
     title: string;

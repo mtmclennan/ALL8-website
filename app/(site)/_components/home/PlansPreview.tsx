@@ -17,7 +17,8 @@ export default function PlansPreview() {
           <p className="mt-4 text-[17px] leading-relaxed text-white/70">
             Start with the free review, fix one priority with a Tune-Up, or let
             us run your website and lead handling every month. Prices, setup
-            fees and minimum terms are shown up front.
+            fees and minimum terms are shown up front, and scope and price are
+            agreed before any work starts.
           </p>
         </div>
 
