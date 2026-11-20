@@ -1,6 +1,6 @@
 {
   "hero": {
-    "pill": "Websites, Google visibility & follow-up for contractors",
+    "pill": "Contractor case study: {{proof.search.range}} Google Search clicks per 28 days",
     "titlePrefix": "More Calls. More Quote Requests. ",
     "titleEm": "Fewer Jobs Slipping Through.",
     "subtitle": "Websites, Google visibility, and follow-up systems built for contractors.",
@@ -16,6 +16,16 @@
     "secondaryHref": "/work",
     "micro": "Free review · No obligation · Written findings on what to fix first, no call required",
     "geo": "Remote-first  ·  Eastern Time",
+    "example": {
+      "title": "Example review findings",
+      "note": "Illustrative example of the format, not a client's results.",
+      "rows": [
+        { "stage": "found", "finding": "Google Business Profile lists 2 of your 6 services", "status": "Fix" },
+        { "stage": "contacted", "finding": "Quote form sends to an inbox nobody checks", "status": "Fix first" },
+        { "stage": "follow", "finding": "Calls missed after 5 pm get no reply", "status": "Fix" },
+        { "stage": "win", "finding": "No reminder to follow up on open estimates", "status": "Review" }
+      ]
+    },
     "image": {
       "src": "/assets/home/Mobile-Quote-Request-Dashboard.webp",
       "alt": "A quote request arriving on a phone alongside new call and website lead alerts, a follow-up confirmation and a new customer",

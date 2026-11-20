@@ -16,6 +16,11 @@ export type HomeData = {
     secondaryHref: string;
     micro: string;
     geo: string;
+    example: {
+      title: string;
+      note: string;
+      rows: { stage: Stage; finding: string; status: string }[];
+    };
     image: { src: string; alt: string; width: number; height: number };
   };
   proofStrip: {
