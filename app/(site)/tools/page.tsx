@@ -52,7 +52,7 @@ const jsonLd = {
 
 export default function ToolsPage() {
   return (
-    <main className="pb-24 pt-[132px] max-[960px]:pb-16">
+    <div className="pb-24 pt-[132px] max-[960px]:pb-16">
       <script
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         type="application/ld+json"
@@ -124,6 +124,6 @@ export default function ToolsPage() {
           ))}
         </div>
       </section>
-    </main>
+    </div>
   );
 }

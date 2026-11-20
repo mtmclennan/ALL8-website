@@ -120,9 +120,17 @@ export default function RootLayout({
           themeProps={{ attribute: "class", defaultTheme: "dark" }}
         >
           <LeadModalProvider>
+            <a
+              className="sr-only focus-visible:not-sr-only focus-visible:fixed focus-visible:left-4 focus-visible:top-4 focus-visible:z-[300] focus-visible:rounded-full focus-visible:border focus-visible:border-accent-blue focus-visible:bg-content3 focus-visible:px-5 focus-visible:py-3 focus-visible:text-sm focus-visible:font-bold focus-visible:text-white"
+              href="#main-content"
+            >
+              Skip to main content
+            </a>
             <div className="relative flex flex-col min-h-screen">
               <NavbarClient />
-              <main className="flex-grow">{children}</main>
+              <main className="flex-grow" id="main-content" tabIndex={-1}>
+                {children}
+              </main>
               <FooterClient
                 services={SERVICES.map((service) => ({
                   label: service.shortTitle || service.title,

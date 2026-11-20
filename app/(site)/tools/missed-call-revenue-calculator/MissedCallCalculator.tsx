@@ -132,7 +132,7 @@ function NumericField({
         {field.helper}
       </p>
       <div
-        className={`flex min-h-12 items-center rounded-xl border bg-white/[0.045] transition-colors focus-within:bg-white/[0.07] ${
+        className={`flex min-h-12 items-center rounded-xl border bg-white/[0.045] transition-colors focus-within:bg-white/[0.07] focus-within:outline focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-accent-blue ${
           error
             ? "border-red-400/70 focus-within:border-red-400"
             : "border-white/[0.1] focus-within:border-accent-blue"
