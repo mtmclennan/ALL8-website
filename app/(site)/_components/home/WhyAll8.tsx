@@ -35,7 +35,7 @@ export default function WhyAll8({
   founder: FounderData;
 }) {
   return (
-    <section className="py-20 max-[960px]:py-16" id="why">
+    <section className="bg-content3 py-20 max-[960px]:py-16" id="why">
       <div className="mx-auto max-w-[1160px] px-6 sm:px-10">
         <Reveal className="mb-[52px] max-w-[720px]">
           <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">

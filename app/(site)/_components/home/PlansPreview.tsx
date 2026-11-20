@@ -5,18 +5,16 @@ import { PLANS } from "@/data/plans";
 
 export default function PlansPreview() {
   return (
-    <section
-      className="scroll-mt-20 bg-content3 py-24 max-[960px]:py-16"
-      id="plans"
-    >
+    <section className="scroll-mt-20 py-24 max-[960px]:py-16" id="plans">
       <div className="mx-auto max-w-[1160px] px-6 sm:px-10">
         <div className="mb-10 max-w-[720px]">
           <h2 className="all8-h2 font-extrabold leading-[1.06] tracking-[-.022em]">
             Plans
           </h2>
           <p className="mt-4 text-[17px] leading-relaxed text-white/70">
-            The review finds the gap. A focused Tune-Up or an ongoing plan puts
-            the right pieces in place. These are four common starting points.
+            Start with the free review, fix one priority with a Tune-Up, or let
+            us run your website and lead handling every month. Prices, setup
+            fees and minimum terms are shown up front.
           </p>
         </div>
 

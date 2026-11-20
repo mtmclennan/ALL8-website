@@ -28,20 +28,7 @@ export type HomeData = {
     subtitle: string;
     columns: { label: string; stage: Stage; items: string[] }[];
     note: string;
-  };
-  system: {
-    eyebrow: string;
-    title: string;
-    subtitle: string;
-    stages: {
-      stage: Stage;
-      step: string;
-      title: string;
-      description: string;
-      tags: string[];
-    }[];
-    footNote: string;
-    ctaLabel: string;
+    link?: { prefix: string; label: string; href: string };
   };
   outcomes: {
     eyebrow: string;
