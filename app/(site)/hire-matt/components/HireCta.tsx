@@ -31,7 +31,7 @@ export default function HireCta({
           <h2 className="mb-5 text-[clamp(34px,4.2vw,58px)] font-black leading-[1.02] tracking-[-.032em]">
             {data.title}
             <br />
-            <span className="bg-gradient-to-br from-white from-40% to-accent-blue bg-clip-text text-transparent">
+            <span className="text-accent-blue">
               {data.titleAccent}
             </span>
           </h2>

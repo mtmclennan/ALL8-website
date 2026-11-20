@@ -48,7 +48,7 @@ export default function Hero({ data }: { data: HireMattPageData["hero"] }) {
               {data.subtitle}
             </p>
 
-            <p className="mb-8 max-w-[600px] rounded-r-[14px] border border-white/[0.08] border-l-2 border-l-accent-blue bg-white/[0.036] px-6 py-5 text-[17px] leading-relaxed text-[#dce8f5]">
+            <p className="mb-8 max-w-[600px] rounded-[14px] border border-white/[0.08] bg-white/[0.036] px-6 py-5 text-[17px] leading-relaxed text-[#dce8f5]">
               {data.diff}
             </p>
 

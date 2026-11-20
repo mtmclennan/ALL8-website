@@ -175,7 +175,7 @@ export default function BlogPost({ post, siteOrigin }: BlogPostProps) {
         </h3>
       ),
       blockquote: ({ children }) => (
-        <div className="my-[38px] rounded-r-[14px] border-l-2 border-primary bg-[rgba(0,118,255,.06)] px-[30px] py-7">
+        <div className="my-[38px] rounded-[14px] border border-[rgba(0,118,255,.22)] bg-[rgba(0,118,255,.06)] px-[30px] py-7">
           <p className="text-[clamp(19px,2.1vw,23px)] font-extrabold leading-[1.42] tracking-[-.02em] text-white">
             {children}
           </p>

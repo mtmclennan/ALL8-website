@@ -45,7 +45,7 @@ export default function FinalCta({ data }: { data: FinalCtaData }) {
         <Reveal index={1}>
           <h2 className="mx-auto mb-[18px] max-w-[880px] text-[clamp(36px,4.4vw,60px)] font-black leading-[1.02] tracking-[-.03em] [text-wrap:balance]">
             {data.title}{" "}
-            <span className="bg-gradient-to-br from-white from-40% to-accent-blue bg-clip-text text-transparent">
+            <span className="text-accent-blue">
               {data.titleAccent}
             </span>
           </h2>

@@ -23,7 +23,7 @@ export default function BellhouseCaseStudy({
             <h2 className="mb-[18px] text-[clamp(29px,3.3vw,44px)] font-extrabold leading-[1.06] tracking-[-.026em]">
               {data.title}
               <br />
-              <span className="bg-gradient-to-br from-[#7ec8ff] to-[#1a7cf0] bg-clip-text text-transparent">
+              <span className="text-accent-blue">
                 {data.titleAccent}
               </span>
             </h2>

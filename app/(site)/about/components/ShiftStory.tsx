@@ -67,7 +67,7 @@ export default function ShiftStory({ data }: { data: ShiftData }) {
             </p>
           ))}
 
-          <div className="my-[34px] rounded-r-[14px] border-l-2 border-primary bg-[rgba(0,118,255,.05)] px-[30px] py-[26px]">
+          <div className="my-[34px] rounded-[14px] border border-[rgba(0,118,255,.22)] bg-[rgba(0,118,255,.05)] px-[30px] py-[26px]">
             <p className="text-[clamp(19px,2.1vw,24px)] font-extrabold leading-[1.4] tracking-[-.02em] text-white">
               {data.pullQuote}
             </p>
