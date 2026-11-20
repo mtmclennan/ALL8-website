@@ -29,11 +29,8 @@ export default function HireCta({
         </Reveal>
         <Reveal index={1}>
           <h2 className="mb-5 all8-h1 font-black leading-[1.02] tracking-[-.032em]">
-            {data.title}
-            <br />
-            <span className="text-accent-blue">
-              {data.titleAccent}
-            </span>
+            {data.title} <br />
+            <span className="text-accent-blue">{data.titleAccent}</span>
           </h2>
         </Reveal>
         <Reveal index={2}>

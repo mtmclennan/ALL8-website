@@ -21,11 +21,8 @@ export default function BellhouseCaseStudy({
               {data.eyebrow}
             </div>
             <h2 className="mb-[18px] all8-h2 font-extrabold leading-[1.06] tracking-[-.026em]">
-              {data.title}
-              <br />
-              <span className="text-accent-blue">
-                {data.titleAccent}
-              </span>
+              {data.title} <br />
+              <span className="text-accent-blue">{data.titleAccent}</span>
             </h2>
             <p className="mb-[34px] text-lg leading-relaxed text-white/70">
               {data.lede}

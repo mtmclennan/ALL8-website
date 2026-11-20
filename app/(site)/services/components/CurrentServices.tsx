@@ -50,8 +50,8 @@ export default function CurrentServices() {
             Every Page, In One Place
           </h2>
           <p className="mx-auto mt-3.5 max-w-[560px] text-[17px] leading-relaxed text-white/70">
-            Explore the services, their roles in the lead path, and how each
-            helps your business move more opportunities toward booked work.
+            See what each service does and where it fits between a customer
+            finding you and booking the job.
           </p>
         </Reveal>
 

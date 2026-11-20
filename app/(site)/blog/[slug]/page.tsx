@@ -55,7 +55,9 @@ export async function generateMetadata({
   const sourceSlug = sourceBlogSlug(slug);
   const slugs = [...new Set([sourceSlug, canonicalBlogSlug(slug)])];
 
-  const post = await sanity.fetch<SinglePost | null>(singlePostQuery, { slugs });
+  const post = await sanity.fetch<SinglePost | null>(singlePostQuery, {
+    slugs,
+  });
 
   if (!post?.title) return {};
 
@@ -129,7 +131,9 @@ export default async function BlogPostPage({
       <BlogPost post={canonicalPost} siteOrigin={siteUrl()} />
       <RelatedServices
         services={relatedServices}
-        showSearchCaseStudy={searchCaseStudyArticles.has(canonicalBlogSlug(slug))}
+        showSearchCaseStudy={searchCaseStudyArticles.has(
+          canonicalBlogSlug(slug),
+        )}
       />
       <RelatedArticles articles={relatedPosts} />
       <FinalCta
@@ -138,10 +142,9 @@ export default async function BlogPostPage({
           title: "Want This Checked",
           titleAccent: "in Your Business?",
           subtitle:
-            "Send your business and website details. Matt will review the lead path and send specific findings on what to fix first. A short call afterward is optional.",
+            "Send your business and website details. Matt will check how customers find and contact you, then send specific findings on what to fix first. A short call afterward is optional.",
           ctaLabel: "Get My Free Lead Leak Review",
-          micro:
-            "Clear recommendations  ·  Fixed scope before work begins",
+          micro: "Clear recommendations  ·  Fixed scope before work begins",
           secondary: { label: "View Pricing", href: "/pricing" },
           links: [{ label: "Explore services", href: "/services" }],
         }}

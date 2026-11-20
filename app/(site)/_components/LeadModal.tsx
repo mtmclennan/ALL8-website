@@ -279,9 +279,9 @@ export default function LeadModal({
               Get Your Free Lead Leak Review
             </h2>
             <p className="mb-6 mt-2 text-[14.5px] leading-relaxed text-white/70">
-              Send your business and website details. Matt will review your lead
-              path and send specific findings. A short follow-up call is
-              optional.
+              Send your business and website details. Matt will check how
+              customers find and contact you, then send specific findings. A
+              short follow-up call is optional.
             </p>
 
             <form
@@ -478,8 +478,9 @@ export default function LeadModal({
               Request received
             </h2>
             <p className="mb-5 text-[15px] leading-relaxed text-white/70">
-              We&apos;ll review your search visibility, website and lead path,
-              then get back to you within one business day.
+              We&apos;ll review your Google visibility, your website and how
+              inquiries are handled, then get back to you within one business
+              day.
             </p>
             <Button href={telHref} variant="ghost">
               Prefer to talk now? Call us

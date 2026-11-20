@@ -346,8 +346,8 @@ export default function InlineLeadForm() {
             Request received
           </h3>
           <p className="mb-5 text-[15px] leading-relaxed text-white/70">
-            We&apos;ll review your search visibility, website and lead path,
-            then get back to you within one business day.
+            We&apos;ll review your Google visibility, your website and how
+            inquiries are handled, then get back to you within one business day.
           </p>
           <Button href={telHref} variant="ghost">
             Prefer to talk now? Call us

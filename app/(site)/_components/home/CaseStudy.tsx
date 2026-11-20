@@ -41,11 +41,8 @@ export default function CaseStudy({ data }: { data: CaseStudyData }) {
               </div>
             ) : null}
             <h2 className="mb-4 all8-h2 font-extrabold leading-[1.06] tracking-[-.025em]">
-              {data.title}
-              <br />
-              <span className="text-accent-blue">
-                {data.titleAccent}
-              </span>
+              {data.title} <br />
+              <span className="text-accent-blue">{data.titleAccent}</span>
             </h2>
             <p className="mb-[34px] text-lg leading-relaxed text-white/70">
               {data.lede}

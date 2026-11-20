@@ -187,10 +187,9 @@ export default function WorkPage() {
           title: "Find Out Where You're",
           titleAccent: "Losing the Work.",
           subtitle:
-            "Send your business and website details. Matt will review the lead path and send specific findings on what to fix first. A short call afterward is optional.",
+            "Send your business and website details. Matt will check how customers find and contact you, then send specific findings on what to fix first. A short call afterward is optional.",
           ctaLabel: "Get My Free Lead Leak Review",
-          micro:
-            "Clear recommendations  ·  Fixed scope before work begins",
+          micro: "Clear recommendations  ·  Fixed scope before work begins",
           secondary: { label: "View Pricing", href: "/pricing" },
         }}
       />
