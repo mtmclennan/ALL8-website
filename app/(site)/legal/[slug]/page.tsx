@@ -9,6 +9,7 @@ import remarkGfm from "remark-gfm";
 
 import { replacePlaceholders } from "@/lib/utils/replacePlaceholders";
 import { legalVars } from "@/config/legal.config";
+import { deploymentRobots } from "@/lib/seo/metadata";
 
 // ---------------- Types ----------------
 interface LegalPage {
@@ -54,7 +55,7 @@ export async function generateMetadata({
     title: `${page.title} • ${legalVars.companyName}`,
     description: `${page.title} information for ${legalVars.companyName}.`,
     alternates: { canonical: `${legalVars.websiteUrl}/legal/${slug}` },
-    robots: { index: false, follow: true },
+    robots: deploymentRobots({ index: false, follow: true }),
     openGraph: {
       title: `${page.title} | ${legalVars.companyName}`,
       description: `Legal details and terms for ${legalVars.companyName}.`,

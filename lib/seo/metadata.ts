@@ -1,6 +1,19 @@
 import type { Metadata } from "next";
 
-import { absoluteSiteUrl, safeCanonicalUrl, site } from "@/config/site.config";
+import {
+  absoluteSiteUrl,
+  isProductionDeployment,
+  safeCanonicalUrl,
+  site,
+} from "@/config/site.config";
+
+export function deploymentRobots(
+  robots?: Metadata["robots"],
+): Metadata["robots"] {
+  return isProductionDeployment()
+    ? robots
+    : { index: false, follow: false, nocache: true };
+}
 
 type MetadataOptions = {
   title: string;
@@ -87,18 +100,20 @@ export function buildPageMetadata({
       description: ogDescription,
       images: [resolvedTwitterImage],
     },
-    robots: noindex
-      ? {
-          index: false,
-          follow: true,
-          nocache: true,
-          googleBot: {
+    robots: deploymentRobots(
+      noindex
+        ? {
             index: false,
             follow: true,
-            noimageindex: true,
-            noarchive: true,
-          },
-        }
-      : undefined,
+            nocache: true,
+            googleBot: {
+              index: false,
+              follow: true,
+              noimageindex: true,
+              noarchive: true,
+            },
+          }
+        : undefined,
+    ),
   };
 }

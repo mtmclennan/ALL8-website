@@ -28,6 +28,7 @@ import {
   sourceBlogSlug,
 } from "@/config/permanent-redirects.mjs";
 import { canonicalizePortableTextLinks } from "@/lib/seo/canonicalizePortableTextLinks";
+import { getBlogCanonicalUrl } from "@/lib/seo/blogCanonical";
 
 // REVALIDATE BLOG POSTS AUTOMATICALLY
 export const revalidate = 3600; // 1 hour — safe default
@@ -74,8 +75,7 @@ export async function generateMetadata({
     title,
     description,
     path,
-    canonicalUrl:
-      canonicalSlug === sourceSlug ? post.seo?.canonicalUrl : undefined,
+    canonicalUrl: getBlogCanonicalUrl(slug, post.seo?.canonicalUrl),
     type: "article",
     image: ogImage,
     twitterImage,
@@ -113,7 +113,10 @@ export default async function BlogPostPage({
 
   return (
     <>
-      <ArticleJsonLd post={canonicalPost} slug={canonicalBlogSlug(slug)} />
+      <ArticleJsonLd
+        canonical={getBlogCanonicalUrl(slug, post.seo?.canonicalUrl)}
+        post={canonicalPost}
+      />
       <BlogPost post={canonicalPost} siteOrigin={siteUrl()} />
       <RelatedServices services={relatedServices} />
       <RelatedArticles articles={relatedPosts} />

@@ -4,6 +4,8 @@ import { loadServices } from "../lib/utils/data-loaders";
 import { loadAllPages } from "../lib/utils/buildStaticMetadata"; // from the static pages setup
 
 import { siteUrl } from "@/config/site.config";
+import { getMeaningfulUpdateDate } from "@/lib/blogDate";
+import { getBlogCanonicalUrl } from "@/lib/seo/blogCanonical";
 import { client as sanity } from "@/app/studio/sanity/lib/client";
 import {
   allPostsQuery,
@@ -17,13 +19,13 @@ type BlogSitemapPost = {
   slug?: {
     current?: string;
   };
-  _updatedAt?: string;
+  canonicalUrl?: string | null;
+  updatedAt?: string;
   publishedAt?: string;
 };
 
 type CategorySitemapEntry = {
   slug?: string;
-  _updatedAt?: string;
   postCount?: number;
 };
 
@@ -56,15 +58,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     .filter((p): p is BlogSitemapPost & { slug: { current: string } } =>
       Boolean(p.slug?.current),
     )
-    .map((p) => {
-      const postDate = p._updatedAt ?? p.publishedAt;
+    .flatMap((p) => {
+      const url = `${base}/blog/${canonicalBlogSlug(p.slug.current)}`;
 
-      return {
-        url: `${base}/blog/${canonicalBlogSlug(p.slug.current)}`,
-        ...(postDate ? { lastModified: new Date(postDate) } : {}),
-        changeFrequency: "weekly" as const,
-        priority: 0.8,
-      };
+      if (getBlogCanonicalUrl(p.slug.current, p.canonicalUrl) !== url)
+        return [];
+
+      const postDate =
+        getMeaningfulUpdateDate(p.publishedAt, p.updatedAt) ?? p.publishedAt;
+
+      return [
+        {
+          url,
+          ...(postDate && Number.isFinite(Date.parse(postDate))
+            ? { lastModified: new Date(postDate) }
+            : {}),
+          changeFrequency: "weekly" as const,
+          priority: 0.8,
+        },
+      ];
     });
 
   const categoryPages = categories
@@ -74,9 +86,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     )
     .map((category) => ({
       url: `${base}/blog/category/${category.slug}`,
-      ...(category._updatedAt
-        ? { lastModified: new Date(category._updatedAt) }
-        : {}),
       changeFrequency: "weekly" as const,
       priority: 0.7,
     }));

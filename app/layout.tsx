@@ -1,7 +1,6 @@
 import "@/styles/globals.css";
 import type { Metadata, Viewport } from "next";
 
-import clsx from "clsx";
 import Script from "next/script";
 import { GoogleTagManager } from "@next/third-parties/google";
 
@@ -9,6 +8,7 @@ import orgSchema from "../data/schema/organization.schema.json";
 import siteSchema from "../data/schema/website.schema.json";
 
 import { FooterClient } from "./(site)/_components/FooterClient";
+import { FontPreloads } from "./(site)/_components/FontPreloads";
 import { NavbarClient } from "./(site)/_components/NavbarClient";
 import VisualsLoader from "./(site)/_components/VisualsLoader";
 import ProvidersClient from "./(site)/ProvidersClient";
@@ -18,13 +18,8 @@ import AnalyticsBridge from "./(site)/_components/analytics/AnalyticsBridge";
 
 import { SERVICES } from "@/data/services";
 import HubspotLoader from "@/app/(site)/_components/HubspotLoader";
-import { fontArchivo, fontDmSans, fontOrbitron } from "@/config/fonts";
-import {
-  absoluteSiteUrl,
-  isProductionDeployment,
-  site,
-  siteUrl,
-} from "@/config/site.config";
+import { absoluteSiteUrl, site, siteUrl } from "@/config/site.config";
+import { deploymentRobots } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
@@ -46,13 +41,7 @@ export const metadata: Metadata = {
     description: site.description,
     images: [site.defaultOgImage],
   },
-  robots: isProductionDeployment()
-    ? undefined
-    : {
-        index: false,
-        follow: false,
-        nocache: true,
-      },
+  robots: deploymentRobots(),
 };
 
 export const viewport: Viewport = {
@@ -104,25 +93,11 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning data-scroll-behavior="smooth" lang="en">
       <head>
-        {/* Preconnect and preload critical assets */}
-        <link href="https://fonts.googleapis.com" rel="preconnect" />
-        <link
-          crossOrigin=""
-          href="https://fonts.gstatic.com"
-          rel="preconnect"
-        />
-
+        <FontPreloads />
         <meta content="light dark" name="color-scheme" />
       </head>
 
-      <body
-        className={clsx(
-          "min-h-screen text-foreground bg-background font-sans antialiased",
-          fontArchivo.variable,
-          fontOrbitron.variable,
-          fontDmSans.variable,
-        )}
-      >
+      <body className="min-h-screen text-foreground bg-background font-sans antialiased">
         {/* Consent must load before GTM */}
         <Script id="consent-init" strategy="afterInteractive">
           {`
@@ -163,13 +138,11 @@ export default function RootLayout({
           <AnalyticsBridge />
         </ProvidersClient>
 
-        {/* Structured data combined for fewer parse events */}
-        <Script
+        <script
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd),
+            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
           }}
           id="jsonld"
-          strategy="afterInteractive"
           type="application/ld+json"
         />
 
