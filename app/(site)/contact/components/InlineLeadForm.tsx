@@ -331,9 +331,9 @@ export default function InlineLeadForm() {
         </>
       ) : (
         <div className="py-4 text-center">
-          <div className="mx-auto mb-5 grid h-[60px] w-[60px] place-items-center rounded-full border border-[rgba(34,197,94,.32)] bg-[rgba(34,197,94,.13)]">
+          <div className="mx-auto mb-5 grid h-[60px] w-[60px] place-items-center rounded-full border border-accent-blue/35 bg-accent-blue/10">
             <CheckCircle2
-              className="text-emerald-400"
+              className="text-accent-blue"
               size={26}
               strokeWidth={2.6}
             />

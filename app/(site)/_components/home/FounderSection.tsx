@@ -42,7 +42,7 @@ export default function FounderSection({ data }: { data: FounderData }) {
             {data.paragraphs.map((p) => (
               <p
                 key={p}
-                className="mb-4 text-[16.5px] leading-relaxed text-white/70"
+                className="mb-4 max-w-[65ch] text-[16.5px] leading-relaxed text-white/70"
               >
                 {p}
               </p>

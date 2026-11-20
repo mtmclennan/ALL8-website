@@ -99,7 +99,7 @@ export default function ProofCards({ data }: { data: ProofCardsData }) {
           })}
         </div>
 
-        <p className="mx-auto mt-9 max-w-[660px] text-center text-[15px] leading-relaxed text-white/70">
+        <p className="mx-auto mt-9 max-w-[62ch] text-center text-[15px] leading-relaxed text-white/70">
           {data.footNote}{" "}
           {data.footNoteLink && (
             <Link

@@ -40,7 +40,7 @@ export default function ServicesPreview() {
           <h2 className="all8-h2 font-extrabold leading-[1.06] tracking-[-.022em]">
             How ALL8 Helps Contractors
           </h2>
-          <p className="mt-4 text-[17px] leading-relaxed text-white/70">
+          <p className="mt-4 max-w-[62ch] text-[17px] leading-relaxed text-white/70">
             A contractor website that brings in quote requests, local SEO that
             helps you show up on Google Maps, and follow-up that catches missed
             calls and open estimates. Start with the problem costing you the

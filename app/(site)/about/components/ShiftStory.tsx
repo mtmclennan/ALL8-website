@@ -61,7 +61,7 @@ export default function ShiftStory({ data }: { data: ShiftData }) {
           {data.story.map((p, i) => (
             <p
               key={i}
-              className="mb-5 text-[17.5px] leading-relaxed text-white/70"
+              className="mb-5 max-w-[65ch] text-[17.5px] leading-relaxed text-white/70"
             >
               {renderBold(p)}
             </p>
@@ -76,7 +76,7 @@ export default function ShiftStory({ data }: { data: ShiftData }) {
           {data.storyAfter.map((p, i) => (
             <p
               key={i}
-              className="mb-5 text-[17.5px] leading-relaxed text-white/70"
+              className="mb-5 max-w-[65ch] text-[17.5px] leading-relaxed text-white/70"
             >
               {p}
             </p>

@@ -89,7 +89,7 @@ export default function PricingPage() {
           <h1 className="all8-h1 max-w-[800px] font-black leading-[1.04] tracking-[-.03em]">
             Website and Lead Plans for Contractors
           </h1>
-          <p className="mt-6 max-w-[760px] text-lg leading-relaxed text-white/70">
+          <p className="mt-6 max-w-[62ch] text-lg leading-relaxed text-white/70">
             Start with a free review, fix one priority with a Tune-Up, or let us
             run your website and lead handling every month. Setup fees, monthly
             fees and minimum terms are listed for each plan.

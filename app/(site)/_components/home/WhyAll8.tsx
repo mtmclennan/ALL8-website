@@ -91,10 +91,10 @@ export default function WhyAll8({
           />
           <div>
             <h3 className="all8-h3 font-bold">Work directly with Matt</h3>
-            <p className="mt-2 text-sm leading-relaxed text-white/70">
+            <p className="mt-2 max-w-[68ch] text-sm leading-relaxed text-white/70">
               {founder.paragraphs[0]}
             </p>
-            <p className="mt-2 text-sm leading-relaxed text-white/60">
+            <p className="mt-2 max-w-[68ch] text-sm leading-relaxed text-white/60">
               {founder.name} · {founder.role}. {founder.paragraphs[2]}
             </p>
           </div>

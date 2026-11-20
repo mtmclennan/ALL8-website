@@ -37,7 +37,7 @@ export default function Facts({ data }: { data: FactsData }) {
           ))}
         </div>
 
-        <p className="mt-[26px] max-w-[640px] text-[15.5px] leading-relaxed text-ink-faint">
+        <p className="mt-[26px] max-w-[65ch] text-[15.5px] leading-relaxed text-ink-faint">
           {data.note}
         </p>
       </div>
