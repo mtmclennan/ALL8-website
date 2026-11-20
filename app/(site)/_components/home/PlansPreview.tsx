@@ -1,4 +1,7 @@
+import { Search } from "lucide-react";
+
 import Button from "../ui/Button";
+import LeadReviewButton from "../LeadReviewButton";
 import PlanCard from "../../pricing/components/PlanCard";
 
 import { PLANS } from "@/data/plans";
@@ -29,7 +32,10 @@ export default function PlansPreview() {
         </p>
 
         <div className="mt-7 flex flex-wrap items-center gap-5">
-          <Button href="/contact">Get My Free Lead Leak Review</Button>
+          <LeadReviewButton>
+            <Search size={16} strokeWidth={2.5} />
+            Get My Free Lead Leak Review
+          </LeadReviewButton>
           <Button href="/pricing" variant="ghost">
             Compare all plans
           </Button>
