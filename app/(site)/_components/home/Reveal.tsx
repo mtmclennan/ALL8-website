@@ -1,9 +1,11 @@
-"use client";
-
 import type { ReactNode } from "react";
 
-import { motion, useReducedMotion } from "framer-motion";
-
+/**
+ * Section wrapper. It used to be a framer-motion client component, but with
+ * `initial={false}` it rendered its final state immediately and never
+ * animated, so it only added hydration cost. It is now a plain server-rendered
+ * div with the same props, so call sites are unchanged.
+ */
 export default function Reveal({
   children,
   className,
@@ -14,22 +16,9 @@ export default function Reveal({
   className?: string;
   id?: string;
 }) {
-  const prefersReduced = useReducedMotion();
-
   return (
-    <motion.div
-      className={className}
-      id={id}
-      initial={false}
-      transition={{
-        duration: prefersReduced ? 0 : 0.2,
-        ease: [0.16, 1, 0.3, 1],
-        delay: 0,
-      }}
-      viewport={{ once: true, amount: 0.2 }}
-      whileInView={{ opacity: 1, y: 0 }}
-    >
+    <div className={className} id={id}>
       {children}
-    </motion.div>
+    </div>
   );
 }
