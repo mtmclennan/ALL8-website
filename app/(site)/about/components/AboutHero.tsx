@@ -1,5 +1,8 @@
 "use client";
 
+import Link from "next/link";
+import { ArrowRight, Search } from "lucide-react";
+
 import { useLeadModal } from "@/app/(site)/_components/LeadModalProvider";
 import Button from "@/app/(site)/_components/ui/Button";
 
@@ -10,9 +13,9 @@ type AboutHeroData = {
   subtitle: string;
   subtitleStrong: string;
   primaryLabel: string;
-  primaryHref: string;
   secondaryLabel: string;
-  geo: string;
+  secondaryHref: string;
+  micro: string;
 };
 
 export default function AboutHero({ data }: { data: AboutHeroData }) {
@@ -50,27 +53,32 @@ export default function AboutHero({ data }: { data: AboutHeroData }) {
           </h1>
 
           <p className="mb-[30px] max-w-[680px] text-lg leading-relaxed text-white/70">
-            {data.subtitle}
+            {data.subtitle}{" "}
             <strong className="font-bold text-white">
               {data.subtitleStrong}
             </strong>
           </p>
 
           <div className="mb-[22px] flex flex-wrap items-center gap-3.5">
-            <Button href={data.primaryHref}>{data.primaryLabel}</Button>
-            <button
+            <Button onClick={openModal}>
+              <Search size={16} strokeWidth={2.5} />
+              {data.primaryLabel}
+            </Button>
+            <Link
               className="group inline-flex items-center gap-[7px] px-1 py-3.5 text-[15px] font-bold text-accent-blue hover:text-[#8ec5ff]"
-              type="button"
-              onClick={openModal}
+              href={data.secondaryHref}
             >
               {data.secondaryLabel}
-            </button>
+              <ArrowRight
+                aria-hidden="true"
+                className="transition-transform group-hover:translate-x-[3px] motion-reduce:group-hover:translate-x-0"
+                size={14}
+                strokeWidth={2.5}
+              />
+            </Link>
           </div>
 
-          <p className="flex items-center gap-[7px] text-[12.5px] text-white/40">
-            <span className="h-[5px] w-[5px] flex-shrink-0 rounded-full bg-white/40" />
-            {data.geo}
-          </p>
+          <p className="text-[13px] text-white/40">{data.micro}</p>
         </div>
       </div>
     </section>
