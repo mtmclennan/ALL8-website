@@ -32,6 +32,10 @@ const CHALLENGES = [
 
 const initialState: LeadActionState = { ok: false };
 
+const FIELD_NAMES = ["name", "business", "website", "email", "phone"] as const;
+
+type FieldName = (typeof FIELD_NAMES)[number];
+
 const inputClass =
   "w-full min-h-[46px] rounded-[10px] border border-white/[0.08] bg-white/[0.045] px-3.5 py-3 text-base text-white placeholder:text-ink-faint transition-colors focus:border-primary focus:bg-white/[0.07]";
 
@@ -87,11 +91,21 @@ export default function InlineLeadForm() {
   const { pageUrl, pageName, utm } =
     useHubSpotContextFields("Contact Page Form");
   const [challenge, setChallenge] = useState("");
+  // React resets an action form after every submit, success or not. Keeping
+  // the last submitted values as defaultValue means a failed submit (server
+  // validation or a client-side reCAPTCHA failure) keeps what was typed.
+  const [values, setValues] = useState<Partial<Record<FieldName, string>>>({});
   const formStartedRef = useRef(false);
   const leadTrackedRef = useRef(false);
+  const successRef = useRef<HTMLHeadingElement>(null);
 
   const done = state.ok;
   const telHref = toTelHref(siteConfig.phone);
+
+  // Move focus to the confirmation so screen readers announce it.
+  useEffect(() => {
+    if (done) successRef.current?.focus();
+  }, [done]);
 
   useEffect(() => {
     // Only a confirmed durable capture counts as a completed lead.
@@ -125,6 +139,12 @@ export default function InlineLeadForm() {
     formData.set("utm_content", utm.content || "");
     formData.set("utm_term", utm.term || "");
     formData.set("challenge", challenge);
+
+    setValues(
+      Object.fromEntries(
+        FIELD_NAMES.map((key) => [key, String(formData.get(key) ?? "")]),
+      ),
+    );
 
     return formAction(formData);
   };
@@ -166,6 +186,7 @@ export default function InlineLeadForm() {
                     inputClass,
                     state.fieldErrors?.name && inputErrorClass,
                   )}
+                  defaultValue={values.name}
                   id="cName"
                   name="name"
                   type="text"
@@ -187,6 +208,7 @@ export default function InlineLeadForm() {
                     inputClass,
                     state.fieldErrors?.business && inputErrorClass,
                   )}
+                  defaultValue={values.business}
                   id="cBiz"
                   name="business"
                   type="text"
@@ -195,6 +217,7 @@ export default function InlineLeadForm() {
             </div>
 
             <Field
+              optional
               error={state.fieldErrors?.website?.[0]}
               htmlFor="cSite"
               label="Website"
@@ -209,6 +232,7 @@ export default function InlineLeadForm() {
                   inputClass,
                   state.fieldErrors?.website && inputErrorClass,
                 )}
+                defaultValue={values.website}
                 id="cSite"
                 inputMode="url"
                 name="website"
@@ -234,6 +258,7 @@ export default function InlineLeadForm() {
                     inputClass,
                     state.fieldErrors?.email && inputErrorClass,
                   )}
+                  defaultValue={values.email}
                   id="cEmail"
                   name="email"
                   type="email"
@@ -243,6 +268,7 @@ export default function InlineLeadForm() {
                 <input
                   autoComplete="tel"
                   className={inputClass}
+                  defaultValue={values.phone}
                   id="cPhone"
                   name="phone"
                   placeholder="So we can text you back"
@@ -290,8 +316,7 @@ export default function InlineLeadForm() {
             </Button>
 
             <p className="text-center text-[12.5px] leading-relaxed text-white/60">
-              Free review · No obligation · You keep the
-              findings
+              Free review · No obligation · You keep the findings
               <br />
               We use your details to prepare and send the review.{" "}
               <Link
@@ -313,7 +338,11 @@ export default function InlineLeadForm() {
               strokeWidth={2.6}
             />
           </div>
-          <h3 className="mb-2.5 text-[22px] font-extrabold tracking-[-.02em]">
+          <h3
+            ref={successRef}
+            className="mb-2.5 text-[22px] font-extrabold tracking-[-.02em] focus:outline-none"
+            tabIndex={-1}
+          >
             Request received
           </h3>
           <p className="mb-5 text-[15px] leading-relaxed text-white/70">

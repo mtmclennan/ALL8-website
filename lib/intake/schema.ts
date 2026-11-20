@@ -7,7 +7,14 @@ export const IntakeSchema = z.object({
   name: z.string().min(2, "Name is required"),
   email: z.string().email("Valid email required"),
   company: z.string().optional(),
-  website: z.union([z.string().regex(domainRegex), z.literal("")]).optional(),
+  website: z
+    .union([
+      z
+        .string()
+        .regex(domainRegex, "Enter a web address like yourbusiness.com"),
+      z.literal(""),
+    ])
+    .optional(),
   serviceArea: z.string().optional(),
 
   // Core qualifiers (match the updated form)
@@ -60,7 +67,14 @@ export type IntakeData = z.infer<typeof IntakeSchema>;
 export const LeadReviewSchema = z.object({
   name: z.string().min(2, "Name is required"),
   business: z.string().min(1, "Business name is required"),
-  website: z.union([z.string().regex(domainRegex), z.literal("")]).optional(),
+  website: z
+    .union([
+      z
+        .string()
+        .regex(domainRegex, "Enter a web address like yourbusiness.com"),
+      z.literal(""),
+    ])
+    .optional(),
   email: z.string().email("Valid email required"),
   phone: z.string().optional(),
   challenge: z.string().optional(),

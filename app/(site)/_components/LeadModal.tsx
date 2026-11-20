@@ -35,6 +35,10 @@ const CHALLENGES = [
 
 const initialState: LeadActionState = { ok: false };
 
+const FIELD_NAMES = ["name", "business", "website", "email", "phone"] as const;
+
+type FieldName = (typeof FIELD_NAMES)[number];
+
 const inputClass =
   "w-full min-h-[46px] rounded-[10px] border border-white/40 bg-white/[0.045] px-3.5 py-3 text-base text-white placeholder:text-ink-muted transition-colors focus:border-primary focus:bg-white/[0.07]";
 
@@ -101,15 +105,24 @@ export default function LeadModal({
 
   const [challenge, setChallenge] = useState("");
   const [done, setDone] = useState(false);
+  // React resets an action form after every submit, success or not. Keeping
+  // the last submitted values as defaultValue means a failed submit (server
+  // validation or a client-side reCAPTCHA failure) keeps what was typed.
+  const [values, setValues] = useState<Partial<Record<FieldName, string>>>({});
+  // Errors belong to the last submit; hide them once the modal is closed.
+  const [showErrors, setShowErrors] = useState(false);
+  const fieldErrors = showErrors ? state.fieldErrors : undefined;
 
   const dialogRef = useRef<HTMLDivElement>(null);
   const nameRef = useRef<HTMLInputElement>(null);
+  const successRef = useRef<HTMLHeadingElement>(null);
   const formStartedRef = useRef(false);
   const leadTrackedRef = useRef(false);
 
   useEffect(() => {
     if (!isPending && state.ok) {
       setDone(true);
+      setValues({});
       // Only a confirmed durable capture counts as a completed lead.
       if (!leadTrackedRef.current && state.captured === true) {
         leadTrackedRef.current = true;
@@ -127,6 +140,7 @@ export default function LeadModal({
 
   useEffect(() => {
     if (!open) {
+      setShowErrors(false);
       const t = setTimeout(() => {
         setDone(false);
         setChallenge("");
@@ -136,14 +150,26 @@ export default function LeadModal({
 
       return () => clearTimeout(t);
     }
+    // Return focus to whatever opened the modal when it closes.
+    const opener =
+      document.activeElement instanceof HTMLElement
+        ? document.activeElement
+        : null;
+
     document.body.style.overflow = "hidden";
     const t = setTimeout(() => nameRef.current?.focus(), 120);
 
     return () => {
       document.body.style.overflow = "";
       clearTimeout(t);
+      if (opener?.isConnected) opener.focus();
     };
   }, [open]);
+
+  // Move focus to the confirmation so screen readers announce it.
+  useEffect(() => {
+    if (done) successRef.current?.focus();
+  }, [done]);
 
   const handleFormFocus = () => {
     if (formStartedRef.current) return;
@@ -197,6 +223,13 @@ export default function LeadModal({
     formData.set("utm_content", utm.content || "");
     formData.set("utm_term", utm.term || "");
     formData.set("challenge", challenge);
+
+    setValues(
+      Object.fromEntries(
+        FIELD_NAMES.map((key) => [key, String(formData.get(key) ?? "")]),
+      ),
+    );
+    setShowErrors(true);
 
     return formAction(formData);
   };
@@ -264,7 +297,7 @@ export default function LeadModal({
 
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Field
-                  error={state.fieldErrors?.name?.[0]}
+                  error={fieldErrors?.name?.[0]}
                   htmlFor="fName"
                   label="Name"
                 >
@@ -272,35 +305,37 @@ export default function LeadModal({
                     ref={nameRef}
                     required
                     aria-describedby={
-                      state.fieldErrors?.name ? "fName-error" : undefined
+                      fieldErrors?.name ? "fName-error" : undefined
                     }
-                    aria-invalid={Boolean(state.fieldErrors?.name)}
+                    aria-invalid={Boolean(fieldErrors?.name)}
                     autoComplete="name"
                     className={clsx(
                       inputClass,
-                      state.fieldErrors?.name && inputErrorClass,
+                      fieldErrors?.name && inputErrorClass,
                     )}
+                    defaultValue={values.name}
                     id="fName"
                     name="name"
                     type="text"
                   />
                 </Field>
                 <Field
-                  error={state.fieldErrors?.business?.[0]}
+                  error={fieldErrors?.business?.[0]}
                   htmlFor="fBiz"
                   label="Business name"
                 >
                   <input
                     required
                     aria-describedby={
-                      state.fieldErrors?.business ? "fBiz-error" : undefined
+                      fieldErrors?.business ? "fBiz-error" : undefined
                     }
-                    aria-invalid={Boolean(state.fieldErrors?.business)}
+                    aria-invalid={Boolean(fieldErrors?.business)}
                     autoComplete="organization"
                     className={clsx(
                       inputClass,
-                      state.fieldErrors?.business && inputErrorClass,
+                      fieldErrors?.business && inputErrorClass,
                     )}
+                    defaultValue={values.business}
                     id="fBiz"
                     name="business"
                     type="text"
@@ -309,20 +344,22 @@ export default function LeadModal({
               </div>
 
               <Field
-                error={state.fieldErrors?.website?.[0]}
+                optional
+                error={fieldErrors?.website?.[0]}
                 htmlFor="fSite"
                 label="Website"
               >
                 <input
                   aria-describedby={
-                    state.fieldErrors?.website ? "fSite-error" : undefined
+                    fieldErrors?.website ? "fSite-error" : undefined
                   }
-                  aria-invalid={Boolean(state.fieldErrors?.website)}
+                  aria-invalid={Boolean(fieldErrors?.website)}
                   autoComplete="url"
                   className={clsx(
                     inputClass,
-                    state.fieldErrors?.website && inputErrorClass,
+                    fieldErrors?.website && inputErrorClass,
                   )}
+                  defaultValue={values.website}
                   id="fSite"
                   inputMode="url"
                   name="website"
@@ -333,21 +370,22 @@ export default function LeadModal({
 
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Field
-                  error={state.fieldErrors?.email?.[0]}
+                  error={fieldErrors?.email?.[0]}
                   htmlFor="fEmail"
                   label="Email"
                 >
                   <input
                     required
                     aria-describedby={
-                      state.fieldErrors?.email ? "fEmail-error" : undefined
+                      fieldErrors?.email ? "fEmail-error" : undefined
                     }
-                    aria-invalid={Boolean(state.fieldErrors?.email)}
+                    aria-invalid={Boolean(fieldErrors?.email)}
                     autoComplete="email"
                     className={clsx(
                       inputClass,
-                      state.fieldErrors?.email && inputErrorClass,
+                      fieldErrors?.email && inputErrorClass,
                     )}
+                    defaultValue={values.email}
                     id="fEmail"
                     name="email"
                     type="email"
@@ -357,6 +395,7 @@ export default function LeadModal({
                   <input
                     autoComplete="tel"
                     className={inputClass}
+                    defaultValue={values.phone}
                     id="fPhone"
                     name="phone"
                     type="tel"
@@ -393,7 +432,7 @@ export default function LeadModal({
                 </div>
               </div>
 
-              {state.message && !state.ok && (
+              {showErrors && state.message && !state.ok && (
                 <p className="text-sm text-red-400" role="alert">
                   {state.message}
                 </p>
@@ -408,8 +447,7 @@ export default function LeadModal({
               </Button>
 
               <p className="text-center text-[12.5px] leading-relaxed text-white/60">
-                Free review · No obligation · You keep the
-                findings
+                Free review · No obligation · You keep the findings
                 <br />
                 We use your details to prepare and send the review.{" "}
                 <Link
@@ -431,9 +469,14 @@ export default function LeadModal({
                 strokeWidth={2.6}
               />
             </div>
-            <h3 className="mb-2.5 text-[22px] font-extrabold tracking-[-.02em]">
+            <h2
+              ref={successRef}
+              className="mb-2.5 text-[22px] font-extrabold tracking-[-.02em] focus:outline-none"
+              id="leadModalTitle"
+              tabIndex={-1}
+            >
               Request received
-            </h3>
+            </h2>
             <p className="mb-5 text-[15px] leading-relaxed text-white/70">
               We&apos;ll review your search visibility, website and lead path,
               then get back to you within one business day.
