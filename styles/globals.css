@@ -33,6 +33,19 @@ html {
   line-height: 1.3;
 }
 
+/* Balanced headings and no one-word last lines in running copy. */
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p,
+li,
+blockquote {
+  text-wrap: pretty;
+}
+
 .all8-muted {
   color: #a8b2c1;
 }

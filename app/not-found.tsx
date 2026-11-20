@@ -33,7 +33,7 @@ export default function NotFound() {
           404
         </div>
 
-        <h1 className="mb-[22px] text-[clamp(36px,5vw,58px)] font-black leading-[1.05] tracking-[-.03em]">
+        <h1 className="mb-[22px] all8-h1 font-black leading-[1.05] tracking-[-.03em]">
           That Page Got{" "}
           <span className="text-accent-blue">Lost in the Funnel.</span>
         </h1>

@@ -25,7 +25,7 @@ export default function ServiceFinalCta() {
           Free Lead Leak Review
         </Reveal>
         <Reveal index={1}>
-          <h2 className="mb-[18px] text-[clamp(32px,3.8vw,50px)] font-black leading-[1.05] tracking-[-.03em]">
+          <h2 className="mb-[18px] all8-h1 font-black leading-[1.05] tracking-[-.03em]">
             Find the right first fix.
           </h2>
         </Reveal>

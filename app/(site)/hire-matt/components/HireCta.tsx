@@ -28,7 +28,7 @@ export default function HireCta({
           {data.eyebrow}
         </Reveal>
         <Reveal index={1}>
-          <h2 className="mb-5 text-[clamp(34px,4.2vw,58px)] font-black leading-[1.02] tracking-[-.032em]">
+          <h2 className="mb-5 all8-h1 font-black leading-[1.02] tracking-[-.032em]">
             {data.title}
             <br />
             <span className="text-accent-blue">

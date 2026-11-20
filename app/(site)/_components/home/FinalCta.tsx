@@ -43,7 +43,7 @@ export default function FinalCta({ data }: { data: FinalCtaData }) {
           {data.eyebrow}
         </Reveal>
         <Reveal index={1}>
-          <h2 className="mx-auto mb-[18px] max-w-[880px] text-[clamp(36px,4.4vw,60px)] font-black leading-[1.02] tracking-[-.03em] [text-wrap:balance]">
+          <h2 className="mx-auto mb-[18px] max-w-[880px] all8-h1 font-black leading-[1.02] tracking-[-.03em] [text-wrap:balance]">
             {data.title}{" "}
             <span className="text-accent-blue">
               {data.titleAccent}

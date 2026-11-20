@@ -17,7 +17,7 @@ export default function Background({
             <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
               {data.eyebrow}
             </div>
-            <h2 className="mb-5 text-[clamp(28px,3.1vw,42px)] font-extrabold leading-[1.07] tracking-[-.026em]">
+            <h2 className="mb-5 all8-h2 font-extrabold leading-[1.07] tracking-[-.026em]">
               {data.title}
             </h2>
             {data.paragraphs.map((p, i) => (

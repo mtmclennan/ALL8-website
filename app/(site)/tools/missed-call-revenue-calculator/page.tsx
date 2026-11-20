@@ -165,7 +165,7 @@ export default function MissedCallRevenueCalculatorPage() {
             <p className="text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
               Transparent by design
             </p>
-            <h2 className="mt-3 text-[clamp(30px,4vw,44px)] font-extrabold leading-[1.05] tracking-[-.03em]">
+            <h2 className="mt-3 all8-h2 font-extrabold leading-[1.05] tracking-[-.03em]">
               How the calculation works
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-white/70">
@@ -208,7 +208,7 @@ export default function MissedCallRevenueCalculatorPage() {
           <p className="text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
             After the ring
           </p>
-          <h2 className="mt-3 text-[clamp(30px,4vw,44px)] font-extrabold leading-[1.05] tracking-[-.03em]">
+          <h2 className="mt-3 all8-h2 font-extrabold leading-[1.05] tracking-[-.03em]">
             What happens after a call is missed?
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-white/70">

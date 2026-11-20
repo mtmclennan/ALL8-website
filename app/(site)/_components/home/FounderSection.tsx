@@ -36,7 +36,7 @@ export default function FounderSection({ data }: { data: FounderData }) {
                 {data.eyebrow}
               </div>
             ) : null}
-            <h2 className="mb-5 text-[clamp(28px,3vw,40px)] font-extrabold leading-[1.08] tracking-[-.025em]">
+            <h2 className="mb-5 all8-h2 font-extrabold leading-[1.08] tracking-[-.025em]">
               {data.title}
             </h2>
             {data.paragraphs.map((p) => (

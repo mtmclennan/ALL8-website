@@ -20,7 +20,7 @@ export default function BellhouseCaseStudy({
             <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
               {data.eyebrow}
             </div>
-            <h2 className="mb-[18px] text-[clamp(29px,3.3vw,44px)] font-extrabold leading-[1.06] tracking-[-.026em]">
+            <h2 className="mb-[18px] all8-h2 font-extrabold leading-[1.06] tracking-[-.026em]">
               {data.title}
               <br />
               <span className="text-accent-blue">
