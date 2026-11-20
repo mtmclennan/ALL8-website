@@ -33,6 +33,11 @@ import { getBlogCanonicalUrl } from "@/lib/seo/blogCanonical";
 // REVALIDATE BLOG POSTS AUTOMATICALLY
 export const revalidate = 3600; // 1 hour — safe default
 
+const searchCaseStudyArticles = new Set([
+  "local-seo-for-contractors-google-maps",
+  "why-your-business-isn-t-showing-up-on-google-maps-and-it-s-not-what-you-think",
+]);
+
 export async function generateStaticParams() {
   const slugs = await sanity.fetch<string[]>(publishedPostSlugsQuery);
 
@@ -118,7 +123,10 @@ export default async function BlogPostPage({
         post={canonicalPost}
       />
       <BlogPost post={canonicalPost} siteOrigin={siteUrl()} />
-      <RelatedServices services={relatedServices} />
+      <RelatedServices
+        services={relatedServices}
+        showSearchCaseStudy={searchCaseStudyArticles.has(canonicalBlogSlug(slug))}
+      />
       <RelatedArticles articles={relatedPosts} />
       <FinalCta
         data={{

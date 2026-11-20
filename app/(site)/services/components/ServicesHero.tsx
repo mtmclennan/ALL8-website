@@ -1,11 +1,8 @@
-"use client";
-
 import Link from "next/link";
 import { ArrowDown, Search } from "lucide-react";
 
 import { STAGE_HEX, type Stage } from "@/lib/utils/stage";
-import { useLeadModal } from "@/app/(site)/_components/LeadModalProvider";
-import Button from "@/app/(site)/_components/ui/Button";
+import LeadReviewButton from "@/app/(site)/_components/LeadReviewButton";
 
 type ServicesHeroData = {
   pill: string;
@@ -29,8 +26,6 @@ const BADGE_HREF: Record<Stage, string> = {
 };
 
 export default function ServicesHero({ data }: { data: ServicesHeroData }) {
-  const { openModal } = useLeadModal();
-
   return (
     <section className="relative overflow-hidden pt-[68px]" id="hero">
       <div className="absolute inset-0 bg-background" />
@@ -70,10 +65,10 @@ export default function ServicesHero({ data }: { data: ServicesHeroData }) {
           </p>
 
           <div className="mb-[22px] flex flex-wrap items-center gap-3.5">
-            <Button onClick={openModal}>
+            <LeadReviewButton>
               <Search size={16} strokeWidth={2.5} />
               Get My Free Lead Leak Review
-            </Button>
+            </LeadReviewButton>
             <a
               className="group inline-flex items-center gap-[7px] px-1 py-3.5 text-[15px] font-bold text-accent-blue hover:text-[#8ec5ff]"
               href={data.secondaryHref}

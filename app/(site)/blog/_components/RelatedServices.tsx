@@ -7,6 +7,7 @@ import { getServiceBySlug } from "@/data/services";
 
 type RelatedServicesProps = {
   services: RelatedService[];
+  showSearchCaseStudy?: boolean;
   limit?: number;
 };
 
@@ -18,6 +19,7 @@ const DEFAULT_LIMIT = 3;
  */
 export default function RelatedServices({
   services,
+  showSearchCaseStudy = false,
   limit = DEFAULT_LIMIT,
 }: RelatedServicesProps) {
   const relatedServices = services.slice(0, limit);
@@ -85,6 +87,16 @@ export default function RelatedServices({
             );
           })}
         </ul>
+        {showSearchCaseStudy && (
+          <p className="mt-5 text-sm text-white/70">
+            <Link
+              className="all8-body-link"
+              href="/work/service-business-growth-case-study"
+            >
+              See how a service business improved its search visibility
+            </Link>
+          </p>
+        )}
       </div>
     </section>
   );

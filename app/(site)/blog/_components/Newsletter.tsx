@@ -2,10 +2,13 @@
 
 import type { LeadActionState } from "@/lib/leads/leadSubmission";
 
-import { useActionState, useEffect } from "react";
+import { useActionState } from "react";
 
-import { loadRecaptcha, withCaptcha } from "@/lib/intake/clientCaptcha";
-import { useHubSpotContextFields } from "@/hooks/use-hubspotContextFields";
+import { warmRecaptcha, withCaptcha } from "@/lib/intake/clientCaptcha";
+import {
+  getHubSpotTrackingCookie,
+  useHubSpotContextFields,
+} from "@/hooks/use-hubspotContextFields";
 import { submitNewsletter } from "@/app/actions/submit-newsletter";
 import Button from "@/app/(site)/_components/ui/Button";
 import HoneypotField from "@/app/(site)/_components/HoneypotField";
@@ -22,18 +25,11 @@ export default function Newsletter() {
     ),
     initialState,
   );
-  const { hutk, pageUrl, pageName, utm } =
+  const { pageUrl, pageName, utm } =
     useHubSpotContextFields("Blog Newsletter");
 
-  useEffect(() => {
-    // Warm the shared loader after hydration; a failed load is retried on submit.
-    void loadRecaptcha(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY).catch(
-      () => {},
-    );
-  }, []);
-
   const enhancedAction = (formData: FormData) => {
-    formData.set("hutk", hutk || "");
+    formData.set("hutk", getHubSpotTrackingCookie());
     formData.set("pageUrl", pageUrl || "");
     formData.set("pageName", pageName || "");
     formData.set("utm_source", utm.source || "");
@@ -68,6 +64,7 @@ export default function Newsletter() {
               noValidate
               action={enhancedAction}
               className="flex flex-wrap gap-2.5"
+              onFocusCapture={() => warmRecaptcha(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY)}
             >
               <HoneypotField />
               <input name="leadType" type="hidden" value="Blog Newsletter" />

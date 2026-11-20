@@ -83,6 +83,11 @@ export function loadRecaptcha(
   return loading;
 }
 
+/** Warm the shared script on form intent. Submit still requires a fresh token. */
+export function warmRecaptcha(siteKey: string | undefined) {
+  void loadRecaptcha(siteKey).catch(() => {});
+}
+
 async function freshToken(siteKey: string | undefined, action: CaptchaAction) {
   const captcha = await loadRecaptcha(siteKey);
 

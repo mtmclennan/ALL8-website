@@ -32,13 +32,16 @@ export default function PostsFilterGrid({ posts }: { posts: BlogIndexPost[] }) {
   if (!posts.length) return null;
 
   return (
-    <div>
+    <section aria-labelledby="browse-articles-title">
+      <h2 className="sr-only" id="browse-articles-title">Browse articles</h2>
       {topics.length > 0 && (
         <div
           aria-label="Filter articles by topic"
           className="mb-11 flex flex-wrap gap-2.5"
+          role="group"
         >
           <button
+            aria-pressed={active === "all"}
             className={
               active === "all"
                 ? "min-h-[42px] rounded-full border border-[rgba(0,118,255,.42)] bg-[rgba(0,118,255,.13)] px-4 py-2.5 text-[13.5px] font-semibold text-[#cfe4ff]"
@@ -52,6 +55,7 @@ export default function PostsFilterGrid({ posts }: { posts: BlogIndexPost[] }) {
           {topics.map((topic) => (
             <button
               key={topic.slug}
+              aria-pressed={active === topic.slug}
               className={
                 active === topic.slug
                   ? "min-h-[42px] rounded-full border border-[rgba(0,118,255,.42)] bg-[rgba(0,118,255,.13)] px-4 py-2.5 text-[13.5px] font-semibold text-[#cfe4ff]"
@@ -75,6 +79,6 @@ export default function PostsFilterGrid({ posts }: { posts: BlogIndexPost[] }) {
       ) : (
         <p className="text-white/70">No posts in this category yet.</p>
       )}
-    </div>
+    </section>
   );
 }

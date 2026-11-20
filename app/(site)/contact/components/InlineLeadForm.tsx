@@ -7,8 +7,11 @@ import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import clsx from "clsx";
 
-import { loadRecaptcha, withCaptcha } from "@/lib/intake/clientCaptcha";
-import { useHubSpotContextFields } from "@/hooks/use-hubspotContextFields";
+import { warmRecaptcha, withCaptcha } from "@/lib/intake/clientCaptcha";
+import {
+  getHubSpotTrackingCookie,
+  useHubSpotContextFields,
+} from "@/hooks/use-hubspotContextFields";
 import { submitLeadReview } from "@/app/actions/submit-lead-review";
 import { siteConfig } from "@/config/site";
 import { toTelHref } from "@/lib/utils/phone";
@@ -81,7 +84,7 @@ export default function InlineLeadForm() {
     ),
     initialState,
   );
-  const { hutk, pageUrl, pageName, utm } =
+  const { pageUrl, pageName, utm } =
     useHubSpotContextFields("Contact Page Form");
   const [challenge, setChallenge] = useState("");
   const formStartedRef = useRef(false);
@@ -106,20 +109,14 @@ export default function InlineLeadForm() {
   }, [done, state.captured, utm, pageName]);
 
   const handleFormFocus = () => {
+    warmRecaptcha(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY);
     if (formStartedRef.current) return;
     formStartedRef.current = true;
     trackFormStart("contact_page");
   };
 
-  useEffect(() => {
-    // Warm the shared loader after hydration; a failed load is retried on submit.
-    void loadRecaptcha(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY).catch(
-      () => {},
-    );
-  }, []);
-
   const enhancedAction = (formData: FormData) => {
-    formData.set("hutk", hutk || "");
+    formData.set("hutk", getHubSpotTrackingCookie());
     formData.set("pageUrl", pageUrl || "");
     formData.set("pageName", pageName || "");
     formData.set("utm_source", utm.source || "");
