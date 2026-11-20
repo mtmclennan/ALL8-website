@@ -33,6 +33,6 @@ test("entry offers show one-time and free terms", () => {
   });
   assert.deepEqual(getPlanPriceDisplay(getPlan("free-review")), {
     amount: "Free",
-    detail: "No commitment",
+    detail: "No obligation",
   });
 });

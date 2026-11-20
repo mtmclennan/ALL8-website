@@ -27,9 +27,7 @@ export default function PlansPreview() {
         </div>
 
         <p className="mt-6 max-w-[900px] text-sm leading-relaxed text-white/60">
-          U.S. prices are in USD. Canadian clients pay the same numeric prices
-          in CAD plus applicable HST. Growth System and Google Ads Management
-          are also available.
+          Growth System and Google Ads Management are also available.
         </p>
 
         <div className="mt-7 flex flex-wrap items-center gap-5">
