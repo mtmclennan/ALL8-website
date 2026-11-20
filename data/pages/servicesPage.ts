@@ -21,20 +21,6 @@ export type ServicesPageData = {
     geo: string;
     badges: { label: string; stage: Stage }[];
   };
-  outcomes: {
-    eyebrow: string;
-    title: string;
-    subtitle: string;
-    blocks: {
-      stage: Stage;
-      num: string;
-      label: string;
-      title: string;
-      description: string;
-      capabilities: string[];
-    }[];
-    winBand: { title: string; subtitle: string; ctaLabel: string };
-  };
   proof: {
     eyebrow: string;
     title: string;

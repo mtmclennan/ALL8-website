@@ -22,51 +22,6 @@
     ]
   },
 
-  "outcomes": {
-    "eyebrow": "What We Do",
-    "title": "Four Outcomes. One System.",
-    "subtitle": "Every capability below exists to move one of these four. Pick the outcome you need — we'll bring the tools.",
-    "blocks": [
-      {
-        "stage": "found",
-        "num": "01",
-        "label": "Get Found",
-        "title": "Help the Right Customers Find You",
-        "description": "Show up when someone nearby searches for the work you actually want — not just for your business name. That means the right pages, the right service areas, and a Google Business Profile that earns the click.",
-        "capabilities": ["Local SEO", "Google Business Profile", "Lead-generation service pages", "Google Ads", "Local search & AI visibility foundations", "Technical local SEO"]
-      },
-      {
-        "stage": "contacted",
-        "num": "02",
-        "label": "Get Contacted",
-        "title": "Turn Visibility Into Real Inquiries",
-        "description": "Traffic that doesn't call is just a bill. We make contacting you the obvious next step, on a phone, on a job site, in ten seconds — and make sure the call actually reaches someone.",
-        "capabilities": ["Conversion-focused websites", "Landing pages", "Quote & contact forms", "Call tracking", "Business phone / VoIP", "Missed-call text-back", "Lead intake & answering"]
-      },
-      {
-        "stage": "follow",
-        "num": "03",
-        "label": "Respond & Follow Up",
-        "title": "Stop Losing Leads After First Contact",
-        "description": "A lead that waits a day is usually a lead someone else called first. We set up the alerts, sequences and reminders so follow-up happens without anyone having to remember.",
-        "capabilities": ["CRM setup", "Sales pipeline setup", "Email follow-up", "SMS follow-up", "Lead notifications", "Estimate & appointment workflows", "Lead routing", "Tool integrations"]
-      },
-      {
-        "stage": "win",
-        "num": "04",
-        "label": "Win More Work",
-        "title": "Connect Activity to Actual Customers",
-        "description": "Most owners can tell you what they spend, not what it produced. We connect the calls and forms back to the search, page or ad that caused them.",
-        "capabilities": ["Analytics", "Conversion tracking", "Call attribution", "Form attribution", "Organic search reporting", "Lead-source tracking", "Pipeline visibility", "Reporting"]
-      }
-    ],
-    "winBand": {
-      "title": "All Four Point at One Thing: Win More Customers.",
-      "subtitle": "Improving any single stage helps. Connecting all four is what changes how much work you actually book.",
-      "ctaLabel": "Get My Free Lead Leak Review"
-    }
-  },
-
   "proof": {
     "eyebrow": "Proof, Not Promises",
     "title": "Measured Results, Not Adjectives",
