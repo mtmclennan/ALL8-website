@@ -1,7 +1,6 @@
 import "@/styles/globals.css";
 import type { Metadata, Viewport } from "next";
 
-import clsx from "clsx";
 import Script from "next/script";
 import { GoogleTagManager } from "@next/third-parties/google";
 
@@ -18,9 +17,14 @@ import AnalyticsBridge from "./(site)/_components/analytics/AnalyticsBridge";
 
 import { SERVICES } from "@/data/services";
 import HubspotLoader from "@/app/(site)/_components/HubspotLoader";
-import { fontArchivo, fontDmSans, fontOrbitron } from "@/config/fonts";
 import { absoluteSiteUrl, site, siteUrl } from "@/config/site.config";
 import { deploymentRobots } from "@/lib/seo/metadata";
+
+const latinFonts = [
+  "/fonts/archivo-v25-latin.woff2",
+  "/fonts/dm-sans-v17-latin.woff2",
+  "/fonts/orbitron-v35-latin.woff2",
+];
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
@@ -94,25 +98,21 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning data-scroll-behavior="smooth" lang="en">
       <head>
-        {/* Preconnect and preload critical assets */}
-        <link href="https://fonts.googleapis.com" rel="preconnect" />
-        <link
-          crossOrigin=""
-          href="https://fonts.gstatic.com"
-          rel="preconnect"
-        />
+        {latinFonts.map((href) => (
+          <link
+            key={href}
+            as="font"
+            crossOrigin="anonymous"
+            href={href}
+            rel="preload"
+            type="font/woff2"
+          />
+        ))}
 
         <meta content="light dark" name="color-scheme" />
       </head>
 
-      <body
-        className={clsx(
-          "min-h-screen text-foreground bg-background font-sans antialiased",
-          fontArchivo.variable,
-          fontOrbitron.variable,
-          fontDmSans.variable,
-        )}
-      >
+      <body className="min-h-screen text-foreground bg-background font-sans antialiased">
         {/* Consent must load before GTM */}
         <Script id="consent-init" strategy="afterInteractive">
           {`
