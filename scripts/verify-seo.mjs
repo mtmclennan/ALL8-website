@@ -75,6 +75,11 @@ async function checkHtml(path, { noindex = preview, nofollow = preview } = {}) {
       `${canonicalOrigin}/#organization`,
       `${path} organization JSON-LD`,
     );
+    assert.equal(
+      nodes.find((node) => node["@type"] === "WebSite")?.publisher?.["@id"],
+      `${canonicalOrigin}/#organization`,
+      `${path} website publisher JSON-LD`,
+    );
     if (/^\/blog\/(?!category\/)/.test(path)) {
       const article = nodes.find((node) => node["@type"] === "BlogPosting");
 
