@@ -127,7 +127,7 @@ export default function FinalCta({ data }: { data: FinalCtaData }) {
           </Reveal>
         )}
         <Reveal index={1}>
-          <p className="mt-[22px] text-[13px] text-white/40">{data.micro}</p>
+          <p className="mt-[22px] text-[13px] text-ink-faint">{data.micro}</p>
         </Reveal>
       </div>
     </section>

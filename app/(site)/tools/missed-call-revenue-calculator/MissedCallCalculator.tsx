@@ -147,7 +147,7 @@ function NumericField({
           required
           aria-describedby={`${helperId}${error ? ` ${errorId}` : ""}`}
           aria-invalid={Boolean(error)}
-          className="min-h-12 w-full min-w-0 bg-transparent px-4 py-3 text-base font-semibold text-white outline-none placeholder:font-normal placeholder:text-[#6f8098]"
+          className="min-h-12 w-full min-w-0 bg-transparent px-4 py-3 text-base font-semibold text-white outline-none placeholder:font-normal placeholder:text-ink-faint"
           id={field.name}
           inputMode="decimal"
           max={field.max}

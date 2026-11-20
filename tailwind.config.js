@@ -35,6 +35,12 @@ module.exports = {
         accent: {
           blue: '#3D97FF', // light blue — links, accents, focus ring
         },
+        // Text strengths on the dark surfaces (AGENTS.md: strong / muted / faint).
+        // Both pass WCAG AA 4.5:1 on surface, surface-alt and footer.
+        ink: {
+          muted: '#A8B2C1', // supporting/body text
+          faint: '#8D9AAB', // metadata, captions, placeholders
+        },
       },
     },
   },

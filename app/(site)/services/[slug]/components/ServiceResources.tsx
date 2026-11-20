@@ -114,7 +114,7 @@ export default function ServiceResources({
               </span>
               <ArrowRight
                 aria-hidden="true"
-                className="mt-0.5 flex-shrink-0 text-white/40 group-hover:text-accent-blue"
+                className="mt-0.5 flex-shrink-0 text-ink-faint group-hover:text-accent-blue"
                 size={17}
               />
             </Link>

@@ -49,7 +49,7 @@ export default function FounderSection({ data }: { data: FounderData }) {
               <div className="text-[16px] font-extrabold tracking-[-.01em]">
                 {data.name}
               </div>
-              <div className="mt-[3px] text-[13.5px] text-white/40">
+              <div className="mt-[3px] text-[13.5px] text-ink-faint">
                 {data.role}
               </div>
             </div>

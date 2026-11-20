@@ -25,7 +25,7 @@ export default function ProofStrip({ data }: { data: ProofStripData }) {
           </div>
         ))}
       </div>
-      <p className="px-6 pb-5 text-center text-[11.5px] font-semibold uppercase tracking-[.06em] text-white/40">
+      <p className="px-6 pb-5 text-center text-[11.5px] font-semibold uppercase tracking-[.06em] text-ink-faint">
         {data.note}
       </p>
     </div>

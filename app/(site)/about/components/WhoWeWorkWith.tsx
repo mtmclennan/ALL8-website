@@ -35,7 +35,7 @@ export default function WhoWeWorkWith({ data }: { data: WhoData }) {
               </span>
             ))}
           </div>
-          <p className="mt-[26px] max-w-[640px] text-[15.5px] leading-relaxed text-white/40">
+          <p className="mt-[26px] max-w-[640px] text-[15.5px] leading-relaxed text-ink-faint">
             {data.note}
           </p>
         </Reveal>

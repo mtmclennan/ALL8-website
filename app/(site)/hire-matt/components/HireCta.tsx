@@ -91,7 +91,7 @@ export default function HireCta({
           </Button>
         </Reveal>
         <Reveal index={0}>
-          <p className="mt-[26px] text-[13px] leading-relaxed text-white/40">
+          <p className="mt-[26px] text-[13px] leading-relaxed text-ink-faint">
             {data.micro}
             <br />
             <a

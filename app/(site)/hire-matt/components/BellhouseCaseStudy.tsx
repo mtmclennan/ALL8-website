@@ -33,7 +33,7 @@ export default function BellhouseCaseStudy({
 
             {data.blocks.map((block) => (
               <div key={block.heading} className="mb-8">
-                <h4 className="mb-3.5 text-[11px] font-bold uppercase tracking-[.14em] text-white/40">
+                <h4 className="mb-3.5 text-[11px] font-bold uppercase tracking-[.14em] text-ink-faint">
                   {block.heading}
                 </h4>
                 {block.paragraphs.map((p, i) => (
@@ -83,7 +83,7 @@ export default function BellhouseCaseStudy({
             </div>
 
             <div className="mt-8">
-              <h4 className="mb-3.5 text-[11px] font-bold uppercase tracking-[.14em] text-white/40">
+              <h4 className="mb-3.5 text-[11px] font-bold uppercase tracking-[.14em] text-ink-faint">
                 {data.afterBlock.heading}
               </h4>
               {data.afterBlock.paragraphs.map((p, i) => (
@@ -130,7 +130,7 @@ export default function BellhouseCaseStudy({
                   {data.chain.steps.map((step, i) => (
                     <div key={step.label}>
                       <div className="flex items-center gap-3.5 py-[11px]">
-                        <span className="w-[26px] flex-shrink-0 font-mono text-[11px] font-bold text-white/40">
+                        <span className="w-[26px] flex-shrink-0 font-mono text-[11px] font-bold text-ink-faint">
                           {String(i + 1).padStart(2, "0")}
                         </span>
                         <span
@@ -152,7 +152,7 @@ export default function BellhouseCaseStudy({
                 </div>
 
                 <div className="mt-5 flex flex-col gap-[11px] border-t border-white/[0.08] pt-5">
-                  <h5 className="mb-[3px] text-[10.5px] font-bold uppercase tracking-[.14em] text-white/40">
+                  <h5 className="mb-[3px] text-[10.5px] font-bold uppercase tracking-[.14em] text-ink-faint">
                     {data.chain.resultsHeading}
                   </h5>
                   {data.chain.results.map((result) => (
@@ -172,14 +172,14 @@ export default function BellhouseCaseStudy({
 
                 <div className="mt-5 rounded-[14px] border border-dashed border-white/[0.14] bg-white/[0.018] px-4 py-[18px] text-center">
                   <ScanEye
-                    className="mx-auto mb-2.5 text-white/40"
+                    className="mx-auto mb-2.5 text-ink-faint"
                     size={22}
                     strokeWidth={1.8}
                   />
                   <h6 className="mb-[5px] text-[13px] font-bold text-white/70">
                     {data.chain.evidenceHeading}
                   </h6>
-                  <p className="text-[12.5px] leading-relaxed text-white/40">
+                  <p className="text-[12.5px] leading-relaxed text-ink-faint">
                     {data.chain.evidenceNote}
                   </p>
                 </div>

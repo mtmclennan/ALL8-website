@@ -15,7 +15,7 @@ const STYLES: Record<EvidenceKind, { label: string; className: string }> = {
   observed: {
     label: "Observed",
     className:
-      "border-[rgba(61,151,255,.35)] bg-[rgba(61,151,255,.12)] text-accent-blue",
+      "border-[rgba(61,151,255,.35)] bg-[rgba(61,151,255,.12)] text-[#8ec5ff]",
   },
   "in-validation": {
     label: "In validation",

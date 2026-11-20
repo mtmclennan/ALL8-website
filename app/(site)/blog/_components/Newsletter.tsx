@@ -72,7 +72,7 @@ export default function Newsletter() {
                 required
                 aria-label="Email address"
                 autoComplete="email"
-                className="min-w-[200px] flex-1 rounded-[10px] border border-white/[0.08] bg-white/[0.045] px-3.5 py-3 text-base text-white placeholder:text-[#5A7391] focus:border-primary focus:bg-white/[0.07]"
+                className="min-w-[200px] flex-1 rounded-[10px] border border-white/[0.08] bg-white/[0.045] px-3.5 py-3 text-base text-white placeholder:text-ink-faint focus:border-primary focus:bg-white/[0.07]"
                 name="email"
                 placeholder="you@yourbusiness.com"
                 type="email"

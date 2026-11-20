@@ -50,7 +50,7 @@ export default function NotFound() {
           </Button>
         </div>
 
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-white/45">
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-ink-faint">
           <Link className="hover:text-white" href="/services">
             Services
           </Link>

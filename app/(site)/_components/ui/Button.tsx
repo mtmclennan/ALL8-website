@@ -26,7 +26,7 @@ type ButtonAsLink = CommonProps &
 export type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const base =
-  "inline-flex min-h-12 max-w-full cursor-pointer items-center justify-center gap-2 rounded-full text-center text-[15px] font-bold tracking-[.005em] whitespace-normal transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-accent-blue active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 disabled:shadow-none disabled:hover:translate-y-0";
+  "inline-flex min-h-12 max-w-full cursor-pointer items-center justify-center gap-2 rounded-full text-center font-bold tracking-[.005em] whitespace-normal transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-accent-blue active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 disabled:shadow-none disabled:hover:translate-y-0";
 
 const variants: Record<Variant, string> = {
   primary:
@@ -39,7 +39,21 @@ const variants: Record<Variant, string> = {
 
 const sizes: Record<Size, string> = {
   md: "px-7 py-3",
-  lg: "px-[34px] py-4 text-base",
+  lg: "px-[34px] py-4",
+};
+
+// White on brand blue (#0076FF) is 4.2:1, so the primary label must be
+// WCAG "large text" (bold, at least 18.66px) to pass AA without changing
+// the brand fill. Other variants keep the compact UI size.
+const textSizes: Record<Variant, Record<Size, string>> = {
+  // At phone widths the long CTA label wraps to two lines; balance them and
+  // drop the decorative leading icon so the label stays centred.
+  primary: {
+    md: "text-[19px] leading-tight text-balance max-sm:[&>svg:first-child]:hidden",
+    lg: "text-[19px] leading-tight text-balance max-sm:[&>svg:first-child]:hidden",
+  },
+  ghost: { md: "text-[15px]", lg: "text-base" },
+  tertiary: { md: "text-[15px]", lg: "text-base" },
 };
 
 function isExternalHref(href: string) {
@@ -66,6 +80,7 @@ export default function Button(props: ButtonProps) {
     base,
     variants[variant],
     sizes[size],
+    textSizes[variant][size],
     className,
   );
 

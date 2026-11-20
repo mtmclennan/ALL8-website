@@ -36,7 +36,7 @@ const CHALLENGES = [
 const initialState: LeadActionState = { ok: false };
 
 const inputClass =
-  "w-full min-h-[46px] rounded-[10px] border border-white/40 bg-white/[0.045] px-3.5 py-3 text-base text-white placeholder:text-[#a8b2c1] transition-colors focus:border-primary focus:bg-white/[0.07]";
+  "w-full min-h-[46px] rounded-[10px] border border-white/40 bg-white/[0.045] px-3.5 py-3 text-base text-white placeholder:text-ink-muted transition-colors focus:border-primary focus:bg-white/[0.07]";
 
 const inputErrorClass = "border-red-400/60 focus:border-red-400/60";
 
@@ -63,7 +63,7 @@ function Field({
       >
         {label}{" "}
         {optional && (
-          <span className="font-medium text-white/40">(optional)</span>
+          <span className="font-medium text-ink-faint">(optional)</span>
         )}
       </label>
       {children}
@@ -367,7 +367,7 @@ export default function LeadModal({
               <div className="flex flex-col gap-2">
                 <span className="text-[12.5px] font-bold text-white/70">
                   Biggest challenge right now?{" "}
-                  <span className="font-medium text-white/40">(optional)</span>
+                  <span className="font-medium text-ink-faint">(optional)</span>
                 </span>
                 <div className="flex flex-wrap gap-2">
                   {CHALLENGES.map((c) => {

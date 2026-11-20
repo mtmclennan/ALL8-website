@@ -54,7 +54,7 @@ export default function CaseStudy({ data }: { data: CaseStudyData }) {
                   key={step.tag}
                   className="flex flex-col items-start gap-2 sm:flex-row sm:gap-4"
                 >
-                  <div className="sm:w-[88px] flex-shrink-0 sm:pt-[5px] text-[11px] font-bold uppercase tracking-[.1em] text-white/40">
+                  <div className="sm:w-[88px] flex-shrink-0 sm:pt-[5px] text-[11px] font-bold uppercase tracking-[.1em] text-ink-faint">
                     {step.tag}
                   </div>
                   <p className="flex-1 text-[16.5px] leading-relaxed text-white/70">

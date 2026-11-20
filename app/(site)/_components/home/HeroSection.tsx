@@ -87,7 +87,7 @@ export default function HeroSection({ data }: { data: HeroData }) {
             </Link>
           </div>
 
-          <p className="text-[13px] text-white/40">{data.micro}</p>
+          <p className="text-[13px] text-ink-faint">{data.micro}</p>
         </div>
 
         <div className="pointer-events-none relative hidden w-full place-items-center sm:grid max-lg:mt-6">

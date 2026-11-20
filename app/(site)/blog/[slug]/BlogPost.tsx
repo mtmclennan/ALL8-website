@@ -393,7 +393,7 @@ export default function BlogPost({ post, siteOrigin }: BlogPostProps) {
                     Home
                   </Link>
                 </li>
-                <li aria-hidden="true" className="text-white/40">
+                <li aria-hidden="true" className="text-ink-faint">
                   /
                 </li>
                 <li>
@@ -403,7 +403,7 @@ export default function BlogPost({ post, siteOrigin }: BlogPostProps) {
                 </li>
                 {category && (
                   <>
-                    <li aria-hidden="true" className="text-white/40">
+                    <li aria-hidden="true" className="text-ink-faint">
                       /
                     </li>
                     <li>

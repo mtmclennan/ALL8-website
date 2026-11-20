@@ -77,7 +77,7 @@ export default function ServicesHero({ data }: { data: ServicesHeroData }) {
             </a>
           </div>
 
-          <p className="mb-9 text-[13px] text-white/40">{data.micro}</p>
+          <p className="mb-9 text-[13px] text-ink-faint">{data.micro}</p>
 
           <div className="flex flex-wrap gap-2.5">
             {data.badges.map((b) => (
@@ -95,7 +95,7 @@ export default function ServicesHero({ data }: { data: ServicesHeroData }) {
                 {b.label}
                 <ArrowDown
                   aria-hidden="true"
-                  className="text-white/40 group-hover:text-white"
+                  className="text-ink-faint group-hover:text-white"
                   size={13}
                 />
               </Link>

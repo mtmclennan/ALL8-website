@@ -49,7 +49,7 @@ export default function ServiceFinalCta() {
           </Button>
         </Reveal>
         <Reveal index={4}>
-          <p className="mt-[22px] text-[13px] text-white/40">
+          <p className="mt-[22px] text-[13px] text-ink-faint">
             Written findings · Optional call · Scope explained before work
             begins
           </p>

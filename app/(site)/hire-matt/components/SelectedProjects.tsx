@@ -70,12 +70,12 @@ export default function SelectedProjects({
                     {card.kind}
                   </span>
                 </div>
-                <p className="mb-[22px] text-[13.5px] text-white/40">
+                <p className="mb-[22px] text-[13.5px] text-ink-faint">
                   {card.role}
                 </p>
                 <dl>
                   <div className="grid grid-cols-1 gap-1.5 border-t border-white/[0.08] py-[13px] sm:grid-cols-[74px_1fr] sm:gap-3.5">
-                    <dt className="font-mono text-xs font-bold uppercase tracking-[.11em] text-white/40 sm:pt-1">
+                    <dt className="font-mono text-xs font-bold uppercase tracking-[.11em] text-ink-faint sm:pt-1">
                       Problem
                     </dt>
                     <dd className="text-[15px] leading-relaxed text-white/70">
@@ -83,7 +83,7 @@ export default function SelectedProjects({
                     </dd>
                   </div>
                   <div className="grid grid-cols-1 gap-1.5 border-t border-white/[0.08] py-[13px] sm:grid-cols-[74px_1fr] sm:gap-3.5">
-                    <dt className="font-mono text-xs font-bold uppercase tracking-[.11em] text-white/40 sm:pt-1">
+                    <dt className="font-mono text-xs font-bold uppercase tracking-[.11em] text-ink-faint sm:pt-1">
                       Built
                     </dt>
                     <dd className="text-[15px] leading-relaxed text-white/70">
@@ -91,7 +91,7 @@ export default function SelectedProjects({
                     </dd>
                   </div>
                   <div className="grid grid-cols-1 gap-1.5 border-t border-white/[0.08] py-[13px] sm:grid-cols-[74px_1fr] sm:gap-3.5">
-                    <dt className="font-mono text-xs font-bold uppercase tracking-[.11em] text-white/40 sm:pt-1">
+                    <dt className="font-mono text-xs font-bold uppercase tracking-[.11em] text-ink-faint sm:pt-1">
                       Proves
                     </dt>
                     <dd className="text-[15px] leading-relaxed text-white/70">
