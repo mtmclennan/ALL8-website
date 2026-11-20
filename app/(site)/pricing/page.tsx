@@ -95,7 +95,7 @@ export default function PricingPage() {
           <p className="mt-6 max-w-[760px] text-lg leading-relaxed text-white/70">
             Start with a free review, fix one priority with a Tune-Up, or let us
             run your website and lead handling every month. Setup fees, monthly
-            fees and minimum terms are listed for every plan.
+            fees and minimum terms are listed for each plan.
           </p>
         </div>
       </section>

@@ -24,16 +24,15 @@
 
   "journey": {
     "eyebrow": "The Lead Journey",
-    "title": "Five Steps Between a Search and a Customer",
-    "subtitle": "Every one of them can leak. Most businesses are only watching the first two.",
+    "title": "Four Stages Between a Search and a Customer",
+    "subtitle": "Every one of them can leak. Most businesses are only watching the first.",
     "steps": [
-      { "stage": "found", "icon": "search", "title": "Search", "description": "Someone nearby looks for the work you do" },
-      { "stage": "contacted", "icon": "click", "title": "Click", "description": "They choose your result over the others" },
-      { "stage": "contacted", "icon": "phone", "title": "Call or Lead", "description": "They phone, text or request a quote" },
-      { "stage": "follow", "icon": "follow", "title": "Follow-Up", "description": "Someone responds, and follows up again" },
-      { "stage": "win", "icon": "check", "title": "Customer", "description": "The estimate turns into booked work" }
+      { "stage": "found", "icon": "search", "title": "Get Found", "description": "Someone nearby searches for the work you do and finds you" },
+      { "stage": "contacted", "icon": "phone", "title": "Get Contacted", "description": "They call, text or request a quote" },
+      { "stage": "follow", "icon": "follow", "title": "Respond & Follow Up", "description": "Someone answers, and follows up again" },
+      { "stage": "win", "icon": "check", "title": "Win More Work", "description": "The estimate turns into booked work" }
     ],
-    "note": "Marketing gets you the first two. The last three are where most of the money is lost."
+    "note": "Most marketing stops at getting found. The later stages are where most of the money is lost."
   },
 
   "bottleneck": {
@@ -107,7 +106,7 @@
       { "a": "Nobody has replied in 24 hours", "b": "A follow-up email or text goes out automatically" },
       { "a": "The job is won", "b": "It's tracked back to the search, page or ad that started it" }
     ],
-    "note": "We connect established third-party platforms and the tools you already use — there's no proprietary ALL8 software to get locked into."
+    "note": "We connect established third-party platforms and the tools you already use, so you aren't dependent on ALL8-only software."
   },
 
   "proof": {

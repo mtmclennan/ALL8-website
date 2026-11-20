@@ -56,7 +56,7 @@ export default function LeadJourney({ data }: { data: JourneyData }) {
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-2 items-stretch gap-3 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="grid grid-cols-2 items-stretch gap-3 lg:grid-cols-4">
           {data.steps.map((step, i) => {
             const hex = STAGE_HEX[step.stage];
             const Icon = ICONS[step.icon];
