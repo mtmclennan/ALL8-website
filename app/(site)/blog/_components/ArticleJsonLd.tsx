@@ -2,10 +2,11 @@ import type { SinglePost } from "@/app/(site)/blog/[slug]/BlogPost";
 
 import { urlFor } from "@/app/studio/sanity/lib/image";
 import { site, siteUrl } from "@/config/site.config";
+import { getMeaningfulUpdateDate } from "@/lib/blogDate";
 
 type ArticleJsonLdProps = {
   post: SinglePost;
-  slug: string;
+  canonical: string;
 };
 
 type BlogPostingJsonLd = {
@@ -44,8 +45,7 @@ function safeJsonLd(data: BlogPostingJsonLd) {
   return JSON.stringify(data).replace(/</g, "\\u003c");
 }
 
-export default function ArticleJsonLd({ post, slug }: ArticleJsonLdProps) {
-  const canonical = `${siteUrl()}/blog/${slug}`;
+export default function ArticleJsonLd({ post, canonical }: ArticleJsonLdProps) {
   // Only an image that belongs to this post; a sitewide default would misdescribe it.
   const postImage = post.coverImage || post.seo?.ogImage;
   const image = postImage
@@ -59,7 +59,8 @@ export default function ArticleJsonLd({ post, slug }: ArticleJsonLdProps) {
     description: post.seo?.metaDescription || post.excerpt,
     image: image ? [image] : undefined,
     datePublished: post.publishedAt,
-    dateModified: post.updatedAt || post._updatedAt || post.publishedAt,
+    dateModified:
+      getMeaningfulUpdateDate(post.publishedAt, post.updatedAt) ?? undefined,
     author: {
       "@type": post.author?.name ? "Person" : "Organization",
       name: post.author?.name || site.name,

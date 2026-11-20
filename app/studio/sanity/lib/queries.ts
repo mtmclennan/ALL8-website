@@ -28,7 +28,8 @@ export const allPostsQuery = groq`
     excerpt,
     coverImage,
     publishedAt,
-    _updatedAt,
+    updatedAt,
+    "canonicalUrl": seo.canonicalUrl,
     tags,
     readingTime,
     "categories": categories[]->{
@@ -160,13 +161,13 @@ export const categorySlugsQuery = groq`
 
 export const categoryArchiveSitemapQuery = groq`
   *[_type == "category" && defined(slug.current)] {
-    _updatedAt,
     "slug": slug.current,
     "postCount": count(*[
       _type == "post" &&
       !(_id in path("drafts.**")) &&
       draft != true &&
       seo.noIndex != true &&
+      defined(slug.current) &&
       references(^._id)
     ])
   }[postCount > 0]
@@ -183,6 +184,7 @@ export const categoryPostsQuery = groq`
       !(_id in path("drafts.**")) &&
       draft != true &&
       seo.noIndex != true &&
+      defined(slug.current) &&
       references(^._id)
     ] | order(publishedAt desc) {
       _id,

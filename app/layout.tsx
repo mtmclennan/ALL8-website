@@ -19,12 +19,8 @@ import AnalyticsBridge from "./(site)/_components/analytics/AnalyticsBridge";
 import { SERVICES } from "@/data/services";
 import HubspotLoader from "@/app/(site)/_components/HubspotLoader";
 import { fontArchivo, fontDmSans, fontOrbitron } from "@/config/fonts";
-import {
-  absoluteSiteUrl,
-  isProductionDeployment,
-  site,
-  siteUrl,
-} from "@/config/site.config";
+import { absoluteSiteUrl, site, siteUrl } from "@/config/site.config";
+import { deploymentRobots } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
@@ -46,13 +42,7 @@ export const metadata: Metadata = {
     description: site.description,
     images: [site.defaultOgImage],
   },
-  robots: isProductionDeployment()
-    ? undefined
-    : {
-        index: false,
-        follow: false,
-        nocache: true,
-      },
+  robots: deploymentRobots(),
 };
 
 export const viewport: Viewport = {
@@ -163,13 +153,11 @@ export default function RootLayout({
           <AnalyticsBridge />
         </ProvidersClient>
 
-        {/* Structured data combined for fewer parse events */}
-        <Script
+        <script
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd),
+            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
           }}
           id="jsonld"
-          strategy="afterInteractive"
           type="application/ld+json"
         />
 
