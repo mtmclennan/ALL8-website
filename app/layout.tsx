@@ -8,6 +8,7 @@ import orgSchema from "../data/schema/organization.schema.json";
 import siteSchema from "../data/schema/website.schema.json";
 
 import { FooterClient } from "./(site)/_components/FooterClient";
+import { FontPreloads } from "./(site)/_components/FontPreloads";
 import { NavbarClient } from "./(site)/_components/NavbarClient";
 import VisualsLoader from "./(site)/_components/VisualsLoader";
 import ProvidersClient from "./(site)/ProvidersClient";
@@ -19,12 +20,6 @@ import { SERVICES } from "@/data/services";
 import HubspotLoader from "@/app/(site)/_components/HubspotLoader";
 import { absoluteSiteUrl, site, siteUrl } from "@/config/site.config";
 import { deploymentRobots } from "@/lib/seo/metadata";
-
-const latinFonts = [
-  "/fonts/archivo-v25-latin.woff2",
-  "/fonts/dm-sans-v17-latin.woff2",
-  "/fonts/orbitron-v35-latin.woff2",
-];
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
@@ -98,17 +93,7 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning data-scroll-behavior="smooth" lang="en">
       <head>
-        {latinFonts.map((href) => (
-          <link
-            key={href}
-            as="font"
-            crossOrigin="anonymous"
-            href={href}
-            rel="preload"
-            type="font/woff2"
-          />
-        ))}
-
+        <FontPreloads />
         <meta content="light dark" name="color-scheme" />
       </head>
 

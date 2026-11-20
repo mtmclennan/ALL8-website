@@ -8,4 +8,4 @@ The site serves these official Google Fonts WOFF2 files locally so builds work w
 | DM Sans v17 | [Google Fonts](https://fonts.googleapis.com/css2?family=DM+Sans:wght@100..1000&display=swap) | [SIL OFL](dm-sans-OFL.txt) |
 | Orbitron v35 | [Google Fonts](https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap) | [SIL OFL](orbitron-OFL.txt) |
 
-When updating a font, use the new version in the filename and update both `styles/fonts.css` and the Latin preload in `app/layout.tsx`.
+When updating a font, use the new version in the filename and update the matching entries in `styles/fonts.css` and `app/(site)/_components/FontPreloads.tsx`.
