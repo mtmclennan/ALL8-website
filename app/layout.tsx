@@ -23,9 +23,9 @@ import { deploymentRobots } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
-  title: "Lead Systems for Service Businesses | ALL8 Webworks",
+  title: "Websites & Lead Systems for Contractors | ALL8 Webworks",
   description:
-    "ALL8 Webworks helps service businesses get found, get contacted, respond faster, and win more work with connected lead-generation systems.",
+    "ALL8 Webworks helps contractors get found, get contacted, follow up and win more work with websites, Google visibility and follow-up systems.",
   openGraph: {
     type: "website",
     url: siteUrl(),

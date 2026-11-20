@@ -128,7 +128,7 @@
   "process": {
     "eyebrow": "How Engagement Works",
     "title": "Review, Prioritize, Implement, Measure",
-    "subtitle": "Fixed scope before work begins. No twelve-month commitment to get started.",
+    "subtitle": "Start with a free review or a one-time Tune-Up. Ongoing plans have minimum terms, shown on the pricing page.",
     "steps": [
       { "stage": "found", "title": "Review", "description": "We walk the whole path — search, site, forms, phone, follow-up, tracking — and show you where opportunities are being lost." },
       { "stage": "contacted", "title": "Prioritize", "description": "We rank what we found by clearest potential impact, and agree on scope and price before anything starts." },
@@ -167,6 +167,6 @@
       "Which stage to fix first"
     ],
     "ctaLabel": "Get My Free Lead Leak Review",
-    "micro": "No long-term commitment  ·  Clear recommendations  ·  Fixed scope before work begins"
+    "micro": "Free review  ·  No obligation  ·  Fixed scope before work begins"
   }
 }

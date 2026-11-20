@@ -2,7 +2,7 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "ALL8 Webworks",
-  "description": "ALL8 Webworks helps service businesses across the United States and Canada generate more opportunities and lose fewer of them — across search visibility, websites, follow-up automation, CRM pipelines and lead tracking.",
+  "description": "ALL8 Webworks builds websites, local search visibility and follow-up systems that help contractors across Canada and the United States get found, get contacted, follow up and win more work.",
   "areaServed": ["US", "CA"],
   "telephone": "+1-519-807-3483",
   "email": "hello@all8webworks.com",
