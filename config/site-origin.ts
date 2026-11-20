@@ -64,7 +64,7 @@ export function safeCanonicalUrl(
 
     return canonical.toString();
   } catch {
-    console.warn(`[SEO] Ignoring canonical outside ${siteUrl()}: ${candidate}`);
+    console.warn(`[SEO] Ignoring canonical outside ${siteUrl()}`);
 
     return fallback;
   }

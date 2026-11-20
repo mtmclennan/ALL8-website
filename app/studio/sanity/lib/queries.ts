@@ -80,6 +80,8 @@ export const singlePostQuery = groq`
     draft != true
   ][0]{
     _id,
+    _rev,
+    draft,
     title,
     slug,
     excerpt,
