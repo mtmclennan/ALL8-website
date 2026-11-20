@@ -81,75 +81,6 @@
     }
   },
 
-  "outcomes": {
-    "eyebrow": "What We Do",
-    "title": "Pick the Outcome. We'll Handle the Tools.",
-    "subtitle": "Same services most agencies list — organized around what you're actually trying to fix.",
-    "cards": [
-      {
-        "stage": "found",
-        "title": "Get More Opportunities",
-        "description": "You're not visible enough where your customers look. We build the local search presence and, where it pays, the paid coverage around it.",
-        "href": "/services/local-seo-google-business-profile",
-        "linkLabel": "Explore local visibility services",
-        "items": [
-          "Local SEO",
-          "Google Business Profile",
-          "Service pages",
-          "Google Ads",
-          "Review generation"
-        ]
-      },
-      {
-        "stage": "contacted",
-        "title": "Convert More Visitors",
-        "description": "People are already finding you and leaving. We rebuild the pages around how your customers actually decide, and make contacting you effortless on a phone.",
-        "href": "/services/lead-generation-websites",
-        "linkLabel": "Explore lead-generation websites",
-        "items": [
-          "Websites",
-          "Landing pages",
-          "Calls-to-action",
-          "Quote forms",
-          "Mobile UX"
-        ]
-      },
-      {
-        "stage": "follow",
-        "title": "Stop Losing Leads to Slow Follow-Up",
-        "description": "A lead that waits a day is usually a lead someone else called first. We set up the alerts and automatic follow-up so nothing depends on anyone remembering.",
-        "href": "/services/missed-call-recovery",
-        "linkLabel": "Explore missed-call recovery",
-        "items": [
-          "Lead alerts",
-          "Missed-call text-back",
-          "Email & SMS automation",
-          "Estimate reminders",
-          "Review requests"
-        ]
-      },
-      {
-        "stage": "win",
-        "title": "Organize the Pipeline & See What Works",
-        "description": "Leads live in one place instead of texts, voicemails and sticky notes — and you can finally see which marketing brought them in.",
-        "href": "/services/call-tracking-lead-attribution",
-        "linkLabel": "Explore call and lead attribution",
-        "items": [
-          "CRM setup",
-          "Pipeline stages",
-          "Call tracking",
-          "Lead source attribution",
-          "Analytics",
-          "Reporting"
-        ]
-      }
-    ],
-    "footNote": {
-      "prefix": "Not sure which one you need?",
-      "linkLabel": "That's what the review is for"
-    }
-  },
-
   "caseStudy": {
     "eyebrow": "Case Study",
     "title": "Visibility Improved.",
@@ -193,39 +124,6 @@
       ],
       "flag": "Found the next constraint: call and form tracking showed that lead handling and follow-up had become a bigger constraint than traffic alone."
     }
-  },
-
-  "flow": {
-    "eyebrow": "Connected, Not Just Built",
-    "title": "Your Website Shouldn't Work Alone",
-    "subtitle": "A form that only sends an email is a lead waiting to be forgotten. Here's what we wire up behind it, in plain language.",
-    "rows": [
-      {
-        "a": "Someone submits a quote form",
-        "b": "You get a notification within seconds, wherever you are"
-      },
-      {
-        "a": "A new lead comes in",
-        "b": "It lands in your pipeline as a job to quote — not in an inbox"
-      },
-      {
-        "a": "Nobody has replied in 24 hours",
-        "b": "A follow-up email or text goes out automatically"
-      },
-      {
-        "a": "A quote is sent",
-        "b": "A reminder brings it back up before it goes cold"
-      },
-      {
-        "a": "A call comes in",
-        "b": "It's tracked to the page, search or ad that caused it"
-      },
-      {
-        "a": "A job is finished",
-        "b": "A review request goes out, which feeds back into getting found"
-      }
-    ],
-    "note": "We connect established third-party platforms and the tools you already use, so you aren't dependent on ALL8-only software."
   },
 
   "process": {
@@ -280,30 +178,6 @@
         "color": "#22d3ee"
       }
     ]
-  },
-
-  "proofCards": {
-    "eyebrow": "Proof, Not Promises",
-    "title": "Measured Results, Not Adjectives",
-    "cards": [
-      {
-        "value": "{{proof.search.factor}}",
-        "em": true,
-        "label": "Organic Search Growth",
-        "sub": "Google organic Search clicks increased from approximately {{proof.search.before}} to {{proof.search.after}} per rolling 28-day period.",
-        "icon": "chart"
-      },
-      {
-        "value": "{{proof.profile.increaseSigned}} YoY",
-        "em": false,
-        "label": "Google Business Profile Website Clicks",
-        "sub": "Measured year over year for an established excavation and service business in Southern Ontario.",
-        "icon": "pin"
-      }
-    ],
-    "footNote": "Measured client results. Search growth compares rolling 28-day periods during 2026; the latest window was {{proof.search.latestWindow}}. Captured local, page-one and AI-result visibility supports the story; it is point-in-time evidence, not a permanent ranking.",
-    "ctaLede": "Want to see where your lead system is losing opportunities?",
-    "ctaLabel": "Get My Free Lead Leak Review"
   },
 
   "founder": {

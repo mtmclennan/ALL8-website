@@ -22,34 +22,6 @@
     ]
   },
 
-  "journey": {
-    "eyebrow": "The Lead Journey",
-    "title": "Four Stages Between a Search and a Customer",
-    "subtitle": "Every one of them can leak. Most businesses are only watching the first.",
-    "steps": [
-      { "stage": "found", "icon": "search", "title": "Get Found", "description": "Someone nearby searches for the work you do and finds you" },
-      { "stage": "contacted", "icon": "phone", "title": "Get Contacted", "description": "They call, text or request a quote" },
-      { "stage": "follow", "icon": "follow", "title": "Respond & Follow Up", "description": "Someone answers, and follows up again" },
-      { "stage": "win", "icon": "check", "title": "Win More Work", "description": "The estimate turns into booked work" }
-    ],
-    "note": "Most marketing stops at getting found. The later stages are where most of the money is lost."
-  },
-
-  "bottleneck": {
-    "eyebrow": "How We Decide What to Do",
-    "title": "We Fix the Weakest Stage First.",
-    "lead": "Two businesses can have the same symptom — not enough booked work — and need completely different fixes. So we don't lead with a product. **We look at the whole path first, then work on whichever stage is costing the most.**",
-    "rows": [
-      { "if": "Nobody is finding you", "then": "Local SEO, Google Business Profile, Ads" },
-      { "if": "Traffic arrives but doesn't convert", "then": "Website, landing pages, messaging" },
-      { "if": "Calls are being missed", "then": "Phone setup, text-back, intake workflows" },
-      { "if": "Leads get forgotten after first contact", "then": "CRM, pipeline, follow-up automation" },
-      { "if": "Nobody can say what's producing work", "then": "Tracking, attribution, reporting" }
-    ],
-    "kicker": "We don't start by selling you a website. *We start by finding the bottleneck.*",
-    "ctaLabel": "See What I Should Fix First"
-  },
-
   "outcomes": {
     "eyebrow": "What We Do",
     "title": "Four Outcomes. One System.",
@@ -95,20 +67,6 @@
     }
   },
 
-  "connected": {
-    "eyebrow": "How the Pieces Connect",
-    "title": "The Tools Only Work Together",
-    "subtitle": "A form that just sends an email is a lead waiting to be forgotten. Here's what sits behind it, in plain language.",
-    "rows": [
-      { "a": "Someone searches and lands on a service page", "b": "The page answers their question and asks for the call" },
-      { "a": "They call or submit a quote request", "b": "You're notified within seconds, wherever you are" },
-      { "a": "The lead lands in your pipeline", "b": "It's a job to quote, not an email to find later" },
-      { "a": "Nobody has replied in 24 hours", "b": "A follow-up email or text goes out automatically" },
-      { "a": "The job is won", "b": "It's tracked back to the search, page or ad that started it" }
-    ],
-    "note": "We connect established third-party platforms and the tools you already use, so you aren't dependent on ALL8-only software."
-  },
-
   "proof": {
     "eyebrow": "Proof, Not Promises",
     "title": "Measured Results, Not Adjectives",
@@ -134,24 +92,6 @@
       { "stage": "follow", "title": "Implement", "description": "We build or fix that stage, using the tools you already have wherever they can do the job." },
       { "stage": "win", "title": "Measure & Improve", "description": "Real calls, forms and lead sources — not impressions. Then we go find the next constraint." }
     ]
-  },
-
-  "founder": {
-    "eyebrow": "Owner-Led · Direct Support",
-    "title": "You Work With the Person Doing the Work",
-    "paragraphs": [
-      "ALL8 is intentionally small. Strategy, implementation and optimization stay close to the person actually doing the work — without layers of account managers or handoffs.",
-      "That's also why the diagnosis comes before the proposal. There's no sales team here with a website quota to hit, so the recommendation can be whatever the evidence actually supports — including telling you your website is fine.",
-      "ALL8 is based in Ontario, Canada and works with service businesses across the United States and Canada. The work is remote-first, on Eastern Time."
-    ],
-    "name": "Matt McLennan",
-    "role": "Founder, ALL8 WEBWORKS",
-    "image": {
-      "src": "/assets/home/matt-mclennan.webp",
-      "alt": "Matt McLennan, founder of ALL8 WEBWORKS",
-      "width": 720,
-      "height": 740
-    }
   },
 
   "finalCta": {

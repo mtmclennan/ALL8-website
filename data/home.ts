@@ -30,20 +30,6 @@ export type HomeData = {
     note: string;
     link?: { prefix: string; label: string; href: string };
   };
-  outcomes: {
-    eyebrow: string;
-    title: string;
-    subtitle: string;
-    cards: {
-      stage: Stage;
-      title: string;
-      description: string;
-      href: string;
-      linkLabel: string;
-      items: string[];
-    }[];
-    footNote: { prefix: string; linkLabel: string };
-  };
   caseStudy: {
     eyebrow: string;
     title: string;
@@ -58,13 +44,6 @@ export type HomeData = {
       rows: { label: string; stage: Stage; status: string }[];
       flag: string;
     };
-  };
-  flow: {
-    eyebrow: string;
-    title: string;
-    subtitle: string;
-    rows: { a: string; b: string }[];
-    note: string;
   };
   process: {
     eyebrow: string;
@@ -82,20 +61,6 @@ export type HomeData = {
       icon: string;
       color: string;
     }[];
-  };
-  proofCards: {
-    eyebrow: string;
-    title: string;
-    cards: {
-      value: string;
-      em?: boolean;
-      label: string;
-      sub: string;
-      icon: string;
-    }[];
-    footNote: string;
-    ctaLede: string;
-    ctaLabel: string;
   };
   founder: {
     eyebrow: string;
