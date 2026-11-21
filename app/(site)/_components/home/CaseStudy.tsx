@@ -31,7 +31,7 @@ export default function CaseStudy({ data }: { data: CaseStudyData }) {
   const { openModal } = useLeadModal();
 
   return (
-    <section className="bg-content3 py-24 max-[960px]:py-16" id="proof">
+    <section className="py-24 max-[960px]:py-16" id="proof">
       <div className="mx-auto max-w-[1160px] px-6 sm:px-10">
         <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[1.05fr_.95fr] lg:gap-[70px]">
           <Reveal>

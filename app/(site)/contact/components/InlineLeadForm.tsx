@@ -290,7 +290,7 @@ export default function InlineLeadForm() {
             </Button>
 
             <p className="text-center text-[12.5px] leading-relaxed text-white/60">
-              No long-term commitment · Clear recommendations · You keep the
+              Free review · No obligation · You keep the
               findings
               <br />
               We use your details to prepare and send the review.{" "}

@@ -66,8 +66,8 @@ export default function AboutPage() {
         type="application/ld+json"
       />
       <AboutHero data={aboutPageData.hero} />
-      <ShiftStory data={aboutPageData.shift} />
       <FounderSection data={aboutPageData.founder} />
+      <ShiftStory data={aboutPageData.shift} />
       <Principles data={aboutPageData.principles} />
       <WhoWeWorkWith data={aboutPageData.who} />
       <Facts data={aboutPageData.facts} />

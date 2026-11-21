@@ -8,6 +8,7 @@ import CurrentServices from "./components/CurrentServices";
 import ServicesHero from "./components/ServicesHero";
 
 import { servicesPageData } from "@/data/pages/servicesPage";
+import { getServicesInDisplayOrder } from "@/data/services";
 import { site, siteUrl } from "@/config/site.config";
 import { validateMetadata } from "@/lib/utils/seoValidation";
 import { buildStaticMetadata } from "@/lib/utils/buildStaticMetadata";
@@ -29,17 +30,21 @@ const collectionJsonLd = {
       mainEntity: {
         "@type": "ItemList",
         name: `${site.name} Capabilities`,
-        itemListElement: servicesPageData.outcomes.blocks.map(
-          (block, index) => ({
+        itemListElement: getServicesInDisplayOrder().map((service, index) => {
+          const url = `${siteUrl()}/services/${service.slug}`;
+
+          return {
             "@type": "ListItem",
             position: index + 1,
             item: {
               "@type": "Service",
-              name: block.label,
-              description: block.description,
+              "@id": `${url}#service`,
+              name: service.title,
+              description: service.short,
+              url,
             },
-          }),
-        ),
+          };
+        }),
       },
     },
     {

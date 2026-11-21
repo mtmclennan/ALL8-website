@@ -18,9 +18,9 @@ export const PLANS: readonly Plan[] = [
     name: "Free Lead Leak Review",
     kind: "entry",
     setup: "Free",
-    term: "No commitment",
+    term: "No obligation",
     bestFor:
-      "Finding the weakest point in your lead path before choosing work.",
+      "Finding out where you're losing calls and quote requests before you spend anything.",
     inclusions: [
       "Review of website, search visibility and Google Business Profile where relevant",
       "Review of contact, response and follow-up paths",
@@ -33,7 +33,8 @@ export const PLANS: readonly Plan[] = [
     kind: "entry",
     setup: "$1,250",
     term: "One-time engagement",
-    bestFor: "Fixing the most urgent lead-system gaps in a focused scope.",
+    bestFor:
+      "Fixing the biggest problems your review found, in one focused project.",
     inclusions: [
       "Prioritized work on the highest-impact problems found",
       "May address forms, Google Business Profile, missed calls, alerts, follow-up or tracking",

@@ -22,94 +22,6 @@
     ]
   },
 
-  "journey": {
-    "eyebrow": "The Lead Journey",
-    "title": "Five Steps Between a Search and a Customer",
-    "subtitle": "Every one of them can leak. Most businesses are only watching the first two.",
-    "steps": [
-      { "stage": "found", "icon": "search", "title": "Search", "description": "Someone nearby looks for the work you do" },
-      { "stage": "contacted", "icon": "click", "title": "Click", "description": "They choose your result over the others" },
-      { "stage": "contacted", "icon": "phone", "title": "Call or Lead", "description": "They phone, text or request a quote" },
-      { "stage": "follow", "icon": "follow", "title": "Follow-Up", "description": "Someone responds, and follows up again" },
-      { "stage": "win", "icon": "check", "title": "Customer", "description": "The estimate turns into booked work" }
-    ],
-    "note": "Marketing gets you the first two. The last three are where most of the money is lost."
-  },
-
-  "bottleneck": {
-    "eyebrow": "How We Decide What to Do",
-    "title": "We Fix the Weakest Stage First.",
-    "lead": "Two businesses can have the same symptom — not enough booked work — and need completely different fixes. So we don't lead with a product. **We look at the whole path first, then work on whichever stage is costing the most.**",
-    "rows": [
-      { "if": "Nobody is finding you", "then": "Local SEO, Google Business Profile, Ads" },
-      { "if": "Traffic arrives but doesn't convert", "then": "Website, landing pages, messaging" },
-      { "if": "Calls are being missed", "then": "Phone setup, text-back, intake workflows" },
-      { "if": "Leads get forgotten after first contact", "then": "CRM, pipeline, follow-up automation" },
-      { "if": "Nobody can say what's producing work", "then": "Tracking, attribution, reporting" }
-    ],
-    "kicker": "We don't start by selling you a website. *We start by finding the bottleneck.*",
-    "ctaLabel": "See What I Should Fix First"
-  },
-
-  "outcomes": {
-    "eyebrow": "What We Do",
-    "title": "Four Outcomes. One System.",
-    "subtitle": "Every capability below exists to move one of these four. Pick the outcome you need — we'll bring the tools.",
-    "blocks": [
-      {
-        "stage": "found",
-        "num": "01",
-        "label": "Get Found",
-        "title": "Help the Right Customers Find You",
-        "description": "Show up when someone nearby searches for the work you actually want — not just for your business name. That means the right pages, the right service areas, and a Google Business Profile that earns the click.",
-        "capabilities": ["Local SEO", "Google Business Profile", "Lead-generation service pages", "Google Ads", "Local search & AI visibility foundations", "Technical local SEO"]
-      },
-      {
-        "stage": "contacted",
-        "num": "02",
-        "label": "Get Contacted",
-        "title": "Turn Visibility Into Real Inquiries",
-        "description": "Traffic that doesn't call is just a bill. We make contacting you the obvious next step, on a phone, on a job site, in ten seconds — and make sure the call actually reaches someone.",
-        "capabilities": ["Conversion-focused websites", "Landing pages", "Quote & contact forms", "Call tracking", "Business phone / VoIP", "Missed-call text-back", "Lead intake & answering"]
-      },
-      {
-        "stage": "follow",
-        "num": "03",
-        "label": "Respond & Follow Up",
-        "title": "Stop Losing Leads After First Contact",
-        "description": "A lead that waits a day is usually a lead someone else called first. We set up the alerts, sequences and reminders so follow-up happens without anyone having to remember.",
-        "capabilities": ["CRM setup", "Sales pipeline setup", "Email follow-up", "SMS follow-up", "Lead notifications", "Estimate & appointment workflows", "Lead routing", "Tool integrations"]
-      },
-      {
-        "stage": "win",
-        "num": "04",
-        "label": "Win More Work",
-        "title": "Connect Activity to Actual Customers",
-        "description": "Most owners can tell you what they spend, not what it produced. We connect the calls and forms back to the search, page or ad that caused them.",
-        "capabilities": ["Analytics", "Conversion tracking", "Call attribution", "Form attribution", "Organic search reporting", "Lead-source tracking", "Pipeline visibility", "Reporting"]
-      }
-    ],
-    "winBand": {
-      "title": "All Four Point at One Thing: Win More Customers.",
-      "subtitle": "Improving any single stage helps. Connecting all four is what changes how much work you actually book.",
-      "ctaLabel": "Get My Free Lead Leak Review"
-    }
-  },
-
-  "connected": {
-    "eyebrow": "How the Pieces Connect",
-    "title": "The Tools Only Work Together",
-    "subtitle": "A form that just sends an email is a lead waiting to be forgotten. Here's what sits behind it, in plain language.",
-    "rows": [
-      { "a": "Someone searches and lands on a service page", "b": "The page answers their question and asks for the call" },
-      { "a": "They call or submit a quote request", "b": "You're notified within seconds, wherever you are" },
-      { "a": "The lead lands in your pipeline", "b": "It's a job to quote, not an email to find later" },
-      { "a": "Nobody has replied in 24 hours", "b": "A follow-up email or text goes out automatically" },
-      { "a": "The job is won", "b": "It's tracked back to the search, page or ad that started it" }
-    ],
-    "note": "We connect established third-party platforms and the tools you already use — there's no proprietary ALL8 software to get locked into."
-  },
-
   "proof": {
     "eyebrow": "Proof, Not Promises",
     "title": "Measured Results, Not Adjectives",
@@ -128,31 +40,13 @@
   "process": {
     "eyebrow": "How Engagement Works",
     "title": "Review, Prioritize, Implement, Measure",
-    "subtitle": "Fixed scope before work begins. No twelve-month commitment to get started.",
+    "subtitle": "Start with a free review or a one-time Tune-Up. Ongoing plans have minimum terms, shown on the pricing page.",
     "steps": [
       { "stage": "found", "title": "Review", "description": "We walk the whole path — search, site, forms, phone, follow-up, tracking — and show you where opportunities are being lost." },
       { "stage": "contacted", "title": "Prioritize", "description": "We rank what we found by clearest potential impact, and agree on scope and price before anything starts." },
       { "stage": "follow", "title": "Implement", "description": "We build or fix that stage, using the tools you already have wherever they can do the job." },
       { "stage": "win", "title": "Measure & Improve", "description": "Real calls, forms and lead sources — not impressions. Then we go find the next constraint." }
     ]
-  },
-
-  "founder": {
-    "eyebrow": "Owner-Led · Direct Support",
-    "title": "You Work With the Person Doing the Work",
-    "paragraphs": [
-      "ALL8 is intentionally small. Strategy, implementation and optimization stay close to the person actually doing the work — without layers of account managers or handoffs.",
-      "That's also why the diagnosis comes before the proposal. There's no sales team here with a website quota to hit, so the recommendation can be whatever the evidence actually supports — including telling you your website is fine.",
-      "ALL8 is based in Ontario, Canada and works with service businesses across the United States and Canada. The work is remote-first, on Eastern Time."
-    ],
-    "name": "Matt McLennan",
-    "role": "Founder, ALL8 WEBWORKS",
-    "image": {
-      "src": "/assets/home/matt-mclennan.webp",
-      "alt": "Matt McLennan, founder of ALL8 WEBWORKS",
-      "width": 720,
-      "height": 740
-    }
   },
 
   "finalCta": {
@@ -167,6 +61,6 @@
       "Which stage to fix first"
     ],
     "ctaLabel": "Get My Free Lead Leak Review",
-    "micro": "No long-term commitment  ·  Clear recommendations  ·  Fixed scope before work begins"
+    "micro": "Free review  ·  No obligation  ·  Fixed scope before work begins"
   }
 }

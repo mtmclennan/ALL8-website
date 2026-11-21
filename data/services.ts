@@ -136,6 +136,22 @@ export function getServiceBySlug(slug: string): ServiceWithIcon | undefined {
   };
 }
 
+/** Category order used by the /services page cards (keep in sync with CurrentServices GROUPS). */
+export const SERVICE_CATEGORY_ORDER: readonly ServiceCategory[] = [
+  "found",
+  "contacted",
+  "follow",
+  "win",
+  "support",
+];
+
+/** Services in the order the /services page displays them. */
+export function getServicesInDisplayOrder(): Service[] {
+  return SERVICE_CATEGORY_ORDER.flatMap((category) =>
+    SERVICES.filter((s) => s.category === category),
+  );
+}
+
 export function getServicesByCategory(category: ServiceCategory): Service[] {
   return SERVICES.filter((s) => s.category === category);
 }

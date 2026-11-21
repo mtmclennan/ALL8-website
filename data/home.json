@@ -1,10 +1,10 @@
 {
   "hero": {
-    "pill": "Lead Systems for Service Businesses",
-    "titlePrefix": "Turn More Searches, Clicks & Calls Into ",
-    "titleEm": "Customers.",
-    "subtitle": "We find where opportunities are being lost — search, website, calls, follow-up or tracking — and fix the part costing you the most.",
-    "subtitleStrong": "Get found more often. Convert more visitors. Lose fewer leads. Follow up consistently.",
+    "pill": "Websites, Google visibility & follow-up for contractors",
+    "titlePrefix": "More Calls. More Quote Requests. ",
+    "titleEm": "Fewer Jobs Slipping Through.",
+    "subtitle": "Websites, Google visibility, and follow-up systems built for contractors.",
+    "subtitleStrong": "We help you get found, turn visitors into real inquiries, and stay on top of opportunities before they disappear.",
     "badges": [
       { "label": "Get found", "stage": "found" },
       { "label": "Get contacted", "stage": "contacted" },
@@ -12,9 +12,9 @@
       { "label": "Win more work", "stage": "win" }
     ],
     "ctaLabel": "Get My Free Lead Leak Review",
-    "secondaryLabel": "See how it works",
-    "secondaryHref": "#system",
-    "micro": "Written findings  ·  No required call  ·  Remote-first, Eastern Time",
+    "secondaryLabel": "See Our Work",
+    "secondaryHref": "/work",
+    "micro": "Free review · No obligation · Written findings on what to fix first, no call required",
     "geo": "Remote-first  ·  Eastern Time",
     "image": {
       "src": "/assets/home/Mobile-Quote-Request-Dashboard.webp",
@@ -41,157 +41,48 @@
   },
 
   "leak": {
-    "eyebrow": "Where the Work Goes Missing",
-    "title": "Most Service Businesses Aren't Short on Demand. They're Losing It Somewhere.",
-    "subtitle": "Between a customer searching and you winning the job, there are a dozen places the opportunity quietly disappears. Find the two or three that sound like your business.",
+    "eyebrow": "Common Contractor Problems",
+    "title": "Where Contractors Lose Jobs",
+    "subtitle": "Most contractors aren't short on demand. The work slips away somewhere between a customer searching and you winning the job. See which of these sound familiar.",
     "columns": [
       {
-        "label": "Before they find you",
+        "label": "Not getting found",
         "stage": "found",
         "items": [
-          "You don't show up for the services you actually want to sell",
+          "You don't show up on Google or Google Maps for the work you want",
           "A competitor with a smaller crew outranks you in the map pack",
-          "The wrong page ranks — your homepage answers a question about one specific job",
-          "Your search result or ad gives no reason to click yours over the next one"
+          "Your search listing gives no reason to pick you over the next one"
         ]
       },
       {
-        "label": "Once they're on your site",
+        "label": "Visitors don't call",
         "stage": "contacted",
         "items": [
-          "People read the page, then leave without calling",
-          "On a phone, there's no obvious next step above the fold",
-          "The phone number is hard to find, or isn't tappable",
-          "Pages load slowly on job-site data, so they go back to Google"
+          "People read your website, then leave without calling",
+          "On a phone, the number is hard to find or the quote form is a chore",
+          "Pages load slowly, so visitors go back to Google"
         ]
       },
       {
-        "label": "After they reach out",
+        "label": "Inquiries and estimates go quiet",
         "stage": "follow",
         "items": [
-          "Calls get missed during the day and nobody calls back",
-          "A form notification lands in a folder no one checks",
-          "Quotes go out and are never followed up a second time",
-          "No one can say which ad, page or search produced the lead"
+          "Calls get missed on the job site and nobody calls back",
+          "Website inquiries land in an inbox no one checks",
+          "Estimates go out and never get a second follow-up"
         ]
       }
     ],
-    "note": "Every one of these costs the same thing: **a job someone else won.** The fix isn't a new website by default — it's finding which of these is actually happening to you."
-  },
-
-  "system": {
-    "eyebrow": "The ALL8 Lead System",
-    "title": "One System, Four Stages",
-    "subtitle": "Your website, search visibility, ads, follow-up and tracking are not separate projects. They're one path a customer walks — and it only works as well as its weakest stage.",
-    "stages": [
-      {
-        "stage": "found",
-        "step": "Stage 01",
-        "title": "Get Found",
-        "description": "Show up when someone nearby searches for the work you want.",
-        "tags": ["Local SEO", "Google Maps", "Google Ads", "Service-area pages"]
-      },
-      {
-        "stage": "contacted",
-        "step": "Stage 02",
-        "title": "Get Contacted",
-        "description": "Make calling or requesting a quote the obvious next move.",
-        "tags": ["Website", "Landing pages", "Quote forms", "Speed"]
-      },
-      {
-        "stage": "follow",
-        "step": "Stage 03",
-        "title": "Respond & Follow Up",
-        "description": "Every lead gets a fast reply and a second touch, without you remembering.",
-        "tags": [
-          "Instant notifications",
-          "Email & SMS follow-up",
-          "Review requests"
-        ]
-      },
-      {
-        "stage": "win",
-        "step": "Stage 04",
-        "title": "Win More Work",
-        "description": "Keep every opportunity in one pipeline and know what produced it.",
-        "tags": ["CRM pipeline", "Call tracking", "Lead source reporting"]
-      }
-    ],
-    "footNote": "You don't have to do all four. **We start with the stage that appears to be costing you the most** — for some businesses that's rankings, for others it's a website that doesn't ask for the call, and often it's what happens after the phone rings.",
-    "ctaLabel": "Get My Free Lead Leak Review"
-  },
-
-  "outcomes": {
-    "eyebrow": "What We Do",
-    "title": "Pick the Outcome. We'll Handle the Tools.",
-    "subtitle": "Same services most agencies list — organized around what you're actually trying to fix.",
-    "cards": [
-      {
-        "stage": "found",
-        "title": "Get More Opportunities",
-        "description": "You're not visible enough where your customers look. We build the local search presence and, where it pays, the paid coverage around it.",
-        "href": "/services/local-seo-google-business-profile",
-        "linkLabel": "Explore local visibility services",
-        "items": [
-          "Local SEO",
-          "Google Business Profile",
-          "Service pages",
-          "Google Ads",
-          "Review generation"
-        ]
-      },
-      {
-        "stage": "contacted",
-        "title": "Convert More Visitors",
-        "description": "People are already finding you and leaving. We rebuild the pages around how your customers actually decide, and make contacting you effortless on a phone.",
-        "href": "/services/lead-generation-websites",
-        "linkLabel": "Explore lead-generation websites",
-        "items": [
-          "Websites",
-          "Landing pages",
-          "Calls-to-action",
-          "Quote forms",
-          "Mobile UX"
-        ]
-      },
-      {
-        "stage": "follow",
-        "title": "Stop Losing Leads to Slow Follow-Up",
-        "description": "A lead that waits a day is usually a lead someone else called first. We set up the alerts and automatic follow-up so nothing depends on anyone remembering.",
-        "href": "/services/missed-call-recovery",
-        "linkLabel": "Explore missed-call recovery",
-        "items": [
-          "Lead alerts",
-          "Missed-call text-back",
-          "Email & SMS automation",
-          "Estimate reminders",
-          "Review requests"
-        ]
-      },
-      {
-        "stage": "win",
-        "title": "Organize the Pipeline & See What Works",
-        "description": "Leads live in one place instead of texts, voicemails and sticky notes — and you can finally see which marketing brought them in.",
-        "href": "/services/call-tracking-lead-attribution",
-        "linkLabel": "Explore call and lead attribution",
-        "items": [
-          "CRM setup",
-          "Pipeline stages",
-          "Call tracking",
-          "Lead source attribution",
-          "Analytics",
-          "Reporting"
-        ]
-      }
-    ],
-    "footNote": {
-      "prefix": "Not sure which one you need?",
-      "linkLabel": "That's what the review is for"
+    "note": "Each one costs the same thing: **a job someone else won.** We work across four stages: get found, get contacted, respond and follow up, and win more work. We start with the one costing you the most.",
+    "link": {
+      "prefix": "Wondering what missed calls cost you?",
+      "label": "Try the missed-call revenue calculator",
+      "href": "/tools/missed-call-revenue-calculator"
     }
   },
 
   "caseStudy": {
-    "eyebrow": "Real Client Result · Service Business Growth",
+    "eyebrow": "Case Study",
     "title": "Visibility Improved.",
     "titleAccent": "Found the Next Growth Constraint.",
     "lede": "An established excavation and service business in Southern Ontario had weak local search visibility and an outdated lead flow — plenty of capability, not enough incoming work to fill the schedule.",
@@ -206,17 +97,17 @@
       },
       {
         "tag": "The result",
-        "text": "**Organic Google Search traffic increased {{proof.search.factor}}**, while **Google Business Profile website clicks increased {{proof.profile.increase}} year over year.** Search Console showed growth from approximately {{proof.search.before}} to {{proof.search.after}} clicks per rolling 28-day period between the measured March and September 2026 windows. Point-in-time evidence also captured page-one, strong local and AI-result visibility."
+        "text": "**Google Search clicks grew from about {{proof.search.before}} to {{proof.search.after}} per rolling 28 days** between March and September 2026, and **Google Business Profile website clicks rose {{proof.profile.increase}} year over year.** A targeted service page was also observed on page one at a point in time."
       },
       {
         "tag": "What it exposed",
-        "text": "Better attribution and call tracking showed that **lead handling and follow-up had become a larger constraint than traffic alone.** That discovery expanded our work beyond websites and SEO into the whole lead-conversion system."
+        "text": "Call and form tracking showed that **lead handling and follow-up had become a bigger constraint than traffic alone.** So the work expanded beyond the website and SEO into how inquiries get answered and followed up."
       }
     ],
     "ctaLabel": "Get My Free Lead Leak Review",
     "secondaryLink": {
-      "label": "View results and case studies",
-      "href": "/work"
+      "label": "Read the full case study",
+      "href": "/work/service-business-growth-case-study"
     },
     "visual": {
       "title": "Lead Leak Review — findings",
@@ -231,84 +122,51 @@
         { "label": "Respond & Follow Up", "stage": "follow", "status": "Next" },
         { "label": "Win More Work", "stage": "win", "status": "Tracking added" }
       ],
-      "flag": "Found the next growth constraint: better attribution and call tracking showed that lead handling and follow-up had become a larger constraint than traffic alone."
+      "flag": "Found the next constraint: call and form tracking showed that lead handling and follow-up had become a bigger constraint than traffic alone."
     }
-  },
-
-  "flow": {
-    "eyebrow": "Connected, Not Just Built",
-    "title": "Your Website Shouldn't Work Alone",
-    "subtitle": "A form that only sends an email is a lead waiting to be forgotten. Here's what we wire up behind it, in plain language.",
-    "rows": [
-      {
-        "a": "Someone submits a quote form",
-        "b": "You get a notification within seconds, wherever you are"
-      },
-      {
-        "a": "A new lead comes in",
-        "b": "It lands in your pipeline as a job to quote — not in an inbox"
-      },
-      {
-        "a": "Nobody has replied in 24 hours",
-        "b": "A follow-up email or text goes out automatically"
-      },
-      {
-        "a": "A quote is sent",
-        "b": "A reminder brings it back up before it goes cold"
-      },
-      {
-        "a": "A call comes in",
-        "b": "It's tracked to the page, search or ad that caused it"
-      },
-      {
-        "a": "A job is finished",
-        "b": "A review request goes out, which feeds back into getting found"
-      }
-    ],
-    "note": "We connect established third-party platforms and the tools you already use — there's no proprietary ALL8 software to get locked into."
   },
 
   "process": {
     "eyebrow": "How We Work",
-    "title": "Find the Leak. Fix What Matters Most.",
-    "subtitle": "Fixed scope before work begins. We prioritise the problem with the clearest potential impact and show you what changed.",
+    "title": "How Getting Started Works",
+    "subtitle": "Fixed scope before work begins. You know what we'll fix and what it costs before anything starts.",
     "steps": [
       {
         "stage": "found",
-        "title": "Find the Leak",
-        "description": "We walk your whole path — search, site, forms, follow-up, tracking — and show you where opportunities are being lost."
+        "title": "Free Review",
+        "description": "Send your business and website details. Matt checks how customers find you, contact you and get followed up, then sends written findings."
       },
       {
         "stage": "contacted",
-        "title": "Fix the Biggest One",
-        "description": "Fixed scope, fixed price, no fluff. We prioritise the problem with the clearest potential impact — not the biggest project."
+        "title": "Agree on the Fix",
+        "description": "We recommend what to fix first. Scope and price are agreed before any work starts."
       },
       {
         "stage": "follow",
-        "title": "Connect the System",
-        "description": "Leads route to one place, follow-up happens on its own, and the tools you already use start talking to each other."
+        "title": "Fix It",
+        "description": "We build or fix the website, Google visibility, call handling or follow-up, using the tools you already have where they work."
       },
       {
         "stage": "win",
-        "title": "Measure & Improve",
-        "description": "Real calls, forms and lead sources — not impressions and bounce rate. Then we go find the next constraint."
+        "title": "Keep It Working",
+        "description": "Call and form tracking shows what's coming in and where from. Then we move on to the next problem."
       }
     ]
   },
 
   "why": {
     "eyebrow": "Why ALL8",
-    "title": "Why Service Businesses Choose ALL8",
+    "title": "Why Contractors Choose ALL8",
     "subtitle": "You don't need a brand exercise. You need the phone to ring and the leads to get answered.",
     "cards": [
       {
-        "title": "Built for Service Businesses",
-        "description": "We specialise in businesses where leads become calls, consultations, quotes, estimates or booked work — contractors, home and commercial services, and other lead-driven service companies. We already know what customers check before they pick up the phone.",
+        "title": "Built for Contractors",
+        "description": "We work with excavation, plumbing, HVAC, electrical, roofing, landscaping and other contractors, where work comes in as calls, quote requests and estimates. We already know what customers check before they pick up the phone.",
         "icon": "target",
         "color": "#0076FF"
       },
       {
-        "title": "Your Accounts, Your Data — No Lock-In",
+        "title": "You Own Your Accounts and Data",
         "description": "Your domain, content, ad and analytics accounts, and customer data stay under your control. Scope and recurring fees are explained before work begins.",
         "icon": "shield",
         "color": "#22c55e"
@@ -322,37 +180,13 @@
     ]
   },
 
-  "proofCards": {
-    "eyebrow": "Proof, Not Promises",
-    "title": "Measured Results, Not Adjectives",
-    "cards": [
-      {
-        "value": "{{proof.search.factor}}",
-        "em": true,
-        "label": "Organic Search Growth",
-        "sub": "Google organic Search clicks increased from approximately {{proof.search.before}} to {{proof.search.after}} per rolling 28-day period.",
-        "icon": "chart"
-      },
-      {
-        "value": "{{proof.profile.increaseSigned}} YoY",
-        "em": false,
-        "label": "Google Business Profile Website Clicks",
-        "sub": "Measured year over year for an established excavation and service business in Southern Ontario.",
-        "icon": "pin"
-      }
-    ],
-    "footNote": "Measured client results. Search growth compares rolling 28-day periods during 2026; the latest window was {{proof.search.latestWindow}}. Captured local, page-one and AI-result visibility supports the story; it is point-in-time evidence, not a permanent ranking.",
-    "ctaLede": "Want to see where your lead system is losing opportunities?",
-    "ctaLabel": "Get My Free Lead Leak Review"
-  },
-
   "founder": {
     "eyebrow": "Owner-Led · Direct Support",
     "title": "Work Directly With the Person Doing the Work",
     "paragraphs": [
-      "ALL8 is intentionally small. Strategy, implementation and optimization stay close to the person actually doing the work — without layers of account managers or handoffs.",
-      "Matt works directly with service businesses to identify where leads are being lost, and to connect the website, search visibility, calls, follow-up and sales process around one goal: turning more opportunities into customers.",
-      "ALL8 is based in Ontario, Canada and works with service businesses across the United States and Canada. The work is remote-first, on Eastern Time."
+      "ALL8 Webworks was founded by Matt McLennan, a licensed Ontario 310S Automotive Service Technician with a background in industrial contracting, construction operations, business development, and software engineering. You work directly with him, without account managers or handoffs.",
+      "Matt works directly with contractors to identify where leads are being lost, and to connect the website, search visibility, calls, follow-up and sales process around one goal: turning more opportunities into customers.",
+      "ALL8 is based in Ontario, Canada and works with contractors across Canada and the United States."
     ],
     "name": "Matt McLennan",
     "role": "Founder, ALL8 WEBWORKS",
@@ -365,27 +199,28 @@
   },
 
   "faqs": [
-    {"q": "What does ALL8 WEBWORKS actually do?", "a": "ALL8 WEBWORKS helps service businesses get more opportunities and lose fewer of them. We work across four stages: getting found (local SEO, Google Business Profile, Google Ads), getting contacted (websites, landing pages, quote forms), responding and following up (lead alerts, missed-call text-back, email and SMS automation), and winning more work (CRM pipeline setup, call tracking and lead source attribution). Most engagements start with a free Lead Leak Review that identifies which stage looks weakest."},
+    {"q": "What does ALL8 WEBWORKS actually do?", "a": "We build and run websites, Google visibility and follow-up systems for contractors. That includes local SEO and your Google Business Profile, Google Ads, websites and quote forms, missed-call text-back, lead alerts, follow-up on new inquiries and open estimates, and tracking where your calls come from. Most contractors start with a free Lead Leak Review that shows what to fix first."},
     {"q": "Do I need a new website?", "a": "Often no. Plenty of businesses have a site that's good enough and a follow-up process that's losing them jobs. If the website is the constraint we'll say so, and if it isn't we'd rather fix the part that is. The review tells you which."},
-    {"q": "What is a Lead Leak Review?", "a": "Send your business and website information. Matt reviews search visibility, the website, contact and response paths, follow-up, and obvious lead leaks. You get specific findings in writing and what to fix first, whether or not you hire us. A short call to walk through them is optional."},
+    {"q": "How much does it cost?", "a": "The Lead Leak Review is free. A one-time Lead System Tune-Up is $1,250. Managed Website is $299/month plus a $1,995 setup fee, with a 12-month minimum. Lead System is $995/month plus a $2,495 setup fee, with a 6-month minimum. Every plan and its terms are listed on the pricing page."},
+    {"q": "What is a Lead Leak Review?", "a": "Send your business and website information. Matt checks your Google visibility, your website, how customers contact you, how inquiries get answered and followed up, and any obvious places jobs are slipping away. You get specific findings in writing and what to fix first, whether or not you hire us. A short call to walk through them is optional."},
     {"q": "Can you work with my existing website?", "a": "Yes. If the site is structurally sound we improve what's there — service pages, calls-to-action, forms, mobile experience and speed — rather than starting over. A rebuild only gets recommended when the current site genuinely can't do the job."},
-    {"q": "Do you handle SEO and Google Ads?", "a": "Yes, and we treat them differently. Local SEO and your Google Business Profile build visibility that keeps working; ads buy visibility immediately and stop when you stop paying. For most service businesses we build the organic side and use ads to cover specific services or seasons where the job value justifies the cost per click."},
+    {"q": "Do you handle SEO and Google Ads?", "a": "Yes, and we treat them differently. Local SEO and your Google Business Profile build visibility that keeps working; ads buy visibility immediately and stop when you stop paying. For most contractors we build the organic side and use ads to cover specific services or seasons where the job value justifies the cost per click."},
     {"q": "Do I own what you build?", "a": "Your domain, content, ad accounts, analytics and customer data stay in your name. We explain the work scope and recurring fees before you commit."},
-    {"q": "Do you work with U.S. businesses?", "a": "Yes. ALL8 is based in Ontario, Canada and works with service businesses across the United States and Canada. The process is remote and we keep Eastern Time availability, which overlaps the working day in every U.S. time zone."}
+    {"q": "Do you work with U.S. businesses?", "a": "Yes. ALL8 is based in Ontario, Canada and works with contractors across the United States and Canada. The process is remote and we keep Eastern Time availability, which overlaps the working day in every U.S. time zone."}
   ],
 
   "finalCta": {
     "eyebrow": "Free Lead Leak Review",
     "title": "Find Out Where You're",
-    "titleAccent": "Losing the Work.",
-    "subtitle": "Send your business and website details. Matt will review your search visibility, website, contact path and follow-up, then send specific findings and what to fix first. A short call afterward is optional.",
+    "titleAccent": "Losing Jobs.",
+    "subtitle": "Send your business and website details. Matt will check how customers find you, contact you and get followed up, then send written findings and what to fix first. A short call afterward is optional.",
     "checklist": [
-      "Where you rank locally today",
-      "What your site does with the visitors it gets",
-      "What happens to a lead after it comes in",
-      "Which stage to fix first"
+      "Where you show up on Google today",
+      "What your website does with the visitors it gets",
+      "What happens to a call or inquiry after it comes in",
+      "What to fix first"
     ],
     "ctaLabel": "Get My Free Lead Leak Review",
-    "micro": "No long-term commitment  ·  Clear recommendations  ·  Fixed scope before work begins"
+    "micro": "Free review  ·  No obligation  ·  Fixed scope before work begins"
   }
 }

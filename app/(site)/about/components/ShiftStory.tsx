@@ -23,35 +23,37 @@ export default function ShiftStory({ data }: { data: ShiftData }) {
           </h2>
         </Reveal>
 
-        <div className="mb-11 grid grid-cols-1 gap-[22px] sm:grid-cols-2">
-          {data.cards.map((card, i) => (
-            <Reveal key={card.tag} index={i}>
-              <div
-                className={
-                  i === 0
-                    ? "h-full rounded-[20px] border border-white/[0.08] bg-white/[0.036] p-[30px] opacity-[0.82]"
-                    : "h-full rounded-[20px] border border-[rgba(0,118,255,.3)] bg-[rgba(0,118,255,.06)] p-[30px]"
-                }
-              >
+        {data.cards.length > 0 && (
+          <div className="mb-11 grid grid-cols-1 gap-[22px] sm:grid-cols-2">
+            {data.cards.map((card, i) => (
+              <Reveal key={card.tag} index={i}>
                 <div
                   className={
                     i === 0
-                      ? "mb-4 text-[11.5px] font-bold uppercase tracking-[.13em] text-white/70"
-                      : "mb-4 text-[11.5px] font-bold uppercase tracking-[.13em] text-accent-blue"
+                      ? "h-full rounded-[20px] border border-white/[0.08] bg-white/[0.036] p-[30px] opacity-[0.82]"
+                      : "h-full rounded-[20px] border border-[rgba(0,118,255,.3)] bg-[rgba(0,118,255,.06)] p-[30px]"
                   }
                 >
-                  {card.tag}
+                  <div
+                    className={
+                      i === 0
+                        ? "mb-4 text-[11.5px] font-bold uppercase tracking-[.13em] text-white/70"
+                        : "mb-4 text-[11.5px] font-bold uppercase tracking-[.13em] text-accent-blue"
+                    }
+                  >
+                    {card.tag}
+                  </div>
+                  <h3 className="mb-3 text-xl font-extrabold leading-[1.25] tracking-[-.02em]">
+                    {card.title}
+                  </h3>
+                  <p className="text-[15.5px] leading-relaxed text-white/70">
+                    {card.body}
+                  </p>
                 </div>
-                <h3 className="mb-3 text-xl font-extrabold leading-[1.25] tracking-[-.02em]">
-                  {card.title}
-                </h3>
-                <p className="text-[15.5px] leading-relaxed text-white/70">
-                  {card.body}
-                </p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+              </Reveal>
+            ))}
+          </div>
+        )}
 
         <Reveal className="max-w-[720px]">
           {data.story.map((p, i) => (

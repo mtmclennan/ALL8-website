@@ -6,15 +6,15 @@ import { site, siteUrl } from "@/config/site.config";
 import { homeData } from "@/data/home";
 import { buildPageMetadata, normalizeBrandName } from "@/lib/seo/metadata";
 
-const ogTitle = "Turn More Searches, Clicks & Calls Into Customers";
+const ogTitle = "More Calls. More Quote Requests. Fewer Jobs Slipping Through.";
 const ogDescription =
-  "We find where opportunities are being lost between a customer searching and you winning the job — then fix the part costing you the most.";
+  "Websites, Google visibility and follow-up systems built for contractors, so fewer calls, quote requests and estimates slip through.";
 const ogImage = new URL(site.defaultOgImage, siteUrl()).toString();
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Service Business Websites, Local SEO & Lead Systems",
+  title: "Contractor Websites & Local SEO | ALL8 Webworks",
   description:
-    "ALL8 helps U.S. and Canadian service businesses improve websites, local search, lead response, follow-up and tracking so more opportunities become customers.",
+    "ALL8 builds websites, local search visibility and follow-up systems for contractors, so you get more calls, more quote requests and fewer missed jobs.",
   path: "/",
   image: ogImage,
   openGraphTitle: ogTitle,

@@ -14,9 +14,9 @@ export type AboutPageData = {
     subtitle: string;
     subtitleStrong: string;
     primaryLabel: string;
-    primaryHref: string;
     secondaryLabel: string;
-    geo: string;
+    secondaryHref: string;
+    micro: string;
   };
   shift: {
     eyebrow: string;

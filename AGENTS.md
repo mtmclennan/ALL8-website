@@ -39,8 +39,10 @@ Do not infer package inclusions from a plan name. Favor concrete services, plans
 | Growth System | Quoted setup | From $1,500/month | 6 months |
 | Google Ads Management | $500 setup | $600/month + ad spend | 3 months |
 
-- Additional work is $110/hour.
-- Canadian clients: CAD + applicable HST. U.S. clients: the same numeric prices in USD. Make the market/currency clear in future public pricing; do not mechanically convert amounts or mix currency labels ambiguously.
+- Additional work is quoted and approved before it begins. Do not publish an hourly rate on public pages.
+- Public pages show prices without currency commentary (for example `$299/mo`, `$1,995 setup`). Do not add USD/CAD explanations, exchange-rate notes, HST notes or currency FAQs to marketing copy.
+- Currency and applicable taxes (including HST for Canadian clients) are stated in proposals, agreements and invoices, not in marketing copy. Do not change billing, tax or payment configuration as part of copy work.
+- "No obligation" applies only to the Free Lead Leak Review and may appear only directly beside its CTA or card. Never place it, or "no commitment"-style wording, where it could be read as covering a paid plan; paid plans have the minimum terms above.
 - Google Ads clients pay Google directly for ad spend.
 - Do not expose internal negotiation floors or internal pricing notes publicly.
 - Plan pricing belongs on plan cards and the future pricing experience, not on capability/service cards. Existing service data and structured offers may still reflect the previous model; review them during the pricing implementation phase.
@@ -137,7 +139,7 @@ Do not invent or change setup-fee payment, ownership, minimum-term enforcement, 
 - Sitemap entries should use real updated dates when available.
 - Do not add noindex unless explicitly requested.
 - New blog content should target one of the 9 service pages' own search intent as little as possible — write to feed a service page traffic, not to compete with it for the same query. Check `lib/relatedServices.ts` before publishing: if a post's topic has no keyword rule mapping it to a service slug, add one rather than letting it go unlinked.
-- Pricing currency and market presentation follow **Approved Plans and Pricing** above. Keep the U.S. audience in mind without contradicting the approved CAD + applicable HST terms for Canadian clients.
+- Pricing presentation follows **Approved Plans and Pricing** above: no currency commentary in marketing copy; currency and tax are stated in proposals, agreements and invoices.
 - Thin blog categories use `noindex,follow` and stay out of the sitemap until they contain at least three useful posts.
 
 ## Proof and Privacy

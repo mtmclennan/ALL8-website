@@ -12,20 +12,20 @@ import { siteUrl } from "@/config/site.config";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Plans & Pricing | ALL8 Webworks",
+  title: "Contractor Website & Lead System Pricing | ALL8 Webworks",
   description:
-    "Compare ALL8's Free Lead Leak Review, Tune-Up, Managed Website, Lead System, Growth System and Google Ads Management. Clear setup fees, monthly prices and minimum terms for service businesses.",
+    "Contractor website and lead plans: Managed Website $299/mo, Lead System $995/mo, Growth System from $1,500/mo. Setup fees and minimum terms shown up front.",
   path: "/pricing",
 });
 
 const faq = [
   {
-    q: "What currency are the prices in?",
-    a: "U.S. clients pay the listed numeric prices in USD. Canadian clients pay the same numeric prices in CAD, plus applicable HST. There is no exchange-rate conversion between the two price lists.",
+    q: "Do I have to book a call to get the free review?",
+    a: "No. Send your business and website details. Matt looks at how customers find you, contact you and get followed up, then sends written findings and what to fix first. A follow-up call is optional.",
   },
   {
-    q: "Do I have to book a call to get the free review?",
-    a: "No. Send your business and website details. Matt reviews the lead path and sends written findings and what to fix first. A follow-up call is optional.",
+    q: "Is the free review really no obligation?",
+    a: "Yes. The Free Lead Leak Review costs nothing and doesn't commit you to anything. The paid plans are different: Managed Website has a 12-month minimum, Lead System and Growth System have 6-month minimums, and Google Ads Management has a 3-month minimum.",
   },
   {
     q: "Does a Tune-Up include every item listed?",
@@ -41,7 +41,7 @@ const faq = [
   },
   {
     q: "What if I need work beyond my plan?",
-    a: "Additional work is $110/hour in the applicable currency. Scope and cost are discussed before that work starts.",
+    a: "Additional work is quoted and approved before it begins.",
   },
 ];
 
@@ -53,7 +53,7 @@ const jsonLd = {
       "@type": "WebPage",
       "@id": `${base}/pricing#page`,
       url: `${base}/pricing`,
-      name: "Plans & Pricing | ALL8 Webworks",
+      name: "Contractor Website & Lead System Pricing | ALL8 Webworks",
       description: metadata.description,
     },
     {
@@ -90,18 +90,12 @@ export default function PricingPage() {
             Plans & Pricing
           </p>
           <h1 className="all8-h1 mt-4 max-w-[800px] font-black leading-[1.04] tracking-[-.03em]">
-            Find the leak. Choose the right level of help.
+            Website and Lead Plans for Contractors
           </h1>
           <p className="mt-6 max-w-[760px] text-lg leading-relaxed text-white/70">
-            Start with written findings, fix one priority in a Tune-Up, or
-            connect your website, lead handling and growth in an ongoing plan.
-            Setup fees and monthly fees are shown separately.
-          </p>
-          <p className="mt-6 max-w-[760px] rounded-xl border border-white/[0.12] bg-white/[0.04] px-5 py-4 text-sm leading-relaxed text-white/80">
-            <strong className="text-white">Currency:</strong> U.S. clients pay
-            these numeric prices in USD. Canadian clients pay the same numeric
-            prices in CAD, plus applicable HST. No exchange-rate conversion is
-            applied.
+            Start with a free review, fix one priority with a Tune-Up, or let us
+            run your website and lead handling every month. Setup fees, monthly
+            fees and minimum terms are listed for each plan.
           </p>
         </div>
       </section>
@@ -115,8 +109,9 @@ export default function PricingPage() {
             Start here
           </h2>
           <p className="mt-3 max-w-[720px] text-white/70">
-            The free review identifies the gap. A Tune-Up addresses the
-            highest-priority work in a focused engagement.
+            The free review shows where you&apos;re losing calls and quote
+            requests. A Tune-Up fixes the most important problems in one
+            focused, one-time engagement.
           </p>
           <div className="mt-8 grid gap-5 md:grid-cols-2">
             {entry.map((plan) => (
@@ -143,42 +138,35 @@ export default function PricingPage() {
             What changes at each level
           </h2>
           <p className="mt-3 max-w-[760px] text-white/70">
-            Managed Website maintains the lead-capture foundation. Lead System
-            adds visibility and lead handling. Growth System adds scoped ongoing
-            improvement.
+            Each plan includes everything in the one before it. Pick the level
+            that matches where work is slipping away today.
           </p>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             {[
               {
                 title: "Managed Website",
-                lead: "Capture",
                 detail:
                   "Custom site, technical SEO foundation, analytics, hosting, monitoring and minor updates.",
-                next: "The website foundation.",
+                next: "Choose it if your website is outdated, slow or isn't bringing in quote requests.",
               },
               {
                 title: "Lead System",
-                lead: "Connect",
                 detail:
                   "Everything in Managed Website, plus local visibility, source tracking, CRM, missed-call response, follow-up and lead reporting.",
-                next: "Adds a connected path from inquiry to won work.",
+                next: "Choose it if calls, forms or quotes are going unanswered or unfollowed.",
               },
               {
                 title: "Growth System",
-                lead: "Improve",
                 detail:
                   "Everything in Lead System, plus ongoing growth work selected for your goals and a monthly growth review.",
-                next: "Adds a scoped improvement program; deliverables vary.",
+                next: "Choose it if the basics are working and you want to grow into more services, areas or pages.",
               },
             ].map((row) => (
               <div
                 key={row.title}
                 className="rounded-2xl border border-white/[0.12] bg-white/[0.036] p-6"
               >
-                <p className="text-xs font-bold uppercase tracking-[.12em] text-accent-blue">
-                  {row.lead}
-                </p>
-                <h3 className="all8-h3 mt-2 font-bold">{row.title}</h3>
+                <h3 className="all8-h3 font-bold">{row.title}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-white/70">
                   {row.detail}
                 </p>
@@ -208,7 +196,7 @@ export default function PricingPage() {
       >
         <div className="mx-auto max-w-[1160px] px-6 sm:px-10">
           <h2 className="all8-h2 font-extrabold" id="plans-heading">
-            Ongoing systems
+            Monthly plans
           </h2>
           <p className="mt-3 max-w-[760px] text-white/70">
             Each level builds on the one before it. The stated terms are minimum
@@ -248,8 +236,7 @@ export default function PricingPage() {
 
       <section className="bg-content3 px-6 py-10 text-center sm:px-10">
         <p className="text-sm leading-relaxed text-white/75">
-          Additional work is $110/hour in the applicable currency. Scope and
-          cost are agreed before it begins.
+          Additional work is quoted and approved before it begins.
         </p>
       </section>
       <FAQBlock

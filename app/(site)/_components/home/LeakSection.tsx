@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+
 import Reveal from "./Reveal";
 
 import { STAGE_HEX, type Stage } from "@/lib/utils/stage";
@@ -9,11 +12,12 @@ type LeakData = {
   subtitle: string;
   columns: { label: string; stage: Stage; items: string[] }[];
   note: string;
+  link?: { prefix: string; label: string; href: string };
 };
 
 export default function LeakSection({ data }: { data: LeakData }) {
   return (
-    <section className="py-[132px] max-[960px]:py-20" id="leak">
+    <section className="py-24 max-[960px]:py-16" id="leak">
       <div className="mx-auto max-w-[1160px] px-6 sm:px-10">
         <Reveal className="mb-[52px] max-w-[720px]">
           <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
@@ -70,6 +74,22 @@ export default function LeakSection({ data }: { data: LeakData }) {
           <p className="mt-[52px] max-w-[660px] text-[19px] leading-relaxed text-white/70">
             {renderBold(data.note)}
           </p>
+          {data.link && (
+            <p className="mt-5 text-[15.5px] leading-relaxed text-white/70">
+              {data.link.prefix}{" "}
+              <Link
+                className="group inline-flex min-h-11 items-center gap-1.5 font-bold text-accent-blue underline underline-offset-4 hover:text-[#8ec5ff]"
+                href={data.link.href}
+              >
+                {data.link.label}
+                <ArrowRight
+                  aria-hidden="true"
+                  className="transition-transform group-hover:translate-x-[3px] motion-reduce:group-hover:translate-x-0"
+                  size={15}
+                />
+              </Link>
+            </p>
+          )}
         </Reveal>
       </div>
     </section>
