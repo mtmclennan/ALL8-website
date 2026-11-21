@@ -18,6 +18,7 @@ import { toTelHref } from "@/lib/utils/phone";
 import Button from "@/app/(site)/_components/ui/Button";
 import HoneypotField from "@/app/(site)/_components/HoneypotField";
 import RecaptchaDisclosure from "@/app/(site)/_components/RecaptchaDisclosure";
+import { SuccessReveal } from "@/app/(site)/_components/motion/Stagger";
 import { trackFormStart, trackGenerateLead } from "@/lib/analytics/dataLayer";
 
 const CHALLENGES = [
@@ -330,14 +331,18 @@ export default function InlineLeadForm() {
           </form>
         </>
       ) : (
-        <div className="py-4 text-center">
-          <div className="mx-auto mb-5 grid h-[60px] w-[60px] place-items-center rounded-full border border-accent-blue/35 bg-accent-blue/10">
-            <CheckCircle2
-              className="text-accent-blue"
-              size={26}
-              strokeWidth={2.6}
-            />
-          </div>
+        <SuccessReveal
+          className="py-4 text-center"
+          icon={
+            <div className="mx-auto mb-5 grid h-[60px] w-[60px] place-items-center rounded-full border border-accent-blue/35 bg-accent-blue/10">
+              <CheckCircle2
+                className="text-accent-blue"
+                size={26}
+                strokeWidth={2.6}
+              />
+            </div>
+          }
+        >
           <h3
             ref={successRef}
             className="mb-2.5 text-[22px] font-extrabold tracking-[-.02em] focus:outline-none"
@@ -352,7 +357,7 @@ export default function InlineLeadForm() {
           <Button href={telHref} variant="ghost">
             Prefer to talk now? Call us
           </Button>
-        </div>
+        </SuccessReveal>
       )}
     </div>
   );

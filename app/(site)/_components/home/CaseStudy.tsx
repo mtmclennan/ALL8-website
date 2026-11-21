@@ -5,6 +5,7 @@ import Link from "next/link";
 
 import { useLeadModal } from "../LeadModalProvider";
 import Button from "../ui/Button";
+import { StaggerInView } from "../motion/Stagger";
 
 import Reveal from "./Reveal";
 
@@ -104,7 +105,9 @@ export default function CaseStudy({ data }: { data: CaseStudyData }) {
                     ))}
                   </div>
                 )}
-                <div className="flex flex-col gap-3">
+                {/* The panel's rows fill in once, in order, ending on the
+                    constraint the case study found. */}
+                <StaggerInView className="flex flex-col gap-3">
                   {data.visual.rows.map((row) => (
                     <div
                       key={row.label}
@@ -129,23 +132,23 @@ export default function CaseStudy({ data }: { data: CaseStudyData }) {
                       </span>
                     </div>
                   ))}
-                </div>
-                <div
-                  className="mt-[22px] flex items-start gap-3 rounded-[10px] p-4"
-                  style={{
-                    backgroundColor: hexToRgba("#f59e0b", 0.08),
-                    border: `1px solid ${hexToRgba("#f59e0b", 0.2)}`,
-                  }}
-                >
-                  <AlertTriangle
-                    className="flex-shrink-0 text-[#f59e0b]"
-                    size={20}
-                    strokeWidth={2.2}
-                  />
-                  <span className="text-[13px] font-semibold leading-relaxed text-[#fcd34d]">
-                    {data.visual.flag}
-                  </span>
-                </div>
+                  <div
+                    className="mt-2.5 flex items-start gap-3 rounded-[10px] p-4"
+                    style={{
+                      backgroundColor: hexToRgba("#f59e0b", 0.08),
+                      border: `1px solid ${hexToRgba("#f59e0b", 0.2)}`,
+                    }}
+                  >
+                    <AlertTriangle
+                      className="flex-shrink-0 text-[#f59e0b]"
+                      size={20}
+                      strokeWidth={2.2}
+                    />
+                    <span className="text-[13px] font-semibold leading-relaxed text-[#fcd34d]">
+                      {data.visual.flag}
+                    </span>
+                  </div>
+                </StaggerInView>
               </div>
             </div>
           </Reveal>

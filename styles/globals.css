@@ -2,6 +2,14 @@
 @import './fonts.css';
 @config '../tailwind.config.js';
 
+/* Motion curves. These replace Tailwind's weaker defaults, so the existing
+   ease-out / ease-in-out utilities pick them up; ease-drawer is for sheets. */
+@theme {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
 /* Base document behavior */
 html {
   scroll-behavior: smooth;
@@ -97,9 +105,43 @@ a.all8-stage-chip:hover {
   outline-offset: 3px;
 }
 
+/* Mobile nav panel: fades and drops in from the header instead of popping
+   (CSS only, so it costs nothing on page load).
+   display transitions discretely, so the exit plays before it hides. */
+.nav-panel {
+  transition:
+    opacity 200ms var(--ease-out),
+    translate 200ms var(--ease-out),
+    display 200ms allow-discrete;
+}
+
+.nav-panel.hidden {
+  opacity: 0;
+  translate: 0 -8px;
+}
+
+@starting-style {
+  .nav-panel:not(.hidden) {
+    opacity: 0;
+    translate: 0 -8px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  /* Keep the fades that explain a change; drop the movement. */
+  .nav-panel,
+  .nav-panel.hidden {
+    translate: none;
+  }
+
+  @starting-style {
+    .nav-panel:not(.hidden) {
+      translate: none;
+    }
   }
 
   :where(a, button, input, select, textarea, summary) {

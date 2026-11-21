@@ -55,7 +55,7 @@ export default function ServicesPreview() {
             return (
               <Link
                 key={service.slug}
-                className="group flex h-full flex-col rounded-2xl border border-white/[0.09] bg-white/[0.036] p-6 transition-[border-color,background-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-accent-blue/60 hover:bg-white/[0.058] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue motion-reduce:transform-none"
+                className="group flex h-full flex-col rounded-2xl border border-white/[0.09] bg-white/[0.036] p-6 transition-[border-color,background-color,translate] duration-200 ease-out hover:-translate-y-0.5 hover:border-accent-blue/60 hover:bg-white/[0.058] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue motion-reduce:transform-none"
                 href={`/services/${service.slug}`}
               >
                 <span className="mb-4 grid h-11 w-11 place-items-center rounded-xl border border-accent-blue/25 bg-accent-blue/10 text-accent-blue">

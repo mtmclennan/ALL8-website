@@ -93,7 +93,7 @@ export default function ServiceResources({
         {resources.map((resource, index) => (
           <Reveal key={resource.href} index={index}>
             <Link
-              className="group flex h-full min-h-14 items-start gap-4 rounded-2xl border border-white/[0.09] bg-white/[0.035] p-5 transition-[border-color,background-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-accent-blue/60 hover:bg-white/[0.055] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue motion-reduce:transform-none"
+              className="group flex h-full min-h-14 items-start gap-4 rounded-2xl border border-white/[0.09] bg-white/[0.035] p-5 transition-[border-color,background-color,translate] duration-200 ease-out hover:-translate-y-0.5 hover:border-accent-blue/60 hover:bg-white/[0.055] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue motion-reduce:transform-none"
               href={resource.href}
             >
               {resource.kind === "tool" ? (

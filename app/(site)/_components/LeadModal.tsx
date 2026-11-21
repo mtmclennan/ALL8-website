@@ -11,6 +11,7 @@ import { usePathname } from "next/navigation";
 import refinement from "./VisualRefinement.module.css";
 import Button from "./ui/Button";
 import HoneypotField from "./HoneypotField";
+import { SuccessReveal } from "./motion/Stagger";
 import RecaptchaDisclosure from "./RecaptchaDisclosure";
 
 import { warmRecaptcha, withCaptcha } from "@/lib/intake/clientCaptcha";
@@ -239,7 +240,7 @@ export default function LeadModal({
   return (
     <div
       className={clsx(
-        "fixed inset-0 z-[400] grid place-items-center p-4 transition-opacity duration-200 sm:p-6",
+        "fixed inset-0 z-[400] grid place-items-center p-4 transition-[opacity,visibility] duration-[250ms] ease-out sm:p-6",
         pathname === "/" && refinement.surface,
         open
           ? "visible opacity-100"
@@ -256,8 +257,8 @@ export default function LeadModal({
         aria-labelledby="leadModalTitle"
         aria-modal="true"
         className={clsx(
-          "relative max-h-[90dvh] w-full max-w-[520px] overflow-y-auto rounded-[20px] border border-white/[0.14] bg-content3 p-6 shadow-[0_40px_100px_-20px_rgba(0,0,0,.8)] transition-transform duration-200 sm:p-9",
-          open ? "translate-y-0" : "translate-y-3.5",
+          "relative max-h-[90dvh] w-full max-w-[520px] overflow-y-auto rounded-[20px] border border-white/[0.14] bg-content3 p-6 shadow-[0_40px_100px_-20px_rgba(0,0,0,.8)] transition-[scale] duration-[250ms] ease-out motion-reduce:transition-none sm:p-9",
+          open ? "scale-100" : "scale-[0.96]",
         )}
         role="dialog"
       >
@@ -461,14 +462,18 @@ export default function LeadModal({
             </form>
           </div>
         ) : (
-          <div className="py-4 text-center">
-            <div className="mx-auto mb-5 grid h-[60px] w-[60px] place-items-center rounded-full border border-accent-blue/35 bg-accent-blue/10">
-              <CheckCircle2
-                className="text-accent-blue"
-                size={26}
-                strokeWidth={2.6}
-              />
-            </div>
+          <SuccessReveal
+            className="py-4 text-center"
+            icon={
+              <div className="mx-auto mb-5 grid h-[60px] w-[60px] place-items-center rounded-full border border-accent-blue/35 bg-accent-blue/10">
+                <CheckCircle2
+                  className="text-accent-blue"
+                  size={26}
+                  strokeWidth={2.6}
+                />
+              </div>
+            }
+          >
             <h2
               ref={successRef}
               className="mb-2.5 text-[22px] font-extrabold tracking-[-.02em] focus:outline-none"
@@ -485,7 +490,7 @@ export default function LeadModal({
             <Button href={telHref} variant="ghost">
               Prefer to talk now? Call us
             </Button>
-          </div>
+          </SuccessReveal>
         )}
       </div>
     </div>

@@ -26,7 +26,7 @@ type ButtonAsLink = CommonProps &
 export type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const base =
-  "inline-flex min-h-12 max-w-full cursor-pointer items-center justify-center gap-2 rounded-full text-center font-bold tracking-[.005em] whitespace-normal transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-accent-blue active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 disabled:shadow-none disabled:hover:translate-y-0";
+  "inline-flex min-h-12 max-w-full cursor-pointer items-center justify-center gap-2 rounded-full text-center font-bold tracking-[.005em] whitespace-normal transition-[background-color,border-color,color,box-shadow,translate,scale] duration-[160ms] ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-accent-blue active:translate-y-0 active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-60 disabled:shadow-none disabled:hover:translate-y-0 disabled:active:scale-100";
 
 const variants: Record<Variant, string> = {
   primary:

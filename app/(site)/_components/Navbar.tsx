@@ -196,7 +196,7 @@ const Navbar = () => {
       <div
         ref={panelRef}
         className={clsx(
-          "fixed inset-x-0 bottom-0 top-[68px] overflow-y-auto overscroll-contain border-t border-white/[0.08] bg-background min-[1101px]:hidden",
+          "nav-panel fixed inset-x-0 bottom-0 top-[68px] overflow-y-auto overscroll-contain border-t border-white/[0.08] bg-background min-[1101px]:hidden",
           !menuOpen && "hidden",
         )}
         id="navPanel"

@@ -178,7 +178,7 @@ export default function ServicePricing({ slug }: { slug: string }) {
             return (
               <Link
                 key={id}
-                className="group flex min-h-40 flex-col rounded-2xl border border-white/[0.12] bg-white/[0.035] p-6 transition-[border-color,background-color,transform] hover:-translate-y-0.5 hover:border-accent-blue/70 hover:bg-white/[0.06] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue motion-reduce:transform-none"
+                className="group flex min-h-40 flex-col rounded-2xl border border-white/[0.12] bg-white/[0.035] p-6 transition-[border-color,background-color,translate] duration-200 ease-out hover:-translate-y-0.5 hover:border-accent-blue/70 hover:bg-white/[0.06] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue motion-reduce:transform-none"
                 href={`/pricing#${id}`}
               >
                 <h3 className="all8-h3 font-bold text-white group-hover:text-accent-blue">
