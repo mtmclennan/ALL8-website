@@ -148,7 +148,7 @@ export default function Footer({
         </div>
 
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/[0.08] pt-[26px]">
-          <p className="text-[13px] text-white/40">
+          <p className="text-[13px] text-ink-faint">
             &copy; {year} ALL8 WEBWORKS. All rights reserved. Based in Ontario,
             Canada. &nbsp;&middot;&nbsp;{" "}
             <Link

@@ -15,7 +15,6 @@
     "micro": "Free review · No obligation · Written findings on what to fix first, no call required"
   },
   "shift": {
-    "eyebrow": "What the Case Study Taught Us",
     "title": "Getting Found Is Only the First Step",
     "cards": [],
     "story": [
@@ -28,7 +27,6 @@
     ]
   },
   "founder": {
-    "eyebrow": "The Founder",
     "title": "Built on Real Trades Experience",
     "paragraphs": [
       "ALL8 Webworks was founded by Matt McLennan, a licensed Ontario 310S Automotive Service Technician with a background in industrial contracting, construction operations, business development, and software engineering.",
@@ -49,7 +47,6 @@
     }
   },
   "principles": {
-    "eyebrow": "How We Work",
     "title": "Four Things We Don't Bend On",
     "items": [
       {
@@ -75,7 +72,6 @@
     ]
   },
   "who": {
-    "eyebrow": "Who We Work With",
     "title": "Built for Contractors and the Trades",
     "subtitle": "Owner-operated and small-to-midsize contractors, where work comes in as calls, quote requests and estimates, and every missed one is expensive.",
     "chips": [
@@ -91,7 +87,6 @@
     "note": "The trade matters less than how the work comes in. If customers find you on Google or by referral, call or request a quote, and then wait on someone to respond, the same four stages apply."
   },
   "facts": {
-    "eyebrow": "The Practical Details",
     "title": "Where We Are and How We Operate",
     "items": [
       {
@@ -114,7 +109,6 @@
     "note": "Eastern Time overlaps the working day in every U.S. time zone, and most of this work doesn't require being in the room. We don't need to be in your city to help you rank in it."
   },
   "proof": {
-    "eyebrow": "Proof, Not Promises",
     "title": "The Numbers Behind That Story",
     "cards": [
       {
@@ -160,6 +154,6 @@
       "What to fix first"
     ],
     "ctaLabel": "Get My Free Lead Leak Review",
-    "micro": "Free review  ·  No obligation  ·  Fixed scope before work begins"
+    "micro": "Free review  ·  No obligation  ·  No call required"
   }
 }

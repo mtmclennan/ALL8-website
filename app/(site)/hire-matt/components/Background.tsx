@@ -17,7 +17,7 @@ export default function Background({
             <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
               {data.eyebrow}
             </div>
-            <h2 className="mb-5 text-[clamp(28px,3.1vw,42px)] font-extrabold leading-[1.07] tracking-[-.026em]">
+            <h2 className="mb-5 all8-h2 font-extrabold leading-[1.07] tracking-[-.026em]">
               {data.title}
             </h2>
             {data.paragraphs.map((p, i) => (
@@ -29,7 +29,7 @@ export default function Background({
               </p>
             ))}
             <div className="mt-[26px] border-t border-white/[0.08] pt-6">
-              <h4 className="mb-3.5 text-[11px] font-bold uppercase tracking-[.14em] text-white/40">
+              <h4 className="mb-3.5 text-[11px] font-bold uppercase tracking-[.14em] text-ink-faint">
                 {data.sectorsHeading}
               </h4>
               <ul className="flex flex-wrap gap-2.5">
@@ -47,26 +47,26 @@ export default function Background({
 
           <Reveal className="flex flex-col gap-3.5" index={1}>
             <div className="rounded-[20px] border border-white/[0.08] bg-white/[0.036] px-7 py-[26px]">
-              <h4 className="mb-3 text-[10.5px] font-bold uppercase tracking-[.15em] text-white/40">
+              <h4 className="mb-3 text-[10.5px] font-bold uppercase tracking-[.15em] text-ink-faint">
                 {data.equation.real.heading}
               </h4>
               <p className="text-base leading-relaxed text-white/70">
                 {data.equation.real.body}
               </p>
             </div>
-            <div className="flex items-center justify-center gap-3.5 font-mono text-xl font-bold text-white/40">
+            <div className="flex items-center justify-center gap-3.5 font-mono text-xl font-bold text-ink-faint">
               <span className="h-px flex-1 bg-white/[0.08]" />+
               <span className="h-px flex-1 bg-white/[0.08]" />
             </div>
             <div className="rounded-[20px] border border-white/[0.08] bg-white/[0.036] px-7 py-[26px]">
-              <h4 className="mb-3 text-[10.5px] font-bold uppercase tracking-[.15em] text-white/40">
+              <h4 className="mb-3 text-[10.5px] font-bold uppercase tracking-[.15em] text-ink-faint">
                 {data.equation.technical.heading}
               </h4>
               <p className="text-base leading-relaxed text-white/70">
                 {data.equation.technical.body}
               </p>
             </div>
-            <div className="flex items-center justify-center gap-3.5 font-mono text-xl font-bold text-white/40">
+            <div className="flex items-center justify-center gap-3.5 font-mono text-xl font-bold text-ink-faint">
               <span className="h-px flex-1 bg-white/[0.08]" />=
               <span className="h-px flex-1 bg-white/[0.08]" />
             </div>

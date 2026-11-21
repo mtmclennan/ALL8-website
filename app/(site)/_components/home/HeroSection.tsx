@@ -1,11 +1,18 @@
+import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Search, ArrowRight } from "lucide-react";
 
 import refinement from "../VisualRefinement.module.css";
 import LeadReviewButton from "../LeadReviewButton";
+import { StaggerInView } from "../motion/Stagger";
 
-import { type Stage } from "@/lib/utils/stage";
+import { STAGE_HEX, STAGE_LABEL, type Stage } from "@/lib/utils/stage";
+import { siteConfig } from "@/config/site";
+import { toSmsHref, toTelHref } from "@/lib/utils/phone";
+
+const telHref = toTelHref(siteConfig.phone);
+const smsHref = toSmsHref(siteConfig.phone);
 
 type HeroData = {
   pill: string;
@@ -19,6 +26,11 @@ type HeroData = {
   secondaryHref: string;
   micro: string;
   geo: string;
+  example: {
+    title: string;
+    note: string;
+    rows: { stage: Stage; finding: string; status: string }[];
+  };
   image: { src: string; alt: string; width: number; height: number };
 };
 
@@ -87,7 +99,70 @@ export default function HeroSection({ data }: { data: HeroData }) {
             </Link>
           </div>
 
-          <p className="text-[13px] text-white/40">{data.micro}</p>
+          <p className="text-[13px] text-ink-faint">{data.micro}</p>
+
+          <p className="mt-4 text-[15px] text-white/70">
+            Prefer to talk?{" "}
+            <a className="all8-body-link font-semibold" href={telHref}>
+              Call
+            </a>{" "}
+            or{" "}
+            <a className="all8-body-link font-semibold" href={smsHref}>
+              text
+            </a>{" "}
+            {siteConfig.phone}
+          </p>
+
+          {/* Phones hide the hero illustration; show what the review produces instead. */}
+          <figure className="mt-9 rounded-2xl border border-white/[0.1] bg-white/[0.036] p-5 sm:hidden">
+            <figcaption className="mb-4">
+              <span className="block text-[15px] font-bold text-white">
+                {data.example.title}
+              </span>
+              <span className="mt-1 block text-[12.5px] text-ink-faint">
+                {data.example.note}
+              </span>
+            </figcaption>
+            <StaggerInView
+              as="ul"
+              className="flex flex-col divide-y divide-white/[0.07]"
+              itemClassName="flex items-start gap-3 py-3 first:pt-0 last:pb-0"
+            >
+              {data.example.rows.map((row) => {
+                const isFirst = row.status === "Fix first";
+
+                return (
+                  <Fragment key={row.stage}>
+                    <span
+                      aria-hidden="true"
+                      className="mt-[7px] h-2 w-2 flex-shrink-0 rounded-full"
+                      style={{ backgroundColor: STAGE_HEX[row.stage] }}
+                    />
+                    <span className="flex-1">
+                      <span
+                        className="block text-[11.5px] font-bold uppercase tracking-[.06em]"
+                        style={{ color: STAGE_HEX[row.stage] }}
+                      >
+                        {STAGE_LABEL[row.stage]}
+                      </span>
+                      <span className="mt-0.5 block text-[14.5px] leading-snug text-white/85">
+                        {row.finding}
+                      </span>
+                    </span>
+                    <span
+                      className={`mt-0.5 flex-shrink-0 rounded-full border px-2.5 py-1 text-[11.5px] font-bold ${
+                        isFirst
+                          ? "border-accent-blue/50 bg-accent-blue/10 text-[#8ec5ff]"
+                          : "border-white/[0.12] text-ink-muted"
+                      }`}
+                    >
+                      {row.status}
+                    </span>
+                  </Fragment>
+                );
+              })}
+            </StaggerInView>
+          </figure>
         </div>
 
         <div className="pointer-events-none relative hidden w-full place-items-center sm:grid max-lg:mt-6">

@@ -18,6 +18,7 @@ import { toTelHref } from "@/lib/utils/phone";
 import Button from "@/app/(site)/_components/ui/Button";
 import HoneypotField from "@/app/(site)/_components/HoneypotField";
 import RecaptchaDisclosure from "@/app/(site)/_components/RecaptchaDisclosure";
+import { SuccessReveal } from "@/app/(site)/_components/motion/Stagger";
 import { trackFormStart, trackGenerateLead } from "@/lib/analytics/dataLayer";
 
 const CHALLENGES = [
@@ -32,8 +33,12 @@ const CHALLENGES = [
 
 const initialState: LeadActionState = { ok: false };
 
+const FIELD_NAMES = ["name", "business", "website", "email", "phone"] as const;
+
+type FieldName = (typeof FIELD_NAMES)[number];
+
 const inputClass =
-  "w-full min-h-[46px] rounded-[10px] border border-white/[0.08] bg-white/[0.045] px-3.5 py-3 text-base text-white placeholder:text-[#5A7391] transition-colors focus:border-primary focus:bg-white/[0.07]";
+  "w-full min-h-[46px] rounded-[10px] border border-white/[0.08] bg-white/[0.045] px-3.5 py-3 text-base text-white placeholder:text-ink-faint transition-colors focus:border-primary focus:bg-white/[0.07]";
 
 const inputErrorClass = "border-red-400/60 focus:border-red-400/60";
 
@@ -58,7 +63,7 @@ function Field({
       >
         {label}{" "}
         {optional && (
-          <span className="font-medium text-white/40">(optional)</span>
+          <span className="font-medium text-ink-faint">(optional)</span>
         )}
       </label>
       {children}
@@ -87,11 +92,21 @@ export default function InlineLeadForm() {
   const { pageUrl, pageName, utm } =
     useHubSpotContextFields("Contact Page Form");
   const [challenge, setChallenge] = useState("");
+  // React resets an action form after every submit, success or not. Keeping
+  // the last submitted values as defaultValue means a failed submit (server
+  // validation or a client-side reCAPTCHA failure) keeps what was typed.
+  const [values, setValues] = useState<Partial<Record<FieldName, string>>>({});
   const formStartedRef = useRef(false);
   const leadTrackedRef = useRef(false);
+  const successRef = useRef<HTMLHeadingElement>(null);
 
   const done = state.ok;
   const telHref = toTelHref(siteConfig.phone);
+
+  // Move focus to the confirmation so screen readers announce it.
+  useEffect(() => {
+    if (done) successRef.current?.focus();
+  }, [done]);
 
   useEffect(() => {
     // Only a confirmed durable capture counts as a completed lead.
@@ -125,6 +140,12 @@ export default function InlineLeadForm() {
     formData.set("utm_content", utm.content || "");
     formData.set("utm_term", utm.term || "");
     formData.set("challenge", challenge);
+
+    setValues(
+      Object.fromEntries(
+        FIELD_NAMES.map((key) => [key, String(formData.get(key) ?? "")]),
+      ),
+    );
 
     return formAction(formData);
   };
@@ -166,6 +187,7 @@ export default function InlineLeadForm() {
                     inputClass,
                     state.fieldErrors?.name && inputErrorClass,
                   )}
+                  defaultValue={values.name}
                   id="cName"
                   name="name"
                   type="text"
@@ -187,6 +209,7 @@ export default function InlineLeadForm() {
                     inputClass,
                     state.fieldErrors?.business && inputErrorClass,
                   )}
+                  defaultValue={values.business}
                   id="cBiz"
                   name="business"
                   type="text"
@@ -195,6 +218,7 @@ export default function InlineLeadForm() {
             </div>
 
             <Field
+              optional
               error={state.fieldErrors?.website?.[0]}
               htmlFor="cSite"
               label="Website"
@@ -209,6 +233,7 @@ export default function InlineLeadForm() {
                   inputClass,
                   state.fieldErrors?.website && inputErrorClass,
                 )}
+                defaultValue={values.website}
                 id="cSite"
                 inputMode="url"
                 name="website"
@@ -234,6 +259,7 @@ export default function InlineLeadForm() {
                     inputClass,
                     state.fieldErrors?.email && inputErrorClass,
                   )}
+                  defaultValue={values.email}
                   id="cEmail"
                   name="email"
                   type="email"
@@ -243,6 +269,7 @@ export default function InlineLeadForm() {
                 <input
                   autoComplete="tel"
                   className={inputClass}
+                  defaultValue={values.phone}
                   id="cPhone"
                   name="phone"
                   placeholder="So we can text you back"
@@ -254,7 +281,7 @@ export default function InlineLeadForm() {
             <div className="flex flex-col gap-2">
               <span className="text-[12.5px] font-bold text-white/70">
                 Biggest challenge right now?{" "}
-                <span className="font-medium text-white/40">(optional)</span>
+                <span className="font-medium text-ink-faint">(optional)</span>
               </span>
               <div className="flex flex-wrap gap-2">
                 {CHALLENGES.map((c) => {
@@ -290,8 +317,7 @@ export default function InlineLeadForm() {
             </Button>
 
             <p className="text-center text-[12.5px] leading-relaxed text-white/60">
-              Free review · No obligation · You keep the
-              findings
+              Free review · No obligation · You keep the findings
               <br />
               We use your details to prepare and send the review.{" "}
               <Link
@@ -305,25 +331,33 @@ export default function InlineLeadForm() {
           </form>
         </>
       ) : (
-        <div className="py-4 text-center">
-          <div className="mx-auto mb-5 grid h-[60px] w-[60px] place-items-center rounded-full border border-[rgba(34,197,94,.32)] bg-[rgba(34,197,94,.13)]">
-            <CheckCircle2
-              className="text-emerald-400"
-              size={26}
-              strokeWidth={2.6}
-            />
-          </div>
-          <h3 className="mb-2.5 text-[22px] font-extrabold tracking-[-.02em]">
+        <SuccessReveal
+          className="py-4 text-center"
+          icon={
+            <div className="mx-auto mb-5 grid h-[60px] w-[60px] place-items-center rounded-full border border-accent-blue/35 bg-accent-blue/10">
+              <CheckCircle2
+                className="text-accent-blue"
+                size={26}
+                strokeWidth={2.6}
+              />
+            </div>
+          }
+        >
+          <h3
+            ref={successRef}
+            className="mb-2.5 text-[22px] font-extrabold tracking-[-.02em] focus:outline-none"
+            tabIndex={-1}
+          >
             Request received
           </h3>
           <p className="mb-5 text-[15px] leading-relaxed text-white/70">
-            We&apos;ll review your search visibility, website and lead path,
-            then get back to you within one business day.
+            We&apos;ll review your Google visibility, your website and how
+            inquiries are handled, then get back to you within one business day.
           </p>
           <Button href={telHref} variant="ghost">
             Prefer to talk now? Call us
           </Button>
-        </div>
+        </SuccessReveal>
       )}
     </div>
   );

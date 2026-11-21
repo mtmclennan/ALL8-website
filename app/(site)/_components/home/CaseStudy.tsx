@@ -5,6 +5,7 @@ import Link from "next/link";
 
 import { useLeadModal } from "../LeadModalProvider";
 import Button from "../ui/Button";
+import { StaggerInView } from "../motion/Stagger";
 
 import Reveal from "./Reveal";
 
@@ -12,7 +13,7 @@ import { STAGE_HEX, hexToRgba, type Stage } from "@/lib/utils/stage";
 import { renderBold } from "@/lib/utils/renderBold";
 
 type CaseStudyData = {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   titleAccent: string;
   lede: string;
@@ -35,15 +36,14 @@ export default function CaseStudy({ data }: { data: CaseStudyData }) {
       <div className="mx-auto max-w-[1160px] px-6 sm:px-10">
         <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[1.05fr_.95fr] lg:gap-[70px]">
           <Reveal>
-            <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
-              {data.eyebrow}
-            </div>
+            {data.eyebrow ? (
+              <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
+                {data.eyebrow}
+              </div>
+            ) : null}
             <h2 className="mb-4 all8-h2 font-extrabold leading-[1.06] tracking-[-.025em]">
-              {data.title}
-              <br />
-              <span className="bg-gradient-to-br from-[#7ec8ff] to-[#1a7cf0] bg-clip-text text-transparent">
-                {data.titleAccent}
-              </span>
+              {data.title} <br />
+              <span className="text-accent-blue">{data.titleAccent}</span>
             </h2>
             <p className="mb-[34px] text-lg leading-relaxed text-white/70">
               {data.lede}
@@ -54,7 +54,7 @@ export default function CaseStudy({ data }: { data: CaseStudyData }) {
                   key={step.tag}
                   className="flex flex-col items-start gap-2 sm:flex-row sm:gap-4"
                 >
-                  <div className="sm:w-[88px] flex-shrink-0 sm:pt-[5px] text-[11px] font-bold uppercase tracking-[.1em] text-white/40">
+                  <div className="sm:w-[88px] flex-shrink-0 sm:pt-[5px] text-[11px] font-bold uppercase tracking-[.1em] text-ink-faint">
                     {step.tag}
                   </div>
                   <p className="flex-1 text-[16.5px] leading-relaxed text-white/70">
@@ -105,7 +105,9 @@ export default function CaseStudy({ data }: { data: CaseStudyData }) {
                     ))}
                   </div>
                 )}
-                <div className="flex flex-col gap-3">
+                {/* The panel's rows fill in once, in order, ending on the
+                    constraint the case study found. */}
+                <StaggerInView className="flex flex-col gap-3">
                   {data.visual.rows.map((row) => (
                     <div
                       key={row.label}
@@ -130,23 +132,23 @@ export default function CaseStudy({ data }: { data: CaseStudyData }) {
                       </span>
                     </div>
                   ))}
-                </div>
-                <div
-                  className="mt-[22px] flex items-start gap-3 rounded-[10px] p-4"
-                  style={{
-                    backgroundColor: hexToRgba("#f59e0b", 0.08),
-                    border: `1px solid ${hexToRgba("#f59e0b", 0.2)}`,
-                  }}
-                >
-                  <AlertTriangle
-                    className="flex-shrink-0 text-[#f59e0b]"
-                    size={20}
-                    strokeWidth={2.2}
-                  />
-                  <span className="text-[13px] font-semibold leading-relaxed text-[#fcd34d]">
-                    {data.visual.flag}
-                  </span>
-                </div>
+                  <div
+                    className="mt-2.5 flex items-start gap-3 rounded-[10px] p-4"
+                    style={{
+                      backgroundColor: hexToRgba("#f59e0b", 0.08),
+                      border: `1px solid ${hexToRgba("#f59e0b", 0.2)}`,
+                    }}
+                  >
+                    <AlertTriangle
+                      className="flex-shrink-0 text-[#f59e0b]"
+                      size={20}
+                      strokeWidth={2.2}
+                    />
+                    <span className="text-[13px] font-semibold leading-relaxed text-[#fcd34d]">
+                      {data.visual.flag}
+                    </span>
+                  </div>
+                </StaggerInView>
               </div>
             </div>
           </Reveal>

@@ -35,8 +35,8 @@ export default function WhereIFit({ data }: { data: HireMattPageData["fit"] }) {
         </Reveal>
 
         <Reveal index={1}>
-          <div className="mt-10 max-w-[820px] rounded-r-[20px] border border-white/[0.08] border-l-2 border-l-accent-blue bg-white/[0.036] px-6 py-6 sm:px-8 sm:py-7">
-            <h4 className="mb-3 text-[11px] font-bold uppercase tracking-[.14em] text-white/40">
+          <div className="mt-10 max-w-[820px] rounded-[20px] border border-white/[0.08] bg-white/[0.036] px-6 py-6 sm:px-8 sm:py-7">
+            <h4 className="mb-3 text-[11px] font-bold uppercase tracking-[.14em] text-ink-faint">
               {data.thread.heading}
             </h4>
             <p className="text-xl font-bold leading-snug tracking-[-.02em] text-white">

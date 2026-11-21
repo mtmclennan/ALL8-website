@@ -78,10 +78,9 @@ export default async function BlogIndexPage() {
           title: "Rather Skip the Reading?",
           titleAccent: "We'll Just Tell You.",
           subtitle:
-            "Send your business and website details. Matt will review the lead path and send specific findings on what to fix first. A short call afterward is optional.",
+            "Send your business and website details. Matt will check how customers find and contact you, then send specific findings on what to fix first. A short call afterward is optional.",
           ctaLabel: "Get My Free Lead Leak Review",
-          micro:
-            "Free review  ·  No obligation  ·  Fixed scope before work begins",
+          micro: "Free review  ·  No obligation  ·  No call required",
           secondary: { label: "Or just text us", href: "/contact" },
         }}
       />

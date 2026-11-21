@@ -185,7 +185,7 @@ export function Card({
     lift: "bg-white/[0.036] ring-1 ring-white/[0.08]",
   } as const;
   const interaction =
-    "transition-[background-color,box-shadow,transform] duration-200 ease-out group-hover:-translate-y-0.5 group-hover:bg-white/[0.058] group-hover:shadow-[0_16px_40px_-16px_rgba(0,0,0,.55)] group-focus-visible:-translate-y-0.5 group-focus-visible:ring-2 group-focus-visible:ring-accent-blue motion-reduce:transform-none";
+    "transition-[background-color,box-shadow,translate] duration-200 ease-out group-hover:-translate-y-0.5 group-hover:bg-white/[0.058] group-hover:shadow-[0_16px_40px_-16px_rgba(0,0,0,.55)] group-focus-visible:-translate-y-0.5 group-focus-visible:ring-2 group-focus-visible:ring-accent-blue motion-reduce:transform-none";
 
   if (variant === "bordered") {
     return (

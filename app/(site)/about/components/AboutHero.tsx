@@ -78,7 +78,7 @@ export default function AboutHero({ data }: { data: AboutHeroData }) {
             </Link>
           </div>
 
-          <p className="text-[13px] text-white/40">{data.micro}</p>
+          <p className="text-[13px] text-ink-faint">{data.micro}</p>
         </div>
       </div>
     </section>

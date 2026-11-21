@@ -57,9 +57,11 @@ export default function StickyCta() {
     <div
       aria-hidden={!show}
       className={clsx(
-        "fixed inset-x-0 z-[180] hidden items-center gap-2.5 border-t border-white/[0.08] bg-background/95 px-4 backdrop-blur-xl transition-[bottom] duration-300 ease-out max-[960px]:flex",
+        "fixed inset-x-0 z-[180] hidden items-center gap-2.5 border-t border-white/[0.08] bg-background/95 px-4 backdrop-blur-xl bottom-0 transition-[translate,opacity] duration-300 ease-drawer max-[960px]:flex",
         "py-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))]",
-        show ? "bottom-0" : "-bottom-40",
+        show
+          ? "translate-y-0 opacity-100"
+          : "translate-y-full opacity-0 motion-reduce:translate-y-0",
       )}
       inert={!show}
     >

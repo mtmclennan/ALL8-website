@@ -33,7 +33,7 @@ export default function NotFound() {
           404
         </div>
 
-        <h1 className="mb-[22px] text-[clamp(36px,5vw,58px)] font-black leading-[1.05] tracking-[-.03em]">
+        <h1 className="mb-[22px] all8-h1 font-black leading-[1.05] tracking-[-.03em]">
           That Page Got{" "}
           <span className="text-accent-blue">Lost in the Funnel.</span>
         </h1>
@@ -50,7 +50,7 @@ export default function NotFound() {
           </Button>
         </div>
 
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-white/45">
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-ink-faint">
           <Link className="hover:text-white" href="/services">
             Services
           </Link>

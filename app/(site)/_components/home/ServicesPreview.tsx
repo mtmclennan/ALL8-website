@@ -1,18 +1,21 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
+import { StaggerInView } from "../motion/Stagger";
+
 import { getServicesWithIcons, type ServiceWithIcon } from "@/data/services";
 
+// One problem-led card per stage of the journey; the rest are text links.
 const FEATURED_SLUGS = [
   "local-seo-google-business-profile",
   "lead-generation-websites",
-  "google-ads-lead-generation",
   "missed-call-recovery",
   "lead-follow-up-automation",
-  "crm-sales-pipeline",
 ] as const;
 
 const MORE_SLUGS = [
+  "google-ads-lead-generation",
+  "crm-sales-pipeline",
   "call-tracking-lead-attribution",
   "website-care-optimization",
   "custom-lead-systems",
@@ -30,16 +33,13 @@ export default function ServicesPreview() {
   const more = selectServices(MORE_SLUGS, services);
 
   return (
-    <section
-      className="scroll-mt-20 bg-content3 py-24 max-[960px]:py-16"
-      id="services"
-    >
+    <section className="scroll-mt-20 py-24 max-[960px]:py-16" id="services">
       <div className="mx-auto max-w-[1160px] px-6 sm:px-10">
         <div className="mb-10 max-w-[720px]">
           <h2 className="all8-h2 font-extrabold leading-[1.06] tracking-[-.022em]">
             How ALL8 Helps Contractors
           </h2>
-          <p className="mt-4 text-[17px] leading-relaxed text-white/70">
+          <p className="mt-4 max-w-[62ch] text-[17px] leading-relaxed text-white/70">
             A contractor website that brings in quote requests, local SEO that
             helps you show up on Google Maps, and follow-up that catches missed
             calls and open estimates. Start with the problem costing you the
@@ -47,14 +47,18 @@ export default function ServicesPreview() {
           </p>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <StaggerInView
+          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+          itemClassName="h-full"
+          stagger={0.08}
+        >
           {featured.map((service) => {
             const Icon = service.Icon;
 
             return (
               <Link
                 key={service.slug}
-                className="group flex h-full flex-col rounded-2xl border border-white/[0.09] bg-white/[0.036] p-6 transition-[border-color,background-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-accent-blue/60 hover:bg-white/[0.058] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue motion-reduce:transform-none"
+                className="group flex h-full flex-col rounded-2xl border border-white/[0.09] bg-white/[0.036] p-6 transition-[border-color,background-color,translate] duration-200 ease-out hover:-translate-y-0.5 hover:border-accent-blue/60 hover:bg-white/[0.058] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue motion-reduce:transform-none"
                 href={`/services/${service.slug}`}
               >
                 <span className="mb-4 grid h-11 w-11 place-items-center rounded-xl border border-accent-blue/25 bg-accent-blue/10 text-accent-blue">
@@ -82,7 +86,7 @@ export default function ServicesPreview() {
               </Link>
             );
           })}
-        </div>
+        </StaggerInView>
 
         <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
           <span className="text-white/60">Also available:</span>

@@ -86,13 +86,10 @@ export default function PricingPage() {
       />
       <section className="bg-background pb-16 pt-28 sm:pb-20 sm:pt-36">
         <div className="mx-auto max-w-[1160px] px-6 sm:px-10">
-          <p className="text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
-            Plans & Pricing
-          </p>
-          <h1 className="all8-h1 mt-4 max-w-[800px] font-black leading-[1.04] tracking-[-.03em]">
+          <h1 className="all8-h1 max-w-[800px] font-black leading-[1.04] tracking-[-.03em]">
             Website and Lead Plans for Contractors
           </h1>
-          <p className="mt-6 max-w-[760px] text-lg leading-relaxed text-white/70">
+          <p className="mt-6 max-w-[62ch] text-lg leading-relaxed text-white/70">
             Start with a free review, fix one priority with a Tune-Up, or let us
             run your website and lead handling every month. Setup fees, monthly
             fees and minimum terms are listed for each plan.
@@ -215,10 +212,7 @@ export default function PricingPage() {
         <section aria-labelledby="ads-heading" className="py-16 sm:py-24">
           <div className="mx-auto max-w-[1160px] px-6 sm:px-10">
             <div className="max-w-[760px]">
-              <p className="text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
-                Optional service
-              </p>
-              <h2 className="all8-h2 mt-3 font-extrabold" id="ads-heading">
+              <h2 className="all8-h2 font-extrabold" id="ads-heading">
                 Paid search, priced separately
               </h2>
               <p className="mt-3 text-white/70">

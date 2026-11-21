@@ -29,7 +29,7 @@ export default function PostCard({ post, headingLevel = "h3" }: PostCardProps) {
 
   return (
     <Link
-      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.036] transition-[transform,border-color,background-color,box-shadow] duration-200 hover:-translate-y-[3px] hover:border-[rgba(0,118,255,.3)] hover:bg-white/[0.058] hover:shadow-[0_20px_46px_-16px_rgba(0,0,0,.5)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue motion-reduce:hover:translate-y-0"
+      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.036] transition-[translate,border-color,background-color,box-shadow] duration-200 ease-out hover:-translate-y-[3px] hover:border-[rgba(0,118,255,.3)] hover:bg-white/[0.058] hover:shadow-[0_20px_46px_-16px_rgba(0,0,0,.5)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue motion-reduce:hover:translate-y-0"
       href={href}
     >
       <div className="relative aspect-[1200/630] w-full overflow-hidden border-b border-white/[0.06] bg-content3">

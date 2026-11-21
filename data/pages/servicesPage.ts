@@ -22,7 +22,7 @@ export type ServicesPageData = {
     badges: { label: string; stage: Stage }[];
   };
   proof: {
-    eyebrow: string;
+    eyebrow?: string;
     title: string;
     cards: {
       value: string;
@@ -36,13 +36,13 @@ export type ServicesPageData = {
     footNoteLink?: { label: string; href: string };
   };
   process: {
-    eyebrow: string;
+    eyebrow?: string;
     title: string;
     subtitle: string;
     steps: { stage: Stage; title: string; description: string }[];
   };
   finalCta: {
-    eyebrow: string;
+    eyebrow?: string;
     title: string;
     titleAccent: string;
     subtitle: string;

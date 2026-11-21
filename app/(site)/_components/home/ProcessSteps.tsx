@@ -1,9 +1,11 @@
 import type { Stage } from "@/lib/utils/stage";
 
+import { StaggerInView } from "../motion/Stagger";
+
 import Reveal from "./Reveal";
 
 type ProcessData = {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   subtitle: string;
   steps: { stage: Stage; title: string; description: string }[];
@@ -14,9 +16,11 @@ export default function ProcessSteps({ data }: { data: ProcessData }) {
     <section className="bg-content3 py-24 max-[960px]:py-16">
       <div className="mx-auto max-w-[1160px] px-6 sm:px-10">
         <Reveal className="mx-auto mb-[60px] max-w-[640px] text-center">
-          <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
-            {data.eyebrow}
-          </div>
+          {data.eyebrow ? (
+            <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
+              {data.eyebrow}
+            </div>
+          ) : null}
           <h2 className="all8-h2 font-extrabold leading-[1.06] tracking-[-.022em]">
             {data.title}
           </h2>
@@ -25,26 +29,30 @@ export default function ProcessSteps({ data }: { data: ProcessData }) {
           </p>
         </Reveal>
 
-        <div className="relative grid grid-cols-1 gap-y-14 sm:grid-cols-2 sm:gap-y-16 lg:grid-cols-4 lg:gap-y-0">
+        <div className="relative">
           <div className="pointer-events-none absolute left-[12.5%] right-[12.5%] top-[37px] hidden h-px bg-gradient-to-r from-transparent via-[rgba(26,124,240,.4)] via-20% to-transparent lg:block" />
-          {data.steps.map((step, i) => {
-            return (
-              <Reveal
-                key={step.title}
-                className="flex flex-col items-center px-5 text-center"
-                index={i}
-              >
-                <div className="relative z-[1] mb-6 grid h-[76px] w-[76px] place-items-center rounded-full border-[1.5px] border-accent-blue/45 text-[28px] font-black text-accent-blue">
-                  <span className="pointer-events-none absolute -inset-[7px] rounded-full border border-dashed border-accent-blue/25" />
-                  {i + 1}
+          <StaggerInView
+            className="grid grid-cols-1 gap-y-14 sm:grid-cols-2 sm:gap-y-16 lg:grid-cols-4 lg:gap-y-0"
+            stagger={0.08}
+          >
+            {data.steps.map((step, i) => {
+              return (
+                <div
+                  key={step.title}
+                  className="flex flex-col items-center px-5 text-center"
+                >
+                  <div className="relative z-[1] mb-6 grid h-[76px] w-[76px] place-items-center rounded-full border-[1.5px] border-accent-blue/45 text-[28px] font-black text-accent-blue">
+                    <span className="pointer-events-none absolute -inset-[7px] rounded-full border border-dashed border-accent-blue/25" />
+                    {i + 1}
+                  </div>
+                  <h3 className="mb-2.5 text-[17px] font-bold">{step.title}</h3>
+                  <p className="text-sm leading-relaxed text-white/70">
+                    {step.description}
+                  </p>
                 </div>
-                <h3 className="mb-2.5 text-[17px] font-bold">{step.title}</h3>
-                <p className="text-sm leading-relaxed text-white/70">
-                  {step.description}
-                </p>
-              </Reveal>
-            );
-          })}
+              );
+            })}
+          </StaggerInView>
         </div>
       </div>
     </section>

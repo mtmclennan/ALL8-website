@@ -121,7 +121,7 @@ const recoveryActions = [
 
 export default function MissedCallRevenueCalculatorPage() {
   return (
-    <main className="pb-24 pt-[118px] max-[960px]:pb-16">
+    <div className="pb-24 pt-[118px] max-[960px]:pb-16">
       <script
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         type="application/ld+json"
@@ -130,13 +130,13 @@ export default function MissedCallRevenueCalculatorPage() {
       <header className="mx-auto max-w-[1080px] px-6 sm:px-10">
         <nav
           aria-label="Breadcrumb"
-          className="mb-5 flex flex-wrap gap-2 text-sm text-white/60"
+          className="mb-5 flex flex-wrap items-center gap-2 text-sm text-white/60"
         >
-          <Link className="hover:text-white" href="/">
+          <Link className="inline-flex min-h-6 items-center hover:text-white" href="/">
             Home
           </Link>
           <span aria-hidden="true">/</span>
-          <Link className="hover:text-white" href="/tools">
+          <Link className="inline-flex min-h-6 items-center hover:text-white" href="/tools">
             Tools
           </Link>
           <span aria-hidden="true">/</span>
@@ -165,7 +165,7 @@ export default function MissedCallRevenueCalculatorPage() {
             <p className="text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
               Transparent by design
             </p>
-            <h2 className="mt-3 text-[clamp(30px,4vw,44px)] font-extrabold leading-[1.05] tracking-[-.03em]">
+            <h2 className="mt-3 all8-h2 font-extrabold leading-[1.05] tracking-[-.03em]">
               How the calculation works
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-white/70">
@@ -208,7 +208,7 @@ export default function MissedCallRevenueCalculatorPage() {
           <p className="text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
             After the ring
           </p>
-          <h2 className="mt-3 text-[clamp(30px,4vw,44px)] font-extrabold leading-[1.05] tracking-[-.03em]">
+          <h2 className="mt-3 all8-h2 font-extrabold leading-[1.05] tracking-[-.03em]">
             What happens after a call is missed?
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-white/70">
@@ -276,6 +276,6 @@ export default function MissedCallRevenueCalculatorPage() {
         title="Missed-Call Calculator Questions"
         tone="alt"
       />
-    </main>
+    </div>
   );
 }

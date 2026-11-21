@@ -2,7 +2,7 @@ import { renderBold } from "@/lib/utils/renderBold";
 import Reveal from "@/app/(site)/_components/home/Reveal";
 
 type ShiftData = {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   cards: { tag: string; title: string; body: string }[];
   story: string[];
@@ -15,9 +15,11 @@ export default function ShiftStory({ data }: { data: ShiftData }) {
     <section className="bg-content3 py-24 max-[960px]:py-16" id="story">
       <div className="mx-auto max-w-[1160px] px-6 sm:px-10">
         <Reveal className="mb-[52px] max-w-[720px]">
-          <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
-            {data.eyebrow}
-          </div>
+          {data.eyebrow ? (
+            <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
+              {data.eyebrow}
+            </div>
+          ) : null}
           <h2 className="all8-h2 font-extrabold leading-[1.06] tracking-[-.022em]">
             {data.title}
           </h2>
@@ -59,13 +61,13 @@ export default function ShiftStory({ data }: { data: ShiftData }) {
           {data.story.map((p, i) => (
             <p
               key={i}
-              className="mb-5 text-[17.5px] leading-relaxed text-white/70"
+              className="mb-5 max-w-[65ch] text-[17.5px] leading-relaxed text-white/70"
             >
               {renderBold(p)}
             </p>
           ))}
 
-          <div className="my-[34px] rounded-r-[14px] border-l-2 border-primary bg-[rgba(0,118,255,.05)] px-[30px] py-[26px]">
+          <div className="my-[34px] rounded-[14px] border border-[rgba(0,118,255,.22)] bg-[rgba(0,118,255,.05)] px-[30px] py-[26px]">
             <p className="text-[clamp(19px,2.1vw,24px)] font-extrabold leading-[1.4] tracking-[-.02em] text-white">
               {data.pullQuote}
             </p>
@@ -74,7 +76,7 @@ export default function ShiftStory({ data }: { data: ShiftData }) {
           {data.storyAfter.map((p, i) => (
             <p
               key={i}
-              className="mb-5 text-[17.5px] leading-relaxed text-white/70"
+              className="mb-5 max-w-[65ch] text-[17.5px] leading-relaxed text-white/70"
             >
               {p}
             </p>

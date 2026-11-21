@@ -46,15 +46,12 @@ export default function CurrentServices() {
     >
       <div className="mx-auto max-w-[1160px] px-6 sm:px-10">
         <Reveal className="mx-auto mb-8 max-w-[640px] text-center">
-          <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
-            Browse by Service
-          </div>
           <h2 className="all8-h2 font-extrabold leading-[1.06] tracking-[-.022em]">
             Every Page, In One Place
           </h2>
           <p className="mx-auto mt-3.5 max-w-[560px] text-[17px] leading-relaxed text-white/70">
-            Explore the services, their roles in the lead path, and how each
-            helps your business move more opportunities toward booked work.
+            See what each service does and where it fits between a customer
+            finding you and booking the job.
           </p>
         </Reveal>
 

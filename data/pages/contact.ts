@@ -30,7 +30,7 @@ export type ContactPageData = {
   };
   form: { eyebrow: string; title: string; subtitle: string };
   next: {
-    eyebrow: string;
+    eyebrow?: string;
     title: string;
     steps: { title: string; body: string }[];
   };

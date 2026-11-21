@@ -48,7 +48,7 @@ export default function Hero({ data }: { data: HireMattPageData["hero"] }) {
               {data.subtitle}
             </p>
 
-            <p className="mb-8 max-w-[600px] rounded-r-[14px] border border-white/[0.08] border-l-2 border-l-accent-blue bg-white/[0.036] px-6 py-5 text-[17px] leading-relaxed text-[#dce8f5]">
+            <p className="mb-8 max-w-[600px] rounded-[14px] border border-white/[0.08] bg-white/[0.036] px-6 py-5 text-[17px] leading-relaxed text-[#dce8f5]">
               {data.diff}
             </p>
 
@@ -83,7 +83,7 @@ export default function Hero({ data }: { data: HireMattPageData["hero"] }) {
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                <Linkedin className="text-white/40" size={15} />
+                <Linkedin className="text-ink-faint" size={15} />
                 LinkedIn
               </a>
               <a
@@ -94,7 +94,7 @@ export default function Hero({ data }: { data: HireMattPageData["hero"] }) {
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                <Github className="text-white/40" size={15} />
+                <Github className="text-ink-faint" size={15} />
                 GitHub
               </a>
               <a
@@ -103,7 +103,7 @@ export default function Hero({ data }: { data: HireMattPageData["hero"] }) {
                 data-cta-event="hire_contact_click"
                 href={`mailto:${data.email}?subject=Opportunity%20for%20Matt`}
               >
-                <Mail className="text-white/40" size={15} />
+                <Mail className="text-ink-faint" size={15} />
                 {data.email}
               </a>
             </div>
@@ -131,7 +131,7 @@ export default function Hero({ data }: { data: HireMattPageData["hero"] }) {
                 </span>
               </div>
             </div>
-            <p className="mt-3.5 flex items-center gap-[7px] text-[12.5px] leading-relaxed text-white/40">
+            <p className="mt-3.5 flex items-center gap-[7px] text-[12.5px] leading-relaxed text-ink-faint">
               <span className="h-[5px] w-[5px] flex-shrink-0 rounded-full bg-white/40" />
               {data.geo}
             </p>

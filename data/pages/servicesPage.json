@@ -23,7 +23,6 @@
   },
 
   "proof": {
-    "eyebrow": "Proof, Not Promises",
     "title": "Measured Results, Not Adjectives",
     "cards": [
       { "value": "{{proof.search.range}}", "em": true, "label": "Search Clicks", "sub": "Rolling 28 days, {{proof.search.period}}", "icon": "chart", "evidence": "measured" },
@@ -38,7 +37,6 @@
   },
 
   "process": {
-    "eyebrow": "How Engagement Works",
     "title": "Review, Prioritize, Implement, Measure",
     "subtitle": "Start with a free review or a one-time Tune-Up. Ongoing plans have minimum terms, shown on the pricing page.",
     "steps": [
@@ -53,7 +51,7 @@
     "eyebrow": "Free Lead Leak Review",
     "title": "Find the Weakest Point in",
     "titleAccent": "Your Lead System.",
-    "subtitle": "Send your business and website details. Matt will review the lead path and send specific findings on the biggest gaps and what to fix first. A short call afterward is optional.",
+    "subtitle": "Send your business and website details. Matt will check how customers find and contact you, then send specific findings on the biggest gaps and what to fix first. A short call afterward is optional.",
     "checklist": [
       "Where you rank locally today",
       "What your site does with the visitors it gets",
@@ -61,6 +59,6 @@
       "Which stage to fix first"
     ],
     "ctaLabel": "Get My Free Lead Leak Review",
-    "micro": "Free review  ·  No obligation  ·  Fixed scope before work begins"
+    "micro": "Free review  ·  No obligation  ·  No call required"
   }
 }

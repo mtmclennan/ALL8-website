@@ -3,7 +3,7 @@ import Image from "next/image";
 import Reveal from "./Reveal";
 
 type FounderData = {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   paragraphs: string[];
   name: string;
@@ -31,16 +31,18 @@ export default function FounderSection({ data }: { data: FounderData }) {
           </Reveal>
 
           <Reveal index={1}>
-            <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
-              {data.eyebrow}
-            </div>
-            <h2 className="mb-5 text-[clamp(28px,3vw,40px)] font-extrabold leading-[1.08] tracking-[-.025em]">
+            {data.eyebrow ? (
+              <div className="mb-2.5 text-xs font-bold uppercase tracking-[.14em] text-accent-blue">
+                {data.eyebrow}
+              </div>
+            ) : null}
+            <h2 className="mb-5 all8-h2 font-extrabold leading-[1.08] tracking-[-.025em]">
               {data.title}
             </h2>
             {data.paragraphs.map((p) => (
               <p
                 key={p}
-                className="mb-4 text-[16.5px] leading-relaxed text-white/70"
+                className="mb-4 max-w-[65ch] text-[16.5px] leading-relaxed text-white/70"
               >
                 {p}
               </p>
@@ -49,7 +51,7 @@ export default function FounderSection({ data }: { data: FounderData }) {
               <div className="text-[16px] font-extrabold tracking-[-.01em]">
                 {data.name}
               </div>
-              <div className="mt-[3px] text-[13.5px] text-white/40">
+              <div className="mt-[3px] text-[13.5px] text-ink-faint">
                 {data.role}
               </div>
             </div>

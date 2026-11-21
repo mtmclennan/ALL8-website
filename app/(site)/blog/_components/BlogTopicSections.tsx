@@ -276,7 +276,7 @@ export default function BlogTopicSections({ posts }: BlogTopicSectionsProps) {
                           </p>
                         ) : null}
                         {published ? (
-                          <p className="mt-auto pt-5 text-xs text-foreground/45">
+                          <p className="mt-auto pt-5 text-xs text-ink-faint">
                             {published}
                           </p>
                         ) : null}

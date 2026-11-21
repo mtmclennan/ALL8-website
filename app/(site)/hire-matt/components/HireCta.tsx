@@ -28,12 +28,9 @@ export default function HireCta({
           {data.eyebrow}
         </Reveal>
         <Reveal index={1}>
-          <h2 className="mb-5 text-[clamp(34px,4.2vw,58px)] font-black leading-[1.02] tracking-[-.032em]">
-            {data.title}
-            <br />
-            <span className="bg-gradient-to-br from-white from-40% to-accent-blue bg-clip-text text-transparent">
-              {data.titleAccent}
-            </span>
+          <h2 className="mb-5 all8-h1 font-black leading-[1.02] tracking-[-.032em]">
+            {data.title} <br />
+            <span className="text-accent-blue">{data.titleAccent}</span>
           </h2>
         </Reveal>
         <Reveal index={2}>
@@ -91,7 +88,7 @@ export default function HireCta({
           </Button>
         </Reveal>
         <Reveal index={0}>
-          <p className="mt-[26px] text-[13px] leading-relaxed text-white/40">
+          <p className="mt-[26px] text-[13px] leading-relaxed text-ink-faint">
             {data.micro}
             <br />
             <a

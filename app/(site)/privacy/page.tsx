@@ -95,7 +95,7 @@ export default function PrivacyPage() {
               <Link className="hover:text-white" href="/">
                 Home
               </Link>
-              <span className="text-white/40">/</span>
+              <span className="text-ink-faint">/</span>
               <span className="font-semibold text-accent-blue">
                 Privacy Policy
               </span>
@@ -132,7 +132,7 @@ export default function PrivacyPage() {
                 and the ways ALL8 WEBWORKS handles information about people who
                 visit the site, contact us, or become clients.
               </p>
-              <p className="mb-6 text-[15px] text-white/40">
+              <p className="mb-6 text-[15px] text-ink-faint">
                 Last updated: {LAST_UPDATED}
               </p>
 

@@ -1,8 +1,10 @@
+import { Fragment } from "react";
 import Link from "next/link";
 import { Search, Check, Phone, MessageCircle, ArrowRight } from "lucide-react";
 
 import LeadReviewButton from "../LeadReviewButton";
 import Button from "../ui/Button";
+import { StaggerInView } from "../motion/Stagger";
 
 import Reveal from "./Reveal";
 
@@ -10,7 +12,7 @@ import { siteConfig } from "@/config/site";
 import { toTelHref } from "@/lib/utils/phone";
 
 type FinalCtaData = {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   titleAccent: string;
   subtitle: string;
@@ -43,11 +45,9 @@ export default function FinalCta({ data }: { data: FinalCtaData }) {
           {data.eyebrow}
         </Reveal>
         <Reveal index={1}>
-          <h2 className="mx-auto mb-[18px] max-w-[880px] text-[clamp(36px,4.4vw,60px)] font-black leading-[1.02] tracking-[-.03em] [text-wrap:balance]">
+          <h2 className="mx-auto mb-[18px] max-w-[880px] all8-h1 font-black leading-[1.02] tracking-[-.03em] [text-wrap:balance]">
             {data.title}{" "}
-            <span className="bg-gradient-to-br from-white from-40% to-accent-blue bg-clip-text text-transparent">
-              {data.titleAccent}
-            </span>
+            <span className="text-accent-blue">{data.titleAccent}</span>
           </h2>
         </Reveal>
         <Reveal index={2}>
@@ -56,23 +56,22 @@ export default function FinalCta({ data }: { data: FinalCtaData }) {
           </p>
         </Reveal>
         {data.checklist && data.checklist.length > 0 && (
-          <Reveal index={3}>
-            <ul className="mx-auto mb-[38px] flex max-w-[700px] flex-wrap justify-center gap-x-[26px] gap-y-2.5">
-              {data.checklist.map((item) => (
-                <li
-                  key={item}
-                  className="flex items-center gap-2 text-[14.5px] font-semibold text-white/70"
-                >
-                  <Check
-                    className="flex-shrink-0 text-accent-blue"
-                    size={16}
-                    strokeWidth={3}
-                  />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </Reveal>
+          <StaggerInView
+            as="ul"
+            className="mx-auto mb-[38px] flex max-w-[700px] flex-wrap justify-center gap-x-[26px] gap-y-2.5"
+            itemClassName="flex items-center gap-2 text-[14.5px] font-semibold text-white/70"
+          >
+            {data.checklist.map((item) => (
+              <Fragment key={item}>
+                <Check
+                  className="flex-shrink-0 text-accent-blue"
+                  size={16}
+                  strokeWidth={3}
+                />
+                {item}
+              </Fragment>
+            ))}
+          </StaggerInView>
         )}
         <Reveal
           className="flex flex-wrap items-center justify-center gap-3.5"
@@ -127,7 +126,7 @@ export default function FinalCta({ data }: { data: FinalCtaData }) {
           </Reveal>
         )}
         <Reveal index={1}>
-          <p className="mt-[22px] text-[13px] text-white/40">{data.micro}</p>
+          <p className="mt-[22px] text-[13px] text-ink-faint">{data.micro}</p>
         </Reveal>
       </div>
     </section>
