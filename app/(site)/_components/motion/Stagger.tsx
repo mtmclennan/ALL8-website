@@ -50,13 +50,28 @@ const mark: Variants = {
 export function StaggerInView({
   children,
   className,
+  itemClassName,
+  as = "div",
+  stagger = 0.06,
 }: {
   children: ReactNode;
   className?: string;
+  /** Class for each item wrapper, e.g. "h-full" so cards keep equal height. */
+  itemClassName?: string;
+  /** "ul" renders a real list: pass each item's content, not an <li>. */
+  as?: "div" | "ul";
+  /** Seconds between items: 0.06 for rows, up to 0.08 for card grids. */
+  stagger?: number;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement & HTMLUListElement>(null);
   const controls = useAnimationControls();
   const inView = useInView(ref, { once: true, margin: "-100px" });
+  const Group = as === "ul" ? m.ul : m.div;
+  const Item = as === "ul" ? m.li : m.div;
+  const groupVariants: Variants =
+    stagger === 0.06
+      ? group
+      : { hidden: {}, shown: { transition: { staggerChildren: stagger } } };
 
   useEffect(() => {
     const el = ref.current;
@@ -73,17 +88,21 @@ export function StaggerInView({
   return (
     <LazyMotion features={domAnimation}>
       <MotionConfig reducedMotion="user">
-        <m.div
+        <Group
           ref={ref}
           animate={controls}
           className={className}
           initial={false}
-          variants={group}
+          variants={groupVariants}
         >
           {Children.map(children, (child) =>
-            child ? <m.div variants={item}>{child}</m.div> : null,
+            child ? (
+              <Item className={itemClassName} variants={item}>
+                {child}
+              </Item>
+            ) : null,
           )}
-        </m.div>
+        </Group>
       </MotionConfig>
     </LazyMotion>
   );

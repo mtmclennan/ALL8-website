@@ -2,6 +2,7 @@ import { Search } from "lucide-react";
 
 import Button from "../ui/Button";
 import LeadReviewButton from "../LeadReviewButton";
+import { StaggerInView } from "../motion/Stagger";
 import PlanCard from "../../pricing/components/PlanCard";
 
 import { PLANS } from "@/data/plans";
@@ -22,11 +23,15 @@ export default function PlansPreview() {
           </p>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <StaggerInView
+          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+          itemClassName="h-full"
+          stagger={0.08}
+        >
           {PLANS.slice(0, 4).map((plan) => (
             <PlanCard key={plan.id} compact plan={plan} />
           ))}
-        </div>
+        </StaggerInView>
 
         <p className="mt-6 max-w-[900px] text-sm leading-relaxed text-white/60">
           Growth System and Google Ads Management are also available.

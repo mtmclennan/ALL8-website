@@ -1,9 +1,11 @@
+import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Search, ArrowRight } from "lucide-react";
 
 import refinement from "../VisualRefinement.module.css";
 import LeadReviewButton from "../LeadReviewButton";
+import { StaggerInView } from "../motion/Stagger";
 
 import { STAGE_HEX, STAGE_LABEL, type Stage } from "@/lib/utils/stage";
 import { siteConfig } from "@/config/site";
@@ -121,15 +123,16 @@ export default function HeroSection({ data }: { data: HeroData }) {
                 {data.example.note}
               </span>
             </figcaption>
-            <ul className="flex flex-col divide-y divide-white/[0.07]">
+            <StaggerInView
+              as="ul"
+              className="flex flex-col divide-y divide-white/[0.07]"
+              itemClassName="flex items-start gap-3 py-3 first:pt-0 last:pb-0"
+            >
               {data.example.rows.map((row) => {
                 const isFirst = row.status === "Fix first";
 
                 return (
-                  <li
-                    key={row.stage}
-                    className="flex items-start gap-3 py-3 first:pt-0 last:pb-0"
-                  >
+                  <Fragment key={row.stage}>
                     <span
                       aria-hidden="true"
                       className="mt-[7px] h-2 w-2 flex-shrink-0 rounded-full"
@@ -155,10 +158,10 @@ export default function HeroSection({ data }: { data: HeroData }) {
                     >
                       {row.status}
                     </span>
-                  </li>
+                  </Fragment>
                 );
               })}
-            </ul>
+            </StaggerInView>
           </figure>
         </div>
 

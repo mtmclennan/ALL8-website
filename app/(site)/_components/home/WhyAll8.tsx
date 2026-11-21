@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Target, Shield, LineChart } from "lucide-react";
 
 import { Card } from "../SectionWrapper";
+import { StaggerInView } from "../motion/Stagger";
 
 import Reveal from "./Reveal";
 
@@ -51,12 +52,16 @@ export default function WhyAll8({
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-          {data.cards.map((card, i) => {
+        <StaggerInView
+          className="grid grid-cols-1 gap-6 lg:grid-cols-3"
+          itemClassName="h-full"
+          stagger={0.08}
+        >
+          {data.cards.map((card) => {
             const Icon = ICONS[card.icon] ?? Target;
 
             return (
-              <Reveal key={card.title} index={i}>
+              <div key={card.title} className="h-full">
                 <Card className="h-full p-9" variant="lift">
                   <div
                     className="mb-[22px] grid h-[54px] w-[54px] place-items-center rounded-2xl"
@@ -76,10 +81,10 @@ export default function WhyAll8({
                     {card.description}
                   </p>
                 </Card>
-              </Reveal>
+              </div>
             );
           })}
-        </div>
+        </StaggerInView>
 
         <div className="mt-8 flex flex-col gap-6 rounded-2xl border border-white/[0.09] bg-white/[0.036] p-7 sm:flex-row sm:items-center">
           <Image

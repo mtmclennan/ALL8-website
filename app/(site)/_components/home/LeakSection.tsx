@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
+import { StaggerInView } from "../motion/Stagger";
+
 import Reveal from "./Reveal";
 
 import { STAGE_HEX, type Stage } from "@/lib/utils/stage";
@@ -33,12 +35,15 @@ export default function LeakSection({ data }: { data: LeakData }) {
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-1 gap-[34px] lg:grid-cols-3 lg:gap-11">
-          {data.columns.map((col, i) => {
+        <StaggerInView
+          className="grid grid-cols-1 gap-[34px] lg:grid-cols-3 lg:gap-11"
+          stagger={0.08}
+        >
+          {data.columns.map((col) => {
             const hex = STAGE_HEX[col.stage];
 
             return (
-              <Reveal key={col.label} index={i}>
+              <div key={col.label}>
                 <div
                   className="border-l pl-5"
                   style={{ borderColor: `${hex}42` }}
@@ -67,10 +72,10 @@ export default function LeakSection({ data }: { data: LeakData }) {
                     ))}
                   </ul>
                 </div>
-              </Reveal>
+              </div>
             );
           })}
-        </div>
+        </StaggerInView>
 
         <Reveal>
           <p className="mt-[52px] max-w-[660px] text-[19px] leading-relaxed text-white/70">

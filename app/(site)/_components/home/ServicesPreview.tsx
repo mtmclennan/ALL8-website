@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
+import { StaggerInView } from "../motion/Stagger";
+
 import { getServicesWithIcons, type ServiceWithIcon } from "@/data/services";
 
 // One problem-led card per stage of the journey; the rest are text links.
@@ -31,10 +33,7 @@ export default function ServicesPreview() {
   const more = selectServices(MORE_SLUGS, services);
 
   return (
-    <section
-      className="scroll-mt-20 py-24 max-[960px]:py-16"
-      id="services"
-    >
+    <section className="scroll-mt-20 py-24 max-[960px]:py-16" id="services">
       <div className="mx-auto max-w-[1160px] px-6 sm:px-10">
         <div className="mb-10 max-w-[720px]">
           <h2 className="all8-h2 font-extrabold leading-[1.06] tracking-[-.022em]">
@@ -48,7 +47,11 @@ export default function ServicesPreview() {
           </p>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <StaggerInView
+          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+          itemClassName="h-full"
+          stagger={0.08}
+        >
           {featured.map((service) => {
             const Icon = service.Icon;
 
@@ -83,7 +86,7 @@ export default function ServicesPreview() {
               </Link>
             );
           })}
-        </div>
+        </StaggerInView>
 
         <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
           <span className="text-white/60">Also available:</span>
