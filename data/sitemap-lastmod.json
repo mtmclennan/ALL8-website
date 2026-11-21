@@ -1,0 +1,78 @@
+{
+  "/": {
+    "hash": "808374deeb7309712737323e44109e3aeecee95b0113ec6b5e77e95c9b05072e",
+    "lastModified": "2026-11-21"
+  },
+  "/about": {
+    "hash": "63cd5505f5ff7470297b1a42ad0829730c5e9d654c2724cfc5f68033a7442f20",
+    "lastModified": "2026-11-20"
+  },
+  "/contact": {
+    "hash": "1e242e797645b2d39551ab72e2073158f4b519ca904fa941fce0d4f8330c36d9",
+    "lastModified": "2026-11-20"
+  },
+  "/pricing": {
+    "hash": "63813b5391613d8124726502e56777132dada0857a17b30fe62796941075fd1f",
+    "lastModified": "2026-11-20"
+  },
+  "/privacy": {
+    "hash": "646a624d74cc763338d6b6a18a3ac10cf6f1b64b903b966fe8d0eb004d6eff2e",
+    "lastModified": "2026-10-08"
+  },
+  "/services": {
+    "hash": "2e8e85af8cfb8ed3ee13ce6233df194e3e0d625b7cf1000de0034c7700c231db",
+    "lastModified": "2026-11-20"
+  },
+  "/services/call-tracking-lead-attribution": {
+    "hash": "53876ee486b652c910795beb3b2320ae56f8030ccef89d853fc5859d4cb2c8d2",
+    "lastModified": "2026-11-20"
+  },
+  "/services/crm-sales-pipeline": {
+    "hash": "d3d0489ac37539557a118ea0a3d8378e0daf0aff95952d5cbc746d68207c4837",
+    "lastModified": "2026-11-20"
+  },
+  "/services/custom-lead-systems": {
+    "hash": "b457b20853d357921f92b28c96b22d0cb13a6cd62b6aa4a8615a4ace068f5c6e",
+    "lastModified": "2026-11-20"
+  },
+  "/services/google-ads-lead-generation": {
+    "hash": "a53755806793d04c3f761ef19480ee99e9f2fb26afa1d156c7a58857d39bb2df",
+    "lastModified": "2026-11-20"
+  },
+  "/services/lead-follow-up-automation": {
+    "hash": "027c040c27d3db47a15166ef1356f45a03c21b7a88d020fa4c931ad87263aa97",
+    "lastModified": "2026-11-20"
+  },
+  "/services/lead-generation-websites": {
+    "hash": "ca500f479d09c4f027b90ba16e00685420b7e66763e7a789869ec98f9fafa2c7",
+    "lastModified": "2026-11-20"
+  },
+  "/services/local-seo-google-business-profile": {
+    "hash": "6ab9fc943a8dcbea83f7efdf519dee117777cb8a8ce02fb02fdb268ab22da738",
+    "lastModified": "2026-11-20"
+  },
+  "/services/missed-call-recovery": {
+    "hash": "676c765113cba36578003783c38e38fb49fab153b86e28ce206274fa1afd0496",
+    "lastModified": "2026-11-20"
+  },
+  "/services/website-care-optimization": {
+    "hash": "6bdd8eedb6dffe7876354eff5ca45727271a976cf4e1a9146f775ba4fada217c",
+    "lastModified": "2026-11-20"
+  },
+  "/tools": {
+    "hash": "78337bed91d0436fc92ebd5eb94aed08beb42dd2801b55946c112aa6762d3456",
+    "lastModified": "2026-11-20"
+  },
+  "/tools/missed-call-revenue-calculator": {
+    "hash": "65a5b762f2f6ed2c3bfc502bcf34a09de2ac95dac3e24bf81e3fab46ea68b719",
+    "lastModified": "2026-11-20"
+  },
+  "/work": {
+    "hash": "414f7a02c9bd8c4e44a1a88eda05404c77a1ffcf95addb152d9cb8b032a9a4eb",
+    "lastModified": "2026-11-20"
+  },
+  "/work/service-business-growth-case-study": {
+    "hash": "3975d022b8b43438c756f0f6fb0b4de9bb9aa3761c4c84e6107afb27de837051",
+    "lastModified": "2026-11-20"
+  }
+}
