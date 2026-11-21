@@ -18,7 +18,8 @@
     "test": "node --no-warnings --experimental-strip-types --test tests/*.test.ts",
     "indexnow:submit": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --env-file-if-exists=.env.local scripts/submit-indexnow.mjs",
     "validate:local": "node scripts/validate-local.mjs",
-    "validate:phase2": "node scripts/verify-phase2-routes.mjs"
+    "validate:phase2": "node scripts/verify-phase2-routes.mjs",
+    "sitemap:lastmod": "node scripts/update-sitemap-lastmod.mjs"
   },
   "dependencies": {
     "@heroui/accordion": "^2.2.24",
